@@ -1,5 +1,17 @@
 const pkg = require("./package");
-
+const getOfflineAssets = () => {
+  let res = [
+    '/favicon.ico',
+    '/favicon-32x32.png',
+    '/favicon-96x96.png',
+    '/icon-192x192.png',
+    '/data/surah-info.json'
+  ]
+  for(let i=0; i< 114; i++) {
+    res.push(`/data/surah/${i+1}.json`)
+  }
+  return res
+}
 module.exports = {
   mode: "spa",
   /*
@@ -20,7 +32,13 @@ module.exports = {
       { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon-96x96.png" }
     ]
   },
-
+  manifest: {
+    name: 'Quran Offline',
+    short_name: 'Quran'
+  },
+  workbox: {
+    offlineAssets: getOfflineAssets()
+  },
   /*
    ** Customize the progress-bar color
    */
