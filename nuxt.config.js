@@ -48,8 +48,8 @@ module.exports = {
    */
   build: {
     parallel: true,
-    extractCSS: true,
-    optimizeCSS: true,
+    // extractCSS: true,
+    // optimizeCSS: true,
     postcss: [
       require('autoprefixer')({
         browsers: ['last 2 versions']
