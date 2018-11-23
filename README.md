@@ -2,6 +2,10 @@
 
 📖 Read Qur'an Anywhere Directly from Your Browser
 
+## Live Website
+
+[https://quran-offline.netlify.com/](https://quran-offline.netlify.com/)
+
 ## Build Setup
 
 ``` bash
@@ -11,12 +15,14 @@ $ yarn install
 # serve with hot reload at localhost:3000
 $ yarn run dev
 
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
 # generate static project
 $ yarn run generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Credit
+
+Thanks for awesome repo [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
+
+----
+
+Copyright © 2018 by Irfan Maulana

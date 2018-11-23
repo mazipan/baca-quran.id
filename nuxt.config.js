@@ -2,7 +2,6 @@ const pkg = require("./package");
 
 module.exports = {
   mode: "spa",
-
   /*
    ** Headers of the page
    */
@@ -11,15 +10,21 @@ module.exports = {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: pkg.description }
+      { hid: "description", name: "description", content: pkg.description },
+      { hid: "theme-color", name: "theme-color", content: "#41b883" },
+      { hid: "og:image", name: "og:image", content: "/icon.png" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon-96x96.png" }
+    ]
   },
 
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: { color: "#41b883" },
 
   /*
    ** Global CSS
@@ -34,7 +39,9 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    '@nuxtjs/pwa'
+  ],
 
   /*
    ** Build configuration
