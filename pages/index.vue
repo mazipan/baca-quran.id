@@ -1,67 +1,88 @@
 <template>
   <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">quran-offline</h1>
-      <h2 class="subtitle">
-        📖 Read Qur&#39;an Anywhere Directly from Your Browser
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">
-          GitHub
-        </a>
+    <nuxt-link
+      v-for="(surah, index) in surahInfoArray"
+      :to="getSurahDetailUrl(surah, index)"
+      :key="index"
+      class="surah block_content">
+      <div class="surah__index tag_index">
+        {{ index + 1 }}
       </div>
-    </div>
+      <div class="divider clearfix">
+        <div class="surah__title">
+          {{ surah.arabic }}
+        </div>
+      </div>
+      <div class="divider clearfix">
+        <div class="surah__title surah__title--latin">
+          {{ surah.latin }}
+        </div>
+      </div>
+      <div class="divider clearfix">
+        <div class="surah__trans">
+          {{ surah.translation }}
+        </div>
+      </div>
+      <div class="divider clearfix">
+        <div class="surah__count">
+          {{ surah.ayah_count }} Ayat
+        </div>
+      </div>
+    </nuxt-link>
   </section>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
+import { ApiPath } from '../constant/index'
 
 export default {
-  components: {
-    Logo
+  name: 'PageIndex',
+  data() {
+    return {
+      surahInfoArray: []
+    };
+  },
+  mounted() {
+    this.fetchSurahInfo()
+  },
+  methods: {
+    getSurahDetailUrl(surah, index) {
+      return `/${index+1}`
+    },
+    fetchSurahInfo() {
+      fetch(ApiPath.SURAH_INFO)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          this.surahInfoArray = data.surah_info
+        });
+    }
   }
 };
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+<style lang="scss" scoped>
+.surah{
+  &__title{
+    font-size: 2rem;
+    width: 80%;
+    float: right;
+    text-align: right;
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+    &--latin{
+      width: 100%;
+      font-size: 1.5rem;
+    }
+  }
+  &__trans{
+    text-align: right;
+    font-style: italic;
+    line-height: 2;
+  }
+  &__count{
+    text-align: right;
+  }
 }
 </style>
+

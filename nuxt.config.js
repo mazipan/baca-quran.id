@@ -47,6 +47,14 @@ module.exports = {
    ** Build configuration
    */
   build: {
+    parallel: true,
+    extractCSS: true,
+    optimizeCSS: true,
+    postcss: [
+      require('autoprefixer')({
+        browsers: ['last 2 versions']
+      })
+    ],
     /*
      ** You can extend webpack config here
      */
@@ -60,6 +68,6 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
-    }
+    },
   }
 };
