@@ -1,0 +1,25 @@
+{
+    "106": {
+        "number": "106",
+        "name": "قريش",
+        "name_latin": "Quraisy",
+        "number_of_ayah": "4",
+        "text": {
+            "1": "لِاِيْلٰفِ قُرَيْشٍۙ",
+            "2": "اٖلٰفِهِمْ رِحْلَةَ الشِّتَاۤءِ وَالصَّيْفِۚ",
+            "3": "فَلْيَعْبُدُوْا رَبَّ هٰذَا الْبَيْتِۙ",
+            "4": "الَّذِيْٓ اَطْعَمَهُمْ مِّنْ جُوْعٍ ەۙ وَّاٰمَنَهُمْ مِّنْ خَوْفٍ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Quraisy",
+                "text": {
+                    "1": "Karena kebiasaan orang-orang Quraisy,",
+                    "2": "(yaitu) kebiasaan mereka bepergian pada musim dingin dan musim panas.",
+                    "3": "Maka hendaklah mereka menyembah Tuhan (pemilik) rumah ini (Ka‘bah),",
+                    "4": "yang telah memberi makanan kepada mereka untuk menghilangkan lapar dan mengamankan mereka dari rasa ketakutan."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "100": {
+        "number": "100",
+        "name": "العٰديٰت",
+        "name_latin": "Al-'Adiyat",
+        "number_of_ayah": "11",
+        "text": {
+            "1": "وَالْعٰدِيٰتِ ضَبْحًاۙ ",
+            "2": "فَالْمُوْرِيٰتِ قَدْحًاۙ",
+            "3": "فَالْمُغِيْرٰتِ صُبْحًاۙ",
+            "4": "فَاَثَرْنَ بِهٖ نَقْعًاۙ",
+            "5": "فَوَسَطْنَ بِهٖ جَمْعًاۙ",
+            "6": "اِنَّ الْاِنْسَانَ لِرَبِّهٖ لَكَنُوْدٌ ۚ",
+            "7": "وَاِنَّهٗ عَلٰى ذٰلِكَ لَشَهِيْدٌۚ",
+            "8": "وَاِنَّهٗ لِحُبِّ الْخَيْرِ لَشَدِيْدٌ ۗ",
+            "9": "۞ اَفَلَا يَعْلَمُ اِذَا بُعْثِرَ مَا فِى الْقُبُوْرِۙ",
+            "10": "وَحُصِّلَ مَا فِى الصُّدُوْرِۙ",
+            "11": "اِنَّ رَبَّهُمْ بِهِمْ يَوْمَىِٕذٍ لَّخَبِيْرٌ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Kuda Yang Berlari Kencang",
+                "text": {
+                    "1": "Demi kuda perang yang berlari kencang terengah-engah,",
+                    "2": "dan kuda yang memercikkan bunga api (dengan pukulan kuku kakinya),",
+                    "3": "dan kuda yang menyerang (dengan tiba-tiba) pada waktu pagi,",
+                    "4": "sehingga menerbangkan debu,",
+                    "5": "lalu menyerbu ke tengah-tengah kumpulan musuh,",
+                    "6": "sungguh, manusia itu sangat ingkar, (tidak bersyukur) kepada Tuhannya,",
+                    "7": "dan sesungguhnya dia (manusia) menyaksikan (mengakui) keingkarannya,",
+                    "8": "dan sesungguhnya cintanya kepada harta benar-benar berlebihan.",
+                    "9": "Maka tidakkah dia mengetahui apabila apa yang di dalam kubur dikeluarkan,",
+                    "10": "dan apa yang tersimpan di dalam dada dilahirkan?",
+                    "11": "sungguh, Tuhan mereka pada hari itu Mahateliti terhadap keadaan mereka."
+                }
+            }
+        }
+    }
+}

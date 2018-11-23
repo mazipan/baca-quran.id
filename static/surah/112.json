@@ -1,0 +1,25 @@
+{
+    "112": {
+        "number": "112",
+        "name": "الاخلاص",
+        "name_latin": "Al-Ikhlas",
+        "number_of_ayah": "4",
+        "text": {
+            "1": "قُلْ هُوَ اللّٰهُ اَحَدٌۚ",
+            "2": "اَللّٰهُ الصَّمَدُۚ",
+            "3": "لَمْ يَلِدْ وَلَمْ يُوْلَدْۙ",
+            "4": "وَلَمْ يَكُنْ لَّهٗ كُفُوًا اَحَدٌ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Ikhlas",
+                "text": {
+                    "1": "Katakanlah (Muhammad), “Dialah Allah, Yang Maha Esa.",
+                    "2": "Allah tempat meminta segala sesuatu.",
+                    "3": "(Allah) tidak beranak dan tidak pula diperanakkan.",
+                    "4": "Dan tidak ada sesuatu yang setara dengan Dia.”"
+                }
+            }
+        }
+    }
+}

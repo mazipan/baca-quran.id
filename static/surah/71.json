@@ -1,0 +1,73 @@
+{
+    "71": {
+        "number": "71",
+        "name": "نوح",
+        "name_latin": "Nuh",
+        "number_of_ayah": "28",
+        "text": {
+            "1": "اِنَّآ اَرْسَلْنَا نُوْحًا اِلٰى قَوْمِهٖٓ اَنْ اَنْذِرْ قَوْمَكَ مِنْ قَبْلِ اَنْ يَّأْتِيَهُمْ عَذَابٌ اَلِيْمٌ ",
+            "2": "قَالَ يٰقَوْمِ اِنِّيْ لَكُمْ نَذِيْرٌ مُّبِيْنٌۙ",
+            "3": "اَنِ اعْبُدُوا اللّٰهَ وَاتَّقُوْهُ وَاَطِيْعُوْنِۙ ",
+            "4": "يَغْفِرْ لَكُمْ مِّنْ ذُنُوْبِكُمْ وَيُؤَخِّرْكُمْ اِلٰٓى اَجَلٍ مُّسَمًّىۗ اِنَّ اَجَلَ اللّٰهِ اِذَا جَاۤءَ لَا يُؤَخَّرُۘ لَوْ كُنْتُمْ تَعْلَمُوْنَ ",
+            "5": "قَالَ رَبِّ اِنِّيْ دَعَوْتُ قَوْمِيْ لَيْلًا وَّنَهَارًاۙ",
+            "6": "فَلَمْ يَزِدْهُمْ دُعَاۤءِيْٓ اِلَّا فِرَارًا ",
+            "7": "وَاِنِّيْ كُلَّمَا دَعَوْتُهُمْ لِتَغْفِرَ لَهُمْ جَعَلُوْٓا اَصَابِعَهُمْ فِيْٓ اٰذَانِهِمْ وَاسْتَغْشَوْا ثِيَابَهُمْ وَاَصَرُّوْا وَاسْتَكْبَرُوا اسْتِكْبَارًاۚ ",
+            "8": "ثُمَّ اِنِّيْ دَعَوْتُهُمْ جِهَارًاۙ",
+            "9": "ثُمَّ اِنِّيْٓ اَعْلَنْتُ لَهُمْ وَاَسْرَرْتُ لَهُمْ اِسْرَارًاۙ",
+            "10": "فَقُلْتُ اسْتَغْفِرُوْا رَبَّكُمْ اِنَّهٗ كَانَ غَفَّارًاۙ",
+            "11": "يُّرْسِلِ السَّمَاۤءَ عَلَيْكُمْ مِّدْرَارًاۙ",
+            "12": "وَّيُمْدِدْكُمْ بِاَمْوَالٍ وَّبَنِيْنَ وَيَجْعَلْ لَّكُمْ جَنّٰتٍ وَّيَجْعَلْ لَّكُمْ اَنْهٰرًاۗ",
+            "13": "مَا لَكُمْ لَا تَرْجُوْنَ لِلّٰهِ وَقَارًاۚ",
+            "14": "وَقَدْ خَلَقَكُمْ اَطْوَارًا ",
+            "15": "اَلَمْ تَرَوْا كَيْفَ خَلَقَ اللّٰهُ سَبْعَ سَمٰوٰتٍ طِبَاقًاۙ",
+            "16": "وَّجَعَلَ الْقَمَرَ فِيْهِنَّ نُوْرًا وَّجَعَلَ الشَّمْسَ سِرَاجًا ",
+            "17": "وَاللّٰهُ اَنْۢبَتَكُمْ مِّنَ الْاَرْضِ نَبَاتًاۙ",
+            "18": "ثُمَّ يُعِيْدُكُمْ فِيْهَا وَيُخْرِجُكُمْ اِخْرَاجًا ",
+            "19": "وَاللّٰهُ جَعَلَ لَكُمُ الْاَرْضَ بِسَاطًاۙ",
+            "20": "لِّتَسْلُكُوْا مِنْهَا سُبُلًا فِجَاجًا ࣖ ",
+            "21": "قَالَ نُوْحٌ رَّبِّ اِنَّهُمْ عَصَوْنِيْ وَاتَّبَعُوْا مَنْ لَّمْ يَزِدْهُ مَالُهٗ وَوَلَدُهٗٓ اِلَّا خَسَارًاۚ ",
+            "22": "وَمَكَرُوْا مَكْرًا كُبَّارًاۚ",
+            "23": "وَقَالُوْا لَا تَذَرُنَّ اٰلِهَتَكُمْ وَلَا تَذَرُنَّ وَدًّا وَّلَا سُوَاعًا ەۙ وَّلَا يَغُوْثَ وَيَعُوْقَ وَنَسْرًاۚ",
+            "24": "وَقَدْ اَضَلُّوْا كَثِيْرًا ەۚ وَلَا تَزِدِ الظّٰلِمِيْنَ اِلَّا ضَلٰلًا",
+            "25": "مِمَّا خَطِيْۤـٰٔتِهِمْ اُغْرِقُوْا فَاُدْخِلُوْا نَارًا ەۙ فَلَمْ يَجِدُوْا لَهُمْ مِّنْ دُوْنِ اللّٰهِ اَنْصَارًا",
+            "26": "وَقَالَ نُوْحٌ رَّبِّ لَا تَذَرْ عَلَى الْاَرْضِ مِنَ الْكٰفِرِيْنَ دَيَّارًا ",
+            "27": "اِنَّكَ اِنْ تَذَرْهُمْ يُضِلُّوْا عِبَادَكَ وَلَا يَلِدُوْٓا اِلَّا فَاجِرًا كَفَّارًا ",
+            "28": "رَبِّ اغْفِرْ لِيْ وَلِوَالِدَيَّ وَلِمَنْ دَخَلَ بَيْتِيَ مُؤْمِنًا وَّلِلْمُؤْمِنِيْنَ وَالْمُؤْمِنٰتِۗ وَلَا تَزِدِ الظّٰلِمِيْنَ اِلَّا تَبَارًا ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Nuh",
+                "text": {
+                    "1": "Sesungguhnya Kami telah mengutus Nuh kepada kaumnya (dengan perintah), “Berilah kaummu peringatan sebelum datang kepadanya azab yang pedih.” ",
+                    "2": "Dia (Nuh) berkata, “Wahai kaumku! Sesungguhnya aku ini seorang pemberi peringatan yang menjelaskan kepada kamu, ",
+                    "3": "(yaitu) sembahlah Allah, bertakwalah kepada-Nya dan taatlah kepadaku, ",
+                    "4": "niscaya Dia mengampuni sebagian dosa-dosamu dan menangguhkan kamu (memanjangkan umurmu) sampai pada batas waktu yang ditentukan. Sungguh, ketetapan Allah itu apabila telah datang tidak dapat ditunda, seandainya kamu mengetahui.” ",
+                    "5": "Dia (Nuh) berkata, “Ya Tuhanku, sesungguhnya aku telah menyeru kaumku siang dan malam,",
+                    "6": "tetapi seruanku itu tidak menambah (iman) mereka, justru mereka lari (dari kebenaran).",
+                    "7": "Dan sesungguhnya aku setiap kali menyeru mereka (untuk beriman) agar Engkau mengampuni mereka, mereka memasukkan anak jarinya ke telinganya dan menutupkan bajunya (ke wajahnya) dan mereka tetap (mengingkari) dan sangat menyombongkan diri.",
+                    "8": "Lalu sesungguhnya aku menyeru mereka dengan cara terang-terangan.",
+                    "9": "Kemudian aku menyeru mereka secara terbuka dan dengan diam-diam,",
+                    "10": "maka aku berkata (kepada mereka), “Mohonlah ampunan kepada Tuhanmu, Sungguh, Dia Maha Pengampun, ",
+                    "11": "niscaya Dia akan menurunkan hujan yang lebat dari langit kepadamu, ",
+                    "12": "dan Dia memperbanyak harta dan anak-anakmu, dan mengadakan kebun-kebun untukmu dan mengadakan sungai-sungai untukmu.” ",
+                    "13": "Mengapa kamu tidak takut akan kebesaran Allah? ",
+                    "14": "Dan sungguh, Dia telah menciptakan kamu dalam beberapa tingkatan (kejadian). ",
+                    "15": "Tidakkah kamu memperhatikan bagai-mana Allah telah menciptakan tujuh langit berlapis-lapis?",
+                    "16": "Dan di sana Dia menciptakan bulan yang bercahaya dan menjadikan matahari sebagai pelita (yang cemerlang)?",
+                    "17": "Dan Allah menumbuhkan kamu dari tanah, tumbuh (berangsur-angsur), ",
+                    "18": "kemudian Dia akan mengembalikan kamu ke dalamnya (tanah) dan mengeluarkan kamu (pada hari Kiamat) dengan pasti. ",
+                    "19": "Dan Allah menjadikan bumi untukmu sebagai hamparan, ",
+                    "20": "agar kamu dapat pergi kian kemari di jalan-jalan yang luas. ",
+                    "21": "Nuh berkata, “Ya Tuhanku, sesungguhnya mereka durhaka kepadaku, dan mereka mengikuti orang-orang yang harta dan anak-anaknya hanya menambah kerugian baginya, ",
+                    "22": "dan mereka melakukan tipu daya yang sangat besar.” ",
+                    "23": "Dan mereka berkata, “Jangan sekali-kali kamu meninggalkan (penyembahan) tuhan-tuhan kamu dan jangan pula sekali-kali kamu meninggalkan (penyembahan) Wadd, dan jangan pula Suwa‘, Yagus, Ya‘uq dan Nasr.” ",
+                    "24": "Dan sungguh, mereka telah menyesatkan banyak orang; dan janganlah Engkau tambahkan bagi orang-orang yang zalim itu selain kesesatan. ",
+                    "25": "Disebabkan kesalahan-kesalahan mereka, mereka ditenggelamkan lalu dimasukkan ke neraka, maka mereka tidak mendapat penolong selain Allah.",
+                    "26": "Dan Nuh berkata, “Ya Tuhanku, janganlah Engkau biarkan seorang pun di antara orang-orang kafir itu tinggal di atas bumi.",
+                    "27": "Sesungguhnya jika Engkau biarkan mereka tinggal, niscaya mereka akan menyesatkan hamba-hamba-Mu, dan mereka hanya akan melahirkan anak-anak yang jahat dan tidak tahu bersyukur. ",
+                    "28": "Ya Tuhanku, ampunilah aku, ibu bapakku, dan siapa pun yang memasuki rumahku dengan beriman dan semua orang yang beriman laki-laki dan perempuan. Dan janganlah Engkau tambahkan bagi orang-orang yang zalim itu selain kehancuran.”"
+                }
+            }
+        }
+    }
+}

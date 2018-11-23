@@ -1,0 +1,33 @@
+{
+    "94": {
+        "number": "94",
+        "name": "الشرح",
+        "name_latin": "Asy-Syarh",
+        "number_of_ayah": "8",
+        "text": {
+            "1": "اَلَمْ نَشْرَحْ لَكَ صَدْرَكَۙ",
+            "2": "وَوَضَعْنَا عَنْكَ وِزْرَكَۙ",
+            "3": "الَّذِيْٓ اَنْقَضَ ظَهْرَكَۙ",
+            "4": "وَرَفَعْنَا لَكَ ذِكْرَكَۗ",
+            "5": "فَاِنَّ مَعَ الْعُسْرِ يُسْرًاۙ",
+            "6": "اِنَّ مَعَ الْعُسْرِ يُسْرًاۗ",
+            "7": "فَاِذَا فَرَغْتَ فَانْصَبْۙ",
+            "8": "وَاِلٰى رَبِّكَ فَارْغَبْ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Lapang",
+                "text": {
+                    "1": "Bukankah Kami telah melapangkan dadamu (Muhammad)?",
+                    "2": "dan Kami pun telah menurunkan bebanmu darimu,",
+                    "3": "yang memberatkan punggungmu, ",
+                    "4": "dan Kami tinggikan sebutan (nama)mu bagimu.",
+                    "5": "Maka sesungguhnya beserta kesulitan ada kemudahan,",
+                    "6": "sesungguhnya beserta kesulitan itu ada kemudahan.",
+                    "7": "Maka apabila engkau telah selesai (dari sesuatu urusan), tetaplah bekerja keras (untuk urusan yang lain),",
+                    "8": "dan hanya kepada Tuhanmulah engkau berharap."
+                }
+            }
+        }
+    }
+}

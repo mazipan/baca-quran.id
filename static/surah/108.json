@@ -1,0 +1,23 @@
+{
+    "108": {
+        "number": "108",
+        "name": "الكوثر",
+        "name_latin": "Al-Kausar",
+        "number_of_ayah": "3",
+        "text": {
+            "1": "اِنَّآ اَعْطَيْنٰكَ الْكَوْثَرَۗ",
+            "2": "فَصَلِّ لِرَبِّكَ وَانْحَرْۗ",
+            "3": "اِنَّ شَانِئَكَ هُوَ الْاَبْتَرُ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Pemberian Yang Banyak",
+                "text": {
+                    "1": "Sungguh, Kami telah memberimu (Muhammad) nikmat yang banyak.",
+                    "2": "Maka laksanakanlah salat karena Tuhanmu, dan berkurbanlah (sebagai ibadah dan mendekatkan diri kepada Allah).",
+                    "3": "Sungguh, orang-orang yang membencimu dialah yang terputus (dari rahmat Allah)."
+                }
+            }
+        }
+    }
+}

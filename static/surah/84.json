@@ -1,0 +1,67 @@
+{
+    "84": {
+        "number": "84",
+        "name": "الانشقاق",
+        "name_latin": "Al-Insyiqaq",
+        "number_of_ayah": "25",
+        "text": {
+            "1": "اِذَا السَّمَاۤءُ انْشَقَّتْۙ ",
+            "2": "وَاَذِنَتْ لِرَبِّهَا وَحُقَّتْۙ ",
+            "3": "وَاِذَا الْاَرْضُ مُدَّتْۙ ",
+            "4": "وَاَلْقَتْ مَا فِيْهَا وَتَخَلَّتْۙ ",
+            "5": "وَاَذِنَتْ لِرَبِّهَا وَحُقَّتْۗ ",
+            "6": "يٰٓاَيُّهَا الْاِنْسَانُ اِنَّكَ كَادِحٌ اِلٰى رَبِّكَ كَدْحًا فَمُلٰقِيْهِۚ ",
+            "7": "فَاَمَّا مَنْ اُوْتِيَ كِتٰبَهٗ بِيَمِيْنِهٖۙ ",
+            "8": "فَسَوْفَ يُحَاسَبُ حِسَابًا يَّسِيْرًاۙ ",
+            "9": "وَّيَنْقَلِبُ اِلٰٓى اَهْلِهٖ مَسْرُوْرًاۗ ",
+            "10": "وَاَمَّا مَنْ اُوْتِيَ كِتٰبَهٗ وَرَاۤءَ ظَهْرِهٖۙ ",
+            "11": "فَسَوْفَ يَدْعُوْ ثُبُوْرًاۙ ",
+            "12": "وَّيَصْلٰى سَعِيْرًاۗ ",
+            "13": "اِنَّهٗ كَانَ فِيْٓ اَهْلِهٖ مَسْرُوْرًاۗ ",
+            "14": "اِنَّهٗ ظَنَّ اَنْ لَّنْ يَّحُوْرَ ۛ ",
+            "15": "بَلٰىۛ اِنَّ رَبَّهٗ كَانَ بِهٖ بَصِيْرًاۗ ",
+            "16": "فَلَآ اُقْسِمُ بِالشَّفَقِۙ ",
+            "17": "وَالَّيْلِ وَمَا وَسَقَۙ ",
+            "18": "وَالْقَمَرِ اِذَا اتَّسَقَۙ ",
+            "19": "لَتَرْكَبُنَّ طَبَقًا عَنْ طَبَقٍۗ ",
+            "20": "فَمَا لَهُمْ لَا يُؤْمِنُوْنَۙ ",
+            "21": "وَاِذَا قُرِئَ عَلَيْهِمُ الْقُرْاٰنُ لَا يَسْجُدُوْنَ ۗ ۩ ",
+            "22": "بَلِ الَّذِيْنَ كَفَرُوْا يُكَذِّبُوْنَۖ ",
+            "23": "وَاللّٰهُ اَعْلَمُ بِمَا يُوْعُوْنَۖ ",
+            "24": "فَبَشِّرْهُمْ بِعَذَابٍ اَلِيْمٍۙ ",
+            "25": "اِلَّا الَّذِيْنَ اٰمَنُوْا وَعَمِلُوا الصّٰلِحٰتِ لَهُمْ اَجْرٌ غَيْرُ مَمْنُوْنٍ ࣖ "
+        },
+        "translations": {
+            "id": {
+                "name": "Terbelah",
+                "text": {
+                    "1": "Apabila langit terbelah,",
+                    "2": "dan patuh kepada Tuhannya, dan sudah semestinya patuh, ",
+                    "3": "dan apabila bumi diratakan, ",
+                    "4": "dan memuntahkan apa yang ada di dalamnya dan menjadi kosong,",
+                    "5": "dan patuh kepada Tuhannya, dan sudah semestinya patuh.",
+                    "6": "Wahai manusia! Sesungguhnya kamu telah bekerja keras menuju Tuhanmu, maka kamu akan menemui-Nya.",
+                    "7": "Maka adapun orang yang catatannya diberikan dari sebelah kanannya, ",
+                    "8": "maka dia akan diperiksa dengan pemeriksaan yang mudah, ",
+                    "9": "dan dia akan kembali kepada keluarganya (yang sama-sama beriman) dengan gembira.",
+                    "10": "Dan adapun orang yang catatannya diberikan dari sebelah belakang, ",
+                    "11": "maka dia akan berteriak, “Celakalah aku!” ",
+                    "12": "Dan dia akan masuk ke dalam api yang menyala-nyala (neraka).",
+                    "13": "Sungguh, dia dahulu (di dunia) bergembira di kalangan keluarganya (yang sama-sama kafir). ",
+                    "14": "Sesungguhnya dia mengira bahwa dia tidak akan kembali (kepada Tuhannya). ",
+                    "15": "Tidak demikian, sesungguhnya Tuhannya selalu melihatnya. ",
+                    "16": "Maka Aku bersumpah demi cahaya merah pada waktu senja, ",
+                    "17": "demi malam dan apa yang diselubunginya,",
+                    "18": "demi bulan apabila jadi purnama,",
+                    "19": "sungguh, akan kamu jalani tingkat demi tingkat (dalam kehidupan).",
+                    "20": "Maka mengapa mereka tidak mau beriman?",
+                    "21": "Dan apabila Al-Qur'an dibacakan kepada mereka, mereka tidak (mau) bersujud,",
+                    "22": "bahkan orang-orang kafir itu mendustakan(nya).",
+                    "23": "Dan Allah lebih mengetahui apa yang mereka sembunyikan (dalam hati mereka).",
+                    "24": "Maka sampaikanlah kepada mereka (ancaman) azab yang pedih,",
+                    "25": "kecuali orang-orang yang beriman dan mengerjakan kebajikan, mereka akan mendapat pahala yang tidak putus-putusnya."
+                }
+            }
+        }
+    }
+}

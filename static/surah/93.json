@@ -1,0 +1,39 @@
+{
+    "93": {
+        "number": "93",
+        "name": "الضحى",
+        "name_latin": "Ad-Duha",
+        "number_of_ayah": "11",
+        "text": {
+            "1": "وَالضُّحٰىۙ",
+            "2": "وَالَّيْلِ اِذَا سَجٰىۙ",
+            "3": "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلٰىۗ",
+            "4": "وَلَلْاٰخِرَةُ خَيْرٌ لَّكَ مِنَ الْاُوْلٰىۗ",
+            "5": "وَلَسَوْفَ يُعْطِيْكَ رَبُّكَ فَتَرْضٰىۗ",
+            "6": "اَلَمْ يَجِدْكَ يَتِيْمًا فَاٰوٰىۖ",
+            "7": "وَوَجَدَكَ ضَاۤلًّا فَهَدٰىۖ",
+            "8": "وَوَجَدَكَ عَاۤىِٕلًا فَاَغْنٰىۗ",
+            "9": "فَاَمَّا الْيَتِيْمَ فَلَا تَقْهَرْۗ",
+            "10": "وَاَمَّا السَّاۤىِٕلَ فَلَا تَنْهَرْ",
+            "11": "وَاَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Duha",
+                "text": {
+                    "1": "Demi waktu duha (ketika matahari naik sepenggalah),",
+                    "2": "dan demi malam apabila telah sunyi,",
+                    "3": "Tuhanmu tidak meninggalkan engkau (Muhammad) dan tidak (pula) membencimu,",
+                    "4": "dan sungguh, yang kemudian itu lebih baik bagimu dari yang permulaan.",
+                    "5": "Dan sungguh, kelak Tuhanmu pasti memberikan karunia-Nya kepadamu, sehingga engkau menjadi puas.",
+                    "6": "Bukankah Dia mendapatimu sebagai seorang yatim, lalu Dia melindungi(mu),",
+                    "7": "dan Dia mendapatimu sebagai seorang yang bingung, lalu Dia memberikan petunjuk,",
+                    "8": "dan Dia mendapatimu sebagai seorang yang kekurangan, lalu Dia memberikan kecukupan.",
+                    "9": "Maka terhadap anak yatim janganlah engkau berlaku sewenang-wenang.",
+                    "10": "Dan terhadap orang yang meminta-minta janganlah engkau menghardik(nya).",
+                    "11": "Dan terhadap nikmat Tuhanmu hendaklah engkau nyatakan (dengan bersyukur)."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "85": {
+        "number": "85",
+        "name": "البروج",
+        "name_latin": "Al-Buruj",
+        "number_of_ayah": "22",
+        "text": {
+            "1": "وَالسَّمَاۤءِ ذَاتِ الْبُرُوْجِۙ ",
+            "2": "وَالْيَوْمِ الْمَوْعُوْدِۙ ",
+            "3": "وَشَاهِدٍ وَّمَشْهُوْدٍۗ ",
+            "4": "قُتِلَ اَصْحٰبُ الْاُخْدُوْدِۙ ",
+            "5": "النَّارِ ذَاتِ الْوَقُوْدِۙ ",
+            "6": "اِذْ هُمْ عَلَيْهَا قُعُوْدٌۙ ",
+            "7": "وَّهُمْ عَلٰى مَا يَفْعَلُوْنَ بِالْمُؤْمِنِيْنَ شُهُوْدٌ  ۗ ",
+            "8": "وَمَا نَقَمُوْا مِنْهُمْ اِلَّآ اَنْ يُّؤْمِنُوْا بِاللّٰهِ الْعَزِيْزِ الْحَمِيْدِۙ ",
+            "9": "الَّذِيْ لَهٗ مُلْكُ السَّمٰوٰتِ وَالْاَرْضِ ۗوَاللّٰهُ عَلٰى كُلِّ شَيْءٍ شَهِيْدٌ  ۗ ",
+            "10": "اِنَّ الَّذِيْنَ فَتَنُوا الْمُؤْمِنِيْنَ وَالْمُؤْمِنٰتِ ثُمَّ لَمْ يَتُوْبُوْا فَلَهُمْ عَذَابُ جَهَنَّمَ وَلَهُمْ عَذَابُ الْحَرِيْقِۗ ",
+            "11": "اِنَّ الَّذِيْنَ اٰمَنُوْا وَعَمِلُوا الصّٰلِحٰتِ لَهُمْ جَنّٰتٌ تَجْرِيْ مِنْ تَحْتِهَا الْاَنْهٰرُ ەۗ ذٰلِكَ الْفَوْزُ الْكَبِيْرُۗ",
+            "12": "اِنَّ بَطْشَ رَبِّكَ لَشَدِيْدٌ ۗ ",
+            "13": "اِنَّهٗ هُوَ يُبْدِئُ وَيُعِيْدُۚ ",
+            "14": "وَهُوَ الْغَفُوْرُ الْوَدُوْدُۙ ",
+            "15": "ذُو الْعَرْشِ الْمَجِيْدُۙ ",
+            "16": "فَعَّالٌ لِّمَا يُرِيْدُۗ ",
+            "17": "هَلْ اَتٰىكَ حَدِيْثُ الْجُنُوْدِۙ ",
+            "18": "فِرْعَوْنَ وَثَمُوْدَۗ ",
+            "19": "بَلِ الَّذِيْنَ كَفَرُوْا فِيْ تَكْذِيْبٍۙ ",
+            "20": "وَّاللّٰهُ مِنْ وَّرَاۤىِٕهِمْ مُّحِيْطٌۚ ",
+            "21": "بَلْ هُوَ قُرْاٰنٌ مَّجِيْدٌۙ ",
+            "22": "فِيْ لَوْحٍ مَّحْفُوْظٍ ࣖ "
+        },
+        "translations": {
+            "id": {
+                "name": "Gugusan Bintang",
+                "text": {
+                    "1": "Demi langit yang mempunyai gugusan bintang,",
+                    "2": "dan demi hari yang dijanjikan.",
+                    "3": "Demi yang menyaksikan dan yang disaksikan.",
+                    "4": "Binasalah orang-orang yang membuat parit (yaitu para pembesar Najran di Yaman),",
+                    "5": "yang berapi (yang mempunyai) kayu bakar,",
+                    "6": "ketika mereka duduk di sekitarnya, ",
+                    "7": "sedang mereka menyaksikan apa yang mereka perbuat terhadap orang-orang mukmin.",
+                    "8": "Dan mereka menyiksa orang-orang mukmin itu hanya karena (orang-orang mukmin itu) beriman kepada Allah Yang Mahaperkasa, Maha Terpuji,",
+                    "9": "yang memiliki kerajaan langit dan bumi. Dan Allah Maha Menyaksikan segala sesuatu.",
+                    "10": "Sungguh, orang-orang yang mendatangkan cobaan (bencana, membunuh, menyiksa) kepada orang-orang mukmin laki-laki dan perempuan lalu mereka tidak bertobat, maka mereka akan mendapat azab Jahanam dan mereka akan mendapat azab (neraka) yang membakar.",
+                    "11": "Sungguh, orang-orang yang beriman dan mengerjakan kebajikan, mereka akan mendapat surga yang mengalir di bawahnya sungai-sungai, itulah kemenangan yang agung.",
+                    "12": "Sungguh, azab Tuhanmu sangat keras.",
+                    "13": "Sungguh, Dialah yang memulai pen-ciptaan (makhluk) dan yang menghidupkannya (kembali).",
+                    "14": "Dan Dialah Yang Maha Pengampun, Maha Pengasih,",
+                    "15": "yang memiliki ‘Arsy, lagi Mahamulia, ",
+                    "16": "Mahakuasa berbuat apa yang Dia kehendaki. ",
+                    "17": "Sudahkah sampai kepadamu berita tentang bala tentara (penentang),",
+                    "18": "(yaitu) Fir‘aun dan Samud?",
+                    "19": "Memang orang-orang kafir (selalu) mendustakan,",
+                    "20": "padahal Allah mengepung dari belakang mereka (sehingga tidak dapat lolos).",
+                    "21": "Bahkan (yang didustakan itu) ialah Al-Qur'an yang mulia,",
+                    "22": "yang (tersimpan) dalam (tempat) yang terjaga (Lauh Mahfuzh)."
+                }
+            }
+        }
+    }
+}

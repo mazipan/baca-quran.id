@@ -1,0 +1,35 @@
+{
+    "104": {
+        "number": "104",
+        "name": "الهمزة",
+        "name_latin": "Al-Humazah",
+        "number_of_ayah": "9",
+        "text": {
+            "1": "وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍۙ",
+            "2": " ۨالَّذِيْ جَمَعَ مَالًا وَّعَدَّدَهٗۙ",
+            "3": "يَحْسَبُ اَنَّ مَالَهٗٓ اَخْلَدَهٗۚ",
+            "4": "كَلَّا لَيُنْۢبَذَنَّ فِى الْحُطَمَةِۖ",
+            "5": "وَمَآ اَدْرٰىكَ مَا الْحُطَمَةُ ۗ",
+            "6": "نَارُ اللّٰهِ الْمُوْقَدَةُۙ",
+            "7": "الَّتِيْ تَطَّلِعُ عَلَى الْاَفْـِٕدَةِۗ",
+            "8": "اِنَّهَا عَلَيْهِمْ مُّؤْصَدَةٌۙ",
+            "9": "فِيْ عَمَدٍ مُّمَدَّدَةٍ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Pengumpat",
+                "text": {
+                    "1": "Celakalah bagi setiap pengumpat dan pencela,",
+                    "2": "yang mengumpulkan harta dan menghitung-hitungnya,",
+                    "3": "dia (manusia) mengira bahwa hartanya itu dapat mengekalkannya.",
+                    "4": "Sekali-kali tidak! Pasti dia akan dilemparkan ke dalam (neraka) Hutamah.",
+                    "5": "Dan tahukah kamu apakah (neraka) Hutamah itu?",
+                    "6": "(Yaitu) api  (azab) Allah yang dinyalakan,",
+                    "7": "yang (membakar) sampai ke hati.",
+                    "8": "Sungguh, api itu ditutup rapat atas (diri) mereka,",
+                    "9": "(sedang mereka itu) diikat pada tiang-tiang yang panjang."
+                }
+            }
+        }
+    }
+}

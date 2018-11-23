@@ -1,0 +1,23 @@
+{
+    "110": {
+        "number": "110",
+        "name": "النصر",
+        "name_latin": "An-Nasr",
+        "number_of_ayah": "3",
+        "text": {
+            "1": "اِذَا جَاۤءَ نَصْرُ اللّٰهِ وَالْفَتْحُۙ",
+            "2": "وَرَاَيْتَ النَّاسَ يَدْخُلُوْنَ فِيْ دِيْنِ اللّٰهِ اَفْوَاجًاۙ",
+            "3": "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُۗ اِنَّهٗ كَانَ تَوَّابًا ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Pertolongan",
+                "text": {
+                    "1": "Apabila telah datang pertolongan Allah dan kemenangan,",
+                    "2": "dan engkau melihat manusia berbondong-bondong masuk agama Allah,",
+                    "3": "maka bertasbihlah dalam dengan Tuhanmu dan mohonlah ampunan kepada-Nya. Sungguh, Dia Maha Penerima tobat."
+                }
+            }
+        }
+    }
+}

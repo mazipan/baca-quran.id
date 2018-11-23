@@ -1,0 +1,31 @@
+{
+    "107": {
+        "number": "107",
+        "name": "الماعون",
+        "name_latin": "Al-Ma'un",
+        "number_of_ayah": "7",
+        "text": {
+            "1": "اَرَءَيْتَ الَّذِيْ يُكَذِّبُ بِالدِّيْنِۗ",
+            "2": "فَذٰلِكَ الَّذِيْ يَدُعُّ الْيَتِيْمَۙ",
+            "3": "وَلَا يَحُضُّ عَلٰى طَعَامِ الْمِسْكِيْنِۗ",
+            "4": "فَوَيْلٌ لِّلْمُصَلِّيْنَۙ",
+            "5": "الَّذِيْنَ هُمْ عَنْ صَلَاتِهِمْ سَاهُوْنَۙ",
+            "6": "الَّذِيْنَ هُمْ يُرَاۤءُوْنَۙ",
+            "7": "وَيَمْنَعُوْنَ الْمَاعُوْنَ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Barang Yang Berguna",
+                "text": {
+                    "1": "Tahukah kamu (orang) yang mendustakan agama?",
+                    "2": "Maka itulah orang yang menghardik anak yatim,",
+                    "3": "dan tidak mendorong memberi makan orang miskin.",
+                    "4": "Maka celakalah orang yang salat,",
+                    "5": "(yaitu) orang-orang yang lalai terhadap salatnya,",
+                    "6": "yang berbuat ria,",
+                    "7": "dan enggan (memberikan) bantuan."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "72": {
+        "number": "72",
+        "name": "الجن",
+        "name_latin": "Al-Jinn",
+        "number_of_ayah": "28",
+        "text": {
+            "1": "قُلْ اُوْحِيَ اِلَيَّ اَنَّهُ اسْتَمَعَ نَفَرٌ مِّنَ الْجِنِّ فَقَالُوْٓا اِنَّا سَمِعْنَا قُرْاٰنًا عَجَبًاۙ",
+            "2": "يَّهْدِيْٓ اِلَى الرُّشْدِ فَاٰمَنَّا بِهٖۗ وَلَنْ نُّشْرِكَ بِرَبِّنَآ اَحَدًاۖ",
+            "3": "وَّاَنَّهٗ تَعٰلٰى جَدُّ رَبِّنَا مَا اتَّخَذَ صَاحِبَةً وَّلَا وَلَدًاۖ",
+            "4": "وَّاَنَّهٗ كَانَ يَقُوْلُ سَفِيْهُنَا عَلَى اللّٰهِ شَطَطًاۖ",
+            "5": "وَّاَنَّا ظَنَنَّآ اَنْ لَّنْ تَقُوْلَ الْاِنْسُ وَالْجِنُّ عَلَى اللّٰهِ كَذِبًاۙ",
+            "6": "وَّاَنَّهٗ كَانَ رِجَالٌ مِّنَ الْاِنْسِ يَعُوْذُوْنَ بِرِجَالٍ مِّنَ الْجِنِّ فَزَادُوْهُمْ رَهَقًاۖ",
+            "7": "وَّاَنَّهُمْ ظَنُّوْا كَمَا ظَنَنْتُمْ اَنْ لَّنْ يَّبْعَثَ اللّٰهُ اَحَدًاۖ",
+            "8": "وَّاَنَّا لَمَسْنَا السَّمَاۤءَ فَوَجَدْنٰهَا مُلِئَتْ حَرَسًا شَدِيْدًا وَّشُهُبًاۖ",
+            "9": "وَّاَنَّا كُنَّا نَقْعُدُ مِنْهَا مَقَاعِدَ لِلسَّمْعِۗ فَمَنْ يَّسْتَمِعِ الْاٰنَ يَجِدْ لَهٗ شِهَابًا رَّصَدًاۖ",
+            "10": "وَّاَنَّا لَا نَدْرِيْٓ اَشَرٌّ اُرِيْدَ بِمَنْ فِى الْاَرْضِ اَمْ اَرَادَ بِهِمْ رَبُّهُمْ رَشَدًاۙ",
+            "11": "وَّاَنَّا مِنَّا الصّٰلِحُوْنَ وَمِنَّا دُوْنَ ذٰلِكَۗ  كُنَّا طَرَاۤىِٕقَ قِدَدًاۙ",
+            "12": "وَّاَنَّا ظَنَنَّآ اَنْ لَّنْ نُّعْجِزَ اللّٰهَ فِى الْاَرْضِ وَلَنْ نُّعْجِزَهٗ هَرَبًاۖ",
+            "13": "وَّاَنَّا لَمَّا سَمِعْنَا الْهُدٰىٓ اٰمَنَّا بِهٖۗ فَمَنْ يُّؤْمِنْۢ بِرَبِّهٖ فَلَا يَخَافُ بَخْسًا وَّلَا رَهَقًاۖ",
+            "14": "وَّاَنَّا مِنَّا الْمُسْلِمُوْنَ وَمِنَّا الْقَاسِطُوْنَۗ فَمَنْ اَسْلَمَ فَاُولٰۤىِٕكَ تَحَرَّوْا رَشَدًا ",
+            "15": "وَاَمَّا الْقَاسِطُوْنَ فَكَانُوْا لِجَهَنَّمَ حَطَبًاۙ",
+            "16": "وَّاَنْ لَّوِ اسْتَقَامُوْا عَلَى الطَّرِيْقَةِ لَاَسْقَيْنٰهُمْ مَّاۤءً غَدَقًاۙ",
+            "17": "لِّنَفْتِنَهُمْ فِيْهِۗ وَمَنْ يُّعْرِضْ عَنْ ذِكْرِ رَبِّهٖ يَسْلُكْهُ عَذَابًا صَعَدًاۙ",
+            "18": "وَّاَنَّ الْمَسٰجِدَ لِلّٰهِ فَلَا تَدْعُوْا مَعَ اللّٰهِ اَحَدًاۖ",
+            "19": "وَّاَنَّهٗ لَمَّا قَامَ عَبْدُ اللّٰهِ يَدْعُوْهُ كَادُوْا يَكُوْنُوْنَ عَلَيْهِ لِبَدًاۗ  ࣖ",
+            "20": "قُلْ اِنَّمَآ اَدْعُوْا رَبِّيْ وَلَآ اُشْرِكُ بِهٖٓ اَحَدًا ",
+            "21": "قُلْ اِنِّيْ لَآ اَمْلِكُ لَكُمْ ضَرًّا وَّلَا رَشَدًا ",
+            "22": "قُلْ اِنِّيْ لَنْ يُّجِيْرَنِيْ مِنَ اللّٰهِ اَحَدٌ ەۙ وَّلَنْ اَجِدَ مِنْ دُوْنِهٖ مُلْتَحَدًا ۙ",
+            "23": "اِلَّا بَلٰغًا مِّنَ اللّٰهِ وَرِسٰلٰتِهٖۗ وَمَنْ يَّعْصِ اللّٰهَ وَرَسُوْلَهٗ فَاِنَّ لَهٗ نَارَ جَهَنَّمَ خٰلِدِيْنَ فِيْهَآ اَبَدًاۗ",
+            "24": "حَتّٰىٓ اِذَا رَاَوْا مَا يُوْعَدُوْنَ فَسَيَعْلَمُوْنَ مَنْ اَضْعَفُ نَاصِرًا وَّاَقَلُّ عَدَدًاۗ",
+            "25": "قُلْ اِنْ اَدْرِيْٓ اَقَرِيْبٌ مَّا تُوْعَدُوْنَ اَمْ يَجْعَلُ لَهٗ رَبِّيْٓ اَمَدًا ",
+            "26": "عٰلِمُ الْغَيْبِ فَلَا يُظْهِرُ عَلٰى غَيْبِهٖٓ اَحَدًاۙ",
+            "27": "اِلَّا مَنِ ارْتَضٰى مِنْ رَّسُوْلٍ فَاِنَّهٗ يَسْلُكُ مِنْۢ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهٖ رَصَدًاۙ",
+            "28": "لِّيَعْلَمَ اَنْ قَدْ اَبْلَغُوْا رِسٰلٰتِ رَبِّهِمْ وَاَحَاطَ بِمَا لَدَيْهِمْ وَاَحْصٰى كُلَّ شَيْءٍ عَدَدًا ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Jin",
+                "text": {
+                    "1": "Katakanlah (Muhammad), “Telah diwahyukan kepadaku bahwa sekumpulan jin telah mendengarkan (bacaan),” lalu mereka berkata, “Kami telah mendengarkan bacaan yang menakjubkan (Al-Qur'an),",
+                    "2": "(yang) memberi petunjuk kepada jalan yang benar, lalu kami beriman kepadanya. Dan kami sekali-kali tidak akan mempersekutukan sesuatu pun dengan Tuhan kami, ",
+                    "3": "dan sesungguhnya Mahatinggi keagungan Tuhan kami, Dia tidak beristri dan tidak beranak.”",
+                    "4": "Dan sesungguhnya orang yang bodoh di antara kami dahulu selalu mengucapkan (perkataan) yang melampaui batas terhadap Allah,",
+                    "5": "dan sesungguhnya kami mengira, bahwa manusia dan jin itu tidak akan mengatakan perkataan yang dusta terhadap Allah, ",
+                    "6": "dan sesungguhnya ada beberapa orang laki-laki dari kalangan manusia yang meminta perlindungan kepada beberapa laki-laki dari jin, tetapi mereka (jin) menjadikan mereka (manusia) bertambah sesat. ",
+                    "7": "Dan sesungguhnya mereka (jin) mengira seperti kamu (orang musyrik Mekah) yang juga mengira bahwa Allah tidak akan membangkitkan kembali siapa pun (pada hari Kiamat). ",
+                    "8": "Dan sesungguhnya kami (jin) telah mencoba mengetahui (rahasia) langit, maka kami mendapatinya penuh dengan penjagaan yang kuat dan panah-panah api, ",
+                    "9": "dan sesungguhnya kami (jin) dahulu dapat menduduki beberapa tempat di langit itu untuk mencuri dengar (berita-beritanya). Tetapi sekarang siapa (mencoba) mencuri dengar (seperti itu) pasti akan menjumpai panah-panah api yang mengintai (untuk membakarnya).",
+                    "10": "Dan sesungguhnya kami (jin) tidak mengetahui (adanya penjagaan itu) apakah keburukan yang dikehendaki orang yang di bumi ataukah Tuhan mereka menghendaki kebaikan baginya. ",
+                    "11": "Dan sesungguhnya di antara kami (jin) ada yang saleh dan ada (pula) kebalikannya. Kami menempuh jalan yang berbeda-beda. ",
+                    "12": "Dan sesungguhnya kami (jin) telah menduga, bahwa kami tidak akan mampu melepaskan diri (dari kekuasaan) Allah di bumi dan tidak (pula) dapat lari melepaskan diri (dari)-Nya. ",
+                    "13": "Dan sesungguhnya ketika kami (jin) mendengar petunjuk (Al-Qur'an), kami beriman kepadanya. Maka barangsiapa beriman kepada Tuhan, maka tidak perlu ia takut rugi atau berdosa. ",
+                    "14": "Dan di antara kami ada yang Islam dan ada yang menyimpang dari kebenaran. Siapa yang Islam, maka mereka itu telah memilih jalan yang lurus. ",
+                    "15": "Dan adapun yang menyimpang dari kebenaran, maka mereka menjadi bahan bakar bagi neraka Jahanam.” ",
+                    "16": "Dan sekiranya mereka tetap berjalan lurus di atas jalan itu (agama Islam), niscaya Kami akan mencurahkan kepada mereka air yang cukup.",
+                    "17": "Dengan (cara) itu Kami hendak menguji mereka. Dan barangsiapa berpaling dari peringatan Tuhannya, niscaya akan dimasukkan-Nya ke dalam azab yang sangat berat. ",
+                    "18": "Dan sesungguhnya masjid-masjid itu adalah untuk Allah. Maka janganlah kamu menyembah apa pun di dalamnya selain Allah. ",
+                    "19": "Dan sesungguhnya ketika hamba Allah (Muhammad) berdiri menyembah-Nya (melaksanakan salat), mereka (jin-jin) itu berdesakan mengerumuninya.",
+                    "20": "Katakanlah (Muhammad), “Sesungguhnya aku hanya menyembah Tuhanku dan aku tidak mempersekutukan sesuatu pun dengan-Nya.” ",
+                    "21": "Katakanlah (Muhammad), “Aku tidak kuasa menolak mudarat maupun mendatangkan kebaikan kepadamu.” ",
+                    "22": "Katakanlah (Muhammad), “Sesungguhnya tidak ada sesuatu pun yang dapat melindungiku dari (azab) Allah dan aku tidak akan memperoleh tempat berlindung selain dari-Nya. ",
+                    "23": "(Aku hanya) menyampaikan (peringatan) dari Allah dan risalah-Nya. Dan barangsiapa mendurhakai Allah dan Rasul-Nya maka sesungguhnya dia akan mendapat (azab) neraka Jahanam, mereka kekal di dalamnya selama-lamanya.” ",
+                    "24": "Sehingga apabila mereka melihat (azab) yang diancamkan kepadanya, maka mereka akan mengetahui siapakah yang lebih lemah penolongnya dan lebih sedikit jumlahnya. ",
+                    "25": "Katakanlah (Muhammad), “Aku tidak mengetahui, apakah azab yang diancamkan kepadamu itu sudah dekat ataukah Tuhanku menetapkan waktunya masih lama.” ",
+                    "26": "Dia Mengetahui yang gaib, tetapi Dia tidak memperlihatkan kepada siapa pun tentang yang gaib itu. ",
+                    "27": "Kecuali kepada rasul yang diridai-Nya, maka sesungguhnya Dia mengadakan penjaga-penjaga (malaikat) di depan dan di belakangnya. ",
+                    "28": "Agar Dia mengetahui bahwa rasul-rasul itu sungguh telah menyampaikan risalah Tuhannya, sedang (ilmu-Nya) meliputi apa yang ada pada mereka, dan Dia menghitung segala sesuatu satu persatu. "
+                }
+            }
+        }
+    }
+}

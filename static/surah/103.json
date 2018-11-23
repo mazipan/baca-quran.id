@@ -1,0 +1,23 @@
+{
+    "103": {
+        "number": "103",
+        "name": "العصر",
+        "name_latin": "Al-'Asr",
+        "number_of_ayah": "3",
+        "text": {
+            "1": "وَالْعَصْرِۙ",
+            "2": "اِنَّ الْاِنْسَانَ لَفِيْ خُسْرٍۙ",
+            "3": "اِلَّا الَّذِيْنَ اٰمَنُوْا وَعَمِلُوا الصّٰلِحٰتِ وَتَوَاصَوْا بِالْحَقِّ ەۙ وَتَوَاصَوْا بِالصَّبْرِ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Asar",
+                "text": {
+                    "1": "Demi masa,",
+                    "2": "sungguh, manusia berada dalam kerugian,",
+                    "3": "kecuali orang-orang yang beriman dan mengerjakan kebajikan serta saling menasihati untuk kebenaran dan saling menasihati untuk kesabaran."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "102": {
+        "number": "102",
+        "name": "التكاثر",
+        "name_latin": "At-Takasur",
+        "number_of_ayah": "8",
+        "text": {
+            "1": "اَلْهٰىكُمُ التَّكَاثُرُۙ",
+            "2": "حَتّٰى زُرْتُمُ الْمَقَابِرَۗ",
+            "3": "كَلَّا سَوْفَ تَعْلَمُوْنَۙ",
+            "4": "ثُمَّ كَلَّا سَوْفَ تَعْلَمُوْنَ ",
+            "5": "كَلَّا لَوْ تَعْلَمُوْنَ عِلْمَ الْيَقِيْنِۗ",
+            "6": "لَتَرَوُنَّ الْجَحِيْمَۙ",
+            "7": "ثُمَّ لَتَرَوُنَّهَا عَيْنَ الْيَقِيْنِۙ",
+            "8": "ثُمَّ لَتُسْـَٔلُنَّ يَوْمَىِٕذٍ عَنِ النَّعِيْمِ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Bermegah-Megahan",
+                "text": {
+                    "1": "Bermegah-megahan telah melalaikan kamu,",
+                    "2": "sampai kamu masuk ke dalam kubur.",
+                    "3": "Sekali-kali tidak! Kelak kamu akan mengetahui (akibat perbuatanmu itu),",
+                    "4": "kemudian sekali-kali tidak! Kelak kamu akan mengetahui.",
+                    "5": "Sekali-kali tidak! Sekiranya kamu mengetahui dengan pasti,",
+                    "6": "niscaya kamu benar-benar akan melihat neraka Jahim,",
+                    "7": "kemudian kamu benar-benar akan melihatnya dengan mata kepala sendiri,",
+                    "8": "kemudian kamu benar-benar akan ditanya pada hari itu tentang kenikmatan (yang megah di dunia itu)."
+                }
+            }
+        }
+    }
+}

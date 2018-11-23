@@ -1,0 +1,57 @@
+{
+    "90": {
+        "number": "90",
+        "name": "البلد",
+        "name_latin": "Al-Balad",
+        "number_of_ayah": "20",
+        "text": {
+            "1": "لَآ اُقْسِمُ بِهٰذَا الْبَلَدِۙ",
+            "2": "وَاَنْتَ حِلٌّۢ بِهٰذَا الْبَلَدِۙ",
+            "3": "وَوَالِدٍ وَّمَا وَلَدَۙ",
+            "4": "لَقَدْ خَلَقْنَا الْاِنْسَانَ فِيْ كَبَدٍۗ",
+            "5": "اَيَحْسَبُ اَنْ لَّنْ يَّقْدِرَ عَلَيْهِ اَحَدٌ ۘ",
+            "6": "يَقُوْلُ اَهْلَكْتُ مَالًا لُّبَدًاۗ",
+            "7": "اَيَحْسَبُ اَنْ لَّمْ يَرَهٗٓ اَحَدٌۗ",
+            "8": "اَلَمْ نَجْعَلْ لَّهٗ عَيْنَيْنِۙ",
+            "9": "وَلِسَانًا وَّشَفَتَيْنِۙ",
+            "10": "وَهَدَيْنٰهُ النَّجْدَيْنِۙ",
+            "11": "فَلَا اقْتَحَمَ الْعَقَبَةَ ۖ",
+            "12": "وَمَآ اَدْرٰىكَ مَا الْعَقَبَةُ ۗ",
+            "13": "فَكُّ رَقَبَةٍۙ",
+            "14": "اَوْ اِطْعَامٌ فِيْ يَوْمٍ ذِيْ مَسْغَبَةٍۙ",
+            "15": "يَّتِيْمًا ذَا مَقْرَبَةٍۙ",
+            "16": "اَوْ مِسْكِيْنًا ذَا مَتْرَبَةٍۗ",
+            "17": "ثُمَّ كَانَ مِنَ الَّذِيْنَ اٰمَنُوْا وَتَوَاصَوْا بِالصَّبْرِ وَتَوَاصَوْا بِالْمَرْحَمَةِۗ",
+            "18": "اُولٰۤىِٕكَ اَصْحٰبُ الْمَيْمَنَةِۗ",
+            "19": "وَالَّذِيْنَ كَفَرُوْا بِاٰيٰتِنَا هُمْ اَصْحٰبُ الْمَشْئَمَةِۗ",
+            "20": "عَلَيْهِمْ نَارٌ مُّؤْصَدَةٌ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Negeri",
+                "text": {
+                    "1": "Aku bersumpah dengan negeri ini (Mekah),",
+                    "2": "dan engkau (Muhammad), bertempat di negeri (Mekah) ini,",
+                    "3": "dan demi (pertalian) bapak dan anaknya.",
+                    "4": "Sungguh, Kami telah menciptakan manusia berada dalam susah payah.",
+                    "5": "Apakah dia (manusia) itu mengira bahwa tidak ada sesuatu pun yang berkuasa atasnya?",
+                    "6": "Dia mengatakan, “Aku telah menghabiskan harta yang banyak.” ",
+                    "7": "Apakah dia mengira bahwa tidak ada sesuatu pun yang melihatnya?",
+                    "8": "Bukankah Kami telah menjadikan untuknya sepasang mata,",
+                    "9": "dan lidah dan sepasang bibir?",
+                    "10": "Dan Kami telah menunjukkan kepadanya dua jalan (kebajikan dan kejahatan),",
+                    "11": "tetapi dia tidak menempuh jalan yang mendaki dan sukar?",
+                    "12": "Dan tahukah kamu apakah jalan yang mendaki dan sukar itu?",
+                    "13": "(yaitu) melepaskan perbudakan (hamba sahaya),",
+                    "14": "atau memberi makan pada hari terjadi kelaparan,",
+                    "15": "(kepada) anak yatim yang ada hubungan kerabat,",
+                    "16": "atau orang miskin yang sangat fakir.",
+                    "17": "Kemudian dia termasuk orang-orang yang beriman dan saling berpesan untuk bersabar dan saling berpesan untuk berkasih sayang.",
+                    "18": "Mereka (orang-orang yang beriman dan saling berpesan itu) adalah golongan kanan.",
+                    "19": "Dan orang-orang yang kafir kepada ayat-ayat Kami, mereka itu adalah golongan kiri.",
+                    "20": "Mereka berada dalam neraka yang ditutup rapat."
+                }
+            }
+        }
+    }
+}

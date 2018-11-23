@@ -1,0 +1,27 @@
+{
+    "113": {
+        "number": "113",
+        "name": "الفلق",
+        "name_latin": "Al-Falaq",
+        "number_of_ayah": "5",
+        "text": {
+            "1": "قُلْ اَعُوْذُ بِرَبِّ الْفَلَقِۙ",
+            "2": "مِنْ شَرِّ مَا خَلَقَۙ",
+            "3": "وَمِنْ شَرِّ غَاسِقٍ اِذَا وَقَبَۙ",
+            "4": "وَمِنْ شَرِّ النَّفّٰثٰتِ فِى الْعُقَدِۙ",
+            "5": "وَمِنْ شَرِّ حَاسِدٍ اِذَا حَسَدَ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Subuh",
+                "text": {
+                    "1": "Katakanlah, “Aku berlindung kepada Tuhan yang menguasai subuh (fajar),",
+                    "2": "dari kejahatan (makhluk yang) Dia ciptakan,",
+                    "3": "dan dari kejahatan malam apabila telah gelap gulita,",
+                    "4": "dan dari kejahatan (perempuan-perempuan) penyihir yang meniup pada buhul-buhul (talinya),",
+                    "5": "dan dari kejahatan orang yang dengki apabila dia dengki.”"
+                }
+            }
+        }
+    }
+}

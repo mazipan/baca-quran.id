@@ -1,0 +1,39 @@
+{
+    "101": {
+        "number": "101",
+        "name": "القارعة",
+        "name_latin": "Al-Qari'ah",
+        "number_of_ayah": "11",
+        "text": {
+            "1": "اَلْقَارِعَةُۙ",
+            "2": "مَا الْقَارِعَةُ ۚ",
+            "3": "وَمَآ اَدْرٰىكَ مَا الْقَارِعَةُ ۗ",
+            "4": "يَوْمَ يَكُوْنُ النَّاسُ كَالْفَرَاشِ الْمَبْثُوْثِۙ",
+            "5": "وَتَكُوْنُ الْجِبَالُ كَالْعِهْنِ الْمَنْفُوْشِۗ",
+            "6": "فَاَمَّا مَنْ ثَقُلَتْ مَوَازِينُهٗۙ",
+            "7": "فَهُوَ فِيْ عِيْشَةٍ رَّاضِيَةٍۗ",
+            "8": "وَاَمَّا مَنْ خَفَّتْ مَوَازِيْنُهٗۙ",
+            "9": "فَاُمُّهُ هَاوِيَةٌ  ۗ",
+            "10": "وَمَآ اَدْرٰىكَ مَا هِيَهْۗ",
+            "11": "نَارٌ حَامِيَةٌ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Hari Kiamat",
+                "text": {
+                    "1": "Hari Kiamat,",
+                    "2": "Apakah hari Kiamat itu?",
+                    "3": "Dan tahukah kamu apakah hari Kiamat itu?",
+                    "4": "Pada hari itu manusia seperti laron yang beterbangan,",
+                    "5": "dan gunung-gunung seperti bulu yang dihambur-hamburkan.",
+                    "6": "Maka adapun orang yang berat timbangan (kebaikan)nya,",
+                    "7": "maka dia berada dalam kehidupan yang memuaskan (senang).",
+                    "8": "Dan adapun orang yang ringan timbangan (kebaikan)nya,",
+                    "9": "maka tempat kembalinya adalah neraka Hawiyah.",
+                    "10": "Dan tahukah kamu apakah neraka Hawiyah itu?",
+                    "11": "(Yaitu) api yang sangat panas."
+                }
+            }
+        }
+    }
+}

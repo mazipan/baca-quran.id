@@ -1,0 +1,29 @@
+{
+    "114": {
+        "number": "114",
+        "name": "الناس",
+        "name_latin": "An-Nas",
+        "number_of_ayah": "6",
+        "text": {
+            "1": "قُلْ اَعُوْذُ بِرَبِّ النَّاسِۙ",
+            "2": "مَلِكِ النَّاسِۙ",
+            "3": "اِلٰهِ النَّاسِۙ",
+            "4": "مِنْ شَرِّ الْوَسْوَاسِ ەۙ الْخَنَّاسِۖ",
+            "5": "الَّذِيْ يُوَسْوِسُ فِيْ صُدُوْرِ النَّاسِۙ",
+            "6": "مِنَ الْجِنَّةِ وَالنَّاسِ ࣖ "
+        },
+        "translations": {
+            "id": {
+                "name": "Manusia",
+                "text": {
+                    "1": "Katakanlah, “Aku berlindung kepada Tuhannya manusia,",
+                    "2": "Raja manusia,",
+                    "3": "sembahan manusia,",
+                    "4": "dari kejahatan (bisikan) setan yang bersembunyi,",
+                    "5": "yang membisikkan (kejahatan) ke dalam dada manusia,",
+                    "6": "dari (golongan) jin dan manusia.”"
+                }
+            }
+        }
+    }
+}

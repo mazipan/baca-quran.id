@@ -1,0 +1,33 @@
+{
+    "95": {
+        "number": "95",
+        "name": "التين",
+        "name_latin": "At-Tin",
+        "number_of_ayah": "8",
+        "text": {
+            "1": "وَالتِّيْنِ وَالزَّيْتُوْنِۙ",
+            "2": "وَطُوْرِ سِيْنِيْنَۙ",
+            "3": "وَهٰذَا الْبَلَدِ الْاَمِيْنِۙ",
+            "4": "لَقَدْ خَلَقْنَا الْاِنْسَانَ فِيْٓ اَحْسَنِ تَقْوِيْمٍۖ",
+            "5": "ثُمَّ رَدَدْنٰهُ اَسْفَلَ سَافِلِيْنَۙ",
+            "6": "اِلَّا الَّذِيْنَ اٰمَنُوْا وَعَمِلُوا الصّٰلِحٰتِ فَلَهُمْ اَجْرٌ غَيْرُ مَمْنُوْنٍۗ",
+            "7": "فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّيْنِۗ",
+            "8": "اَلَيْسَ اللّٰهُ بِاَحْكَمِ الْحٰكِمِيْنَ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Buah Tin",
+                "text": {
+                    "1": "Demi (buah) Tin dan (buah) Zaitun,",
+                    "2": "demi gunung Sinai,",
+                    "3": "dan demi negeri (Mekah) yang aman ini.",
+                    "4": "Sungguh, Kami telah menciptakan manusia dalam bentuk yang sebaik-baiknya,",
+                    "5": "kemudian Kami kembalikan dia ke tempat yang serendah-rendahnya,",
+                    "6": "kecuali orang-orang yang beriman dan mengerjakan kebajikan; maka mereka akan mendapat pahala yang tidak ada putus-putusnya.",
+                    "7": "Maka apa yang menyebabkan (mereka) mendustakanmu (tentang) hari pembalasan setelah (adanya keterangan-keterangan) itu?",
+                    "8": "Bukankah Allah hakim yang paling adil?"
+                }
+            }
+        }
+    }
+}

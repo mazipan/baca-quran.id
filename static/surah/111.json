@@ -1,0 +1,27 @@
+{
+    "111": {
+        "number": "111",
+        "name": "اللهب",
+        "name_latin": "Al-Lahab",
+        "number_of_ayah": "5",
+        "text": {
+            "1": "تَبَّتْ يَدَآ اَبِيْ لَهَبٍ وَّتَبَّۗ",
+            "2": "مَآ اَغْنٰى عَنْهُ مَالُهٗ وَمَا كَسَبَۗ",
+            "3": "سَيَصْلٰى نَارًا ذَاتَ لَهَبٍۙ",
+            "4": "وَّامْرَاَتُهٗ ۗحَمَّالَةَ الْحَطَبِۚ",
+            "5": "فِيْ جِيْدِهَا حَبْلٌ مِّنْ مَّسَدٍ ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Api Yang Bergejolak",
+                "text": {
+                    "1": "Binasalah kedua tangan Abu Lahab dan benar-benar binasa dia!",
+                    "2": "Tidaklah berguna baginya hartanya dan apa yang dia usahakan.",
+                    "3": "Kelak dia akan masuk ke dalam api yang bergejolak (neraka).",
+                    "4": "Dan (begitu pula) istrinya, pembawa kayu bakar (penyebar fitnah). ",
+                    "5": "Di lehernya ada tali dari sabut yang dipintal."
+                }
+            }
+        }
+    }
+}

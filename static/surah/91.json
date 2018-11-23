@@ -1,0 +1,47 @@
+{
+    "91": {
+        "number": "91",
+        "name": "الشمس",
+        "name_latin": "Asy-Syams",
+        "number_of_ayah": "15",
+        "text": {
+            "1": "وَالشَّمْسِ وَضُحٰىهَاۖ",
+            "2": "وَالْقَمَرِ اِذَا تَلٰىهَاۖ",
+            "3": "وَالنَّهَارِ اِذَا جَلّٰىهَاۖ",
+            "4": "وَالَّيْلِ اِذَا يَغْشٰىهَاۖ",
+            "5": "وَالسَّمَاۤءِ وَمَا بَنٰىهَاۖ",
+            "6": "وَالْاَرْضِ وَمَا طَحٰىهَاۖ",
+            "7": "وَنَفْسٍ وَّمَا سَوّٰىهَاۖ",
+            "8": "فَاَلْهَمَهَا فُجُوْرَهَا وَتَقْوٰىهَاۖ",
+            "9": "قَدْ اَفْلَحَ مَنْ زَكّٰىهَاۖ",
+            "10": "وَقَدْ خَابَ مَنْ دَسّٰىهَاۗ",
+            "11": "كَذَّبَتْ ثَمُوْدُ بِطَغْوٰىهَآ  ۖ",
+            "12": "اِذِ انْۢبَعَثَ اَشْقٰىهَاۖ",
+            "13": "فَقَالَ لَهُمْ رَسُوْلُ اللّٰهِ نَاقَةَ اللّٰهِ وَسُقْيٰهَاۗ",
+            "14": "فَكَذَّبُوْهُ فَعَقَرُوْهَاۖ فَدَمْدَمَ عَلَيْهِمْ رَبُّهُمْ بِذَنْۢبِهِمْ فَسَوّٰىهَاۖ",
+            "15": "وَلَا يَخَافُ عُقْبٰهَا ࣖ"
+        },
+        "translations": {
+            "id": {
+                "name": "Matahari",
+                "text": {
+                    "1": "Demi matahari dan sinarnya pada pagi hari,",
+                    "2": "demi bulan apabila mengiringinya,",
+                    "3": "demi siang apabila menampakkannya,",
+                    "4": "demi malam apabila menutupinya (gelap gulita),",
+                    "5": "demi langit serta pembinaannya (yang menakjubkan),",
+                    "6": "demi bumi serta penghamparannya,",
+                    "7": "demi jiwa serta penyempurnaan (ciptaan)nya,",
+                    "8": "maka Dia mengilhamkan kepadanya (jalan) kejahatan dan ketakwaannya,",
+                    "9": "sungguh beruntung orang yang menyucikannya (jiwa itu),",
+                    "10": "dan sungguh rugi orang yang mengotorinya.",
+                    "11": "(Kaum) samud telah mendustakan (rasulnya) karena mereka melampaui batas (zalim),",
+                    "12": "ketika bangkit orang yang paling celaka di antara mereka,",
+                    "13": "lalu Rasul Allah (Saleh) berkata kepada mereka, “(Biarkanlah) unta betina dari Allah ini dengan minumannya.”",
+                    "14": "Namun mereka mendustakannya dan menyembelihnya, karena itu Tuhan membinasakan mereka karena dosanya, lalu diratakan-Nya (dengan tanah),",
+                    "15": "dan Dia tidak takut terhadap akibatnya."
+                }
+            }
+        }
+    }
+}
