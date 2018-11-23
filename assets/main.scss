@@ -19,6 +19,9 @@ html {
   margin: 0;
 }
 
+a{
+  color: $theme;
+}
 .button--green {
   display: inline-block;
   border-radius: 4px;
@@ -51,6 +54,11 @@ html {
 .pointer{
   cursor: pointer;
 }
+
+.center{
+  text-align: center;
+}
+
 .clearfix::after {
   content: "";
   clear: both;
@@ -61,7 +69,7 @@ html {
   display: block;
   text-decoration: none;
   text-align: center;
-  width: 80%;
+  width: 90%;
   margin: 1em auto;
   padding: 1em;
   border-radius: 4px;
@@ -72,8 +80,8 @@ html {
 
 .tag_index {
   position: absolute;
-  background-color: #41b883;
-  color: #fff;
+  background-color: $theme;
+  color: #000;
   height: 30px;
   width: 50px;
   border-radius: 4%;
@@ -86,4 +94,21 @@ html {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.skeleton {
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: skeleton;
+  animation-timing-function: linear;
+  background: #F2F2F2;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  position: relative;
+  &_row {
+    height: 100px;
+    width: 90%;
+    margin: 1em;
+  }
 }

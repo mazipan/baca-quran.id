@@ -9,11 +9,28 @@
       <ul class="sidebar__menu">
         <li class="sidebar__item">
           <router-link
-            to="/"
+            to="/?source=sidebar"
             class="sidebar__link"
             @click.native="navigateTo" >
-            Home
+            Daftar Surah
           </router-link>
+        </li>
+        <li class="sidebar__item">
+          <router-link
+            to="/about"
+            class="sidebar__link"
+            @click.native="navigateTo" >
+            Tentang
+          </router-link>
+        </li>
+        <li class="sidebar__item">
+          <a
+            href="https://github.com/mazipan/quran-offline"
+            target="_blank"
+            rel="noopener"
+            class="sidebar__link">
+            Kode Sumber
+          </a>
         </li>
       </ul>
     </div>
@@ -25,6 +42,12 @@ import { EventBus } from '../eventbus/index'
 
 export default {
   name: 'BaseSidebar',
+  props: {
+    surah: {
+      type: String,
+      default: ''
+    }
+  },
   methods: {
     navigateTo: function (e) {
       this.hideSidebar();

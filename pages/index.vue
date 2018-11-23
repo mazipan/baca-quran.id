@@ -1,53 +1,65 @@
 <template>
   <section class="container">
-    <nuxt-link
-      v-for="(surah, index) in surahInfoArray"
-      :to="getSurahDetailUrl(surah, index)"
-      :key="index"
-      class="surah block_content">
-      <div class="surah__index tag_index">
-        {{ index + 1 }}
-      </div>
-      <div class="divider clearfix">
-        <div class="surah__title">
-          {{ surah.arabic }}
+    <div v-if="loading">
+      <div
+        v-for="i in 5"
+        :key="i"
+        class="skeleton skeleton_row"/>
+    </div>
+    <template v-else>
+      <nuxt-link
+        v-for="surah in surahInfoArray"
+        :to="getSurahDetailUrl(surah, surah.index)"
+        :key="surah.index"
+        class="surah block_content">
+        <div class="surah__index tag_index">
+          {{ surah.index }}
         </div>
-      </div>
-      <div class="divider clearfix">
-        <div class="surah__title surah__title--latin">
-          {{ surah.latin }}
+        <div class="divider clearfix">
+          <div class="surah__title">
+            {{ surah.arabic }}
+          </div>
         </div>
-      </div>
-      <div class="divider clearfix">
-        <div class="surah__trans">
-          {{ surah.translation }}
+        <div class="divider clearfix">
+          <div class="surah__title surah__title--latin">
+            {{ surah.latin }}
+          </div>
         </div>
-      </div>
-      <div class="divider clearfix">
-        <div class="surah__count">
-          {{ surah.ayah_count }} Ayat
+        <div class="divider clearfix">
+          <div class="surah__trans">
+            ({{ surah.translation }}: {{ surah.ayah_count }} Ayat)
+          </div>
         </div>
-      </div>
-    </nuxt-link>
+      </nuxt-link>
+    </template>
   </section>
 </template>
 
 <script>
 import { ApiPath } from '../constant/index'
+import { EventBus } from '../eventbus/index'
+import { __isNotEmptyString } from '../utils/index'
 
 export default {
   name: 'PageIndex',
   data() {
     return {
-      surahInfoArray: []
+      surahInfoArray: [],
+      loading: true
     };
   },
+  computed: {
+    isHaveSource() {
+      return __isNotEmptyString(this.$route.query.source)
+    }
+  },
   mounted() {
+    EventBus.$emit('changeSurah')
     this.fetchSurahInfo()
   },
   methods: {
     getSurahDetailUrl(surah, index) {
-      return `/${index+1}`
+      return `/${index}`
     },
     fetchSurahInfo() {
       fetch(ApiPath.SURAH_INFO)
@@ -55,8 +67,15 @@ export default {
           return response.json();
         })
         .then((data) => {
-          this.surahInfoArray = data.surah_info
-        });
+          this.surahInfoArray = data.surah_info.map((item, idx) => {
+            return Object.assign({}, item, {index: idx+1})
+          })
+          if (!this.isHaveSource) {
+            setTimeout(() => {
+              this.loading = false
+            }, 1000)
+          } else this.loading = false
+        })
     }
   }
 };

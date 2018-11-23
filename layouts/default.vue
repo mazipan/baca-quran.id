@@ -5,9 +5,11 @@
       class="sidebar-cover"
       @click="hideSidebar" />
     <BaseSidebar
-      :class="{'sidebar--open': isShowSidebar}" />
-    <BaseHeader />
-    <nuxt />
+      :class="{'sidebar--open': isShowSidebar}"
+      :surah="surahShowing"/>
+    <BaseHeader
+      :surah="surahShowing"/>
+    <nuxt class="app__content"/>
   </div>
 </template>
 
@@ -26,7 +28,8 @@ export default {
   },
   data () {
     return {
-      isShowSidebar: false
+      isShowSidebar: false,
+      surahShowing: '',
     }
   },
   mounted() {
@@ -35,6 +38,13 @@ export default {
         this.isShowSidebar = param
       } else {
         this.isShowSidebar = !this.isShowSidebar
+      }
+    })
+    EventBus.$on('changeSurah', param => {
+      if (__isNotNull(param)) {
+        this.surahShowing = param
+      } else {
+        this.surahShowing = ''
       }
     })
   },

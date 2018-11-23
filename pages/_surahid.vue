@@ -1,17 +1,25 @@
 <template>
   <section class="container">
-    <div class="detail">
+    <div
+      class="detail">
       <div class="detail__header">
-        {{ surahDetail.name_latin }}
+        <div class="detail__header_index">
+          {{ surahDetail.number }}
+        </div>
+        <div class="detail__header_content">
+          <div>{{ surahDetail.name }}</div>
+          <small>({{ surahDetail.name_latin }} - {{ surahDetail.translations.id.name }})</small>
+        </div>
       </div>
 
       <div class="detail__content">
-        <div 
+        <div
           v-for="(ayah, index) in surahDetail.text"
           :key="index"
-          class="ayah block_content" >
+          :id="`ayah-${index}`"
+          class="ayah block_content">
           <div class="ayah__index tag_index">
-            {{ index + 1 }}
+            {{ Number(index) }}
           </div>
           <div class="divider clearfix">
             <div class="ayah__arabic">
@@ -27,29 +35,29 @@
       </div>
 
       <div class="detail__footer">
-        <nuxt-link 
+        <nuxt-link
           :to="`/${surahId - 1}`"
           class="detail__footer_item detail__footer_prev">
-          <svg 
+          <svg
             v-if="isHavePrev"
-            width="30px" 
-            height="30px" 
+            width="30px"
+            height="30px"
             viewBox="0 0 512 512">
-            <path d="M301.3 147.6c-7.5-7.5-19.8-7.5-27.3 0l-95.4 95.7c-7.3 7.3-7.5 19.1-.6 26.6l94 94.3c3.8 3.8 8.7 5.7 13.7 5.7 4.9 0 9.9-1.9 13.6-5.6 7.5-7.5 7.6-19.7 0-27.3l-79.8-81 81.9-81.1c7.5-7.5 7.5-19.7-.1-27.3z"/><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm124.4 332.4C347.2 413.7 303 432 256 432s-91.2-18.3-124.4-51.6C98.3 347.2 80 303 80 256s18.3-91.2 51.6-124.4C164.8 98.3 209 80 256 80s91.2 18.3 124.4 51.6C413.7 164.8 432 209 432 256s-18.3 91.2-51.6 124.4z"/>
+            <path d="M427 234.625H167.296l119.702-119.702L256 85 85 256l171 171 29.922-29.924-118.626-119.701H427v-42.75z"/>
           </svg>
         </nuxt-link>
         <div class="detail__footer_item detail__footer_title">
           {{ surahDetail.name }}
         </div>
-        <nuxt-link 
+        <nuxt-link
           :to="`/${surahId + 1}`"
           class="detail__footer_item detail__footer_next">
-          <svg 
+          <svg
             v-if="isHaveNext"
-            width="30px" 
-            height="30px" 
+            width="30px"
+            height="30px"
             viewBox="0 0 512 512">
-            <path d="M210.7 147.6c7.5-7.5 19.8-7.5 27.3 0l95.4 95.7c7.3 7.3 7.5 19.1.6 26.6l-94 94.3c-3.8 3.8-8.7 5.7-13.7 5.7-4.9 0-9.9-1.9-13.6-5.6-7.5-7.5-7.6-19.7 0-27.3l79.9-81.1-81.9-81.1c-7.6-7.4-7.6-19.6 0-27.2z"/><path d="M48 256c0 114.9 93.1 208 208 208s208-93.1 208-208S370.9 48 256 48 48 141.1 48 256zm32 0c0-47 18.3-91.2 51.6-124.4C164.8 98.3 209 80 256 80s91.2 18.3 124.4 51.6C413.7 164.8 432 209 432 256s-18.3 91.2-51.6 124.4C347.2 413.7 303 432 256 432s-91.2-18.3-124.4-51.6C98.3 347.2 80 303 80 256z"/>
+            <path d="M85 277.375h259.704L225.002 397.077 256 427l171-171L256 85l-29.922 29.924 118.626 119.701H85v42.75z"/>
           </svg>
         </nuxt-link>
       </div>
@@ -59,30 +67,44 @@
 
 <script>
 import { ApiPath } from '../constant/index'
+import { EventBus } from '../eventbus/index'
 
 export default {
   name: 'PageSurahDetail',
   data() {
     return {
-      surahDetail: {}
+      surahDetail: {
+        number: 0,
+        name: '',
+        name_latin: '',
+        number_of_ayah: '',
+        text: [],
+        translations: {
+          id: {
+            name: '',
+            text: ''
+          }
+        }
+      },
+      loading: true
     };
   },
   computed: {
     surahId() {
-      return Number(this.$route.params.surahid)
+      return Number(this.$route.params.surahid);
     },
-    isValidSurah () {
-      return this.surahId > 0 && this.surahId <= 114
+    isValidSurah() {
+      return this.surahId > 0 && this.surahId <= 114;
     },
     isHavePrev() {
-      return this.surahId > 1
+      return this.surahId > 1;
     },
     isHaveNext() {
-      return this.surahId < 114
+      return this.surahId < 114;
     }
   },
   mounted() {
-    this.fetchSurahById(this.surahId)
+    this.fetchSurahById(this.surahId);
   },
   methods: {
     getTranslation(indexAyah) {
@@ -90,11 +112,15 @@ export default {
     },
     fetchSurahById(id) {
       fetch(ApiPath.SURAH_BY_ID(id))
-        .then((response) => {
+        .then(response => {
           return response.json();
         })
-        .then((data) => {
-          this.surahDetail = data[this.surahId]
+        .then(data => {
+          this.surahDetail = data[this.surahId];
+          EventBus.$emit('changeSurah', this.surahDetail.name_latin)
+          setTimeout(() => {
+            this.loading = false
+          }, 1000)
         });
     }
   }
@@ -104,21 +130,48 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/_variables.scss';
 
-.detail{
-  &__header{
-    width: 80%;
-    text-align: center;
-    background-color: #52e0a1;
-    margin: 1em auto;
-    padding: .25em;
-    border-radius: 4px;
+.detail {
+  &__header {
+    width: 95%;
+    margin: 0 auto;
+    padding: 0.25em;
     font-size: 2rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+    &_index {
+      background-color: #52e0a1;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      display: flex;
+      align-items: center;
+      height: 100px;
+      padding: .25em .5em;
+    }
+    &_content {
+      background-color: #000;
+      color: #52e0a1;
+      flex-grow: 1;
+      justify-content: space-between;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      text-align: right;
+      height: 100px;
+      padding: .25em .5em;
+      small {
+        font-size: 1rem;
+      }
+    }
   }
-  &__content{
+  &__content {
     margin-bottom: 100px;
   }
-  &__footer{
-    position: fixed; bottom: 0; right: 0; left: 0;
+  &__footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
     z-index: 10;
     display: table;
     margin: 0;
@@ -127,28 +180,29 @@ export default {
     width: 100%;
     background: $theme;
     color: $foreground;
-    &_item{
+    &_item {
       display: table-cell;
       vertical-align: middle;
     }
-    &_title{
+    &_title {
       font-size: 2rem;
     }
-    &_prev, &_next{
+    &_prev,
+    &_next {
       width: 50px;
     }
   }
 }
 
-.ayah{
-  &__arabic{
+.ayah {
+  &__arabic {
     font-size: 2rem;
     width: 80%;
     float: right;
     text-align: right;
   }
-  &__translation{
-    font-size: .9rem;
+  &__translation {
+    font-size: 0.9rem;
     width: 100%;
     text-align: left;
     font-style: italic;

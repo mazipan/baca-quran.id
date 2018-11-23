@@ -42,7 +42,18 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa'
   ],
-
+  /*
+   ** Generate multiple entry html from 1 to 114
+   */
+  generate: {
+    routes: () => {
+      let res = []
+      for(let i=0; i< 114; i++) {
+        res.push(`/${i+1}`)
+      }
+      return res
+    }
+  },
   /*
    ** Build configuration
    */
