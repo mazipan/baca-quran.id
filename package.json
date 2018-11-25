@@ -1,7 +1,7 @@
 {
   "name": "quran-offline",
   "version": "1.0.0",
-  "description": "📖 Read Qur&#39;an Anywhere Directly from Your Browser",
+  "description": "📖 Read Qur'an Anywhere, Directly from Your Browser, No Need Installing Apps Anymore.",
   "author": "Irfan Maulana",
   "private": true,
   "scripts": {
