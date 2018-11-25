@@ -1,6 +1,6 @@
 # quran-offline
 
-📖 Read Qur'an Anywhere Directly from Your Browser
+📖 Read Qur'an Anywhere, Directly from Your Browser, No Need Installing Apps Anymore
 
 ## Live Website
 
