@@ -2,6 +2,9 @@
 
 📖 Read Qur'an Anywhere, Directly from Your Browser, No Need Installing Apps Anymore
 
+[![Travis](https://img.shields.io/travis/mazipan/quran-offline.svg)](https://travis-ci.org/mazipan/quran-offline)
+
+
 ## Live Website
 
 [https://quran-offline.netlify.com/](https://quran-offline.netlify.com/)
