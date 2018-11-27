@@ -28,12 +28,12 @@ import { EventBus } from '../eventbus/index'
 
 export default {
   name: 'PageAbout',
-  data() {
+  data () {
     return {
       appTitle: AppConstant.TITLE
-    };
+    }
   },
-  mounted() {
+  mounted () {
     EventBus.$emit('changeSurah')
   }
 }

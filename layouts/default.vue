@@ -29,10 +29,10 @@ export default {
   data () {
     return {
       isShowSidebar: false,
-      surahShowing: '',
+      surahShowing: ''
     }
   },
-  mounted() {
+  mounted () {
     EventBus.$on('toggleSidebar', param => {
       if (__isNotNull(param)) {
         this.isShowSidebar = param
@@ -50,12 +50,11 @@ export default {
   },
   methods: {
     hideSidebar: function () {
-      EventBus.$emit('toggleSidebar');
+      EventBus.$emit('toggleSidebar')
     }
   }
 }
 </script>
-
 
 <style lang="scss">
   @import '@/assets/main.scss';

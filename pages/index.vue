@@ -8,10 +8,10 @@
     </div>
     <template v-else>
       <nuxt-link
-        v-for="surah in surahInfoArray"
+        v-for="surah in allSurahList"
         :to="getSurahDetailUrl(surah, surah.index)"
         :key="surah.index"
-        class="surah block_content">
+        class="surah block_content has-shadow">
         <div class="surah__index tag_index">
           {{ surah.index }}
         </div>
@@ -36,49 +36,50 @@
 </template>
 
 <script>
-import { ApiPath } from '../constant/index'
+import { mapActions, mapState } from 'vuex'
+
 import { EventBus } from '../eventbus/index'
 import { __isNotEmptyString } from '../utils/index'
 
 export default {
   name: 'PageIndex',
-  data() {
+  data () {
     return {
-      surahInfoArray: [],
       loading: true
-    };
+    }
   },
   computed: {
-    isHaveSource() {
+    ...mapState([
+      'allSurahList'
+    ]),
+    isHaveSource () {
       return __isNotEmptyString(this.$route.query.source)
     }
   },
-  mounted() {
+  mounted () {
     EventBus.$emit('changeSurah')
     this.fetchSurahInfo()
   },
   methods: {
-    getSurahDetailUrl(surah, index) {
+    ...mapActions([
+      'fetchAllSurah'
+    ]),
+    getSurahDetailUrl (surah, index) {
       return `/${index}`
     },
-    fetchSurahInfo() {
-      fetch(ApiPath.SURAH_INFO)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          this.surahInfoArray = data.surah_info.map((item, idx) => {
-            return Object.assign({}, item, {index: idx+1})
-          })
+    fetchSurahInfo () {
+      this.fetchAllSurah({
+        success: () => {
           if (!this.isHaveSource) {
             setTimeout(() => {
               this.loading = false
             }, 1000)
           } else this.loading = false
-        })
+        }
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -104,4 +105,3 @@ export default {
   }
 }
 </style>
-

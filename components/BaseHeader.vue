@@ -93,27 +93,27 @@ export default {
       default: ''
     }
   },
-  data() {
+  data () {
     return {
       isShowMenu: false,
       appTitle: AppConstant.TITLE
-    };
+    }
   },
   computed: {
-    isHaveSurah() {
+    isHaveSurah () {
       return __isNotEmptyString(this.surah)
     }
   },
   methods: {
     navigateTo: function (link) {
-      this.toggleMenuRight();
+      this.toggleMenuRight()
       if (link.indexOf('http') >= 0) {
         window.location.href = link
       } else {
         this.$router.push(link)
       }
     },
-    toggleMenuRight() {
+    toggleMenuRight () {
       this.isShowMenu = !this.isShowMenu
       if (this.isShowMenu) {
         setTimeout(() => {
@@ -121,11 +121,11 @@ export default {
         }, 2000)
       }
     },
-    toggleSidebar() {
-      EventBus.$emit('toggleSidebar');
+    toggleSidebar () {
+      EventBus.$emit('toggleSidebar')
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -4,30 +4,30 @@
       class="detail">
       <div class="detail__header">
         <div class="detail__header_index">
-          {{ surahDetail.number }}
+          {{ currentSurah.number }}
         </div>
         <div class="detail__header_content">
-          <div>{{ surahDetail.name }}</div>
-          <small>({{ surahDetail.name_latin }} - {{ surahDetail.translations.id.name }})</small>
+          <div>{{ currentSurah.name }}</div>
+          <small>({{ currentSurah.name_latin }} - {{ currentSurah.translations.id.name }})</small>
         </div>
       </div>
 
       <div class="detail__content">
         <div
-          v-for="(ayah, index) in surahDetail.text"
+          v-for="(verse, index) in currentSurah.text"
           :key="index"
-          :id="`ayah-${index}`"
-          class="ayah block_content">
-          <div class="ayah__index tag_index">
+          :id="`verse-${index}`"
+          class="verse block_content has-shadow">
+          <div class="verse__index tag_index">
             {{ Number(index) }}
           </div>
           <div class="divider clearfix">
-            <div class="ayah__arabic">
-              {{ ayah }}
+            <div class="verse__arabic">
+              {{ verse }}
             </div>
           </div>
           <div class="divider clearfix">
-            <div class="ayah__translation">
+            <div class="verse__translation">
               {{ getTranslation(index) }}
             </div>
           </div>
@@ -47,7 +47,7 @@
           </svg>
         </nuxt-link>
         <div class="detail__footer_item detail__footer_title">
-          {{ surahDetail.name }}
+          {{ currentSurah.name }}
         </div>
         <nuxt-link
           :to="`/${surahId + 1}`"
@@ -66,65 +66,60 @@
 </template>
 
 <script>
-import { ApiPath } from '../constant/index'
+import { mapActions, mapState } from 'vuex'
+
 import { EventBus } from '../eventbus/index'
 
 export default {
   name: 'PageSurahDetail',
-  data() {
+  data () {
     return {
-      surahDetail: {
-        number: 0,
-        name: '',
-        name_latin: '',
-        number_of_ayah: '',
-        text: [],
-        translations: {
-          id: {
-            name: '',
-            text: ''
-          }
-        }
-      },
       loading: true
-    };
-  },
-  computed: {
-    surahId() {
-      return Number(this.$route.params.surahid);
-    },
-    isValidSurah() {
-      return this.surahId > 0 && this.surahId <= 114;
-    },
-    isHavePrev() {
-      return this.surahId > 1;
-    },
-    isHaveNext() {
-      return this.surahId < 114;
     }
   },
-  mounted() {
-    this.fetchSurahById(this.surahId);
+  computed: {
+    ...mapState([
+      'surahDetail'
+    ]),
+    currentSurah () {
+      return this.surahDetail
+    },
+    surahId () {
+      return Number(this.$route.params.surahid)
+    },
+    isValidSurah () {
+      return this.surahId > 0 && this.surahId <= 114
+    },
+    isHavePrev () {
+      return this.surahId > 1
+    },
+    isHaveNext () {
+      return this.surahId < 114
+    }
+  },
+  mounted () {
+    this.onMountedDetailPage(this.surahId)
   },
   methods: {
-    getTranslation(indexAyah) {
-      return this.surahDetail.translations.id.text[indexAyah];
+    ...mapActions([
+      'fetchSurahById'
+    ]),
+    getTranslation (indexVerse) {
+      return this.currentSurah.translations.id.text[indexVerse]
     },
-    fetchSurahById(id) {
-      fetch(ApiPath.SURAH_BY_ID(id))
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          this.surahDetail = data[this.surahId];
-          EventBus.$emit('changeSurah', this.surahDetail.name_latin)
+    onMountedDetailPage (id) {
+      this.fetchSurahById({
+        id,
+        success: (data) => {
+          EventBus.$emit('changeSurah', data.name_latin)
           setTimeout(() => {
             this.loading = false
           }, 1000)
-        });
+        }
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -194,7 +189,7 @@ export default {
   }
 }
 
-.ayah {
+.verse {
   &__arabic {
     font-size: 2rem;
     width: 80%;
@@ -210,4 +205,3 @@ export default {
   }
 }
 </style>
-

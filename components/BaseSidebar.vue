@@ -50,11 +50,11 @@ export default {
   },
   methods: {
     navigateTo: function (e) {
-      this.hideSidebar();
+      this.hideSidebar()
       e.preventDefault()
     },
     hideSidebar: function () {
-      EventBus.$emit('toggleSidebar', false);
+      EventBus.$emit('toggleSidebar', false)
     }
   }
 }
