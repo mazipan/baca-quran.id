@@ -565,4 +565,4 @@ export const SurahConstant = {
     { translation: 'Subuh', arabic: 'الفلق', latin: 'Al-Falaq', ayah_count: 5 },
     { translation: 'Manusia', arabic: 'الناس', latin: 'An-Nas', ayah_count: 6 }
   ]
-};
+}
