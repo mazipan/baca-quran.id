@@ -6,14 +6,20 @@
       @click="hideSidebar" />
     <BaseSidebar
       :class="{'sidebar--open': isShowSidebar}"
-      :surah="surahShowing"/>
+      :surah="surahShowing"
+      :theme="theme"
+      :theme-text-color="themeTextColor"/>
     <BaseHeader
-      :surah="surahShowing"/>
+      :surah="surahShowing"
+      :theme="theme"
+      :theme-text-color="themeTextColor"/>
     <nuxt class="app__content"/>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import BaseHeader from '../components/BaseHeader.vue'
 import BaseSidebar from '../components/BaseSidebar.vue'
 
@@ -31,6 +37,12 @@ export default {
       isShowSidebar: false,
       surahShowing: ''
     }
+  },
+  computed: {
+    ...mapState([
+      'theme',
+      'themeTextColor'
+    ])
   },
   mounted () {
     EventBus.$on('toggleSidebar', param => {

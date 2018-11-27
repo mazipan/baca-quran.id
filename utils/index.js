@@ -6,7 +6,7 @@ export const __isNotNull = (variable) => {
 }
 
 export const __isNotEmptyString = (str) => {
-  if (__isNotNull(str) && str !== '') {
+  if (__isNotNull(str) && str.trim() !== '') {
     return true
   }
   return false

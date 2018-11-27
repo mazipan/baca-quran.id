@@ -131,7 +131,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/header.scss';
 .menu_right{
-  position: absolute;
+  position: fixed;
   top: 50px;
   right: 30px;
   z-index: 99;

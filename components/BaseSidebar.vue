@@ -12,6 +12,14 @@
             to="/?source=sidebar"
             class="sidebar__link"
             @click.native="navigateTo" >
+            Beranda
+          </router-link>
+        </li>
+        <li class="sidebar__item">
+          <router-link
+            to="/all-surah"
+            class="sidebar__link"
+            @click.native="navigateTo" >
             Daftar Surah
           </router-link>
         </li>
