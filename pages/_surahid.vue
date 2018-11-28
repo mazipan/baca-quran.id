@@ -18,8 +18,27 @@
           :key="index"
           :id="`verse-${index}`"
           class="verse block_content has-shadow">
-          <div class="verse__index tag_index">
-            {{ Number(index) }}
+          <div class="verse__header">
+            <div class="verse__index tag_index">
+              {{ Number(index) }}
+            </div>
+            <div class="verse__header--right">
+              <svg
+                viewBox="0 0 512 512"
+                width="30px"
+                height="30px"
+                fill="#000"
+                @click="setLastReadVerse({ surah: surahId, verse: Number(index) })">
+                <path d="M128 80v380c0 3.3 3.8 5.2 6.4 3.2l116.8-92c2.9-2.1 6.8-2.1 9.6 0l116.8 92c2.6 2 6.4.1 6.4-3.2V80c0-17.7-14.3-32-32-32H160c-17.7 0-32 14.3-32 32z"/>
+              </svg>
+              <svg
+                viewBox="0 0 512 512"
+                width="30px"
+                height="30px"
+                fill="#000">
+                <path d="M444.7 230.4l-141.1-132c-1.7-1.6-3.3-2.5-5.6-2.4-4.4.2-10 3.3-10 8v66.2c0 2-1.6 3.8-3.6 4.1C144.1 195.8 85 300.8 64.1 409.8c-.8 4.3 5 8.3 7.7 4.9 51.2-64.5 113.5-106.6 212-107.4 2.2 0 4.2 2.6 4.2 4.8v65c0 7 9.3 10.1 14.5 5.3l142.1-134.3c2.6-2.4 3.4-5.2 3.5-8.4-.1-3.2-.9-6.9-3.4-9.3z"/>
+              </svg>
+            </div>
           </div>
           <div class="divider clearfix">
             <div class="verse__arabic">
@@ -66,9 +85,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
-
-import { EventBus } from '../eventbus/index'
+import { mapActions, mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'PageSurahDetail',
@@ -101,8 +118,12 @@ export default {
     this.onMountedDetailPage(this.surahId)
   },
   methods: {
+    ...mapMutations([
+      'setHeaderTitle'
+    ]),
     ...mapActions([
-      'fetchSurahById'
+      'fetchSurahById',
+      'setLastReadVerse'
     ]),
     getTranslation (indexVerse) {
       return this.currentSurah.translations.id.text[indexVerse]
@@ -111,7 +132,7 @@ export default {
       this.fetchSurahById({
         id,
         success: (data) => {
-          EventBus.$emit('changeSurah', data.name_latin)
+          this.setHeaderTitle(data.name_latin)
           setTimeout(() => {
             this.loading = false
           }, 1000)
@@ -127,9 +148,8 @@ export default {
 
 .detail {
   &__header {
-    width: 95%;
-    margin: 0 auto;
-    padding: 0.25em;
+    width: 90%;
+    margin: 1em auto;
     font-size: 2rem;
     display: flex;
     align-content: center;
@@ -161,6 +181,8 @@ export default {
   }
   &__content {
     margin-bottom: 100px;
+    width: 90%;
+    margin: 0 auto;
   }
   &__footer {
     position: fixed;
@@ -190,11 +212,17 @@ export default {
 }
 
 .verse {
+  &__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   &__arabic {
     font-size: 2rem;
-    width: 80%;
+    width: 100%;
     float: right;
     text-align: right;
+    margin-top: .25em;
   }
   &__translation {
     font-size: 0.9rem;

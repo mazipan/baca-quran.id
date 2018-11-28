@@ -1,24 +1,19 @@
 <template>
-  <div class="app quran-offline">
+  <div
+    :class="theme"
+    class="app quran-offline">
     <div
       v-show="isShowSidebar"
       class="sidebar-cover"
       @click="hideSidebar" />
-    <BaseSidebar
-      :class="{'sidebar--open': isShowSidebar}"
-      :surah="surahShowing"
-      :theme="theme"
-      :theme-text-color="themeTextColor"/>
-    <BaseHeader
-      :surah="surahShowing"
-      :theme="theme"
-      :theme-text-color="themeTextColor"/>
+    <BaseSidebar :class="{'sidebar--open': isShowSidebar}"/>
+    <BaseHeader/>
     <nuxt class="app__content"/>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 import BaseHeader from '../components/BaseHeader.vue'
 import BaseSidebar from '../components/BaseSidebar.vue'
@@ -34,35 +29,33 @@ export default {
   },
   data () {
     return {
-      isShowSidebar: false,
-      surahShowing: ''
+      isShowSidebar: false
     }
   },
   computed: {
     ...mapState([
-      'theme',
-      'themeTextColor'
+      'theme'
     ])
   },
   mounted () {
-    EventBus.$on('toggleSidebar', param => {
-      if (__isNotNull(param)) {
-        this.isShowSidebar = param
-      } else {
-        this.isShowSidebar = !this.isShowSidebar
-      }
-    })
-    EventBus.$on('changeSurah', param => {
-      if (__isNotNull(param)) {
-        this.surahShowing = param
-      } else {
-        this.surahShowing = ''
-      }
-    })
+    this.initSidebarAction()
+    this.readDataFromStorage()
   },
   methods: {
-    hideSidebar: function () {
+    ...mapActions([
+      'readDataFromStorage'
+    ]),
+    hideSidebar () {
       EventBus.$emit('toggleSidebar')
+    },
+    initSidebarAction () {
+      EventBus.$on('toggleSidebar', param => {
+        if (__isNotNull(param)) {
+          this.isShowSidebar = param
+        } else {
+          this.isShowSidebar = !this.isShowSidebar
+        }
+      })
     }
   }
 }

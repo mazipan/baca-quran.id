@@ -8,13 +8,15 @@ export const ApiPath = {
 }
 
 export const Theme = {
-  BG_COLOR: '#41b883',
-  TEXT_COLOR: '#000'
+  LIGHT: 'light',
+  DARK: 'dark'
 }
 
 export const storageKey = {
   ALL_SURAH: 'ALL_SURAH',
-  SURAH_BY_ID: (id) => `SURAH_${id}`
+  SURAH_BY_ID: (id) => `SURAH_${id}`,
+  FAVORITE: 'FAV',
+  LAST_READ: 'LAST_READ'
 }
 
 export const SurahDefaultObject = {

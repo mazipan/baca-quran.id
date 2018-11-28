@@ -3,7 +3,7 @@
     <div class="header__sticky">
       <div class="header__nav">
         <a
-          v-if="!isHaveSurah"
+          v-if="isHomePage"
           class="header__hamburger"
           href="javascript:void(0)"
           title="Open Sidebar"
@@ -32,15 +32,15 @@
       <div
         class="header__content">
         <nuxt-link
-          v-if="!isHaveSurah"
+          v-if="isHomePage"
           to="/"
           class="header__title">
-          <h1>{{ appTitle }}</h1>
+          <h1>{{ headerTitle }}</h1>
         </nuxt-link>
-        <h1 v-else >{{ surah }}</h1>
+        <h1 v-else >{{ headerTitle }}</h1>
       </div>
       <div
-        v-if="isHaveSurah"
+        v-if="!isHomePage"
         class="header__nav pointer"
         @click="toggleMenuRight">
         <svg
@@ -81,27 +81,24 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import { EventBus } from '../eventbus/index'
 import { AppConstant } from '../constant/index'
-import { __isNotEmptyString } from '../utils/index'
 
 export default {
   name: 'BaseHeader',
-  props: {
-    surah: {
-      type: String,
-      default: ''
-    }
-  },
   data () {
     return {
-      isShowMenu: false,
-      appTitle: AppConstant.TITLE
+      isShowMenu: false
     }
   },
   computed: {
-    isHaveSurah () {
-      return __isNotEmptyString(this.surah)
+    ...mapState([
+      'headerTitle'
+    ]),
+    isHomePage () {
+      return this.headerTitle === AppConstant.TITLE
     }
   },
   methods: {

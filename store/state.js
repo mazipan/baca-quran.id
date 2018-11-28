@@ -1,8 +1,8 @@
-import { Theme, SurahDefaultObject } from '../constant/index'
+import { Theme, AppConstant, SurahDefaultObject } from '../constant/index'
 
 export default () => ({
-  theme: Theme.BG_COLOR,
-  themeTextColor: Theme.TEXT_COLOR,
+  theme: Theme.LIGHT,
+  headerTitle: AppConstant.TITLE,
   allSurahList: [],
   surahDetail: SurahDefaultObject,
   lastReadVerse: null,

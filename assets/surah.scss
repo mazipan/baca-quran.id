@@ -1,0 +1,26 @@
+.surah{
+  &__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title{
+    font-size: 2rem;
+    width: 100%;
+    float: right;
+    text-align: right;
+
+    &--latin{
+      width: 100%;
+      font-size: 1.5rem;
+    }
+  }
+  &__trans{
+    text-align: right;
+    font-style: italic;
+    line-height: 2;
+  }
+  &__count{
+    text-align: right;
+  }
+}
