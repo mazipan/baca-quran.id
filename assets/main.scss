@@ -78,7 +78,7 @@ a{
   display: block;
   text-decoration: none;
   text-align: center;
-  width: 90%;
+  width: 100%;
   margin: 1em auto;
   padding: 1em;
   border-radius: 4px;
@@ -88,20 +88,13 @@ a{
 }
 
 .tag_index {
-  position: absolute;
   background-color: $theme;
   color: #000;
   height: 30px;
   width: 50px;
   border-radius: 4%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 

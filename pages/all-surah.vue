@@ -6,43 +6,25 @@
         :key="i"
         class="skeleton skeleton_row"/>
     </div>
-    <template v-else>
-      <nuxt-link
-        v-for="surah in allSurahList"
-        :to="getSurahDetailUrl(surah, surah.index)"
-        :key="surah.index"
-        class="surah block_content has-shadow">
-        <div class="surah__index tag_index">
-          {{ surah.index }}
-        </div>
-        <div class="divider clearfix">
-          <div class="surah__title">
-            {{ surah.arabic }}
-          </div>
-        </div>
-        <div class="divider clearfix">
-          <div class="surah__title surah__title--latin">
-            {{ surah.latin }}
-          </div>
-        </div>
-        <div class="divider clearfix">
-          <div class="surah__trans">
-            ({{ surah.translation }}: {{ surah.ayah_count }} Ayat)
-          </div>
-        </div>
-      </nuxt-link>
-    </template>
+    <div
+      v-else
+      class="all-surah">
+      <SurahCard :surah-array="allSurahList"/>
+    </div>
   </section>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 
-import { EventBus } from '../eventbus/index'
+import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyString } from '../utils/index'
 
 export default {
   name: 'PageIndex',
+  components: {
+    SurahCard
+  },
   data () {
     return {
       loading: true
@@ -57,16 +39,16 @@ export default {
     }
   },
   mounted () {
-    EventBus.$emit('changeSurah')
+    this.setHeaderTitle('Daftar Surat')
     this.fetchSurahInfo()
   },
   methods: {
+    ...mapMutations([
+      'setHeaderTitle'
+    ]),
     ...mapActions([
       'fetchAllSurah'
     ]),
-    getSurahDetailUrl (surah, index) {
-      return `/${index}`
-    },
     fetchSurahInfo () {
       this.fetchAllSurah({
         success: () => {
@@ -83,25 +65,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.surah{
-  &__title{
-    font-size: 2rem;
-    width: 80%;
-    float: right;
-    text-align: right;
-
-    &--latin{
-      width: 100%;
-      font-size: 1.5rem;
-    }
-  }
-  &__trans{
-    text-align: right;
-    font-style: italic;
-    line-height: 2;
-  }
-  &__count{
-    text-align: right;
-  }
+.all-surah{
+  width: 90%;
+  margin: 0 auto;
 }
 </style>
