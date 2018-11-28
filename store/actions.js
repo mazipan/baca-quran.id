@@ -66,5 +66,11 @@ export default {
     const data = { surah, verse }
     commit('setLastReadVerse', data)
     setItem(storageKey.LAST_READ, data)
+  },
+  showNotification ({ commit }, { title = '', message = '' }) {
+    commit('setNotification', { show: true, title, message })
+    setTimeout(() => {
+      commit('setNotification', { show: false, title: '', message: '' })
+    }, 3000)
   }
 }

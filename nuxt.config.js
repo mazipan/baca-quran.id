@@ -52,7 +52,9 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/vue-social-sharing.js', ssr: false }
+  ],
 
   /*
    ** Nuxt.js modules

@@ -15,6 +15,9 @@
             fill="#fff">
             <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/>
           </svg>
+          <img
+            src="/icon-nosquare50.png"
+            alt="Logo">
         </a>
         <nuxt-link
           v-else
