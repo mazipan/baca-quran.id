@@ -16,5 +16,8 @@ export default {
   },
   setSurahFavorite (state, data) {
     state.surahFavorite = data
+  },
+  setNotification (state, data) {
+    state.notification = data
   }
 }

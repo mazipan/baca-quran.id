@@ -9,6 +9,7 @@
     <BaseSidebar :class="{'sidebar--open': isShowSidebar}"/>
     <BaseHeader/>
     <nuxt class="app__content"/>
+    <BaseToast/>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import { mapState, mapActions } from 'vuex'
 
 import BaseHeader from '../components/BaseHeader.vue'
 import BaseSidebar from '../components/BaseSidebar.vue'
+import BaseToast from '../components/BaseToast.vue'
 
 import { __isNotNull } from '../utils/index'
 import { EventBus } from '../eventbus/index'
@@ -25,7 +27,8 @@ export default {
   name: 'DefaultLayout',
   components: {
     BaseHeader,
-    BaseSidebar
+    BaseSidebar,
+    BaseToast
   },
   data () {
     return {

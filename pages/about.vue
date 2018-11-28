@@ -6,6 +6,7 @@
     <h2>Selamat datang di</h2>
     <h1>{{ appTitle }}</h1>
 
+    <br><br>
     <p>
       Bila Anda menemukan bug atau menginginkan fitur baru, silahkan isi <a href="https://github.com/mazipan/quran-offline/issues/new">disini.</a>
     </p>

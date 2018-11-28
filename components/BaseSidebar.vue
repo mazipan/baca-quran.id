@@ -3,7 +3,7 @@
     <div class="sidebar__content">
       <div class="sidebar__head">
         <img
-          src="/favicon-96x96.png"
+          src="/icon-nosquare50.png"
           alt="Logo">
       </div>
       <ul class="sidebar__menu">
