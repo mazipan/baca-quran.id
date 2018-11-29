@@ -1,6 +1,7 @@
-import { ApiPath, storageKey } from '../constant/index'
+import { storageKey } from '../constant/index'
 import { __isNotNull } from '../utils/index'
 import { getItem, setItem } from '../utils/storage'
+import { getAllSurah, getSurahById } from '../services/index'
 
 export default {
   fetchAllSurah ({ commit }, { success = () => {} }) {
@@ -9,10 +10,7 @@ export default {
       commit('setSurahList', cache)
       success && success(cache)
     } else {
-      fetch(ApiPath.SURAH_INFO)
-        .then(response => {
-          return response.json()
-        })
+      getAllSurah()
         .then(data => {
           const indexedData = data.surah_info.map((item, idx) => {
             return Object.assign({}, item, { index: idx + 1 })
@@ -29,10 +27,7 @@ export default {
       commit('setSurahDetail', cache)
       success && success(cache)
     } else {
-      fetch(ApiPath.SURAH_BY_ID(id))
-        .then(response => {
-          return response.json()
-        })
+      getSurahById(id)
         .then(data => {
           commit('setSurahDetail', data[id])
           setItem(storageKey.SURAH_BY_ID(id), data[id])
