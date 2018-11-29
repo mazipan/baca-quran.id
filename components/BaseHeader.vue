@@ -73,9 +73,9 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 
-import MdMenuIcon from 'icons/md-menu'
-import MdArrowBackIcon from 'icons/md-arrow-back'
-import MdMoreIcon from 'icons/md-more'
+import MdMenuIcon from 'vue-ionicons/dist/md-menu'
+import MdArrowBackIcon from 'vue-ionicons/dist/md-arrow-back'
+import MdMoreIcon from 'vue-ionicons/dist/md-more'
 
 import { AppConstant } from '../constant/index'
 

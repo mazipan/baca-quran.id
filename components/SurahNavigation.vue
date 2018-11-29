@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import MdArrowBackIcon from 'icons/md-arrow-back'
-import MdArrowForwardIcon from 'icons/md-arrow-forward'
+import MdArrowBackIcon from 'vue-ionicons/dist/md-arrow-back'
+import MdArrowForwardIcon from 'vue-ionicons/dist/md-arrow-forward'
 
 export default {
   name: 'SurahNavigation',
