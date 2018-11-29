@@ -60,10 +60,10 @@
 <script>
 import { mapMutations } from 'vuex'
 
-import MdHomeIcon from 'icons/md-home'
-import MdBookIcon from 'icons/md-book'
-import MdHelpCircleIcon from 'icons/md-help-circle'
-import MdCodeIcon from 'icons/md-code'
+import MdHomeIcon from 'vue-ionicons/dist/md-home'
+import MdBookIcon from 'vue-ionicons/dist/md-book'
+import MdHelpCircleIcon from 'vue-ionicons/dist/md-help-circle'
+import MdCodeIcon from 'vue-ionicons/dist/md-code'
 
 export default {
   name: 'BaseSidebar',

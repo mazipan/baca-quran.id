@@ -93,6 +93,7 @@ module.exports = {
      */
     extend (config, ctx) {
       // Run ESLint on save
+      config.resolve.alias['icons'] = path.resolve(__dirname, 'node_modules/vue-ionicons/dist')
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -100,7 +101,6 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
-        config.resolve.alias['icons'] = path.resolve(__dirname, 'node_modules/vue-ionicons/dist')
       }
     }
   }

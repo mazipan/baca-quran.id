@@ -28,7 +28,7 @@ import 'unfetch/polyfill'
 
 import { mapState, mapMutations, mapActions } from 'vuex'
 
-import ArrowUpIcon from 'icons/ios-arrow-dropup-circle'
+import ArrowUpIcon from 'vue-ionicons/dist/ios-arrow-dropup-circle'
 
 import BaseHeader from '../components/BaseHeader.vue'
 import BaseSidebar from '../components/BaseSidebar.vue'
