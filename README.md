@@ -4,10 +4,27 @@
 
 [![Travis](https://img.shields.io/travis/mazipan/quran-offline.svg)](https://travis-ci.org/mazipan/quran-offline)
 
-
 ## Live Website
 
 [https://quran-offline.netlify.com/](https://quran-offline.netlify.com/)
+
+## Screenshoot
+
+![Screenshoot Apps](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot.png)
+
+## Fitur
+
++ Akses offline (setelah akses online pertama)
++ Cari surat berdasarkan nama
++ Simpan surat favorit
++ Simpan ayat yang dibaca terakhir
++ Rekomendasi surat populer
+
+TODO
+
++ Mode malam
++ Pergi ke ayat dengan cepat di dalam surat
++ Audio
 
 ## Build Setup
 

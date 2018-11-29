@@ -4,9 +4,13 @@ const path = require('path')
 const getOfflineAssets = () => {
   let res = [
     '/favicon.ico',
+    '/favicon-16x16.png',
     '/favicon-32x32.png',
     '/favicon-96x96.png',
     '/icon-192x192.png',
+    '/icon-nosquare.png',
+    '/icon-nosquare50.png',
+    '/icon.png',
     '/data/surah-info.json'
   ]
   for (let i = 0; i < 114; i++) {
@@ -25,14 +29,30 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description },
-      { hid: 'theme-color', name: 'theme-color', content: '#41b883' },
-      { hid: 'og:image', name: 'og:image', content: '/icon.png' }
+      { name: 'description', content: pkg.description },
+      { name: 'theme-color', content: '#41b883' },
+
+      { property: 'og:image', content: '/icon.png' },
+      { property: 'og:title', content: 'Quran Offline' },
+      { property: 'og:description', content: pkg.description },
+      { property: 'og:url', content: 'https://quran-offline.netlify.com/' },
+
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image:src', content: '/icon.png' },
+      { name: 'twitter:title', content: 'Quran Offline' },
+      { name: 'twitter:description', content: pkg.description },
+      { name: 'twitter:url', content: 'https://quran-offline.netlify.com/' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' }
+    ],
+    noscript: [
+      {
+        innerHTML: 'This website requires JavaScript.',
+        body: true
+      }
     ]
   },
   manifest: {
