@@ -1,4 +1,6 @@
 const pkg = require('./package')
+const path = require('path')
+
 const getOfflineAssets = () => {
   let res = [
     '/favicon.ico',
@@ -12,6 +14,7 @@ const getOfflineAssets = () => {
   }
   return res
 }
+
 module.exports = {
   mode: 'spa',
   /*
@@ -98,6 +101,7 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+        config.resolve.alias['icons'] = path.resolve(__dirname, 'node_modules/vue-ionicons/dist')
       }
     }
   }

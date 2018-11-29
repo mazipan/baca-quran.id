@@ -23,6 +23,8 @@ import BaseToast from '../components/BaseToast.vue'
 import { __isNotNull } from '../utils/index'
 import { EventBus } from '../eventbus/index'
 
+require('vue-ionicons/ionicons.css')
+
 export default {
   name: 'DefaultLayout',
   components: {
