@@ -7,6 +7,7 @@ export default () => ({
     message: ''
   },
   theme: Theme.LIGHT,
+  isShowSidebar: false,
   headerTitle: AppConstant.TITLE,
   allSurahList: [],
   surahDetail: SurahDefaultObject,
