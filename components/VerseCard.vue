@@ -10,14 +10,21 @@
           {{ Number(index) }}
         </div>
         <div class="verse__header--right">
-          <MdBookmarkIcon
-            w="30px"
-            h="30px"
-            @click="doSetLastReadVerse({ surah: surahId, verse: Number(index) })"/>
-          <MdShareIcon
-            w="30px"
-            h="30px"
-            @click="shareVerse(verse, Number(index))"/>
+          <div
+            class="verse__header_icon"
+            @click="doSetLastReadVerse({ surah: surahId, verse: Number(index) })">
+            <MdBookmarkIcon
+              w="2em"
+              h="2em"/>
+          </div>
+
+          <div
+            class="verse__header_icon"
+            @click="shareVerse(verse, Number(index))">
+            <MdShareIcon
+              w="2em"
+              h="2em"/>
+          </div>
         </div>
       </div>
       <div class="divider clearfix">
@@ -73,6 +80,7 @@ export default {
       return this.translations.id.text[indexVerse]
     },
     doSetLastReadVerse (data) {
+      console.log(data)
       this.setLastReadVerse(data)
       this.showNotification({
         title: 'Pesan Sukses',
@@ -101,6 +109,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    &--right {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
   &__arabic {
     font-size: 2rem;
