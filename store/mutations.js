@@ -2,6 +2,9 @@ export default {
   setTheme (state, data) {
     state.theme = data
   },
+  setShowSidebar (state, data) {
+    state.isShowSidebar = data
+  },
   setHeaderTitle (state, data) {
     state.headerTitle = data
   },

@@ -1,5 +1,7 @@
 <template>
-  <header class="header">
+  <header
+    id="header"
+    class="header">
     <div class="header__sticky">
       <div class="header__nav">
         <a
@@ -69,13 +71,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 import MdMenuIcon from 'icons/md-menu'
 import MdArrowBackIcon from 'icons/md-arrow-back'
 import MdMoreIcon from 'icons/md-more'
 
-import { EventBus } from '../eventbus/index'
 import { AppConstant } from '../constant/index'
 
 export default {
@@ -99,6 +100,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations([
+      'setShowSidebar'
+    ]),
     navigateTo: function (link) {
       this.toggleMenuRight()
       if (link.indexOf('http') >= 0) {
@@ -116,7 +120,7 @@ export default {
       }
     },
     toggleSidebar () {
-      EventBus.$emit('toggleSidebar')
+      this.setShowSidebar(true)
     }
   }
 }

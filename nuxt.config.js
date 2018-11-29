@@ -56,7 +56,6 @@ module.exports = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/vue-social-sharing.js', ssr: false }
   ],
 
   /*

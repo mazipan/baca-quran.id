@@ -10,18 +10,29 @@
     <BaseHeader/>
     <nuxt class="app__content"/>
     <BaseToast/>
+    <div
+      v-show="showArrowToTop"
+      class="arrowtotop">
+      <a href="#header">
+        <ArrowUpIcon
+          w="3em"
+          h="3em"/>
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+// polyfill
+import 'unfetch/polyfill'
+
+import { mapState, mapMutations, mapActions } from 'vuex'
+
+import ArrowUpIcon from 'icons/ios-arrow-dropup-circle'
 
 import BaseHeader from '../components/BaseHeader.vue'
 import BaseSidebar from '../components/BaseSidebar.vue'
 import BaseToast from '../components/BaseToast.vue'
-
-import { __isNotNull } from '../utils/index'
-import { EventBus } from '../eventbus/index'
 
 require('vue-ionicons/ionicons.css')
 
@@ -30,37 +41,39 @@ export default {
   components: {
     BaseHeader,
     BaseSidebar,
-    BaseToast
+    BaseToast,
+    ArrowUpIcon
   },
   data () {
     return {
-      isShowSidebar: false
+      showArrowToTop: false
     }
   },
   computed: {
     ...mapState([
-      'theme'
+      'theme',
+      'isShowSidebar'
     ])
   },
   mounted () {
-    this.initSidebarAction()
     this.readDataFromStorage()
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  beforedestroy () {
+    window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
+    ...mapMutations([
+      'setShowSidebar'
+    ]),
     ...mapActions([
       'readDataFromStorage'
     ]),
     hideSidebar () {
-      EventBus.$emit('toggleSidebar')
+      this.setShowSidebar(false)
     },
-    initSidebarAction () {
-      EventBus.$on('toggleSidebar', param => {
-        if (__isNotNull(param)) {
-          this.isShowSidebar = param
-        } else {
-          this.isShowSidebar = !this.isShowSidebar
-        }
-      })
+    handleScroll (e) {
+      this.showArrowToTop = (window.pageYOffset > 2000)
     }
   }
 }
@@ -74,5 +87,10 @@ export default {
     top:0px; right: 0px; bottom: 0px; left: 0px;
     height: 100%;
     z-index: 19;
+  }
+  .arrowtotop{
+    position: fixed;
+    bottom: 90px;
+    right: 10px;
   }
 </style>

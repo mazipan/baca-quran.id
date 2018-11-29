@@ -22,7 +22,9 @@
 
       <SurahNavigation
         :surah-id="surahId"
-        :surah-name="currentSurah.name"/>
+        :surah-name="currentSurah.name"
+        :next-surah="nextSurah"
+        :prev-surah="prevSurah"/>
 
     </div>
   </section>
@@ -33,6 +35,8 @@ import { mapActions, mapMutations, mapState } from 'vuex'
 
 import VerseCard from '../components/VerseCard'
 import SurahNavigation from '../components/SurahNavigation'
+
+import { __isNotEmptyArray } from '../utils/index'
 
 export default {
   name: 'PageSurahDetail',
@@ -47,7 +51,8 @@ export default {
   },
   computed: {
     ...mapState([
-      'surahDetail'
+      'surahDetail',
+      'allSurahList'
     ]),
     currentSurah () {
       return this.surahDetail
@@ -57,6 +62,22 @@ export default {
     },
     isValidSurah () {
       return this.surahId > 0 && this.surahId <= 114
+    },
+    prevSurah () {
+      if (__isNotEmptyArray(this.allSurahList)) {
+        if (this.surahId > 1) {
+          return this.allSurahList.find(item => item.index === this.surahId - 1)
+        }
+      }
+      return null
+    },
+    nextSurah () {
+      if (__isNotEmptyArray(this.allSurahList)) {
+        if (this.surahId < 114) {
+          return this.allSurahList.find(item => item.index === this.surahId + 1)
+        }
+      }
+      return null
     }
   },
   mounted () {
@@ -67,13 +88,20 @@ export default {
       'setHeaderTitle'
     ]),
     ...mapActions([
+      'fetchAllSurah',
       'fetchSurahById'
     ]),
     onMountedDetailPage (id) {
+      if (!__isNotEmptyArray(this.allSurahList)) {
+        this.fetchAllSurah({
+          success: () => {}
+        })
+      }
+
       this.fetchSurahById({
         id,
         success: (data) => {
-          this.setHeaderTitle(data.name_latin)
+          this.setHeaderTitle(`${data.name_latin} - ${data.name}`)
           setTimeout(() => {
             this.loading = false
           }, 1000)

@@ -58,12 +58,12 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 import MdHomeIcon from 'icons/md-home'
 import MdBookIcon from 'icons/md-book'
 import MdHelpCircleIcon from 'icons/md-help-circle'
 import MdCodeIcon from 'icons/md-code'
-
-import { EventBus } from '../eventbus/index'
 
 export default {
   name: 'BaseSidebar',
@@ -74,12 +74,15 @@ export default {
     MdCodeIcon
   },
   methods: {
+    ...mapMutations([
+      'setShowSidebar'
+    ]),
     navigateTo: function (e) {
       this.hideSidebar()
       e.preventDefault()
     },
     hideSidebar: function () {
-      EventBus.$emit('toggleSidebar', false)
+      this.setShowSidebar(false)
     }
   }
 }

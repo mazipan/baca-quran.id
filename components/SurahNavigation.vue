@@ -3,34 +3,40 @@
     <nuxt-link
       :to="`/${surahId - 1}`"
       class="surah_nav_item surah_nav_prev">
-      <svg
+      <MdArrowBackIcon
         v-if="isHavePrev"
-        width="30px"
-        height="30px"
-        viewBox="0 0 512 512">
-        <path d="M427 234.625H167.296l119.702-119.702L256 85 85 256l171 171 29.922-29.924-118.626-119.701H427v-42.75z"/>
-      </svg>
+        w="30px"
+        h="30px"/>
+      <span
+        v-if="prevSurah">
+        {{ prevSurah.arabic }}
+      </span>
     </nuxt-link>
-    <div class="surah_nav_item surah_nav_title">
-      {{ surahName }}
-    </div>
     <nuxt-link
       :to="`/${surahId + 1}`"
       class="surah_nav_item surah_nav_next">
-      <svg
+      <span
+        v-if="nextSurah">
+        {{ nextSurah.arabic }}
+      </span>
+      <MdArrowForwardIcon
         v-if="isHaveNext"
-        width="30px"
-        height="30px"
-        viewBox="0 0 512 512">
-        <path d="M85 277.375h259.704L225.002 397.077 256 427l171-171L256 85l-29.922 29.924 118.626 119.701H85v42.75z"/>
-      </svg>
+        w="30px"
+        h="30px"/>
     </nuxt-link>
   </div>
 </template>
 
 <script>
+import MdArrowBackIcon from 'icons/md-arrow-back'
+import MdArrowForwardIcon from 'icons/md-arrow-forward'
+
 export default {
   name: 'SurahNavigation',
+  components: {
+    MdArrowBackIcon,
+    MdArrowForwardIcon
+  },
   props: {
     surahId: {
       type: Number,
@@ -39,6 +45,18 @@ export default {
     surahName: {
       type: String,
       default: ''
+    },
+    nextSurah: {
+      type: Object,
+      default: () => ({
+        arabic: ''
+      })
+    },
+    prevSurah: {
+      type: Object,
+      default: () => ({
+        arabic: ''
+      })
     }
   },
   computed: {
@@ -57,11 +75,13 @@ export default {
 
 .surah_nav {
   position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   bottom: 0;
   right: 0;
   left: 0;
   z-index: 10;
-  display: table;
   margin: 0;
   height: 60px;
   text-align: center;
@@ -69,15 +89,20 @@ export default {
   background: $theme;
   color: $foreground;
   &_item {
-    display: table-cell;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    color: $foreground;
   }
   &_title {
     font-size: 2rem;
   }
   &_prev,
   &_next {
-    width: 50px;
+    text-decoration: none;
+    span{
+      padding: 0 .25em;
+      font-size: 2rem;
+    }
   }
 }
 </style>
