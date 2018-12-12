@@ -1,0 +1,26 @@
+@import './variables';
+
+.feed{
+  display: block;
+  width: 90%;
+  margin: 1em auto;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+
+  &__title{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+
+    svg{
+      margin-right: .2em;
+    }
+  }
+  &__empty{
+    text-align: left;
+    padding-top: 1em;
+    color: #333;
+    font-style: italic;
+  }
+}

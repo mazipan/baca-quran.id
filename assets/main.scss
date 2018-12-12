@@ -109,8 +109,11 @@ a{
   background-size: 800px 104px;
   position: relative;
   &_row {
-    height: 150px;
+    height: 100px;
     width: 90%;
     margin: 1em auto;
+    &--big{
+      height: 150px;
+    }
   }
 }

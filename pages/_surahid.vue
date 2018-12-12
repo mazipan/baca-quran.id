@@ -101,7 +101,7 @@ export default {
       this.fetchSurahById({
         id,
         success: (data) => {
-          this.setHeaderTitle(`${data.name_latin} - ${data.name}`)
+          this.setHeaderTitle(`${id}: ${data.name_latin}`)
           setTimeout(() => {
             this.loading = false
           }, 1000)
