@@ -1,5 +1,9 @@
 export const AppConstant = {
-  TITLE: "Qur'an Offline"
+  TITLE: "Qur'an Offline",
+  LAST_READ: 'Terakhir dibaca',
+  FAVORITE: 'Surat favorit',
+  RECOMMENDATION: 'Surat rekomendasi',
+  SEARCH_PAGE: 'Pencarian'
 }
 
 export const ApiPath = {

@@ -4,7 +4,7 @@
       <div
         v-for="i in 5"
         :key="i"
-        class="skeleton skeleton_row"/>
+        class="skeleton skeleton_row skeleton_row--big"/>
     </div>
     <div
       v-else

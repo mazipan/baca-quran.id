@@ -20,6 +20,17 @@
         </li>
         <li class="sidebar__item">
           <router-link
+            to="/search"
+            class="sidebar__link"
+            @click.native="navigateTo" >
+            <MdSearchIcon
+              w="2em"
+              h="2em"/>
+            {{ AppConstant.SEARCH_PAGE }}
+          </router-link>
+        </li>
+        <li class="sidebar__item">
+          <router-link
             to="/all-surah"
             class="sidebar__link"
             @click.native="navigateTo" >
@@ -27,6 +38,39 @@
               w="2em"
               h="2em"/>
             Daftar Surat
+          </router-link>
+        </li>
+        <li class="sidebar__item">
+          <router-link
+            to="/last-verse"
+            class="sidebar__link"
+            @click.native="navigateTo" >
+            <IosBookmarkIcon
+              w="2em"
+              h="2em"/>
+            {{ AppConstant.LAST_READ }}
+          </router-link>
+        </li>
+        <li class="sidebar__item">
+          <router-link
+            to="/favorite"
+            class="sidebar__link"
+            @click.native="navigateTo" >
+            <IosStarOutlineIcon
+              w="2em"
+              h="2em"/>
+            {{ AppConstant.FAVORITE }}
+          </router-link>
+        </li>
+        <li class="sidebar__item">
+          <router-link
+            to="/recommendation"
+            class="sidebar__link"
+            @click.native="navigateTo" >
+            <IosNavigateIcon
+              w="2em"
+              h="2em"/>
+            {{ AppConstant.RECOMMENDATION }}
           </router-link>
         </li>
         <li class="sidebar__item">
@@ -64,6 +108,12 @@ import MdHomeIcon from 'vue-ionicons/dist/md-home'
 import MdBookIcon from 'vue-ionicons/dist/md-book'
 import MdHelpCircleIcon from 'vue-ionicons/dist/md-help-circle'
 import MdCodeIcon from 'vue-ionicons/dist/md-code'
+import MdSearchIcon from 'vue-ionicons/dist/md-search'
+import IosNavigateIcon from 'vue-ionicons/dist/ios-navigate'
+import IosStarOutlineIcon from 'vue-ionicons/dist/ios-star-outline'
+import IosBookmarkIcon from 'vue-ionicons/dist/ios-bookmark'
+
+import { AppConstant } from '../constant/index.js'
 
 export default {
   name: 'BaseSidebar',
@@ -71,7 +121,16 @@ export default {
     MdHomeIcon,
     MdBookIcon,
     MdHelpCircleIcon,
-    MdCodeIcon
+    MdCodeIcon,
+    MdSearchIcon,
+    IosNavigateIcon,
+    IosStarOutlineIcon,
+    IosBookmarkIcon
+  },
+  data () {
+    return {
+      AppConstant
+    }
   },
   methods: {
     ...mapMutations([
