@@ -3,10 +3,12 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>/.nuxt/',
     '<rootDir>/assets/',
+    '<rootDir>/constant/',
     '<rootDir>/dist/',
     '<rootDir>/middleware/',
     '<rootDir>/node_modules/',
     '<rootDir>/plugins/',
+    '<rootDir>/server/',
     '<rootDir>/static/'
   ],
   coverageDirectory: 'coverage',
