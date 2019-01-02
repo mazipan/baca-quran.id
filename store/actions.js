@@ -4,6 +4,39 @@ import { getItem, setItem } from '../utils/storage'
 import { getAllSurah, getSurahById } from '../services/index'
 
 export default {
+  initDataFromBrowserStorage ({ commit }) {
+    const cacheFavorite = getItem(storageKey.FAVORITE) || []
+    commit('setSurahFavorite', cacheFavorite)
+    const cacheLastRead = getItem(storageKey.LAST_READ) || {}
+    commit('setLastReadVerse', cacheLastRead)
+  },
+  showNotification ({ commit }, { title = '', message = '' }) {
+    commit('setNotification', { show: true, title, message })
+    setTimeout(() => {
+      commit('setNotification', { show: false, title: '', message: '' })
+    }, 3000)
+  },
+  addToFavorite ({ commit, state }, surah) {
+    const isExist = state.surahFavorite.find(item => item.index === surah.index)
+    if (!isExist) {
+      const newFavorite = [].concat(state.surahFavorite).concat([surah])
+      commit('setSurahFavorite', newFavorite)
+      setItem(storageKey.FAVORITE, newFavorite)
+    }
+  },
+  removeFromFavorite ({ commit, state }, surah) {
+    const isExist = state.surahFavorite.find(item => item.index === surah.index)
+    if (isExist) {
+      const newFavorite = state.surahFavorite.filter(item => item.index !== surah.index) || []
+      commit('setSurahFavorite', newFavorite)
+      setItem(storageKey.FAVORITE, newFavorite)
+    }
+  },
+  setLastReadVerse ({ commit, state }, { surah, verse }) {
+    const data = { surah, verse }
+    commit('setLastReadVerse', data)
+    setItem(storageKey.LAST_READ, data)
+  },
   fetchAllSurah ({ commit }, { success = () => {} }) {
     const cache = getItem(storageKey.ALL_SURAH)
     if (__isNotNull(cache)) {
@@ -34,38 +67,5 @@ export default {
           success && success(data[id])
         })
     }
-  },
-  readDataFromStorage ({ commit }) {
-    const cacheFavorite = getItem(storageKey.FAVORITE) || []
-    commit('setSurahFavorite', cacheFavorite)
-    const cacheLastRead = getItem(storageKey.LAST_READ) || {}
-    commit('setLastReadVerse', cacheLastRead)
-  },
-  addToFavorite ({ commit, state }, surah) {
-    const isExist = state.surahFavorite.find(item => item.index === surah.index)
-    if (!isExist) {
-      const newFavorite = [].concat(state.surahFavorite).concat([surah])
-      commit('setSurahFavorite', newFavorite)
-      setItem(storageKey.FAVORITE, newFavorite)
-    }
-  },
-  removeFromFavorite ({ commit, state }, surah) {
-    const isExist = state.surahFavorite.find(item => item.index === surah.index)
-    if (isExist) {
-      const newFavorite = state.surahFavorite.filter(item => item.index !== surah.index) || []
-      commit('setSurahFavorite', newFavorite)
-      setItem(storageKey.FAVORITE, newFavorite)
-    }
-  },
-  setLastReadVerse ({ commit, state }, { surah, verse }) {
-    const data = { surah, verse }
-    commit('setLastReadVerse', data)
-    setItem(storageKey.LAST_READ, data)
-  },
-  showNotification ({ commit }, { title = '', message = '' }) {
-    commit('setNotification', { show: true, title, message })
-    setTimeout(() => {
-      commit('setNotification', { show: false, title: '', message: '' })
-    }, 3000)
   }
 }

@@ -56,7 +56,7 @@ export default {
     ])
   },
   mounted () {
-    this.readDataFromStorage()
+    this.initDataFromBrowserStorage()
     window.addEventListener('scroll', this.handleScroll)
   },
   beforedestroy () {
@@ -67,7 +67,7 @@ export default {
       'setShowSidebar'
     ]),
     ...mapActions([
-      'readDataFromStorage'
+      'initDataFromBrowserStorage'
     ]),
     hideSidebar () {
       this.setShowSidebar(false)

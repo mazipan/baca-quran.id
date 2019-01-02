@@ -1,4 +1,5 @@
 export const AppConstant = {
+  VERSION: '0.0.1',
   TITLE: "Qur'an Offline",
   LAST_READ: 'Terakhir dibaca',
   FAVORITE: 'Surat favorit',
@@ -38,6 +39,13 @@ export const SurahDefaultObject = {
 }
 
 export const surahStaticRecommendation = [
+  {
+    translation: 'Yusuf',
+    arabic: 'يوسف',
+    latin: 'Yusuf',
+    ayah_count: 111,
+    index: 12
+  },
   { translation: 'Goa', arabic: 'الكهف', latin: 'Al-Kahf', ayah_count: 110, index: 18 },
   { translation: 'Yasin',
     arabic: 'يٰسۤ',
