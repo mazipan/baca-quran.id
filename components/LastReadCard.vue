@@ -2,14 +2,12 @@
   <div class="surah__root">
     <a
       class="surah block_content has-shadow"
-      @click.prevent="goToSurahDetail(surah.index, surah.verse)"
-    >
+      @click.prevent="goToSurahDetail(surah.index, surah.verse)">
       <div class="surah__header">
         <div class="surah__header--left">
           <div
             class="surah__index tag_index"
-            style="width: 130px;"
-          >
+            style="width: 130px;">
             Ayat ke {{ surah.verse }}
           </div>
         </div>

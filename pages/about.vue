@@ -2,8 +2,7 @@
   <div class="container about center">
     <img
       src="/icon-192x192.png"
-      alt="Logo"
-    >
+      alt="Logo">
     <h2>Selamat datang di</h2>
     <h1>{{ appTitle }}</h1>
 
@@ -21,8 +20,7 @@
                         <a
                           href="https://github.com/mazipan/quran-offline"
                           target="_blank"
-                          rel="noopener"
-                        >
+                          rel="noopener">
                           kode sumber yang terbuka
                         </a>
                         <br>

@@ -4,73 +4,61 @@
       <div
         v-for="i in 5"
         :key="i"
-        class="skeleton skeleton_row"
-      />
+        class="skeleton skeleton_row" />
     </div>
     <div
       v-else
-      class="home"
-    >
+      class="home">
       <div class="home__wrapper">
         <div class="item">
-          <RouterLink
+          <nuxt-link
             to="/all-surah"
-            class="item__link has-shadow"
-          >
+            class="item__link has-shadow">
             <MdBookIcon
               w="2em"
-              h="2em"
-            />
+              h="2em" />
             Daftar Surat
-          </RouterLink>
+          </nuxt-link>
         </div>
         <div class="item">
-          <RouterLink
+          <nuxt-link
             to="/search"
-            class="item__link has-shadow"
-          >
+            class="item__link has-shadow">
             <MdSearchIcon
               w="2em"
-              h="2em"
-            />
+              h="2em" />
             {{ AppConstant.SEARCH_PAGE }}
-          </RouterLink>
+          </nuxt-link>
         </div>
         <div class="item">
-          <RouterLink
+          <nuxt-link
             to="/last-verse"
-            class="item__link has-shadow"
-          >
+            class="item__link has-shadow">
             <IosBookmarkIcon
               w="2em"
-              h="2em"
-            />
+              h="2em" />
             {{ AppConstant.LAST_READ }}
-          </RouterLink>
+          </nuxt-link>
         </div>
         <div class="item">
-          <RouterLink
+          <nuxt-link
             to="/favorite"
-            class="item__link has-shadow"
-          >
+            class="item__link has-shadow">
             <IosStarOutlineIcon
               w="2em"
-              h="2em"
-            />
+              h="2em" />
             {{ AppConstant.FAVORITE }}
-          </RouterLink>
+          </nuxt-link>
         </div>
         <div class="item">
-          <RouterLink
+          <nuxt-link
             to="/recommendation"
-            class="item__link has-shadow"
-          >
+            class="item__link has-shadow">
             <IosNavigateIcon
               w="2em"
-              h="2em"
-            />
+              h="2em" />
             {{ AppConstant.RECOMMENDATION }}
-          </RouterLink>
+          </nuxt-link>
         </div>
       </div>
     </div>

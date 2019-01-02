@@ -1,8 +1,7 @@
 <template>
   <header
     id="header"
-    class="header"
-  >
+    class="header">
     <div class="header__sticky">
       <div class="header__nav">
         <a
@@ -10,34 +9,28 @@
           class="header__hamburger"
           href="javascript:void(0)"
           title="Open Sidebar"
-          @click="toggleSidebar"
-        >
+          @click="toggleSidebar">
           <MdMenuIcon
             w="30px"
-            h="30px"
-          />
+            h="30px" />
         </a>
-        <NuxtLink
+        <nuxt-link
           v-else
           to="/?source=surah"
-          class="header__hamburger"
-        >
+          class="header__hamburger">
           <MdArrowBackIcon
             w="30px"
-            h="30px"
-          />
-        </NuxtLink>
+            h="30px" />
+        </nuxt-link>
       </div>
       <div
-        class="header__content"
-      >
-        <NuxtLink
+        class="header__content">
+        <nuxt-link
           v-if="isHomePage"
           to="/"
-          class="header__title"
-        >
+          class="header__title">
           <h1>{{ headerTitle }}</h1>
-        </NuxtLink>
+        </nuxt-link>
         <h1 v-else>
           {{ headerTitle }}
         </h1>
@@ -45,38 +38,32 @@
       <div
         v-if="!isHomePage"
         class="header__nav pointer"
-        @click="toggleMenuRight"
-      >
+        @click="toggleMenuRight">
         <MdMoreIcon
           w="30px"
-          h="30px"
-        />
+          h="30px" />
       </div>
       <div
         v-else
-        class="header__nav"
-      >
+        class="header__nav">
         &nbsp;
       </div>
     </div>
     <nav
       v-show="isShowMenu"
-      class="menu_right"
-    >
+      class="menu_right">
       <ul>
         <li>
           <div
             class="menu_link"
-            @click="navigateTo('https://github.com/mazipan/quran-offline')"
-          >
+            @click="navigateTo('https://github.com/mazipan/quran-offline')">
             Tentang
           </div>
         </li>
         <li>
           <div
             class="menu_link"
-            @click="navigateTo('https://github.com/mazipan/quran-offline')"
-          >
+            @click="navigateTo('https://github.com/mazipan/quran-offline')">
             Kode Sumber
           </div>
         </li>

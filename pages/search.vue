@@ -3,8 +3,7 @@
     <div class="search clearfix">
       <label
         for="search-surah"
-        class="search__title"
-      >
+        class="search__title">
         Pencarian Surat
       </label>
       <input
@@ -12,23 +11,20 @@
         v-model="searchText"
         type="search"
         name="search"
-        placeholder="Surat apa yang ingin dibaca hari ini?"
-      >
+        placeholder="Surat apa yang ingin dibaca hari ini?">
       <div
         v-if="filteredSurah.length > 0"
-        class="search__title"
-      >
+        class="search__title">
         Hasil Pencarian:
       </div>
       <div class="search__result clearfix">
-        <NuxtLink
+        <nuxt-link
           v-for="surah in filteredSurah"
           :key="surah.index"
           :to="getSurahDetailUrl(surah.index)"
-          class="has-shadow"
-        >
+          class="has-shadow">
           {{ surah.index }} : {{ surah.latin }}
-        </NuxtLink>
+        </nuxt-link>
       </div>
     </div>
   </div>

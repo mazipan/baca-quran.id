@@ -4,8 +4,7 @@
       v-for="(verse, index) in verseArray"
       :id="`verse-${index}`"
       :key="index"
-      class="verse block_content has-shadow"
-    >
+      class="verse block_content has-shadow">
       <div class="verse__header">
         <div class="verse__index tag_index">
           {{ Number(index) }}
@@ -13,22 +12,18 @@
         <div class="verse__header--right">
           <div
             class="verse__header_icon"
-            @click="doSetLastReadVerse({ surah: surahId, verse: Number(index) })"
-          >
+            @click="doSetLastReadVerse({ surah: surahId, verse: Number(index) })">
             <MdBookmarkIcon
               w="2em"
-              h="2em"
-            />
+              h="2em" />
           </div>
 
           <div
             class="verse__header_icon"
-            @click="shareVerse(verse, Number(index))"
-          >
+            @click="shareVerse(verse, Number(index))">
             <MdShareIcon
               w="2em"
-              h="2em"
-            />
+              h="2em" />
           </div>
         </div>
       </div>

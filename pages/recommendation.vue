@@ -4,8 +4,7 @@
       <div class="feed__title">
         <IosNavigateIcon
           w="1em"
-          h="1em"
-        />
+          h="1em" />
         Surat rekomendasi:
       </div>
       <div class="feed__item clearfix">
