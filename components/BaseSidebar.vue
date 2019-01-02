@@ -8,81 +8,81 @@
       </div>
       <ul class="sidebar__menu">
         <li class="sidebar__item">
-          <router-link
+          <nuxt-link
             to="/?source=sidebar"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo">
             <MdHomeIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             Beranda
-          </router-link>
+          </nuxt-link>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <nuxt-link
             to="/search"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo">
             <MdSearchIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             {{ AppConstant.SEARCH_PAGE }}
-          </router-link>
+          </nuxt-link>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <nuxt-link
             to="/all-surah"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo">
             <MdBookIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             Daftar Surat
-          </router-link>
+          </nuxt-link>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <nuxt-link
             to="/last-verse"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo">
             <IosBookmarkIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             {{ AppConstant.LAST_READ }}
-          </router-link>
+          </nuxt-link>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <nuxt-link
             to="/favorite"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo">
             <IosStarOutlineIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             {{ AppConstant.FAVORITE }}
-          </router-link>
+          </nuxt-link>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <nuxt-link
             to="/recommendation"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo">
             <IosNavigateIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             {{ AppConstant.RECOMMENDATION }}
-          </router-link>
+          </nuxt-link>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <nuxt-link
             to="/about"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo">
             <MdHelpCircleIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             Tentang
-          </router-link>
+          </nuxt-link>
         </li>
         <li class="sidebar__item">
           <a
@@ -92,7 +92,7 @@
             class="sidebar__link">
             <MdCodeIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             Kode Sumber
           </a>
         </li>

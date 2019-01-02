@@ -4,61 +4,81 @@
       <div
         v-for="i in 5"
         :key="i"
-        class="skeleton skeleton_row"/>
+        class="skeleton skeleton_row" />
     </div>
     <div
       v-else
       class="home">
       <div class="home__wrapper">
         <div class="item">
-          <router-link
+          <nuxt-link
             to="/all-surah"
             class="item__link has-shadow">
             <MdBookIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             Daftar Surat
-          </router-link>
+          </nuxt-link>
         </div>
         <div class="item">
-          <router-link
+          <nuxt-link
             to="/search"
             class="item__link has-shadow">
             <MdSearchIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             {{ AppConstant.SEARCH_PAGE }}
-          </router-link>
+          </nuxt-link>
         </div>
         <div class="item">
-          <router-link
+          <nuxt-link
             to="/last-verse"
             class="item__link has-shadow">
             <IosBookmarkIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             {{ AppConstant.LAST_READ }}
-          </router-link>
+          </nuxt-link>
         </div>
         <div class="item">
-          <router-link
+          <nuxt-link
             to="/favorite"
             class="item__link has-shadow">
             <IosStarOutlineIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             {{ AppConstant.FAVORITE }}
-          </router-link>
+          </nuxt-link>
         </div>
         <div class="item">
-          <router-link
+          <nuxt-link
             to="/recommendation"
             class="item__link has-shadow">
             <IosNavigateIcon
               w="2em"
-              h="2em"/>
+              h="2em" />
             {{ AppConstant.RECOMMENDATION }}
-          </router-link>
+          </nuxt-link>
+        </div>
+        <div class="item">
+          <nuxt-link
+            to="/ayat-kursi"
+            class="item__link has-shadow">
+            <IosColorWandIcon
+              w="2em"
+              h="2em" />
+            Ayat Kursi
+          </nuxt-link>
+        </div>
+        <div class="item">
+          <nuxt-link
+            to="/asmaul-husna"
+            class="item__link has-shadow">
+            <MdGridIcon
+              w="2em"
+              h="2em" />
+            Asmaul Husna
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -68,28 +88,26 @@
 <script>
 import { mapMutations } from 'vuex'
 
-import MdHomeIcon from 'vue-ionicons/dist/md-home'
 import MdBookIcon from 'vue-ionicons/dist/md-book'
-import MdHelpCircleIcon from 'vue-ionicons/dist/md-help-circle'
-import MdCodeIcon from 'vue-ionicons/dist/md-code'
 import MdSearchIcon from 'vue-ionicons/dist/md-search'
+import MdGridIcon from 'vue-ionicons/dist/md-grid'
 import IosNavigateIcon from 'vue-ionicons/dist/ios-navigate'
 import IosStarOutlineIcon from 'vue-ionicons/dist/ios-star-outline'
 import IosBookmarkIcon from 'vue-ionicons/dist/ios-bookmark'
+import IosColorWandIcon from 'vue-ionicons/dist/ios-color-wand'
 
 import { AppConstant } from '../constant/index.js'
 
 export default {
   name: 'PageIndex',
   components: {
-    MdHomeIcon,
     MdBookIcon,
-    MdHelpCircleIcon,
-    MdCodeIcon,
     MdSearchIcon,
+    MdGridIcon,
     IosNavigateIcon,
     IosStarOutlineIcon,
-    IosBookmarkIcon
+    IosBookmarkIcon,
+    IosColorWandIcon
   },
   data () {
     return {

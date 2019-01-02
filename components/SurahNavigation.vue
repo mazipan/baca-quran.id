@@ -6,7 +6,7 @@
       <MdArrowBackIcon
         v-if="isHavePrev"
         w="30px"
-        h="30px"/>
+        h="30px" />
       <span
         v-if="prevSurah">
         {{ prevSurah.arabic }}
@@ -22,7 +22,7 @@
       <MdArrowForwardIcon
         v-if="isHaveNext"
         w="30px"
-        h="30px"/>
+        h="30px" />
     </nuxt-link>
   </div>
 </template>

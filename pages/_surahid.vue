@@ -2,7 +2,6 @@
   <section class="container">
     <div
       class="detail">
-
       <div class="detail__header">
         <div class="detail__header_index">
           {{ currentSurah.number }}
@@ -17,15 +16,14 @@
         <VerseCard
           :verse-array="currentSurah.text"
           :surah-id="surahId"
-          :translations="currentSurah.translations"/>
+          :translations="currentSurah.translations" />
       </div>
 
       <SurahNavigation
         :surah-id="surahId"
         :surah-name="currentSurah.name"
         :next-surah="nextSurah"
-        :prev-surah="prevSurah"/>
-
+        :prev-surah="prevSurah" />
     </div>
   </section>
 </template>

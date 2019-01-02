@@ -6,17 +6,17 @@
       v-show="isShowSidebar"
       class="sidebar-cover"
       @click="hideSidebar" />
-    <BaseSidebar :class="{'sidebar--open': isShowSidebar}"/>
-    <BaseHeader/>
-    <nuxt class="app__content"/>
-    <BaseToast/>
+    <BaseSidebar :class="{'sidebar--open': isShowSidebar}" />
+    <BaseHeader />
+    <nuxt class="app__content" />
+    <BaseToast />
     <div
       v-show="showArrowToTop"
       class="arrowtotop">
       <a href="#header">
         <ArrowUpIcon
           w="3em"
-          h="3em"/>
+          h="3em" />
       </a>
     </div>
   </div>
@@ -56,7 +56,7 @@ export default {
     ])
   },
   mounted () {
-    this.readDataFromStorage()
+    this.initDataFromBrowserStorage()
     window.addEventListener('scroll', this.handleScroll)
   },
   beforedestroy () {
@@ -67,7 +67,7 @@ export default {
       'setShowSidebar'
     ]),
     ...mapActions([
-      'readDataFromStorage'
+      'initDataFromBrowserStorage'
     ]),
     hideSidebar () {
       this.setShowSidebar(false)

@@ -1,4 +1,5 @@
-import { Theme, AppConstant, SurahDefaultObject } from '../constant/index'
+import { Theme, AppConstant } from '../constant/index'
+import { SurahDefaultObject } from '../constant/default-object'
 
 export default () => ({
   notification: {
@@ -12,5 +13,12 @@ export default () => ({
   allSurahList: [],
   surahDetail: SurahDefaultObject,
   lastReadVerse: null,
-  surahFavorite: []
+  surahFavorite: [],
+  ayatKursi: {
+    tafsir: '',
+    translation: '',
+    arabic: '',
+    latin: ''
+  },
+  asmaulHusna: []
 })

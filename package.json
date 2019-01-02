@@ -9,8 +9,9 @@
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
-    "precommit": "npm run lint"
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint-fix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/jest --coverage"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^2.6.0",
@@ -21,21 +22,39 @@
     "vue-ionicons": "^2.2.1"
   },
   "devDependencies": {
-    "autoprefixer": "^9.3.1",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-syntax-jsx": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "@vue/test-utils": "^1.0.0-beta.28",
+    "autoprefixer": "^9.4.3",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "css-loader": "^1.0.1",
-    "eslint": "^5.9.0",
+    "babel-jest": "23.6.0",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.11.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^4.7.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "husky": "^1.3.1",
+    "jest": "^23.6.0",
+    "jest-serializer-vue": "^2.0.2",
     "less-loader": "^4.1.0",
-    "node-sass": "^4.10.0",
-    "nodemon": "^1.18.7",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1"
+    "style-loader": "^0.23.1",
+    "vue-jest": "^3.0.2",
+    "vue-loader": "^15.4.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint-fix"
+    }
   }
 }

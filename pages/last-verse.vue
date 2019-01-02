@@ -4,13 +4,13 @@
       <div class="feed__title">
         <IosBookmarkIcon
           w="1em"
-          h="1em"/>
+          h="1em" />
         Ayat terakhir dibaca:
       </div>
       <div class="feed__item clearfix">
         <div
           v-if="isHaveLastRead">
-          <LastReadCard :surah="lastReadVerseData"/>
+          <LastReadCard :surah="lastReadVerseData" />
         </div>
         <div
           v-else

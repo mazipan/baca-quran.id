@@ -4,7 +4,12 @@ branches:
   only:
   - master
 script:
+  - npm run lint
+  - npm run test
   - npm run generate
+after_script:
+  - npm install -g codecov
+  - codecov
 deploy:
   provider: pages
   skip-cleanup: true

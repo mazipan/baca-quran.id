@@ -2,7 +2,7 @@
 
 📖 Read Qur'an Anywhere, Directly from Your Browser, No Need Installing Apps Anymore
 
-[![Travis](https://img.shields.io/travis/mazipan/quran-offline.svg)](https://travis-ci.org/mazipan/quran-offline)
+[![Travis](https://img.shields.io/travis/mazipan/quran-offline.svg)](https://travis-ci.org/mazipan/quran-offline) [![Codecov](https://codecov.io/gh/mazipan/quran-offline/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/quran-offline)
 
 ## Live Website
 
@@ -41,7 +41,8 @@ $ yarn run generate
 
 ## Credit
 
-Thanks for awesome repo [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
++ Thanks for awesome repo [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
++ Asmaul Husna source from: [https://jagad.id/99-asmaul-husna-latin-arab-dan-terjemahan-indonesia-inggris/](jagad.id)
 
 ----
 

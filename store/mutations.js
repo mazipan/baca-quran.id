@@ -1,26 +1,34 @@
+import MutationType from './mutation-type'
+
 export default {
-  setTheme (state, data) {
+  [MutationType.SET_THEME] (state, data) {
     state.theme = data
   },
-  setShowSidebar (state, data) {
+  [MutationType.SET_SHOW_SIDEBAR] (state, data) {
     state.isShowSidebar = data
   },
-  setHeaderTitle (state, data) {
+  [MutationType.SET_HEADER_TITLE] (state, data) {
     state.headerTitle = data
   },
-  setSurahList (state, data) {
+  [MutationType.SET_SURAH_LIST] (state, data) {
     state.allSurahList = data
   },
-  setSurahDetail (state, data) {
+  [MutationType.SET_SURAH_DETAIL] (state, data) {
     state.surahDetail = data
   },
-  setLastReadVerse (state, data) {
+  [MutationType.SET_LAST_READ] (state, data) {
     state.lastReadVerse = data
   },
-  setSurahFavorite (state, data) {
+  [MutationType.SET_FAVORITE] (state, data) {
     state.surahFavorite = data
   },
-  setNotification (state, data) {
+  [MutationType.SET_NOTIFICATION] (state, data) {
     state.notification = data
+  },
+  [MutationType.SET_AYAT_KURSI] (state, data) {
+    state.ayatKursi = data
+  },
+  [MutationType.SET_ASMAUL_HUSNA] (state, data) {
+    state.asmaulHusna = data
   }
 }

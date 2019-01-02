@@ -12,7 +12,7 @@
           @click="toggleSidebar">
           <MdMenuIcon
             w="30px"
-            h="30px"/>
+            h="30px" />
         </a>
         <nuxt-link
           v-else
@@ -20,7 +20,7 @@
           class="header__hamburger">
           <MdArrowBackIcon
             w="30px"
-            h="30px"/>
+            h="30px" />
         </nuxt-link>
       </div>
       <div
@@ -31,7 +31,9 @@
           class="header__title">
           <h1>{{ headerTitle }}</h1>
         </nuxt-link>
-        <h1 v-else >{{ headerTitle }}</h1>
+        <h1 v-else>
+          {{ headerTitle }}
+        </h1>
       </div>
       <div
         v-if="!isHomePage"
@@ -39,7 +41,7 @@
         @click="toggleMenuRight">
         <MdMoreIcon
           w="30px"
-          h="30px"/>
+          h="30px" />
       </div>
       <div
         v-else
@@ -49,7 +51,7 @@
     </div>
     <nav
       v-show="isShowMenu"
-      class="menu_right" >
+      class="menu_right">
       <ul>
         <li>
           <div

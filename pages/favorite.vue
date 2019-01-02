@@ -4,13 +4,13 @@
       <div class="feed__title">
         <IosStarOutlineIcon
           w="1em"
-          h="1em"/>
+          h="1em" />
         Surat favorit:
       </div>
       <div class="feed__item clearfix">
         <SurahCard
           v-if="isHaveFav"
-          :surah-array="surahFavorite"/>
+          :surah-array="surahFavorite" />
         <div
           v-else
           class="feed__empty">

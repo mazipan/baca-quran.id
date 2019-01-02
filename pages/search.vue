@@ -20,8 +20,8 @@
       <div class="search__result clearfix">
         <nuxt-link
           v-for="surah in filteredSurah"
-          :to="getSurahDetailUrl(surah.index)"
           :key="surah.index"
+          :to="getSurahDetailUrl(surah.index)"
           class="has-shadow">
           {{ surah.index }} : {{ surah.latin }}
         </nuxt-link>
