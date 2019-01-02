@@ -14,17 +14,20 @@
 
 ## Fitur
 
-+ Akses offline (setelah akses online pertama)
-+ Cari surat berdasarkan nama
-+ Simpan surat favorit
-+ Simpan ayat yang dibaca terakhir
-+ Rekomendasi surat populer
+- [x] Daftar seluruh surat
+- [x] Ayat kursi
+- [x] Asmaul husna
+- [x] Akses offline (setelah akses online pertama)
+- [x] Pencarian surat berdasarkan nama
+- [x] Simpan surat favorit
+- [x] Simpan ayat yang terakhir dibaca
+- [x] Rekomendasi beberapa surat populer
 
 TODO
 
-+ Mode malam
-+ Pergi ke ayat dengan cepat di dalam surat
-+ Audio
+- [ ] Mode malam
+- [ ] Pergi ke ayat dengan cepat di dalam surat
+- [ ] Audio
 
 ## Build Setup
 
