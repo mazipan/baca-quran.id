@@ -1,4 +1,5 @@
-import { Theme, AppConstant, SurahDefaultObject } from '../constant/index'
+import { Theme, AppConstant } from '../constant/index'
+import { SurahDefaultObject } from '../constant/default-object'
 
 export default () => ({
   notification: {

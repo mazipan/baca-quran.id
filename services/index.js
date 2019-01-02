@@ -1,4 +1,4 @@
-import { ApiPath } from '../constant/index'
+import ApiPath from '../constant/api-path'
 
 export const getAllSurah = () => {
   return fetch(ApiPath.SURAH_INFO)

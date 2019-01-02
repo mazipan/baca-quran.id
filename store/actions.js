@@ -1,4 +1,4 @@
-import { storageKey } from '../constant/index'
+import storageKey from '../constant/storage-key'
 import { __isNotNull } from '../utils/index'
 import { getItem, setItem } from '../utils/storage'
 import { getAllSurah, getSurahById } from '../services/index'
