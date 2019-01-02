@@ -60,6 +60,26 @@
             {{ AppConstant.RECOMMENDATION }}
           </nuxt-link>
         </div>
+        <div class="item">
+          <nuxt-link
+            to="/ayat-kursi"
+            class="item__link has-shadow">
+            <IosColorWandIcon
+              w="2em"
+              h="2em" />
+            Ayat Kursi
+          </nuxt-link>
+        </div>
+        <div class="item">
+          <nuxt-link
+            to="/asmaul-husna"
+            class="item__link has-shadow">
+            <MdGridIcon
+              w="2em"
+              h="2em" />
+            Asmaul Husna
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </section>
@@ -70,9 +90,11 @@ import { mapMutations } from 'vuex'
 
 import MdBookIcon from 'vue-ionicons/dist/md-book'
 import MdSearchIcon from 'vue-ionicons/dist/md-search'
+import MdGridIcon from 'vue-ionicons/dist/md-grid'
 import IosNavigateIcon from 'vue-ionicons/dist/ios-navigate'
 import IosStarOutlineIcon from 'vue-ionicons/dist/ios-star-outline'
 import IosBookmarkIcon from 'vue-ionicons/dist/ios-bookmark'
+import IosColorWandIcon from 'vue-ionicons/dist/ios-color-wand'
 
 import { AppConstant } from '../constant/index.js'
 
@@ -81,9 +103,11 @@ export default {
   components: {
     MdBookIcon,
     MdSearchIcon,
+    MdGridIcon,
     IosNavigateIcon,
     IosStarOutlineIcon,
-    IosBookmarkIcon
+    IosBookmarkIcon,
+    IosColorWandIcon
   },
   data () {
     return {

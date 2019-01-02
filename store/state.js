@@ -13,5 +13,12 @@ export default () => ({
   allSurahList: [],
   surahDetail: SurahDefaultObject,
   lastReadVerse: null,
-  surahFavorite: []
+  surahFavorite: [],
+  ayatKursi: {
+    tafsir: '',
+    translation: '',
+    arabic: '',
+    latin: ''
+  },
+  asmaulHusna: []
 })
