@@ -18,9 +18,12 @@ export const getItem = (key) => {
 export const setItem = (key, value = '') => {
   if (process.client) {
     try {
-      localStorage.setItem(key, JSON.stringify(value))
+      const valString = JSON.stringify(value)
+      localStorage.setItem(key, valString)
+      return value
     } catch (e) {
-      return false
+      return null
     }
   }
+  return null
 }

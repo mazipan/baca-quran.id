@@ -4,17 +4,20 @@
       <div class="feed__title">
         <IosBookmarkIcon
           w="1em"
-          h="1em"/>
+          h="1em"
+        />
         Ayat terakhir dibaca:
       </div>
       <div class="feed__item clearfix">
         <div
-          v-if="isHaveLastRead">
-          <LastReadCard :surah="lastReadVerseData"/>
+          v-if="isHaveLastRead"
+        >
+          <LastReadCard :surah="lastReadVerseData" />
         </div>
         <div
           v-else
-          class="feed__empty">
+          class="feed__empty"
+        >
           Anda belum pernah menandai salah satu ayat sebagai terakhir dibaca.
         </div>
       </div>

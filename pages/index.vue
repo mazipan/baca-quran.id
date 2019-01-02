@@ -4,61 +4,73 @@
       <div
         v-for="i in 5"
         :key="i"
-        class="skeleton skeleton_row"/>
+        class="skeleton skeleton_row"
+      />
     </div>
     <div
       v-else
-      class="home">
+      class="home"
+    >
       <div class="home__wrapper">
         <div class="item">
-          <router-link
+          <RouterLink
             to="/all-surah"
-            class="item__link has-shadow">
+            class="item__link has-shadow"
+          >
             <MdBookIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             Daftar Surat
-          </router-link>
+          </RouterLink>
         </div>
         <div class="item">
-          <router-link
+          <RouterLink
             to="/search"
-            class="item__link has-shadow">
+            class="item__link has-shadow"
+          >
             <MdSearchIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             {{ AppConstant.SEARCH_PAGE }}
-          </router-link>
+          </RouterLink>
         </div>
         <div class="item">
-          <router-link
+          <RouterLink
             to="/last-verse"
-            class="item__link has-shadow">
+            class="item__link has-shadow"
+          >
             <IosBookmarkIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             {{ AppConstant.LAST_READ }}
-          </router-link>
+          </RouterLink>
         </div>
         <div class="item">
-          <router-link
+          <RouterLink
             to="/favorite"
-            class="item__link has-shadow">
+            class="item__link has-shadow"
+          >
             <IosStarOutlineIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             {{ AppConstant.FAVORITE }}
-          </router-link>
+          </RouterLink>
         </div>
         <div class="item">
-          <router-link
+          <RouterLink
             to="/recommendation"
-            class="item__link has-shadow">
+            class="item__link has-shadow"
+          >
             <IosNavigateIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             {{ AppConstant.RECOMMENDATION }}
-          </router-link>
+          </RouterLink>
         </div>
       </div>
     </div>
@@ -68,10 +80,7 @@
 <script>
 import { mapMutations } from 'vuex'
 
-import MdHomeIcon from 'vue-ionicons/dist/md-home'
 import MdBookIcon from 'vue-ionicons/dist/md-book'
-import MdHelpCircleIcon from 'vue-ionicons/dist/md-help-circle'
-import MdCodeIcon from 'vue-ionicons/dist/md-code'
 import MdSearchIcon from 'vue-ionicons/dist/md-search'
 import IosNavigateIcon from 'vue-ionicons/dist/ios-navigate'
 import IosStarOutlineIcon from 'vue-ionicons/dist/ios-star-outline'
@@ -82,10 +91,7 @@ import { AppConstant } from '../constant/index.js'
 export default {
   name: 'PageIndex',
   components: {
-    MdHomeIcon,
     MdBookIcon,
-    MdHelpCircleIcon,
-    MdCodeIcon,
     MdSearchIcon,
     IosNavigateIcon,
     IosStarOutlineIcon,

@@ -1,7 +1,8 @@
 <template>
   <div
     :class="{ 'show' : visibleNotification}"
-    class="toast">
+    class="toast"
+  >
     <h3>
       {{ notification.title }}
     </h3>

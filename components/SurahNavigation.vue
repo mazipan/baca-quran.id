@@ -1,29 +1,35 @@
 <template>
   <div class="surah_nav">
-    <nuxt-link
+    <NuxtLink
       :to="`/${surahId - 1}`"
-      class="surah_nav_item surah_nav_prev">
+      class="surah_nav_item surah_nav_prev"
+    >
       <MdArrowBackIcon
         v-if="isHavePrev"
         w="30px"
-        h="30px"/>
+        h="30px"
+      />
       <span
-        v-if="prevSurah">
+        v-if="prevSurah"
+      >
         {{ prevSurah.arabic }}
       </span>
-    </nuxt-link>
-    <nuxt-link
+    </NuxtLink>
+    <NuxtLink
       :to="`/${surahId + 1}`"
-      class="surah_nav_item surah_nav_next">
+      class="surah_nav_item surah_nav_next"
+    >
       <span
-        v-if="nextSurah">
+        v-if="nextSurah"
+      >
         {{ nextSurah.arabic }}
       </span>
       <MdArrowForwardIcon
         v-if="isHaveNext"
         w="30px"
-        h="30px"/>
-    </nuxt-link>
+        h="30px"
+      />
+    </NuxtLink>
   </div>
 </template>
 

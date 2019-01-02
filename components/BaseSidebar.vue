@@ -4,95 +4,112 @@
       <div class="sidebar__head">
         <img
           src="/icon-nosquare50.png"
-          alt="Logo">
+          alt="Logo"
+        >
       </div>
       <ul class="sidebar__menu">
         <li class="sidebar__item">
-          <router-link
+          <RouterLink
             to="/?source=sidebar"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo"
+          >
             <MdHomeIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             Beranda
-          </router-link>
+          </RouterLink>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <RouterLink
             to="/search"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo"
+          >
             <MdSearchIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             {{ AppConstant.SEARCH_PAGE }}
-          </router-link>
+          </RouterLink>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <RouterLink
             to="/all-surah"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo"
+          >
             <MdBookIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             Daftar Surat
-          </router-link>
+          </RouterLink>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <RouterLink
             to="/last-verse"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo"
+          >
             <IosBookmarkIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             {{ AppConstant.LAST_READ }}
-          </router-link>
+          </RouterLink>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <RouterLink
             to="/favorite"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo"
+          >
             <IosStarOutlineIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             {{ AppConstant.FAVORITE }}
-          </router-link>
+          </RouterLink>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <RouterLink
             to="/recommendation"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo"
+          >
             <IosNavigateIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             {{ AppConstant.RECOMMENDATION }}
-          </router-link>
+          </RouterLink>
         </li>
         <li class="sidebar__item">
-          <router-link
+          <RouterLink
             to="/about"
             class="sidebar__link"
-            @click.native="navigateTo" >
+            @click.native="navigateTo"
+          >
             <MdHelpCircleIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             Tentang
-          </router-link>
+          </RouterLink>
         </li>
         <li class="sidebar__item">
           <a
             href="https://github.com/mazipan/quran-offline"
             target="_blank"
             rel="noopener"
-            class="sidebar__link">
+            class="sidebar__link"
+          >
             <MdCodeIcon
               w="2em"
-              h="2em"/>
+              h="2em"
+            />
             Kode Sumber
           </a>
         </li>
