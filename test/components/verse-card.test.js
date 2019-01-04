@@ -2,7 +2,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Helpers from '~/test/helper'
-import Component from '~/components/BaseHeader.vue'
+import Component from '~/components/VerseCard.vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

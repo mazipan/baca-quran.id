@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import IosStarOutlineIcon from 'vue-ionicons/dist/ios-star-outline'
+import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
 
 import { mapMutations, mapState } from 'vuex'
 

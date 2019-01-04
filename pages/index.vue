@@ -88,13 +88,13 @@
 <script>
 import { mapMutations } from 'vuex'
 
-import MdBookIcon from 'vue-ionicons/dist/md-book'
-import MdSearchIcon from 'vue-ionicons/dist/md-search'
-import MdGridIcon from 'vue-ionicons/dist/md-grid'
-import IosNavigateIcon from 'vue-ionicons/dist/ios-navigate'
-import IosStarOutlineIcon from 'vue-ionicons/dist/ios-star-outline'
-import IosBookmarkIcon from 'vue-ionicons/dist/ios-bookmark'
-import IosColorWandIcon from 'vue-ionicons/dist/ios-color-wand'
+import MdBookIcon from 'vue-ionicons/dist/js/md-book'
+import MdSearchIcon from 'vue-ionicons/dist/js/md-search'
+import MdGridIcon from 'vue-ionicons/dist/js/md-grid'
+import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
+import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
+import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
+import IosColorWandIcon from 'vue-ionicons/dist/js/ios-color-wand'
 
 import { AppConstant } from '../constant/index.js'
 

@@ -26,13 +26,14 @@ module.exports = {
   ],
   coverageDirectory: 'coverage',
   moduleNameMapper: {
+    '^~/(.*)$': '<rootDir>/$1',
     '^@/(.*)$': '<rootDir>/$1',
     '^vue$': 'vue/dist/vue.common.js'
   },
   moduleFileExtensions: ['js', 'vue', 'json'],
   transform: {
-    '.*\\.(vue)$': 'vue-jest',
-    '^.+\\.js$': '<rootDir>/node_modules/babel-jest'
+    '^.+.js$': '<rootDir>/node_modules/babel-jest',
+    '^.+.vue$': '<rootDir>/node_modules/vue-jest'
   },
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
   setupTestFrameworkScriptFile: '<rootDir>/test/setup-test.js'

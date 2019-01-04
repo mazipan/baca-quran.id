@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import IosNavigateIcon from 'vue-ionicons/dist/ios-navigate'
+import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 import { mapMutations } from 'vuex'
 
 import SurahCard from '../components/SurahCard.vue'
