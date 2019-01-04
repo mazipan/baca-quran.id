@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import IosBookmarkIcon from 'vue-ionicons/dist/ios-bookmark'
+import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 import { mapActions, mapMutations, mapState } from 'vuex'
 
 import LastReadCard from '../components/LastReadCard.vue'

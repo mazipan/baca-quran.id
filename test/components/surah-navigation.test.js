@@ -2,7 +2,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Helpers from '~/test/helper'
-import Component from '~/components/BaseHeader.vue'
+import Component from '~/components/SurahNavigation.vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -16,7 +16,7 @@ const store = new Vuex.Store({
   }
 })
 
-describe('component BaseHeader.vue', () => {
+describe('component SurahNavigation.vue', () => {
   test('success mounting components', () => {
     const wrapper = shallowMount(Component, {
       sync: false,

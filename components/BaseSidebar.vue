@@ -104,14 +104,14 @@
 <script>
 import { mapMutations } from 'vuex'
 
-import MdHomeIcon from 'vue-ionicons/dist/md-home'
-import MdBookIcon from 'vue-ionicons/dist/md-book'
-import MdHelpCircleIcon from 'vue-ionicons/dist/md-help-circle'
-import MdCodeIcon from 'vue-ionicons/dist/md-code'
-import MdSearchIcon from 'vue-ionicons/dist/md-search'
-import IosNavigateIcon from 'vue-ionicons/dist/ios-navigate'
-import IosStarOutlineIcon from 'vue-ionicons/dist/ios-star-outline'
-import IosBookmarkIcon from 'vue-ionicons/dist/ios-bookmark'
+import MdHomeIcon from 'vue-ionicons/dist/js/md-home'
+import MdBookIcon from 'vue-ionicons/dist/js/md-book'
+import MdHelpCircleIcon from 'vue-ionicons/dist/js/md-help-circle'
+import MdCodeIcon from 'vue-ionicons/dist/js/md-code'
+import MdSearchIcon from 'vue-ionicons/dist/js/md-search'
+import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
+import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
+import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 
 import { AppConstant } from '../constant/index.js'
 

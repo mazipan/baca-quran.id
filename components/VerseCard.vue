@@ -43,8 +43,8 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import MdShareIcon from 'vue-ionicons/dist/md-share'
-import MdBookmarkIcon from 'vue-ionicons/dist/md-bookmark'
+import MdShareIcon from 'vue-ionicons/dist/js/md-share'
+import MdBookmarkIcon from 'vue-ionicons/dist/js/md-bookmark'
 
 export default {
   name: 'VerseCard',

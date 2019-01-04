@@ -15,18 +15,18 @@
 
     <footer class="footer">
       Dibuat oleh Irfan Maulana
-                        <br>
-                        dengan
-                        <a
-                          href="https://github.com/mazipan/quran-offline"
-                          target="_blank"
-                          rel="noopener">
-                          kode sumber yang terbuka
-                        </a>
-                        <br>
+      <br>
+      dengan
+      <a
+        href="https://github.com/mazipan/quran-offline"
+        target="_blank"
+        rel="noopener">
+        kode sumber yang terbuka
+      </a>
+      <br>
 
-                        <br><br>
-                        Copyright © 2018
+      <br><br>
+      Copyright © 2018
     </footer>
   </div>
 </template>
