@@ -1,15 +1,28 @@
 module.exports = {
   verbose: true,
-  coveragePathIgnorePatterns: [
-    '<rootDir>/.nuxt/',
-    '<rootDir>/assets/',
-    '<rootDir>/constant/',
-    '<rootDir>/dist/',
-    '<rootDir>/middleware/',
-    '<rootDir>/node_modules/',
-    '<rootDir>/plugins/',
-    '<rootDir>/server/',
-    '<rootDir>/static/'
+  collectCoverage: true,
+  collectCoverageFrom: [
+    // include folder
+    '**/components/**/*.{js,vue}',
+    '**/layouts/**/*.{js,vue}',
+    '**/pages/**/*.{js,vue}',
+    '**/services/**/*.{js,vue}',
+    '**/store/**/*.{js,vue}',
+    '**/utils/**/*.{js,vue}',
+    // exclude folder and files
+    '!**/node_modules/**',
+    '!**/.nuxt/**',
+    '!**/assets/**',
+    '!**/constant/**',
+    '!**/coverage/**',
+    '!**/dist/**',
+    '!**/middleware/**',
+    '!**/plugins/**',
+    '!**/server/**',
+    '!**/static/**',
+    '!**/test/**',
+    '!**/*rc.{js,vue}',
+    '!**/*.config.{js,vue}'
   ],
   coverageDirectory: 'coverage',
   moduleNameMapper: {

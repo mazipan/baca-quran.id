@@ -147,9 +147,9 @@ export default {
     }
   }
   &__content {
-    margin-bottom: 100px;
     width: 90%;
     margin: 0 auto;
+    margin-bottom: 5em;
   }
 }
 </style>
