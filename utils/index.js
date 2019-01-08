@@ -41,3 +41,7 @@ export const __slugify = (val) => {
 
   return url
 }
+
+export const __normalizeText = (text) => {
+  return text.toLowerCase().replace(/[\W_]+/g, '')
+}

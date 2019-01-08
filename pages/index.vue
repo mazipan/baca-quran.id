@@ -100,6 +100,11 @@ import { AppConstant } from '../constant/index.js'
 
 export default {
   name: 'PageIndex',
+  head () {
+    return {
+      title: 'Beranda | Qur\'an Offline'
+    }
+  },
   components: {
     MdBookIcon,
     MdSearchIcon,

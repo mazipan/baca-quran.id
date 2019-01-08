@@ -33,6 +33,11 @@ import { __isNotNull } from '../utils/index'
 
 export default {
   name: 'LastVersePage',
+  head () {
+    return {
+      title: 'Ayat Terakhir Dibaca | Qur\'an Offline'
+    }
+  },
   components: {
     IosBookmarkIcon,
     LastReadCard

@@ -4,7 +4,7 @@ export const AppConstant = {
   LAST_READ: 'Terakhir dibaca',
   FAVORITE: 'Surat favorit',
   RECOMMENDATION: 'Surat rekomendasi',
-  SEARCH_PAGE: 'Pencarian'
+  SEARCH_PAGE: 'Pencarian Surat'
 }
 
 export const Theme = {

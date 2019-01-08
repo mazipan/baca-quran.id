@@ -24,6 +24,11 @@ import surahRecommendation from '../constant/surah-recommendation'
 
 export default {
   name: 'RecommendationPage',
+  head () {
+    return {
+      title: 'Surat Rekomendasi | Qur\'an Offline'
+    }
+  },
   components: {
     IosNavigateIcon,
     SurahCard

@@ -33,10 +33,15 @@
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'
 import { AppConstant } from '../constant/index.js'
-import { __isNotEmptyString } from '../utils/index'
+import { __isNotEmptyString, __normalizeText } from '../utils/index'
 
 export default {
   name: 'SearchPage',
+  head () {
+    return {
+      title: 'Pencarian Surat | Qur\'an Offline'
+    }
+  },
   data () {
     return {
       searchText: ''
@@ -48,15 +53,12 @@ export default {
     ]),
     filteredSurah () {
       if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
-        const normalizeText = (text) => {
-          return text.toLowerCase().replace(/[\W_]+/g, '')
-        }
         return this.allSurahList.filter(item => {
-          let predicateTranslation = normalizeText(item.translation).includes(
-            normalizeText(this.searchText)
+          let predicateTranslation = __normalizeText(item.translation).includes(
+            __normalizeText(this.searchText)
           )
-          let predicateLatin = normalizeText(item.latin).includes(
-            normalizeText(this.searchText)
+          let predicateLatin = __normalizeText(item.latin).includes(
+            __normalizeText(this.searchText)
           )
 
           return predicateLatin || predicateTranslation
