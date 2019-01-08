@@ -32,6 +32,11 @@ import { AppConstant } from '../constant/index.js'
 
 export default {
   name: 'FavoritePage',
+  head () {
+    return {
+      title: 'Surat Favorit | Qur\'an Offline'
+    }
+  },
   components: {
     IosStarOutlineIcon,
     SurahCard

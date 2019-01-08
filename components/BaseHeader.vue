@@ -14,14 +14,16 @@
             w="30px"
             h="30px" />
         </a>
-        <nuxt-link
+        <a
           v-else
-          to="/?source=surah"
-          class="header__hamburger">
+          href="javascript:void(0)"
+          class="header__hamburger"
+          title="Kembali"
+          @click="backToPreviousPage">
           <MdArrowBackIcon
             w="30px"
             h="30px" />
-        </nuxt-link>
+        </a>
       </div>
       <div
         class="header__content">
@@ -105,7 +107,7 @@ export default {
     ...mapMutations([
       'setShowSidebar'
     ]),
-    navigateTo: function (link) {
+    navigateTo (link) {
       this.toggleMenuRight()
       if (link.indexOf('http') >= 0) {
         window.location.href = link
@@ -123,6 +125,11 @@ export default {
     },
     toggleSidebar () {
       this.setShowSidebar(true)
+    },
+    backToPreviousPage () {
+      window.history.length > 1
+        ? this.$router.go(-1)
+        : this.$router.push('/')
     }
   }
 }

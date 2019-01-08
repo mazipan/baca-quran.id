@@ -21,7 +21,12 @@ import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyString } from '../utils/index'
 
 export default {
-  name: 'PageIndex',
+  name: 'PageAllSurah',
+  head () {
+    return {
+      title: 'Daftar Surat | Qur\'an Offline'
+    }
+  },
   components: {
     SurahCard
   },

@@ -38,6 +38,11 @@ import { __isNotEmptyArray } from '../utils/index'
 
 export default {
   name: 'PageSurahDetail',
+  head () {
+    return {
+      title: `Qur'an Surat ${this.currentSurah.name_latin} | Qur'an Offline`
+    }
+  },
   components: {
     VerseCard,
     SurahNavigation

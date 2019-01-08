@@ -16,6 +16,11 @@ import { mapActions, mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'AyatKursiPage',
+  head () {
+    return {
+      title: 'Ayat Kursi | Qur\'an Offline'
+    }
+  },
   data () {
     return {
       loading: true

@@ -38,6 +38,11 @@ import { AppConstant } from '../constant/index'
 
 export default {
   name: 'PageAbout',
+  head () {
+    return {
+      title: 'Tentang | Qur\'an Offline'
+    }
+  },
   data () {
     return {
       appTitle: AppConstant.TITLE
