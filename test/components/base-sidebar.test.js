@@ -7,6 +7,7 @@ import Component from '~/components/BaseSidebar.vue'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
+const i18n = Helpers.initI18n(localVue)
 const store = new Vuex.Store({
   state: {
   },
@@ -22,6 +23,7 @@ describe('component BaseSidebar.vue', () => {
       sync: false,
       store,
       router,
+      i18n,
       localVue
     })
     expect(wrapper).toBeTruthy()

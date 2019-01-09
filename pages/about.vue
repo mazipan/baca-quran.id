@@ -33,7 +33,7 @@ export default {
   name: 'PageAbout',
   head () {
     return {
-      title: "Tentang | Qur'an Offline"
+      title: 'Tentang | Qur\'an Offline'
     }
   },
   data () {

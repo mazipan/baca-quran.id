@@ -18,6 +18,7 @@
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "nuxt": "^2.3.4",
+    "nuxt-i18n": "^5.4.4",
     "unfetch": "^4.0.1",
     "vue-ionicons": "^3.0.3"
   },
@@ -50,7 +51,8 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "vue-jest": "^3.0.2",
-    "vue-loader": "^15.4.2"
+    "vue-i18n": "^7.8.1",
+    "vue-loader": "^15.5.1"
   },
   "husky": {
     "hooks": {

@@ -8,7 +8,7 @@
           <div
             class="surah__index tag_index"
             style="width: 130px;">
-            Ayat ke {{ surah.verse }}
+            {{ $t('numberOfVerse') }} {{ surah.verse }}
           </div>
         </div>
         <div class="surah__header--right">
