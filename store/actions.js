@@ -1,6 +1,8 @@
 import storageKey from '../constant/storage-key'
 import { __isNotNull } from '../utils/index'
 import { getItem, setItem } from '../utils/storage'
+import { AppConstant } from '../constant/index'
+
 import {
   getAllSurah,
   getSurahById,
@@ -33,7 +35,7 @@ export default {
     if (!isExist) {
       const newFavorite = [].concat(state.surahFavorite).concat([surah])
       commit(MutationType.SET_FAVORITE, newFavorite)
-      setItem(storageKey.FAVORITE, newFavorite)
+      setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
   removeFromFavorite ({ commit, state }, surah) {
@@ -41,13 +43,13 @@ export default {
     if (isExist) {
       const newFavorite = state.surahFavorite.filter(item => item.index !== surah.index) || []
       commit(MutationType.SET_FAVORITE, newFavorite)
-      setItem(storageKey.FAVORITE, newFavorite)
+      setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
   setLastReadVerse ({ commit, state }, { surah, verse }) {
     const data = { surah, verse }
     commit(MutationType.SET_LAST_READ, data)
-    setItem(storageKey.LAST_READ, data)
+    setItem(storageKey.LAST_READ, data, null)
   },
   setWebshareSupport ({ commit }, isSupport) {
     commit(MutationType.SET_SUPPORT_WEBSHARE, isSupport)
@@ -75,7 +77,7 @@ export default {
             return Object.assign({}, item, { index: idx + 1 })
           })
           setDataToState(commit, mutation, indexedData, success)
-          setItem(storageKey.ALL_SURAH, indexedData)
+          setItem(storageKey.ALL_SURAH, indexedData, AppConstant.VERSION)
         })
     }
   },
@@ -89,7 +91,7 @@ export default {
         .then(data => {
           const dataRes = data[id]
           setDataToState(commit, mutation, dataRes, success)
-          setItem(storageKey.SURAH_BY_ID(id), dataRes)
+          setItem(storageKey.SURAH_BY_ID(id), dataRes, AppConstant.VERSION)
         })
     }
   },
@@ -103,7 +105,7 @@ export default {
         .then(data => {
           const dataRes = data.data
           setDataToState(commit, mutation, dataRes, success)
-          setItem(storageKey.AYAT_KURSI, dataRes)
+          setItem(storageKey.AYAT_KURSI, dataRes, AppConstant.VERSION)
         })
     }
   },
@@ -117,7 +119,7 @@ export default {
         .then(data => {
           const dataRes = data.data
           setDataToState(commit, mutation, dataRes, success)
-          setItem(storageKey.ASMAUL_HUSNA, dataRes)
+          setItem(storageKey.ASMAUL_HUSNA, dataRes, AppConstant.VERSION)
         })
     }
   },
@@ -131,7 +133,7 @@ export default {
         .then(data => {
           const dataRes = data.data
           setDataToState(commit, mutation, dataRes, success)
-          setItem(storageKey.DAILY_DOA, dataRes)
+          setItem(storageKey.DAILY_DOA, dataRes, AppConstant.VERSION)
         })
     }
   }
