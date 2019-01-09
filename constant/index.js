@@ -1,5 +1,5 @@
 export const AppConstant = {
-  VERSION: '0.0.1',
+  VERSION: '0.0.2',
   TITLE: "Qur'an Offline",
   LAST_READ: 'Terakhir dibaca',
   FAVORITE: 'Surat favorit',
