@@ -15,7 +15,7 @@
             <MdHomeIcon
               w="2em"
               h="2em" />
-            Beranda
+            {{ $t('home') }}
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -26,7 +26,7 @@
             <MdSearchIcon
               w="2em"
               h="2em" />
-            {{ AppConstant.SEARCH_PAGE }}
+            {{ $t('searchSurah') }}
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -37,7 +37,7 @@
             <MdBookIcon
               w="2em"
               h="2em" />
-            Daftar Surat
+            {{ $t('surahList') }}
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -48,7 +48,7 @@
             <IosBookmarkIcon
               w="2em"
               h="2em" />
-            {{ AppConstant.LAST_READ }}
+            {{ $t('lastRead') }}
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -59,7 +59,7 @@
             <IosStarOutlineIcon
               w="2em"
               h="2em" />
-            {{ AppConstant.FAVORITE }}
+            {{ $t('favorite') }}
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -70,7 +70,7 @@
             <IosNavigateIcon
               w="2em"
               h="2em" />
-            {{ AppConstant.RECOMMENDATION }}
+            {{ $t('recommendation') }}
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -81,7 +81,7 @@
             <MdHelpCircleIcon
               w="2em"
               h="2em" />
-            Tentang
+            {{ $t('about') }}
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -93,7 +93,7 @@
             <MdCodeIcon
               w="2em"
               h="2em" />
-            Kode Sumber
+            {{ $t('sourceCode') }}
           </a>
         </li>
       </ul>

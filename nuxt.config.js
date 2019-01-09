@@ -1,3 +1,5 @@
+import locale from './locale/id'
+
 const pkg = require('./package')
 const path = require('path')
 
@@ -82,7 +84,17 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    ['nuxt-i18n', {
+      locales: ['id'],
+      defaultLocale: 'id',
+      vueI18n: {
+        fallbackLocale: 'id',
+        messages: {
+          id: locale
+        }
+      }
+    }]
   ],
   /*
    ** Generate multiple entry html from 1 to 114

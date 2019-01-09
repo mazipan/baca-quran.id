@@ -59,14 +59,14 @@
           <div
             class="menu_link"
             @click="navigateTo('https://github.com/mazipan/quran-offline')">
-            Tentang
+            {{ $t('about') }}
           </div>
         </li>
         <li>
           <div
             class="menu_link"
             @click="navigateTo('https://github.com/mazipan/quran-offline')">
-            Kode Sumber
+            {{ $t('sourceCode') }}
           </div>
         </li>
       </ul>

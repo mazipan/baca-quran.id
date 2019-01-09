@@ -3,30 +3,23 @@
     <img
       src="/icon-192x192.png"
       alt="Logo">
-    <h2>Selamat datang di</h2>
+    <h2>Selamat datang di Aplikasi Web</h2>
     <h1>{{ appTitle }}</h1>
 
-    <br><br>
-    <p>
-      Bila Anda menemukan bug atau menginginkan fitur baru, silahkan isi <a href="https://github.com/mazipan/quran-offline/issues/new">
-        disini.
-      </a>
-    </p>
+    <h5>Baca Al-Qur'an dimana saja, langsung dari web browser Anda, tidak perlu lagi install Apps. Tanpa iklan, tanpa analitik dan GRATIS sepenuhnya...</h5>
 
-    <footer class="footer">
-      Dibuat oleh Irfan Maulana
-      <br>
-      dengan
-      <a
-        href="https://github.com/mazipan/quran-offline"
+    <div class="bug">
+      Bila Anda menemukan bug atau menginginkan fitur baru, silahkan isi <a
+        href="https://github.com/mazipan/quran-offline/issues/new"
         target="_blank"
         rel="noopener">
-        kode sumber yang terbuka
+        disini.
       </a>
-      <br>
+    </div>
 
-      <br><br>
-      Copyright © 2018
+    <footer class="footer">
+      <p>Dibuat oleh Irfan Maulana</p>
+      <p>Copyright © 2018</p>
     </footer>
   </div>
 </template>
@@ -52,15 +45,16 @@ export default {
     this.setHeaderTitle('Tentang')
   },
   methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ])
+    ...mapMutations(['setHeaderTitle'])
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.footer{
+.bug {
+  margin-top: 2em;
+}
+.footer {
   margin-top: 100px;
 }
 </style>

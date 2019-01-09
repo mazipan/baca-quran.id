@@ -67,7 +67,7 @@
             <IosColorWandIcon
               w="2em"
               h="2em" />
-            Ayat Kursi
+            {{ AppConstant.AYAT_KURSI }}
           </nuxt-link>
         </div>
         <div class="item">
@@ -77,7 +77,17 @@
             <MdGridIcon
               w="2em"
               h="2em" />
-            Asmaul Husna
+            {{ AppConstant.ASMAUL_HUSNA }}
+          </nuxt-link>
+        </div>
+        <div class="item">
+          <nuxt-link
+            to="/daily-doa"
+            class="item__link has-shadow">
+            <MdWifiIcon
+              w="2em"
+              h="2em" />
+            {{ AppConstant.DAILY_DOA }}
           </nuxt-link>
         </div>
       </div>
@@ -91,6 +101,7 @@ import { mapMutations } from 'vuex'
 import MdBookIcon from 'vue-ionicons/dist/js/md-book'
 import MdSearchIcon from 'vue-ionicons/dist/js/md-search'
 import MdGridIcon from 'vue-ionicons/dist/js/md-grid'
+import MdWifiIcon from 'vue-ionicons/dist/js/md-wifi'
 import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
 import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
@@ -109,6 +120,7 @@ export default {
     MdBookIcon,
     MdSearchIcon,
     MdGridIcon,
+    MdWifiIcon,
     IosNavigateIcon,
     IosStarOutlineIcon,
     IosBookmarkIcon,

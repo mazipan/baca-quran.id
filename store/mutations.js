@@ -7,6 +7,9 @@ export default {
   [MutationType.SET_SHOW_SIDEBAR] (state, data) {
     state.isShowSidebar = data
   },
+  [MutationType.SET_SUPPORT_WEBSHARE] (state, data) {
+    state.isSupportWebShare = data
+  },
   [MutationType.SET_HEADER_TITLE] (state, data) {
     state.headerTitle = data
   },
@@ -30,5 +33,8 @@ export default {
   },
   [MutationType.SET_ASMAUL_HUSNA] (state, data) {
     state.asmaulHusna = data
+  },
+  [MutationType.SET_DAILY_DOA]  (state, data) {
+    state.dailyDoa = data
   }
 }

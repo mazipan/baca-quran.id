@@ -19,6 +19,7 @@
           </div>
 
           <div
+            v-if="isSupportWebShare"
             class="verse__header_icon"
             @click="shareVerse(verse, Number(index))">
             <MdShareIcon
@@ -68,13 +69,15 @@ export default {
   },
   computed: {
     ...mapState([
-      'surahFavorite'
+      'surahFavorite',
+      'isSupportWebShare'
     ])
   },
   methods: {
     ...mapActions([
       'setLastReadVerse',
-      'showNotification'
+      'showNotification',
+      'shareViaWebshare'
     ]),
     getTranslation (indexVerse) {
       return this.translations.id.text[indexVerse]
@@ -88,17 +91,15 @@ export default {
       })
     },
     shareVerse (verse, index) {
-      /* eslint-disable */
-      if (navigator.share) {
-        navigator.share({
-          title: `QS ${this.surahId}:${index}`,
-          text: `${verse}
+      const data = {
+        title: `QS ${this.surahId}:${index}`,
+        text: `${verse}
 
-          ${this.getTranslation(index)} (QS ${this.surahId}:${index})`,
-          url: `https://quran-offline.netlify.com/${this.surahId}#verse-${index}`,
-        })
+        ${this.getTranslation(index)} (QS ${this.surahId}:${index})`,
+        url: `https://quran-offline.netlify.com/${this.surahId}#verse-${index}`
       }
-    },
+      this.shareViaWebshare(data)
+    }
   }
 }
 </script>
