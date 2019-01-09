@@ -58,6 +58,9 @@ export default {
   mounted () {
     this.initDataFromBrowserStorage()
     window.addEventListener('scroll', this.handleScroll)
+    if (navigator.share) {
+      this.setWebshareSupport(true)
+    }
   },
   beforedestroy () {
     window.removeEventListener('scroll', this.handleScroll)
@@ -67,7 +70,8 @@ export default {
       'setShowSidebar'
     ]),
     ...mapActions([
-      'initDataFromBrowserStorage'
+      'initDataFromBrowserStorage',
+      'setWebshareSupport'
     ]),
     hideSidebar () {
       this.setShowSidebar(false)

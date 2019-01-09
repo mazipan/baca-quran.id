@@ -4,7 +4,7 @@
       <label
         for="search-asmaul-husna"
         class="search__title">
-        Pencarian Cepat
+        Pencarian cepat
       </label>
       <input
         id="search-asmaul-husna"

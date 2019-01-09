@@ -10,12 +10,17 @@ export const getSurahById = (id) => {
     .then(response => response.json())
 }
 
-export const getAyatKursi = (id) => {
+export const getAyatKursi = () => {
   return fetch(ApiPath.AYAT_KURSI)
     .then(response => response.json())
 }
 
-export const getAsmaulHusna = (id) => {
+export const getAsmaulHusna = () => {
   return fetch(ApiPath.ASMAUL_HUSNA)
+    .then(response => response.json())
+}
+
+export const getDailyDoa = () => {
+  return fetch(ApiPath.DAILY_DOA)
     .then(response => response.json())
 }

@@ -9,6 +9,7 @@ export default () => ({
   },
   theme: Theme.LIGHT,
   isShowSidebar: false,
+  isSupportWebShare: false,
   headerTitle: AppConstant.TITLE,
   allSurahList: [],
   surahDetail: SurahDefaultObject,
@@ -20,5 +21,6 @@ export default () => ({
     arabic: '',
     latin: ''
   },
-  asmaulHusna: []
+  asmaulHusna: [],
+  dailyDoa: []
 })

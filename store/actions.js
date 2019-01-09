@@ -1,7 +1,13 @@
 import storageKey from '../constant/storage-key'
 import { __isNotNull } from '../utils/index'
 import { getItem, setItem } from '../utils/storage'
-import { getAllSurah, getSurahById, getAyatKursi, getAsmaulHusna } from '../services/index'
+import {
+  getAllSurah,
+  getSurahById,
+  getAyatKursi,
+  getAsmaulHusna,
+  getDailyDoa
+} from '../services/index'
 import MutationType from './mutation-type'
 
 const setDataToState = (commit, mutation, data, success) => {
@@ -42,6 +48,20 @@ export default {
     const data = { surah, verse }
     commit(MutationType.SET_LAST_READ, data)
     setItem(storageKey.LAST_READ, data)
+  },
+  setWebshareSupport ({ commit }, isSupport) {
+    commit(MutationType.SET_SUPPORT_WEBSHARE, isSupport)
+  },
+  shareViaWebshare ({ state }, { title, text, url }) {
+    if (state.isSupportWebShare) {
+      if (navigator.share) { /* eslint-disable-line no-undef */
+        navigator.share({ /* eslint-disable-line no-undef */
+          title,
+          text,
+          url
+        })
+      }
+    }
   },
   fetchAllSurah ({ commit }, { success = () => {} }) {
     const cache = getItem(storageKey.ALL_SURAH)
@@ -98,6 +118,20 @@ export default {
           const dataRes = data.data
           setDataToState(commit, mutation, dataRes, success)
           setItem(storageKey.ASMAUL_HUSNA, dataRes)
+        })
+    }
+  },
+  fetchDailyDoa ({ commit }, { success = () => {} }) {
+    const cache = getItem(storageKey.DAILY_DOA)
+    const mutation = MutationType.SET_DAILY_DOA
+    if (__isNotNull(cache)) {
+      setDataToState(commit, mutation, cache, success)
+    } else {
+      getDailyDoa()
+        .then(data => {
+          const dataRes = data.data
+          setDataToState(commit, mutation, dataRes, success)
+          setItem(storageKey.DAILY_DOA, dataRes)
         })
     }
   }
