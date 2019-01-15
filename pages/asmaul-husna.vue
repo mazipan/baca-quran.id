@@ -19,7 +19,9 @@
           v-for="item in filteredAsmaulHusna"
           :key="item.index"
           class="item">
-          <div class="arabic">
+          <div
+            class="arabic font-arabic"
+            dir="rtl">
             {{ item.arabic }}
           </div>
           <div class="latin">

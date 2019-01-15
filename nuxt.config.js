@@ -86,7 +86,13 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa',
     ['nuxt-i18n', {
-      locales: ['id'],
+      baseUrl: 'https://quran-offline.netlify.com/',
+      locales: [
+        {
+          code: 'id',
+          iso: 'id-ID'
+        }
+      ],
       defaultLocale: 'id',
       vueI18n: {
         fallbackLocale: 'id',

@@ -149,16 +149,20 @@ export default {
     list-style: none;
 
     li{
+      border-bottom: 1px solid #41b883;
       .menu_link{
-          display: block;
-          background-color: #000000;
-          color: $theme;
-          text-decoration: none;
-          padding: 15px 25px;
-          font-size: 16px;
-          display: flex;
-          align-items: center;
-        }
+        display: block;
+        background-color: #1a1a1a;
+        color: $theme;
+        text-decoration: none;
+        padding: 15px 25px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+      }
+      &:last-child{
+        border-bottom: 0;
+      }
     }
   }
 }

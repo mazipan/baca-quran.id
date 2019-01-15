@@ -1,7 +1,7 @@
 @import './variables';
 
 @font-face {
-  font-family: lpmq;
+  font-family: "lpmq";
   src: url(/fonts/lpmq.otf) format("opentype")
 }
 
@@ -28,7 +28,8 @@ a {
 }
 
 .font-arabic{
-  font-family: lpmq, Arial, sans-serif;
+  font-family: "lpmq", Arial, sans-serif;
+  line-height: 2.5;
 }
 
 .pointer{

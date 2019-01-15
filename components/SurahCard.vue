@@ -31,7 +31,9 @@
         </div>
       </div>
       <div class="divider clearfix">
-        <div class="surah__title">
+        <div
+          class="surah__title font-arabic"
+          dir="rtl">
           {{ surah.arabic }}
         </div>
       </div>
