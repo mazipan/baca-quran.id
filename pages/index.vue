@@ -22,16 +22,6 @@
         </div>
         <div class="item">
           <nuxt-link
-            to="/search"
-            class="item__link has-shadow">
-            <MdSearchIcon
-              w="2em"
-              h="2em" />
-            {{ AppConstant.SEARCH_PAGE }}
-          </nuxt-link>
-        </div>
-        <div class="item">
-          <nuxt-link
             to="/last-verse"
             class="item__link has-shadow">
             <IosBookmarkIcon
@@ -99,7 +89,6 @@
 import { mapMutations } from 'vuex'
 
 import MdBookIcon from 'vue-ionicons/dist/js/md-book'
-import MdSearchIcon from 'vue-ionicons/dist/js/md-search'
 import MdGridIcon from 'vue-ionicons/dist/js/md-grid'
 import MdWifiIcon from 'vue-ionicons/dist/js/md-wifi'
 import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
@@ -118,7 +107,6 @@ export default {
   },
   components: {
     MdBookIcon,
-    MdSearchIcon,
     MdGridIcon,
     MdWifiIcon,
     IosNavigateIcon,
