@@ -1,4 +1,4 @@
-import locale from './locale/id'
+const locale = require('./locale/id')
 
 const pkg = require('./package')
 const path = require('path')

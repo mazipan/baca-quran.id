@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   title: 'Qur\'an Offline',
   lastRead: 'Terakhir dibaca',
   favorite: 'Surat favorit',
