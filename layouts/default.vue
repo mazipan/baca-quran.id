@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="theme"
-    class="app quran-offline">
+    :class="`${theme} ${webpClass}`"
+    class="quran-offline app js">
     <div
       v-show="isShowSidebar"
       class="sidebar-cover"
@@ -46,7 +46,8 @@ export default {
   },
   data () {
     return {
-      showArrowToTop: false
+      showArrowToTop: false,
+      webpClass: 'no-webp'
     }
   },
   computed: {
@@ -61,6 +62,9 @@ export default {
     if (navigator.share) {
       this.setWebshareSupport(true)
     }
+    const isSupportWebp = (document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0)
+    if (isSupportWebp) this.webpClass = 'webp'
+    else this.webpClass = 'no-webp'
   },
   beforedestroy () {
     window.removeEventListener('scroll', this.handleScroll)

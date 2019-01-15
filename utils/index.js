@@ -45,3 +45,16 @@ export const __slugify = (val) => {
 export const __normalizeText = (text) => {
   return text.toLowerCase().replace(/[\W_]+/g, '')
 }
+
+export const __makeThreeDigit = (numberText) => {
+  let res = '000'
+  const numParam = parseInt(numberText, 10)
+  if (numParam < 10) {
+    res = `00${numberText}`
+  } else if (numParam >= 10 && numParam < 100) {
+    res = `0${numberText}`
+  } else {
+    res = `${numberText}`
+  }
+  return res
+}
