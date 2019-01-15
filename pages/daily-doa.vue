@@ -26,7 +26,7 @@
           <div
             v-show="isExpanded(item.title)"
             class="collapsible bounce">
-            <div class="arabic">
+            <div class="arabic font-arabic">
               {{ item.arabic }}
             </div>
             <div class="latin">

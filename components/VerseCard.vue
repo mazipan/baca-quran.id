@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="divider clearfix">
-        <div class="verse__arabic">
+        <div class="verse__arabic font-arabic">
           {{ verse }}
         </div>
       </div>
