@@ -7,7 +7,8 @@ export const AppConstant = {
   SEARCH_PAGE: 'Pencarian surat',
   AYAT_KURSI: 'Ayat kursi',
   ASMAUL_HUSNA: 'Asmaul husna',
-  DAILY_DOA: 'Do\'a harian'
+  DAILY_DOA: 'Do\'a harian',
+  BISMILLAH: '﷽'
 }
 
 export const Theme = {

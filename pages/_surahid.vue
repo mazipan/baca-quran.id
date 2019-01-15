@@ -2,15 +2,11 @@
   <section class="container">
     <div
       class="detail">
-      <div class="detail__header">
-        <div class="detail__header_index">
-          {{ currentSurah.number }}
-        </div>
-        <div class="detail__header_content">
-          <div>{{ currentSurah.name }}</div>
-          <small>({{ currentSurah.name_latin }} - {{ currentSurah.translations.id.name }})</small>
-        </div>
-      </div>
+      <SurahHeader
+        :surah-number="Number(currentSurah.number)"
+        :surah-name="currentSurah.name"
+        :surah-latin="currentSurah.name_latin"
+        :surah-translation="currentSurah.translations.id.name" />
 
       <div class="detail__content">
         <VerseCard
@@ -23,7 +19,8 @@
         :surah-id="surahId"
         :surah-name="currentSurah.name"
         :next-surah="nextSurah"
-        :prev-surah="prevSurah" />
+        :prev-surah="prevSurah"
+        :number-ayah="Number(currentSurah.number_of_ayah)" />
     </div>
   </section>
 </template>
@@ -32,6 +29,7 @@
 import { mapActions, mapMutations, mapState } from 'vuex'
 
 import VerseCard from '../components/VerseCard'
+import SurahHeader from '../components/SurahHeader'
 import SurahNavigation from '../components/SurahNavigation'
 
 import { __isNotEmptyArray } from '../utils/index'
@@ -45,6 +43,7 @@ export default {
   },
   components: {
     VerseCard,
+    SurahHeader,
     SurahNavigation
   },
   data () {
@@ -119,38 +118,6 @@ export default {
 @import '@/assets/_variables.scss';
 
 .detail {
-  &__header {
-    width: 90%;
-    margin: 1em auto;
-    font-size: 2rem;
-    display: flex;
-    align-content: center;
-    align-items: center;
-
-    &_index {
-      background-color: #52e0a1;
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
-      display: flex;
-      align-items: center;
-      height: 100px;
-      padding: .25em .5em;
-    }
-    &_content {
-      background-color: #000;
-      color: #52e0a1;
-      flex-grow: 1;
-      justify-content: space-between;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
-      text-align: right;
-      height: 100px;
-      padding: .25em .5em;
-      small {
-        font-size: 1rem;
-      }
-    }
-  }
   &__content {
     width: 90%;
     margin: 0 auto;

@@ -12,6 +12,22 @@
         {{ prevSurah.arabic }}
       </span>
     </nuxt-link>
+    <div class="surah_nav_item surah_nav_center">
+      <label for="">
+        Pergi ke ayat:
+      </label>
+      <select
+        v-model="selectedVerse"
+        name="verse-select"
+        class="select">
+        <option
+          v-for="num in arrayAyah"
+          :key="num"
+          :value="num">
+          {{ num }}
+        </option>
+      </select>
+    </div>
     <nuxt-link
       :to="`/${surahId + 1}`"
       class="surah_nav_item surah_nav_next">
@@ -57,6 +73,15 @@ export default {
       default: () => ({
         arabic: ''
       })
+    },
+    numberAyah: {
+      type: Number,
+      default: 0
+    }
+  },
+  data () {
+    return {
+      selectedVerse: 1
     }
   },
   computed: {
@@ -65,6 +90,14 @@ export default {
     },
     isHaveNext () {
       return this.surahId < 114
+    },
+    arrayAyah () {
+      return Array.from({ length: this.numberAyah }, (v, k) => k + 1)
+    }
+  },
+  watch: {
+    selectedVerse (newValue) {
+      window.location.href = `#verse-${newValue}`
     }
   }
 }
@@ -104,5 +137,21 @@ export default {
       font-size: 2rem;
     }
   }
+}
+
+.select{
+  -webkit-appearance: none;
+  padding: .5em 1.5rem .5em .5rem;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  color: #41b883;
+  border: 1px solid #41b883;
+  font-size: 1rem;
+  border-radius: 4px;
+  margin-left: .5em;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAAXNSR0IArs4c6QAAAJ1JREFUCB1jzMnJCWdkZBSdPHnyFAYk0NDQwPbmzZuVTExMk5iA4p7//v2bDFScC1OzatUqZqCC5f////cHyikwiYiIJAFNWgIUmARSCKQZDx48OAdIBwJNSZ8yZcp8RpBuoNFMQJ0LgRIxQO4hILYFKsgEOmEmSJ4ZRBw4cOC/l5fXxu/fvysDub5Ak3OAJswAyWEAkIm5ublu6BIADTRHW7YWzxEAAAAASUVORK5CYII=");
+  background-position: right 7px center;
+  background-repeat: no-repeat;
 }
 </style>
