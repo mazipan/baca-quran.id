@@ -1,19 +1,20 @@
 import { __isNotNull } from './index'
-import { AppConstant } from '../constant/index'
 
-export const getItem = (key) => {
+export const getItem = (key, v) => {
   if (process.client) {
     try {
-      const v = AppConstant.VERSION
       const cache = localStorage.getItem(key)
       if (__isNotNull(cache)) {
         const dataInCache = JSON.parse(cache)
         if (__isNotNull(dataInCache.value)) {
           // check cache version
-          if (__isNotNull(dataInCache.version)) {
+          if (__isNotNull(dataInCache.version) && __isNotNull(v)) {
             const versionInCache = dataInCache.version
             if (v === versionInCache) { // only return value when version was matched
               return dataInCache.value
+            } else {
+              // @TODO cek delete item
+              // localStorage.deleteItem(key)
             }
           } else return dataInCache.value // return value when version null without checking version
         }

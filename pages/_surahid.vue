@@ -12,7 +12,8 @@
         <VerseCard
           :verse-array="currentSurah.text"
           :surah-id="surahId"
-          :translations="currentSurah.translations" />
+          :translations="currentSurah.translations"
+          :tafsir="currentSurah.tafsir" />
       </div>
 
       <SurahNavigation

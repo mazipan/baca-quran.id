@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container asmaul-husna">
     <div class="search clearfix">
       <label
         for="search-asmaul-husna"
@@ -113,8 +113,6 @@ export default {
 }
 .item{
   text-decoration: none;
-  background-color: #41b883;
-  color: #000;
   border-radius: .25em;
   padding: 1.5em;
   text-align: center;

@@ -1,9 +1,6 @@
 import MutationType from './mutation-type'
 
 export default {
-  [MutationType.SET_THEME] (state, data) {
-    state.theme = data
-  },
   [MutationType.SET_SHOW_SIDEBAR] (state, data) {
     state.isShowSidebar = data
   },
@@ -36,5 +33,14 @@ export default {
   },
   [MutationType.SET_DAILY_DOA]  (state, data) {
     state.dailyDoa = data
+  },
+  [MutationType.SET_THEME] (state, data) {
+    state.settingActiveTheme = data
+  },
+  [MutationType.SET_SETTING_TRANSLATION]  (state, data) {
+    state.settingShowTranslation = data
+  },
+  [MutationType.SET_SETTING_TAFSIR]  (state, data) {
+    state.settingShowTafsir = data
   }
 }

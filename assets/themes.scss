@@ -1,0 +1,72 @@
+@import './variables';
+
+/* THEME LIGHT -- start*/
+.light{
+  .header__sticky, .item__link, .sidebar__head, .block_content, .surah_nav, .asmaul-husna .item, .daily-doa .item {
+    background: $theme-light-bg;
+    color: $theme-light-fg;
+  }
+  .header__title, .header__hamburger, .header__nav, .surah_nav_item, .arrowtotop a{
+    color: $theme-light-fg;
+  }
+  .tag_index, .daily-doa .collapsible{
+    background: darken($theme-light-bg, 10%);
+    color: $theme-light-fg;
+  }
+  .surah svg {
+    fill: $theme-light-fg;
+  }
+  .search input, .select {
+    color: $theme-light-bg;
+    border: 1px solid $theme-light-fg;
+  }
+}
+/* THEME LIGHT -- end*/
+
+/* THEME DARK -- start*/
+.dark{
+  .header__sticky, .item__link, .sidebar__head, .block_content, .surah_nav, .asmaul-husna .item, .daily-doa .item {
+    background: $theme-dark-bg;
+    color: $theme-dark-fg;
+  }
+  .header__title, .header__hamburger, .header__nav, .surah_nav_item, .arrowtotop a{
+    color: $theme-dark-fg;
+  }
+  .tag_index, .daily-doa .collapsible{
+    background: darken($theme-dark-bg, 10%);
+    color: $theme-dark-fg;
+  }
+  .surah svg {
+    fill: $theme-dark-fg;
+  }
+  .search input, .select {
+    color: $theme-dark-bg;
+    border: 1px solid $theme-dark-bg;
+  }
+}
+/* THEME DARK -- end*/
+
+
+/* THEME NATURE -- start*/
+.nature{
+  .header__sticky, .item__link, .sidebar__head, .block_content, .surah_nav, .asmaul-husna .item, .daily-doa .item  {
+    background: $theme-nature-bg;
+    color: $theme-nature-fg;
+  }
+  .header__title, .header__hamburger, .header__nav, .surah_nav_item, .arrowtotop a{
+    color: $theme-nature-fg;
+  }
+  .tag_index, .daily-doa .collapsible{
+    background: darken($theme-nature-bg, 10%);
+    color: $theme-nature-fg;
+  }
+  .surah svg {
+    fill: $theme-nature-fg;
+  }
+  .search input, .select {
+    color: $theme-nature-bg;
+    border: 1px solid $theme-nature-bg;
+  }
+}
+/* THEME NATURE -- end*/
+

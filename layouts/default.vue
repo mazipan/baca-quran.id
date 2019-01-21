@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`${theme} ${webpClass}`"
+    :class="`${settingActiveTheme.name} ${webpClass}`"
     class="quran-offline app js">
     <div
       v-show="isShowSidebar"
@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     ...mapState([
-      'theme',
+      'settingActiveTheme',
       'isShowSidebar'
     ])
   },
@@ -89,6 +89,7 @@ export default {
 
 <style lang="scss">
   @import '@/assets/main.scss';
+  @import '@/assets/themes.scss';
   .sidebar-cover{
     background-color: rgba(0,0,0,0.5);
     position: fixed;

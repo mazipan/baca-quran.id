@@ -64,6 +64,17 @@
         </li>
         <li class="sidebar__item">
           <nuxt-link
+            to="/settings"
+            class="sidebar__link"
+            @click.native="navigateTo">
+            <MdSettingsIcon
+              w="2em"
+              h="2em" />
+            {{ $t('setting') }}
+          </nuxt-link>
+        </li>
+        <li class="sidebar__item">
+          <nuxt-link
             to="/about"
             class="sidebar__link"
             @click.native="navigateTo">
@@ -97,6 +108,7 @@ import MdHomeIcon from 'vue-ionicons/dist/js/md-home'
 import MdBookIcon from 'vue-ionicons/dist/js/md-book'
 import MdHelpCircleIcon from 'vue-ionicons/dist/js/md-help-circle'
 import MdCodeIcon from 'vue-ionicons/dist/js/md-code'
+import MdSettingsIcon from 'vue-ionicons/dist/js/md-settings'
 import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
 import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
@@ -110,6 +122,7 @@ export default {
     MdBookIcon,
     MdHelpCircleIcon,
     MdCodeIcon,
+    MdSettingsIcon,
     IosNavigateIcon,
     IosStarOutlineIcon,
     IosBookmarkIcon

@@ -1,5 +1,6 @@
-import { Theme, AppConstant } from '../constant/index'
+import { AppConstant } from '../constant/index'
 import { SurahDefaultObject } from '../constant/default-object'
+import Theme from '../constant/theme'
 
 export default () => ({
   notification: {
@@ -7,7 +8,6 @@ export default () => ({
     title: '',
     message: ''
   },
-  theme: Theme.LIGHT,
   isShowSidebar: false,
   isSupportWebShare: false,
   headerTitle: AppConstant.TITLE,
@@ -22,5 +22,8 @@ export default () => ({
     latin: ''
   },
   asmaulHusna: [],
-  dailyDoa: []
+  dailyDoa: [],
+  settingActiveTheme: Theme.LIGHT,
+  settingShowTranslation: true,
+  settingShowTafsir: true
 })

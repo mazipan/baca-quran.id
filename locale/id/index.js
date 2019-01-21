@@ -10,6 +10,7 @@ module.exports = {
   surahList: 'Daftar surat',
   about: 'Tentang',
   home: 'Beranda',
+  setting: 'Setelan',
   sourceCode: 'Kode sumber',
   numberOfVerse: 'Ayat ke'
 }
