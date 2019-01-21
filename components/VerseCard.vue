@@ -258,4 +258,36 @@ export default {
   visibility: visible;
   opacity: 1;
 }
+.tooltip{
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #1a1a1a;
+  color: #41b883;
+  text-align: center;
+  // border-radius: 6px;
+  // padding: 1em 2em;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -50px;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      padding: 15px 25px;
+      border-bottom: 1px solid #41b883;
+      &:last-child{
+        border-bottom: 0;
+      }
+    }
+  }
+}
+.tooltip.show {
+  visibility: visible;
+  opacity: 1;
+}
 </style>
