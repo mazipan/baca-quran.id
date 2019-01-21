@@ -7,7 +7,16 @@ export const SurahDefaultObject = {
   translations: {
     id: {
       name: '',
-      text: ''
+      text: {}
+    }
+  },
+  tafsir: {
+    id: {
+      kemenag: {
+        name: '',
+        source: '',
+        text: {}
+      }
     }
   }
 }

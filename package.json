@@ -42,6 +42,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.1.0",
+    "fs-extra": "^7.0.1",
     "husky": "^1.3.1",
     "jest": "^23.6.0",
     "jest-serializer-vue": "^2.0.2",
@@ -50,8 +51,8 @@
     "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "vue-jest": "^3.0.2",
     "vue-i18n": "^7.8.1",
+    "vue-jest": "^3.0.2",
     "vue-loader": "^15.5.1"
   },
   "husky": {

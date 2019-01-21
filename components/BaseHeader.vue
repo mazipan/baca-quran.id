@@ -58,15 +58,22 @@
         <li>
           <div
             class="menu_link"
-            @click="navigateTo('https://github.com/mazipan/quran-offline')">
-            {{ $t('about') }}
+            @click="navigateTo('/')">
+            {{ $t('home') }}
           </div>
         </li>
         <li>
           <div
             class="menu_link"
-            @click="navigateTo('https://github.com/mazipan/quran-offline')">
-            {{ $t('sourceCode') }}
+            @click="navigateTo('/settings')">
+            {{ $t('setting') }}
+          </div>
+        </li>
+        <li>
+          <div
+            class="menu_link"
+            @click="navigateTo('/about')">
+            {{ $t('about') }}
           </div>
         </li>
       </ul>

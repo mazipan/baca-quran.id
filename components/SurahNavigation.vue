@@ -8,14 +8,12 @@
         w="30px"
         h="30px" />
       <span
-        v-if="prevSurah">
+        v-if="prevSurah"
+        class="text-nav">
         {{ prevSurah.arabic }}
       </span>
     </nuxt-link>
     <div class="surah_nav_item surah_nav_center">
-      <label for="">
-        Pergi ke ayat:
-      </label>
       <select
         v-model="selectedVerse"
         name="verse-select"
@@ -32,7 +30,8 @@
       :to="`/${surahId + 1}`"
       class="surah_nav_item surah_nav_next">
       <span
-        v-if="nextSurah">
+        v-if="nextSurah"
+        class="text-nav">
         {{ nextSurah.arabic }}
       </span>
       <MdArrowForwardIcon
@@ -153,5 +152,11 @@ export default {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAAXNSR0IArs4c6QAAAJ1JREFUCB1jzMnJCWdkZBSdPHnyFAYk0NDQwPbmzZuVTExMk5iA4p7//v2bDFScC1OzatUqZqCC5f////cHyikwiYiIJAFNWgIUmARSCKQZDx48OAdIBwJNSZ8yZcp8RpBuoNFMQJ0LgRIxQO4hILYFKsgEOmEmSJ4ZRBw4cOC/l5fXxu/fvysDub5Ak3OAJswAyWEAkIm5ublu6BIADTRHW7YWzxEAAAAASUVORK5CYII=");
   background-position: right 7px center;
   background-repeat: no-repeat;
+}
+.text-nav{
+  // mobile
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 }
 </style>

@@ -56,9 +56,27 @@
           {{ verse }}
         </div>
       </div>
-      <div class="divider clearfix">
+      <div
+        v-if="settingShowTranslation"
+        class="divider clearfix">
+        <div class="verse__bold">
+          <b>Terjemah:</b>
+        </div>
         <div class="verse__translation">
           {{ getTranslation(index) }}
+        </div>
+      </div>
+      <div
+        v-if="settingShowTafsir"
+        class="divider clearfix">
+        <div class="verse__bold">
+          <b>Tafsir dari Kemenag:</b>
+        </div>
+        <div class="verse__tafsir">
+          {{ getTafsir(index) }}
+        </div>
+        <div class="verse__small">
+          <i>Sumber: Aplikasi Quran Kementrian Agama Republik Indonesia</i>
         </div>
       </div>
     </div>
@@ -90,6 +108,10 @@ export default {
       type: Object,
       default: () => ({})
     },
+    tafsir: {
+      type: Object,
+      default: () => ({})
+    },
     surahId: {
       type: Number,
       default: 0
@@ -105,7 +127,9 @@ export default {
   computed: {
     ...mapState([
       'surahFavorite',
-      'isSupportWebShare'
+      'isSupportWebShare',
+      'settingShowTranslation',
+      'settingShowTafsir'
     ])
   },
   methods: {
@@ -131,6 +155,9 @@ export default {
     getTranslation (indexVerse) {
       return this.translations.id.text[indexVerse]
     },
+    getTafsir (indexVerse) {
+      return this.tafsir.id.kemenag.text[indexVerse]
+    },
     doSetLastReadVerse (data) {
       this.setLastReadVerse(data)
       this.showNotification({
@@ -154,6 +181,8 @@ export default {
 
 <style lang="scss" scoped>
 .verse {
+  text-align: left;
+
   &__header{
     display: flex;
     align-items: center;
@@ -176,11 +205,25 @@ export default {
     margin-top: .25em;
   }
   &__translation {
-    font-size: 0.9rem;
+    font-size: 1rem;
     width: 100%;
-    text-align: left;
     font-style: italic;
     margin-top: 1.5em;
+  }
+  &__tafsir {
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 1.5em;
+  }
+  &__bold{
+    font-weight: bold;
+    margin-top: 1.5em;
+    line-height: 1.5;
+  }
+  &__small{
+    font-size: 0.8rem;
+    margin-top: 1.5em;
+    font-style: italic;
   }
 }
 .tooltip{

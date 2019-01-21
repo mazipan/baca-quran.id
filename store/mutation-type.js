@@ -10,5 +10,7 @@ export default {
   SET_NOTIFICATION: 'setNotification',
   SET_AYAT_KURSI: 'setAyatKursi',
   SET_ASMAUL_HUSNA: 'setAsmaulHusna',
-  SET_DAILY_DOA: 'setDailyDoa'
+  SET_DAILY_DOA: 'setDailyDoa',
+  SET_SETTING_TRANSLATION: 'setSettingTranslation',
+  SET_SETTING_TAFSIR: 'setSettingTafsir'
 }
