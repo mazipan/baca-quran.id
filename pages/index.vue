@@ -156,8 +156,6 @@ export default {
     padding: 1em;
     border-radius: 4px;
     font-size: 1rem;
-    background-color: #c6f3df;
-    color: #000;
   }
 }
 </style>

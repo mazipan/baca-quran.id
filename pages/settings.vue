@@ -64,6 +64,11 @@ import Theme from '../constant/theme'
 
 export default {
   name: 'SettingsPage',
+  head () {
+    return {
+      title: 'Setelan | Qur\'an Offline'
+    }
+  },
   data () {
     return {
       themesAvailable: Theme.AVAILABLE_THEME,

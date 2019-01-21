@@ -89,6 +89,7 @@ export default {
 
 <style lang="scss">
   @import '@/assets/main.scss';
+  @import '@/assets/themes.scss';
   .sidebar-cover{
     background-color: rgba(0,0,0,0.5);
     position: fixed;

@@ -118,12 +118,9 @@ export default {
   height: 60px;
   text-align: center;
   width: 100%;
-  background: $theme;
-  color: $foreground;
   &_item {
     display: flex;
     align-items: center;
-    color: $foreground;
   }
   &_title {
     font-size: 2rem;
@@ -144,8 +141,6 @@ export default {
   outline: none;
   border: none;
   background-color: #fff;
-  color: #41b883;
-  border: 1px solid #41b883;
   font-size: 1rem;
   border-radius: 4px;
   margin-left: .5em;
