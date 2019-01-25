@@ -2,6 +2,8 @@
 
 /* THEME LIGHT -- start*/
 .light{
+  background: $theme-light-body;
+
   .header__sticky, .item__link, .sidebar__head, .block_content, .surah_nav, .asmaul-husna .item, .daily-doa .item {
     background: $theme-light-bg;
     color: $theme-light-fg;
@@ -25,6 +27,8 @@
 
 /* THEME DARK -- start*/
 .dark{
+  background: $theme-dark-body;
+
   .header__sticky, .item__link, .sidebar__head, .block_content, .surah_nav, .asmaul-husna .item, .daily-doa .item {
     background: $theme-dark-bg;
     color: $theme-dark-fg;
@@ -43,12 +47,17 @@
     color: $theme-dark-bg;
     border: 1px solid $theme-dark-bg;
   }
+  .search input {
+    background-color: $theme-dark-bg!important;
+  }
 }
 /* THEME DARK -- end*/
 
 
 /* THEME NATURE -- start*/
 .nature{
+  background: $theme-nature-body;
+
   .header__sticky, .item__link, .sidebar__head, .block_content, .surah_nav, .asmaul-husna .item, .daily-doa .item  {
     background: $theme-nature-bg;
     color: $theme-nature-fg;

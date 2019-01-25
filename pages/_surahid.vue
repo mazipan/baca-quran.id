@@ -122,7 +122,7 @@ export default {
   &__content {
     width: 90%;
     margin: 0 auto;
-    margin-bottom: 5em;
+    padding-bottom: 5em;
   }
 }
 </style>

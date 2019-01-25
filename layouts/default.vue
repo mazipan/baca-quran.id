@@ -102,4 +102,7 @@ export default {
     bottom: 90px;
     right: 10px;
   }
+  .app__content{
+    min-height: 100vh;
+  }
 </style>

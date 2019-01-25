@@ -1,13 +1,6 @@
 <template>
   <section class="container">
-    <div v-if="loading">
-      <div
-        v-for="i in 5"
-        :key="i"
-        class="skeleton skeleton_row skeleton_row--big" />
-    </div>
-    <div
-      v-else>
+    <div>
       <div class="search clearfix">
         <label
           for="search-surah"
