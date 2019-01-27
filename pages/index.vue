@@ -1,13 +1,7 @@
 <template>
   <section class="container">
-    <div v-if="loading">
-      <div
-        v-for="i in 5"
-        :key="i"
-        class="skeleton skeleton_row" />
-    </div>
     <div
-      v-else
+      v-if="!loading"
       class="home">
       <div class="home__wrapper">
         <div class="item">
