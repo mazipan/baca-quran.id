@@ -26,6 +26,8 @@ module.exports = {
   ],
   coverageDirectory: 'coverage',
   moduleNameMapper: {
+    '\\.(css|less|sass|scss)$': '<rootDir>/__mocks__/fileMock.js',
+    '\\.(gif|ttf|eot|svg)$': '<rootDir>/__mocks__/fileMock.js',
     '^~/(.*)$': '<rootDir>/$1',
     '^@/(.*)$': '<rootDir>/$1',
     '^vue$': 'vue/dist/vue.common.js'

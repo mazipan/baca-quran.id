@@ -28,11 +28,13 @@ import 'unfetch/polyfill'
 
 import { mapState, mapMutations, mapActions } from 'vuex'
 
-import ArrowUpIcon from 'vue-ionicons/dist/ios-arrow-dropup-circle'
+import ArrowUpIcon from 'vue-ionicons/dist/js/ios-arrow-dropup-circle'
 
 import BaseHeader from '../components/BaseHeader.vue'
 import BaseSidebar from '../components/BaseSidebar.vue'
 import BaseToast from '../components/BaseToast.vue'
+
+import { isSupportWebp } from '../utils/webp.js'
 
 require('vue-ionicons/ionicons.css')
 
@@ -62,9 +64,9 @@ export default {
     if (navigator.share) {
       this.setWebshareSupport(true)
     }
-    const isSupportWebp = (document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0)
-    if (isSupportWebp) this.webpClass = 'webp'
-    else this.webpClass = 'no-webp'
+    let clasz = 'no-webp'
+    if (isSupportWebp()) clasz = 'webp'
+    this.webpClass = clasz
   },
   beforedestroy () {
     window.removeEventListener('scroll', this.handleScroll)

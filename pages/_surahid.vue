@@ -33,7 +33,7 @@ import VerseCard from '../components/VerseCard'
 import SurahHeader from '../components/SurahHeader'
 import SurahNavigation from '../components/SurahNavigation'
 
-import { __isNotEmptyArray } from '../utils/index'
+import { __isNotNull, __isNotEmptyArray } from '../utils/index'
 
 export default {
   name: 'PageSurahDetail',
@@ -71,7 +71,11 @@ export default {
       return this.surahDetail
     },
     surahId () {
-      return Number(this.$route.params.surahid)
+      let id = 0
+      if (__isNotNull(this.$route.params && this.$route.params.surahid)) {
+        id = Number(this.$route.params.surahid)
+      }
+      return id
     },
     isValidSurah () {
       return this.surahId > 0 && this.surahId <= 114
