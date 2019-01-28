@@ -65,9 +65,7 @@ import Theme from '../constant/theme'
 export default {
   name: 'SettingsPage',
   head () {
-    return {
-      title: 'Setelan | Qur\'an Offline'
-    }
+    return this.metaHead
   },
   data () {
     return {
@@ -81,7 +79,18 @@ export default {
       'settingActiveTheme',
       'settingShowTranslation',
       'settingShowTafsir'
-    ])
+    ]),
+    metaHead () {
+      const title = 'Halaman Setelan | Qur\'an Offline'
+      return {
+        title,
+        meta: [
+          { hid: 'og:title', property: 'og:title', content: title },
+          { hid: 'twitter:title', name: 'twitter:title', content: title },
+          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        ]
+      }
+    }
   },
   mounted () {
     this[MutationType.SET_HEADER_TITLE](this.$t('setting'))

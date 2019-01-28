@@ -31,19 +31,21 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'description', content: pkg.description },
-      { name: 'theme-color', content: '#41b883' },
+      { hid: 'description', name: 'description', content: pkg.description },
+      { hid: 'theme-color', name: 'theme-color', content: '#41b883' },
 
-      { property: 'og:image', content: '/icon.png' },
-      { property: 'og:title', content: 'Quran Offline' },
-      { property: 'og:description', content: pkg.description },
-      { property: 'og:url', content: 'https://quran-offline.netlify.com/' },
+      { hid: 'og:image', property: 'og:image', content: '/icon.png' },
+      { hid: 'og:title', property: 'og:title', content: 'Quran Offline' },
+      { hid: 'og:description', property: 'og:description', content: pkg.description },
+      { hid: 'og:url', property: 'og:url', content: 'https://quran-offline.netlify.com/' },
 
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:image:src', content: '/icon.png' },
-      { name: 'twitter:title', content: 'Quran Offline' },
-      { name: 'twitter:description', content: pkg.description },
-      { name: 'twitter:url', content: 'https://quran-offline.netlify.com/' }
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+      { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/icon.png' },
+      { hid: 'twitter:title', name: 'twitter:title', content: 'Quran Offline' },
+      { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
+      { hid: 'twitter:url', name: 'twitter:url', content: 'https://quran-offline.netlify.com/' },
+
+      { hid: 'google-site-verification', name: 'google-site-verification', content: 'jW7EK0wGpuReuZkQ-q900J7Z0KbCD9CCAZybfwcPe_U' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -67,7 +69,11 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#41b883' },
+  loading: {
+    color: '#f00',
+    height: '3px',
+    continuous: true
+  },
 
   /*
    ** Global CSS
@@ -84,6 +90,7 @@ module.exports = {
    */
   modules: [
     '@nuxtjs/pwa',
+    '@nuxtjs/sitemap',
     ['nuxt-i18n', {
       baseUrl: 'https://quran-offline.netlify.com/',
       locales: [
@@ -101,6 +108,15 @@ module.exports = {
       }
     }]
   ],
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://quran-offline.netlify.com/',
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: true, // Enable me when using nuxt generate
+    exclude: []
+  },
   /*
    ** Generate multiple entry html from 1 to 114
    */

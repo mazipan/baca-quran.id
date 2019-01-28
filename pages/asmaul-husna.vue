@@ -43,9 +43,7 @@ import { __isNotEmptyString, __normalizeText } from '../utils/index'
 export default {
   name: 'AsmaulHusnaPage',
   head () {
-    return {
-      title: 'Asmaul Husna | Qur\'an Offline'
-    }
+    return this.metaHead
   },
   data () {
     return {
@@ -55,8 +53,20 @@ export default {
   },
   computed: {
     ...mapState([
+      'settingActiveTheme',
       'asmaulHusna'
     ]),
+    metaHead () {
+      const title = 'Daftar Asmaul Husna | Qur\'an Offline'
+      return {
+        title,
+        meta: [
+          { hid: 'og:title', property: 'og:title', content: title },
+          { hid: 'twitter:title', name: 'twitter:title', content: title },
+          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        ]
+      }
+    },
     filteredAsmaulHusna () {
       if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
         return this.asmaulHusna.filter(item => {

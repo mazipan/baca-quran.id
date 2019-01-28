@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 import MdBookIcon from 'vue-ionicons/dist/js/md-book'
 import MdGridIcon from 'vue-ionicons/dist/js/md-grid'
@@ -95,9 +95,7 @@ import { AppConstant } from '../constant/index.js'
 export default {
   name: 'PageIndex',
   head () {
-    return {
-      title: 'Beranda | Qur\'an Offline'
-    }
+    return this.metaHead
   },
   components: {
     MdBookIcon,
@@ -115,6 +113,20 @@ export default {
     }
   },
   computed: {
+    ...mapState([
+      'settingActiveTheme'
+    ]),
+    metaHead () {
+      const title = 'Baca Al-Qur\'an dimana saja, langsung dari web browser Anda | Qur\'an Offline'
+      return {
+        title,
+        meta: [
+          { hid: 'og:title', property: 'og:title', content: title },
+          { hid: 'twitter:title', name: 'twitter:title', content: title },
+          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        ]
+      }
+    }
   },
   mounted () {
     this.setHeaderTitle(AppConstant.TITLE)

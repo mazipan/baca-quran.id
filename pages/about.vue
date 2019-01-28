@@ -68,20 +68,34 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 import { AppConstant } from '../constant/index'
 
 export default {
   name: 'PageAbout',
   head () {
-    return {
-      title: 'Tentang | Qur\'an Offline'
-    }
+    return this.metaHead
   },
   data () {
     return {
       appTitle: AppConstant.TITLE
+    }
+  },
+  computed: {
+    ...mapState([
+      'settingActiveTheme'
+    ]),
+    metaHead () {
+      const title = 'Tentang | Qur\'an Offline'
+      return {
+        title,
+        meta: [
+          { hid: 'og:title', property: 'og:title', content: title },
+          { hid: 'twitter:title', name: 'twitter:title', content: title },
+          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        ]
+      }
     }
   },
   mounted () {

@@ -34,9 +34,7 @@ import { __isNotNull } from '../utils/index'
 export default {
   name: 'LastVersePage',
   head () {
-    return {
-      title: 'Ayat Terakhir Dibaca | Qur\'an Offline'
-    }
+    return this.metaHead
   },
   components: {
     IosBookmarkIcon,
@@ -44,9 +42,21 @@ export default {
   },
   computed: {
     ...mapState([
+      'settingActiveTheme',
       'allSurahList',
       'lastReadVerse'
     ]),
+    metaHead () {
+      const title = 'Ayat Terakhir Dibaca | Qur\'an Offline'
+      return {
+        title,
+        meta: [
+          { hid: 'og:title', property: 'og:title', content: title },
+          { hid: 'twitter:title', name: 'twitter:title', content: title },
+          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        ]
+      }
+    },
     isHaveLastRead () {
       return __isNotNull(this.lastReadVerse && this.lastReadVerse.surah)
     },

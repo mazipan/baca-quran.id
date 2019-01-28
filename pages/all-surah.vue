@@ -31,9 +31,7 @@ import { __isNotEmptyString, __normalizeText } from '../utils/index'
 export default {
   name: 'PageAllSurah',
   head () {
-    return {
-      title: 'Daftar Surat | Qur\'an Offline'
-    }
+    return this.metaHead
   },
   components: {
     SurahCard
@@ -46,8 +44,20 @@ export default {
   },
   computed: {
     ...mapState([
+      'settingActiveTheme',
       'allSurahList'
     ]),
+    metaHead () {
+      const title = 'Daftar Semua Surat dalam Al-Qur\'an | Qur\'an Offline'
+      return {
+        title,
+        meta: [
+          { hid: 'og:title', property: 'og:title', content: title },
+          { hid: 'twitter:title', name: 'twitter:title', content: title },
+          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        ]
+      }
+    },
     isHaveSource () {
       return __isNotEmptyString(this.$route.query.source)
     },

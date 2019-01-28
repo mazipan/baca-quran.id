@@ -33,9 +33,7 @@ import { AppConstant } from '../constant/index.js'
 export default {
   name: 'FavoritePage',
   head () {
-    return {
-      title: 'Surat Favorit | Qur\'an Offline'
-    }
+    return this.metaHead
   },
   components: {
     IosStarOutlineIcon,
@@ -43,8 +41,20 @@ export default {
   },
   computed: {
     ...mapState([
+      'settingActiveTheme',
       'surahFavorite'
     ]),
+    metaHead () {
+      const title = 'Surat Favorit Anda | Qur\'an Offline'
+      return {
+        title,
+        meta: [
+          { hid: 'og:title', property: 'og:title', content: title },
+          { hid: 'twitter:title', name: 'twitter:title', content: title },
+          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        ]
+      }
+    },
     isHaveFav () {
       return __isNotEmptyArray(this.surahFavorite)
     }

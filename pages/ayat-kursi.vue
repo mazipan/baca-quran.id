@@ -17,9 +17,7 @@ import { mapActions, mapMutations, mapState } from 'vuex'
 export default {
   name: 'AyatKursiPage',
   head () {
-    return {
-      title: 'Ayat Kursi | Qur\'an Offline'
-    }
+    return this.metaHead
   },
   data () {
     return {
@@ -28,8 +26,20 @@ export default {
   },
   computed: {
     ...mapState([
+      'settingActiveTheme',
       'ayatKursi'
-    ])
+    ]),
+    metaHead () {
+      const title = 'Bacaan dan terjemah Ayat Kursi | Qur\'an Offline'
+      return {
+        title,
+        meta: [
+          { hid: 'og:title', property: 'og:title', content: title },
+          { hid: 'twitter:title', name: 'twitter:title', content: title },
+          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        ]
+      }
+    }
   },
   mounted () {
     this.onMountedPage()
