@@ -44,9 +44,9 @@ const routesSitemap = () => {
   let res = []
   routes().forEach(el => {
     const item = {}
-    item.url = el,
-    item.changefreq = 'daily',
-    item.priority = 1,
+    item.url = el
+    item.changefreq = 'daily'
+    item.priority = 1
     item.lastmodISO = String(new Date().toISOString())
     res.push(item)
   })
