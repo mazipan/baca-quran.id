@@ -21,6 +21,38 @@ const getOfflineAssets = () => {
   return res
 }
 
+const routes = () => {
+  let res = [
+    '/',
+    '/about',
+    '/all-surah',
+    '/asmaul-husna',
+    '/ayat-kursi',
+    '/daily-doa',
+    '/favorite',
+    '/last-verse',
+    '/recommendation',
+    '/settings'
+  ]
+  for (let i = 0; i < 114; i++) {
+    res.push(`/${i + 1}`)
+  }
+  return res
+}
+
+const routesSitemap = () => {
+  let res = []
+  routes().forEach(el => {
+    const item = {}
+    item.url = el,
+    item.changefreq = 'daily',
+    item.priority = 1,
+    item.lastmodISO = String(new Date().toISOString())
+    res.push(item)
+  })
+  return res
+}
+
 module.exports = {
   mode: 'spa',
   /*
@@ -115,19 +147,14 @@ module.exports = {
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: true, // Enable me when using nuxt generate
-    exclude: []
+    exclude: [],
+    routes: routesSitemap()
   },
   /*
    ** Generate multiple entry html from 1 to 114
    */
   generate: {
-    routes: () => {
-      let res = []
-      for (let i = 0; i < 114; i++) {
-        res.push(`/${i + 1}`)
-      }
-      return res
-    }
+    routes: routes()
   },
   /*
    ** Build configuration
