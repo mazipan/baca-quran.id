@@ -16,7 +16,7 @@ const i18n = Helpers.initI18n(localVue)
 const store = new Vuex.Store({
   state: {
     settingActiveTheme: Theme.LIGHT,
-    asmaulHusna: [dummyAsmaulHusna],
+    asmaulHusna: [dummyAsmaulHusna]
   },
   mutations: {
     setHeaderTitle () {}

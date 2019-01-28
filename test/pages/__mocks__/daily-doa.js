@@ -7,4 +7,4 @@ export default [
     translation:
       'Ya Allah, berkahilah kami dalam rezeki yang telah Engkau berikan kepada kami dan peliharalah kami dari siksa api neraka'
   }
-];
+]

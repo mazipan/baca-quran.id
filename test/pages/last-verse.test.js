@@ -23,7 +23,7 @@ const store = new Vuex.Store({
     setHeaderTitle () {}
   },
   actions: {
-    fetchAllSurah: jest.fn().mockResolvedValue([dummySurahInfo]),
+    fetchAllSurah: jest.fn().mockResolvedValue([dummySurahInfo])
   }
 })
 
