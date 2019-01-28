@@ -11,7 +11,13 @@
 
 ## Screenshoot
 
-![Screenshoot Apps](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot.png)
+|Home Light Theme|Home Dark Theme|Home Nature Theme|
+|:---:|:---:|:---:|
+|![light](screenshoot/light-theme-homepage.png)|![dark](screenshoot/dark-theme-homepage.png)|![nature](screenshoot/nature-theme-homepage.png)|
+
+|Daftar Surat|Al-Fatihah|Do'a Harian|
+|:---:|:---:|:---:|
+|![light](screenshoot/daftar-surat.png)|![dark](screenshoot/al-fatihah.png)|![nature](screenshoot/doa-harian.png)|
 
 ## Fitur
 
@@ -23,11 +29,10 @@
   + [x] Simpan surat favorit
   + [x] Simpan ayat yang terakhir dibaca
   + [x] Rekomendasi beberapa surat populer
+  + [x] Tersedia 3 Tema
 
 TODO
 
-  + [ ] Mode malam
-  + [ ] Pergi ke ayat dengan cepat di dalam surat
   + [ ] Audio
 
 ## Build Setup
