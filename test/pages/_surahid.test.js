@@ -11,7 +11,12 @@ import dummySurahDetail from './__mocks__/surah-detail'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
-const router = Helpers.initRouter(localVue)
+
+// const router = Helpers.initRouter(localVue, [{
+//   path: '/:surahid',
+//   component: DummyComponent
+// }])
+
 const i18n = Helpers.initI18n(localVue)
 
 const store = new Vuex.Store({
@@ -30,14 +35,25 @@ const store = new Vuex.Store({
 })
 
 describe('pages _surahid.vue', () => {
-  test('success mounting components', () => {
+  test('success mounting components', (done) => {
+    const $route = {
+      path: '/',
+      params: {
+        surahid: 2
+      }
+    }
+
     const wrapper = shallowMount(Component, {
       sync: false,
       store,
-      router,
       i18n,
-      localVue
+      localVue,
+      mocks: {
+        $route
+      }
     })
     expect(wrapper).toBeTruthy()
+    expect(wrapper.vm.$route.params.surahid).toEqual(2)
+    done()
   })
 })
