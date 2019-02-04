@@ -1,5 +1,6 @@
+const title = 'Qur\'an Offline'
 module.exports = {
-  title: 'Qur\'an Offline',
+  title,
   lastRead: 'Terakhir dibaca',
   favorite: 'Surat favorit',
   recommendation: 'Surat rekomendasi',
@@ -14,16 +15,16 @@ module.exports = {
   sourceCode: 'Kode sumber',
   numberOfVerse: 'Ayat ke',
   pageTitle: {
-    about: `Tentang | Qur\'an Offline`,
-    home: `Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Offline`,
-    recommendation: `Baca Surat Rekomendasi Dalam Al-Qur'an | Qur'an Offline`,
-    favorite: `Surat Favorit Anda | Qur'an Offline`,
-    dailyDoa: `Daftar Bacaan Do'a Sehari-hari | Qur'an Offline`,
-    ayatKursi: `Bacaan dan terjemah Ayat Kursi | Qur'an Offline`,
-    asmaulHusna: `Daftar Asmaul Husna | Qur\'an Offline`,
-    allSurah: `Daftar Semua Surat dalam Al-Qur'an | Qur'an Offline`,
-    surahDetail: `Baca Qur'an Surat {surahName} - Surat ke {surahNumber} | Qur'an Offline`,
-    lastRead: `Ayat Terakhir Dibaca | Qur\'an Offline`,
-    setting: 'Halaman Setelan | Qur\'an Offline'
+    about: `Tentang | ${title}`,
+    home: `Baca Al-Qur'an dimana saja, langsung dari web browser Anda | ${title}`,
+    recommendation: `Baca surat rekomendasi dalam Al-Qur'an | ${title}`,
+    favorite: `Baca surat favorit dalam Al-Qur'an | ${title}`,
+    dailyDoa: `Daftar bacaan do'a sehari-hari beserta terjemahan | ${title}`,
+    ayatKursi: `Bacaan dan terjemah ayat kursi | ${title}`,
+    asmaulHusna: `Daftar lengkap asmaul husna beserta terjemahan | ${title}`,
+    allSurah: `Daftar semua surat dalam Al-Qur'an | ${title}`,
+    surahDetail: `Baca Al-Qur'an surat ke {surahNumber} - {surahName} | ${title}`,
+    lastRead: `Ayat terakhir dibaca | ${title}`,
+    setting: `Halaman setelan | ${title}`
   }
 }
