@@ -45,7 +45,7 @@ export default {
       'surahFavorite'
     ]),
     metaHead () {
-      const title = 'Surat Favorit Anda | Qur\'an Offline'
+      const title = this.$t('pageTitle.favorite')
       return {
         title,
         meta: [

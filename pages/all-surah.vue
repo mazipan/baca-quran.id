@@ -48,7 +48,7 @@ export default {
       'allSurahList'
     ]),
     metaHead () {
-      const title = 'Daftar Semua Surat dalam Al-Qur\'an | Qur\'an Offline'
+      const title = this.$t('pageTitle.allSurah')
       return {
         title,
         meta: [

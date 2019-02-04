@@ -87,7 +87,7 @@ export default {
       'settingActiveTheme'
     ]),
     metaHead () {
-      const title = 'Tentang | Qur\'an Offline'
+      const title = this.$t('pageTitle.about')
       return {
         title,
         meta: [

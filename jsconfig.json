@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/assets/*": ["assets/*"],
+      "~/components/*": ["components/*"],
+      "~/constant/*": ["constant/*"],
+      "~/layouts/*": ["layouts/*"],
+      "~/locale/*": ["locale/*"],
+      "~/middleware/*": ["middleware/*"],
+      "~/pages/*": ["pages/*"],
+      "~/plugins/*": ["plugins/*"],
+      "~/server/*": ["server/*"],
+      "~/services/*": ["services/*"],
+      "~/store/*": ["store/*"],
+      "~/test/*": ["test/*"],
+      "~/utils/*": ["utils/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

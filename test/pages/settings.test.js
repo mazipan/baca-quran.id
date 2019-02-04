@@ -4,8 +4,8 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/pages/settings.vue'
 
-import Theme from '~/constant/theme'
 import MutationType from '~/store/mutation-type'
+import Theme from '~/constant/theme'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -45,15 +45,36 @@ const store = new Vuex.Store({
   }
 })
 
+const createWrapper = () => {
+  return shallowMount(Component, {
+    sync: false,
+    store,
+    router,
+    i18n,
+    localVue
+  })
+}
+
 describe('pages settings.vue', () => {
   test('success mounting components', () => {
-    const wrapper = shallowMount(Component, {
-      sync: false,
-      store,
-      router,
-      i18n,
-      localVue
-    })
+    const wrapper = createWrapper()
     expect(wrapper).toBeTruthy()
+  })
+
+  test('computed for meta should fired', (done) => {
+    const wrapper = createWrapper()
+    // trigger change state with commit via mutations
+    wrapper.vm.$store.commit(MutationType.SET_THEME, Theme.DARK)
+    const title = wrapper.vm.$t('pageTitle.setting')
+    const expected = {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: '#333' }
+      ]
+    }
+    expect(wrapper.vm.metaHead).toEqual(expected)
+    done()
   })
 })

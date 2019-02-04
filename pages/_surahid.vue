@@ -57,7 +57,7 @@ export default {
       'allSurahList'
     ]),
     metaHead () {
-      const title = `Baca Qur'an Surat ${this.currentSurah.name_latin} - Surat ke ${this.surahId}| Qur'an Offline`
+      const title = this.$t('pageTitle.surahDetail', { surahName: this.currentSurah.name_latin, surahNumber: this.surahId })
       return {
         title,
         meta: [

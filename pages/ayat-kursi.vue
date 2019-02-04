@@ -30,7 +30,7 @@ export default {
       'ayatKursi'
     ]),
     metaHead () {
-      const title = 'Bacaan dan terjemah Ayat Kursi | Qur\'an Offline'
+      const title = this.$t('pageTitle.ayatKursi')
       return {
         title,
         meta: [

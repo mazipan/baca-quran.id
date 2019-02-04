@@ -57,7 +57,7 @@ export default {
       'asmaulHusna'
     ]),
     metaHead () {
-      const title = 'Daftar Asmaul Husna | Qur\'an Offline'
+      const title = this.$t('pageTitle.asmaulHusna')
       return {
         title,
         meta: [

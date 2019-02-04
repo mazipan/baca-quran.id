@@ -47,7 +47,7 @@ export default {
       'lastReadVerse'
     ]),
     metaHead () {
-      const title = 'Ayat Terakhir Dibaca | Qur\'an Offline'
+      const title = this.$t('pageTitle.lastRead')
       return {
         title,
         meta: [

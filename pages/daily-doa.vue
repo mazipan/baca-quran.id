@@ -66,7 +66,7 @@ export default {
       'dailyDoa'
     ]),
     metaHead () {
-      const title = 'Daftar Bacaan Do\'a Sehari-hari | Qur\'an Offline'
+      const title = this.$t('pageTitle.dailyDoa')
       return {
         title,
         meta: [

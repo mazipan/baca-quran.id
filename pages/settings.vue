@@ -81,7 +81,7 @@ export default {
       'settingShowTafsir'
     ]),
     metaHead () {
-      const title = 'Halaman Setelan | Qur\'an Offline'
+      const title = this.$t('pageTitle.setting')
       return {
         title,
         meta: [
