@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="surah-header">
-      <div class="surah-header_index">
+      <div class="surah-header_index font-arabic">
         {{ surahNumber }}
       </div>
       <div class="surah-header_content">
