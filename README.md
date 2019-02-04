@@ -7,37 +7,37 @@
 
 ## Live Website
 
-[https://quran-offline.netlify.com/](https://quran-offline.netlify.com/)
+<https://quran-offline.netlify.com/>
 
 ## Screenshoot
 
-|Home Light Theme|Home Dark Theme|Home Nature Theme|
-|:---:|:---:|:---:|
-|![light](screenshoot/light-theme-homepage.png)|![dark](screenshoot/dark-theme-homepage.png)|![nature](screenshoot/nature-theme-homepage.png)|
+|                Home Light Theme                |                Home Dark Theme               |                 Home Nature Theme                |
+| :--------------------------------------------: | :------------------------------------------: | :----------------------------------------------: |
+| ![light](screenshoot/light-theme-homepage.png) | ![dark](screenshoot/dark-theme-homepage.png) | ![nature](screenshoot/nature-theme-homepage.png) |
 
-|Daftar Surat|Al-Fatihah|Do'a Harian|
-|:---:|:---:|:---:|
-|![light](screenshoot/daftar-surat.png)|![dark](screenshoot/al-fatihah.png)|![nature](screenshoot/doa-harian.png)|
+|              Daftar Surat              |              Al-Fatihah             |              Do'a Harian              |
+| :------------------------------------: | :---------------------------------: | :-----------------------------------: |
+| ![light](screenshoot/daftar-surat.png) | ![dark](screenshoot/al-fatihah.png) | ![nature](screenshoot/doa-harian.png) |
 
 ## Fitur
 
-  + [x] Daftar seluruh surat
-  + [x] Ayat kursi
-  + [x] Asmaul husna
-  + [x] Akses offline (setelah akses online pertama)
-  + [x] Pencarian surat berdasarkan nama
-  + [x] Simpan surat favorit
-  + [x] Simpan ayat yang terakhir dibaca
-  + [x] Rekomendasi beberapa surat populer
-  + [x] Tersedia 3 Tema
+-   [x] Daftar seluruh surat
+-   [x] Ayat kursi
+-   [x] Asmaul husna
+-   [x] Akses offline (setelah akses online pertama)
+-   [x] Pencarian surat berdasarkan nama
+-   [x] Simpan surat favorit
+-   [x] Simpan ayat yang terakhir dibaca
+-   [x] Rekomendasi beberapa surat populer
+-   [x] Tersedia 3 Tema
 
 TODO
 
-  + [ ] Audio
+-   [ ] Audio
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -50,9 +50,9 @@ $ yarn run generate
 
 ## Credit
 
-+ Thanks for awesome repo [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
-+ Asmaul Husna source from [jagad.id](https://jagad.id/99-asmaul-husna-latin-arab-dan-terjemahan-indonesia-inggris/)
+-   Thanks for awesome repo [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
+-   Asmaul Husna source from [jagad.id](https://jagad.id/99-asmaul-husna-latin-arab-dan-terjemahan-indonesia-inggris/)
 
-----
+* * *
 
 Copyright © 2018 by Irfan Maulana
