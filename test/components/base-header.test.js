@@ -26,7 +26,7 @@ const i18n = Helpers.initI18n(localVue)
 const store = new Vuex.Store({
   state: {
     isShowSidebar: false,
-    headerTitle: AppConstant.TITLE,
+    headerTitle: AppConstant.TITLE
   },
   mutations: {
     [MutationType.SET_HEADER_TITLE] (state, data) {
@@ -34,7 +34,7 @@ const store = new Vuex.Store({
     },
     [MutationType.SET_SHOW_SIDEBAR] (state, data) {
       state.isShowSidebar = data
-    },
+    }
   },
   actions: {
   }

@@ -21,7 +21,7 @@ const store = new Vuex.Store({
   mutations: {
     [MutationType.SET_NOTIFICATION] (state, data) {
       state.notification = data
-    },
+    }
   },
   actions: {
   }

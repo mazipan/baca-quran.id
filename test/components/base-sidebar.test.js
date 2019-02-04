@@ -12,12 +12,12 @@ const router = Helpers.initRouter(localVue)
 const i18n = Helpers.initI18n(localVue)
 const store = new Vuex.Store({
   state: {
-    isShowSidebar: false,
+    isShowSidebar: false
   },
   mutations: {
     [MutationType.SET_SHOW_SIDEBAR] (state, data) {
       state.isShowSidebar = data
-    },
+    }
   },
   actions: {
   }

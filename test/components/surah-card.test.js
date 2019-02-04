@@ -12,12 +12,12 @@ const router = Helpers.initRouter(localVue)
 const i18n = Helpers.initI18n(localVue)
 const store = new Vuex.Store({
   state: {
-    surahFavorite: [],
+    surahFavorite: []
   },
   mutations: {
     [MutationType.SET_FAVORITE] (state, data) {
       state.surahFavorite = data
-    },
+    }
   },
   actions: {
     addToFavorite: () => jest.fn(),
