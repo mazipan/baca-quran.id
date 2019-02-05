@@ -61,7 +61,7 @@ export default {
   mounted () {
     this.initDataFromBrowserStorage()
     window.addEventListener('scroll', this.handleScroll)
-    if (navigator.share) {
+    if (window.navigator.share) {
       this.setWebshareSupport(true)
     }
     let clasz = 'no-webp'
@@ -82,7 +82,7 @@ export default {
     hideSidebar () {
       this.setShowSidebar(false)
     },
-    handleScroll (e) {
+    handleScroll () {
       this.showArrowToTop = (window.pageYOffset > 2000)
     }
   }

@@ -17,15 +17,55 @@ const store = new Vuex.Store({
   }
 })
 
+const createWrapper = (propsData) => {
+  return shallowMount(Component, {
+    sync: false,
+    store,
+    router,
+    i18n,
+    localVue,
+    propsData
+  })
+}
+
 describe('component SurahNavigation.vue', () => {
   test('success mounting components', () => {
-    const wrapper = shallowMount(Component, {
-      sync: false,
-      store,
-      router,
-      i18n,
-      localVue
-    })
+    const wrapper = createWrapper()
     expect(wrapper).toBeTruthy()
+  })
+
+  test('isHavePrev should return true', () => {
+    const wrapper = createWrapper({
+      surahId: 2
+    })
+    expect(wrapper.vm.isHavePrev).toBe(true)
+  })
+
+  test('isHavePrev should return false', () => {
+    const wrapper = createWrapper({
+      surahId: 1
+    })
+    expect(wrapper.vm.isHavePrev).toBe(false)
+  })
+
+  test('isHaveNext should return true', () => {
+    const wrapper = createWrapper({
+      surahId: 1
+    })
+    expect(wrapper.vm.isHaveNext).toBe(true)
+  })
+
+  test('isHaveNext should return false', () => {
+    const wrapper = createWrapper({
+      surahId: 114
+    })
+    expect(wrapper.vm.isHaveNext).toBe(false)
+  })
+
+  test('arrayAyah should generated correctly', () => {
+    const wrapper = createWrapper({
+      numberAyah: 5
+    })
+    expect(wrapper.vm.arrayAyah).toEqual([1, 2, 3, 4, 5])
   })
 })
