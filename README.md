@@ -37,15 +37,26 @@ TODO
 
 ## Build Setup
 
+This project developed using [Nuxt.js](https://nuxtjs.org/), for complete documentation please take a look into official documentation in [https://nuxtjs.org/](https://nuxtjs.org/).
+
 ```bash
 # install dependencies
 $ yarn install
 
 # serve with hot reload at localhost:3000
-$ yarn run dev
+$ yarn dev
 
 # generate static project
-$ yarn run generate
+$ yarn generate
+
+# run unit test
+$ yarn test
+
+# run eslint
+$ yarn lint
+
+# run eslint with auto fix
+$ yarn lint-fix
 ```
 
 ## Credit

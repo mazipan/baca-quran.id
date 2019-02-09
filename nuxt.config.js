@@ -1,3 +1,4 @@
+import { SurahConstant } from './constant/surah'
 const locale = require('./locale/id')
 
 const pkg = require('./package')
@@ -15,8 +16,8 @@ const getOfflineAssets = () => {
     '/icon.png',
     '/data/surah-info.json'
   ]
-  for (let i = 0; i < 114; i++) {
-    res.push(`/data/surah/${i + 1}.json`)
+  for (let i = 1; i < 115; i++) {
+    res.push(`/data/surah/${i}.json`)
   }
   return res
 }
@@ -34,8 +35,14 @@ const routes = () => {
     '/recommendation',
     '/settings'
   ]
-  for (let i = 0; i < 114; i++) {
-    res.push(`/${i + 1}`)
+  for (let i = 1; i < 115; i++) {
+    res.push(`/${i}`)
+    const surahObj = SurahConstant.surahArray.find(item => item.index === i)
+    if (surahObj) {
+      for(let j = 1; j < surahObj.ayah_count + 1; j++) {
+        res.push(`/${i}/${j}`)
+      }
+    }
   }
   return res
 }

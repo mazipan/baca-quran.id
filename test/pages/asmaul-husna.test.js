@@ -14,10 +14,11 @@ localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
 const i18n = Helpers.initI18n(localVue)
 
+const mockAction = jest.fn().mockResolvedValue(dummyAsmaulHusna)
 const store = new Vuex.Store({
   state: {
     settingActiveTheme: Theme.LIGHT,
-    asmaulHusna: [dummyAsmaulHusna]
+    asmaulHusna: dummyAsmaulHusna
   },
   mutations: {
     [MutationType.SET_HEADER_TITLE] (state, data) {
@@ -28,7 +29,7 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    fetchAsmaulHusna: jest.fn().mockResolvedValue([dummyAsmaulHusna])
+    fetchAsmaulHusna: mockAction
   }
 })
 
@@ -62,6 +63,30 @@ describe('pages asmaul-husna.vue', () => {
       ]
     }
     expect(wrapper.vm.metaHead).toEqual(expected)
+    done()
+  })
+  test('method onMountedPage fired correctly', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onMountedPage()
+    expect(mockAction).toBeCalled()
+    done()
+  })
+  test('computed filteredAsmaulHusna should triggered', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.searchText = 'Ar rahman'
+    expect(wrapper.vm.filteredAsmaulHusna).toEqual(dummyAsmaulHusna)
+    done()
+  })
+  test('computed filteredAsmaulHusna should triggered when search < 3 word', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.searchText = 'Ar'
+    expect(wrapper.vm.filteredAsmaulHusna).toEqual(dummyAsmaulHusna)
+    done()
+  })
+  test('computed filteredAsmaulHusna should triggered when search empty word', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.searchText = ''
+    expect(wrapper.vm.filteredAsmaulHusna).toEqual(dummyAsmaulHusna)
     done()
   })
 })

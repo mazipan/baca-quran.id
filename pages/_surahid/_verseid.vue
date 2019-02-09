@@ -29,11 +29,11 @@
 <script>
 import { mapActions, mapMutations, mapState } from 'vuex'
 
-import VerseCard from '../components/VerseCard'
-import SurahHeader from '../components/SurahHeader'
-import SurahNavigation from '../components/SurahNavigation'
+import VerseCard from '../../components/VerseCard'
+import SurahHeader from '../../components/SurahHeader'
+import SurahNavigation from '../../components/SurahNavigation'
 
-import { __isNotNull, __isNotEmptyArray } from '../utils/index'
+import { __isNotNull, __isNotEmptyArray } from '../../utils/index'
 
 export default {
   name: 'PageSurahDetail',

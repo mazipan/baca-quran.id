@@ -58,9 +58,6 @@ export default {
         ]
       }
     },
-    isHaveSource () {
-      return __isNotEmptyString(this.$route.query.source)
-    },
     filteredSurah () {
       if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
         return this.allSurahList.filter(item => {
@@ -90,11 +87,7 @@ export default {
     fetchSurahInfo () {
       this.fetchAllSurah({
         success: () => {
-          if (!this.isHaveSource) {
-            setTimeout(() => {
-              this.loading = false
-            }, 1000)
-          } else this.loading = false
+          this.loading = false
         }
       })
     }

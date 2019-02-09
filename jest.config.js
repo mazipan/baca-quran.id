@@ -8,8 +8,8 @@ module.exports = {
     '**/pages/**/*.{js,vue}',
     '**/services/**/*.{js,vue}',
     '**/store/**/*.{js,vue}',
-    '**/utils/**/*.{js,vue}',
     // exclude folder and files
+    '!**/utils/**/*.{js,vue}',
     '!**/node_modules/**',
     '!**/.nuxt/**',
     '!**/assets/**',

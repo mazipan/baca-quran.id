@@ -96,9 +96,7 @@ export default {
       this.fetchAsmaulHusna({
         success: (data) => {
           this.setHeaderTitle('Asmaul Husna')
-          setTimeout(() => {
-            this.loading = false
-          }, 1000)
+          this.loading = false
         }
       })
     }

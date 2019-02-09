@@ -2,7 +2,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Helpers from '~/test/helper'
-import Component from '~/pages/_surahid.vue'
+import Component from '~/pages/_surahid/index.vue'
 
 import MutationType from '~/store/mutation-type'
 import Theme from '~/constant/theme'
