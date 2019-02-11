@@ -22,8 +22,8 @@ jest.mock('~/services/index', () => ({
   getSurahById: jest.fn(),
   getAyatKursi: jest.fn(),
   getAsmaulHusna: jest.fn(),
-  getDailyDoa: jest.fn(),
-}));
+  getDailyDoa: jest.fn()
+}))
 
 describe('store actions', () => {
   test('should dispatch setSettingTafsir correctly', (done) => {
