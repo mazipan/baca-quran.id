@@ -37,7 +37,7 @@ TODO
 
 ## Build Setup
 
-This project developed using [Nuxt.js](https://nuxtjs.org/), for complete documentation please take a look into official documentation in [https://nuxtjs.org/](https://nuxtjs.org/).
+This project developed using [Nuxt.js](https://nuxtjs.org/), for complete documentation please take a look into official documentation in <https://nuxtjs.org/>.
 
 ```bash
 # install dependencies

@@ -14,6 +14,7 @@ localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
 const i18n = Helpers.initI18n(localVue)
 
+const mockAction = jest.fn().mockResolvedValue(dummyAyatKursi)
 const store = new Vuex.Store({
   state: {
     settingActiveTheme: Theme.LIGHT,
@@ -28,7 +29,7 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    fetchAyatKursi: jest.fn().mockResolvedValue(dummyAyatKursi)
+    fetchAyatKursi: mockAction
   }
 })
 
@@ -62,6 +63,13 @@ describe('pages ayat-kursi.vue', () => {
       ]
     }
     expect(wrapper.vm.metaHead).toEqual(expected)
+    done()
+  })
+
+  test('method onMountedPage fired correctly', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onMountedPage()
+    expect(mockAction).toBeCalled()
     done()
   })
 })

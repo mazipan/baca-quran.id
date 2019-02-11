@@ -65,4 +65,10 @@ describe('layouts default.vue', () => {
     expect(wrapper.vm.showArrowToTop).toBe(true)
     done()
   })
+
+  test('destroy component should success', (done) => {
+    const wrapper = createWrapper()
+    wrapper.destroy()
+    done()
+  })
 })

@@ -14,6 +14,7 @@ localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
 const i18n = Helpers.initI18n(localVue)
 
+const mockAction = jest.fn().mockResolvedValue(dummydailyDoa)
 const store = new Vuex.Store({
   state: {
     settingActiveTheme: Theme.LIGHT,
@@ -28,7 +29,7 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    fetchDailyDoa: jest.fn().mockResolvedValue(dummydailyDoa)
+    fetchDailyDoa: mockAction
   }
 })
 
@@ -62,6 +63,76 @@ describe('pages daily-doa.vue', () => {
       ]
     }
     expect(wrapper.vm.metaHead).toEqual(expected)
+    done()
+  })
+
+  test('method onMountedPage fired correctly', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onMountedPage()
+    expect(mockAction).toBeCalled()
+    done()
+  })
+
+  test('isExpanded should return true', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.expandedData = {
+      title: 'dummy'
+    }
+    expect(wrapper.vm.isExpanded('dummy')).toBe(true)
+    done()
+  })
+
+  test('isExpanded should return true', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.expandedData = {
+      title: 'dummy'
+    }
+    expect(wrapper.vm.isExpanded('dummy-1')).toBe(false)
+    done()
+  })
+
+  test('onClickDoa should change expandedData', (done) => {
+    const wrapper = createWrapper()
+    const itemDummy = {
+      title: 'dummy'
+    }
+    wrapper.vm.expandedData = {
+      title: ''
+    }
+    wrapper.vm.onClickDoa(itemDummy)
+    expect(wrapper.vm.expandedData).toEqual(itemDummy)
+    done()
+  })
+
+  test('onClickDoa should reset expandedData', (done) => {
+    const wrapper = createWrapper()
+    const itemDummy = {
+      title: 'dummy'
+    }
+    wrapper.vm.expandedData = itemDummy
+    wrapper.vm.onClickDoa(itemDummy)
+    expect(wrapper.vm.expandedData).toEqual({
+      title: ''
+    })
+    done()
+  })
+
+  test('computed filteredDailyDoa should triggered', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.searchText = 'Doa Sebelum Makan'
+    expect(wrapper.vm.filteredDailyDoa).toEqual(dummydailyDoa)
+    done()
+  })
+  test('computed filteredDailyDoa should triggered when search < 3 word', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.searchText = 'Do'
+    expect(wrapper.vm.filteredDailyDoa).toEqual(dummydailyDoa)
+    done()
+  })
+  test('computed filteredDailyDoa should triggered when search empty word', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.searchText = ''
+    expect(wrapper.vm.filteredDailyDoa).toEqual(dummydailyDoa)
     done()
   })
 })

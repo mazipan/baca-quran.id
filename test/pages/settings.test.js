@@ -77,4 +77,25 @@ describe('pages settings.vue', () => {
     expect(wrapper.vm.metaHead).toEqual(expected)
     done()
   })
+
+  test('method onSelectTheme fired correctly', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onSelectTheme(Theme.DARK)
+    expect(wrapper.vm.$store.state.settingActiveTheme).toEqual(Theme.DARK)
+    done()
+  })
+
+  test('method onChangeSettingTranslation fired correctly', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onChangeSettingTranslation(true)
+    expect(wrapper.vm.$store.state.settingShowTranslation).toBe(true)
+    done()
+  })
+
+  test('method onChangeSettingTafsir fired correctly', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onChangeSettingTafsir(true)
+    expect(wrapper.vm.$store.state.settingShowTafsir).toBe(true)
+    done()
+  })
 })
