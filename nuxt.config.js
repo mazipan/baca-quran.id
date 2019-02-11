@@ -40,7 +40,7 @@ const routes = () => {
     const surahObj = SurahConstant.surahArray.find(item => item.index === i)
     if (surahObj) {
       for(let j = 1; j < surahObj.ayah_count + 1; j++) {
-        res.push(`/${i}/${j}`)
+        // res.push(`/${i}/${j}`)
       }
     }
   }
