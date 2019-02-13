@@ -16,8 +16,8 @@ localVue.use(Vuex)
 const i18n = Helpers.initI18n(localVue)
 
 const createStore = (dummyAllsurahList) => {
-  let surahList = [dummySurahInfo];
-  if (dummyAllsurahList) surahList = dummyAllsurahList;
+  let surahList = [dummySurahInfo]
+  if (dummyAllsurahList) surahList = dummyAllsurahList
   return new Vuex.Store({
     state: {
       settingActiveTheme: Theme.LIGHT,
