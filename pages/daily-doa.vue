@@ -99,14 +99,13 @@ export default {
       'fetchDailyDoa'
     ]),
     onMountedPage () {
+      this.setHeaderTitle(`Do'a Harian`)
       this.fetchDailyDoa({
-        success: (data) => {
-          this.setHeaderTitle(`Do'a Harian`)
-          setTimeout(() => {
-            this.loading = false
-          }, 1000)
-        }
+        success: this.onSuccess
       })
+    },
+    onSuccess () {
+      this.loading = false
     },
     onClickDoa (item) {
       if (this.isExpanded(item.title)) {

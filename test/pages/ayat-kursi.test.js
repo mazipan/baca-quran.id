@@ -72,4 +72,11 @@ describe('pages ayat-kursi.vue', () => {
     expect(mockAction).toBeCalled()
     done()
   })
+
+  test('method onSuccess', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onSuccess()
+    expect(wrapper.vm.loading).toBe(false)
+    done()
+  })
 })

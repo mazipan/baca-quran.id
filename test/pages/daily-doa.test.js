@@ -135,4 +135,11 @@ describe('pages daily-doa.vue', () => {
     expect(wrapper.vm.filteredDailyDoa).toEqual(dummydailyDoa)
     done()
   })
+
+  test('method onSuccess', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onSuccess()
+    expect(wrapper.vm.loading).toBe(false)
+    done()
+  })
 })

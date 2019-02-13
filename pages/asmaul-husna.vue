@@ -93,12 +93,13 @@ export default {
       'fetchAsmaulHusna'
     ]),
     onMountedPage () {
+      this.setHeaderTitle('Asmaul Husna')
       this.fetchAsmaulHusna({
-        success: (data) => {
-          this.setHeaderTitle('Asmaul Husna')
-          this.loading = false
-        }
+        success: this.onSuccess
       })
+    },
+    onSuccess () {
+      this.loading = false
     }
   }
 }

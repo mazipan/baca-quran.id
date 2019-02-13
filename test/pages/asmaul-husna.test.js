@@ -89,4 +89,10 @@ describe('pages asmaul-husna.vue', () => {
     expect(wrapper.vm.filteredAsmaulHusna).toEqual(dummyAsmaulHusna)
     done()
   })
+  test('method onSuccess', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onSuccess()
+    expect(wrapper.vm.loading).toBe(false)
+    done()
+  })
 })

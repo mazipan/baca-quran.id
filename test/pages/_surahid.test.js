@@ -15,37 +15,45 @@ localVue.use(Vuex)
 
 const i18n = Helpers.initI18n(localVue)
 
-const store = new Vuex.Store({
-  state: {
-    settingActiveTheme: Theme.LIGHT,
-    surahDetail: dummySurahDetail,
-    allSurahList: [dummySurahInfo]
-  },
-  mutations: {
-    [MutationType.SET_HEADER_TITLE] (state, data) {
-      state.headerTitle = data
+const createStore = (dummyAllsurahList) => {
+  let surahList = [dummySurahInfo];
+  if (dummyAllsurahList) surahList = dummyAllsurahList;
+  return new Vuex.Store({
+    state: {
+      settingActiveTheme: Theme.LIGHT,
+      surahDetail: dummySurahDetail,
+      allSurahList: surahList
     },
-    [MutationType.SET_THEME] (state, data) {
-      state.settingActiveTheme = data
+    mutations: {
+      [MutationType.SET_HEADER_TITLE] (state, data) {
+        state.headerTitle = data
+      },
+      [MutationType.SET_THEME] (state, data) {
+        state.settingActiveTheme = data
+      }
+    },
+    actions: {
+      fetchAllSurah: jest.fn().mockResolvedValue([dummySurahInfo]),
+      fetchSurahById: jest.fn().mockResolvedValue(dummySurahDetail)
     }
-  },
-  actions: {
-    fetchAllSurah: jest.fn().mockResolvedValue([dummySurahInfo]),
-    fetchSurahById: jest.fn().mockResolvedValue(dummySurahDetail)
-  }
-})
+  })
+}
 
-const createWrapper = () => {
-  const $route = {
+const createWrapper = ($mockRoute, dummyAllsurahList) => {
+  let $route = {
     path: '/',
     params: {
       surahid: 2
     }
   }
 
+  if ($mockRoute) {
+    $route = $mockRoute
+  }
+
   return shallowMount(Component, {
     sync: false,
-    store,
+    store: createStore(dummyAllsurahList),
     i18n,
     localVue,
     mocks: {
@@ -76,6 +84,55 @@ describe('pages _surahid.vue', () => {
       ]
     }
     expect(wrapper.vm.metaHead).toEqual(expected)
+    done()
+  })
+
+  test('computed isValidSurah should return true', (done) => {
+    const wrapper = createWrapper()
+    expect(wrapper.vm.isValidSurah).toBe(true)
+    done()
+  })
+
+  test('computed isValidSurah should return false because too less', (done) => {
+    const wrapper = createWrapper({
+      path: '/',
+      params: {
+        surahid: 0
+      }
+    })
+    expect(wrapper.vm.isValidSurah).toBe(false)
+    done()
+  })
+
+  test('computed isValidSurah should return false because bigger', (done) => {
+    const wrapper = createWrapper({
+      path: '/',
+      params: {
+        surahid: 145
+      }
+    })
+    expect(wrapper.vm.isValidSurah).toBe(false)
+    done()
+  })
+
+  test('computed prevSurah should return null', (done) => {
+    const wrapper = createWrapper(null, [])
+    expect(wrapper.vm.prevSurah).toBeNull()
+    done()
+  })
+
+  test('computed nextSurah should return null', (done) => {
+    const wrapper = createWrapper(null, [])
+    expect(wrapper.vm.nextSurah).toBeNull()
+    done()
+  })
+
+  test('method onSuccess', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onSuccess({
+      name_latin: 'dummy'
+    })
+    expect(wrapper.vm.loading).toBe(false)
     done()
   })
 })

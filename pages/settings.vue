@@ -95,8 +95,7 @@ export default {
   mounted () {
     this[MutationType.SET_HEADER_TITLE](this.$t('setting'))
     setTimeout(() => {
-      this.modelSettingTranslation = this.settingShowTranslation
-      this.modelSettingTafsir = this.settingShowTafsir
+      this.setDefaultSetting()
     }, 500)
   },
   methods: {
@@ -108,6 +107,10 @@ export default {
       'setSettingTranslation',
       'setSettingTafsir'
     ]),
+    setDefaultSetting () {
+      this.modelSettingTranslation = this.settingShowTranslation
+      this.modelSettingTafsir = this.settingShowTafsir
+    },
     onSelectTheme (theme) {
       this.setActiveTheme(theme)
     },

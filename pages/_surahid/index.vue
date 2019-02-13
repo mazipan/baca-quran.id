@@ -117,13 +117,12 @@ export default {
 
       this.fetchSurahById({
         id,
-        success: (data) => {
-          this.setHeaderTitle(`${id}: ${data.name_latin}`)
-          setTimeout(() => {
-            this.loading = false
-          }, 1000)
-        }
+        success: this.onSuccess
       })
+    },
+    onSuccess (data) {
+      this.setHeaderTitle(`${this.surahId}: ${data.name_latin}`)
+      this.loading = false
     }
   }
 }

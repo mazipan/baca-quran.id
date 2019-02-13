@@ -78,6 +78,14 @@ describe('pages settings.vue', () => {
     done()
   })
 
+  test('method setDefaultSetting fired correctly', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.setDefaultSetting()
+    expect(wrapper.vm.modelSettingTranslation).toBe(false)
+    expect(wrapper.vm.modelSettingTafsir).toBe(false)
+    done()
+  })
+
   test('method onSelectTheme fired correctly', (done) => {
     const wrapper = createWrapper()
     wrapper.vm.onSelectTheme(Theme.DARK)

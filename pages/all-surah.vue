@@ -86,10 +86,11 @@ export default {
     ]),
     fetchSurahInfo () {
       this.fetchAllSurah({
-        success: () => {
-          this.loading = false
-        }
+        success: this.onSuccess
       })
+    },
+    onSuccess () {
+      this.loading = false
     }
   }
 }

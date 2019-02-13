@@ -52,14 +52,13 @@ export default {
       'fetchAyatKursi'
     ]),
     onMountedPage () {
+      this.setHeaderTitle('Ayat Kursi')
       this.fetchAyatKursi({
-        success: (data) => {
-          this.setHeaderTitle('Ayat Kursi')
-          setTimeout(() => {
-            this.loading = false
-          }, 1000)
-        }
+        success: this.onSuccess
       })
+    },
+    onSuccess () {
+      this.loading = false
     }
   }
 }

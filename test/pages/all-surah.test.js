@@ -91,4 +91,10 @@ describe('pages all-surah.vue', () => {
     expect(wrapper.vm.filteredSurah).toEqual([dummySurahInfo])
     done()
   })
+  test('method onSuccess', (done) => {
+    const wrapper = createWrapper()
+    wrapper.vm.onSuccess()
+    expect(wrapper.vm.loading).toBe(false)
+    done()
+  })
 })
