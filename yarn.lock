@@ -3923,6 +3923,16 @@ eslint-config-standard@^12.0.0:
   resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-12.0.0.tgz#638b4c65db0bd5a41319f96bba1f15ddad2107d9"
   integrity sha512-COUz8FnXhqFitYj4DTqHzidjIL/t4mumGZto5c7DrBpvWoie+Sn3P4sLEzUGeYhRElWuFEf8K1S1EfvD1vixCQ==
 
+eslint-formatter-html-extended@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-formatter-html-extended/-/eslint-formatter-html-extended-1.0.2.tgz#75b87b4c329cc17c95ee634607520d845338dcaf"
+  integrity sha512-mBfXQ11qJq/dFcHWQhsOkcY0asgm+zhzgHtmGnsYc74cb/eptTWE9IH14DbWiTzNJMo8XjuPl0RG31P086ImPA==
+  dependencies:
+    chalk "^2.4.2"
+    lodash "^4.17.11"
+    strip-ansi "^5.0.0"
+    text-table "^0.2.0"
+
 eslint-import-resolver-node@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.2.tgz#58f15fb839b8d0576ca980413476aab2472db66a"

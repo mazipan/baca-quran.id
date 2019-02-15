@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ESLint HTML Report Extended</title>
+        <link rel="icon" href="https://eslint.org/img/favicon.512x512.png">
+        <style>
+            body {
+                font-family:Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-size:16px;
+                font-weight:normal;
+                margin:0;
+                padding:0;
+                color:#333
+            }
+            #overview {
+                padding:20px 30px
+            }
+            td{
+                padding:5px 10px
+            }
+            h1, h2, h3, h4, h5 {
+                margin:0
+            }
+            .content{
+                margin: 0 auto;
+                width: 90%;
+                max-width: 98.2em;
+            }
+            table {
+                margin:30px 0;
+                width:100%;
+                border-radius:5px;
+                border:1px solid #ddd;
+                border-spacing:0px;
+            }
+            th {
+                font-weight:400;
+                font-size:medium;
+                text-align:left;
+                cursor:pointer;
+                padding:10px
+            }
+            td.clr-1, td.clr-2, .summary-title {
+                font-weight:700
+            }
+            .summary-title {
+                float:right;
+                margin-left:20px
+            }
+            .summary-title:after {
+                content:"";
+                clear:both;
+                display:block
+            }
+            tr:last-child td {
+                border-bottom:none
+            }
+            tr td:first-child, tr td:last-child {
+                color:#9da0a4
+            }
+            #overview.bg-0, tr.bg-0 th {
+                color:#468847;
+                background:#dff0d8;
+                border-bottom:1px solid #d6e9c6
+            }
+            #overview.bg-1, tr.bg-1 th {
+                color:#f0ad4e;
+                background:#fcf8e3;
+                border-bottom:1px solid #fbeed5
+            }
+            #overview.bg-2, tr.bg-2 th {
+                color:#b94a48;
+                background:#f2dede;
+                border-bottom:1px solid #eed3d7
+            }
+            td {
+                border-bottom:1px solid #ddd
+            }
+            td.clr-1 {
+                color:#f0ad4e
+            }
+            td.clr-2 {
+                color:#b94a48
+            }
+            a {
+                color:#3a33d1;
+                text-decoration:none
+            }
+            a:hover {
+                color:#272296;
+                text-decoration:underline
+            }
+            .icon {
+                width: 20px;
+                height: 20px;
+                margin-bottom: -5px;
+            }
+            .icon--success{
+                fill:#468847;
+            }
+            .icon--warning{
+                fill:#f0ad4e;
+            }
+            .icon--error{
+                fill:#b94a48;
+            }
+            .toggle{
+                transition: all 0.3s;
+            }
+            .toggle.expand svg{
+                transform: rotate(180deg);
+            }
+            .filter{
+                margin-top: 30px;
+            }
+            .filter-btn{
+                padding: 8px 0;
+                width: 100px;
+                font-size: 14px;
+                font-weight: bold;
+                outline: none;
+                border: 0;
+            }
+            .bg--success{
+                background:#bed4f1;
+            }
+            .bg--warning{
+                background:#fcf8e3;
+            }
+            .bg--error{
+                background:#f2dede;
+            }
+            .footer{
+                margin: 0 auto;
+                width: 50%;
+                text-align: center;
+                color: #333;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="overview" class="bg-0">
+            <h1>ESLint Report</h1>
+            <div>
+                <h3>0 problems</h3>
+                <small>Generated on Fri Feb 15 2019 23:46:54 GMT+0700 (Western Indonesia Time)</small>
+            </div>
+        </div>
+        <div class="content">
+            <div class="filter">
+                <button class="filter-btn bg--success" id="filter-all">All</button>
+                <button class="filter-btn bg--warning" id="filter-warning">Warning</button>
+                <button class="filter-btn bg--error" id="filter-error">Error</button>
+            </div>
+            <table>
+                <tbody>
+                    <tr class="block bg-0" data-group="f-0">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/__mocks__/fileMock.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-1">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/components/BaseHeader.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-2">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/components/BaseSidebar.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-3">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/components/BaseToast.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-4">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/components/LastReadCard.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-5">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/components/SurahCard.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-6">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/components/SurahHeader.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-7">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/components/SurahNavigation.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-8">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/components/VerseCard.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-9">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/constant/api-path.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-10">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/constant/cache-version.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-11">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/constant/default-object.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-12">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/constant/index.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-13">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/constant/murotal.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-14">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/constant/storage-key.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-15">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/constant/surah-recommendation.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-16">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/constant/surah.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-17">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/constant/theme.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-18">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/jest.config.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-19">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/layouts/default.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-20">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/locale/id/index.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-21">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/nuxt.config.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-22">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/_surahid/index.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-23">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/about.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-24">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/all-surah.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-25">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/asmaul-husna.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-26">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/ayat-kursi.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-27">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/daily-doa.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-28">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/favorite.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-29">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/index.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-30">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/last-verse.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-31">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/recommendation.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-32">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/pages/settings.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-33">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/server/index.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-34">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/services/index.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-35">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/store/actions.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-36">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/store/mutation-type.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-37">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/store/mutations.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-38">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/store/state.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-39">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/components/base-header.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-40">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/components/base-sidebar.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-41">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/components/base-toast.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-42">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/components/last-read-card.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-43">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/components/surah-card.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-44">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/components/surah-navigation.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-45">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/components/verse-card.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-46">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/Dummy.vue
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-47">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/helper.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-48">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/layouts/default.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-49">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/__mocks__/asmaul-husna.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-50">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/__mocks__/ayat-kursi.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-51">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/__mocks__/daily-doa.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-52">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/__mocks__/surah-detail.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-53">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/__mocks__/surah-info-item.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-54">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/_surahid.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-55">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/about.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-56">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/all-surah.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-57">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/asmaul-husna.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-58">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/ayat-kursi.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-59">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/daily-doa.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-60">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/favorite.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-61">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/index.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-62">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/last-verse.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-63">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/recommendation.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-64">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/pages/settings.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-65">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/services/service.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-66">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/setup-test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-67">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/store/actions.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-68">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/store/mutations.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-69">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/utils/index.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-70">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/test/utils/storage.test.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-71">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/utils/index.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-72">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/utils/storage.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+<tr class="block bg-0" data-group="f-73">
+    <th colspan="4">
+        <svg class="icon icon--success" viewBox="0 0 512 512"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm106.5 150.5L228.8 332.8h-.1c-1.7 1.7-6.3 5.5-11.6 5.5-3.8 0-8.1-2.1-11.7-5.7l-56-56c-1.6-1.6-1.6-4.1 0-5.7l17.8-17.8c.8-.8 1.8-1.2 2.8-1.2 1 0 2 .4 2.8 1.2l44.4 44.4 122-122.9c.8-.8 1.8-1.2 2.8-1.2 1.1 0 2.1.4 2.8 1.2l17.5 18.1c1.8 1.7 1.8 4.2.2 5.8z"></path></svg>
+        <span class="toggle">
+            <svg class="icon" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"></path></svg>
+        </span>
+        <span>
+            /Users/irfanmaulana/Documents/public/open-source/quran-offline/utils/webp.js
+        </span>
+        <span class="summary-title">0 problems</span>
+    </th>
+</tr>
+
+                </tbody>
+            </table>
+        </div>
+        <footer class="footer">
+            <p>
+            Copyright © 2019 by <a href="https://github.com/mazipan" target="_blank" rel="noopener">Irfan Maulana</a>
+            <br>
+            Based on ESLint's Official HTML formatter by <a href="https://github.com/JulianLaval" target="_blank" rel="noopener">JulianLaval</a>
+            </p>
+            <p>
+                <a href="https://github.com/mazipan/eslint-formatter-html-extended" target="_blank" rel="noopener"><img src="https://img.shields.io/github/stars/mazipan/eslint-formatter-html-extended.svg?style=social&amp;label=Stars"></a>
+                <a href="https://www.npmjs.com/package/eslint-formatter-html-extended" target="_blank" rel="noopener"><img src="https://img.shields.io/npm/v/eslint-formatter-html-extended.svg?maxAge=60"></a>
+            </p>
+        </footer>
+        <script type="text/javascript">
+            var groups = document.querySelectorAll("tr[data-group]");
+
+            var attachListener = function (element) {
+                element.addEventListener("click", function() {
+                    var inGroup = document.getElementsByClassName(this.getAttribute("data-group"));
+                    var toggle = this.querySelector('.toggle');
+                    if (toggle.classList.contains('expand')) {
+                        toggle.classList.remove('expand')
+                    } else {
+                        toggle.classList.add('expand')
+                    }
+                    for (var j = 0; j < inGroup.length; j++) {
+                        inGroup[j].style.display = (inGroup[j].style.display !== "none") ? "none" : "table-row";
+                    }
+                });
+            }
+
+            for (var i = 0; i < groups.length; i++) {
+                attachListener(groups[i])
+            }
+
+            var btnFilterAll = document.getElementById('filter-all');
+            var btnFilterWarning = document.getElementById('filter-warning');
+            var btnFilterError = document.getElementById('filter-error');
+            var otherGroupSeverity = {
+                0: [0, 1, 2],
+                1: [0, 2],
+                2: [0, 1]
+            }
+
+            function hideAllMessage () {
+                var allMessage = document.querySelectorAll('.message');
+                for (var x = 0; x < allMessage.length; x++) {
+                    allMessage[x].style.display = "none";
+                }
+                var allExpanded = document.querySelectorAll('.toggle.expand');
+                for (var x = 0; x < allExpanded.length; x++) {
+                    allExpanded[x].classList.remove('expand');
+                }
+            }
+
+            function hideBySeverity (severity) {
+                var selectorGroup = "tr.bg-" + severity;
+                var allGroup = document.querySelectorAll(selectorGroup);
+                for (var x = 0; x < allGroup.length; x++) {
+                    allGroup[x].style.display = "none";
+                }
+            }
+
+            function showBySeverity(severity) {
+                var selectorGroup = "tr.bg-" + severity;
+                var allGroup = document.querySelectorAll(selectorGroup);
+                for (var x = 0; x < allGroup.length; x++) {
+                    allGroup[x].style.display = "table-row";
+                }
+            }
+
+            function filterBySeverity(severity) {
+                hideAllMessage()
+                if (severity) {
+                    showBySeverity(severity);
+                    var other = otherGroupSeverity[severity];
+                    for (var x = 0; x < other.length; x++) {
+                        hideBySeverity(other[x])
+                    }
+                } else {
+                    var other = otherGroupSeverity[0];
+                    for (var x = 0; x < other.length; x++) {
+                        showBySeverity(other[x])
+                    }
+                }
+            }
+
+            btnFilterAll.addEventListener('click', function () {
+                filterBySeverity(null)
+            })
+
+            btnFilterWarning.addEventListener('click', function () {
+                filterBySeverity(1)
+            })
+
+            btnFilterError.addEventListener('click', function () {
+                filterBySeverity(2)
+            })
+
+        </script>
+
+    </body>
+</html>
