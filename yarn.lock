@@ -11509,15 +11509,15 @@ vue-i18n-extensions@^0.2.0:
   dependencies:
     vm2 "^3.5.0"
 
-vue-i18n@^7.8.1:
-  version "7.8.1"
-  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.8.1.tgz#2ce4b6efde679a1e05ddb5d907bfc1bc218803b2"
-  integrity sha512-BzB+EAPo/iFyFn/GXd/qVdDe67jfk+gmQaWUKD5BANhUclGrFxzRExzW2pYEAbhNm2pg0F12Oo+gL2IMLDcTAw==
-
 vue-i18n@^8.7.0:
   version "8.7.0"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.7.0.tgz#846269ad9d9c40c77479a540398d4024356fa4e1"
   integrity sha512-qey+OyZSUIje0xJW8HZrvpIss1jW8yBBRe+0QlUn7HENU31m/+Med/u4pcwjoeCaErHU9WMscBEhqK5aAvvEEQ==
+
+vue-i18n@^8.8.2:
+  version "8.8.2"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.8.2.tgz#57baa73dc8f215d68e4b8f2743724657cbb77591"
+  integrity sha512-P09ZN2S0mX1AmhSR/+wP2owP3izGVx1pSoDFcOXTLya5xvP95dG7kc9LQUnboPgSzK/JKe9FkYmoYdDTKDjPSw==
 
 vue-ionicons@^3.0.4:
   version "3.0.4"
