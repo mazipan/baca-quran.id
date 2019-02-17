@@ -59,7 +59,7 @@
     "remark-preset-lint-recommended": "^3.0.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "vue-i18n": "^7.8.1",
+    "vue-i18n": "^8.8.2",
     "vue-jest": "^3.0.3",
     "vue-loader": "^15.6.2"
   },
