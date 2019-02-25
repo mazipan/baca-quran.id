@@ -28,4 +28,4 @@ deploy:
     branch: master
 
 after_success:
-  - yarn run lh -- --pwa=80 --perf=80 --seo=80 --a11y=80 --bp=80 https://www.mazipan.xyz
+  - yarn run lh -- --pwa=80 --perf=80 --seo=80 --a11y=80 --bp=80 https://www.quran-offline.xyz
