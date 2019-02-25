@@ -4,10 +4,16 @@ branches:
   only:
   - master
   - /^greenkeeper/.*$/
+cache:
+  yarn: true
+  directories:
+    - node_modules
+install:
+  - yarn install
 script:
-  - npm run lint
-  - npm run test
-  - npm run generate
+  - yarn run lint
+  - yarn run test
+  - yarn run generate
 after_script:
   - npm install -g codecov
   - codecov
@@ -20,3 +26,6 @@ deploy:
   verbose: true
   on:
     branch: master
+
+after_success:
+  - yarn run lh -- --pwa=80 --perf=80 --seo=80 --a11y=80 --bp=80 https://www.mazipan.xyz

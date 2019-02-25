@@ -13,7 +13,8 @@
     "lint:report": "eslint --ext .js,.vue --ignore-path .gitignore . --fix -f html-extended -o eslint-report.html",
     "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
     "lint:md": "remark readme.md -o --color",
-    "test": "cross-env NODE_ENV=test ./node_modules/.bin/jest --coverage"
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/jest --coverage",
+    "lh": "lighthousebot"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^2.6.0",
