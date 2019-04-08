@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/pages/recommendation.vue'
 
-import MutationType from '~/store/mutation-type'
+import MutationType from '~/store/types'
 import Theme from '~/constant/theme'
 
 const localVue = createLocalVue()

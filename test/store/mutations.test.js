@@ -3,7 +3,7 @@ import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import state from '~/store/state'
 import mutations from '~/store/mutations'
-import MutationType from '~/store/mutation-type'
+import MutationType from '~/store/types'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

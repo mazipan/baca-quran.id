@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/pages/ayat-kursi.vue'
 
-import MutationType from '~/store/mutation-type'
+import MutationType from '~/store/types'
 import Theme from '~/constant/theme'
 
 import dummyAyatKursi from './__mocks__/ayat-kursi'

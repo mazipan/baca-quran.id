@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/components/SurahCard.vue'
 
-import MutationType from '~/store/mutation-type'
+import MutationType from '~/store/types'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

@@ -3,8 +3,9 @@ import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/components/BaseSidebar.vue'
+import StubComponent from '~/test/Dummy.vue'
 
-import MutationType from '~/store/mutation-type'
+import MutationType from '~/store/types'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -29,7 +30,17 @@ const createWrapper = () => {
     store,
     router,
     i18n,
-    localVue
+    localVue,
+    stubs: {
+      MdHomeIcon: StubComponent,
+      MdBookIcon: StubComponent,
+      MdHelpCircleIcon: StubComponent,
+      MdCodeIcon: StubComponent,
+      MdSettingsIcon: StubComponent,
+      IosNavigateIcon: StubComponent,
+      IosStarOutlineIcon: StubComponent,
+      IosBookmarkIcon: StubComponent
+    }
   })
 }
 

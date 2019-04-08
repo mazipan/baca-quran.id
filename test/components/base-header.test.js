@@ -5,7 +5,7 @@ import Helpers from '~/test/helper'
 import Component from '~/components/BaseHeader.vue'
 
 import { AppConstant } from '~/constant/index'
-import MutationType from '~/store/mutation-type'
+import MutationType from '~/store/types'
 
 import DummyComponent from '../Dummy.vue'
 
