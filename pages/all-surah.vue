@@ -27,6 +27,7 @@ import { mapState } from 'vuex'
 
 import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
+import { getAllSurah } from '../services/index'
 
 export default {
   name: 'PageAllSurah',
@@ -44,8 +45,7 @@ export default {
   },
   computed: {
     ...mapState([
-      'settingActiveTheme',
-      'allSurahList'
+      'settingActiveTheme'
     ]),
     metaHead () {
       const title = this.$t('pageTitle.allSurah')
@@ -73,11 +73,16 @@ export default {
       } else return this.allSurahList
     }
   },
+  async asyncData () {
+    const data = await getAllSurah()
+    return {
+      allSurahList: data.data.surah_info.map((item, idx) => {
+        return Object.assign({}, item, { index: idx + 1 })
+      })
+    }
+  },
   async fetch ({ store }) {
     store.commit('setHeaderTitle', 'Daftar Surat')
-    await store.dispatch('fetchAllSurah', {
-      success: () => {}
-    })
   }
 }
 </script>

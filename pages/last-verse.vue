@@ -4,12 +4,10 @@
       <div class="feed__title">
         <IosBookmarkIcon
           w="1em"
-          h="1em" />
-        Ayat terakhir dibaca:
+          h="1em" />Ayat terakhir dibaca:
       </div>
       <div class="feed__item clearfix">
-        <div
-          v-if="isHaveLastRead">
+        <div v-if="isHaveLastRead">
           <LastReadCard :surah="lastReadVerseData" />
         </div>
         <div
@@ -30,6 +28,7 @@ import LastReadCard from '../components/LastReadCard.vue'
 
 import { AppConstant } from '../constant/index.js'
 import { __isNotNull } from '../utils/index'
+import { getAllSurah } from '../services/index'
 
 export default {
   name: 'LastVersePage',
@@ -41,11 +40,7 @@ export default {
     LastReadCard
   },
   computed: {
-    ...mapState([
-      'settingActiveTheme',
-      'allSurahList',
-      'lastReadVerse'
-    ]),
+    ...mapState(['settingActiveTheme', 'lastReadVerse']),
     metaHead () {
       const title = this.$t('pageTitle.lastRead')
       return {
@@ -53,7 +48,11 @@ export default {
         meta: [
           { hid: 'og:title', property: 'og:title', content: title },
           { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+          {
+            hid: 'theme-color',
+            name: 'theme-color',
+            content: this.settingActiveTheme.bgColor
+          }
         ]
       }
     },
@@ -62,22 +61,28 @@ export default {
     },
     lastReadVerseData () {
       if (this.isHaveLastRead) {
-        const res = this.allSurahList.find(item => item.index === this.lastReadVerse.surah)
+        const res = this.allSurahList.find(
+          item => item.index === this.lastReadVerse.surah
+        )
         return Object.assign({}, res, { verse: this.lastReadVerse.verse })
       }
       return null
     }
   },
+  async asyncData () {
+    const data = await getAllSurah()
+    return {
+      allSurahList: data.data.surah_info.map((item, idx) => {
+        return Object.assign({}, item, { index: idx + 1 })
+      })
+    }
+  },
   async fetch ({ store }) {
     store.commit('setHeaderTitle', AppConstant.LAST_READ)
-    await store.dispatch('fetchAllSurah', {
-      success: () => {}
-    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/feed.scss';
-
+@import "@/assets/feed.scss";
 </style>

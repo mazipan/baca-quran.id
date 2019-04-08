@@ -2,18 +2,7 @@ import storageKey from '../constant/storage-key'
 import Theme from '../constant/theme'
 import { __isNotNull } from '../utils/index'
 import { getItem, setItem } from '../utils/storage'
-import CacheVersion from '../constant/cache-version'
-
-import {
-  getAllSurah,
-  getSurahById
-} from '../services/index'
 import MutationType from './mutation-type'
-
-const setDataToState = (commit, mutation, data, success) => {
-  commit(mutation, data)
-  success && success(data)
-}
 
 export default {
   initDataFromBrowserStorage ({ commit }) {
@@ -72,36 +61,6 @@ export default {
           url
         })
       }
-    }
-  },
-  fetchAllSurah ({ commit }, { success = () => {} }) {
-    const cache = getItem(storageKey.ALL_SURAH, CacheVersion.LIST_OF_SURAH)
-    const mutation = MutationType.SET_SURAH_LIST
-    if (__isNotNull(cache)) {
-      setDataToState(commit, mutation, cache, success)
-    } else {
-      getAllSurah()
-        .then(data => {
-          const indexedData = data.data.surah_info.map((item, idx) => {
-            return Object.assign({}, item, { index: idx + 1 })
-          })
-          setDataToState(commit, mutation, indexedData, success)
-          setItem(storageKey.ALL_SURAH, indexedData, CacheVersion.LIST_OF_SURAH)
-        })
-    }
-  },
-  fetchSurahById ({ commit }, { id = 1, success = () => {} }) {
-    const cache = getItem(storageKey.SURAH_BY_ID(id), CacheVersion.SURAH_DETAIL)
-    const mutation = MutationType.SET_SURAH_DETAIL
-    if (__isNotNull(cache)) {
-      setDataToState(commit, mutation, cache, success)
-    } else {
-      getSurahById(id)
-        .then(data => {
-          const dataRes = data.data[id]
-          setDataToState(commit, mutation, dataRes, success)
-          setItem(storageKey.SURAH_BY_ID(id), dataRes, CacheVersion.SURAH_DETAIL)
-        })
     }
   },
   setActiveTheme ({ commit }, theme) {

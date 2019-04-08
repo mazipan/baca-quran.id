@@ -1,7 +1,6 @@
 <template>
   <section class="container">
-    <div
-      class="detail">
+    <div class="detail">
       <SurahHeader
         :surah-number="Number(currentSurah.number)"
         :surah-name="currentSurah.name"
@@ -34,6 +33,7 @@ import SurahHeader from '../../components/SurahHeader'
 import SurahNavigation from '../../components/SurahNavigation'
 
 import { __isNotNull, __isNotEmptyArray } from '../../utils/index'
+import { getAllSurah, getSurahById } from '../../services/index'
 
 export default {
   name: 'PageSurahDetail',
@@ -51,19 +51,22 @@ export default {
     }
   },
   computed: {
-    ...mapState([
-      'settingActiveTheme',
-      'surahDetail',
-      'allSurahList'
-    ]),
+    ...mapState(['settingActiveTheme']),
     metaHead () {
-      const title = this.$t('pageTitle.surahDetail', { surahName: this.currentSurah.name_latin, surahNumber: this.surahId })
+      const title = this.$t('pageTitle.surahDetail', {
+        surahName: this.currentSurah.name_latin,
+        surahNumber: this.surahId
+      })
       return {
         title,
         meta: [
           { hid: 'og:title', property: 'og:title', content: title },
           { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+          {
+            hid: 'theme-color',
+            name: 'theme-color',
+            content: this.settingActiveTheme.bgColor
+          }
         ]
       }
     },
@@ -83,7 +86,9 @@ export default {
     prevSurah () {
       if (__isNotEmptyArray(this.allSurahList)) {
         if (this.surahId > 1) {
-          return this.allSurahList.find(item => item.index === this.surahId - 1)
+          return this.allSurahList.find(
+            item => item.index === this.surahId - 1
+          )
         }
       }
       return null
@@ -91,28 +96,36 @@ export default {
     nextSurah () {
       if (__isNotEmptyArray(this.allSurahList)) {
         if (this.surahId < 114) {
-          return this.allSurahList.find(item => item.index === this.surahId + 1)
+          return this.allSurahList.find(
+            item => item.index === this.surahId + 1
+          )
         }
       }
       return null
     }
   },
-  async fetch ({ store, params }) {
-    await store.dispatch('fetchAllSurah', {
-      success: (data) => {}
-    })
+  async asyncData ({ params }) {
+    const resp = await getAllSurah()
+    const respDetail = await getSurahById(params.surahid)
 
-    await store.dispatch('fetchSurahById', {
-      success: (data) => {
-        store.commit('setHeaderTitle', `${params.surahId}: ${data.name_latin}`)
-      }
-    })
+    return {
+      allSurahList: resp.data.surah_info.map((item, idx) => {
+        return Object.assign({}, item, { index: idx + 1 })
+      }),
+      surahDetail: respDetail.data[params.surahid]
+    }
+  },
+  created () {
+    this.$store.commit(
+      'setHeaderTitle',
+      `${this.surahId}: ${this.currentSurah.name_latin}`
+    )
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/_variables.scss';
+@import "@/assets/_variables.scss";
 
 .detail {
   &__content {
