@@ -5,9 +5,8 @@
   "author": "Irfan Maulana",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "dev": "cross-env NODE_ENV=development nuxt dev",
     "build": "cross-env NODE_ENV=production nuxt build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
     "lint:report": "eslint --ext .js,.ts,.vue --ignore-path .gitignore . --fix -f html-extended -o eslint-report.html",
@@ -70,7 +69,8 @@
     "vue-i18n": "^8.8.2",
     "vue-jest": "^3.0.4",
     "vue-loader": "^15.7.0",
-    "vue-property-decorator": "^8.1.0"
+    "vue-property-decorator": "^8.1.0",
+    "vuex-class": "^0.3.2"
   },
   "husky": {
     "hooks": {

@@ -59,21 +59,21 @@
           <div
             class="menu_link"
             @click="navigateTo('/')">
-            {{ $t('home') }}
+            Beranda
           </div>
         </li>
         <li>
           <div
             class="menu_link"
             @click="navigateTo('/settings')">
-            {{ $t('setting') }}
+            Setelan
           </div>
         </li>
         <li>
           <div
             class="menu_link"
             @click="navigateTo('/about')">
-            {{ $t('about') }}
+            Tentang
           </div>
         </li>
       </ul>

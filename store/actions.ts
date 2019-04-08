@@ -1,38 +1,40 @@
+import { ActionTree } from 'vuex'
 import storageKey from '../constant/storage-key'
 import Theme from '../constant/theme'
 import { __isNotNull } from '../utils/index'
 import { getItem, setItem } from '../utils/storage'
-import MutationType from './mutation-type'
+import Types from './types'
+import { State } from './state'
 
-export default {
+const actions: ActionTree<State, null> = {
   initDataFromBrowserStorage({ commit }) {
     // data favorite surah
     const cacheFavorite = getItem(storageKey.FAVORITE, null) || []
-    commit(MutationType.SET_FAVORITE, cacheFavorite)
+    commit(Types.SET_FAVORITE, cacheFavorite)
     // data last read verse
     const cacheLastRead = getItem(storageKey.LAST_READ, null) || {}
-    commit(MutationType.SET_LAST_READ, cacheLastRead)
+    commit(Types.SET_LAST_READ, cacheLastRead)
     // data active theme
     const cacheTheme = getItem(storageKey.SETTING_THEME, null) || Theme.LIGHT
-    commit(MutationType.SET_THEME, cacheTheme)
+    commit(Types.SET_THEME, cacheTheme)
     // data translation
     const cacheTranslation = getItem(storageKey.SETTING_TRANSLATION, null)
-    commit(MutationType.SET_SETTING_TRANSLATION, __isNotNull(cacheTranslation) ? cacheTranslation : true)
+    commit(Types.SET_SETTING_TRANSLATION, __isNotNull(cacheTranslation) ? cacheTranslation : true)
     // data tafsir
     const cacheTafsir = getItem(storageKey.SETTING_TAFSIR, null)
-    commit(MutationType.SET_SETTING_TAFSIR, __isNotNull(cacheTafsir) ? cacheTafsir : true)
+    commit(Types.SET_SETTING_TAFSIR, __isNotNull(cacheTafsir) ? cacheTafsir : true)
   },
   showNotification({ commit }, { title = '', message = '' }) {
-    commit(MutationType.SET_NOTIFICATION, { show: true, title, message })
+    commit(Types.SET_NOTIFICATION, { show: true, title, message })
     setTimeout(() => {
-      commit(MutationType.SET_NOTIFICATION, { show: false, title: '', message: '' })
+      commit(Types.SET_NOTIFICATION, { show: false, title: '', message: '' })
     }, 3000)
   },
   addToFavorite({ commit, state }, surah) {
     const isExist = state.surahFavorite.find(item => item.index === surah.index)
     if (!isExist) {
       const newFavorite = [].concat(state.surahFavorite).concat([surah])
-      commit(MutationType.SET_FAVORITE, newFavorite)
+      commit(Types.SET_FAVORITE, newFavorite)
       setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
@@ -40,22 +42,22 @@ export default {
     const isExist = state.surahFavorite.find(item => item.index === surah.index)
     if (isExist) {
       const newFavorite = state.surahFavorite.filter(item => item.index !== surah.index) || []
-      commit(MutationType.SET_FAVORITE, newFavorite)
+      commit(Types.SET_FAVORITE, newFavorite)
       setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
   setLastReadVerse({ commit }, { surah, verse }) {
     const data = { surah, verse }
-    commit(MutationType.SET_LAST_READ, data)
+    commit(Types.SET_LAST_READ, data)
     setItem(storageKey.LAST_READ, data, null)
   },
   setWebshareSupport({ commit }, isSupport) {
-    commit(MutationType.SET_SUPPORT_WEBSHARE, isSupport)
+    commit(Types.SET_SUPPORT_WEBSHARE, isSupport)
   },
   shareViaWebshare({ state }, { title, text, url }) {
     if (state.isSupportWebShare) {
-      if (navigator.share) { /* eslint-disable-line no-undef */
-        navigator.share({ /* eslint-disable-line no-undef */
+      if (window.navigator.share) { /* eslint-disable-line no-undef */
+        window.navigator.share({ /* eslint-disable-line no-undef */
           title,
           text,
           url
@@ -65,14 +67,16 @@ export default {
   },
   setActiveTheme({ commit }, theme) {
     setItem(storageKey.SETTING_THEME, theme, null)
-    commit(MutationType.SET_THEME, theme)
+    commit(Types.SET_THEME, theme)
   },
   setSettingTranslation({ commit }, payload) {
     setItem(storageKey.SETTING_TRANSLATION, payload, null)
-    commit(MutationType.SET_SETTING_TRANSLATION, payload)
+    commit(Types.SET_SETTING_TRANSLATION, payload)
   },
   setSettingTafsir({ commit }, payload) {
     setItem(storageKey.SETTING_TAFSIR, payload, null)
-    commit(MutationType.SET_SETTING_TAFSIR, payload)
+    commit(Types.SET_SETTING_TAFSIR, payload)
   }
 }
+
+export default actions

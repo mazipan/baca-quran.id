@@ -136,23 +136,7 @@ const config: NuxtConfiguration = {
    */
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap',
-    ['nuxt-i18n', {
-      baseUrl: 'https://quran-offline.netlify.com/',
-      locales: [
-        {
-          code: 'id',
-          iso: 'id-ID'
-        }
-      ],
-      defaultLocale: 'id',
-      vueI18n: {
-        fallbackLocale: 'id',
-        messages: {
-          id: locale
-        }
-      }
-    }]
+    '@nuxtjs/sitemap'
   ],
 
   sitemap: {

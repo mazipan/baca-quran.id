@@ -48,7 +48,7 @@ export default {
       'settingActiveTheme'
     ]),
     metaHead() {
-      const title = this.$t('pageTitle.allSurah')
+      const title = 'Daftar semua surat dalam Al-Qur\'an | Qur\'an Offline'
       return {
         title,
         meta: [

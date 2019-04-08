@@ -41,7 +41,7 @@ export default {
       'settingActiveTheme'
     ]),
     metaHead() {
-      const title = this.$t('pageTitle.recommendation')
+      const title = 'Baca surat rekomendasi dalam Al-Qur\'an | Qur\'an Offline'
       return {
         title,
         meta: [

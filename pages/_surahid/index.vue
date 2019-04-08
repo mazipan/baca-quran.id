@@ -53,10 +53,8 @@ export default {
   computed: {
     ...mapState(['settingActiveTheme']),
     metaHead() {
-      const title = this.$t('pageTitle.surahDetail', {
-        surahName: this.currentSurah.name_latin,
-        surahNumber: this.surahId
-      })
+      const title = `Baca Al-Qur'an surat ke ${this.surahId} - ${this.currentSurah.name_latin} | Qur'an Offline`
+
       return {
         title,
         meta: [

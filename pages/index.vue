@@ -115,7 +115,7 @@ export default {
       'settingActiveTheme'
     ]),
     metaHead() {
-      const title = this.$t('pageTitle.home')
+      const title = 'Baca Al-Qur\'an dimana saja, langsung dari web browser Anda | Qur\'an Offline'
       return {
         title,
         meta: [

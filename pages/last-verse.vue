@@ -42,7 +42,7 @@ export default {
   computed: {
     ...mapState(['settingActiveTheme', 'lastReadVerse']),
     metaHead() {
-      const title = this.$t('pageTitle.lastRead')
+      const title = 'Ayat terakhir dibaca | Qur\'an Offline'
       return {
         title,
         meta: [

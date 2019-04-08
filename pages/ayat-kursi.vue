@@ -29,7 +29,7 @@ export default {
       'settingActiveTheme'
     ]),
     metaHead() {
-      const title = this.$t('pageTitle.ayatKursi')
+      const title = 'Bacaan dan terjemah ayat kursi | Qur\'an Offline'
       return {
         title,
         meta: [

@@ -57,7 +57,7 @@ export default {
       'settingActiveTheme'
     ]),
     metaHead() {
-      const title = this.$t('pageTitle.asmaulHusna')
+      const title = 'Daftar lengkap asmaul husna beserta terjemahan | Qur\'an Offline'
       return {
         title,
         meta: [

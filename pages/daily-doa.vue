@@ -65,7 +65,7 @@ export default {
       'settingActiveTheme'
     ]),
     metaHead() {
-      const title = this.$t('pageTitle.dailyDoa')
+      const title = 'Daftar bacaan do\'a sehari-hari beserta terjemahan | Qur\'an Offline'
       return {
         title,
         meta: [
