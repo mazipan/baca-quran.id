@@ -6,8 +6,6 @@ import mutations from '~/store/mutations'
 import actions from '~/store/actions'
 import Theme from '~/constant/theme'
 
-import * as Services from '~/services/index'
-
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
