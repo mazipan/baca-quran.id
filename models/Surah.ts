@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export default interface Surah {
   number: number,
   name: string,
