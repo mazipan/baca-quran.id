@@ -9,6 +9,15 @@ import Theme from '~/constant/theme'
 
 import dummySurahInfo from './__mocks__/surah-info-item'
 
+const dummyComponent = {
+  extends: Component,
+  data () {
+    return {
+      allSurahList: [dummySurahInfo]
+    }
+  }
+}
+
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
@@ -34,7 +43,7 @@ const store = new Vuex.Store({
 })
 
 const createWrapper = () => {
-  return shallowMount(Component, {
+  return shallowMount(dummyComponent, {
     sync: false,
     store,
     router,

@@ -9,6 +9,15 @@ import Theme from '~/constant/theme'
 
 import dummyAsmaulHusna from './__mocks__/asmaul-husna'
 
+const dummyComponent = {
+  extends: Component,
+  data () {
+    return {
+      asmaulHusna: dummyAsmaulHusna
+    }
+  }
+}
+
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
@@ -34,7 +43,7 @@ const store = new Vuex.Store({
 })
 
 const createWrapper = () => {
-  return shallowMount(Component, {
+  return shallowMount(dummyComponent, {
     sync: false,
     store,
     router,
@@ -65,12 +74,6 @@ describe('pages asmaul-husna.vue', () => {
     expect(wrapper.vm.metaHead).toEqual(expected)
     done()
   })
-  test('method onMountedPage fired correctly', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.onMountedPage()
-    expect(mockAction).toBeCalled()
-    done()
-  })
   test('computed filteredAsmaulHusna should triggered', (done) => {
     const wrapper = createWrapper()
     wrapper.vm.searchText = 'Ar rahman'
@@ -87,12 +90,6 @@ describe('pages asmaul-husna.vue', () => {
     const wrapper = createWrapper()
     wrapper.vm.searchText = ''
     expect(wrapper.vm.filteredAsmaulHusna).toEqual(dummyAsmaulHusna)
-    done()
-  })
-  test('method onSuccess', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.onSuccess()
-    expect(wrapper.vm.loading).toBe(false)
     done()
   })
 })

@@ -9,6 +9,15 @@ import Theme from '~/constant/theme'
 
 import dummydailyDoa from './__mocks__/daily-doa'
 
+const dummyComponent = {
+  extends: Component,
+  data () {
+    return {
+      dailyDoa: dummydailyDoa
+    }
+  }
+}
+
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
@@ -34,7 +43,7 @@ const store = new Vuex.Store({
 })
 
 const createWrapper = () => {
-  return shallowMount(Component, {
+  return shallowMount(dummyComponent, {
     sync: false,
     store,
     router,
@@ -63,13 +72,6 @@ describe('pages daily-doa.vue', () => {
       ]
     }
     expect(wrapper.vm.metaHead).toEqual(expected)
-    done()
-  })
-
-  test('method onMountedPage fired correctly', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.onMountedPage()
-    expect(mockAction).toBeCalled()
     done()
   })
 
@@ -133,13 +135,6 @@ describe('pages daily-doa.vue', () => {
     const wrapper = createWrapper()
     wrapper.vm.searchText = ''
     expect(wrapper.vm.filteredDailyDoa).toEqual(dummydailyDoa)
-    done()
-  })
-
-  test('method onSuccess', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.onSuccess()
-    expect(wrapper.vm.loading).toBe(false)
     done()
   })
 })

@@ -9,6 +9,15 @@ import Theme from '~/constant/theme'
 
 import dummyAyatKursi from './__mocks__/ayat-kursi'
 
+const dummyComponent = {
+  extends: Component,
+  data () {
+    return {
+      ayatKursi: dummyAyatKursi
+    }
+  }
+}
+
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
@@ -34,7 +43,7 @@ const store = new Vuex.Store({
 })
 
 const createWrapper = () => {
-  return shallowMount(Component, {
+  return shallowMount(dummyComponent, {
     sync: false,
     store,
     router,
@@ -63,20 +72,6 @@ describe('pages ayat-kursi.vue', () => {
       ]
     }
     expect(wrapper.vm.metaHead).toEqual(expected)
-    done()
-  })
-
-  test('method onMountedPage fired correctly', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.onMountedPage()
-    expect(mockAction).toBeCalled()
-    done()
-  })
-
-  test('method onSuccess', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.onSuccess()
-    expect(wrapper.vm.loading).toBe(false)
     done()
   })
 })

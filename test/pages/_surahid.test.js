@@ -10,6 +10,16 @@ import Theme from '~/constant/theme'
 import dummySurahInfo from './__mocks__/surah-info-item'
 import dummySurahDetail from './__mocks__/surah-detail'
 
+const dummyComponent = {
+  extends: Component,
+  data () {
+    return {
+      allSurahList: [dummySurahInfo],
+      surahDetail: dummySurahDetail
+    }
+  }
+}
+
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
@@ -51,7 +61,7 @@ const createWrapper = ($mockRoute, dummyAllsurahList) => {
     $route = $mockRoute
   }
 
-  return shallowMount(Component, {
+  return shallowMount(dummyComponent, {
     sync: false,
     store: createStore(dummyAllsurahList),
     i18n,
@@ -115,24 +125,15 @@ describe('pages _surahid.vue', () => {
     done()
   })
 
-  test('computed prevSurah should return null', (done) => {
+  test('computed prevSurah should not return null', (done) => {
     const wrapper = createWrapper(null, [])
-    expect(wrapper.vm.prevSurah).toBeNull()
+    expect(wrapper.vm.prevSurah).not.toBeNull()
     done()
   })
 
-  test('computed nextSurah should return null', (done) => {
+  test('computed nextSurah should return undefined', (done) => {
     const wrapper = createWrapper(null, [])
-    expect(wrapper.vm.nextSurah).toBeNull()
-    done()
-  })
-
-  test('method onSuccess', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.onSuccess({
-      name_latin: 'dummy'
-    })
-    expect(wrapper.vm.loading).toBe(false)
+    expect(wrapper.vm.nextSurah).toBeUndefined()
     done()
   })
 })
