@@ -91,7 +91,7 @@ export default {
     }
   },
   fetch({ app, store }) {
-    store.commit('setHeaderTitle', app.i18n.messages.id.setting)
+    store.commit('setHeaderTitle', 'Setelan')
   },
   mounted() {
     setTimeout(() => {
