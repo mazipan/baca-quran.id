@@ -20,7 +20,7 @@ const store = new Vuex.Store({
     surahFavorite: []
   },
   mutations: {
-    [MutationType.SET_FAVORITE] (state, data) {
+    [MutationType.SET_FAVORITE](state, data) {
       state.surahFavorite = data
     }
   },

@@ -40,10 +40,10 @@ export default {
   computed: {
   },
   methods: {
-    getSurahDetailUrl (index, verse) {
+    getSurahDetailUrl(index, verse) {
       return `/${index}#verse-${verse}`
     },
-    goToSurahDetail (index, verse) {
+    goToSurahDetail(index, verse) {
       const path = this.getSurahDetailUrl(index, verse)
       this.$router.push(path)
     }

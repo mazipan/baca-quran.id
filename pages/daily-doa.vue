@@ -49,10 +49,10 @@ import { getDailyDoa } from '../services/index'
 
 export default {
   name: 'DailyDoa',
-  head () {
+  head() {
     return this.metaHead
   },
-  data () {
+  data() {
     return {
       searchText: '',
       expandedData: {
@@ -64,7 +64,7 @@ export default {
     ...mapState([
       'settingActiveTheme'
     ]),
-    metaHead () {
+    metaHead() {
       const title = this.$t('pageTitle.dailyDoa')
       return {
         title,
@@ -75,10 +75,10 @@ export default {
         ]
       }
     },
-    filteredDailyDoa () {
+    filteredDailyDoa() {
       if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
-        return this.dailyDoa.filter(item => {
-          let predicate = __normalizeText(item.title).includes(
+        return this.dailyDoa.filter((item) => {
+          const predicate = __normalizeText(item.title).includes(
             __normalizeText(this.searchText)
           )
 
@@ -87,24 +87,24 @@ export default {
       } else return this.dailyDoa || []
     }
   },
-  async asyncData () {
+  async asyncData() {
     const data = await getDailyDoa()
     return {
       dailyDoa: data.data.data
     }
   },
-  async fetch ({ store }) {
+  fetch({ store }) {
     store.commit('setHeaderTitle', `Do'a Harian`)
   },
   methods: {
-    onClickDoa (item) {
+    onClickDoa(item) {
       if (this.isExpanded(item.title)) {
         this.expandedData = {
           title: ''
         }
       } else this.expandedData = item
     },
-    isExpanded (title) {
+    isExpanded(title) {
       return title === this.expandedData.title
     }
   }

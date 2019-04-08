@@ -1,13 +1,16 @@
+/* eslint-disable no-unused-vars */
+import NuxtConfiguration from '@nuxt/config'
+
+const path = require('path')
+
 const SurahConstant = require('./constant/surah')
 const locale = require('./locale/id')
+const pkg = require('./package')
 
 const PROD_PATH = 'https://www.quran-offline.xyz/'
 
-const pkg = require('./package')
-const path = require('path')
-
 const getOfflineAssets = () => {
-  let res = [
+  const res = [
     '/favicon.ico',
     '/favicon-16x16.png',
     '/favicon-32x32.png',
@@ -25,7 +28,7 @@ const getOfflineAssets = () => {
 }
 
 const routes = () => {
-  let res = [
+  const res = [
     '/',
     '/about',
     '/all-surah',
@@ -50,19 +53,20 @@ const routes = () => {
 }
 
 const routesSitemap = () => {
-  let res = []
-  routes().forEach(el => {
-    const item = {}
-    item.url = el
-    item.changefreq = 'daily'
-    item.priority = 1
-    item.lastmodISO = String(new Date().toISOString())
+  const res = []
+  routes().forEach((el) => {
+    const item = {
+      url: el,
+      changefreq: 'daily',
+      priority: 1,
+      lastmodISO: String(new Date().toISOString())
+    }
     res.push(item)
   })
   return res
 }
 
-module.exports = {
+const config: NuxtConfiguration = {
   debug: true,
   mode: 'universal',
   /*
@@ -181,9 +185,9 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) {
+    extend(config, ctx) {
       // Run ESLint on save
-      config.resolve.alias['icons'] = path.resolve(__dirname, 'node_modules/vue-ionicons/dist')
+      config.resolve.alias.icons = path.resolve(__dirname, 'node_modules/vue-ionicons/dist')
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -195,3 +199,5 @@ module.exports = {
     }
   }
 }
+
+export default config

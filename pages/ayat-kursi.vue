@@ -17,10 +17,10 @@ import { getAyatKursi } from '../services/index'
 
 export default {
   name: 'AyatKursiPage',
-  head () {
+  head() {
     return this.metaHead
   },
-  data () {
+  data() {
     return {
     }
   },
@@ -28,7 +28,7 @@ export default {
     ...mapState([
       'settingActiveTheme'
     ]),
-    metaHead () {
+    metaHead() {
       const title = this.$t('pageTitle.ayatKursi')
       return {
         title,
@@ -40,13 +40,13 @@ export default {
       }
     }
   },
-  async asyncData () {
+  async asyncData() {
     const data = await getAyatKursi()
     return {
       ayatKursi: data.data.data
     }
   },
-  async fetch ({ store }) {
+  fetch({ store }) {
     store.commit('setHeaderTitle', 'Ayat Kursi')
   }
 }

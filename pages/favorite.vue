@@ -32,7 +32,7 @@ import { AppConstant } from '../constant/index.js'
 
 export default {
   name: 'FavoritePage',
-  head () {
+  head() {
     return this.metaHead
   },
   components: {
@@ -44,7 +44,7 @@ export default {
       'settingActiveTheme',
       'surahFavorite'
     ]),
-    metaHead () {
+    metaHead() {
       const title = this.$t('pageTitle.favorite')
       return {
         title,
@@ -55,11 +55,11 @@ export default {
         ]
       }
     },
-    isHaveFav () {
+    isHaveFav() {
       return __isNotEmptyArray(this.surahFavorite)
     }
   },
-  created () {
+  created() {
     this.setHeaderTitle(AppConstant.FAVORITE)
   },
   methods: {

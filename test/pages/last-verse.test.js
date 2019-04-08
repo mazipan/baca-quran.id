@@ -11,7 +11,7 @@ import dummySurahInfo from './__mocks__/surah-info-item'
 
 const dummyComponent = {
   extends: Component,
-  data () {
+  data() {
     return {
       allSurahList: [dummySurahInfo]
     }
@@ -30,10 +30,10 @@ const store = new Vuex.Store({
     lastReadVerse: { surah: 1, verse: 1 }
   },
   mutations: {
-    [MutationType.SET_HEADER_TITLE] (state, data) {
+    [MutationType.SET_HEADER_TITLE](state, data) {
       state.headerTitle = data
     },
-    [MutationType.SET_THEME] (state, data) {
+    [MutationType.SET_THEME](state, data) {
       state.settingActiveTheme = data
     }
   },

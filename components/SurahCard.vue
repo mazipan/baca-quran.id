@@ -72,29 +72,29 @@ export default {
       'removeFromFavorite',
       'showNotification'
     ]),
-    doAddToFavorite (surah) {
+    doAddToFavorite(surah) {
       this.addToFavorite(surah)
       this.showNotification({
         title: 'Pesan Sukses',
         message: 'Surat berhasil ditambahkan ke daftar favorit.'
       })
     },
-    doremoveFromfavorite (surah) {
+    doremoveFromfavorite(surah) {
       this.removeFromFavorite(surah)
       this.showNotification({
         title: 'Pesan Sukses',
         message: 'Surat berhasil dihapus dari daftar favorit.'
       })
     },
-    findInFavorite (surah) {
+    findInFavorite(surah) {
       const favArray = this.surahFavorite || []
       const isExist = favArray.find(item => item.index === surah.index)
       return isExist
     },
-    getSurahDetailUrl (index) {
+    getSurahDetailUrl(index) {
       return `/${index}`
     },
-    goToSurahDetail (index) {
+    goToSurahDetail(index) {
       const path = this.getSurahDetailUrl(index)
       this.$router.push(path)
     }

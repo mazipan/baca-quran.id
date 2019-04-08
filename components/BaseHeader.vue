@@ -97,7 +97,7 @@ export default {
     MdArrowBackIcon,
     MdMoreIcon
   },
-  data () {
+  data() {
     return {
       isShowMenu: false
     }
@@ -106,7 +106,7 @@ export default {
     ...mapState([
       'headerTitle'
     ]),
-    isHomePage () {
+    isHomePage() {
       return this.headerTitle === AppConstant.TITLE
     }
   },
@@ -114,7 +114,7 @@ export default {
     ...mapMutations([
       'setShowSidebar'
     ]),
-    navigateTo (link) {
+    navigateTo(link) {
       this.toggleMenuRight()
       if (link.indexOf('http') >= 0) {
         window.location.href = link
@@ -122,7 +122,7 @@ export default {
         this.$router.push(link)
       }
     },
-    toggleMenuRight () {
+    toggleMenuRight() {
       this.isShowMenu = !this.isShowMenu
       if (this.isShowMenu) {
         setTimeout(() => {
@@ -130,10 +130,10 @@ export default {
         }, 2000)
       }
     },
-    toggleSidebar () {
+    toggleSidebar() {
       this.setShowSidebar(true)
     },
-    backToPreviousPage () {
+    backToPreviousPage() {
       window.history.length > 1
         ? this.$router.go(-1)
         : this.$router.push('/')

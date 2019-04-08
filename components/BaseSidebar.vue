@@ -127,7 +127,7 @@ export default {
     IosStarOutlineIcon,
     IosBookmarkIcon
   },
-  data () {
+  data() {
     return {
       AppConstant
     }

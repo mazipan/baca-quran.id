@@ -93,7 +93,7 @@ import { AppConstant } from '../constant/index.js'
 
 export default {
   name: 'PageIndex',
-  head () {
+  head() {
     return this.metaHead
   },
   components: {
@@ -105,7 +105,7 @@ export default {
     IosBookmarkIcon,
     IosColorWandIcon
   },
-  data () {
+  data() {
     return {
       AppConstant
     }
@@ -114,7 +114,7 @@ export default {
     ...mapState([
       'settingActiveTheme'
     ]),
-    metaHead () {
+    metaHead() {
       const title = this.$t('pageTitle.home')
       return {
         title,
@@ -126,7 +126,7 @@ export default {
       }
     }
   },
-  fetch ({ store }) {
+  fetch({ store }) {
     store.commit('setHeaderTitle', AppConstant.TITLE)
   }
 }

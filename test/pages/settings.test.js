@@ -19,27 +19,27 @@ const store = new Vuex.Store({
     settingShowTafsir: false
   },
   mutations: {
-    [MutationType.SET_HEADER_TITLE] (state, data) {
+    [MutationType.SET_HEADER_TITLE](state, data) {
       state.headerTitle = data
     },
-    [MutationType.SET_THEME] (state, data) {
+    [MutationType.SET_THEME](state, data) {
       state.settingActiveTheme = data
     },
-    [MutationType.SET_SETTING_TRANSLATION]  (state, data) {
+    [MutationType.SET_SETTING_TRANSLATION](state, data) {
       state.settingShowTranslation = data
     },
-    [MutationType.SET_SETTING_TAFSIR]  (state, data) {
+    [MutationType.SET_SETTING_TAFSIR](state, data) {
       state.settingShowTafsir = data
     }
   },
   actions: {
-    setActiveTheme ({ commit }, theme) {
+    setActiveTheme({ commit }, theme) {
       commit(MutationType.SET_THEME, theme)
     },
-    setSettingTranslation ({ commit }, payload) {
+    setSettingTranslation({ commit }, payload) {
       commit(MutationType.SET_SETTING_TRANSLATION, payload)
     },
-    setSettingTafsir ({ commit }, payload) {
+    setSettingTafsir({ commit }, payload) {
       commit(MutationType.SET_SETTING_TAFSIR, payload)
     }
   }

@@ -11,7 +11,7 @@ import dummyAyatKursi from './__mocks__/ayat-kursi'
 
 const dummyComponent = {
   extends: Component,
-  data () {
+  data() {
     return {
       ayatKursi: dummyAyatKursi
     }
@@ -30,10 +30,10 @@ const store = new Vuex.Store({
     ayatKursi: dummyAyatKursi
   },
   mutations: {
-    [MutationType.SET_HEADER_TITLE] (state, data) {
+    [MutationType.SET_HEADER_TITLE](state, data) {
       state.headerTitle = data
     },
-    [MutationType.SET_THEME] (state, data) {
+    [MutationType.SET_THEME](state, data) {
       state.settingActiveTheme = data
     }
   },

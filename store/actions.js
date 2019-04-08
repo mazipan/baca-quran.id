@@ -5,7 +5,7 @@ import { getItem, setItem } from '../utils/storage'
 import MutationType from './mutation-type'
 
 export default {
-  initDataFromBrowserStorage ({ commit }) {
+  initDataFromBrowserStorage({ commit }) {
     // data favorite surah
     const cacheFavorite = getItem(storageKey.FAVORITE, null) || []
     commit(MutationType.SET_FAVORITE, cacheFavorite)
@@ -22,13 +22,13 @@ export default {
     const cacheTafsir = getItem(storageKey.SETTING_TAFSIR, null)
     commit(MutationType.SET_SETTING_TAFSIR, __isNotNull(cacheTafsir) ? cacheTafsir : true)
   },
-  showNotification ({ commit }, { title = '', message = '' }) {
+  showNotification({ commit }, { title = '', message = '' }) {
     commit(MutationType.SET_NOTIFICATION, { show: true, title, message })
     setTimeout(() => {
       commit(MutationType.SET_NOTIFICATION, { show: false, title: '', message: '' })
     }, 3000)
   },
-  addToFavorite ({ commit, state }, surah) {
+  addToFavorite({ commit, state }, surah) {
     const isExist = state.surahFavorite.find(item => item.index === surah.index)
     if (!isExist) {
       const newFavorite = [].concat(state.surahFavorite).concat([surah])
@@ -36,7 +36,7 @@ export default {
       setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
-  removeFromFavorite ({ commit, state }, surah) {
+  removeFromFavorite({ commit, state }, surah) {
     const isExist = state.surahFavorite.find(item => item.index === surah.index)
     if (isExist) {
       const newFavorite = state.surahFavorite.filter(item => item.index !== surah.index) || []
@@ -44,15 +44,15 @@ export default {
       setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
-  setLastReadVerse ({ commit }, { surah, verse }) {
+  setLastReadVerse({ commit }, { surah, verse }) {
     const data = { surah, verse }
     commit(MutationType.SET_LAST_READ, data)
     setItem(storageKey.LAST_READ, data, null)
   },
-  setWebshareSupport ({ commit }, isSupport) {
+  setWebshareSupport({ commit }, isSupport) {
     commit(MutationType.SET_SUPPORT_WEBSHARE, isSupport)
   },
-  shareViaWebshare ({ state }, { title, text, url }) {
+  shareViaWebshare({ state }, { title, text, url }) {
     if (state.isSupportWebShare) {
       if (navigator.share) { /* eslint-disable-line no-undef */
         navigator.share({ /* eslint-disable-line no-undef */
@@ -63,15 +63,15 @@ export default {
       }
     }
   },
-  setActiveTheme ({ commit }, theme) {
+  setActiveTheme({ commit }, theme) {
     setItem(storageKey.SETTING_THEME, theme, null)
     commit(MutationType.SET_THEME, theme)
   },
-  setSettingTranslation ({ commit }, payload) {
+  setSettingTranslation({ commit }, payload) {
     setItem(storageKey.SETTING_TRANSLATION, payload, null)
     commit(MutationType.SET_SETTING_TRANSLATION, payload)
   },
-  setSettingTafsir ({ commit }, payload) {
+  setSettingTafsir({ commit }, payload) {
     setItem(storageKey.SETTING_TAFSIR, payload, null)
     commit(MutationType.SET_SETTING_TAFSIR, payload)
   }

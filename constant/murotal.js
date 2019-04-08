@@ -10,7 +10,7 @@ export default {
   getAudioFromKemenag: (surah, verse) => {
     const surahThreeDigit = __makeThreeDigit(surah)
     const verseThreeDigit = __makeThreeDigit(verse)
-    let res = `https://quran.kemenag.go.id/api/source/s01/${surahThreeDigit}${verseThreeDigit}.mp3`
+    const res = `https://quran.kemenag.go.id/api/source/s01/${surahThreeDigit}${verseThreeDigit}.mp3`
 
     return res
   }

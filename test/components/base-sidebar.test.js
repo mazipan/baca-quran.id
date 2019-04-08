@@ -15,7 +15,7 @@ const store = new Vuex.Store({
     isShowSidebar: false
   },
   mutations: {
-    [MutationType.SET_SHOW_SIDEBAR] (state, data) {
+    [MutationType.SET_SHOW_SIDEBAR](state, data) {
       state.isShowSidebar = data
     }
   },

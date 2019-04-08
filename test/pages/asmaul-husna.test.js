@@ -11,7 +11,7 @@ import dummyAsmaulHusna from './__mocks__/asmaul-husna'
 
 const dummyComponent = {
   extends: Component,
-  data () {
+  data() {
     return {
       asmaulHusna: dummyAsmaulHusna
     }
@@ -30,10 +30,10 @@ const store = new Vuex.Store({
     asmaulHusna: dummyAsmaulHusna
   },
   mutations: {
-    [MutationType.SET_HEADER_TITLE] (state, data) {
+    [MutationType.SET_HEADER_TITLE](state, data) {
       state.headerTitle = data
     },
-    [MutationType.SET_THEME] (state, data) {
+    [MutationType.SET_THEME](state, data) {
       state.settingActiveTheme = data
     }
   },

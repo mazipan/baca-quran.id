@@ -74,10 +74,10 @@ import { AppConstant } from '../constant/index'
 
 export default {
   name: 'PageAbout',
-  head () {
+  head() {
     return this.metaHead
   },
-  data () {
+  data() {
     return {
       appTitle: AppConstant.TITLE
     }
@@ -86,7 +86,7 @@ export default {
     ...mapState([
       'settingActiveTheme'
     ]),
-    metaHead () {
+    metaHead() {
       const title = this.$t('pageTitle.about')
       return {
         title,
@@ -98,7 +98,7 @@ export default {
       }
     }
   },
-  created () {
+  created() {
     this.setHeaderTitle('Tentang')
   },
   methods: {

@@ -1,6 +1,6 @@
 export default {
   ALL_SURAH: 'ALL_SURAH',
-  SURAH_BY_ID: (id) => `SURAH_${id}`,
+  SURAH_BY_ID: id => `SURAH_${id}`,
   FAVORITE: 'FAV',
   LAST_READ: 'LAST_READ',
   AYAT_KURSI: 'AYAT_KURSI',

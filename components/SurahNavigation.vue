@@ -78,24 +78,24 @@ export default {
       default: 0
     }
   },
-  data () {
+  data() {
     return {
       selectedVerse: 1
     }
   },
   computed: {
-    isHavePrev () {
+    isHavePrev() {
       return this.surahId > 1
     },
-    isHaveNext () {
+    isHaveNext() {
       return this.surahId < 114
     },
-    arrayAyah () {
+    arrayAyah() {
       return Array.from({ length: this.numberAyah }, (v, k) => k + 1)
     }
   },
   watch: {
-    selectedVerse (newValue) {
+    selectedVerse(newValue) {
       window.location.href = `#verse-${newValue}`
     }
   }

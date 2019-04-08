@@ -44,10 +44,10 @@ import { getAsmaulHusna } from '../services/index'
 
 export default {
   name: 'AsmaulHusnaPage',
-  head () {
+  head() {
     return this.metaHead
   },
-  data () {
+  data() {
     return {
       searchText: ''
     }
@@ -56,7 +56,7 @@ export default {
     ...mapState([
       'settingActiveTheme'
     ]),
-    metaHead () {
+    metaHead() {
       const title = this.$t('pageTitle.asmaulHusna')
       return {
         title,
@@ -67,13 +67,13 @@ export default {
         ]
       }
     },
-    filteredAsmaulHusna () {
+    filteredAsmaulHusna() {
       if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
-        return this.asmaulHusna.filter(item => {
-          let predicateTranslation = __normalizeText(item.translation_id).includes(
+        return this.asmaulHusna.filter((item) => {
+          const predicateTranslation = __normalizeText(item.translation_id).includes(
             __normalizeText(this.searchText)
           )
-          let predicateLatin = __normalizeText(item.latin).includes(
+          const predicateLatin = __normalizeText(item.latin).includes(
             __normalizeText(this.searchText)
           )
 
@@ -82,13 +82,13 @@ export default {
       } else return this.asmaulHusna || []
     }
   },
-  async asyncData () {
+  async asyncData() {
     const data = await getAsmaulHusna()
     return {
       asmaulHusna: data.data.data
     }
   },
-  async fetch ({ store }) {
+  fetch({ store }) {
     store.commit('setHeaderTitle', 'Asmaul Husna')
   }
 }

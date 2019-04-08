@@ -21,7 +21,7 @@ export default {
     ...mapState([
       'notification'
     ]),
-    visibleNotification () {
+    visibleNotification() {
       return this.notification.show
     }
   }

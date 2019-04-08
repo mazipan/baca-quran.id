@@ -117,7 +117,7 @@ export default {
       default: 0
     }
   },
-  data () {
+  data() {
     return {
       audios: MurotalConstant.availableAudio,
       clickedAudioIcon: randomVerse,
@@ -138,7 +138,7 @@ export default {
       'showNotification',
       'shareViaWebshare'
     ]),
-    onClickAudioIcon (verse) {
+    onClickAudioIcon(verse) {
       if (this.timeout) clearTimeout(this.timeout)
 
       this.clickedAudioIcon = verse
@@ -146,26 +146,26 @@ export default {
         this.clickedAudioIcon = randomVerse
       }, 5000)
     },
-    onClickAudioItem (audioObj, verse) {
+    onClickAudioItem(audioObj, verse) {
       if (audioObj.id === 'kemenag') {
         const hrefAudio = MurotalConstant.getAudioFromKemenag(this.surahId, verse)
         window.location.href = hrefAudio
       }
     },
-    getTranslation (indexVerse) {
+    getTranslation(indexVerse) {
       return this.translations.id.text[indexVerse]
     },
-    getTafsir (indexVerse) {
+    getTafsir(indexVerse) {
       return this.tafsir.id.kemenag.text[indexVerse]
     },
-    doSetLastReadVerse (data) {
+    doSetLastReadVerse(data) {
       this.setLastReadVerse(data)
       this.showNotification({
         title: 'Pesan Sukses',
         message: 'Ayat telah ditambahkan ke terakhir dibaca.'
       })
     },
-    shareVerse (verse, index) {
+    shareVerse(verse, index) {
       const data = {
         title: `QS ${this.surahId}:${index}`,
         text: `${verse}

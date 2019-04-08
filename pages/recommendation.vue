@@ -24,14 +24,14 @@ import surahRecommendation from '../constant/surah-recommendation'
 
 export default {
   name: 'RecommendationPage',
-  head () {
+  head() {
     return this.metaHead
   },
   components: {
     IosNavigateIcon,
     SurahCard
   },
-  data () {
+  data() {
     return {
       surahRecommendation: surahRecommendation.data
     }
@@ -40,7 +40,7 @@ export default {
     ...mapState([
       'settingActiveTheme'
     ]),
-    metaHead () {
+    metaHead() {
       const title = this.$t('pageTitle.recommendation')
       return {
         title,
@@ -52,7 +52,7 @@ export default {
       }
     }
   },
-  fetch ({ store }) {
+  fetch({ store }) {
     store.commit('setHeaderTitle', AppConstant.RECOMMENDATION)
   }
 }

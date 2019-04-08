@@ -29,10 +29,10 @@ const store = new Vuex.Store({
     headerTitle: AppConstant.TITLE
   },
   mutations: {
-    [MutationType.SET_HEADER_TITLE] (state, data) {
+    [MutationType.SET_HEADER_TITLE](state, data) {
       state.headerTitle = data
     },
-    [MutationType.SET_SHOW_SIDEBAR] (state, data) {
+    [MutationType.SET_SHOW_SIDEBAR](state, data) {
       state.isShowSidebar = data
     }
   },
