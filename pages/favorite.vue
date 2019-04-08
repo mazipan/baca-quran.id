@@ -59,7 +59,7 @@ export default {
       return __isNotEmptyArray(this.surahFavorite)
     }
   },
-  mounted () {
+  created () {
     this.setHeaderTitle(AppConstant.FAVORITE)
   },
   methods: {

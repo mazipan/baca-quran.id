@@ -1,4 +1,5 @@
 export const AppConstant = {
+  PATH: 'https://www.quran-offline.xyz/',
   TITLE: "Qur'an Offline",
   LAST_READ: 'Terakhir dibaca',
   FAVORITE: 'Surat favorit',

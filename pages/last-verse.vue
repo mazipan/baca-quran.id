@@ -24,7 +24,7 @@
 
 <script>
 import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 import LastReadCard from '../components/LastReadCard.vue'
 
@@ -68,22 +68,11 @@ export default {
       return null
     }
   },
-  mounted () {
-    this.setHeaderTitle(AppConstant.LAST_READ)
-    this.fetchSurahInfo()
-  },
-  methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ]),
-    ...mapActions([
-      'fetchAllSurah'
-    ]),
-    fetchSurahInfo () {
-      this.fetchAllSurah({
-        success: () => {}
-      })
-    }
+  async fetch ({ store }) {
+    store.commit('setHeaderTitle', AppConstant.LAST_READ)
+    await store.dispatch('fetchAllSurah', {
+      success: () => {}
+    })
   }
 }
 </script>

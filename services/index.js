@@ -1,26 +1,22 @@
 import ApiPath from '../constant/api-path'
+import axios from 'axios'
 
 export const getAllSurah = () => {
-  return fetch(ApiPath.SURAH_INFO)
-    .then(response => response.json())
+  return axios.get(ApiPath.SURAH_INFO)
 }
 
 export const getSurahById = (id) => {
-  return fetch(ApiPath.SURAH_BY_ID(id))
-    .then(response => response.json())
+  return axios.get(ApiPath.SURAH_BY_ID(id))
 }
 
 export const getAyatKursi = () => {
-  return fetch(ApiPath.AYAT_KURSI)
-    .then(response => response.json())
+  return axios.get(ApiPath.AYAT_KURSI)
 }
 
 export const getAsmaulHusna = () => {
-  return fetch(ApiPath.ASMAUL_HUSNA)
-    .then(response => response.json())
+  return axios.get(ApiPath.ASMAUL_HUSNA)
 }
 
 export const getDailyDoa = () => {
-  return fetch(ApiPath.DAILY_DOA)
-    .then(response => response.json())
+  return axios.get(ApiPath.DAILY_DOA)
 }

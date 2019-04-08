@@ -12,7 +12,8 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapState } from 'vuex'
+import { getAyatKursi } from '../services/index'
 
 export default {
   name: 'AyatKursiPage',
@@ -21,13 +22,11 @@ export default {
   },
   data () {
     return {
-      loading: true
     }
   },
   computed: {
     ...mapState([
-      'settingActiveTheme',
-      'ayatKursi'
+      'settingActiveTheme'
     ]),
     metaHead () {
       const title = this.$t('pageTitle.ayatKursi')
@@ -41,25 +40,14 @@ export default {
       }
     }
   },
-  mounted () {
-    this.onMountedPage()
-  },
-  methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ]),
-    ...mapActions([
-      'fetchAyatKursi'
-    ]),
-    onMountedPage () {
-      this.setHeaderTitle('Ayat Kursi')
-      this.fetchAyatKursi({
-        success: this.onSuccess
-      })
-    },
-    onSuccess () {
-      this.loading = false
+  async asyncData () {
+    const data = await getAyatKursi()
+    return {
+      ayatKursi: data.data.data
     }
+  },
+  async fetch ({ store }) {
+    store.commit('setHeaderTitle', 'Ayat Kursi')
   }
 }
 </script>

@@ -23,9 +23,6 @@
 </template>
 
 <script>
-// polyfill
-import 'unfetch/polyfill'
-
 import { mapState, mapMutations, mapActions } from 'vuex'
 
 import ArrowUpIcon from 'vue-ionicons/dist/js/ios-arrow-dropup-circle'

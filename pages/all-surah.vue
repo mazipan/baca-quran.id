@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
@@ -73,25 +73,11 @@ export default {
       } else return this.allSurahList
     }
   },
-  mounted () {
-    this.setHeaderTitle('Daftar Surat')
-    this.fetchSurahInfo()
-  },
-  methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ]),
-    ...mapActions([
-      'fetchAllSurah'
-    ]),
-    fetchSurahInfo () {
-      this.fetchAllSurah({
-        success: this.onSuccess
-      })
-    },
-    onSuccess () {
-      this.loading = false
-    }
+  async fetch ({ store }) {
+    store.commit('setHeaderTitle', 'Daftar Surat')
+    await store.dispatch('fetchAllSurah', {
+      success: () => {}
+    })
   }
 }
 </script>

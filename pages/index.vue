@@ -1,7 +1,6 @@
 <template>
   <section class="container">
     <div
-      v-if="!loading"
       class="home">
       <div class="home__wrapper">
         <div class="item">
@@ -80,7 +79,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 
 import MdBookIcon from 'vue-ionicons/dist/js/md-book'
 import MdGridIcon from 'vue-ionicons/dist/js/md-grid'
@@ -108,7 +107,6 @@ export default {
   },
   data () {
     return {
-      loading: true,
       AppConstant
     }
   },
@@ -128,16 +126,8 @@ export default {
       }
     }
   },
-  mounted () {
-    this.setHeaderTitle(AppConstant.TITLE)
-    setTimeout(() => {
-      this.loading = false
-    }, 1000)
-  },
-  methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ])
+  fetch ({ store }) {
+    store.commit('setHeaderTitle', AppConstant.TITLE)
   }
 }
 </script>

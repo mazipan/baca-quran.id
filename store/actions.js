@@ -6,10 +6,7 @@ import CacheVersion from '../constant/cache-version'
 
 import {
   getAllSurah,
-  getSurahById,
-  getAyatKursi,
-  getAsmaulHusna,
-  getDailyDoa
+  getSurahById
 } from '../services/index'
 import MutationType from './mutation-type'
 
@@ -85,7 +82,7 @@ export default {
     } else {
       getAllSurah()
         .then(data => {
-          const indexedData = data.surah_info.map((item, idx) => {
+          const indexedData = data.data.surah_info.map((item, idx) => {
             return Object.assign({}, item, { index: idx + 1 })
           })
           setDataToState(commit, mutation, indexedData, success)
@@ -101,51 +98,9 @@ export default {
     } else {
       getSurahById(id)
         .then(data => {
-          const dataRes = data[id]
+          const dataRes = data.data[id]
           setDataToState(commit, mutation, dataRes, success)
           setItem(storageKey.SURAH_BY_ID(id), dataRes, CacheVersion.SURAH_DETAIL)
-        })
-    }
-  },
-  fetchAyatKursi ({ commit }, { success = () => {} }) {
-    const cache = getItem(storageKey.AYAT_KURSI, CacheVersion.AYAT_KURSI)
-    const mutation = MutationType.SET_AYAT_KURSI
-    if (__isNotNull(cache)) {
-      setDataToState(commit, mutation, cache, success)
-    } else {
-      getAyatKursi()
-        .then(data => {
-          const dataRes = data.data
-          setDataToState(commit, mutation, dataRes, success)
-          setItem(storageKey.AYAT_KURSI, dataRes, CacheVersion.AYAT_KURSI)
-        })
-    }
-  },
-  fetchAsmaulHusna ({ commit }, { success = () => {} }) {
-    const cache = getItem(storageKey.ASMAUL_HUSNA, CacheVersion.ASMAUL_HUSNA)
-    const mutation = MutationType.SET_ASMAUL_HUSNA
-    if (__isNotNull(cache)) {
-      setDataToState(commit, mutation, cache, success)
-    } else {
-      getAsmaulHusna()
-        .then(data => {
-          const dataRes = data.data
-          setDataToState(commit, mutation, dataRes, success)
-          setItem(storageKey.ASMAUL_HUSNA, dataRes, CacheVersion.ASMAUL_HUSNA)
-        })
-    }
-  },
-  fetchDailyDoa ({ commit }, { success = () => {} }) {
-    const cache = getItem(storageKey.DAILY_DOA, CacheVersion.DAILY_DOA)
-    const mutation = MutationType.SET_DAILY_DOA
-    if (__isNotNull(cache)) {
-      setDataToState(commit, mutation, cache, success)
-    } else {
-      getDailyDoa()
-        .then(data => {
-          const dataRes = data.data
-          setDataToState(commit, mutation, dataRes, success)
-          setItem(storageKey.DAILY_DOA, dataRes, CacheVersion.DAILY_DOA)
         })
     }
   },

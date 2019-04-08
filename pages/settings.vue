@@ -57,9 +57,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
-import MutationType from '../store/mutation-type'
-
+import { mapActions, mapState } from 'vuex'
 import Theme from '../constant/theme'
 
 export default {
@@ -92,16 +90,15 @@ export default {
       }
     }
   },
+  fetch ({ app, store }) {
+    store.commit('setHeaderTitle', app.i18n.messages.id['setting'])
+  },
   mounted () {
-    this[MutationType.SET_HEADER_TITLE](this.$t('setting'))
     setTimeout(() => {
       this.setDefaultSetting()
     }, 500)
   },
   methods: {
-    ...mapMutations([
-      MutationType.SET_HEADER_TITLE
-    ]),
     ...mapActions([
       'setActiveTheme',
       'setSettingTranslation',

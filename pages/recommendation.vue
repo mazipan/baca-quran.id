@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 
 import SurahCard from '../components/SurahCard.vue'
@@ -52,13 +52,8 @@ export default {
       }
     }
   },
-  mounted () {
-    this.setHeaderTitle(AppConstant.RECOMMENDATION)
-  },
-  methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ])
+  fetch ({ store }) {
+    store.commit('setHeaderTitle', AppConstant.RECOMMENDATION)
   }
 }
 </script>

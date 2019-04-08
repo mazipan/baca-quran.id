@@ -23,6 +23,7 @@ async function start () {
 
   // Give nuxt middleware to express
   app.use(nuxt.render)
+  app.use('/data', express.static('static/data'))
 
   // Listen the server
   app.listen(port, host)

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 import VerseCard from '../../components/VerseCard'
 import SurahHeader from '../../components/SurahHeader'
@@ -97,33 +97,16 @@ export default {
       return null
     }
   },
-  mounted () {
-    this.onMountedDetailPage(this.surahId)
-  },
-  methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ]),
-    ...mapActions([
-      'fetchAllSurah',
-      'fetchSurahById'
-    ]),
-    onMountedDetailPage (id) {
-      if (!__isNotEmptyArray(this.allSurahList)) {
-        this.fetchAllSurah({
-          success: () => {}
-        })
-      }
+  async fetch ({ store, params }) {
+    await store.dispatch('fetchAllSurah', {
+      success: (data) => {}
+    })
 
-      this.fetchSurahById({
-        id,
-        success: this.onSuccess
-      })
-    },
-    onSuccess (data) {
-      this.setHeaderTitle(`${this.surahId}: ${data.name_latin}`)
-      this.loading = false
-    }
+    await store.dispatch('fetchSurahById', {
+      success: (data) => {
+        store.commit('setHeaderTitle', `${params.surahId}: ${data.name_latin}`)
+      }
+    })
   }
 }
 </script>

@@ -1,5 +1,7 @@
-import { SurahConstant } from './constant/surah'
+const SurahConstant = require('./constant/surah')
 const locale = require('./locale/id')
+
+const PROD_PATH = 'https://www.quran-offline.xyz/'
 
 const pkg = require('./package')
 const path = require('path')
@@ -37,7 +39,7 @@ const routes = () => {
   ]
   for (let i = 1; i < 115; i++) {
     res.push(`/${i}`)
-    const surahObj = SurahConstant.surahArray.find(item => item.index === i)
+    const surahObj = SurahConstant.find(item => item.index === i)
     if (surahObj) {
       for (let j = 1; j < surahObj.ayah_count + 1; j++) {
         // res.push(`/${i}/${j}`)
@@ -61,7 +63,8 @@ const routesSitemap = () => {
 }
 
 module.exports = {
-  mode: 'spa',
+  debug: true,
+  mode: 'universal',
   /*
    ** Headers of the page
    */
@@ -76,13 +79,13 @@ module.exports = {
       { hid: 'og:image', property: 'og:image', content: '/icon.png' },
       { hid: 'og:title', property: 'og:title', content: 'Quran Offline' },
       { hid: 'og:description', property: 'og:description', content: pkg.description },
-      { hid: 'og:url', property: 'og:url', content: 'https://quran-offline.netlify.com/' },
+      { hid: 'og:url', property: 'og:url', content: PROD_PATH },
 
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
       { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/icon.png' },
       { hid: 'twitter:title', name: 'twitter:title', content: 'Quran Offline' },
       { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
-      { hid: 'twitter:url', name: 'twitter:url', content: 'https://quran-offline.netlify.com/' },
+      { hid: 'twitter:url', name: 'twitter:url', content: PROD_PATH },
 
       { hid: 'google-site-verification', name: 'google-site-verification', content: 'jW7EK0wGpuReuZkQ-q900J7Z0KbCD9CCAZybfwcPe_U' }
     ],

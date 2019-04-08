@@ -37,8 +37,10 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapState } from 'vuex'
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
+
+import { getAsmaulHusna } from '../services/index'
 
 export default {
   name: 'AsmaulHusnaPage',
@@ -47,14 +49,12 @@ export default {
   },
   data () {
     return {
-      loading: true,
       searchText: ''
     }
   },
   computed: {
     ...mapState([
-      'settingActiveTheme',
-      'asmaulHusna'
+      'settingActiveTheme'
     ]),
     metaHead () {
       const title = this.$t('pageTitle.asmaulHusna')
@@ -82,25 +82,14 @@ export default {
       } else return this.asmaulHusna || []
     }
   },
-  mounted () {
-    this.onMountedPage()
-  },
-  methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ]),
-    ...mapActions([
-      'fetchAsmaulHusna'
-    ]),
-    onMountedPage () {
-      this.setHeaderTitle('Asmaul Husna')
-      this.fetchAsmaulHusna({
-        success: this.onSuccess
-      })
-    },
-    onSuccess () {
-      this.loading = false
+  async asyncData () {
+    const data = await getAsmaulHusna()
+    return {
+      asmaulHusna: data.data.data
     }
+  },
+  async fetch ({ store }) {
+    store.commit('setHeaderTitle', 'Asmaul Husna')
   }
 }
 </script>

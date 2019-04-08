@@ -43,8 +43,9 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapState } from 'vuex'
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
+import { getDailyDoa } from '../services/index'
 
 export default {
   name: 'DailyDoa',
@@ -53,7 +54,6 @@ export default {
   },
   data () {
     return {
-      loading: true,
       searchText: '',
       expandedData: {
         title: ''
@@ -62,8 +62,7 @@ export default {
   },
   computed: {
     ...mapState([
-      'settingActiveTheme',
-      'dailyDoa'
+      'settingActiveTheme'
     ]),
     metaHead () {
       const title = this.$t('pageTitle.dailyDoa')
@@ -88,25 +87,16 @@ export default {
       } else return this.dailyDoa || []
     }
   },
-  mounted () {
-    this.onMountedPage()
+  async asyncData () {
+    const data = await getDailyDoa()
+    return {
+      dailyDoa: data.data.data
+    }
+  },
+  async fetch ({ store }) {
+    store.commit('setHeaderTitle', `Do'a Harian`)
   },
   methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ]),
-    ...mapActions([
-      'fetchDailyDoa'
-    ]),
-    onMountedPage () {
-      this.setHeaderTitle(`Do'a Harian`)
-      this.fetchDailyDoa({
-        success: this.onSuccess
-      })
-    },
-    onSuccess () {
-      this.loading = false
-    },
     onClickDoa (item) {
       if (this.isExpanded(item.title)) {
         this.expandedData = {
