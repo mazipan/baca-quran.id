@@ -15,7 +15,7 @@
             <MdHomeIcon
               w="2em"
               h="2em" />
-            {{ $t('home') }}
+            Beranda
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -26,7 +26,7 @@
             <MdBookIcon
               w="2em"
               h="2em" />
-            {{ $t('surahList') }}
+            Daftar surat
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -37,7 +37,7 @@
             <IosBookmarkIcon
               w="2em"
               h="2em" />
-            {{ $t('lastRead') }}
+            Terakhir dibaca
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -48,7 +48,7 @@
             <IosStarOutlineIcon
               w="2em"
               h="2em" />
-            {{ $t('favorite') }}
+            Surat favorit
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -59,7 +59,7 @@
             <IosNavigateIcon
               w="2em"
               h="2em" />
-            {{ $t('recommendation') }}
+            Surat rekomendasi
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -70,7 +70,7 @@
             <MdSettingsIcon
               w="2em"
               h="2em" />
-            {{ $t('setting') }}
+            Setelan
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -81,7 +81,7 @@
             <MdHelpCircleIcon
               w="2em"
               h="2em" />
-            {{ $t('about') }}
+            Tentang
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -93,7 +93,7 @@
             <MdCodeIcon
               w="2em"
               h="2em" />
-            {{ $t('sourceCode') }}
+            Kode sumber
           </a>
         </li>
       </ul>
@@ -101,8 +101,9 @@
   </aside>
 </template>
 
-<script>
-import { mapMutations } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { Mutation } from 'vuex-class'
 
 import MdHomeIcon from 'vue-ionicons/dist/js/md-home'
 import MdBookIcon from 'vue-ionicons/dist/js/md-book'
@@ -115,8 +116,7 @@ import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 
 import { AppConstant } from '../constant/index.js'
 
-export default {
-  name: 'BaseSidebar',
+@Component({
   components: {
     MdHomeIcon,
     MdBookIcon,
@@ -126,23 +126,20 @@ export default {
     IosNavigateIcon,
     IosStarOutlineIcon,
     IosBookmarkIcon
-  },
-  data () {
-    return {
-      AppConstant
-    }
-  },
-  methods: {
-    ...mapMutations([
-      'setShowSidebar'
-    ]),
-    navigateTo: function (e) {
-      this.hideSidebar()
-      e.preventDefault()
-    },
-    hideSidebar: function () {
-      this.setShowSidebar(false)
-    }
+  }
+})
+
+export default class BaseSidebar extends Vue {
+  AppConstant = AppConstant
+  @Mutation setShowSidebar
+
+  navigateTo(e): void {
+    this.hideSidebar()
+    e.preventDefault()
+  }
+
+  hideSidebar(): void {
+    this.setShowSidebar(false)
   }
 }
 </script>

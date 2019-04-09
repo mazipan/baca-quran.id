@@ -21,8 +21,8 @@ const store = new Vuex.Store({
     setShowSidebar: mockMutations
   },
   actions: {
-    initDataFromBrowserStorage () {},
-    setWebshareSupport () {}
+    initDataFromBrowserStorage() {},
+    setWebshareSupport() {}
   }
 })
 

@@ -17,7 +17,7 @@ afterAll(() => {
 })
 
 describe('service index', () => {
-  test('getAllSurah should return response', async done => {
+  test('getAllSurah should return response', async (done) => {
     const expectedResponse = {
       data: 'dummy'
     }
@@ -27,7 +27,7 @@ describe('service index', () => {
     done()
   })
 
-  test('getSurahById should return response', async done => {
+  test('getSurahById should return response', async (done) => {
     const expectedResponse = {
       data: 'dummy'
     }
@@ -37,7 +37,7 @@ describe('service index', () => {
     done()
   })
 
-  test('getAyatKursi should return response', async done => {
+  test('getAyatKursi should return response', async (done) => {
     const expectedResponse = {
       data: 'dummy'
     }
@@ -47,7 +47,7 @@ describe('service index', () => {
     done()
   })
 
-  test('getAsmaulHusna should return response', async done => {
+  test('getAsmaulHusna should return response', async (done) => {
     const expectedResponse = {
       data: 'dummy'
     }
@@ -57,7 +57,7 @@ describe('service index', () => {
     done()
   })
 
-  test('getDailyDoa should return response', async done => {
+  test('getDailyDoa should return response', async (done) => {
     const expectedResponse = {
       data: 'dummy'
     }

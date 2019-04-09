@@ -24,7 +24,7 @@
             width="30px"
             height="30px"
             fill="#f5aa1e"
-            @click.prevent="doremoveFromfavorite(surah)">
+            @click.prevent="doRemoveFromfavorite(surah)">
             <path d="M463 192H315.9L271.2 58.6C269 52.1 262.9 48 256 48s-13 4.1-15.2 10.6L196.1 192H48c-8.8 0-16 7.2-16 16 0 .9.1 1.9.3 2.7.2 3.5 1.8 7.4 6.7 11.3l120.9 85.2-46.4 134.9c-2.3 6.5 0 13.8 5.5 18 2.9 2.1 5.6 3.9 9 3.9 3.3 0 7.2-1.7 10-3.6l118-84.1 118 84.1c2.8 2 6.7 3.6 10 3.6 3.4 0 6.1-1.7 8.9-3.9 5.6-4.2 7.8-11.4 5.5-18L352 307.2l119.9-86 2.9-2.5c2.6-2.8 5.2-6.6 5.2-10.7 0-8.8-8.2-16-17-16z" />
           </svg>
         </div>
@@ -50,54 +50,51 @@
   </div>
 </template>
 
-<script>
-import { mapActions, mapState } from 'vuex'
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import { State, Action } from 'vuex-class'
 
-export default {
-  name: 'SurahCard',
-  props: {
-    surahArray: {
-      type: Array,
-      default: () => []
-    }
-  },
-  computed: {
-    ...mapState([
-      'surahFavorite'
-    ])
-  },
-  methods: {
-    ...mapActions([
-      'addToFavorite',
-      'removeFromFavorite',
-      'showNotification'
-    ]),
-    doAddToFavorite (surah) {
-      this.addToFavorite(surah)
-      this.showNotification({
-        title: 'Pesan Sukses',
-        message: 'Surat berhasil ditambahkan ke daftar favorit.'
-      })
-    },
-    doremoveFromfavorite (surah) {
-      this.removeFromFavorite(surah)
-      this.showNotification({
-        title: 'Pesan Sukses',
-        message: 'Surat berhasil dihapus dari daftar favorit.'
-      })
-    },
-    findInFavorite (surah) {
-      const favArray = this.surahFavorite || []
-      const isExist = favArray.find(item => item.index === surah.index)
-      return isExist
-    },
-    getSurahDetailUrl (index) {
-      return `/${index}`
-    },
-    goToSurahDetail (index) {
-      const path = this.getSurahDetailUrl(index)
-      this.$router.push(path)
-    }
+import { SurahInfo } from '../models/SurahInfo'
+
+@Component
+export default class SurahCard extends Vue {
+  @Prop({ default: () => [] }) readonly surahArray!: SurahInfo[]
+
+  @State surahFavorite
+
+  @Action addToFavorite
+  @Action removeFromFavorite
+  @Action showNotification
+
+  doAddToFavorite(surah): void {
+    this.addToFavorite(surah)
+    this.showNotification({
+      title: 'Pesan Sukses',
+      message: 'Surat berhasil ditambahkan ke daftar favorit.'
+    })
+  }
+
+  doRemoveFromfavorite(surah): void {
+    this.removeFromFavorite(surah)
+    this.showNotification({
+      title: 'Pesan Sukses',
+      message: 'Surat berhasil dihapus dari daftar favorit.'
+    })
+  }
+
+  findInFavorite(surah: any): boolean {
+    const favArray = this.surahFavorite || []
+    const isExist = favArray.find(item => item.index === surah.index)
+    return !!isExist
+  }
+
+  getSurahDetailUrl(index): string {
+    return `/${index}`
+  }
+
+  goToSurahDetail(index): void {
+    const path = this.getSurahDetailUrl(index)
+    this.$router.push(path)
   }
 }
 </script>

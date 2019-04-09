@@ -4,17 +4,19 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/components/LastReadCard.vue'
 
+import { state } from '~/store/state'
+import { mutations } from '~/store/mutations'
+import { actions } from '~/store/actions'
+
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
 const i18n = Helpers.initI18n(localVue)
+
 const store = new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  }
+  state: state(),
+  mutations,
+  actions
 })
 
 const createWrapper = () => {

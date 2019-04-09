@@ -1,16 +1,16 @@
 /* eslint-env jest */
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import state from '~/store/state'
-import mutations from '~/store/mutations'
-import actions from '~/store/actions'
+import { state } from '~/store/state'
+import { mutations } from '~/store/mutations'
+import { actions } from '~/store/actions'
 import Theme from '~/constant/theme'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
 const store = new Vuex.Store({
-  state,
+  state: state(),
   mutations,
   actions
 })

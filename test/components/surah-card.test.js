@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/components/SurahCard.vue'
 
-import MutationType from '~/store/mutation-type'
+import { Types } from '~/store/types'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -20,7 +20,7 @@ const store = new Vuex.Store({
     surahFavorite: []
   },
   mutations: {
-    [MutationType.SET_FAVORITE] (state, data) {
+    [Types.SET_FAVORITE](state, data) {
       state.surahFavorite = data
     }
   },
@@ -70,22 +70,22 @@ describe('component SurahCard.vue', () => {
     done()
   })
 
-  test('doremoveFromfavorite should trigger action in vuex', (done) => {
+  test('doRemoveFromfavorite should trigger action in vuex', (done) => {
     const wrapper = createWrapper()
-    wrapper.vm.doremoveFromfavorite()
+    wrapper.vm.doRemoveFromfavorite()
     expect(mockActionRemoveFromFavorite).toHaveBeenCalled()
     expect(mockActionShowNotification).toHaveBeenCalled()
     done()
   })
 
-  test('findInFavorite should return undefined', (done) => {
+  test('findInFavorite should return false', (done) => {
     const wrapper = createWrapper()
     const res = wrapper.vm.findInFavorite()
-    expect(res).toBeUndefined()
+    expect(res).toBe(false)
     done()
   })
 
-  test('findInFavorite should return undefined because null state', (done) => {
+  test('findInFavorite should return false because null state', (done) => {
     const storeLocal = new Vuex.Store({
       state: {
         surahFavorite: null
@@ -101,7 +101,7 @@ describe('component SurahCard.vue', () => {
       localVue
     })
     const res = wrapper.vm.findInFavorite()
-    expect(res).toBeUndefined()
+    expect(res).toBe(false)
     done()
   })
 

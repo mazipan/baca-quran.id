@@ -1,5 +1,5 @@
-import ApiPath from '../constant/api-path'
 import axios from 'axios'
+import ApiPath from '../constant/api-path'
 
 export const getAllSurah = () => {
   return axios.get(ApiPath.SURAH_INFO)

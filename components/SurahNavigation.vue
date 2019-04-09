@@ -42,62 +42,43 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
+
 import MdArrowBackIcon from 'vue-ionicons/dist/js/md-arrow-back'
 import MdArrowForwardIcon from 'vue-ionicons/dist/js/md-arrow-forward'
 
-export default {
-  name: 'SurahNavigation',
+@Component({
   components: {
     MdArrowBackIcon,
     MdArrowForwardIcon
-  },
-  props: {
-    surahId: {
-      type: Number,
-      default: 0
-    },
-    surahName: {
-      type: String,
-      default: ''
-    },
-    nextSurah: {
-      type: Object,
-      default: () => ({
-        arabic: ''
-      })
-    },
-    prevSurah: {
-      type: Object,
-      default: () => ({
-        arabic: ''
-      })
-    },
-    numberAyah: {
-      type: Number,
-      default: 0
-    }
-  },
-  data () {
-    return {
-      selectedVerse: 1
-    }
-  },
-  computed: {
-    isHavePrev () {
-      return this.surahId > 1
-    },
-    isHaveNext () {
-      return this.surahId < 114
-    },
-    arrayAyah () {
-      return Array.from({ length: this.numberAyah }, (v, k) => k + 1)
-    }
-  },
-  watch: {
-    selectedVerse (newValue) {
-      window.location.href = `#verse-${newValue}`
-    }
+  }
+})
+
+export default class SurahNavigation extends Vue {
+  selectedVerse = 1
+
+  @Prop({ type: Number, default: 0 }) readonly surahId!: number
+  @Prop({ type: String, default: '' }) readonly surahName!: string
+  @Prop({ type: Object, default: () => ({ arabic: '' }) }) readonly nextSurah!: any
+  @Prop({ type: Object, default: () => ({ arabic: '' }) }) readonly prevSurah!: any
+  @Prop({ type: Number, default: 0 }) readonly numberAyah!: number
+
+  @Watch('selectedVerse')
+  onChildChanged(val: string, oldVal: string): void {
+    window.location.href = `#verse-${val}`
+  }
+
+  get isHavePrev(): boolean {
+    return this.surahId > 1
+  }
+
+  get isHaveNext(): boolean {
+    return this.surahId < 114
+  }
+
+  get arrayAyah(): number[] {
+    return Array.from({ length: this.numberAyah }, (v, k) => k + 1)
   }
 }
 </script>

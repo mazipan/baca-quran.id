@@ -12,18 +12,16 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State } from 'vuex-class'
 
-export default {
-  name: 'BaseToast',
-  computed: {
-    ...mapState([
-      'notification'
-    ]),
-    visibleNotification () {
-      return this.notification.show
-    }
+@Component
+export default class BaseToast extends Vue {
+  @State notification
+
+  get visibleNotification(): boolean {
+    return this.notification.show
   }
 }
 </script>

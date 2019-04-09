@@ -62,10 +62,10 @@ import Theme from '../constant/theme'
 
 export default {
   name: 'SettingsPage',
-  head () {
+  head() {
     return this.metaHead
   },
-  data () {
+  data() {
     return {
       themesAvailable: Theme.AVAILABLE_THEME,
       modelSettingTranslation: true,
@@ -78,8 +78,8 @@ export default {
       'settingShowTranslation',
       'settingShowTafsir'
     ]),
-    metaHead () {
-      const title = this.$t('pageTitle.setting')
+    metaHead() {
+      const title = 'Halaman setelan | Qur\'an Offline'
       return {
         title,
         meta: [
@@ -90,10 +90,10 @@ export default {
       }
     }
   },
-  fetch ({ app, store }) {
-    store.commit('setHeaderTitle', app.i18n.messages.id['setting'])
+  fetch({ app, store }) {
+    store.commit('setHeaderTitle', 'Setelan')
   },
-  mounted () {
+  mounted() {
     setTimeout(() => {
       this.setDefaultSetting()
     }, 500)
@@ -104,17 +104,17 @@ export default {
       'setSettingTranslation',
       'setSettingTafsir'
     ]),
-    setDefaultSetting () {
+    setDefaultSetting() {
       this.modelSettingTranslation = this.settingShowTranslation
       this.modelSettingTafsir = this.settingShowTafsir
     },
-    onSelectTheme (theme) {
+    onSelectTheme(theme) {
       this.setActiveTheme(theme)
     },
-    onChangeSettingTranslation () {
+    onChangeSettingTranslation() {
       this.setSettingTranslation(this.modelSettingTranslation)
     },
-    onChangeSettingTafsir () {
+    onChangeSettingTafsir() {
       this.setSettingTafsir(this.modelSettingTafsir)
     }
   }

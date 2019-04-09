@@ -2,8 +2,8 @@ import { createLocalVue } from '@vue/test-utils'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
 import locale from '../locale/id'
-import state from '../store/state'
-import mutations from '../store/mutations'
+import { state } from '../store/state'
+import { mutations } from '../store/mutations'
 
 export default {
   initRouter: (localVue = createLocalVue(), routes) => {

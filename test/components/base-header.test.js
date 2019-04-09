@@ -5,7 +5,7 @@ import Helpers from '~/test/helper'
 import Component from '~/components/BaseHeader.vue'
 
 import { AppConstant } from '~/constant/index'
-import MutationType from '~/store/mutation-type'
+import { Types } from '~/store/types'
 
 import DummyComponent from '../Dummy.vue'
 
@@ -29,10 +29,10 @@ const store = new Vuex.Store({
     headerTitle: AppConstant.TITLE
   },
   mutations: {
-    [MutationType.SET_HEADER_TITLE] (state, data) {
+    [Types.SET_HEADER_TITLE](state, data) {
       state.headerTitle = data
     },
-    [MutationType.SET_SHOW_SIDEBAR] (state, data) {
+    [Types.SET_SHOW_SIDEBAR](state, data) {
       state.isShowSidebar = data
     }
   },
@@ -59,7 +59,7 @@ describe('component BaseHeader.vue', () => {
   test('isHomepage should return correct value', (done) => {
     const wrapper = createWrapper()
     expect(wrapper.vm.isHomePage).toBe(true)
-    wrapper.vm.$store.commit(MutationType.SET_HEADER_TITLE, 'dummy-title')
+    wrapper.vm.$store.commit(Types.SET_HEADER_TITLE, 'dummy-title')
     expect(wrapper.vm.isHomePage).toBe(false)
     done()
   })
@@ -78,7 +78,7 @@ describe('component BaseHeader.vue', () => {
   })
   test('toggleSidebar should change isShowMenu', (done) => {
     const wrapper = createWrapper()
-    wrapper.vm.$store.commit(MutationType.SET_SHOW_SIDEBAR, false)
+    wrapper.vm.$store.commit(Types.SET_SHOW_SIDEBAR, false)
     wrapper.vm.toggleSidebar()
     expect(wrapper.vm.$store.state.isShowSidebar).toBe(true)
     done()

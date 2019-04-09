@@ -3,8 +3,9 @@ import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/components/BaseSidebar.vue'
+import StubComponent from '~/test/Dummy.vue'
 
-import MutationType from '~/store/mutation-type'
+import { Types } from '~/store/types'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -15,7 +16,7 @@ const store = new Vuex.Store({
     isShowSidebar: false
   },
   mutations: {
-    [MutationType.SET_SHOW_SIDEBAR] (state, data) {
+    [Types.SET_SHOW_SIDEBAR](state, data) {
       state.isShowSidebar = data
     }
   },
@@ -29,7 +30,17 @@ const createWrapper = () => {
     store,
     router,
     i18n,
-    localVue
+    localVue,
+    stubs: {
+      MdHomeIcon: StubComponent,
+      MdBookIcon: StubComponent,
+      MdHelpCircleIcon: StubComponent,
+      MdCodeIcon: StubComponent,
+      MdSettingsIcon: StubComponent,
+      IosNavigateIcon: StubComponent,
+      IosStarOutlineIcon: StubComponent,
+      IosBookmarkIcon: StubComponent
+    }
   })
 }
 
@@ -42,7 +53,7 @@ describe('component BaseSidebar.vue', () => {
 
   test('navigateTo should change state  isShowSidebar', (done) => {
     const wrapper = createWrapper()
-    wrapper.vm.$store.commit(MutationType.SET_SHOW_SIDEBAR, true)
+    wrapper.vm.$store.commit(Types.SET_SHOW_SIDEBAR, true)
     expect(wrapper.vm.$store.state.isShowSidebar).toBe(true)
     wrapper.vm.navigateTo({
       preventDefault: () => {}
@@ -53,7 +64,7 @@ describe('component BaseSidebar.vue', () => {
 
   test('hideSidebar should change state  isShowSidebar', (done) => {
     const wrapper = createWrapper()
-    wrapper.vm.$store.commit(MutationType.SET_SHOW_SIDEBAR, true)
+    wrapper.vm.$store.commit(Types.SET_SHOW_SIDEBAR, true)
     expect(wrapper.vm.$store.state.isShowSidebar).toBe(true)
     wrapper.vm.hideSidebar()
     expect(wrapper.vm.$store.state.isShowSidebar).toBe(false)

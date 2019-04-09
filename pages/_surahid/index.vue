@@ -37,7 +37,7 @@ import { getAllSurah, getSurahById } from '../../services/index'
 
 export default {
   name: 'PageSurahDetail',
-  head () {
+  head() {
     return this.metaHead
   },
   components: {
@@ -45,18 +45,16 @@ export default {
     SurahHeader,
     SurahNavigation
   },
-  data () {
+  data() {
     return {
       loading: true
     }
   },
   computed: {
     ...mapState(['settingActiveTheme']),
-    metaHead () {
-      const title = this.$t('pageTitle.surahDetail', {
-        surahName: this.currentSurah.name_latin,
-        surahNumber: this.surahId
-      })
+    metaHead() {
+      const title = `Baca Al-Qur'an surat ke ${this.surahId} - ${this.currentSurah.name_latin} | Qur'an Offline`
+
       return {
         title,
         meta: [
@@ -70,20 +68,20 @@ export default {
         ]
       }
     },
-    currentSurah () {
+    currentSurah() {
       return this.surahDetail
     },
-    surahId () {
+    surahId() {
       let id = 0
       if (__isNotNull(this.$route.params && this.$route.params.surahid)) {
         id = Number(this.$route.params.surahid)
       }
       return id
     },
-    isValidSurah () {
+    isValidSurah() {
       return this.surahId > 0 && this.surahId <= 114
     },
-    prevSurah () {
+    prevSurah() {
       if (__isNotEmptyArray(this.allSurahList)) {
         if (this.surahId > 1) {
           return this.allSurahList.find(
@@ -93,7 +91,7 @@ export default {
       }
       return null
     },
-    nextSurah () {
+    nextSurah() {
       if (__isNotEmptyArray(this.allSurahList)) {
         if (this.surahId < 114) {
           return this.allSurahList.find(
@@ -104,7 +102,7 @@ export default {
       return null
     }
   },
-  async asyncData ({ params }) {
+  async asyncData({ params }) {
     const resp = await getAllSurah()
     const respDetail = await getSurahById(params.surahid)
 
@@ -115,7 +113,7 @@ export default {
       surahDetail: respDetail.data[params.surahid]
     }
   },
-  created () {
+  created() {
     this.$store.commit(
       'setHeaderTitle',
       `${this.surahId}: ${this.currentSurah.name_latin}`

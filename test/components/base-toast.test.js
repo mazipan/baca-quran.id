@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/components/BaseToast.vue'
 
-import MutationType from '~/store/mutation-type'
+import { Types } from '~/store/types'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -19,7 +19,7 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    [MutationType.SET_NOTIFICATION] (state, data) {
+    [Types.SET_NOTIFICATION](state, data) {
       state.notification = data
     }
   },
@@ -44,10 +44,10 @@ describe('component BaseToast.vue', () => {
   })
   test('visibleNotification should reflect to state', () => {
     const wrapper = createWrapper()
-    wrapper.vm.$store.commit(MutationType.SET_NOTIFICATION, { show: false })
+    wrapper.vm.$store.commit(Types.SET_NOTIFICATION, { show: false })
     expect(wrapper.vm.visibleNotification).toBe(false)
 
-    wrapper.vm.$store.commit(MutationType.SET_NOTIFICATION, { show: true })
+    wrapper.vm.$store.commit(Types.SET_NOTIFICATION, { show: true })
     expect(wrapper.vm.visibleNotification).toBe(true)
   })
 })

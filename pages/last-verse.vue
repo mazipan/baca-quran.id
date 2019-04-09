@@ -32,7 +32,7 @@ import { getAllSurah } from '../services/index'
 
 export default {
   name: 'LastVersePage',
-  head () {
+  head() {
     return this.metaHead
   },
   components: {
@@ -41,8 +41,8 @@ export default {
   },
   computed: {
     ...mapState(['settingActiveTheme', 'lastReadVerse']),
-    metaHead () {
-      const title = this.$t('pageTitle.lastRead')
+    metaHead() {
+      const title = 'Ayat terakhir dibaca | Qur\'an Offline'
       return {
         title,
         meta: [
@@ -56,10 +56,10 @@ export default {
         ]
       }
     },
-    isHaveLastRead () {
+    isHaveLastRead() {
       return __isNotNull(this.lastReadVerse && this.lastReadVerse.surah)
     },
-    lastReadVerseData () {
+    lastReadVerseData() {
       if (this.isHaveLastRead) {
         const res = this.allSurahList.find(
           item => item.index === this.lastReadVerse.surah
@@ -69,7 +69,7 @@ export default {
       return null
     }
   },
-  async asyncData () {
+  async asyncData() {
     const data = await getAllSurah()
     return {
       allSurahList: data.data.surah_info.map((item, idx) => {
@@ -77,7 +77,7 @@ export default {
       })
     }
   },
-  async fetch ({ store }) {
+  fetch({ store }) {
     store.commit('setHeaderTitle', AppConstant.LAST_READ)
   }
 }

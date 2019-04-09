@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/pages/settings.vue'
 
-import MutationType from '~/store/mutation-type'
+import { Types } from '~/store/types'
 import Theme from '~/constant/theme'
 
 const localVue = createLocalVue()
@@ -19,28 +19,28 @@ const store = new Vuex.Store({
     settingShowTafsir: false
   },
   mutations: {
-    [MutationType.SET_HEADER_TITLE] (state, data) {
+    [Types.SET_HEADER_TITLE](state, data) {
       state.headerTitle = data
     },
-    [MutationType.SET_THEME] (state, data) {
+    [Types.SET_THEME](state, data) {
       state.settingActiveTheme = data
     },
-    [MutationType.SET_SETTING_TRANSLATION]  (state, data) {
+    [Types.SET_SETTING_TRANSLATION](state, data) {
       state.settingShowTranslation = data
     },
-    [MutationType.SET_SETTING_TAFSIR]  (state, data) {
+    [Types.SET_SETTING_TAFSIR](state, data) {
       state.settingShowTafsir = data
     }
   },
   actions: {
-    setActiveTheme ({ commit }, theme) {
-      commit(MutationType.SET_THEME, theme)
+    setActiveTheme({ commit }, theme) {
+      commit(Types.SET_THEME, theme)
     },
-    setSettingTranslation ({ commit }, payload) {
-      commit(MutationType.SET_SETTING_TRANSLATION, payload)
+    setSettingTranslation({ commit }, payload) {
+      commit(Types.SET_SETTING_TRANSLATION, payload)
     },
-    setSettingTafsir ({ commit }, payload) {
-      commit(MutationType.SET_SETTING_TAFSIR, payload)
+    setSettingTafsir({ commit }, payload) {
+      commit(Types.SET_SETTING_TAFSIR, payload)
     }
   }
 })
@@ -64,7 +64,7 @@ describe('pages settings.vue', () => {
   test('computed for meta should fired', (done) => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
-    wrapper.vm.$store.commit(MutationType.SET_THEME, Theme.DARK)
+    wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
     const title = wrapper.vm.$t('pageTitle.setting')
     const expected = {
       title,

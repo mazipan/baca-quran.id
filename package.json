@@ -5,13 +5,12 @@
   "author": "Irfan Maulana",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "dev": "cross-env NODE_ENV=development nuxt dev",
     "build": "cross-env NODE_ENV=production nuxt build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:report": "eslint --ext .js,.vue --ignore-path .gitignore . --fix -f html-extended -o eslint-report.html",
-    "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore .",
+    "lint:report": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix -f html-extended -o eslint-report.html",
+    "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix",
     "lint:md": "remark readme.md -o --color",
     "test": "cross-env NODE_ENV=test ./node_modules/.bin/jest --coverage",
     "lh": "lighthousebot"
@@ -29,8 +28,12 @@
     "@babel/plugin-syntax-jsx": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
+    "@nuxt/typescript": "^2.6.1",
+    "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/pwa": "^2.6.0",
     "@nuxtjs/sitemap": "^0.2.2",
+    "@types/jest": "^24.0.11",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@vue/test-utils": "^1.0.0-beta.29",
     "autoprefixer": "^9.5.1",
     "babel-core": "7.0.0-bridge.0",
@@ -43,6 +46,7 @@
     "eslint-formatter-html-extended": "^1.0.2",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
@@ -62,9 +66,13 @@
     "remark-preset-lint-recommended": "^3.0.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "ts-jest": "^24.0.2",
+    "vue-class-component": "^7.0.2",
     "vue-i18n": "^8.8.2",
     "vue-jest": "^3.0.4",
-    "vue-loader": "^15.7.0"
+    "vue-loader": "^15.7.0",
+    "vue-property-decorator": "^8.1.0",
+    "vuex-class": "^0.3.2"
   },
   "husky": {
     "hooks": {

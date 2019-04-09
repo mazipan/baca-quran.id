@@ -31,13 +31,13 @@ import { getAllSurah } from '../services/index'
 
 export default {
   name: 'PageAllSurah',
-  head () {
+  head() {
     return this.metaHead
   },
   components: {
     SurahCard
   },
-  data () {
+  data() {
     return {
       loading: true,
       searchText: ''
@@ -47,8 +47,8 @@ export default {
     ...mapState([
       'settingActiveTheme'
     ]),
-    metaHead () {
-      const title = this.$t('pageTitle.allSurah')
+    metaHead() {
+      const title = 'Daftar semua surat dalam Al-Qur\'an | Qur\'an Offline'
       return {
         title,
         meta: [
@@ -58,13 +58,13 @@ export default {
         ]
       }
     },
-    filteredSurah () {
+    filteredSurah() {
       if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
-        return this.allSurahList.filter(item => {
-          let predicateTranslation = __normalizeText(item.translation).includes(
+        return this.allSurahList.filter((item) => {
+          const predicateTranslation = __normalizeText(item.translation).includes(
             __normalizeText(this.searchText)
           )
-          let predicateLatin = __normalizeText(item.latin).includes(
+          const predicateLatin = __normalizeText(item.latin).includes(
             __normalizeText(this.searchText)
           )
 
@@ -73,7 +73,7 @@ export default {
       } else return this.allSurahList
     }
   },
-  async asyncData () {
+  async asyncData() {
     const data = await getAllSurah()
     return {
       allSurahList: data.data.surah_info.map((item, idx) => {
@@ -81,7 +81,7 @@ export default {
       })
     }
   },
-  async fetch ({ store }) {
+  fetch({ store }) {
     store.commit('setHeaderTitle', 'Daftar Surat')
   }
 }

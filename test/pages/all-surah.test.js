@@ -4,14 +4,14 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/pages/all-surah.vue'
 
-import MutationType from '~/store/mutation-type'
+import { Types } from '~/store/types'
 import Theme from '~/constant/theme'
 
 import dummySurahInfo from './__mocks__/surah-info-item'
 
 const dummyComponent = {
   extends: Component,
-  data () {
+  data() {
     return {
       allSurahList: [dummySurahInfo]
     }
@@ -30,13 +30,13 @@ const store = new Vuex.Store({
     allSurahList: [dummySurahInfo]
   },
   mutations: {
-    [MutationType.SET_HEADER_TITLE] (state, data) {
+    [Types.SET_HEADER_TITLE](state, data) {
       state.headerTitle = data
     },
-    [MutationType.SET_THEME] (state, data) {
+    [Types.SET_THEME](state, data) {
       state.settingActiveTheme = data
     },
-    [MutationType.SET_SURAH_LIST] (state, data) {
+    [Types.SET_SURAH_LIST](state, data) {
       state.allSurahList = data
     }
   },
@@ -63,7 +63,7 @@ describe('pages all-surah.vue', () => {
   test('computed for meta should fired', (done) => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
-    wrapper.vm.$store.commit(MutationType.SET_THEME, Theme.DARK)
+    wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
     const title = wrapper.vm.$t('pageTitle.allSurah')
     const expected = {
       title,

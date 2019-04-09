@@ -1,4 +1,4 @@
-export default {
+export const Types = {
   SET_THEME: 'setTheme',
   SET_SHOW_SIDEBAR: 'setShowSidebar',
   SET_SUPPORT_WEBSHARE: 'setSupportWebshare',

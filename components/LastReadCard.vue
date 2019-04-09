@@ -8,7 +8,7 @@
           <div
             class="surah__index tag_index"
             style="width: 130px;">
-            {{ $t('numberOfVerse') }} {{ surah.verse }}
+            Ayat ke {{ surah.verse }}
           </div>
         </div>
         <div class="surah__header--right">
@@ -28,25 +28,21 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'LastReadCard',
-  props: {
-    surah: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-  computed: {
-  },
-  methods: {
-    getSurahDetailUrl (index, verse) {
-      return `/${index}#verse-${verse}`
-    },
-    goToSurahDetail (index, verse) {
-      const path = this.getSurahDetailUrl(index, verse)
-      this.$router.push(path)
-    }
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import { SurahInfo, defaultSurahInfo } from '../models/SurahInfo'
+
+@Component
+export default class LastReadCard extends Vue {
+  @Prop({ default: () => defaultSurahInfo }) readonly surah!: SurahInfo
+
+  getSurahDetailUrl(index, verse): string {
+    return `/${index}#verse-${verse}`
+  }
+
+  goToSurahDetail(index, verse): void {
+    const path = this.getSurahDetailUrl(index, verse)
+    this.$router.push(path)
   }
 }
 </script>
