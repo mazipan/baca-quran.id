@@ -1,4 +1,4 @@
-export default interface AyatKursi {
+export interface AyatKursi {
   tafsir: string,
   translation: string,
   arabic: string,

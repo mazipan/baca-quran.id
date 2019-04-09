@@ -28,25 +28,20 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'LastReadCard',
-  props: {
-    surah: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-  computed: {
-  },
-  methods: {
-    getSurahDetailUrl(index, verse) {
-      return `/${index}#verse-${verse}`
-    },
-    goToSurahDetail(index, verse) {
-      const path = this.getSurahDetailUrl(index, verse)
-      this.$router.push(path)
-    }
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+@Component
+export default class LastReadCard extends Vue {
+  @Prop({ default: () => {} }) readonly surah!: any
+
+  getSurahDetailUrl(index, verse) {
+    return `/${index}#verse-${verse}`
+  }
+
+  goToSurahDetail(index, verse) {
+    const path = this.getSurahDetailUrl(index, verse)
+    this.$router.push(path)
   }
 }
 </script>

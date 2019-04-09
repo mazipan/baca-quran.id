@@ -1,4 +1,4 @@
-const Types = {
+export const Types = {
   SET_THEME: 'setTheme',
   SET_SHOW_SIDEBAR: 'setShowSidebar',
   SET_SUPPORT_WEBSHARE: 'setSupportWebshare',
@@ -14,5 +14,3 @@ const Types = {
   SET_SETTING_TRANSLATION: 'setSettingTranslation',
   SET_SETTING_TAFSIR: 'setSettingTafsir'
 }
-
-export default Types

@@ -1,4 +1,4 @@
-export default interface Theme {
+export interface Theme {
   name: string,
   bgColor: string,
   fgColor: string

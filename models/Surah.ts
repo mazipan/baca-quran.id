@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-export default interface Surah {
+export interface Surah {
   number: number,
   name: string,
   name_latin: string,

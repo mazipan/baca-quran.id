@@ -116,12 +116,7 @@ import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 
 import { AppConstant } from '../constant/index.js'
 
-@Component
-export default class BaseSidebar extends Vue {
-  AppConstant = AppConstant
-
-  @Mutation setShowSidebar
-
+@Component({
   components: {
     MdHomeIcon,
     MdBookIcon,
@@ -132,13 +127,18 @@ export default class BaseSidebar extends Vue {
     IosStarOutlineIcon,
     IosBookmarkIcon
   }
+})
 
-  navigateTo(e) {
+export default class BaseSidebar extends Vue {
+  AppConstant = AppConstant
+  @Mutation setShowSidebar
+
+  navigateTo(e): void {
     this.hideSidebar()
     e.preventDefault()
   }
 
-  hideSidebar() {
+  hideSidebar(): void {
     this.setShowSidebar(false)
   }
 }

@@ -50,54 +50,48 @@
   </div>
 </template>
 
-<script>
-import { mapActions, mapState } from 'vuex'
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import { State, Action } from 'vuex-class'
 
-export default {
-  name: 'SurahCard',
-  props: {
-    surahArray: {
-      type: Array,
-      default: () => []
-    }
-  },
-  computed: {
-    ...mapState([
-      'surahFavorite'
-    ])
-  },
-  methods: {
-    ...mapActions([
-      'addToFavorite',
-      'removeFromFavorite',
-      'showNotification'
-    ]),
-    doAddToFavorite(surah) {
-      this.addToFavorite(surah)
-      this.showNotification({
-        title: 'Pesan Sukses',
-        message: 'Surat berhasil ditambahkan ke daftar favorit.'
-      })
-    },
-    doremoveFromfavorite(surah) {
-      this.removeFromFavorite(surah)
-      this.showNotification({
-        title: 'Pesan Sukses',
-        message: 'Surat berhasil dihapus dari daftar favorit.'
-      })
-    },
-    findInFavorite(surah) {
-      const favArray = this.surahFavorite || []
-      const isExist = favArray.find(item => item.index === surah.index)
-      return isExist
-    },
-    getSurahDetailUrl(index) {
-      return `/${index}`
-    },
-    goToSurahDetail(index) {
-      const path = this.getSurahDetailUrl(index)
-      this.$router.push(path)
-    }
+export default class SurahCard extends Vue {
+  @Prop({ default: () => [] }) readonly surahArray!: any[]
+
+  @State surahFavorite
+
+  @Action addToFavorite
+  @Action removeFromFavorite
+  @Action showNotification
+
+  doAddToFavorite(surah): void {
+    this.addToFavorite(surah)
+    this.showNotification({
+      title: 'Pesan Sukses',
+      message: 'Surat berhasil ditambahkan ke daftar favorit.'
+    })
+  }
+
+  doremoveFromfavorite(surah): void {
+    this.removeFromFavorite(surah)
+    this.showNotification({
+      title: 'Pesan Sukses',
+      message: 'Surat berhasil dihapus dari daftar favorit.'
+    })
+  }
+
+  findInFavorite(surah): boolean {
+    const favArray = this.surahFavorite || []
+    const isExist = favArray.find(item => item.index === surah.index)
+    return !!isExist
+  }
+
+  getSurahDetailUrl(index): string {
+    return `/${index}`
+  }
+
+  goToSurahDetail(index): void {
+    const path = this.getSurahDetailUrl(index)
+    this.$router.push(path)
   }
 }
 </script>

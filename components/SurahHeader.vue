@@ -12,27 +12,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'SurahHeader',
-  props: {
-    surahNumber: {
-      type: Number,
-      default: 0
-    },
-    surahName: {
-      type: String,
-      default: ''
-    },
-    surahLatin: {
-      type: String,
-      default: ''
-    },
-    surahTranslation: {
-      type: String,
-      default: ''
-    }
-  }
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
+
+export default class SurahHeader extends Vue {
+  @Prop({ type: Number, default: 0 }) readonly surahNumber!: number
+  @Prop({ type: String, default: '' }) readonly surahName!: string
+  @Prop({ type: String, default: '' }) readonly surahLatin!: string
+  @Prop({ type: String, default: '' }) readonly surahTranslation!: string
 }
 </script>
 

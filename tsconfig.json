@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
     "lib": [
@@ -28,5 +28,10 @@
       "@types/node",
       "@nuxt/vue-app"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "nuxt.config.ts",
+    "**/*.test.ts"
+  ]
 }

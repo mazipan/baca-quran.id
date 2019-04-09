@@ -2,10 +2,10 @@ import { AppConstant } from '../constant/index'
 import { SurahDefaultObject } from '../constant/default-object'
 import ThemeItem from '../constant/theme'
 
-import Notification from '../models/Nofication'
-import AyatKursi from '../models/AyatKursi'
-import Theme from '../models/Theme'
-import Surah from '../models/Surah'
+import { Notification } from '../models/Nofication'
+import { AyatKursi } from '../models/AyatKursi'
+import { Theme } from '../models/Theme'
+import { Surah } from '../models/Surah'
 
 export interface State {
   notification: Notification,
@@ -25,7 +25,7 @@ export interface State {
 }
 
 // initial state
-const state = (): State => ({
+export const state = (): State => ({
   notification: {
     show: false,
     title: '',
@@ -50,5 +50,3 @@ const state = (): State => ({
   settingShowTranslation: true,
   settingShowTafsir: true
 })
-
-export default state

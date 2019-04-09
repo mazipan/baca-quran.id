@@ -1,8 +1,8 @@
 import { MutationTree } from 'vuex'
-import Types from './types'
+import { Types } from './types'
 import { State } from './state'
 
-const mutations: MutationTree<State> = {
+export const mutations: MutationTree<State> = {
   [Types.SET_SHOW_SIDEBAR](state, data) {
     state.isShowSidebar = data
   },
@@ -46,5 +46,3 @@ const mutations: MutationTree<State> = {
     state.settingShowTafsir = data
   }
 }
-
-export default mutations

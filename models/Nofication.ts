@@ -1,4 +1,4 @@
-export default interface Notification {
+export interface Notification {
   show: boolean,
   title: string,
   message: string

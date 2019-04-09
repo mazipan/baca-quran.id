@@ -3,10 +3,10 @@ import storageKey from '../constant/storage-key'
 import Theme from '../constant/theme'
 import { __isNotNull } from '../utils/index'
 import { getItem, setItem } from '../utils/storage'
-import Types from './types'
+import { Types } from './types'
 import { State } from './state'
 
-const actions: ActionTree<State, null> = {
+export const actions: ActionTree<State, null> = {
   initDataFromBrowserStorage({ commit }) {
     // data favorite surah
     const cacheFavorite = getItem(storageKey.FAVORITE, null) || []
@@ -78,5 +78,3 @@ const actions: ActionTree<State, null> = {
     commit(Types.SET_SETTING_TAFSIR, payload)
   }
 }
-
-export default actions
