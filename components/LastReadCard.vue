@@ -30,16 +30,18 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { SurahInfo, defaultSurahInfo } from '../models/SurahInfo'
 
 @Component
 export default class LastReadCard extends Vue {
-  @Prop({ default: () => {} }) readonly surah!: any
 
-  getSurahDetailUrl(index, verse) {
+  @Prop({ default: () => defaultSurahInfo }) readonly surah!: SurahInfo
+
+  getSurahDetailUrl(index, verse): string {
     return `/${index}#verse-${verse}`
   }
 
-  goToSurahDetail(index, verse) {
+  goToSurahDetail(index, verse): void {
     const path = this.getSurahDetailUrl(index, verse)
     this.$router.push(path)
   }

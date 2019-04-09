@@ -56,7 +56,6 @@ import MdArrowForwardIcon from 'vue-ionicons/dist/js/md-arrow-forward'
 })
 
 export default class SurahNavigation extends Vue {
-
   selectedVerse = 1
 
   @Prop({ type: Number, default: 0 }) readonly surahId!: number
@@ -78,7 +77,7 @@ export default class SurahNavigation extends Vue {
     return this.surahId < 114
   }
 
-  get arrayAyah(): number[]  {
+  get arrayAyah(): number[] {
     return Array.from({ length: this.numberAyah }, (v, k) => k + 1)
   }
 }

@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Helpers from '~/test/helper'
 import Component from '~/pages/ayat-kursi.vue'
 
-import MutationType from '~/store/types'
+import { Types } from '~/store/types'
 import Theme from '~/constant/theme'
 
 import dummyAyatKursi from './__mocks__/ayat-kursi'
@@ -30,10 +30,10 @@ const store = new Vuex.Store({
     ayatKursi: dummyAyatKursi
   },
   mutations: {
-    [MutationType.SET_HEADER_TITLE](state, data) {
+    [Types.SET_HEADER_TITLE](state, data) {
       state.headerTitle = data
     },
-    [MutationType.SET_THEME](state, data) {
+    [Types.SET_THEME](state, data) {
       state.settingActiveTheme = data
     }
   },
@@ -61,7 +61,7 @@ describe('pages ayat-kursi.vue', () => {
   test('computed for meta should fired', (done) => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
-    wrapper.vm.$store.commit(MutationType.SET_THEME, Theme.DARK)
+    wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
     const title = wrapper.vm.$t('pageTitle.ayatKursi')
     const expected = {
       title,

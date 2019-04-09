@@ -6,7 +6,7 @@ import { getItem, setItem } from '../utils/storage'
 import { Types } from './types'
 import { State } from './state'
 
-export const actions: ActionTree<State, null> = {
+export const actions: ActionTree<State, State> = {
   initDataFromBrowserStorage({ commit }) {
     // data favorite surah
     const cacheFavorite = getItem(storageKey.FAVORITE, null) || []
