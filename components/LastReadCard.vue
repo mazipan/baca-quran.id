@@ -34,7 +34,6 @@ import { SurahInfo, defaultSurahInfo } from '../models/SurahInfo'
 
 @Component
 export default class LastReadCard extends Vue {
-
   @Prop({ default: () => defaultSurahInfo }) readonly surah!: SurahInfo
 
   getSurahDetailUrl(index, verse): string {

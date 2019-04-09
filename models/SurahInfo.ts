@@ -16,5 +16,5 @@ export const defaultSurahInfo: SurahInfo = {
   ayah_count: 0,
   index: 0,
   opening: '',
-  closing: '',
+  closing: ''
 }
