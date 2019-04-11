@@ -19,22 +19,6 @@
 | :------------------------------------: | :---------------------------------: | :-----------------------------------: |
 | ![light](screenshoot/daftar-surat.png) | ![dark](screenshoot/al-fatihah.png) | ![nature](screenshoot/doa-harian.png) |
 
-## Fitur
-
--   [x] Daftar seluruh surat
--   [x] Ayat kursi
--   [x] Asmaul husna
--   [x] Akses offline (setelah akses online pertama)
--   [x] Pencarian surat berdasarkan nama
--   [x] Simpan surat favorit
--   [x] Simpan ayat yang terakhir dibaca
--   [x] Rekomendasi beberapa surat populer
--   [x] Tersedia 3 Tema
-
-TODO
-
--   [ ] Audio
-
 ## Build Setup
 
 This project developed using [Nuxt.js](https://nuxtjs.org/), for complete documentation please take a look into official documentation in <https://nuxtjs.org/>.

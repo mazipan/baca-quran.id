@@ -42,73 +42,76 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State } from 'vuex-class'
+
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
 import { getDailyDoa } from '../services/index'
 
-export default {
-  name: 'DailyDoa',
+interface expandedData {
+  title: string
+}
+
+@Component
+export default class DailyDoaPage extends Vue {
+  searchText = ''
+  expandedData: expandedData = {
+    title: ''
+  }
+
+  @State settingActiveTheme
+
+  get metaHead() {
+    const title = 'Daftar bacaan do\'a sehari-hari beserta terjemahan | Qur\'an Offline'
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+      ]
+    }
+  }
+
+  get filteredDailyDoa() {
+    if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
+      return this.dailyDoa.filter((item) => {
+        const predicate = __normalizeText(item.title).includes(
+          __normalizeText(this.searchText)
+        )
+
+        return predicate
+      })
+    } else return this.dailyDoa || []
+  }
+
   head() {
     return this.metaHead
-  },
-  data() {
-    return {
-      searchText: '',
-      expandedData: {
+  }
+
+  onClickDoa(item: expandedData): void {
+    if (this.isExpanded(item.title)) {
+      this.expandedData = {
         title: ''
       }
-    }
-  },
-  computed: {
-    ...mapState([
-      'settingActiveTheme'
-    ]),
-    metaHead() {
-      const title = 'Daftar bacaan do\'a sehari-hari beserta terjemahan | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
-        ]
-      }
-    },
-    filteredDailyDoa() {
-      if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
-        return this.dailyDoa.filter((item) => {
-          const predicate = __normalizeText(item.title).includes(
-            __normalizeText(this.searchText)
-          )
+    } else this.expandedData = item
+  }
 
-          return predicate
-        })
-      } else return this.dailyDoa || []
-    }
-  },
+  isExpanded(title: string): boolean {
+    return title === this.expandedData.title
+  }
+
   async asyncData() {
     const data = await getDailyDoa()
     return {
       dailyDoa: data.data.data
     }
-  },
-  fetch({ store }) {
-    store.commit('setHeaderTitle', `Do'a Harian`)
-  },
-  methods: {
-    onClickDoa(item) {
-      if (this.isExpanded(item.title)) {
-        this.expandedData = {
-          title: ''
-        }
-      } else this.expandedData = item
-    },
-    isExpanded(title) {
-      return title === this.expandedData.title
-    }
   }
 
+  fetch({ store }) {
+    store.commit('setHeaderTitle', `Do'a Harian`)
+  }
 }
 </script>
 

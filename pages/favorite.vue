@@ -21,51 +21,50 @@
   </div>
 </template>
 
-<script>
-import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Mutation } from 'vuex-class'
 
-import { mapMutations, mapState } from 'vuex'
+import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
 
 import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyArray } from '../utils/index'
 import { AppConstant } from '../constant/index.js'
 
-export default {
-  name: 'FavoritePage',
-  head() {
-    return this.metaHead
-  },
+@Component({
   components: {
     IosStarOutlineIcon,
     SurahCard
-  },
-  computed: {
-    ...mapState([
-      'settingActiveTheme',
-      'surahFavorite'
-    ]),
-    metaHead() {
-      const title = 'Baca berbagai surat favorit dalam Al-Qur\'an | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
-        ]
-      }
-    },
-    isHaveFav() {
-      return __isNotEmptyArray(this.surahFavorite)
+  }
+})
+
+export default class FavoritePage extends Vue {
+  @State settingActiveTheme;
+  @State surahFavorite;
+  @Mutation setHeaderTitle;
+
+  get metaHead() {
+    const title = 'Baca berbagai surat favorit dalam Al-Qur\'an | Qur\'an Offline'
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+      ]
     }
-  },
+  }
+
+  get isHaveFav() {
+    return __isNotEmptyArray(this.surahFavorite)
+  }
+
+  head() {
+    return this.metaHead
+  }
+
   created() {
     this.setHeaderTitle(AppConstant.FAVORITE)
-  },
-  methods: {
-    ...mapMutations([
-      'setHeaderTitle'
-    ])
   }
 }
 </script>

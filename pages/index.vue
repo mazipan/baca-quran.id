@@ -78,8 +78,9 @@
   </section>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Mutation } from 'vuex-class'
 
 import MdBookIcon from 'vue-ionicons/dist/js/md-book'
 import MdGridIcon from 'vue-ionicons/dist/js/md-grid'
@@ -91,11 +92,7 @@ import IosColorWandIcon from 'vue-ionicons/dist/js/ios-color-wand'
 
 import { AppConstant } from '../constant/index.js'
 
-export default {
-  name: 'PageIndex',
-  head() {
-    return this.metaHead
-  },
+@Component({
   components: {
     MdBookIcon,
     MdGridIcon,
@@ -104,28 +101,30 @@ export default {
     IosStarOutlineIcon,
     IosBookmarkIcon,
     IosColorWandIcon
-  },
-  data() {
+  }
+})
+
+export default class PageIndex extends Vue {
+  AppConstant;
+
+  @State settingActiveTheme;
+
+  get metaHead() {
+    const title = 'Baca Al-Qur\'an dimana saja, langsung dari web browser Anda | Qur\'an Offline'
     return {
-      AppConstant
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+      ]
     }
-  },
-  computed: {
-    ...mapState([
-      'settingActiveTheme'
-    ]),
-    metaHead() {
-      const title = 'Baca Al-Qur\'an dimana saja, langsung dari web browser Anda | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
-        ]
-      }
-    }
-  },
+  }
+
+  head() {
+    return this.metaHead
+  }
+
   fetch({ store }) {
     store.commit('setHeaderTitle', AppConstant.TITLE)
   }

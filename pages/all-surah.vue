@@ -22,56 +22,17 @@
   </section>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State } from 'vuex-class'
 
 import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
 import { getAllSurah } from '../services/index'
 
-export default {
-  name: 'PageAllSurah',
-  head() {
-    return this.metaHead
-  },
+@Component({
   components: {
     SurahCard
-  },
-  data() {
-    return {
-      loading: true,
-      searchText: ''
-    }
-  },
-  computed: {
-    ...mapState([
-      'settingActiveTheme'
-    ]),
-    metaHead() {
-      const title = 'Daftar semua surat dalam Al-Qur\'an | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
-        ]
-      }
-    },
-    filteredSurah() {
-      if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
-        return this.allSurahList.filter((item) => {
-          const predicateTranslation = __normalizeText(item.translation).includes(
-            __normalizeText(this.searchText)
-          )
-          const predicateLatin = __normalizeText(item.latin).includes(
-            __normalizeText(this.searchText)
-          )
-
-          return predicateLatin || predicateTranslation
-        })
-      } else return this.allSurahList
-    }
   },
   async asyncData() {
     const data = await getAllSurah()
@@ -83,6 +44,44 @@ export default {
   },
   fetch({ store }) {
     store.commit('setHeaderTitle', 'Daftar Surat')
+  }
+})
+
+export default class PageAllSurah extends Vue {
+  loading = true
+  searchText = ''
+
+  @State settingActiveTheme
+
+  get metaHead() {
+    const title = 'Daftar semua surat dalam Al-Qur\'an | Qur\'an Offline'
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+      ]
+    }
+  }
+
+  get filteredSurah() {
+    if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
+      return this.allSurahList.filter((item) => {
+        const predicateTranslation = __normalizeText(item.translation).includes(
+          __normalizeText(this.searchText)
+        )
+        const predicateLatin = __normalizeText(item.latin).includes(
+          __normalizeText(this.searchText)
+        )
+
+        return predicateLatin || predicateTranslation
+      })
+    } else return this.allSurahList
+  }
+
+  head() {
+    return this.metaHead
   }
 }
 </script>

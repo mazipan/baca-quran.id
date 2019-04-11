@@ -36,58 +36,58 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Mutation } from 'vuex-class'
+
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
 
 import { getAsmaulHusna } from '../services/index'
 
-export default {
-  name: 'AsmaulHusnaPage',
+@Component
+export default class AsmaulHusnaPage extends Vue {
+  searchText = ''
+
+  @State settingActiveTheme
+
+  get metaHead() {
+    const title = 'Daftar lengkap asmaul husna beserta terjemahan | Qur\'an Offline'
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+      ]
+    }
+  }
+
+  get filteredAsmaulHusna() {
+    if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
+      return this.asmaulHusna.filter((item) => {
+        const predicateTranslation = __normalizeText(item.translation_id).includes(
+          __normalizeText(this.searchText)
+        )
+        const predicateLatin = __normalizeText(item.latin).includes(
+          __normalizeText(this.searchText)
+        )
+
+        return predicateLatin || predicateTranslation
+      })
+    } else return this.asmaulHusna || []
+  }
+
   head() {
     return this.metaHead
-  },
-  data() {
-    return {
-      searchText: ''
-    }
-  },
-  computed: {
-    ...mapState([
-      'settingActiveTheme'
-    ]),
-    metaHead() {
-      const title = 'Daftar lengkap asmaul husna beserta terjemahan | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
-        ]
-      }
-    },
-    filteredAsmaulHusna() {
-      if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
-        return this.asmaulHusna.filter((item) => {
-          const predicateTranslation = __normalizeText(item.translation_id).includes(
-            __normalizeText(this.searchText)
-          )
-          const predicateLatin = __normalizeText(item.latin).includes(
-            __normalizeText(this.searchText)
-          )
+  }
 
-          return predicateLatin || predicateTranslation
-        })
-      } else return this.asmaulHusna || []
-    }
-  },
   async asyncData() {
     const data = await getAsmaulHusna()
     return {
       asmaulHusna: data.data.data
     }
-  },
+  }
+
   fetch({ store }) {
     store.commit('setHeaderTitle', 'Asmaul Husna')
   }
