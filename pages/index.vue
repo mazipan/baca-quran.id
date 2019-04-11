@@ -108,6 +108,7 @@ export default class PageIndex extends Vue {
   AppConstant = AppConstant;
 
   @State settingActiveTheme;
+  @Mutation setHeaderTitle
 
   get metaHead() {
     const title = 'Baca Al-Qur\'an dimana saja, langsung dari web browser Anda | Qur\'an Offline'
@@ -125,8 +126,8 @@ export default class PageIndex extends Vue {
     return this.metaHead
   }
 
-  fetch({ store }) {
-    store.commit('setHeaderTitle', AppConstant.TITLE)
+  mounted() {
+    this.setHeaderTitle(AppConstant.TITLE)
   }
 }
 </script>

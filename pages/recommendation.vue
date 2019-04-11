@@ -35,6 +35,7 @@ export default class RecommendationPage extends Vue {
   surahRecommendation = surahRecommendation.data
 
   @State settingActiveTheme;
+  @Mutation setHeaderTitle;
 
   get metaHead() {
     const title = 'Baca surat rekomendasi dalam Al-Qur\'an | Qur\'an Offline'
@@ -52,8 +53,8 @@ export default class RecommendationPage extends Vue {
     return this.metaHead
   }
 
-  fetch({ store }) {
-    store.commit('setHeaderTitle', AppConstant.RECOMMENDATION)
+  mounted() {
+    this.setHeaderTitle(AppConstant.RECOMMENDATION)
   }
 }
 </script>

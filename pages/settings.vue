@@ -58,7 +58,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { State, Action } from 'vuex-class'
+import { State, Mutation, Action } from 'vuex-class'
 
 import Theme from '../constant/theme'
 
@@ -71,6 +71,8 @@ export default class SettingsPage extends Vue {
   @State settingActiveTheme;
   @State settingShowTranslation;
   @State settingShowTafsir;
+
+  @Mutation setHeaderTitle;
 
   @Action setActiveTheme;
   @Action setSettingTranslation
@@ -109,11 +111,8 @@ export default class SettingsPage extends Vue {
     this.setSettingTafsir(this.modelSettingTafsir)
   }
 
-  fetch({ app, store }) {
-    store.commit('setHeaderTitle', 'Setelan')
-  }
-
   mounted() {
+    this.setHeaderTitle('Setelan')
     setTimeout(() => {
       this.setDefaultSetting()
     }, 500)

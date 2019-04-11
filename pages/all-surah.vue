@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { State } from 'vuex-class'
+import { State, Mutation } from 'vuex-class'
 
 import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
@@ -35,15 +35,12 @@ import { getAllSurah } from '../services/index'
     SurahCard
   },
   async asyncData() {
-    const data = await getAllSurah()
+    const resp = await import('~/static/data/surah-info.json')
     return {
-      allSurahList: data.data.surah_info.map((item, idx) => {
+      allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })
       })
     }
-  },
-  fetch({ store }) {
-    store.commit('setHeaderTitle', 'Daftar Surat')
   }
 })
 
@@ -52,6 +49,7 @@ export default class PageAllSurah extends Vue {
   searchText = ''
 
   @State settingActiveTheme
+  @Mutation setHeaderTitle
 
   get metaHead() {
     const title = 'Daftar semua surat dalam Al-Qur\'an | Qur\'an Offline'
@@ -82,6 +80,10 @@ export default class PageAllSurah extends Vue {
 
   head() {
     return this.metaHead
+  }
+
+  mounted() {
+    this.setHeaderTitle('Daftar Surat')
   }
 }
 </script>

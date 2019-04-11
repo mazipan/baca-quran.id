@@ -49,6 +49,7 @@ export default class AsmaulHusnaPage extends Vue {
   searchText = ''
 
   @State settingActiveTheme
+  @Mutation setHeaderTitle
 
   get metaHead() {
     const title = 'Daftar lengkap asmaul husna beserta terjemahan | Qur\'an Offline'
@@ -82,14 +83,14 @@ export default class AsmaulHusnaPage extends Vue {
   }
 
   async asyncData() {
-    const data = await getAsmaulHusna()
+    const resp = await import('~/static/data/asmaul-husna.json')
     return {
-      asmaulHusna: data.data.data
+      asmaulHusna: resp.data
     }
   }
 
-  fetch({ store }) {
-    store.commit('setHeaderTitle', 'Asmaul Husna')
+  mounted() {
+    this.setHeaderTitle('Asmaul Husna')
   }
 }
 </script>

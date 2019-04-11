@@ -13,13 +13,15 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { State } from 'vuex-class'
+import { State, Mutation } from 'vuex-class'
 
 import { getAyatKursi } from '../services/index'
 
 @Component
 export default class AyatKursiPage extends Vue {
+
   @State settingActiveTheme
+  @Mutation setHeaderTitle
 
   get metaHead() {
     const title = 'Bacaan dan terjemah ayat kursi | Qur\'an Offline'
@@ -38,14 +40,14 @@ export default class AyatKursiPage extends Vue {
   }
 
   async asyncData() {
-    const data = await getAyatKursi()
+    const resp = await import('~/static/data/ayat-kursi.json')
     return {
-      ayatKursi: data.data.data
+      ayatKursi: resp.data
     }
   }
 
-  fetch({ store }) {
-    store.commit('setHeaderTitle', 'Ayat Kursi')
+  mounted() {
+    this.setHeaderTitle('Ayat Kursi')
   }
 }
 </script>

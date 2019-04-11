@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { State } from 'vuex-class'
+import { State, Mutation } from 'vuex-class'
 
 import VerseCard from '../../components/VerseCard.vue'
 import SurahHeader from '../../components/SurahHeader.vue'
@@ -43,9 +43,13 @@ import { getAllSurah, getSurahById } from '../../services/index'
     SurahNavigation
   },
   async asyncData({ params }) {
-    const resp = await getSurahById(params.surahid)
+    const respDetail = await import(`~/static/data/surah/${params.surahid}.json`)
+    const resp = await import('~/static/data/surah-info.json')
     return {
-      currentSurah: resp.data[params.surahid]
+      allSurahList: resp.surah_info.map((item, idx) => {
+        return Object.assign({}, item, { index: idx + 1 })
+      }),
+      currentSurah: respDetail[params.surahid]
     }
   }
 })
@@ -55,6 +59,7 @@ export default class SurahDetailPage extends Vue {
   allSurahList = []
 
   @State settingActiveTheme
+  @Mutation setHeaderTitle
 
   get metaHead() {
     const title = `Baca Al-Qur'an surat ke ${this.surahId} - ${this.currentSurah.name_latin} | Qur'an Offline`
@@ -111,16 +116,8 @@ export default class SurahDetailPage extends Vue {
     return this.metaHead
   }
 
-  async created() {
-    const resp = await getAllSurah()
-    this.allSurahList = resp.data.surah_info.map((item, idx) => {
-      return Object.assign({}, item, { index: idx + 1 })
-    })
-
-    this.$store.commit(
-      'setHeaderTitle',
-      `${this.surahId}: ${this.currentSurah.name_latin}`
-    )
+  mounted() {
+    this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
   }
 }
 </script>

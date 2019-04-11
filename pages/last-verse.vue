@@ -42,6 +42,7 @@ import { getAllSurah } from '../services/index'
 export default class LastVersePage extends Vue {
   @State settingActiveTheme;
   @State lastReadVerse;
+  @Mutation setHeaderTitle
 
   get metaHead() {
     const title = 'Ayat terakhir dibaca | Qur\'an Offline'
@@ -76,17 +77,18 @@ export default class LastVersePage extends Vue {
   head() {
     return this.metaHead
   }
+
   async asyncData() {
-    const data = await getAllSurah()
+    const resp = await import('~/static/data/surah-info.json')
     return {
-      allSurahList: data.data.surah_info.map((item, idx) => {
+      allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })
       })
     }
   }
 
-  fetch({ store }) {
-    store.commit('setHeaderTitle', AppConstant.LAST_READ)
+  mounted() {
+    this.setHeaderTitle(AppConstant.LAST_READ)
   }
 }
 </script>

@@ -44,7 +44,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { State } from 'vuex-class'
+import { State, Mutation } from 'vuex-class'
 
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
 import { getDailyDoa } from '../services/index'
@@ -61,6 +61,7 @@ export default class DailyDoaPage extends Vue {
   }
 
   @State settingActiveTheme
+  @Mutation setHeaderTitle
 
   get metaHead() {
     const title = 'Daftar bacaan do\'a sehari-hari beserta terjemahan | Qur\'an Offline'
@@ -103,14 +104,14 @@ export default class DailyDoaPage extends Vue {
   }
 
   async asyncData() {
-    const data = await getDailyDoa()
+    const resp = await import('~/static/data/daily-doa.json')
     return {
-      dailyDoa: data.data.data
+      dailyDoa: resp.data
     }
   }
 
-  fetch({ store }) {
-    store.commit('setHeaderTitle', `Do'a Harian`)
+  mounted() {
+    this.setHeaderTitle(`Do'a Harian`)
   }
 }
 </script>
