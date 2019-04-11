@@ -36,6 +36,14 @@ import { getAllSurah } from '../services/index'
   components: {
     IosBookmarkIcon,
     LastReadCard
+  },
+  async asyncData() {
+    const resp = await import('~/static/data/surah-info.json')
+    return {
+      allSurahList: resp.surah_info.map((item, idx) => {
+        return Object.assign({}, item, { index: idx + 1 })
+      })
+    }
   }
 })
 
@@ -76,15 +84,6 @@ export default class LastVersePage extends Vue {
 
   head() {
     return this.metaHead
-  }
-
-  async asyncData() {
-    const resp = await import('~/static/data/surah-info.json')
-    return {
-      allSurahList: resp.surah_info.map((item, idx) => {
-        return Object.assign({}, item, { index: idx + 1 })
-      })
-    }
   }
 
   mounted() {

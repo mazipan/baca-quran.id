@@ -53,7 +53,15 @@ interface expandedData {
   title: string
 }
 
-@Component
+@Component({
+  async asyncData() {
+    const resp = await import('~/static/data/daily-doa.json')
+    return {
+      dailyDoa: resp.data
+    }
+  }
+})
+
 export default class DailyDoaPage extends Vue {
   searchText = ''
   expandedData: expandedData = {
@@ -101,13 +109,6 @@ export default class DailyDoaPage extends Vue {
 
   isExpanded(title: string): boolean {
     return title === this.expandedData.title
-  }
-
-  async asyncData() {
-    const resp = await import('~/static/data/daily-doa.json')
-    return {
-      dailyDoa: resp.data
-    }
   }
 
   mounted() {

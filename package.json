@@ -8,7 +8,7 @@
     "dev": "cross-env NODE_ENV=development nuxt dev",
     "build": "cross-env NODE_ENV=production nuxt build",
     "minify:json": "minify-json dist/data/",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate && yarn minify:json",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore .",
     "lint:report": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix -f html-extended -o eslint-report.html",
     "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix",

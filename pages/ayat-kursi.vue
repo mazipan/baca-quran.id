@@ -17,9 +17,17 @@ import { State, Mutation } from 'vuex-class'
 
 import { getAyatKursi } from '../services/index'
 
-@Component
-export default class AyatKursiPage extends Vue {
 
+@Component({
+  async asyncData() {
+    const resp = await import('~/static/data/ayat-kursi.json')
+    return {
+      ayatKursi: resp.data
+    }
+  }
+})
+
+export default class AyatKursiPage extends Vue {
   @State settingActiveTheme
   @Mutation setHeaderTitle
 
@@ -37,13 +45,6 @@ export default class AyatKursiPage extends Vue {
 
   head() {
     return this.metaHead
-  }
-
-  async asyncData() {
-    const resp = await import('~/static/data/ayat-kursi.json')
-    return {
-      ayatKursi: resp.data
-    }
   }
 
   mounted() {

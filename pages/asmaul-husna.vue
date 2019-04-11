@@ -44,7 +44,15 @@ import { __isNotEmptyString, __normalizeText } from '../utils/index'
 
 import { getAsmaulHusna } from '../services/index'
 
-@Component
+@Component({
+  async asyncData() {
+    const resp = await import('~/static/data/asmaul-husna.json')
+    return {
+      asmaulHusna: resp.data
+    }
+  }
+})
+
 export default class AsmaulHusnaPage extends Vue {
   searchText = ''
 
@@ -80,13 +88,6 @@ export default class AsmaulHusnaPage extends Vue {
 
   head() {
     return this.metaHead
-  }
-
-  async asyncData() {
-    const resp = await import('~/static/data/asmaul-husna.json')
-    return {
-      asmaulHusna: resp.data
-    }
   }
 
   mounted() {
