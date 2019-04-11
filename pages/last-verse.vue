@@ -38,7 +38,7 @@ import { getAllSurah } from '../services/index'
     LastReadCard
   },
   async asyncData() {
-    const resp = await import('~/static/data/surah-info.json')
+    const resp = await import(/* webpackChunkName: "surah-info" */'~/static/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })
@@ -74,6 +74,7 @@ export default class LastVersePage extends Vue {
 
   get lastReadVerseData() {
     if (this.isHaveLastRead) {
+      // @ts-ignore: Unreachable code error
       const res = this.allSurahList.find(
         item => item.index === this.lastReadVerse.surah
       )

@@ -35,7 +35,7 @@ import { getAllSurah } from '../services/index'
     SurahCard
   },
   async asyncData() {
-    const resp = await import('~/static/data/surah-info.json')
+    const resp = await import(/* webpackChunkName: "surah-info" */'~/static/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })
@@ -65,6 +65,7 @@ export default class PageAllSurah extends Vue {
 
   get filteredSurah() {
     if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
+      // @ts-ignore: Unreachable code error
       return this.allSurahList.filter((item) => {
         const predicateTranslation = __normalizeText(item.translation).includes(
           __normalizeText(this.searchText)
@@ -75,6 +76,7 @@ export default class PageAllSurah extends Vue {
 
         return predicateLatin || predicateTranslation
       })
+      // @ts-ignore: Unreachable code error
     } else return this.allSurahList
   }
 

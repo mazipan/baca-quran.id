@@ -46,7 +46,7 @@ import { getAsmaulHusna } from '../services/index'
 
 @Component({
   async asyncData() {
-    const resp = await import('~/static/data/asmaul-husna.json')
+    const resp = await import(/* webpackChunkName: "asmaul-husna" */'~/static/data/asmaul-husna.json')
     return {
       asmaulHusna: resp.data
     }
@@ -73,6 +73,7 @@ export default class AsmaulHusnaPage extends Vue {
 
   get filteredAsmaulHusna() {
     if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
+      // @ts-ignore: Unreachable code error
       return this.asmaulHusna.filter((item) => {
         const predicateTranslation = __normalizeText(item.translation_id).includes(
           __normalizeText(this.searchText)
@@ -83,6 +84,7 @@ export default class AsmaulHusnaPage extends Vue {
 
         return predicateLatin || predicateTranslation
       })
+    // @ts-ignore: Unreachable code error
     } else return this.asmaulHusna || []
   }
 

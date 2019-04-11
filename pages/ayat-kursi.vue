@@ -19,7 +19,7 @@ import { getAyatKursi } from '../services/index'
 
 @Component({
   async asyncData() {
-    const resp = await import('~/static/data/ayat-kursi.json')
+    const resp = await import(/* webpackChunkName: "ayat-kursi" */'~/static/data/ayat-kursi.json')
     return {
       ayatKursi: resp.data
     }

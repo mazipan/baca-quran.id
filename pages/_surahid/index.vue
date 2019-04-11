@@ -44,7 +44,7 @@ import { getAllSurah, getSurahById } from '../../services/index'
   },
   async asyncData({ params }) {
     const respDetail = await import(`~/static/data/surah/${params.surahid}.json`)
-    const resp = await import('~/static/data/surah-info.json')
+    const resp = await import(/* webpackChunkName: "surah-info" */ '~/static/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })
@@ -62,6 +62,7 @@ export default class SurahDetailPage extends Vue {
   @Mutation setHeaderTitle
 
   get metaHead() {
+    // @ts-ignore: Unreachable code error
     const title = `Baca Al-Qur'an surat ke ${this.surahId} - ${this.currentSurah.name_latin} | Qur'an Offline`
 
     return {
@@ -93,9 +94,8 @@ export default class SurahDetailPage extends Vue {
   get prevSurah() {
     if (__isNotEmptyArray(this.allSurahList)) {
       if (this.surahId > 1) {
-        return this.allSurahList.find(
-          item => item.index === this.surahId - 1
-        )
+        // @ts-ignore: Unreachable code error
+        return this.allSurahList.find(item => item.index === this.surahId - 1)
       }
     }
     return null
@@ -104,9 +104,8 @@ export default class SurahDetailPage extends Vue {
   get nextSurah() {
     if (__isNotEmptyArray(this.allSurahList)) {
       if (this.surahId < 114) {
-        return this.allSurahList.find(
-          item => item.index === this.surahId + 1
-        )
+        // @ts-ignore: Unreachable code error
+        return this.allSurahList.find(item => item.index === this.surahId + 1)
       }
     }
     return null
@@ -117,6 +116,7 @@ export default class SurahDetailPage extends Vue {
   }
 
   mounted() {
+    // @ts-ignore: Unreachable code error
     this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
   }
 }

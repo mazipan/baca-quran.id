@@ -33,8 +33,10 @@ export const actions: ActionTree<State, State> = {
   addToFavorite({ commit, state }, surah) {
     const isExist = state.surahFavorite.find(item => item.index === surah.index)
     if (!isExist) {
+      // @ts-ignore: Unreachable code error
       const newFavorite = [].concat(state.surahFavorite).concat([surah])
       commit(Types.SET_FAVORITE, newFavorite)
+      // @ts-ignore: Unreachable code error
       setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
@@ -43,12 +45,14 @@ export const actions: ActionTree<State, State> = {
     if (isExist) {
       const newFavorite = state.surahFavorite.filter(item => item.index !== surah.index) || []
       commit(Types.SET_FAVORITE, newFavorite)
+      // @ts-ignore: Unreachable code error
       setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
   setLastReadVerse({ commit }, { surah, verse }) {
     const data = { surah, verse }
     commit(Types.SET_LAST_READ, data)
+    // @ts-ignore: Unreachable code error
     setItem(storageKey.LAST_READ, data, null)
   },
   setWebshareSupport({ commit }, isSupport) {
@@ -56,7 +60,9 @@ export const actions: ActionTree<State, State> = {
   },
   shareViaWebshare({ state }, { title, text, url }) {
     if (state.isSupportWebShare) {
+      // @ts-ignore: Unreachable code error
       if (window.navigator.share) { /* eslint-disable-line no-undef */
+        // @ts-ignore: Unreachable code error
         window.navigator.share({ /* eslint-disable-line no-undef */
           title,
           text,

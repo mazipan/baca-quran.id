@@ -55,7 +55,7 @@ interface expandedData {
 
 @Component({
   async asyncData() {
-    const resp = await import('~/static/data/daily-doa.json')
+    const resp = await import(/* webpackChunkName: "daily-doa" */'~/static/data/daily-doa.json')
     return {
       dailyDoa: resp.data
     }
@@ -85,6 +85,7 @@ export default class DailyDoaPage extends Vue {
 
   get filteredDailyDoa() {
     if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
+      // @ts-ignore: Unreachable code error
       return this.dailyDoa.filter((item) => {
         const predicate = __normalizeText(item.title).includes(
           __normalizeText(this.searchText)
@@ -92,6 +93,7 @@ export default class DailyDoaPage extends Vue {
 
         return predicate
       })
+      // @ts-ignore: Unreachable code error
     } else return this.dailyDoa || []
   }
 
