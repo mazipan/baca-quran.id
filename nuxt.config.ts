@@ -59,7 +59,7 @@ interface sitemap {
 }
 
 const routesSitemap = (): sitemap[] => {
-  let res: sitemap[] = []
+  const res: sitemap[] = []
   routes().forEach((el) => {
     const item: sitemap = {
       url: el,
