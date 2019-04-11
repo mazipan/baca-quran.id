@@ -114,7 +114,7 @@ import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
 import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 
-import { AppConstant } from '../constant/index.js'
+import { AppConstant } from '../constant'
 
 @Component({
   components: {

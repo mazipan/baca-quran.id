@@ -40,7 +40,7 @@ $ yarn test
 $ yarn lint
 
 # run eslint with auto fix
-$ yarn lint-fix
+$ yarn lint:fix
 ```
 
 ## Credit

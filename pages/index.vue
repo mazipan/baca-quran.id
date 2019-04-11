@@ -90,7 +90,7 @@ import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
 import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 import IosColorWandIcon from 'vue-ionicons/dist/js/ios-color-wand'
 
-import { AppConstant } from '../constant/index.js'
+import { AppConstant } from '../constant'
 
 @Component({
   components: {

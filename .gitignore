@@ -81,3 +81,4 @@ dist
 .idea
 sw.*
 static/sitemap*
+eslint-report.html

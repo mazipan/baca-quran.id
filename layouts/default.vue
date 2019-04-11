@@ -23,7 +23,7 @@ import BaseHeader from '../components/BaseHeader.vue'
 import BaseSidebar from '../components/BaseSidebar.vue'
 import BaseToast from '../components/BaseToast.vue'
 
-import { isSupportWebp } from '../utils/webp.js'
+import { isSupportWebp } from '../utils/webp'
 
 require('vue-ionicons/ionicons.css')
 

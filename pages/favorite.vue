@@ -29,7 +29,7 @@ import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
 
 import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyArray } from '../utils/index'
-import { AppConstant } from '../constant/index.js'
+import { AppConstant } from '../constant'
 
 @Component({
   components: {

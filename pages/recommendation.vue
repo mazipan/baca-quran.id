@@ -21,7 +21,7 @@ import { State, Mutation } from 'vuex-class'
 import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 
 import SurahCard from '../components/SurahCard.vue'
-import { AppConstant } from '../constant/index.js'
+import { AppConstant } from '../constant'
 import surahRecommendation from '../constant/surah-recommendation'
 
 @Component({

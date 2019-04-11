@@ -28,7 +28,7 @@ import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 
 import LastReadCard from '../components/LastReadCard.vue'
 
-import { AppConstant } from '../constant/index.js'
+import { AppConstant } from '../constant'
 import { __isNotNull } from '../utils/index'
 import { getAllSurah } from '../services/index'
 
