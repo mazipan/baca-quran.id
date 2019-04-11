@@ -17,7 +17,6 @@ import { State, Mutation } from 'vuex-class'
 
 import { getAyatKursi } from '../services/index'
 
-
 @Component({
   async asyncData() {
     const resp = await import('~/static/data/ayat-kursi.json')

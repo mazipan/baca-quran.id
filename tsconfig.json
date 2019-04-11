@@ -26,13 +26,17 @@
       ]
     },
     "types": [
+      "@types/jest",
       "@types/node",
       "@nuxt/vue-app"
     ]
   },
   "exclude": [
-    "node_modules",
+    "node_modules/**",
+    "dist/**",
+    "dist.js/**",
+    ".nuxt/**",
     "nuxt.config.ts",
-    "**/*.test.ts"
+    "tests/**"
   ]
 }

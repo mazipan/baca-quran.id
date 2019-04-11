@@ -34,8 +34,8 @@ module.exports = {
   },
   moduleFileExtensions: ['js', 'ts', 'vue', 'json'],
   transform: {
-    '^.+.tsx?$': '<rootDir>/node_modules/ts-jest',
     '^.+.js$': '<rootDir>/node_modules/babel-jest',
+    '^.+.tsx?$': '<rootDir>/node_modules/ts-jest',
     '^.+.vue$': '<rootDir>/node_modules/vue-jest'
   },
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],

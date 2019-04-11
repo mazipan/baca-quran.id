@@ -67,7 +67,9 @@ const createWrapper = ($mockRoute, dummyAllsurahList) => {
     i18n,
     localVue,
     mocks: {
-      $route
+      $route,
+      allSurahList: [dummySurahInfo],
+      currentSurah: dummySurahDetail,
     }
   })
 }

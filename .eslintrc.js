@@ -4,7 +4,8 @@ module.exports = {
     parser: '@typescript-eslint/parser'
   },
   extends: [
-    '@nuxtjs'
+    '@nuxtjs',
+    'plugin:nuxt/recommended',
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

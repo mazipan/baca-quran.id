@@ -48,7 +48,10 @@ const createWrapper = () => {
     store,
     router,
     i18n,
-    localVue
+    localVue,
+    mocks: {
+      asmaulHusna: dummyAsmaulHusna
+    }
   })
 }
 
