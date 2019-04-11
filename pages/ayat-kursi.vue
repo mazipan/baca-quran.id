@@ -17,6 +17,7 @@ import { State } from 'vuex-class'
 
 import { getAyatKursi } from '../services/index'
 
+@Component
 export default class AyatKursiPage extends Vue {
   @State settingActiveTheme
 

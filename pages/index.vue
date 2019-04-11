@@ -105,7 +105,7 @@ import { AppConstant } from '../constant/index.js'
 })
 
 export default class PageIndex extends Vue {
-  AppConstant;
+  AppConstant = AppConstant;
 
   @State settingActiveTheme;
 
