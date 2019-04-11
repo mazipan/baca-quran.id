@@ -56,67 +56,67 @@
   </div>
 </template>
 
-<script>
-import { mapActions, mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Action } from 'vuex-class'
+
 import Theme from '../constant/theme'
 
-export default {
-  name: 'SettingsPage',
+@Component
+export default class SettingsPage extends Vue {
+  themesAvailable = Theme.AVAILABLE_THEME
+  modelSettingTranslation = true
+  modelSettingTafsir = true
+
+  @State settingActiveTheme;
+  @State settingShowTranslation;
+  @State settingShowTafsir;
+
+  @Action setActiveTheme;
+  @Action setSettingTranslation
+  @Action setSettingTafsir
+
+  get metaHead() {
+    const title = 'Halaman setelan | Qur\'an Offline'
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+      ]
+    }
+  }
+
   head() {
     return this.metaHead
-  },
-  data() {
-    return {
-      themesAvailable: Theme.AVAILABLE_THEME,
-      modelSettingTranslation: true,
-      modelSettingTafsir: true
-    }
-  },
-  computed: {
-    ...mapState([
-      'settingActiveTheme',
-      'settingShowTranslation',
-      'settingShowTafsir'
-    ]),
-    metaHead() {
-      const title = 'Halaman setelan | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
-        ]
-      }
-    }
-  },
+  }
+
+  setDefaultSetting() {
+    this.modelSettingTranslation = this.settingShowTranslation
+    this.modelSettingTafsir = this.settingShowTafsir
+  }
+
+  onSelectTheme(theme) {
+    this.setActiveTheme(theme)
+  }
+
+  onChangeSettingTranslation() {
+    this.setSettingTranslation(this.modelSettingTranslation)
+  }
+
+  onChangeSettingTafsir() {
+    this.setSettingTafsir(this.modelSettingTafsir)
+  }
+
   fetch({ app, store }) {
     store.commit('setHeaderTitle', 'Setelan')
-  },
+  }
+
   mounted() {
     setTimeout(() => {
       this.setDefaultSetting()
     }, 500)
-  },
-  methods: {
-    ...mapActions([
-      'setActiveTheme',
-      'setSettingTranslation',
-      'setSettingTafsir'
-    ]),
-    setDefaultSetting() {
-      this.modelSettingTranslation = this.settingShowTranslation
-      this.modelSettingTafsir = this.settingShowTafsir
-    },
-    onSelectTheme(theme) {
-      this.setActiveTheme(theme)
-    },
-    onChangeSettingTranslation() {
-      this.setSettingTranslation(this.modelSettingTranslation)
-    },
-    onChangeSettingTafsir() {
-      this.setSettingTafsir(this.modelSettingTafsir)
-    }
   }
 }
 </script>

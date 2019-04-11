@@ -67,42 +67,37 @@
   </div>
 </template>
 
-<script>
-import { mapState, mapMutations } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Mutation } from 'vuex-class'
 
 import { AppConstant } from '../constant/index'
 
-export default {
-  name: 'PageAbout',
+@Component
+export default class PageAbout extends Vue {
+  appTitle = AppConstant.TITLE
+
+  @State settingActiveTheme
+  @Mutation setHeaderTitle
+
+  get metaHead() {
+    const title = 'Tentang | Qur\'an Offline'
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+      ]
+    }
+  }
+
   head() {
     return this.metaHead
-  },
-  data() {
-    return {
-      appTitle: AppConstant.TITLE
-    }
-  },
-  computed: {
-    ...mapState([
-      'settingActiveTheme'
-    ]),
-    metaHead() {
-      const title = 'Tentang | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
-        ]
-      }
-    }
-  },
+  }
+
   created() {
     this.setHeaderTitle('Tentang')
-  },
-  methods: {
-    ...mapMutations(['setHeaderTitle'])
   }
 }
 </script>

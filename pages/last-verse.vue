@@ -20,9 +20,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Mutation } from 'vuex-class'
+
 import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
-import { mapState } from 'vuex'
 
 import LastReadCard from '../components/LastReadCard.vue'
 
@@ -30,45 +32,50 @@ import { AppConstant } from '../constant/index.js'
 import { __isNotNull } from '../utils/index'
 import { getAllSurah } from '../services/index'
 
-export default {
-  name: 'LastVersePage',
-  head() {
-    return this.metaHead
-  },
+@Component({
   components: {
     IosBookmarkIcon,
     LastReadCard
-  },
-  computed: {
-    ...mapState(['settingActiveTheme', 'lastReadVerse']),
-    metaHead() {
-      const title = 'Ayat terakhir dibaca | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          {
-            hid: 'theme-color',
-            name: 'theme-color',
-            content: this.settingActiveTheme.bgColor
-          }
-        ]
-      }
-    },
-    isHaveLastRead() {
-      return __isNotNull(this.lastReadVerse && this.lastReadVerse.surah)
-    },
-    lastReadVerseData() {
-      if (this.isHaveLastRead) {
-        const res = this.allSurahList.find(
-          item => item.index === this.lastReadVerse.surah
-        )
-        return Object.assign({}, res, { verse: this.lastReadVerse.verse })
-      }
-      return null
+  }
+})
+
+export default class LastVersePage extends Vue {
+  @State settingActiveTheme;
+  @State lastReadVerse;
+
+  get metaHead() {
+    const title = 'Ayat terakhir dibaca | Qur\'an Offline'
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        {
+          hid: 'theme-color',
+          name: 'theme-color',
+          content: this.settingActiveTheme.bgColor
+        }
+      ]
     }
-  },
+  }
+
+  get isHaveLastRead() {
+    return __isNotNull(this.lastReadVerse && this.lastReadVerse.surah)
+  }
+
+  get lastReadVerseData() {
+    if (this.isHaveLastRead) {
+      const res = this.allSurahList.find(
+        item => item.index === this.lastReadVerse.surah
+      )
+      return Object.assign({}, res, { verse: this.lastReadVerse.verse })
+    }
+    return null
+  }
+
+  head() {
+    return this.metaHead
+  }
   async asyncData() {
     const data = await getAllSurah()
     return {
@@ -76,7 +83,8 @@ export default {
         return Object.assign({}, item, { index: idx + 1 })
       })
     }
-  },
+  }
+
   fetch({ store }) {
     store.commit('setHeaderTitle', AppConstant.LAST_READ)
   }

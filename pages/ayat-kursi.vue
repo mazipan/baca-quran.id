@@ -11,41 +11,38 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State } from 'vuex-class'
+
 import { getAyatKursi } from '../services/index'
 
-export default {
-  name: 'AyatKursiPage',
+export default class AyatKursiPage extends Vue {
+  @State settingActiveTheme
+
+  get metaHead() {
+    const title = 'Bacaan dan terjemah ayat kursi | Qur\'an Offline'
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+      ]
+    }
+  }
+
   head() {
     return this.metaHead
-  },
-  data() {
-    return {
-    }
-  },
-  computed: {
-    ...mapState([
-      'settingActiveTheme'
-    ]),
-    metaHead() {
-      const title = 'Bacaan dan terjemah ayat kursi | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
-        ]
-      }
-    }
-  },
+  }
+
   async asyncData() {
     const data = await getAyatKursi()
     return {
       ayatKursi: data.data.data
     }
-  },
+  }
+
   fetch({ store }) {
     store.commit('setHeaderTitle', 'Ayat Kursi')
   }

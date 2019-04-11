@@ -25,95 +25,102 @@
   </section>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State } from 'vuex-class'
 
-import VerseCard from '../../components/VerseCard'
-import SurahHeader from '../../components/SurahHeader'
-import SurahNavigation from '../../components/SurahNavigation'
+import VerseCard from '../../components/VerseCard.vue'
+import SurahHeader from '../../components/SurahHeader.vue'
+import SurahNavigation from '../../components/SurahNavigation.vue'
 
 import { __isNotNull, __isNotEmptyArray } from '../../utils/index'
 import { getAllSurah, getSurahById } from '../../services/index'
 
-export default {
-  name: 'PageSurahDetail',
-  head() {
-    return this.metaHead
-  },
+@Component({
   components: {
     VerseCard,
     SurahHeader,
     SurahNavigation
   },
-  data() {
-    return {
-      loading: true
-    }
-  },
-  computed: {
-    ...mapState(['settingActiveTheme']),
-    metaHead() {
-      const title = `Baca Al-Qur'an surat ke ${this.surahId} - ${this.currentSurah.name_latin} | Qur'an Offline`
-
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          {
-            hid: 'theme-color',
-            name: 'theme-color',
-            content: this.settingActiveTheme.bgColor
-          }
-        ]
-      }
-    },
-    currentSurah() {
-      return this.surahDetail
-    },
-    surahId() {
-      let id = 0
-      if (__isNotNull(this.$route.params && this.$route.params.surahid)) {
-        id = Number(this.$route.params.surahid)
-      }
-      return id
-    },
-    isValidSurah() {
-      return this.surahId > 0 && this.surahId <= 114
-    },
-    prevSurah() {
-      if (__isNotEmptyArray(this.allSurahList)) {
-        if (this.surahId > 1) {
-          return this.allSurahList.find(
-            item => item.index === this.surahId - 1
-          )
-        }
-      }
-      return null
-    },
-    nextSurah() {
-      if (__isNotEmptyArray(this.allSurahList)) {
-        if (this.surahId < 114) {
-          return this.allSurahList.find(
-            item => item.index === this.surahId + 1
-          )
-        }
-      }
-      return null
-    }
-  },
   async asyncData({ params }) {
-    const resp = await getAllSurah()
-    const respDetail = await getSurahById(params.surahid)
+    const resp = await getSurahById(params.surahid)
+    return {
+      surahDetail: resp.data[params.surahid]
+    }
+  }
+})
+
+export default class SurahDetailPage extends Vue {
+  loading = true
+  allSurahList = []
+
+  @State settingActiveTheme
+
+  get metaHead() {
+    const title = `Baca Al-Qur'an surat ke ${this.surahId} - ${this.currentSurah.name_latin} | Qur'an Offline`
 
     return {
-      allSurahList: resp.data.surah_info.map((item, idx) => {
-        return Object.assign({}, item, { index: idx + 1 })
-      }),
-      surahDetail: respDetail.data[params.surahid]
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        {
+          hid: 'theme-color',
+          name: 'theme-color',
+          content: this.settingActiveTheme.bgColor
+        }
+      ]
     }
-  },
-  created() {
+  }
+
+  get currentSurah() {
+    return this.surahDetail
+  }
+
+  get surahId() {
+    let id = 0
+    if (__isNotNull(this.$route.params && this.$route.params.surahid)) {
+      id = Number(this.$route.params.surahid)
+    }
+    return id
+  }
+
+  get isValidSurah() {
+    return this.surahId > 0 && this.surahId <= 114
+  }
+
+  get prevSurah() {
+    if (__isNotEmptyArray(this.allSurahList)) {
+      if (this.surahId > 1) {
+        return this.allSurahList.find(
+          item => item.index === this.surahId - 1
+        )
+      }
+    }
+    return null
+  }
+
+  get nextSurah() {
+    if (__isNotEmptyArray(this.allSurahList)) {
+      if (this.surahId < 114) {
+        return this.allSurahList.find(
+          item => item.index === this.surahId + 1
+        )
+      }
+    }
+    return null
+  }
+
+  head() {
+    return this.metaHead
+  }
+
+  async created() {
+    const resp = await getAllSurah()
+    this.allSurahList = resp.data.surah_info.map((item, idx) => {
+      return Object.assign({}, item, { index: idx + 1 })
+    })
+
     this.$store.commit(
       'setHeaderTitle',
       `${this.surahId}: ${this.currentSurah.name_latin}`

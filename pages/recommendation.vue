@@ -14,44 +14,44 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Mutation } from 'vuex-class'
+
 import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 
 import SurahCard from '../components/SurahCard.vue'
 import { AppConstant } from '../constant/index.js'
 import surahRecommendation from '../constant/surah-recommendation'
 
-export default {
-  name: 'RecommendationPage',
-  head() {
-    return this.metaHead
-  },
+@Component({
   components: {
     IosNavigateIcon,
     SurahCard
-  },
-  data() {
+  }
+})
+
+export default class RecommendationPage extends Vue {
+  surahRecommendation = surahRecommendation.data
+
+  @State settingActiveTheme;
+
+  get metaHead() {
+    const title = 'Baca surat rekomendasi dalam Al-Qur\'an | Qur\'an Offline'
     return {
-      surahRecommendation: surahRecommendation.data
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+      ]
     }
-  },
-  computed: {
-    ...mapState([
-      'settingActiveTheme'
-    ]),
-    metaHead() {
-      const title = 'Baca surat rekomendasi dalam Al-Qur\'an | Qur\'an Offline'
-      return {
-        title,
-        meta: [
-          { hid: 'og:title', property: 'og:title', content: title },
-          { hid: 'twitter:title', name: 'twitter:title', content: title },
-          { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
-        ]
-      }
-    }
-  },
+  }
+
+  head() {
+    return this.metaHead
+  }
+
   fetch({ store }) {
     store.commit('setHeaderTitle', AppConstant.RECOMMENDATION)
   }
