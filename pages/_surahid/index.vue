@@ -44,8 +44,9 @@ import { getAllSurah, getSurahById } from '../../services/index'
   },
   async asyncData({ params }) {
     const resp = await getSurahById(params.surahid)
+    console.log(resp.data[params.surahid])
     return {
-      surahDetail: resp.data[params.surahid]
+      currentSurah: resp.data[params.surahid]
     }
   }
 })
@@ -71,10 +72,6 @@ export default class SurahDetailPage extends Vue {
         }
       ]
     }
-  }
-
-  get currentSurah() {
-    return this.surahDetail
   }
 
   get surahId() {
