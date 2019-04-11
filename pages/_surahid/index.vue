@@ -44,7 +44,6 @@ import { getAllSurah, getSurahById } from '../../services/index'
   },
   async asyncData({ params }) {
     const resp = await getSurahById(params.surahid)
-    console.log(resp.data[params.surahid])
     return {
       currentSurah: resp.data[params.surahid]
     }
