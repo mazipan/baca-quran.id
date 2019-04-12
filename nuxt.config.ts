@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import NuxtConfiguration from '@nuxt/config'
-import {
-  Configuration as WebpackConfiguration
-} from 'webpack'
+import { Configuration as WebpackConfiguration } from 'webpack'
 
 const SurahConstant = require('./constant/surah')
 const pkg = require('./package')
@@ -52,10 +50,10 @@ const routes = (): string[] => {
   return res
 }
 interface sitemap {
-    url: string,
-    changefreq: string,
-    priority: number,
-    lastmodISO: string
+  url: string
+  changefreq: string
+  priority: number
+  lastmodISO: string
 }
 
 const routesSitemap = (): sitemap[] => {
@@ -97,7 +95,11 @@ const config: NuxtConfiguration = {
       { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
       { hid: 'twitter:url', name: 'twitter:url', content: PROD_PATH },
 
-      { hid: 'google-site-verification', name: 'google-site-verification', content: 'jW7EK0wGpuReuZkQ-q900J7Z0KbCD9CCAZybfwcPe_U' }
+      {
+        hid: 'google-site-verification',
+        name: 'google-site-verification',
+        content: 'jW7EK0wGpuReuZkQ-q900J7Z0KbCD9CCAZybfwcPe_U'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -140,10 +142,7 @@ const config: NuxtConfiguration = {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    '@nuxtjs/pwa',
-    '@nuxtjs/sitemap'
-  ],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/sitemap'],
 
   sitemap: {
     path: '/sitemap.xml',

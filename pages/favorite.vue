@@ -44,7 +44,7 @@ export default class FavoritePage extends Vue {
   @Mutation setHeaderTitle;
 
   get metaHead() {
-    const title = 'Baca berbagai surat favorit dalam Al-Qur\'an | Qur\'an Offline'
+    const title = "Baca berbagai surat favorit dalam Al-Qur'an | Qur'an Offline"
     return {
       title,
       meta: [
