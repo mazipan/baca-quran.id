@@ -19,25 +19,28 @@ import { getAyatKursi } from '../services/index'
 
 @Component({
   async asyncData() {
-    const resp = await import(/* webpackChunkName: "ayat-kursi" */'~/static/data/ayat-kursi.json')
+    const resp = await import(/* webpackChunkName: 'ayat-kursi' */ '~/static/data/ayat-kursi.json')
     return {
       ayatKursi: resp.data
     }
   }
 })
-
 export default class AyatKursiPage extends Vue {
-  @State settingActiveTheme
-  @Mutation setHeaderTitle
+  @State settingActiveTheme;
+  @Mutation setHeaderTitle;
 
   get metaHead() {
-    const title = 'Bacaan dan terjemah ayat kursi | Qur\'an Offline'
+    const title = "Bacaan dan terjemah ayat kursi | Qur'an Offline"
     return {
       title,
       meta: [
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        {
+          hid: 'theme-color',
+          name: 'theme-color',
+          content: this.settingActiveTheme.bgColor
+        }
       ]
     }
   }
@@ -53,21 +56,29 @@ export default class AyatKursiPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.wrapper{
+.wrapper {
   width: 90%;
   margin: 1em auto;
 }
-.arabic{
+.arabic {
   font-size: 4rem;
   width: 100%;
   margin-top: 1em;
   text-align: right;
 }
-.translation{
+.translation {
   font-size: 2rem;
   width: 100%;
   font-style: italic;
   margin-top: 1.5em;
   text-align: left;
+}
+@media screen and (max-width: 641px) {
+  .arabic {
+    font-size: 2rem;
+  }
+  .translation {
+    font-size: 1rem;
+  }
 }
 </style>
