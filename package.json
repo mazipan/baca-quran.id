@@ -34,7 +34,7 @@
     "@nuxt/typescript": "^2.6.1",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/pwa": "^2.6.0",
-    "@nuxtjs/sitemap": "^0.2.2",
+    "@nuxtjs/sitemap": "^1.0.0",
     "@types/jest": "^24.0.11",
     "@types/node": "^11.13.4",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
