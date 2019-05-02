@@ -3,7 +3,7 @@
 📖 Read Qur'an Directly from Your Web Browser, No Need Installing Apps Anymore. No Ads, No Analytics, It's Totally Free.
 
 ![Nuxt TypeScript](https://img.shields.io/badge/Nuxt-TypeScript-blue.svg) [![Travis](https://img.shields.io/travis/mazipan/quran-offline.svg)](https://travis-ci.org/mazipan/quran-offline)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a146a9bea244c28b909499be3bcade8)](https://app.codacy.com/app/mazipan/quran-offline?utm_source=github.com&utm_medium=referral&utm_content=mazipan/quran-offline&utm_campaign=Badge_Grade_Settings) [![Codecov](https://codecov.io/gh/mazipan/quran-offline/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/quran-offline) [![Greenkeeper badge](https://badges.greenkeeper.io/mazipan/quran-offline.svg)](https://greenkeeper.io/)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a146a9bea244c28b909499be3bcade8)](https://app.codacy.com/app/mazipan/quran-offline?utm_source=github.com&utm_medium=referral&utm_content=mazipan/quran-offline&utm_campaign=Badge_Grade_Settings) [![Codecov](https://codecov.io/gh/mazipan/quran-offline/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/quran-offline) ![Dependencies](https://img.shields.io/david/mazipan/quran-offline.svg)
 
 ## Live Website
 
