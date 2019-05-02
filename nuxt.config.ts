@@ -146,12 +146,9 @@ const config: NuxtConfiguration = {
   ],
 
   sitemap: {
-    path: '/sitemap.xml',
     hostname: 'https://quran-offline.netlify.com/',
     cacheTime: 1000 * 60 * 15,
     gzip: true,
-    generate: true, // Enable me when using nuxt generate
-    exclude: [],
     routes: routesSitemap()
   },
   /*
