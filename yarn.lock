@@ -7666,17 +7666,17 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-i18n@5.10.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-5.10.0.tgz#e03ef6bd13fd320479e88ad7a5eb515928c1576e"
-  integrity sha512-DHPVr7r1Fp5jCOBvXwvs2E0GevswOkz+G1d6SfgcZDzYdnteJKNOYpMdFw9M6mAxRenq1OhFmrKIgtoORwdrqw==
+nuxt-i18n@5.11.0:
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-5.11.0.tgz#02b244835803500586cf511eece6aac61ad07a21"
+  integrity sha512-5d+mW4Hzj+sxheHkz7YP1ExJBGsrP4M9QYTpGnEUYTtt+pJIC0haBpuPEkZ1NP7f7vSqwJKCMv7pByma9IrgaQ==
   dependencies:
     "@kazupon/vue-i18n-loader" "^0.3.0"
     acorn "^6.1.1"
     acorn-walk "^6.1.1"
     cookie "^0.3.1"
     js-cookie "^2.2.0"
-    vue-i18n "^8.11.1"
+    vue-i18n "^8.11.2"
     vue-i18n-extensions "^0.2.1"
 
 nuxt@2.6.3:
@@ -11849,7 +11849,7 @@ vue-i18n-extensions@^0.2.1:
   resolved "https://registry.yarnpkg.com/vue-i18n-extensions/-/vue-i18n-extensions-0.2.1.tgz#86ebea45a1f9c9594cd124f264e107aea193d7dd"
   integrity sha512-xBrItI7bEwBnG7eAlnyUARP41JYYn2+ABMR8q1Yh5FM9hHCbs4XPZwG+4+FPeIZ6b5gYk4YUP//m+fWiuU9z9A==
 
-vue-i18n@8.11.2, vue-i18n@^8.11.1:
+vue-i18n@8.11.2, vue-i18n@^8.11.2:
   version "8.11.2"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.11.2.tgz#92827fc42449f4602d2a0ddb437dfc4e3370d9d7"
   integrity sha512-STcpmxqBrG77SyWi7e0Yn/B3DjKR6mSDwYS4F/V7zoi+e/+CPbVb2TaBqFwnrkoDcPmRfjM7nTwsiRQQOGdifw==
