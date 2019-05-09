@@ -77,7 +77,7 @@
     "ts-jest": "24.0.2",
     "ts-node": "8.1.0",
     "typescript": "3.4.5",
-    "vue-class-component": "7.0.2",
+    "vue-class-component": "7.1.0",
     "vue-i18n": "8.11.2",
     "vue-jest": "3.0.4",
     "vue-loader": "15.7.0",
