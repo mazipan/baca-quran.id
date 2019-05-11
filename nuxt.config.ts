@@ -96,9 +96,9 @@ const config: NuxtConfiguration = {
       { hid: 'twitter:url', name: 'twitter:url', content: PROD_PATH },
 
       {
+        content: 'jW7EK0wGpuReuZkQ-q900J7Z0KbCD9CCAZybfwcPe_U',
         hid: 'google-site-verification',
-        name: 'google-site-verification',
-        content: 'jW7EK0wGpuReuZkQ-q900J7Z0KbCD9CCAZybfwcPe_U'
+        name: 'google-site-verification'
       }
     ],
     link: [
