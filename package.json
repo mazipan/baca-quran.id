@@ -17,7 +17,6 @@
     "lh": "lighthousebot"
   },
   "dependencies": {
-    "@babel/plugin-transform-typescript": "7.4.4",
     "axios": "0.18.0",
     "nuxt": "2.7.1",
     "nuxt-i18n": "5.12.3",
@@ -29,6 +28,7 @@
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/plugin-syntax-jsx": "7.2.0",
     "@babel/plugin-transform-runtime": "7.4.4",
+    "@babel/plugin-transform-typescript": "7.4.4",
     "@babel/preset-env": "7.4.4",
     "@babel/preset-typescript": "7.3.3",
     "@nuxt/typescript": "2.7.1",
