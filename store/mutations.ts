@@ -1,11 +1,11 @@
 import { MutationTree } from 'vuex'
-import { Types } from './types'
-import { StateType } from './state'
 
 import { Notification } from '../models/Nofication'
-import { Surah } from '../models/Surah';
-import { AyatKursi } from '../models/AyatKursi';
-import { Theme } from '../models/Theme';
+import { Surah } from '../models/Surah'
+import { AyatKursi } from '../models/AyatKursi'
+import { Theme } from '../models/Theme'
+import { StateType } from './state'
+import { Types } from './types'
 
 export const mutations: MutationTree<StateType> = {
   [Types.SET_SHOW_SIDEBAR](state: StateType, data: boolean) {
