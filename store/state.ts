@@ -7,7 +7,7 @@ import { AyatKursi } from '../models/AyatKursi'
 import { Theme } from '../models/Theme'
 import { Surah } from '../models/Surah'
 
-export interface State {
+export interface StateType {
   notification: Notification,
   isShowSidebar: boolean,
   isSupportWebShare: boolean,
@@ -25,7 +25,7 @@ export interface State {
 }
 
 // initial state
-export const state = (): State => ({
+export const state = (): StateType => ({
   notification: {
     show: false,
     title: '',

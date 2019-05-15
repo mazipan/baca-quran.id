@@ -4,9 +4,9 @@ import Theme from '../constant/theme'
 import { __isNotNull } from '../utils/index'
 import { getItem, setItem } from '../utils/storage'
 import { Types } from './types'
-import { State } from './state'
+import { StateType } from './state'
 
-export const actions: ActionTree<State, State> = {
+export const actions: ActionTree<StateType, StateType> = {
   initDataFromBrowserStorage({ commit }) {
     // data favorite surah
     const cacheFavorite = getItem(storageKey.FAVORITE, null) || []
