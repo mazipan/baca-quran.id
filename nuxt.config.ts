@@ -162,13 +162,20 @@ const config: NuxtConfiguration = {
    */
   build: {
     parallel: true,
-    // extractCSS: true,
-    // optimizeCSS: true,
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['last 2 versions']
-      })
-    ],
+    extractCSS: true,
+    optimizeCSS: true,
+    postcss: {
+      // Add plugin names as key and arguments as value
+      // Install them before as dependencies with npm or yarn
+      plugins: {
+        'autoprefixer': true
+      },
+      preset: {
+        autoprefixer: {
+          browsers: ['last 2 versions']
+        }
+      }
+    },
     /*
      ** You can extend webpack config here
      */
