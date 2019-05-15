@@ -2,7 +2,7 @@
   "extends": [
     "config:base"
   ],
-  "automerge": false,
+  "automerge": true,
   "major": {
     "automerge": false
   }
