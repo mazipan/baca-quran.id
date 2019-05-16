@@ -14,6 +14,15 @@
         "code",
         "maintenance"
       ]
+    },
+    {
+      "login": "azulkipli",
+      "name": "azul",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/8231792?v=4",
+      "profile": "http://altera.id",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
