@@ -38,7 +38,7 @@ export default class RecommendationPage extends Vue {
   @Mutation setHeaderTitle;
 
   get metaHead() {
-    const title = 'Baca surat rekomendasi dalam Al-Qur\'an | Qur\'an Offline'
+    const title = "Baca surat rekomendasi dalam Al-Qur'an | Qur'an Offline"
     return {
       title,
       meta: [

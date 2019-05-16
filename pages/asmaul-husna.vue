@@ -60,7 +60,7 @@ export default class AsmaulHusnaPage extends Vue {
   @Mutation setHeaderTitle
 
   get metaHead() {
-    const title = 'Daftar lengkap asmaul husna beserta terjemahan | Qur\'an Offline'
+    const title = "Daftar lengkap asmaul husna beserta terjemahan | Qur'an Offline"
     return {
       title,
       meta: [

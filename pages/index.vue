@@ -111,7 +111,7 @@ export default class PageIndex extends Vue {
   @Mutation setHeaderTitle
 
   get metaHead() {
-    const title = 'Baca Al-Qur\'an dimana saja, langsung dari web browser Anda | Qur\'an Offline'
+    const title = "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Offline"
     return {
       title,
       meta: [

@@ -53,7 +53,7 @@ export default class LastVersePage extends Vue {
   @Mutation setHeaderTitle
 
   get metaHead() {
-    const title = 'Ayat terakhir dibaca | Qur\'an Offline'
+    const title = "Ayat terakhir dibaca | Qur'an Offline"
     return {
       title,
       meta: [

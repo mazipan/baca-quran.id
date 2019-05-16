@@ -52,7 +52,7 @@ export default class PageAllSurah extends Vue {
   @Mutation setHeaderTitle
 
   get metaHead() {
-    const title = 'Daftar semua surat dalam Al-Qur\'an | Qur\'an Offline'
+    const title = "Daftar semua surat dalam Al-Qur'an | Qur'an Offline"
     return {
       title,
       meta: [

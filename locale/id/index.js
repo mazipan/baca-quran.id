@@ -1,4 +1,4 @@
-const title = 'Qur\'an Offline'
+const title = "Qur'an Offline"
 module.exports = {
   title,
   lastRead: 'Terakhir dibaca',
@@ -7,7 +7,7 @@ module.exports = {
   searchSurah: 'Pencarian surat',
   ayatKursi: 'Ayat kursi',
   asmaulHusna: 'Asmaul husna',
-  dailyDoa: 'Do\'a harian',
+  dailyDoa: "Do'a harian",
   surahList: 'Daftar surat',
   about: 'Tentang',
   home: 'Beranda',

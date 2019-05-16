@@ -1,29 +1,27 @@
 module.exports = {
-  plugins: ['@typescript-eslint'],
+  plugins: ["@typescript-eslint"],
   parserOptions: {
-    parser: '@typescript-eslint/parser'
+    parser: "@typescript-eslint/parser"
   },
-  extends: [
-    '@nuxtjs',
-    'plugin:nuxt/recommended',
-  ],
+  extends: ["@nuxtjs", "plugin:nuxt/recommended"],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-unused-vars': 'off',
-    'vue/component-name-in-template-casing': [
-      'error',
-      'PascalCase',
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-unused-vars": "off",
+    "vue/component-name-in-template-casing": [
+      "error",
+      "PascalCase",
       {
-        ignores: ['nuxt', 'nuxt-link', 'nuxt-child', 'no-ssr']
+        ignores: ["nuxt", "nuxt-link", "nuxt-child", "no-ssr"]
       }
     ],
-    'vue/html-closing-bracket-newline': [
-      'error',
+    "vue/html-closing-bracket-newline": [
+      "error",
       {
-        singleline: 'never',
-        multiline: 'never'
+        singleline: "never",
+        multiline: "never"
       }
-    ]
+    ],
+    quotes: [2, "single", { avoidEscape: true }]
   }
 }

@@ -81,7 +81,7 @@ export default class PageAbout extends Vue {
   @Mutation setHeaderTitle
 
   get metaHead() {
-    const title = 'Tentang | Qur\'an Offline'
+    const title = "Tentang | Qur'an Offline"
     return {
       title,
       meta: [
