@@ -5,6 +5,7 @@ branches:
   - master
   - /^greenkeeper/.*$/
   - /^feature/.*$/
+  - /^renovate/.*$/
 cache:
   yarn: true
   directories:
