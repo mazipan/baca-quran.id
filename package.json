@@ -19,7 +19,7 @@
   "dependencies": {
     "axios": "0.19.0",
     "nuxt": "2.8.0",
-    "nuxt-i18n": "5.12.3",
+    "nuxt-i18n": "5.12.4",
     "unfetch": "4.1.0",
     "vue-ionicons": "3.0.4"
   },
