@@ -75,7 +75,7 @@
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
     "ts-jest": "24.0.2",
-    "ts-node": "8.2.0",
+    "ts-node": "8.3.0",
     "typescript": "3.5.2",
     "vue-class-component": "7.1.0",
     "vue-i18n": "8.11.2",
