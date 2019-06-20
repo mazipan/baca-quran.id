@@ -8049,16 +8049,17 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-i18n@5.12.4:
-  version "5.12.4"
-  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-5.12.4.tgz#5f59b4cc4720236dbe42818c17975bdadf5a7396"
-  integrity sha512-8KyjN55IRrVZ6me/mIAoMOQUNxUTXN+T7jDEJQakHVozx3mt7ASa6ACmWzqPgclBOZUSgK5BzuBkbS37d64S2A==
+nuxt-i18n@5.12.5:
+  version "5.12.5"
+  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-5.12.5.tgz#964dc64121a64a214d11ff33ad7ac4dedd849f82"
+  integrity sha512-CSQWbVZ2bWCW+0YhT3GAPYuAoaaSrwLe6q7D7ugie/dy/V95KKYTu5RMUiW3hlpGODosB+f4kGb3I64pkNHyGw==
   dependencies:
     "@kazupon/vue-i18n-loader" "^0.3.0"
     acorn "^6.1.1"
     acorn-dynamic-import "^4.0.0"
     acorn-walk "^6.1.1"
     cookie "^0.4.0"
+    is-https "^1.0.0"
     js-cookie "^2.2.0"
     vue-i18n "^8.11.2"
     vue-i18n-extensions "^0.2.1"
