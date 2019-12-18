@@ -79,7 +79,7 @@
     "typescript": "3.5.3",
     "typescript-parser": "2.6.1",
     "vue-class-component": "7.1.0",
-    "vue-i18n": "8.12.0",
+    "vue-i18n": "8.15.3",
     "vue-jest": "3.0.4",
     "vue-loader": "15.7.0",
     "vue-property-decorator": "8.2.1",
