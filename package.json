@@ -46,7 +46,7 @@
     "babel-plugin-dynamic-import-node-babel-7": "2.0.7",
     "core-js": "2.6.9",
     "cross-env": "5.2.0",
-    "css-loader": "3.0.0",
+    "css-loader": "3.4.2",
     "eslint": "6.0.1",
     "eslint-config-standard": "12.0.0",
     "eslint-formatter-html-extended": "1.0.2",
