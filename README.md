@@ -7,7 +7,7 @@
 
 ## Live Website
 
-<https://www.quran-offline.xyz>
+<https://quran-offline.netlify.app/>
 
 ## Screenshoot
 
