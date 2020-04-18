@@ -9,6 +9,8 @@
     height: 60px;
     text-align: center;
     width: 100%;
+    background: var(--bg-card-color);
+    color: var(--text-color);
   }
 
   &__content {
@@ -29,6 +31,8 @@
   &__nav {
     display: table-cell;
     vertical-align: middle;
+    color: var(--text-color);
+
     &:first-child{
       text-align: left;
       padding-left: 15px;
@@ -46,8 +50,10 @@
     padding: 0;
     outline: none;
     font-size: 30px;
+    color: var(--text-color);
   }
   &__title {
     text-decoration: none;
+    color: var(--text-color);
   }
 }

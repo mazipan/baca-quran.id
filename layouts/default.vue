@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation, Action } from 'vuex-class'
 
 import ArrowUpIcon from 'vue-ionicons/dist/js/ios-arrow-dropup-circle'
@@ -46,15 +46,15 @@ export default class DefaultLayout extends Vue {
   @Action initDataFromBrowserStorage;
   @Action setWebshareSupport;
 
-  hideSidebar(): void {
+  hideSidebar (): void {
     this.setShowSidebar(false)
   }
 
-  handleScroll(): void {
+  handleScroll (): void {
     this.showArrowToTop = window.pageYOffset > 2000
   }
 
-  mounted() {
+  mounted () {
     this.initDataFromBrowserStorage()
     window.addEventListener('scroll', this.handleScroll)
     // @ts-ignore: Unreachable code error
@@ -62,11 +62,11 @@ export default class DefaultLayout extends Vue {
       this.setWebshareSupport(true)
     }
     let clasz = 'no-webp'
-    if (isSupportWebp()) clasz = 'webp'
+    if (isSupportWebp()) { clasz = 'webp' }
     this.webpClass = clasz
   }
 
-  beforedestroy() {
+  beforedestroy () {
     window.removeEventListener('scroll', this.handleScroll)
   }
 }
@@ -74,7 +74,6 @@ export default class DefaultLayout extends Vue {
 
 <style lang="scss">
 @import "@/assets/main.scss";
-@import "@/assets/themes.scss";
 
 .sidebar-cover {
   background-color: rgba(0, 0, 0, 0.5);
@@ -90,6 +89,9 @@ export default class DefaultLayout extends Vue {
   position: fixed;
   bottom: 90px;
   right: 10px;
+  a {
+    color: var(--text-color);
+  }
 }
 .app__content {
   min-height: 100vh;

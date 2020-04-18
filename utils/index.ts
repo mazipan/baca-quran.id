@@ -27,7 +27,7 @@ export const __isFunction = (fn) => {
 }
 
 export const __slugify = (val) => {
-  if (val === null || val === '') return ''
+  if (val === null || val === '') { return '' }
   const url = val.toString()
     .toLowerCase()
     .trim()

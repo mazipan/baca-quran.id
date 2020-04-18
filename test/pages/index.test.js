@@ -17,10 +17,10 @@ const store = new Vuex.Store({
     settingActiveTheme: Theme.LIGHT
   },
   mutations: {
-    [Types.SET_HEADER_TITLE](state, data) {
+    [Types.SET_HEADER_TITLE] (state, data) {
       state.headerTitle = data
     },
-    [Types.SET_THEME](state, data) {
+    [Types.SET_THEME] (state, data) {
       state.settingActiveTheme = data
     }
   },

@@ -1,17 +1,22 @@
 /* eslint-disable no-unused-vars */
-import NuxtConfiguration from '@nuxt/config'
 import { Configuration as WebpackConfiguration } from 'webpack'
-import getRoutes from './build-scripts/getRoutes';
-import getSitemapRoutes from './build-scripts/getSitemapRoutes';
-import getOfflineAssets from './build-scripts/getOfflineAssets';
+import getRoutes from './build-scripts/getRoutes'
+import getSitemapRoutes from './build-scripts/getSitemapRoutes'
+import getOfflineAssets from './build-scripts/getOfflineAssets'
 
 const pkg = require('./package')
 
 const PROD_PATH = 'https://quran-offline.netlify.app/'
 
-const config: NuxtConfiguration = {
+const config = {
+  buildModules: ['@nuxt/typescript-build'],
   debug: true,
   mode: 'universal',
+  typescript: {
+    typeCheck: {
+      eslint: true
+    }
+  },
   /*
    ** Headers of the page
    */
@@ -21,7 +26,7 @@ const config: NuxtConfiguration = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
-      { hid: 'theme-color', name: 'theme-color', content: '#41b883' },
+      { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
 
       { hid: 'og:image', property: 'og:image', content: '/icon.png' },
       { hid: 'og:title', property: 'og:title', content: 'Quran Offline' },
@@ -76,7 +81,7 @@ const config: NuxtConfiguration = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['@/plugins/composition-api'],
 
   /*
    ** Nuxt.js modules
@@ -103,21 +108,14 @@ const config: NuxtConfiguration = {
     extractCSS: true,
     optimizeCSS: true,
     postcss: {
-      // Add plugin names as key and arguments as value
-      // Install them before as dependencies with npm or yarn
       plugins: {
-        'autoprefixer': true
-      },
-      preset: {
-        autoprefixer: {
-          browsers: ['last 2 versions']
-        }
+        autoprefixer: true
       }
     },
     /*
      ** You can extend webpack config here
      */
-    extend(config: WebpackConfiguration, ctx) {
+    extend (config: WebpackConfiguration, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({

@@ -1,18 +1,17 @@
 /* eslint-env jest */
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
+import dummySurahInfo from './__mocks__/surah-info-item'
+import dummySurahDetail from './__mocks__/surah-detail'
 import Helpers from '~/test/helper'
 import Component from '~/pages/_surahid/index.vue'
 
 import { Types } from '~/store/types'
 import Theme from '~/constant/theme'
 
-import dummySurahInfo from './__mocks__/surah-info-item'
-import dummySurahDetail from './__mocks__/surah-detail'
-
 const dummyComponent = {
   extends: Component,
-  data() {
+  data () {
     return {
       allSurahList: [dummySurahInfo],
       surahDetail: dummySurahDetail
@@ -27,7 +26,7 @@ const i18n = Helpers.initI18n(localVue)
 
 const createStore = (dummyAllsurahList) => {
   let surahList = [dummySurahInfo]
-  if (dummyAllsurahList) surahList = dummyAllsurahList
+  if (dummyAllsurahList) { surahList = dummyAllsurahList }
   return new Vuex.Store({
     state: {
       settingActiveTheme: Theme.LIGHT,
@@ -35,10 +34,10 @@ const createStore = (dummyAllsurahList) => {
       allSurahList: surahList
     },
     mutations: {
-      [Types.SET_HEADER_TITLE](state, data) {
+      [Types.SET_HEADER_TITLE] (state, data) {
         state.headerTitle = data
       },
-      [Types.SET_THEME](state, data) {
+      [Types.SET_THEME] (state, data) {
         state.settingActiveTheme = data
       }
     },

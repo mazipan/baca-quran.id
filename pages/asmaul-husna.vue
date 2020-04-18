@@ -37,15 +37,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
 
-import { getAsmaulHusna } from '../services/index'
-
 @Component({
-  async asyncData() {
+  async asyncData () {
     const resp = await import(/* webpackChunkName: "asmaul-husna" */'~/static/data/asmaul-husna.json')
     return {
       asmaulHusna: resp.data
@@ -59,7 +57,7 @@ export default class AsmaulHusnaPage extends Vue {
   @State settingActiveTheme
   @Mutation setHeaderTitle
 
-  get metaHead() {
+  get metaHead () {
     const title = "Daftar lengkap asmaul husna beserta terjemahan | Qur'an Offline"
     return {
       title,
@@ -71,7 +69,7 @@ export default class AsmaulHusnaPage extends Vue {
     }
   }
 
-  get filteredAsmaulHusna() {
+  get filteredAsmaulHusna () {
     if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
       // @ts-ignore: Unreachable code error
       return this.asmaulHusna.filter((item) => {
@@ -85,14 +83,14 @@ export default class AsmaulHusnaPage extends Vue {
         return predicateLatin || predicateTranslation
       })
     // @ts-ignore: Unreachable code error
-    } else return this.asmaulHusna || []
+    } else { return this.asmaulHusna || [] }
   }
 
-  head() {
+  head () {
     return this.metaHead
   }
 
-  mounted() {
+  mounted () {
     this.setHeaderTitle('Asmaul Husna')
   }
 }
@@ -118,6 +116,8 @@ export default class AsmaulHusnaPage extends Vue {
   border-radius: .25em;
   padding: 1.5em;
   text-align: center;
+  background: var(--bg-card-color);
+  color: var(--text-color);
   // desktop
   @media screen and (min-width: 768px) {
     width: 30%;

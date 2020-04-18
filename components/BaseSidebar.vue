@@ -102,7 +102,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { Mutation } from 'vuex-class'
 
 import MdHomeIcon from 'vue-ionicons/dist/js/md-home'
@@ -133,12 +133,12 @@ export default class BaseSidebar extends Vue {
   AppConstant = AppConstant
   @Mutation setShowSidebar
 
-  navigateTo(e): void {
+  navigateTo (e): void {
     this.hideSidebar()
     e.preventDefault()
   }
 
-  hideSidebar(): void {
+  hideSidebar (): void {
     this.setShowSidebar(false)
   }
 }

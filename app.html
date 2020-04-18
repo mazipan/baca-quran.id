@@ -3,13 +3,47 @@
 
 <head {{ HEAD_ATTRS }}>
   {{ HEAD }}
+  <style>
+    /* THEME LIGHT -- start*/
+    .light {
+      --text-color: #071e3d;
+      --link-color: #071e3d;
+      --bg-color: #f6f7f8;
+      --bg-card-color: #f6f7f8;
+      --bg-card-darken-color: #f6f7f8;
+      --bg-body-color: #f6f7f8;
+    }
+    /* THEME LIGHT -- end*/
+
+    /* THEME DARK -- start*/
+    .dark {
+      --text-color: #fff;
+      --link-color: #fff;
+      --bg-color: #071e3d;
+      --bg-card-color: #1f4287;
+      --bg-card-darken-color: #040c0f;
+      --bg-body-color: #071e3d;
+    }
+    /* THEME DARK -- end*/
+
+    /* THEME NATURE -- start*/
+    .nature {
+      --text-color: #333;
+      --link-color: #333;
+      --bg-color: #02c39a;
+      --bg-card-color: #02c39a;
+      --bg-card-darken-color: #028e71;
+      --bg-body-color: #a3e9da;
+    }
+    /* THEME NATURE -- end*/
+  </style>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>
 </head>
 
-<body {{ BODY_ATTRS }} className="light">
+<body {{ BODY_ATTRS }} class="light">
   <script>
     (function () {
-      window.__theme_colors = {'dark': '#282a36', 'light': '#fff', 'nature': '#41b883'};
+      window.__theme_colors = { 'dark': '#1f4287', 'light': '#f6f7f8', 'nature': '#02c39a' };
       window.__onThemeChange = function () { };
       function setTheme(newTheme) {
         window.__theme = newTheme;

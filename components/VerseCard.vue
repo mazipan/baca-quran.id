@@ -65,7 +65,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { State, Action } from 'vuex-class'
 
 import MdShareIcon from 'vue-ionicons/dist/js/md-share'
@@ -90,6 +90,7 @@ export default class VerseCard extends Vue {
   @Prop({ type: [Object, Array], default: () => ({}) }) readonly verseArray!:
     | any
     | any[];
+
   @Prop({ type: Object, default: () => ({}) }) readonly translations!: any;
   @Prop({ type: Object, default: () => ({}) }) readonly tafsir!: any;
   @Prop({ type: Number, default: 0 }) readonly surahId!: number;
@@ -103,8 +104,8 @@ export default class VerseCard extends Vue {
   @Action showNotification;
   @Action shareViaWebshare;
 
-  onClickAudioIcon(verse) {
-    if (this.timeout) clearTimeout(this.timeout)
+  onClickAudioIcon (verse) {
+    if (this.timeout) { clearTimeout(this.timeout) }
 
     this.clickedAudioIcon = verse
     this.timeout = setTimeout(() => {
@@ -112,7 +113,7 @@ export default class VerseCard extends Vue {
     }, 5000)
   }
 
-  onClickAudioItem(audioObj, verse) {
+  onClickAudioItem (audioObj, verse) {
     if (audioObj.id === 'kemenag') {
       const hrefAudio = MurotalConstant.getAudioFromKemenag(
         this.surahId,
@@ -122,15 +123,15 @@ export default class VerseCard extends Vue {
     }
   }
 
-  getTranslation(indexVerse) {
+  getTranslation (indexVerse) {
     return this.translations.id.text[indexVerse]
   }
 
-  getTafsir(indexVerse) {
+  getTafsir (indexVerse) {
     return this.tafsir.id.kemenag.text[indexVerse]
   }
 
-  doSetLastReadVerse(data) {
+  doSetLastReadVerse (data) {
     this.setLastReadVerse(data)
     this.showNotification({
       title: 'Pesan Sukses',
@@ -138,7 +139,7 @@ export default class VerseCard extends Vue {
     })
   }
 
-  shareVerse(verse, index) {
+  shareVerse (verse, index) {
     const data = {
       title: `QS ${this.surahId}:${index}`,
       text: `${verse}

@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import MdMenuIcon from 'vue-ionicons/dist/js/md-menu'
@@ -80,20 +80,20 @@ export default class BaseHeader extends Vue {
   @State headerTitle;
   @Mutation setShowSidebar;
 
-  get isHomePage(): boolean {
+  get isHomePage (): boolean {
     return this.headerTitle === AppConstant.TITLE
   }
 
-  navigateTo(link): void {
+  navigateTo (link): void {
     this.toggleMenuRight()
-    if (link.indexOf('http') >= 0) {
+    if (link.includes('http')) {
       window.location.href = link
     } else {
       this.$router.push(link)
     }
   }
 
-  toggleMenuRight(): void {
+  toggleMenuRight (): void {
     this.isShowMenu = !this.isShowMenu
     if (this.isShowMenu) {
       setTimeout(() => {
@@ -102,11 +102,11 @@ export default class BaseHeader extends Vue {
     }
   }
 
-  toggleSidebar() {
+  toggleSidebar () {
     this.setShowSidebar(true)
   }
 
-  backToPreviousPage() {
+  backToPreviousPage () {
     window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
   }
 }
@@ -126,11 +126,11 @@ export default class BaseHeader extends Vue {
     list-style: none;
 
     li {
-      border-bottom: 1px solid #41b883;
+      border-bottom: 1px solid var(--bg-color);
       .menu_link {
         display: block;
-        background-color: #1a1a1a;
-        color: $theme;
+        background-color: var(--bg-color);
+        color: var(--text-color);
         text-decoration: none;
         padding: 15px 25px;
         font-size: 16px;

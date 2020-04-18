@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
+import { Component, Prop, Watch, Vue } from 'nuxt-property-decorator'
 
 import MdArrowBackIcon from 'vue-ionicons/dist/js/md-arrow-back'
 import MdArrowForwardIcon from 'vue-ionicons/dist/js/md-arrow-forward'
@@ -65,19 +65,21 @@ export default class SurahNavigation extends Vue {
   @Prop({ type: Number, default: 0 }) readonly numberAyah!: number
 
   @Watch('selectedVerse')
-  onChildChanged(val: string, oldVal: string): void {
+  onChildChanged (val: string): void {
     window.location.href = `#verse-${val}`
   }
 
-  get isHavePrev(): boolean {
+  get isHavePrev (): boolean {
     return this.surahId > 1
   }
 
-  get isHaveNext(): boolean {
+  get isHaveNext (): boolean {
     return this.surahId < 114
   }
 
-  get arrayAyah(): number[] {
+  get arrayAyah (): number[] {
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return Array.from({ length: this.numberAyah }, (v, k) => k + 1)
   }
 }
@@ -99,9 +101,13 @@ export default class SurahNavigation extends Vue {
   height: 60px;
   text-align: center;
   width: 100%;
+  background: var(--bg-card-color);
+  color: var(--text-color);
+
   &_item {
     display: flex;
     align-items: center;
+    color: var(--text-color);
   }
   &_title {
     font-size: 2rem;
@@ -128,6 +134,8 @@ export default class SurahNavigation extends Vue {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAAXNSR0IArs4c6QAAAJ1JREFUCB1jzMnJCWdkZBSdPHnyFAYk0NDQwPbmzZuVTExMk5iA4p7//v2bDFScC1OzatUqZqCC5f////cHyikwiYiIJAFNWgIUmARSCKQZDx48OAdIBwJNSZ8yZcp8RpBuoNFMQJ0LgRIxQO4hILYFKsgEOmEmSJ4ZRBw4cOC/l5fXxu/fvysDub5Ak3OAJswAyWEAkIm5ublu6BIADTRHW7YWzxEAAAAASUVORK5CYII=");
   background-position: right 7px center;
   background-repeat: no-repeat;
+  color: var(--bg-color);
+  border: 1px solid var(--text-color);
 }
 .text-nav{
   // mobile

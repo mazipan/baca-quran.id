@@ -16,7 +16,7 @@ export const getItem = (key, v) => {
               // @TODO cek delete item
               // localStorage.deleteItem(key)
             }
-          } else return dataInCache.value // return value when version null without checking version
+          } else { return dataInCache.value } // return value when version null without checking version
         }
       }
     } catch (e) {

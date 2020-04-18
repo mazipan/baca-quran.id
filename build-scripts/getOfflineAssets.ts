@@ -17,4 +17,4 @@ const getOfflineAssets = (): string[] => {
   return res
 }
 
-export default getOfflineAssets;
+export default getOfflineAssets

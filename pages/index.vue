@@ -79,7 +79,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import MdBookIcon from 'vue-ionicons/dist/js/md-book'
@@ -110,7 +110,7 @@ export default class PageIndex extends Vue {
   @State settingActiveTheme;
   @Mutation setHeaderTitle
 
-  get metaHead() {
+  get metaHead () {
     const title = "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Offline"
     return {
       title,
@@ -122,11 +122,11 @@ export default class PageIndex extends Vue {
     }
   }
 
-  head() {
+  head () {
     return this.metaHead
   }
 
-  mounted() {
+  mounted () {
     this.setHeaderTitle(AppConstant.TITLE)
   }
 }
@@ -152,6 +152,8 @@ export default class PageIndex extends Vue {
     padding: 1em;
     border-radius: 4px;
     font-size: 1rem;
+    background: var(--bg-card-color);
+    color: var(--text-color);
   }
 }
 </style>

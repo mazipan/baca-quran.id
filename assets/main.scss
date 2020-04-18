@@ -21,7 +21,7 @@ html {
   margin: 0;
 }
 
-body{
+body {
   background: var(--bg-body-color);
   color: var(--text-color);
 }
@@ -66,6 +66,8 @@ a {
   padding: 1em;
   border-radius: 4px;
   font-size: 1rem;
+  background: var(--bg-card-color);
+  color: var(--text-color);
 }
 
 .tag_index {
@@ -75,6 +77,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--bg-card-darken-color);
+  color: var(--text-color);
 }
 
 .skeleton {

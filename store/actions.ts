@@ -7,7 +7,7 @@ import { Types } from './types'
 import { StateType } from './state'
 
 export const actions: ActionTree<StateType, StateType> = {
-  initDataFromBrowserStorage({ commit }) {
+  initDataFromBrowserStorage ({ commit }) {
     // data favorite surah
     const cacheFavorite = getItem(storageKey.FAVORITE, null) || []
     commit(Types.SET_FAVORITE, cacheFavorite)
@@ -24,13 +24,13 @@ export const actions: ActionTree<StateType, StateType> = {
     const cacheTafsir = getItem(storageKey.SETTING_TAFSIR, null)
     commit(Types.SET_SETTING_TAFSIR, __isNotNull(cacheTafsir) ? cacheTafsir : true)
   },
-  showNotification({ commit }, { title = '', message = '' }) {
+  showNotification ({ commit }, { title = '', message = '' }) {
     commit(Types.SET_NOTIFICATION, { show: true, title, message })
     setTimeout(() => {
       commit(Types.SET_NOTIFICATION, { show: false, title: '', message: '' })
     }, 3000)
   },
-  addToFavorite({ commit, state }, surah) {
+  addToFavorite ({ commit, state }, surah) {
     const isExist = state.surahFavorite.find(item => item.index === surah.index)
     if (!isExist) {
       // @ts-ignore: Unreachable code error
@@ -40,7 +40,7 @@ export const actions: ActionTree<StateType, StateType> = {
       setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
-  removeFromFavorite({ commit, state }, surah) {
+  removeFromFavorite ({ commit, state }, surah) {
     const isExist = state.surahFavorite.find(item => item.index === surah.index)
     if (isExist) {
       const newFavorite = state.surahFavorite.filter(item => item.index !== surah.index) || []
@@ -49,16 +49,16 @@ export const actions: ActionTree<StateType, StateType> = {
       setItem(storageKey.FAVORITE, newFavorite, null)
     }
   },
-  setLastReadVerse({ commit }, { surah, verse }) {
+  setLastReadVerse ({ commit }, { surah, verse }) {
     const data = { surah, verse }
     commit(Types.SET_LAST_READ, data)
     // @ts-ignore: Unreachable code error
     setItem(storageKey.LAST_READ, data, null)
   },
-  setWebshareSupport({ commit }, isSupport) {
+  setWebshareSupport ({ commit }, isSupport) {
     commit(Types.SET_SUPPORT_WEBSHARE, isSupport)
   },
-  shareViaWebshare({ state }, { title, text, url }) {
+  shareViaWebshare ({ state }, { title, text, url }) {
     if (state.isSupportWebShare) {
       // @ts-ignore: Unreachable code error
       if (window.navigator.share) { /* eslint-disable-line no-undef */
@@ -71,15 +71,15 @@ export const actions: ActionTree<StateType, StateType> = {
       }
     }
   },
-  setActiveTheme({ commit }, theme) {
+  setActiveTheme ({ commit }, theme) {
     setItem(storageKey.SETTING_THEME, theme, null)
     commit(Types.SET_THEME, theme)
   },
-  setSettingTranslation({ commit }, payload) {
+  setSettingTranslation ({ commit }, payload) {
     setItem(storageKey.SETTING_TRANSLATION, payload, null)
     commit(Types.SET_SETTING_TRANSLATION, payload)
   },
-  setSettingTafsir({ commit }, payload) {
+  setSettingTafsir ({ commit }, payload) {
     setItem(storageKey.SETTING_TAFSIR, payload, null)
     commit(Types.SET_SETTING_TAFSIR, payload)
   }

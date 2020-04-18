@@ -1,17 +1,16 @@
 /* eslint-env jest */
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
+import dummyAsmaulHusna from './__mocks__/asmaul-husna'
 import Helpers from '~/test/helper'
 import Component from '~/pages/asmaul-husna.vue'
 
 import { Types } from '~/store/types'
 import Theme from '~/constant/theme'
 
-import dummyAsmaulHusna from './__mocks__/asmaul-husna'
-
 const dummyComponent = {
   extends: Component,
-  data() {
+  data () {
     return {
       asmaulHusna: dummyAsmaulHusna
     }
@@ -30,10 +29,10 @@ const store = new Vuex.Store({
     asmaulHusna: dummyAsmaulHusna
   },
   mutations: {
-    [Types.SET_HEADER_TITLE](state, data) {
+    [Types.SET_HEADER_TITLE] (state, data) {
       state.headerTitle = data
     },
-    [Types.SET_THEME](state, data) {
+    [Types.SET_THEME] (state, data) {
       state.settingActiveTheme = data
     }
   },

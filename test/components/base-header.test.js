@@ -1,13 +1,12 @@
 /* eslint-env jest */
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
+import DummyComponent from '../Dummy.vue'
 import Helpers from '~/test/helper'
 import Component from '~/components/BaseHeader.vue'
 
 import { AppConstant } from '~/constant/index'
 import { Types } from '~/store/types'
-
-import DummyComponent from '../Dummy.vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -29,10 +28,10 @@ const store = new Vuex.Store({
     headerTitle: AppConstant.TITLE
   },
   mutations: {
-    [Types.SET_HEADER_TITLE](state, data) {
+    [Types.SET_HEADER_TITLE] (state, data) {
       state.headerTitle = data
     },
-    [Types.SET_SHOW_SIDEBAR](state, data) {
+    [Types.SET_SHOW_SIDEBAR] (state, data) {
       state.isShowSidebar = data
     }
   },

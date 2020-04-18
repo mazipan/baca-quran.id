@@ -23,18 +23,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
-import { getAllSurah } from '../services/index'
 
 @Component({
   components: {
     SurahCard
   },
-  async asyncData() {
+  async asyncData () {
     const resp = await import(/* webpackChunkName: "surah-info" */'~/static/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
@@ -51,7 +50,7 @@ export default class PageAllSurah extends Vue {
   @State settingActiveTheme
   @Mutation setHeaderTitle
 
-  get metaHead() {
+  get metaHead () {
     const title = "Daftar semua surat dalam Al-Qur'an | Qur'an Offline"
     return {
       title,
@@ -63,7 +62,7 @@ export default class PageAllSurah extends Vue {
     }
   }
 
-  get filteredSurah() {
+  get filteredSurah () {
     if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
       // @ts-ignore: Unreachable code error
       return this.allSurahList.filter((item) => {
@@ -77,14 +76,14 @@ export default class PageAllSurah extends Vue {
         return predicateLatin || predicateTranslation
       })
       // @ts-ignore: Unreachable code error
-    } else return this.allSurahList
+    } else { return this.allSurahList }
   }
 
-  head() {
+  head () {
     return this.metaHead
   }
 
-  mounted() {
+  mounted () {
     this.setHeaderTitle('Daftar Surat')
   }
 }

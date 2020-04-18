@@ -1,4 +1,4 @@
-import getRoutes from './getRoutes';
+import getRoutes from './getRoutes'
 
 interface sitemap {
   url: string
@@ -21,4 +21,4 @@ const getSitemapRoutes = (): sitemap[] => {
   return res
 }
 
-export default getSitemapRoutes;
+export default getSitemapRoutes

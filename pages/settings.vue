@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation, Action } from 'vuex-class'
 
 import Theme from '../constant/theme'
@@ -78,7 +78,7 @@ export default class SettingsPage extends Vue {
   @Action setSettingTranslation
   @Action setSettingTafsir
 
-  get metaHead() {
+  get metaHead () {
     const title = "Halaman setelan | Qur'an Offline"
     return {
       title,
@@ -90,28 +90,30 @@ export default class SettingsPage extends Vue {
     }
   }
 
-  head() {
+  head () {
     return this.metaHead
   }
 
-  setDefaultSetting() {
+  setDefaultSetting () {
     this.modelSettingTranslation = this.settingShowTranslation
     this.modelSettingTafsir = this.settingShowTafsir
   }
 
-  onSelectTheme(theme) {
+  onSelectTheme (theme) {
     this.setActiveTheme(theme)
+    // @ts-ignore
+    window.__setPreferredTheme(theme.name.toLowerCase())
   }
 
-  onChangeSettingTranslation() {
+  onChangeSettingTranslation () {
     this.setSettingTranslation(this.modelSettingTranslation)
   }
 
-  onChangeSettingTafsir() {
+  onChangeSettingTafsir () {
     this.setSettingTafsir(this.modelSettingTafsir)
   }
 
-  mounted() {
+  mounted () {
     this.setHeaderTitle('Setelan')
     setTimeout(() => {
       this.setDefaultSetting()

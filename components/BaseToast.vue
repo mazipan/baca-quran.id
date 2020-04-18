@@ -13,14 +13,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State } from 'vuex-class'
 
 @Component
 export default class BaseToast extends Vue {
   @State notification
 
-  get visibleNotification(): boolean {
+  get visibleNotification (): boolean {
     return this.notification.show
   }
 }

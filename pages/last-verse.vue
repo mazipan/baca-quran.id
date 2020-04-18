@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
@@ -30,14 +30,13 @@ import LastReadCard from '../components/LastReadCard.vue'
 
 import { AppConstant } from '../constant'
 import { __isNotNull } from '../utils/index'
-import { getAllSurah } from '../services/index'
 
 @Component({
   components: {
     IosBookmarkIcon,
     LastReadCard
   },
-  async asyncData() {
+  async asyncData () {
     const resp = await import(/* webpackChunkName: "surah-info" */'~/static/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
@@ -52,7 +51,7 @@ export default class LastVersePage extends Vue {
   @State lastReadVerse;
   @Mutation setHeaderTitle
 
-  get metaHead() {
+  get metaHead () {
     const title = "Ayat terakhir dibaca | Qur'an Offline"
     return {
       title,
@@ -68,11 +67,11 @@ export default class LastVersePage extends Vue {
     }
   }
 
-  get isHaveLastRead() {
+  get isHaveLastRead () {
     return __isNotNull(this.lastReadVerse && this.lastReadVerse.surah)
   }
 
-  get lastReadVerseData() {
+  get lastReadVerseData () {
     if (this.isHaveLastRead) {
       // @ts-ignore: Unreachable code error
       const res = this.allSurahList.find(
@@ -83,11 +82,11 @@ export default class LastVersePage extends Vue {
     return null
   }
 
-  head() {
+  head () {
     return this.metaHead
   }
 
-  mounted() {
+  mounted () {
     this.setHeaderTitle(AppConstant.LAST_READ)
   }
 }

@@ -1,13 +1,12 @@
 /* eslint-env jest */
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
+import dummySurahInfo from './__mocks__/surah-info-item'
 import Helpers from '~/test/helper'
 import Component from '~/pages/favorite.vue'
 
 import { Types } from '~/store/types'
 import Theme from '~/constant/theme'
-
-import dummySurahInfo from './__mocks__/surah-info-item'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -20,10 +19,10 @@ const store = new Vuex.Store({
     surahFavorite: dummySurahInfo
   },
   mutations: {
-    [Types.SET_HEADER_TITLE](state, data) {
+    [Types.SET_HEADER_TITLE] (state, data) {
       state.headerTitle = data
     },
-    [Types.SET_THEME](state, data) {
+    [Types.SET_THEME] (state, data) {
       state.settingActiveTheme = data
     }
   },

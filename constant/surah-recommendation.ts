@@ -8,7 +8,8 @@ export default {
       index: 12
     },
     { translation: 'Goa', arabic: 'الكهف', latin: 'Al-Kahf', ayah_count: 110, index: 18 },
-    { translation: 'Yasin',
+    {
+      translation: 'Yasin',
       arabic: 'يٰسۤ',
       latin: 'Yasin',
       ayah_count: 83,

@@ -43,18 +43,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
-import { getDailyDoa } from '../services/index'
 
 interface expandedData {
   title: string
 }
 
 @Component({
-  async asyncData() {
+  async asyncData () {
     const resp = await import(/* webpackChunkName: "daily-doa" */'~/static/data/daily-doa.json')
     return {
       dailyDoa: resp.data
@@ -71,7 +70,7 @@ export default class DailyDoaPage extends Vue {
   @State settingActiveTheme
   @Mutation setHeaderTitle
 
-  get metaHead() {
+  get metaHead () {
     const title = "Daftar bacaan do'a sehari-hari beserta terjemahan | Qur'an Offline"
     return {
       title,
@@ -83,7 +82,7 @@ export default class DailyDoaPage extends Vue {
     }
   }
 
-  get filteredDailyDoa() {
+  get filteredDailyDoa () {
     if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
       // @ts-ignore: Unreachable code error
       return this.dailyDoa.filter((item) => {
@@ -94,26 +93,26 @@ export default class DailyDoaPage extends Vue {
         return predicate
       })
       // @ts-ignore: Unreachable code error
-    } else return this.dailyDoa || []
+    } else { return this.dailyDoa || [] }
   }
 
-  head() {
+  head () {
     return this.metaHead
   }
 
-  onClickDoa(item: expandedData): void {
+  onClickDoa (item: expandedData): void {
     if (this.isExpanded(item.title)) {
       this.expandedData = {
         title: ''
       }
-    } else this.expandedData = item
+    } else { this.expandedData = item }
   }
 
-  isExpanded(title: string): boolean {
+  isExpanded (title: string): boolean {
     return title === this.expandedData.title
   }
 
-  mounted() {
+  mounted () {
     this.setHeaderTitle("Do'a Harian")
   }
 }
@@ -129,6 +128,8 @@ export default class DailyDoaPage extends Vue {
   text-align: center;
   width: 100%;
   margin: 1em 0 0 0;
+  background: var(--bg-card-color);
+  color: var(--text-color);
 
   &__title {
     font-size: 1.3rem;
@@ -136,9 +137,10 @@ export default class DailyDoaPage extends Vue {
 }
 .collapsible{
   margin-top: 1em;
-  background-color: #c6f3df;
   padding: 1em;
   border-radius: .25em;
+  background: var(--bg-card-darken-color);
+  color: var(--text-color);
 }
 .arabic{
   font-size: 2rem;

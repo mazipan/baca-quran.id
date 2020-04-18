@@ -55,7 +55,7 @@ describe('component BaseHeader.vue', () => {
       translations: {
         id: {
           text: {
-            '2': 'dummy'
+            2: 'dummy'
           }
         }
       }
@@ -71,7 +71,7 @@ describe('component BaseHeader.vue', () => {
         id: {
           kemenag: {
             text: {
-              '2': 'dummy'
+              2: 'dummy'
             }
           }
         }
@@ -95,7 +95,7 @@ describe('component BaseHeader.vue', () => {
       translations: {
         id: {
           text: {
-            '2': 'dummy'
+            2: 'dummy'
           }
         }
       }

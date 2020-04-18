@@ -6,7 +6,6 @@ module.exports = {
     '**/components/**/*.{js,ts,vue}',
     '**/layouts/**/*.{js,ts,vue}',
     '**/pages/**/*.{js,ts,vue}',
-    '**/services/**/*.{js,ts,vue}',
     '**/store/**/*.{js,ts,vue}',
     // exclude folder and files
     '!**/utils/**/*.{js,ts,vue}',

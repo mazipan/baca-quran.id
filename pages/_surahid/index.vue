@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import VerseCard from '../../components/VerseCard.vue'
@@ -34,7 +34,6 @@ import SurahHeader from '../../components/SurahHeader.vue'
 import SurahNavigation from '../../components/SurahNavigation.vue'
 
 import { __isNotNull, __isNotEmptyArray } from '../../utils/index'
-import { getAllSurah, getSurahById } from '../../services/index'
 
 @Component({
   components: {
@@ -42,7 +41,7 @@ import { getAllSurah, getSurahById } from '../../services/index'
     SurahHeader,
     SurahNavigation
   },
-  async asyncData({ params }) {
+  async asyncData ({ params }) {
     const respDetail = await import(`~/static/data/surah/${params.surahid}.json`)
     const resp = await import(/* webpackChunkName: "surah-info" */ '~/static/data/surah-info.json')
     return {
@@ -61,7 +60,7 @@ export default class SurahDetailPage extends Vue {
   @State settingActiveTheme
   @Mutation setHeaderTitle
 
-  get metaHead() {
+  get metaHead () {
     // @ts-ignore: Unreachable code error
     const title = `Baca Al-Qur'an surat ke ${this.surahId} - ${this.currentSurah.name_latin} | Qur'an Offline`
 
@@ -79,7 +78,7 @@ export default class SurahDetailPage extends Vue {
     }
   }
 
-  get surahId() {
+  get surahId () {
     let id = 0
     if (__isNotNull(this.$route.params && this.$route.params.surahid)) {
       id = Number(this.$route.params.surahid)
@@ -87,11 +86,11 @@ export default class SurahDetailPage extends Vue {
     return id
   }
 
-  get isValidSurah() {
+  get isValidSurah () {
     return this.surahId > 0 && this.surahId <= 114
   }
 
-  get prevSurah() {
+  get prevSurah () {
     if (__isNotEmptyArray(this.allSurahList)) {
       if (this.surahId > 1) {
         // @ts-ignore: Unreachable code error
@@ -101,7 +100,7 @@ export default class SurahDetailPage extends Vue {
     return null
   }
 
-  get nextSurah() {
+  get nextSurah () {
     if (__isNotEmptyArray(this.allSurahList)) {
       if (this.surahId < 114) {
         // @ts-ignore: Unreachable code error
@@ -111,11 +110,11 @@ export default class SurahDetailPage extends Vue {
     return null
   }
 
-  head() {
+  head () {
     return this.metaHead
   }
 
-  mounted() {
+  mounted () {
     // @ts-ignore: Unreachable code error
     this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
   }

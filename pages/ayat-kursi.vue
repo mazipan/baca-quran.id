@@ -12,13 +12,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { getAyatKursi } from '../services/index'
-
 @Component({
-  async asyncData() {
+  async asyncData () {
     const resp = await import(/* webpackChunkName: 'ayat-kursi' */ '~/static/data/ayat-kursi.json')
     return {
       ayatKursi: resp.data
@@ -29,7 +27,7 @@ export default class AyatKursiPage extends Vue {
   @State settingActiveTheme;
   @Mutation setHeaderTitle;
 
-  get metaHead() {
+  get metaHead () {
     const title = "Bacaan dan terjemah ayat kursi | Qur'an Offline"
     return {
       title,
@@ -45,11 +43,11 @@ export default class AyatKursiPage extends Vue {
     }
   }
 
-  head() {
+  head () {
     return this.metaHead
   }
 
-  mounted() {
+  mounted () {
     this.setHeaderTitle('Ayat Kursi')
   }
 }

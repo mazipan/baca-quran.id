@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
@@ -43,7 +43,7 @@ export default class FavoritePage extends Vue {
   @State surahFavorite;
   @Mutation setHeaderTitle;
 
-  get metaHead() {
+  get metaHead () {
     const title = "Baca berbagai surat favorit dalam Al-Qur'an | Qur'an Offline"
     return {
       title,
@@ -55,15 +55,15 @@ export default class FavoritePage extends Vue {
     }
   }
 
-  get isHaveFav() {
+  get isHaveFav () {
     return __isNotEmptyArray(this.surahFavorite)
   }
 
-  head() {
+  head () {
     return this.metaHead
   }
 
-  mounted() {
+  mounted () {
     this.setHeaderTitle(AppConstant.FAVORITE)
   }
 }

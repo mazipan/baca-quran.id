@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class SurahHeader extends Vue {
@@ -34,7 +34,7 @@ export default class SurahHeader extends Vue {
   align-items: center;
 
   &_index {
-    background-color: #52e0a1;
+    background-color: var(--bg-card-darken-color);
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     display: flex;
@@ -43,8 +43,8 @@ export default class SurahHeader extends Vue {
     padding: .25em .5em;
   }
   &_content {
-    background-color: #000;
-    color: #52e0a1;
+    background-color: var(--bg-card-color);
+    color: var(--text-color);
     flex-grow: 1;
     justify-content: space-between;
     border-top-right-radius: 4px;

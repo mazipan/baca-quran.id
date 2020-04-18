@@ -1,17 +1,16 @@
 /* eslint-env jest */
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
+import dummySurahInfo from './__mocks__/surah-info-item'
 import Helpers from '~/test/helper'
 import Component from '~/pages/all-surah.vue'
 
 import { Types } from '~/store/types'
 import Theme from '~/constant/theme'
 
-import dummySurahInfo from './__mocks__/surah-info-item'
-
 const dummyComponent = {
   extends: Component,
-  data() {
+  data () {
     return {
       allSurahList: [dummySurahInfo]
     }
@@ -30,13 +29,13 @@ const store = new Vuex.Store({
     allSurahList: [dummySurahInfo]
   },
   mutations: {
-    [Types.SET_HEADER_TITLE](state, data) {
+    [Types.SET_HEADER_TITLE] (state, data) {
       state.headerTitle = data
     },
-    [Types.SET_THEME](state, data) {
+    [Types.SET_THEME] (state, data) {
       state.settingActiveTheme = data
     },
-    [Types.SET_SURAH_LIST](state, data) {
+    [Types.SET_SURAH_LIST] (state, data) {
       state.allSurahList = data
     }
   },

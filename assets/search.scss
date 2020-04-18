@@ -12,6 +12,8 @@
     background-color: #fff;
     font-size: 1rem;
     border-radius: 4px;
+    color: var(--bg-color);
+    border: 1px solid var(--text-color);
   }
 
   &__title{

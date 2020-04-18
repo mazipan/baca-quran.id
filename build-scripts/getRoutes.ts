@@ -25,4 +25,4 @@ const getRoutes = (): string[] => {
   return res
 }
 
-export default getRoutes;
+export default getRoutes

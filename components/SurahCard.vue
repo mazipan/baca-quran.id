@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { State, Action } from 'vuex-class'
 
 import { SurahInfo } from '../models/SurahInfo'
@@ -66,7 +66,7 @@ export default class SurahCard extends Vue {
   @Action removeFromFavorite
   @Action showNotification
 
-  doAddToFavorite(surah): void {
+  doAddToFavorite (surah): void {
     this.addToFavorite(surah)
     this.showNotification({
       title: 'Pesan Sukses',
@@ -74,7 +74,7 @@ export default class SurahCard extends Vue {
     })
   }
 
-  doRemoveFromfavorite(surah): void {
+  doRemoveFromfavorite (surah): void {
     this.removeFromFavorite(surah)
     this.showNotification({
       title: 'Pesan Sukses',
@@ -82,17 +82,17 @@ export default class SurahCard extends Vue {
     })
   }
 
-  findInFavorite(surah: any): boolean {
+  findInFavorite (surah: any): boolean {
     const favArray = this.surahFavorite || []
     const isExist = favArray.find(item => item.index === surah.index)
     return !!isExist
   }
 
-  getSurahDetailUrl(index): string {
+  getSurahDetailUrl (index): string {
     return `/${index}`
   }
 
-  goToSurahDetail(index): void {
+  goToSurahDetail (index): void {
     const path = this.getSurahDetailUrl(index)
     this.$router.push(path)
   }

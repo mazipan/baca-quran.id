@@ -23,4 +23,8 @@
   &__count{
     text-align: right;
   }
+
+  svg {
+    fill: var(--text-color);
+  }
 }
