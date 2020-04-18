@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html {{ HTML_ATTRS }}>
-  <head {{ HEAD_ATTRS }}>
-    {{ HEAD }}
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>
-  </head>
-  <body {{ BODY_ATTRS }}>
-    {{ APP }}
-  </body>
+
+<head {{ HEAD_ATTRS }}>
+  {{ HEAD }}
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>
+</head>
+
+<body {{ BODY_ATTRS }} className="light">
+  <script>
+    (function () {
+      window.__theme_colors = {'dark': '#282a36', 'light': '#fff', 'nature': '#41b883'};
+      window.__onThemeChange = function () { };
+      function setTheme(newTheme) {
+        window.__theme = newTheme;
+        preferredTheme = newTheme;
+        document.body.className = newTheme;
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", window.__theme_colors[newTheme]);
+        window.__onThemeChange(newTheme);
+      }
+      var preferredTheme;
+      try {
+        preferredTheme = localStorage.getItem('theme');
+      } catch (err) { }
+      window.__setPreferredTheme = function (newTheme) {
+        setTheme(newTheme);
+        try {
+          localStorage.setItem('theme', newTheme);
+        } catch (err) { }
+      }
+      var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      darkQuery.addListener(function (e) {
+        window.__setPreferredTheme(e.matches ? 'dark' : 'light')
+      });
+      setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+    })();
+  </script>
+  {{ APP }}
+</body>
+
 </html>

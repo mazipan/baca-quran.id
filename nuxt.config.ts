@@ -1,74 +1,13 @@
 /* eslint-disable no-unused-vars */
 import NuxtConfiguration from '@nuxt/config'
 import { Configuration as WebpackConfiguration } from 'webpack'
+import getRoutes from './build-scripts/getRoutes';
+import getSitemapRoutes from './build-scripts/getSitemapRoutes';
+import getOfflineAssets from './build-scripts/getOfflineAssets';
 
-const SurahConstant = require('./constant/surah')
 const pkg = require('./package')
 
-const PROD_PATH = 'https://www.quran-offline.xyz/'
-
-const getOfflineAssets = (): string[] => {
-  const res: string[] = [
-    '/favicon.ico',
-    '/favicon-16x16.png',
-    '/favicon-32x32.png',
-    '/favicon-96x96.png',
-    '/icon-192x192.png',
-    '/icon-nosquare.png',
-    '/icon-nosquare50.png',
-    '/icon.png',
-    '/data/surah-info.json'
-  ]
-  for (let i = 1; i < 115; i++) {
-    res.push(`/data/surah/${i}.json`)
-  }
-  return res
-}
-
-const routes = (): string[] => {
-  const res: string[] = [
-    '/',
-    '/about',
-    '/all-surah',
-    '/asmaul-husna',
-    '/ayat-kursi',
-    '/daily-doa',
-    '/favorite',
-    '/last-verse',
-    '/recommendation',
-    '/settings'
-  ]
-  for (let i = 1; i < 115; i++) {
-    res.push(`/${i}`)
-    const surahObj = SurahConstant.find(item => item.index === i)
-    if (surahObj) {
-      for (let j = 1; j < surahObj.ayah_count + 1; j++) {
-        // res.push(`/${i}/${j}`)
-      }
-    }
-  }
-  return res
-}
-interface sitemap {
-  url: string
-  changefreq: string
-  priority: number
-  lastmodISO: string
-}
-
-const routesSitemap = (): sitemap[] => {
-  const res: sitemap[] = []
-  routes().forEach((el) => {
-    const item: sitemap = {
-      url: el,
-      changefreq: 'daily',
-      priority: 1,
-      lastmodISO: String(new Date().toISOString())
-    }
-    res.push(item)
-  })
-  return res
-}
+const PROD_PATH = 'https://quran-offline.netlify.app/'
 
 const config: NuxtConfiguration = {
   debug: true,
@@ -145,16 +84,16 @@ const config: NuxtConfiguration = {
   modules: ['@nuxtjs/pwa', '@nuxtjs/sitemap'],
 
   sitemap: {
-    hostname: 'https://quran-offline.netlify.com/',
+    hostname: PROD_PATH,
     cacheTime: 1000 * 60 * 15,
     gzip: true,
-    routes: routesSitemap()
+    routes: getSitemapRoutes()
   },
   /*
    ** Generate multiple entry html from 1 to 114
    */
   generate: {
-    routes: routes()
+    routes: getRoutes()
   },
   /*
    ** Build configuration

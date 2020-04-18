@@ -1,5 +1,5 @@
 <template>
-  <div :class="`${settingActiveTheme.name} ${webpClass}`" class="quran-offline app js">
+  <div :class="`app-${settingActiveTheme.name} ${webpClass}`" class="quran-offline app js">
     <div v-show="isShowSidebar" class="sidebar-cover" @click="hideSidebar" />
     <BaseSidebar :class="{'sidebar--open': isShowSidebar}" />
     <BaseHeader />
@@ -75,6 +75,7 @@ export default class DefaultLayout extends Vue {
 <style lang="scss">
 @import "@/assets/main.scss";
 @import "@/assets/themes.scss";
+
 .sidebar-cover {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;

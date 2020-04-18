@@ -1,5 +1,3 @@
-@import './variables';
-
 @font-face {
   font-family: "lpmq";
   src: url(/fonts/lpmq.otf) format("opentype")
@@ -23,8 +21,13 @@ html {
   margin: 0;
 }
 
+body{
+  background: var(--bg-body-color);
+  color: var(--text-color);
+}
+
 a {
-  color: $theme;
+  color: var(--link-color);
 }
 
 .font-arabic{

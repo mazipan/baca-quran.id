@@ -1,5 +1,3 @@
-@import './variables';
-
 .sidebar {
   position: fixed; top: 0; bottom: 0; left: 0;
   overflow: hidden;
@@ -41,7 +39,7 @@
   }
   &__link {
     display: block;
-    color: $foreground;
+    color: var(--text-color);
     text-decoration: none;
     padding: 15px 25px;
     font-size: 16px;
