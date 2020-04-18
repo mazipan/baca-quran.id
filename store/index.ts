@@ -6,7 +6,7 @@ import { actions } from './actions'
 
 const createStore = () => {
   return new Vuex.Store({
-    state: state(),
+    state: state,
     mutations,
     actions
   })

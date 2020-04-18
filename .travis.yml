@@ -1,11 +1,12 @@
 language: node_js
-node_js: '8'
+node_js: '12'
 branches:
   only:
   - master
   - /^greenkeeper/.*$/
   - /^feature/.*$/
   - /^renovate/.*$/
+
 cache:
   yarn: true
   directories:
@@ -14,11 +15,11 @@ install:
   - yarn install
 script:
   - yarn run lint
-  - yarn run test
+  # - yarn run test
   - yarn run generate
-after_script:
-  - npm install -g codecov
-  - codecov
+# after_script:
+#   - npm install -g codecov
+#   - codecov
 deploy:
   provider: pages
   skip-cleanup: true
@@ -29,5 +30,5 @@ deploy:
   on:
     branch: master
 
-after_success:
-  - yarn run lh -- --pwa=80 --perf=80 --seo=80 --a11y=80 --bp=80 https://www.quran-offline.xyz
+# after_success:
+#   - yarn run lh -- --pwa=80 --perf=80 --seo=80 --a11y=80 --bp=80 https://www.quran-offline.xyz

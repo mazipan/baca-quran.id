@@ -17,7 +17,7 @@ export interface StateType {
 }
 
 // initial state
-export const state = (): StateType => ({
+export const state: StateType = {
   notification: {
     show: false,
     title: '',
@@ -31,4 +31,4 @@ export const state = (): StateType => ({
   settingShowTranslation: true,
   settingShowTafsir: true,
   surahFavorite: []
-})
+}

@@ -1,16 +1,16 @@
 const LIGHT = {
   name: 'light',
-  bgColor: '#FFFF',
-  fgColor: '#333'
+  bgColor: '#f6f7f8',
+  fgColor: '#071e3d'
 }
 const DARK = {
   name: 'dark',
-  bgColor: '#333',
-  fgColor: '#FFF'
+  bgColor: '#071e3d',
+  fgColor: '#fff'
 }
 const GREEN = {
   name: 'nature',
-  bgColor: '#41b883',
+  bgColor: '#02c39a',
   fgColor: '#333'
 }
 
