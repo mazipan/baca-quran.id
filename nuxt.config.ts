@@ -105,7 +105,7 @@ const config = {
    */
   build: {
     parallel: true,
-    extractCSS: true,
+    // extractCSS: true,
     optimizeCSS: true,
     postcss: {
       plugins: {
