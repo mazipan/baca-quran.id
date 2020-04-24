@@ -15,13 +15,13 @@
 
 ## Screenshoot
 
-|                Home Light Theme                |                Home Dark Theme               |                 Home Nature Theme                |
-| :--------------------------------------------: | :------------------------------------------: | :----------------------------------------------: |
-| ![light](screenshoot/light-theme-homepage.png) | ![dark](screenshoot/dark-theme-homepage.png) | ![nature](screenshoot/nature-theme-homepage.png) |
+| Home Light Theme| Home Dark Theme | Home Nature Theme |
+| :-------------: | :-------------: | :---------------: |
+| ![light](screenshoot/home-light.png) | ![dark](screenshoot/home-dark.png) | ![nature](screenshoot/home-nature.png) |
 
-|              Daftar Surat              |              Al-Fatihah             |              Do'a Harian              |
-| :------------------------------------: | :---------------------------------: | :-----------------------------------: |
-| ![light](screenshoot/daftar-surat.png) | ![dark](screenshoot/al-fatihah.png) | ![nature](screenshoot/doa-harian.png) |
+| Asmaul Husna | Al-Fatihah | Do'a Harian |
+| :-------------: | :-------------: | :---------------: |
+| ![light](screenshoot/asmaul-husna.png) | ![dark](screenshoot/al-fatihah.png) | ![nature](screenshoot/doa-harian.png) |
 
 ## Build Setup
 
@@ -52,7 +52,7 @@ $ yarn lint:fix
 -   Thanks for awesome repo [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
 -   Asmaul Husna source from [jagad.id](https://jagad.id/99-asmaul-husna-latin-arab-dan-terjemahan-indonesia-inggris/)
 -   Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/muslim_2759837)
--  [Recite Alquran Vectors by Vecteezy](https://www.vecteezy.com/free-vector/recite-alquran)
+-   [Recite Alquran Vectors by Vecteezy](https://www.vecteezy.com/free-vector/recite-alquran)
 
 * * *
 
