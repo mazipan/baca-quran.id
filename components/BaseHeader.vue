@@ -88,11 +88,7 @@ export default class BaseHeader extends Vue {
 
   navigateTo (link): void {
     this.toggleMenuRight()
-    if (link.includes('http')) {
-      window.location.href = link
-    } else {
-      this.$router.push(link)
-    }
+    this.$router.push(link)
   }
 
   toggleMenuRight (): void {
