@@ -4,7 +4,7 @@
       class="wrapper"
       style="line-height: 1.5;">
       <img
-        src="/icon-192x192.png"
+        src="/star-logo-color-64.png"
         alt="Logo">
       <h3>Baca Al-Qur'an dimana saja, langsung dari web browser Anda, tidak perlu lagi install Apps. Tanpa iklan, tanpa analitik dan GRATIS sepenuhnya...</h3>
       <br><br>
@@ -79,6 +79,7 @@ export default class PageAbout extends Vue {
 
   @State settingActiveTheme
   @Mutation setHeaderTitle
+  @Mutation setPage
 
   get metaHead () {
     const title = "Tentang | Qur'an Offline"
@@ -98,6 +99,7 @@ export default class PageAbout extends Vue {
 
   mounted () {
     this.setHeaderTitle('Tentang')
+    this.setPage('about')
   }
 }
 </script>

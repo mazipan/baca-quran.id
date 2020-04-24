@@ -19,6 +19,7 @@
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.5",
     "@vue/composition-api": "^0.5.0",
+    "intersection-observer": "^0.10.0",
     "nuxt": "2.12.2",
     "nuxt-i18n": "6.9.1",
     "nuxt-property-decorator": "^2.5.1",

@@ -42,6 +42,7 @@ export default class FavoritePage extends Vue {
   @State settingActiveTheme;
   @State surahFavorite;
   @Mutation setHeaderTitle;
+  @Mutation setPage
 
   get metaHead () {
     const title = "Baca berbagai surat favorit dalam Al-Qur'an | Qur'an Offline"
@@ -65,6 +66,7 @@ export default class FavoritePage extends Vue {
 
   mounted () {
     this.setHeaderTitle(AppConstant.FAVORITE)
+    this.setPage('favorite')
   }
 }
 </script>

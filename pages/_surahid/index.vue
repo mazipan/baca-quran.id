@@ -59,6 +59,7 @@ export default class SurahDetailPage extends Vue {
 
   @State settingActiveTheme
   @Mutation setHeaderTitle
+  @Mutation setPage
 
   get metaHead () {
     // @ts-ignore: Unreachable code error
@@ -117,6 +118,7 @@ export default class SurahDetailPage extends Vue {
   mounted () {
     // @ts-ignore: Unreachable code error
     this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
+    this.setPage('surah-detail')
   }
 }
 </script>

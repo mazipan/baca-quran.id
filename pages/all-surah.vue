@@ -49,6 +49,7 @@ export default class PageAllSurah extends Vue {
 
   @State settingActiveTheme
   @Mutation setHeaderTitle
+  @Mutation setPage
 
   get metaHead () {
     const title = "Daftar semua surat dalam Al-Qur'an | Qur'an Offline"
@@ -85,6 +86,7 @@ export default class PageAllSurah extends Vue {
 
   mounted () {
     this.setHeaderTitle('Daftar Surat')
+    this.setPage('all-surah')
   }
 }
 </script>

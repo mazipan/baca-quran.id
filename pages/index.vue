@@ -2,6 +2,7 @@
   <section class="container">
     <div
       class="home">
+      <div class="hero-image" />
       <div class="home__wrapper">
         <div class="item">
           <nuxt-link
@@ -15,42 +16,12 @@
         </div>
         <div class="item">
           <nuxt-link
-            to="/last-verse"
+            to="/daily-doa"
             class="item__link has-shadow">
-            <IosBookmarkIcon
+            <MdWifiIcon
               w="2em"
               h="2em" />
-            {{ AppConstant.LAST_READ }}
-          </nuxt-link>
-        </div>
-        <div class="item">
-          <nuxt-link
-            to="/favorite"
-            class="item__link has-shadow">
-            <IosStarOutlineIcon
-              w="2em"
-              h="2em" />
-            {{ AppConstant.FAVORITE }}
-          </nuxt-link>
-        </div>
-        <div class="item">
-          <nuxt-link
-            to="/recommendation"
-            class="item__link has-shadow">
-            <IosNavigateIcon
-              w="2em"
-              h="2em" />
-            {{ AppConstant.RECOMMENDATION }}
-          </nuxt-link>
-        </div>
-        <div class="item">
-          <nuxt-link
-            to="/ayat-kursi"
-            class="item__link has-shadow">
-            <IosColorWandIcon
-              w="2em"
-              h="2em" />
-            {{ AppConstant.AYAT_KURSI }}
+            {{ AppConstant.DAILY_DOA }}
           </nuxt-link>
         </div>
         <div class="item">
@@ -65,12 +36,12 @@
         </div>
         <div class="item">
           <nuxt-link
-            to="/daily-doa"
+            to="/ayat-kursi"
             class="item__link has-shadow">
-            <MdWifiIcon
+            <IosColorWandIcon
               w="2em"
               h="2em" />
-            {{ AppConstant.DAILY_DOA }}
+            {{ AppConstant.AYAT_KURSI }}
           </nuxt-link>
         </div>
       </div>
@@ -85,9 +56,6 @@ import { State, Mutation } from 'vuex-class'
 import MdBookIcon from 'vue-ionicons/dist/js/md-book'
 import MdGridIcon from 'vue-ionicons/dist/js/md-grid'
 import MdWifiIcon from 'vue-ionicons/dist/js/md-wifi'
-import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
-import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
-import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 import IosColorWandIcon from 'vue-ionicons/dist/js/ios-color-wand'
 
 import { AppConstant } from '../constant'
@@ -97,9 +65,6 @@ import { AppConstant } from '../constant'
     MdBookIcon,
     MdGridIcon,
     MdWifiIcon,
-    IosNavigateIcon,
-    IosStarOutlineIcon,
-    IosBookmarkIcon,
     IosColorWandIcon
   }
 })
@@ -109,6 +74,7 @@ export default class PageIndex extends Vue {
 
   @State settingActiveTheme;
   @Mutation setHeaderTitle
+  @Mutation setPage
 
   get metaHead () {
     const title = "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Offline"
@@ -128,20 +94,32 @@ export default class PageIndex extends Vue {
 
   mounted () {
     this.setHeaderTitle(AppConstant.TITLE)
+    this.setPage('home')
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/read-quran.svg");
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 .home__wrapper{
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
   padding: 1em;
 }
+
 .item {
-  width: 100%;
-  margin: 1em 1em;
+  width: 40%;
+  margin: .5em;
 
   &__link{
     text-decoration: none;
@@ -149,9 +127,9 @@ export default class PageIndex extends Vue {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 1em;
+    padding: 2em 1em;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: .8rem;
     background: var(--bg-card-color);
     color: var(--text-color);
   }

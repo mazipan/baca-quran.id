@@ -50,6 +50,7 @@ export default class LastVersePage extends Vue {
   @State settingActiveTheme;
   @State lastReadVerse;
   @Mutation setHeaderTitle
+  @Mutation setPage
 
   get metaHead () {
     const title = "Ayat terakhir dibaca | Qur'an Offline"
@@ -88,6 +89,7 @@ export default class LastVersePage extends Vue {
 
   mounted () {
     this.setHeaderTitle(AppConstant.LAST_READ)
+    this.setPage('last-verse')
   }
 }
 </script>

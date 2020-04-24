@@ -26,6 +26,7 @@ import { State, Mutation } from 'vuex-class'
 export default class AyatKursiPage extends Vue {
   @State settingActiveTheme;
   @Mutation setHeaderTitle;
+  @Mutation setPage
 
   get metaHead () {
     const title = "Bacaan dan terjemah ayat kursi | Qur'an Offline"
@@ -49,6 +50,7 @@ export default class AyatKursiPage extends Vue {
 
   mounted () {
     this.setHeaderTitle('Ayat Kursi')
+    this.setPage('ayat-kursi')
   }
 }
 </script>

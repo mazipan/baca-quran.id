@@ -5,6 +5,10 @@
 
 📖 Read Qur'an Directly from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
+<p align="center">
+ <img src="static/star-logo-color-64.png"/>
+</p>
+
 ## Live Website
 
 <https://quran-offline.netlify.app/>
@@ -47,6 +51,8 @@ $ yarn lint:fix
 
 -   Thanks for awesome repo [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
 -   Asmaul Husna source from [jagad.id](https://jagad.id/99-asmaul-husna-latin-arab-dan-terjemahan-indonesia-inggris/)
+-   Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/muslim_2759837)
+-  [Recite Alquran Vectors by Vecteezy](https://www.vecteezy.com/free-vector/recite-alquran)
 
 * * *
 

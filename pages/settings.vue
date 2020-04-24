@@ -73,6 +73,7 @@ export default class SettingsPage extends Vue {
   @State settingShowTafsir;
 
   @Mutation setHeaderTitle;
+  @Mutation setPage
 
   @Action setActiveTheme;
   @Action setSettingTranslation
@@ -115,6 +116,7 @@ export default class SettingsPage extends Vue {
 
   mounted () {
     this.setHeaderTitle('Setelan')
+    this.setPage('settings')
     setTimeout(() => {
       this.setDefaultSetting()
     }, 500)

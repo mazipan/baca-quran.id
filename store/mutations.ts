@@ -15,6 +15,9 @@ export const mutations: MutationTree<StateType> = {
   [Types.SET_HEADER_TITLE] (state: StateType, data: string) {
     state.headerTitle = data
   },
+  [Types.SET_PAGE] (state: StateType, data: string) {
+    state.page = data
+  },
   [Types.SET_LAST_READ] (state: StateType, data: any) {
     state.lastReadVerse = data
   },

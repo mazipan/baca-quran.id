@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import { Configuration as WebpackConfiguration } from 'webpack'
 import getRoutes from './build-scripts/getRoutes'
 import getSitemapRoutes from './build-scripts/getSitemapRoutes'
 import getOfflineAssets from './build-scripts/getOfflineAssets'
@@ -28,13 +27,13 @@ const config = {
       { hid: 'description', name: 'description', content: pkg.description },
       { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
 
-      { hid: 'og:image', property: 'og:image', content: '/icon.png' },
+      { hid: 'og:image', property: 'og:image', content: '/star-logo-color.png' },
       { hid: 'og:title', property: 'og:title', content: 'Quran Offline' },
       { hid: 'og:description', property: 'og:description', content: pkg.description },
       { hid: 'og:url', property: 'og:url', content: PROD_PATH },
 
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-      { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/icon.png' },
+      { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/star-logo-color.png' },
       { hid: 'twitter:title', name: 'twitter:title', content: 'Quran Offline' },
       { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
       { hid: 'twitter:url', name: 'twitter:url', content: PROD_PATH },
@@ -46,9 +45,8 @@ const config = {
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' }
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/star-logo-color-32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '64x64', href: '/star-logo-color-64.png' }
     ],
     noscript: [
       {
@@ -81,7 +79,9 @@ const config = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/composition-api'],
+  plugins: [
+    // '@/plugins/composition-api'
+  ],
 
   /*
    ** Nuxt.js modules
@@ -111,21 +111,21 @@ const config = {
       plugins: {
         autoprefixer: true
       }
-    },
+    }
     /*
      ** You can extend webpack config here
      */
-    extend (config: WebpackConfiguration, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+    // extend (config: WebpackConfiguration, ctx) {
+    //   // Run ESLint on save
+    //   if (ctx.isDev && ctx.isClient) {
+    //     config.module.rules.push({
+    //       enforce: 'pre',
+    //       test: /\.(js|vue)$/,
+    //       loader: 'eslint-loader',
+    //       exclude: /(node_modules)/
+    //     })
+    //   }
+    // }
   }
 }
 

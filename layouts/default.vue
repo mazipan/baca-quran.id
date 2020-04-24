@@ -3,7 +3,8 @@
     <div v-show="isShowSidebar" class="sidebar-cover" @click="hideSidebar" />
     <BaseSidebar :class="{'sidebar--open': isShowSidebar}" />
     <BaseHeader />
-    <nuxt class="app__content" keep-alive :keep-alive-props="{ max: 5 }"/>
+    <nuxt class="app__content" keep-alive :keep-alive-props="{ max: 5 }" />
+    <BottomNav v-if="!isSurahDetail" />
     <BaseToast />
     <div v-show="showArrowToTop" class="arrowtotop">
       <a href="#header">
@@ -22,9 +23,11 @@ import ArrowUpIcon from 'vue-ionicons/dist/js/ios-arrow-dropup-circle'
 import BaseHeader from '../components/BaseHeader.vue'
 import BaseSidebar from '../components/BaseSidebar.vue'
 import BaseToast from '../components/BaseToast.vue'
+import BottomNav from '../components/BottomNav.vue'
 
 import { isSupportWebp } from '../utils/webp'
 
+require('intersection-observer')
 require('vue-ionicons/ionicons.css')
 
 @Component({
@@ -32,6 +35,7 @@ require('vue-ionicons/ionicons.css')
     BaseHeader,
     BaseSidebar,
     BaseToast,
+    BottomNav,
     ArrowUpIcon
   }
 })
@@ -42,9 +46,14 @@ export default class DefaultLayout extends Vue {
 
   @State settingActiveTheme;
   @State isShowSidebar;
+  @State page;
   @Mutation setShowSidebar;
   @Action initDataFromBrowserStorage;
   @Action setWebshareSupport;
+
+  get isSurahDetail (): boolean {
+    return this.page === 'surah-detail'
+  }
 
   hideSidebar (): void {
     this.setShowSidebar(false)
@@ -94,6 +103,6 @@ export default class DefaultLayout extends Vue {
   }
 }
 .app__content {
-  min-height: 100vh;
+  min-height: 90vh;
 }
 </style>

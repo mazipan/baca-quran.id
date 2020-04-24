@@ -56,6 +56,7 @@ export default class AsmaulHusnaPage extends Vue {
 
   @State settingActiveTheme
   @Mutation setHeaderTitle
+  @Mutation setPage
 
   get metaHead () {
     const title = "Daftar lengkap asmaul husna beserta terjemahan | Qur'an Offline"
@@ -92,6 +93,7 @@ export default class AsmaulHusnaPage extends Vue {
 
   mounted () {
     this.setHeaderTitle('Asmaul Husna')
+    this.setPage('asmaul-husna')
   }
 }
 </script>

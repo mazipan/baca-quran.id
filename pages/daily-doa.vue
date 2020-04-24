@@ -69,6 +69,7 @@ export default class DailyDoaPage extends Vue {
 
   @State settingActiveTheme
   @Mutation setHeaderTitle
+  @Mutation setPage
 
   get metaHead () {
     const title = "Daftar bacaan do'a sehari-hari beserta terjemahan | Qur'an Offline"
@@ -114,6 +115,7 @@ export default class DailyDoaPage extends Vue {
 
   mounted () {
     this.setHeaderTitle("Do'a Harian")
+    this.setPage('daily-doa')
   }
 }
 </script>

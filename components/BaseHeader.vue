@@ -78,7 +78,9 @@ export default class BaseHeader extends Vue {
   isShowMenu = false;
 
   @State headerTitle;
+  @State page;
   @Mutation setShowSidebar;
+  @Mutation setPage;
 
   get isHomePage (): boolean {
     return this.headerTitle === AppConstant.TITLE
@@ -107,7 +109,14 @@ export default class BaseHeader extends Vue {
   }
 
   backToPreviousPage () {
-    window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+    if (window.history.length > 1) {
+      if (this.page === 'surah-detail') {
+        this.setPage('all-surah')
+      }
+      this.$router.go(-1)
+    } else {
+      this.$router.push('/')
+    }
   }
 }
 </script>
