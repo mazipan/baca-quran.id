@@ -109,11 +109,9 @@ export default class BaseHeader extends Vue {
   }
 
   backToPreviousPage () {
-    if (window.history.length > 1) {
-      if (this.page === 'surah-detail') {
-        this.setPage('all-surah')
-      }
-      this.$router.go(-1)
+    if (this.page === 'surah-detail') {
+      this.setPage('all-surah')
+      this.$router.push('/all-surah')
     } else {
       this.$router.push('/')
     }
