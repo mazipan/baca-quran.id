@@ -15,12 +15,12 @@
 
 ## Screenshoot
 
-| Home Light Theme| Home Dark Theme | Home Nature Theme |
-| :-------------: | :-------------: | :---------------: |
+|           Home Light Theme           |           Home Dark Theme          |            Home Nature Theme           |
+| :----------------------------------: | :--------------------------------: | :------------------------------------: |
 | ![light](screenshoot/home-light.png) | ![dark](screenshoot/home-dark.png) | ![nature](screenshoot/home-nature.png) |
 
-| Asmaul Husna | Al-Fatihah | Do'a Harian |
-| :-------------: | :-------------: | :---------------: |
+|              Asmaul Husna              |              Al-Fatihah             |              Do'a Harian              |
+| :------------------------------------: | :---------------------------------: | :-----------------------------------: |
 | ![light](screenshoot/asmaul-husna.png) | ![dark](screenshoot/al-fatihah.png) | ![nature](screenshoot/doa-harian.png) |
 
 ## Build Setup
