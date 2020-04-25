@@ -1,46 +1,40 @@
 <template>
   <section class="container">
-    <div
-      class="home">
-      <div class="hero-image" />
+    <div class="home">
+      <div class="slideshow-container">
+        <div class="slides fade" :style="{ display: currentIdx === 1 ? 'block' : 'none' }">
+          <div class="hero-image" :style="{ 'background-image': 'url(/illustration_1.jpg)'}" />
+        </div>
+        <div class="slides fade" :style="{ display: currentIdx === 2 ? 'block' : 'none' }">
+          <div class="hero-image" :style="{ 'background-image': 'url(/illustration_2.jpg)'}" />
+        </div>
+        <div class="slides fade" :style="{ display: currentIdx === 3 ? 'block' : 'none' }">
+          <div class="hero-image" :style="{ 'background-image': 'url(/illustration_3.jpg)'}" />
+        </div>
+      </div>
+
       <div class="home__wrapper">
         <div class="item">
-          <nuxt-link
-            to="/all-surah"
-            class="item__link has-shadow">
-            <MdBookIcon
-              w="2em"
-              h="2em" />
+          <nuxt-link to="/all-surah" class="item__link has-shadow">
+            <img src="/icon_quran.svg">
             Daftar Surat
           </nuxt-link>
         </div>
         <div class="item">
-          <nuxt-link
-            to="/daily-doa"
-            class="item__link has-shadow">
-            <MdWifiIcon
-              w="2em"
-              h="2em" />
+          <nuxt-link to="/daily-doa" class="item__link has-shadow">
+            <img src="/icon_prayer.svg">
             {{ AppConstant.DAILY_DOA }}
           </nuxt-link>
         </div>
         <div class="item">
-          <nuxt-link
-            to="/asmaul-husna"
-            class="item__link has-shadow">
-            <MdGridIcon
-              w="2em"
-              h="2em" />
+          <nuxt-link to="/asmaul-husna" class="item__link has-shadow">
+            <img src="/icon_allah.svg">
             {{ AppConstant.ASMAUL_HUSNA }}
           </nuxt-link>
         </div>
         <div class="item">
-          <nuxt-link
-            to="/ayat-kursi"
-            class="item__link has-shadow">
-            <IosColorWandIcon
-              w="2em"
-              h="2em" />
+          <nuxt-link to="/ayat-kursi" class="item__link has-shadow">
+            <img src="/icon_rosary.svg">
             {{ AppConstant.AYAT_KURSI }}
           </nuxt-link>
         </div>
@@ -68,22 +62,28 @@ import { AppConstant } from '../constant'
     IosColorWandIcon
   }
 })
-
 export default class PageIndex extends Vue {
   AppConstant = AppConstant;
+  intervalObj = null;
+  currentIdx = 1;
 
   @State settingActiveTheme;
-  @Mutation setHeaderTitle
-  @Mutation setPage
+  @Mutation setHeaderTitle;
+  @Mutation setPage;
 
   get metaHead () {
-    const title = "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Offline"
+    const title =
+      "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Offline"
     return {
       title,
       meta: [
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        {
+          hid: 'theme-color',
+          name: 'theme-color',
+          content: this.settingActiveTheme.bgColor
+        }
       ]
     }
   }
@@ -95,21 +95,59 @@ export default class PageIndex extends Vue {
   mounted () {
     this.setHeaderTitle(AppConstant.TITLE)
     this.setPage('home')
+    const _self = this
+    this.intervalObj = setInterval(() => {
+      _self.currentIdx += 1
+      if (_self.currentIdx === 4) {
+        _self.currentIdx = 1
+      }
+    }, 5000)
   }
+
+  destroyed () {}
 }
 </script>
 
 <style lang="scss" scoped>
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+.slides {
+  display: none;
+  width: 100%;
+  height: 220px;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/read-quran.svg");
-  height: 200px;
+  width: 100%;
+  height: 220px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  transition: all 2s ease-in;
 }
 
-.home__wrapper{
+.home__wrapper {
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -119,19 +157,25 @@ export default class PageIndex extends Vue {
 
 .item {
   width: 40%;
-  margin: .5em;
+  margin: 0.5em;
 
-  &__link{
+  &__link {
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2em 1em;
+    padding: 1em;
     border-radius: 4px;
-    font-size: .8rem;
+    font-size: 0.8rem;
     background: var(--bg-card-color);
     color: var(--text-color);
+
+    img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1em;
+    }
   }
 }
 </style>

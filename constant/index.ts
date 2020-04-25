@@ -1,6 +1,6 @@
 export const AppConstant = {
-  PATH: 'https://www.quran-offline.xyz/',
-  TITLE: "Qur'an Offline",
+  PATH: 'https://quran-offline.netlify.app/',
+  TITLE: "Qur'an Web",
   LAST_READ: 'Terakhir dibaca',
   FAVORITE: 'Surat favorit',
   RECOMMENDATION: 'Surat rekomendasi',

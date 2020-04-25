@@ -134,14 +134,13 @@ export default class DailyDoaPage extends Vue {
   color: var(--text-color);
 
   &__title {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 }
 .collapsible{
   margin-top: 1em;
   padding: 1em;
   border-radius: .25em;
-  background: var(--bg-card-darken-color);
   color: var(--text-color);
 }
 .arabic{
