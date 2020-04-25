@@ -142,10 +142,14 @@ export default class VerseCard extends Vue {
   shareVerse (verse, index) {
     const data = {
       title: `QS ${this.surahId}:${index}`,
-      text: `${verse}
+      text: `
+${verse}
 
-        ${this.getTranslation(index)} (QS ${this.surahId}:${index})`,
-      url: `https://quran-offline.netlify.com/${this.surahId}#verse-${index}`
+Terjemahan: ${this.getTranslation(index)} (QS ${this.surahId}:${index})
+
+
+`,
+      url: `https://quran-offline.netlify.app/${this.surahId}#verse-${index}`
     }
     this.shareViaWebshare(data)
   }
