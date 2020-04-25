@@ -40,7 +40,7 @@ const config = {
       { hid: 'twitter:url', name: 'twitter:url', content: PROD_PATH },
 
       {
-        content: 'jW7EK0wGpuReuZkQ-q900J7Z0KbCD9CCAZybfwcPe_U',
+        content: 'MJwW1iWLvaJ05N5rHDWpEqSQEjeXmHbbwFR-bk6E4vc',
         hid: 'google-site-verification',
         name: 'google-site-verification'
       }
