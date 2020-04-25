@@ -88,11 +88,7 @@ export default class BaseHeader extends Vue {
 
   navigateTo (link): void {
     this.toggleMenuRight()
-    if (link.includes('http')) {
-      window.location.href = link
-    } else {
-      this.$router.push(link)
-    }
+    this.$router.push(link)
   }
 
   toggleMenuRight (): void {
@@ -109,11 +105,9 @@ export default class BaseHeader extends Vue {
   }
 
   backToPreviousPage () {
-    if (window.history.length > 1) {
-      if (this.page === 'surah-detail') {
-        this.setPage('all-surah')
-      }
-      this.$router.go(-1)
+    if (this.page === 'surah-detail') {
+      this.setPage('all-surah')
+      this.$router.push('/all-surah')
     } else {
       this.$router.push('/')
     }
