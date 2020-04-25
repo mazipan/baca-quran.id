@@ -104,7 +104,18 @@ export default class PageIndex extends Vue {
     }, 5000)
   }
 
-  destroyed () {}
+  activated () {
+    this.setHeaderTitle(AppConstant.TITLE)
+    this.setPage('home')
+  }
+
+  deactivated () {
+    clearInterval(this.intervalObj)
+  }
+
+  destroyed () {
+    clearInterval(this.intervalObj)
+  }
 }
 </script>
 

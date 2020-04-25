@@ -117,6 +117,11 @@ export default class DailyDoaPage extends Vue {
     this.setHeaderTitle("Do'a Harian")
     this.setPage('daily-doa')
   }
+
+  activated () {
+    this.setHeaderTitle("Do'a Harian")
+    this.setPage('daily-doa')
+  }
 }
 </script>
 

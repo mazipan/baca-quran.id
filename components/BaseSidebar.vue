@@ -14,7 +14,9 @@
             @click.native="navigateTo">
             <MdHomeIcon
               w="2em"
-              h="2em" />
+              h="2em"
+              name="Beranda"
+              title="Beranda" />
             Beranda
           </nuxt-link>
         </li>
@@ -25,7 +27,9 @@
             @click.native="navigateTo">
             <MdBookIcon
               w="2em"
-              h="2em" />
+              h="2em"
+              name="Daftar surat"
+              title="Daftar surat" />
             Daftar surat
           </nuxt-link>
         </li>
@@ -36,7 +40,9 @@
             @click.native="navigateTo">
             <IosBookmarkIcon
               w="2em"
-              h="2em" />
+              h="2em"
+              name="Terakhir dibaca"
+              title="Terakhir dibaca" />
             Terakhir dibaca
           </nuxt-link>
         </li>
@@ -47,7 +53,9 @@
             @click.native="navigateTo">
             <IosStarOutlineIcon
               w="2em"
-              h="2em" />
+              h="2em"
+              name="Surat favorit"
+              title="Surat favorit" />
             Surat favorit
           </nuxt-link>
         </li>
@@ -58,7 +66,9 @@
             @click.native="navigateTo">
             <IosNavigateIcon
               w="2em"
-              h="2em" />
+              h="2em"
+              name="Surat rekomendasi"
+              title="Surat rekomendasi" />
             Surat rekomendasi
           </nuxt-link>
         </li>
@@ -69,7 +79,9 @@
             @click.native="navigateTo">
             <MdSettingsIcon
               w="2em"
-              h="2em" />
+              h="2em"
+              name="Setelan"
+              title="Setelan" />
             Setelan
           </nuxt-link>
         </li>
@@ -80,7 +92,9 @@
             @click.native="navigateTo">
             <MdHelpCircleIcon
               w="2em"
-              h="2em" />
+              h="2em"
+              name="Tentang"
+              title="Tentang" />
             Tentang
           </nuxt-link>
         </li>
@@ -92,7 +106,9 @@
             class="sidebar__link">
             <MdCodeIcon
               w="2em"
-              h="2em" />
+              h="2em"
+              name="Kode sumber"
+              title="Kode sumber" />
             Kode sumber
           </a>
         </li>

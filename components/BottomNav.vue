@@ -60,7 +60,9 @@ export default class BaseHeader extends Vue {}
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: initial;
+  max-width: 500px;
+  z-index: 10;
   width: 100%;
   height: 50px;
   display: flex;

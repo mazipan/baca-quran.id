@@ -1,7 +1,10 @@
 .sidebar {
-  position: fixed; top: 0; bottom: 0; left: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: initial;
   overflow: hidden;
-  width: 70%;
+  width: 300px;
   height: 40em;
   height: 100vh;
   -webkit-backface-visibility: hidden;

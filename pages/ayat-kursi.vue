@@ -52,6 +52,11 @@ export default class AyatKursiPage extends Vue {
     this.setHeaderTitle('Ayat Kursi')
     this.setPage('ayat-kursi')
   }
+
+  activated () {
+    this.setHeaderTitle('Ayat Kursi')
+    this.setPage('ayat-kursi')
+  }
 }
 </script>
 

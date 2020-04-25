@@ -101,6 +101,11 @@ export default class PageAbout extends Vue {
     this.setHeaderTitle('Tentang')
     this.setPage('about')
   }
+
+  activated () {
+    this.setHeaderTitle('Tentang')
+    this.setPage('about')
+  }
 }
 </script>
 

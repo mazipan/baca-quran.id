@@ -91,6 +91,11 @@ export default class LastVersePage extends Vue {
     this.setHeaderTitle(AppConstant.LAST_READ)
     this.setPage('last-verse')
   }
+
+  activated () {
+    this.setHeaderTitle(AppConstant.LAST_READ)
+    this.setPage('last-verse')
+  }
 }
 </script>
 

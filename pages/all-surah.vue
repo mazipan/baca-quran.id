@@ -88,6 +88,11 @@ export default class PageAllSurah extends Vue {
     this.setHeaderTitle('Daftar Surat')
     this.setPage('all-surah')
   }
+
+  activated () {
+    this.setHeaderTitle('Daftar Surat')
+    this.setPage('all-surah')
+  }
 }
 </script>
 

@@ -95,6 +95,11 @@ export default class AsmaulHusnaPage extends Vue {
     this.setHeaderTitle('Asmaul Husna')
     this.setPage('asmaul-husna')
   }
+
+  activated () {
+    this.setHeaderTitle('Asmaul Husna')
+    this.setPage('asmaul-husna')
+  }
 }
 </script>
 

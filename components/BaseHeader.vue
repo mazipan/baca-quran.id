@@ -8,7 +8,7 @@
           href="javascript:void(0)"
           title="Open Sidebar"
           @click="toggleSidebar">
-          <MdMenuIcon w="30px" h="30px" />
+          <MdMenuIcon w="30px" h="30px" name="Sidebar Menu" title="Sidebar Menu" />
         </a>
         <a
           v-else
@@ -16,7 +16,7 @@
           class="header__hamburger"
           title="Kembali"
           @click="backToPreviousPage">
-          <MdArrowBackIcon w="30px" h="30px" />
+          <MdArrowBackIcon w="30px" h="30px" name="Kembali" title="Kembali" />
         </a>
       </div>
       <div class="header__content">
@@ -27,32 +27,13 @@
           {{ headerTitle }}
         </h1>
       </div>
-      <div v-if="!isHomePage" class="header__nav pointer" @click="toggleMenuRight">
-        <MdMoreIcon w="30px" h="30px" />
-      </div>
+      <nuxt-link v-if="!isHomePage" class="header__nav pointer" to="/settings">
+        <MdSettingsIcon w="30px" h="30px" name="Setelan" title="Setelan" />
+      </nuxt-link>
       <div v-else class="header__nav">
-&nbsp;
+        &nbsp;
       </div>
     </div>
-    <nav v-show="isShowMenu" class="menu_right">
-      <ul>
-        <li>
-          <div class="menu_link" @click="navigateTo('/')">
-            Beranda
-          </div>
-        </li>
-        <li>
-          <div class="menu_link" @click="navigateTo('/settings')">
-            Setelan
-          </div>
-        </li>
-        <li>
-          <div class="menu_link" @click="navigateTo('/about')">
-            Tentang
-          </div>
-        </li>
-      </ul>
-    </nav>
   </header>
 </template>
 
@@ -62,7 +43,7 @@ import { State, Mutation } from 'vuex-class'
 
 import MdMenuIcon from 'vue-ionicons/dist/js/md-menu'
 import MdArrowBackIcon from 'vue-ionicons/dist/js/md-arrow-back'
-import MdMoreIcon from 'vue-ionicons/dist/js/md-more'
+import MdSettingsIcon from 'vue-ionicons/dist/js/md-settings'
 
 import { AppConstant } from '../constant/index'
 
@@ -70,7 +51,7 @@ import { AppConstant } from '../constant/index'
   components: {
     MdMenuIcon,
     MdArrowBackIcon,
-    MdMoreIcon
+    MdSettingsIcon
   }
 })
 
@@ -117,33 +98,4 @@ export default class BaseHeader extends Vue {
 
 <style lang="scss" scoped>
 @import "../assets/header.scss";
-.menu_right {
-  position: fixed;
-  top: 50px;
-  right: 30px;
-  z-index: 99;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    li {
-      border-bottom: 1px solid var(--bg-color);
-      .menu_link {
-        display: block;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        text-decoration: none;
-        padding: 15px 25px;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-      }
-      &:last-child {
-        border-bottom: 0;
-      }
-    }
-  }
-}
 </style>

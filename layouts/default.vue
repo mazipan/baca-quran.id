@@ -104,5 +104,6 @@ export default class DefaultLayout extends Vue {
 }
 .app__content {
   min-height: 90vh;
+  margin-bottom: 2em;
 }
 </style>

@@ -18,7 +18,7 @@
   &__empty{
     text-align: left;
     padding-top: 1em;
-    color: #333;
+    color: var(--text-color);
     font-style: italic;
   }
 }

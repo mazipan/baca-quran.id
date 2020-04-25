@@ -120,6 +120,12 @@ export default class SurahDetailPage extends Vue {
     this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
     this.setPage('surah-detail')
   }
+
+  activated () {
+    // @ts-ignore: Unreachable code error
+    this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
+    this.setPage('surah-detail')
+  }
 }
 </script>
 
@@ -130,7 +136,7 @@ export default class SurahDetailPage extends Vue {
   &__content {
     width: 90%;
     margin: 0 auto;
-    padding-bottom: 5em;
+    padding-bottom: 2em;
   }
 }
 </style>

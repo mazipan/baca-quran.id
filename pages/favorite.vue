@@ -68,6 +68,11 @@ export default class FavoritePage extends Vue {
     this.setHeaderTitle(AppConstant.FAVORITE)
     this.setPage('favorite')
   }
+
+  activated () {
+    this.setHeaderTitle(AppConstant.FAVORITE)
+    this.setPage('favorite')
+  }
 }
 </script>
 

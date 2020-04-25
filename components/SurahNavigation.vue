@@ -94,13 +94,13 @@ export default class SurahNavigation extends Vue {
   justify-content: space-between;
   align-items: center;
   bottom: 0;
-  right: 0;
-  left: 0;
+  left: initial;
   z-index: 10;
   margin: 0;
   height: 60px;
   text-align: center;
   width: 100%;
+  max-width: 500px;
   background: var(--bg-card-color);
   color: var(--text-color);
 

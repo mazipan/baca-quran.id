@@ -58,6 +58,11 @@ export default class RecommendationPage extends Vue {
     this.setHeaderTitle(AppConstant.RECOMMENDATION)
     this.setPage('recommendation')
   }
+
+  activated () {
+    this.setHeaderTitle(AppConstant.RECOMMENDATION)
+    this.setPage('recommendation')
+  }
 }
 </script>
 
