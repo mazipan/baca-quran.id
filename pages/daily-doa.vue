@@ -54,7 +54,7 @@ interface expandedData {
 
 @Component({
   async asyncData () {
-    const resp = await import(/* webpackChunkName: "daily-doa" */'~/static/data/daily-doa.json')
+    const resp = await import('~/static/data/daily-doa.json')
     return {
       dailyDoa: resp.data
     }
@@ -72,10 +72,12 @@ export default class DailyDoaPage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Daftar bacaan do'a sehari-hari beserta terjemahan | Qur'an Offline"
+    const title = "Daftar lengkap bacaan do'a sehari-hari beserta terjemahan | Qur'an Web"
+    const description = "Daftar lengkap bacaan do'a sehari-hari beserta terjemahan, baca langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
     return {
       title,
       meta: [
+        { hid: 'description', name: 'description', content: description },
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }

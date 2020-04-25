@@ -82,10 +82,12 @@ export default class PageAbout extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Tentang | Qur'an Offline"
+    const title = "Tentang | Qur'an Web"
+    const description = "Baca ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dimana saja, langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
     return {
       title,
       meta: [
+        { hid: 'description', name: 'description', content: description },
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }

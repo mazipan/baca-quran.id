@@ -3,9 +3,10 @@ import getRoutes from './build-scripts/getRoutes'
 import getSitemapRoutes from './build-scripts/getSitemapRoutes'
 import getOfflineAssets from './build-scripts/getOfflineAssets'
 
-const pkg = require('./package')
-
 const PROD_PATH = 'https://quran-offline.netlify.app/'
+const title =
+  "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Web"
+const description = "Baca ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dimana saja, langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
 
 const config = {
   buildModules: ['@nuxt/typescript-build'],
@@ -20,22 +21,22 @@ const config = {
    ** Headers of the page
    */
   head: {
-    title: `Quran Offline | ${pkg.description}`,
+    title,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description },
+      { hid: 'description', name: 'description', content: description },
       { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
 
-      { hid: 'og:image', property: 'og:image', content: '/star-logo-color.png' },
-      { hid: 'og:title', property: 'og:title', content: 'Quran Offline' },
-      { hid: 'og:description', property: 'og:description', content: pkg.description },
+      { hid: 'og:image', property: 'og:image', content: '/meta-image.png' },
+      { hid: 'og:title', property: 'og:title', content: title },
+      { hid: 'og:description', property: 'og:description', content: description },
       { hid: 'og:url', property: 'og:url', content: PROD_PATH },
 
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-      { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/star-logo-color.png' },
-      { hid: 'twitter:title', name: 'twitter:title', content: 'Quran Offline' },
-      { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
+      { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/meta-image.png' },
+      { hid: 'twitter:title', name: 'twitter:title', content: title },
+      { hid: 'twitter:description', name: 'twitter:description', content: description },
       { hid: 'twitter:url', name: 'twitter:url', content: PROD_PATH },
 
       {

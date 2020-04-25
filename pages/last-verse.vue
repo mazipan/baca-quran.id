@@ -37,7 +37,7 @@ import { __isNotNull } from '../utils/index'
     LastReadCard
   },
   async asyncData () {
-    const resp = await import(/* webpackChunkName: "surah-info" */'~/static/data/surah-info.json')
+    const resp = await import('~/static/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })
@@ -53,7 +53,7 @@ export default class LastVersePage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Ayat terakhir dibaca | Qur'an Offline"
+    const title = "Ayat terakhir dibaca | Qur'an Web"
     return {
       title,
       meta: [

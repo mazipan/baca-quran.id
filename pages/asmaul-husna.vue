@@ -44,7 +44,7 @@ import { __isNotEmptyString, __normalizeText } from '../utils/index'
 
 @Component({
   async asyncData () {
-    const resp = await import(/* webpackChunkName: "asmaul-husna" */'~/static/data/asmaul-husna.json')
+    const resp = await import('~/static/data/asmaul-husna.json')
     return {
       asmaulHusna: resp.data
     }
@@ -59,10 +59,12 @@ export default class AsmaulHusnaPage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Daftar lengkap asmaul husna beserta terjemahan | Qur'an Offline"
+    const title = "Daftar lengkap asmaul husna beserta terjemahan | Qur'an Web"
+    const description = 'Daftar lengkap asmaul husna beserta terjemahan, baca langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya'
     return {
       title,
       meta: [
+        { hid: 'description', name: 'description', content: description },
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }

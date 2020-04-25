@@ -8,18 +8,19 @@
         :surah-translation="currentSurah.translations.id.name" />
 
       <div class="detail__content">
-        <VerseCard
-          :verse-array="currentSurah.text"
+        <SingleVerse
+          :verse="currentSurah.text[String(verseId)]"
+          :verse-index="String(verseId)"
           :surah-id="surahId"
           :translations="currentSurah.translations"
           :tafsir="currentSurah.tafsir" />
       </div>
 
-      <SurahNavigation
+      <VerseNavigation
         :surah-id="surahId"
-        :next-surah="nextSurah"
-        :prev-surah="prevSurah"
-        :verse-count="Number(currentSurah.number_of_ayah)" />
+        :verse-id="verseId"
+        :verse-count="Number(currentSurah.number_of_ayah)"
+        :on-change-verse="onChangeVerse" />
     </div>
   </section>
 </template>
@@ -28,31 +29,27 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import VerseCard from '../../components/VerseCard.vue'
-import SurahHeader from '../../components/SurahHeader.vue'
-import SurahNavigation from '../../components/SurahNavigation.vue'
+import SingleVerse from '../../../components/SingleVerse.vue'
+import SurahHeader from '../../../components/SurahHeader.vue'
+import VerseNavigation from '../../../components/VerseNavigation.vue'
 
-import { __isNotNull, __isNotEmptyArray } from '../../utils/index'
+import { __isNotNull } from '../../../utils/index'
 
 @Component({
   components: {
-    VerseCard,
+    SingleVerse,
     SurahHeader,
-    SurahNavigation
+    VerseNavigation
   },
   async asyncData ({ params }) {
     const respDetail = await import(`~/static/data/surah/${params.surahid}.json`)
-    const resp = await import('~/static/data/surah-info.json')
     return {
-      allSurahList: resp.surah_info.map((item, idx) => {
-        return Object.assign({}, item, { index: idx + 1 })
-      }),
       currentSurah: respDetail[params.surahid]
     }
   }
 })
 
-export default class SurahDetailPage extends Vue {
+export default class VerseDetailPage extends Vue {
   loading = true
 
   @State settingActiveTheme
@@ -61,9 +58,9 @@ export default class SurahDetailPage extends Vue {
 
   get metaHead () {
     // @ts-ignore: Unreachable code error
-    const title = `Baca Qur'an Surat ${this.currentSurah.name_latin} | Qur'an Web`
+    const title = `Baca Qur'an Ayat ke-${this.verseId} Surat ${this.currentSurah.name_latin} | Qur'an Web`
     // @ts-ignore: Unreachable code error
-    const description = `Baca Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Surat ${this.currentSurah.name_latin} Berdasarkan Data dari Kemenag`
+    const description = `Baca Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Ayat ke-${this.verseId} Surat ${this.currentSurah.name_latin} Berdasarkan Data dari Kemenag`
 
     return {
       title,
@@ -82,9 +79,17 @@ export default class SurahDetailPage extends Vue {
   }
 
   get surahId () {
-    let id = 0
+    let id = 1
     if (__isNotNull(this.$route.params && this.$route.params.surahid)) {
       id = Number(this.$route.params.surahid)
+    }
+    return id
+  }
+
+  get verseId () {
+    let id = 1
+    if (__isNotNull(this.$route.params && this.$route.params.verseid)) {
+      id = Number(this.$route.params.verseid)
     }
     return id
   }
@@ -93,26 +98,9 @@ export default class SurahDetailPage extends Vue {
     return this.surahId > 0 && this.surahId <= 114
   }
 
-  get prevSurah () {
-    // @ts-ignore: Unreachable code error
-    if (__isNotEmptyArray(this.allSurahList)) {
-      if (this.surahId > 1) {
-        // @ts-ignore: Unreachable code error
-        return this.allSurahList.find(item => item.index === this.surahId - 1)
-      }
-    }
-    return null
-  }
-
-  get nextSurah () {
-    // @ts-ignore: Unreachable code error
-    if (__isNotEmptyArray(this.allSurahList)) {
-      if (this.surahId < 114) {
-        // @ts-ignore: Unreachable code error
-        return this.allSurahList.find(item => item.index === this.surahId + 1)
-      }
-    }
-    return null
+  onChangeVerse (e: any) {
+    const val = e.target.value
+    this.$router.push(`/${this.surahId}/${val}`)
   }
 
   head () {
@@ -121,14 +109,14 @@ export default class SurahDetailPage extends Vue {
 
   mounted () {
     // @ts-ignore: Unreachable code error
-    this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
-    this.setPage('surah-detail')
+    this.setHeaderTitle(`${this.surahId}:${this.verseId} ${this.currentSurah.name_latin}`)
+    this.setPage('verse-detail')
   }
 
   activated () {
     // @ts-ignore: Unreachable code error
-    this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
-    this.setPage('surah-detail')
+    this.setHeaderTitle(`${this.surahId}:${this.verseId} ${this.currentSurah.name_latin}`)
+    this.setPage('verse-detail')
   }
 }
 </script>

@@ -4,7 +4,7 @@
     <BaseSidebar :class="{'sidebar--open': isShowSidebar}" />
     <BaseHeader />
     <nuxt class="app__content" keep-alive :keep-alive-props="{ max: 5 }" />
-    <BottomNav v-if="!isSurahDetail" />
+    <BottomNav v-if="isHideBottomNav" />
     <BaseToast />
     <div v-show="showArrowToTop" class="arrowtotop">
       <a href="#header">
@@ -51,8 +51,8 @@ export default class DefaultLayout extends Vue {
   @Action initDataFromBrowserStorage;
   @Action setWebshareSupport;
 
-  get isSurahDetail (): boolean {
-    return this.page === 'surah-detail'
+  get isHideBottomNav (): boolean {
+    return this.page !== 'surah-detail' && this.page !== 'verse-detail'
   }
 
   hideSidebar (): void {

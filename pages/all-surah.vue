@@ -34,7 +34,7 @@ import { __isNotEmptyString, __normalizeText } from '../utils/index'
     SurahCard
   },
   async asyncData () {
-    const resp = await import(/* webpackChunkName: "surah-info" */'~/static/data/surah-info.json')
+    const resp = await import('~/static/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })
@@ -52,10 +52,12 @@ export default class PageAllSurah extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Daftar semua surat dalam Al-Qur'an | Qur'an Offline"
+    const title = "Daftar semua surat dalam Al-Qur'an | Qur'an Web"
+    const description = "Daftar semua surat dalam Al-Qur'an beserta terjemahan dan tafsir dimana saja, baca langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
     return {
       title,
       meta: [
+        { hid: 'description', name: 'description', content: description },
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }

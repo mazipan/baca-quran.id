@@ -1,23 +1,24 @@
 <template>
   <div class="surah_nav">
     <nuxt-link
-      :to="`/${surahId - 1}`"
+      :to="`/${surahId}/${verseId - 1}`"
       class="surah_nav_item surah_nav_prev">
       <MdArrowBackIcon
         v-if="isHavePrev"
         w="30px"
         h="30px" />
       <span
-        v-if="prevSurah"
+        v-if="isHavePrev"
         class="text-nav">
-        {{ prevSurah.arabic }}
+        {{ verseId - 1 }}
       </span>
     </nuxt-link>
     <div class="surah_nav_item surah_nav_center">
       <select
-        v-model="selectedVerse"
+        :value="verseId"
         name="verse-select"
-        class="select">
+        class="select"
+        @change="onChangeVerse">
         <option
           v-for="num in arrayAyah"
           :key="num"
@@ -27,12 +28,12 @@
       </select>
     </div>
     <nuxt-link
-      :to="`/${surahId + 1}`"
+      :to="`/${surahId}/${verseId + 1}`"
       class="surah_nav_item surah_nav_next">
       <span
-        v-if="nextSurah"
+        v-if="isHaveNext"
         class="text-nav">
-        {{ nextSurah.arabic }}
+        {{ verseId + 1 }}
       </span>
       <MdArrowForwardIcon
         v-if="isHaveNext"
@@ -43,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Watch, Vue } from 'nuxt-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
 import MdArrowBackIcon from 'vue-ionicons/dist/js/md-arrow-back'
 import MdArrowForwardIcon from 'vue-ionicons/dist/js/md-arrow-forward'
@@ -55,25 +56,18 @@ import MdArrowForwardIcon from 'vue-ionicons/dist/js/md-arrow-forward'
   }
 })
 
-export default class SurahNavigation extends Vue {
-  selectedVerse = 1
-
+export default class VerseNavigation extends Vue {
   @Prop({ type: Number, default: 1 }) readonly surahId!: number
-  @Prop({ type: Object, default: () => ({ arabic: '' }) }) readonly nextSurah!: any
-  @Prop({ type: Object, default: () => ({ arabic: '' }) }) readonly prevSurah!: any
+  @Prop({ type: Number, default: 1 }) readonly verseId!: number
   @Prop({ type: Number, default: 0 }) readonly verseCount!: number
-
-  @Watch('selectedVerse')
-  onChildChanged (val: string): void {
-    window.location.href = `#verse-${val}`
-  }
+  @Prop({ type: Function, default: () => {} }) readonly onChangeVerse!: Function
 
   get isHavePrev (): boolean {
-    return this.surahId > 1
+    return this.verseId > 1
   }
 
   get isHaveNext (): boolean {
-    return this.surahId < 114
+    return this.surahId < this.verseCount
   }
 
   get arrayAyah (): number[] {

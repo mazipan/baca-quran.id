@@ -1,65 +1,24 @@
 <template>
   <div class="verse__root">
     <div
-      v-for="(verse, index) in verseArray"
-      :id="`verse-${index}`"
-      :key="index"
+      v-if="surahId !== 1 && surahId !== 9"
       class="verse block_content has-shadow">
-      <div class="verse__header">
-        <div class="verse__index tag_index">
-          {{ Number(index) }}
-        </div>
-        <div class="verse__header--right">
-          <div class="verse__header_icon" @click="onClickAudioIcon(Number(index))">
-            <MdVolumeHighIcon w="2em" h="2em" />
-
-            <div class="tooltip" :class="{'show' : Number(clickedAudioIcon) === Number(index)}">
-              <ul v-for="audio in audios" :key="audio.id">
-                <li @click="onClickAudioItem(audio, Number(index))">
-                  {{ audio.text }}
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="verse__header_icon"
-            @click="doSetLastReadVerse({ surah: surahId, verse: Number(index) })">
-            <MdBookmarkIcon w="2em" h="2em" />
-          </div>
-
-          <div
-            v-if="isSupportWebShare"
-            class="verse__header_icon"
-            @click="shareVerse(verse, Number(index))">
-            <MdShareIcon w="2em" h="2em" />
-          </div>
-        </div>
-      </div>
       <div class="divider clearfix">
-        <div class="verse__arabic font-arabic" dir="rtl">
-          {{ verse }}
+        <div class="verse__arabic font-arabic" dir="rtl" style="text-align: center;">
+          {{ AppConstant.BISMILLAH }}
         </div>
       </div>
-      <div v-if="settingShowTranslation" class="divider clearfix">
-        <div class="verse__bold">
-          <b>Terjemah:</b>
-        </div>
-        <div class="verse__translation">
-          {{ getTranslation(index) }}
-        </div>
-      </div>
-      <div v-if="settingShowTafsir" class="divider clearfix">
-        <div class="verse__bold">
-          <b>Tafsir dari Kemenag:</b>
-        </div>
-        <div class="verse__tafsir">
-          {{ getTafsir(index) }}
-        </div>
-        <div class="verse__small">
-          <i>Sumber: Aplikasi Quran Kementrian Agama Republik Indonesia</i>
-        </div>
-      </div>
+    </div>
+
+    <div
+      v-for="(verse, index) in verseArray"
+      :key="index">
+      <SingleVerse
+        :verse="verse"
+        :verse-index="index"
+        :surah-id="surahId"
+        :translations="translations"
+        :tafsir="tafsir" />
     </div>
   </div>
 </template>
@@ -72,6 +31,8 @@ import MdShareIcon from 'vue-ionicons/dist/js/md-share'
 import MdBookmarkIcon from 'vue-ionicons/dist/js/md-bookmark'
 import MdVolumeHighIcon from 'vue-ionicons/dist/js/md-volume-high'
 import MurotalConstant from '../constant/murotal'
+import { AppConstant } from '../constant'
+import SingleVerse from './SingleVerse.vue'
 
 const randomVerse = 1000000
 
@@ -79,10 +40,12 @@ const randomVerse = 1000000
   components: {
     MdShareIcon,
     MdBookmarkIcon,
-    MdVolumeHighIcon
+    MdVolumeHighIcon,
+    SingleVerse
   }
 })
 export default class VerseCard extends Vue {
+  AppConstant = AppConstant
   audios = MurotalConstant.availableAudio;
   clickedAudioIcon = randomVerse;
   timeout;
@@ -93,7 +56,7 @@ export default class VerseCard extends Vue {
 
   @Prop({ type: Object, default: () => ({}) }) readonly translations!: any;
   @Prop({ type: Object, default: () => ({}) }) readonly tafsir!: any;
-  @Prop({ type: Number, default: 0 }) readonly surahId!: number;
+  @Prop({ type: Number, default: 1 }) readonly surahId!: number;
 
   @State surahFavorite;
   @State isSupportWebShare;
@@ -154,21 +117,10 @@ export default class VerseCard extends Vue {
 
 <style lang="scss" scoped>
 .verse {
-  text-align: left;
-
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    &--right {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    &_icon {
-      padding: 0 0.5em;
-      position: relative;
-    }
   }
   &__arabic {
     font-size: 2rem;
@@ -177,90 +129,5 @@ export default class VerseCard extends Vue {
     text-align: right;
     margin-top: 0.25em;
   }
-  &__translation {
-    font-size: 1rem;
-    width: 100%;
-    font-style: italic;
-    margin-top: 1.5em;
-  }
-  &__tafsir {
-    font-size: 1rem;
-    width: 100%;
-    margin-top: 1.5em;
-  }
-  &__bold {
-    font-weight: bold;
-    margin-top: 1.5em;
-    line-height: 1.5;
-  }
-  &__small {
-    font-size: 0.8rem;
-    margin-top: 1.5em;
-    font-style: italic;
-  }
-}
-.tooltip {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  background-color: #1a1a1a;
-  color: #41b883;
-  text-align: center;
-  // border-radius: 6px;
-  // padding: 1em 2em;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -50px;
-
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    li {
-      padding: 15px 25px;
-      border-bottom: 1px solid #41b883;
-      &:last-child {
-        border-bottom: 0;
-      }
-    }
-  }
-}
-.tooltip.show {
-  visibility: visible;
-  opacity: 1;
-}
-.tooltip {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  background-color: #1a1a1a;
-  color: #41b883;
-  text-align: center;
-  // border-radius: 6px;
-  // padding: 1em 2em;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -50px;
-
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    li {
-      padding: 15px 25px;
-      border-bottom: 1px solid #41b883;
-      &:last-child {
-        border-bottom: 0;
-      }
-    }
-  }
-}
-.tooltip.show {
-  visibility: visible;
-  opacity: 1;
 }
 </style>

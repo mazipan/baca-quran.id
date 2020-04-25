@@ -80,7 +80,7 @@ export default class SettingsPage extends Vue {
   @Action setSettingTafsir
 
   get metaHead () {
-    const title = "Halaman setelan | Qur'an Offline"
+    const title = "Halaman setelan | Qur'an Web"
     return {
       title,
       meta: [
