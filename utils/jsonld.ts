@@ -79,6 +79,14 @@ export function getJsonLdArticle ({ slug, title, cover, desc }: JsonldArticlePar
       '@type': 'Person',
       name: 'Irfan Maulana'
     },
-    description: desc
+    description: desc,
+    publisher: {
+      '@type': 'Organization',
+      name: 'mazipan',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${AppConstant.PATH}icon.png`
+      }
+    }
   }
 }
