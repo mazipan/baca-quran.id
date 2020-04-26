@@ -5,7 +5,8 @@ interface sitemapConfigs {
   routes?: string[];
   sitemaps?: string[];
   exclude?: string[];
-  gzip?: boolean;
+  gzip: boolean;
+  trailingSlash: boolean;
 }
 
 const getStaticRoutes = (): string[] => {
@@ -50,6 +51,7 @@ const getVerseSitemaps = (): sitemapConfigs[] => {
       path: `sitemap-verse-${i}.xml`,
       routes: getVerseRoutes(i),
       gzip: true,
+      trailingSlash: true,
       exclude: getStaticRoutes()
     }
     res.push(surahSitemap)
@@ -61,13 +63,15 @@ const getSitemaps = (): sitemapConfigs[] => {
   const staticSitemap: sitemapConfigs = {
     path: 'sitemap-statics.xml',
     routes: getStaticRoutes(),
-    gzip: true
+    gzip: true,
+    trailingSlash: true,
   }
 
   const surahSitemap: sitemapConfigs = {
     path: 'sitemap-surah.xml',
     routes: getSurahRoutes(),
     gzip: true,
+    trailingSlash: true,
     exclude: getStaticRoutes()
   }
 
