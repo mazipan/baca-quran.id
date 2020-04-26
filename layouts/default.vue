@@ -12,7 +12,7 @@
       </a>
     </div>
 
-    <script type="application/ld+json" v-text="jsonLdWebsite" />
+    <script type="application/ld+json" v-html="jsonLdWebsite" />
   </div>
 </template>
 
