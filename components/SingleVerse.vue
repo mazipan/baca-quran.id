@@ -147,7 +147,7 @@ export default class SingleVerseCard extends Vue {
       text: `${verse}
 
         ${this.getTranslation(index)} (QS ${this.surahId}:${index})`,
-      url: `https://quran-offline.netlify.com/${this.surahId}#verse-${index}`
+      url: `https://quran-offline.netlify.com/${this.surahId}/${index}`
     }
     this.shareViaWebshare(data)
   }
