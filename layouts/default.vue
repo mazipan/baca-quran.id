@@ -3,7 +3,7 @@
     <div v-show="isShowSidebar" class="sidebar-cover" @click="hideSidebar" />
     <BaseSidebar :class="{'sidebar--open': isShowSidebar}" />
     <BaseHeader />
-    <nuxt class="app__content" keep-alive :keep-alive-props="{ max: 5 }" />
+    <nuxt class="app__content" />
     <BottomNav v-if="isHideBottomNav" />
     <BaseToast />
     <div v-show="showArrowToTop" class="arrowtotop">
