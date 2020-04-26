@@ -29,8 +29,8 @@ export const state: StateType = {
   headerTitle: AppConstant.TITLE,
   page: 'home',
   lastReadVerse: null,
-  settingActiveTheme: ThemeItem.LIGHT,
-  settingShowTranslation: true,
-  settingShowTafsir: true,
+  settingActiveTheme: ThemeItem.DARK,
+  settingShowTranslation: false,
+  settingShowTafsir: false,
   surahFavorite: []
 }
