@@ -22,9 +22,6 @@
         :verse-count="Number(currentSurah.number_of_ayah)"
         :on-change-verse="onChangeVerse" />
     </div>
-
-    <script type="application/ld+json" v-html="jsonldBreadcrumb" />
-    <script type="application/ld+json" v-html="jsonLdArticle" />
   </section>
 </template>
 
@@ -96,7 +93,22 @@ export default class VerseDetailPage extends Vue {
           name: 'theme-color',
           content: this.settingActiveTheme.bgColor
         }
-      ]
+      ],
+      script: [
+        {
+          id: 'ld-breadcrumb',
+          innerHTML: JSON.stringify(this.jsonldBreadcrumb),
+          type: 'application/ld+json',
+          body: true
+        },
+        {
+          id: 'ld-article',
+          innerHTML: JSON.stringify(this.jsonLdArticle),
+          type: 'application/ld+json',
+          body: true
+        }
+      ],
+      __dangerouslyDisableSanitizers: ['script']
     }
   }
 
