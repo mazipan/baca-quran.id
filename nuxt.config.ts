@@ -95,20 +95,24 @@ const config = {
 
   sitemap: {
     hostname: PROD_PATH,
-    cacheTime: 1000 * 60 * 15,
+    cacheTime: 1000 * 60 * 60,
+    lastmod: new Date(),
     gzip: true,
     path: 'sitemap.xml',
     sitemaps: getSitemaps(),
     defaults: {
       changefreq: 'daily',
       priority: 1,
-      lastmodISO: new Date().toISOString()
+      lastmod: new Date()
     }
   },
   /*
    ** Generate multiple entry html from 1 to 114
    */
   generate: {
+    fallback: true,
+    interval: 1000,
+    concurrency: 50,
     routes: getRoutes()
   },
   /*
