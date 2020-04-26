@@ -64,7 +64,7 @@ const getSitemaps = (): sitemapConfigs[] => {
     path: 'sitemap-statics.xml',
     routes: getStaticRoutes(),
     gzip: true,
-    trailingSlash: true,
+    trailingSlash: true
   }
 
   const surahSitemap: sitemapConfigs = {
