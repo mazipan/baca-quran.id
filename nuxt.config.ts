@@ -91,14 +91,15 @@ const config = {
 
   sitemap: {
     hostname: PROD_PATH,
-    cacheTime: 1000 * 60 * 15,
+    cacheTime: 1000 * 60 * 60,
+    lastmod: new Date().toISOString().substring(0, 11),
     gzip: true,
     path: 'sitemap.xml',
     sitemaps: getSitemaps(),
     defaults: {
       changefreq: 'daily',
       priority: 1,
-      lastmodISO: new Date().toISOString()
+      lastmod: new Date()
     }
   },
   /*
