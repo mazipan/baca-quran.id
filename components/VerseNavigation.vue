@@ -67,7 +67,7 @@ export default class VerseNavigation extends Vue {
   }
 
   get isHaveNext (): boolean {
-    return this.surahId < this.verseCount
+    return this.verseId < this.verseCount
   }
 
   get arrayAyah (): number[] {
