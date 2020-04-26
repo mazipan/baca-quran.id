@@ -16,7 +16,7 @@ install:
 script:
   - yarn run lint
   # - yarn run test
-  - yarn run generate
+  - yarn run generate:ci
 # after_script:
 #   - npm install -g codecov
 #   - codecov

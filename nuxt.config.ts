@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import getRoutes from './build-scripts/getRoutes'
-import getSitemapRoutes from './build-scripts/getSitemapRoutes'
+import getSitemaps from './build-scripts/getSitemaps'
 import getOfflineAssets from './build-scripts/getOfflineAssets'
 
 const PROD_PATH = 'https://quran-offline.netlify.app/'
@@ -93,7 +93,13 @@ const config = {
     hostname: PROD_PATH,
     cacheTime: 1000 * 60 * 15,
     gzip: true,
-    routes: getSitemapRoutes()
+    path: 'sitemap.xml',
+    sitemaps: getSitemaps(),
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmodISO: new Date().toISOString()
+    }
   },
   /*
    ** Generate multiple entry html from 1 to 114

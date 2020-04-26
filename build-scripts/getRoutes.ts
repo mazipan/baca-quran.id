@@ -1,4 +1,4 @@
-const SurahConstant = require('../constant/surah')
+const SurahConstant = require('./surah')
 
 const getRoutes = (): string[] => {
   const res: string[] = [
