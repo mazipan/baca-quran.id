@@ -110,7 +110,6 @@ export default class SurahDetailPage extends Vue {
           type: 'application/ld+json',
           body: true
         }
-
       ],
       __dangerouslyDisableSanitizers: ['script']
     }
