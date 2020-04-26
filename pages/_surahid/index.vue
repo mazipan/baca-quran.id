@@ -22,8 +22,8 @@
         :verse-count="Number(currentSurah.number_of_ayah)" />
     </div>
 
-    <script type="application/ld+json" v-text="jsonldBreadcrumb" />
-    <script type="application/ld+json" v-text="jsonLdArticle" />
+    <script type="application/ld+json" v-html="jsonldBreadcrumb" />
+    <script type="application/ld+json" v-html="jsonLdArticle" />
   </section>
 </template>
 
