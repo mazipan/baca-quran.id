@@ -2,6 +2,7 @@
 import getRoutes from './build-scripts/getRoutes'
 import getSitemaps from './build-scripts/getSitemaps'
 import getOfflineAssets from './build-scripts/getOfflineAssets'
+import { getJsonLdWebsite } from './utils/jsonld'
 
 const PROD_PATH = 'https://quran-offline.netlify.app/'
 const title =
@@ -58,7 +59,16 @@ const config = {
         innerHTML: 'This website requires JavaScript.',
         body: true
       }
-    ]
+    ],
+    script: [
+      {
+        id: 'ld-website',
+        innerHTML: JSON.stringify(getJsonLdWebsite()),
+        type: 'application/ld+json',
+        body: true
+      }
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
   manifest: {
     name: 'Quran Web',
