@@ -21,6 +21,9 @@
         :prev-surah="prevSurah"
         :verse-count="Number(currentSurah.number_of_ayah)" />
     </div>
+
+    <script type="application/ld+json" v-text="jsonldBreadcrumb" />
+    <script type="application/ld+json" v-text="jsonLdArticle" />
   </section>
 </template>
 
@@ -33,6 +36,7 @@ import SurahHeader from '../../components/SurahHeader.vue'
 import SurahNavigation from '../../components/SurahNavigation.vue'
 
 import { __isNotNull, __isNotEmptyArray } from '../../utils/index'
+import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../utils/jsonld'
 
 @Component({
   components: {
@@ -43,17 +47,35 @@ import { __isNotNull, __isNotEmptyArray } from '../../utils/index'
   async asyncData ({ params }) {
     const respDetail = await import(`~/static/data/surah/${params.surahid}.json`)
     const resp = await import('~/static/data/surah-info.json')
+
+    // @ts-ignore: Unreachable code error
+    const title = `Baca Qur'an Surat ${respDetail[params.surahid].name_latin} | Qur'an Web`
+    // @ts-ignore: Unreachable code error
+    const description = `Baca Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Surat ${respDetail[params.surahid].name_latin} Berdasarkan Data dari Kemenag`
+
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })
       }),
-      currentSurah: respDetail[params.surahid]
+      currentSurah: respDetail[params.surahid],
+      jsonldBreadcrumb: getJsonLdBreadcrumb({
+        categoryTitle: 'Daftar Surat',
+        categorySlug: 'all-surah',
+        title: `${respDetail[params.surahid].name_latin}`,
+        slug: `${params.surahid}`
+      }),
+      jsonLdArticle: getJsonLdArticle({
+        desc: `${description}`,
+        cover: 'meta-image.png',
+        title: `${title}`,
+        slug: `${params.surahid}`
+      })
     }
   }
 })
 
 export default class SurahDetailPage extends Vue {
-  loading = true
+  loading = true;
 
   @State settingActiveTheme
   @Mutation setHeaderTitle

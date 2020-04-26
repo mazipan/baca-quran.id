@@ -9,6 +9,10 @@ const title =
 const description = "Baca ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dimana saja, langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
 
 const config = {
+  env: {
+    baseUrl: PROD_PATH,
+    envBuildTime: new Date().toISOString()
+  },
   buildModules: ['@nuxt/typescript-build'],
   debug: true,
   mode: 'universal',
@@ -57,7 +61,7 @@ const config = {
     ]
   },
   manifest: {
-    name: 'Quran Offline',
+    name: 'Quran Web',
     short_name: 'Quran'
   },
   workbox: {

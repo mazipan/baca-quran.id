@@ -22,6 +22,9 @@
         :verse-count="Number(currentSurah.number_of_ayah)"
         :on-change-verse="onChangeVerse" />
     </div>
+
+    <script type="application/ld+json" v-text="jsonldBreadcrumb" />
+    <script type="application/ld+json" v-text="jsonLdArticle" />
   </section>
 </template>
 
@@ -34,6 +37,7 @@ import SurahHeader from '../../../components/SurahHeader.vue'
 import VerseNavigation from '../../../components/VerseNavigation.vue'
 
 import { __isNotNull } from '../../../utils/index'
+import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../../utils/jsonld'
 
 @Component({
   components: {
@@ -43,8 +47,26 @@ import { __isNotNull } from '../../../utils/index'
   },
   async asyncData ({ params }) {
     const respDetail = await import(`~/static/data/surah/${params.surahid}.json`)
+
+    // @ts-ignore: Unreachable code error
+    const title = `Baca Qur'an Ayat ke-${params.verseid} Surat ${respDetail[params.surahid].name_latin} | Qur'an Web`
+    // @ts-ignore: Unreachable code error
+    const description = `Baca Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Ayat ke-${params.verseid} Surat ${respDetail[params.surahid].name_latin} Berdasarkan Data dari Kemenag`
+
     return {
-      currentSurah: respDetail[params.surahid]
+      currentSurah: respDetail[params.surahid],
+      jsonldBreadcrumb: getJsonLdBreadcrumb({
+        categoryTitle: `QS ${params.surahid}`,
+        categorySlug: `${params.surahid}`,
+        title: `QS ${params.surahid}:${params.verseid}`,
+        slug: `${params.surahid}/${params.verseid}`
+      }),
+      jsonLdArticle: getJsonLdArticle({
+        desc: `${description}`,
+        cover: 'meta-image.png',
+        title: `${title}`,
+        slug: `${params.surahid}/${params.verseid}`
+      })
     }
   }
 })
