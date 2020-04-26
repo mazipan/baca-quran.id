@@ -14,8 +14,8 @@ interface JsonldArticleParam {
   desc: string;
 }
 
-export function getJsonLdWebsite (): string {
-  return JSON.stringify({
+export function getJsonLdWebsite () {
+  return {
     '@context': 'http://schema.org',
     '@type': 'WebSite',
     url: `${AppConstant.PATH}`,
@@ -31,11 +31,11 @@ export function getJsonLdWebsite (): string {
       'https://www.slideshare.net/IrfanMaulana21',
       'https://github.com/mazipan'
     ]
-  })
+  }
 }
 
-export function getJsonLdBreadcrumb ({ categoryTitle, categorySlug, title, slug }: JsonldBreadcrumbParam): string {
-  return JSON.stringify({
+export function getJsonLdBreadcrumb ({ categoryTitle, categorySlug, title, slug }: JsonldBreadcrumbParam) {
+  return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -58,11 +58,11 @@ export function getJsonLdBreadcrumb ({ categoryTitle, categorySlug, title, slug 
         item: `${AppConstant.PATH}${slug}/`
       }
     ]
-  })
+  }
 }
 
-export function getJsonLdArticle ({ slug, title, cover, desc }: JsonldArticleParam): string {
-  return JSON.stringify({
+export function getJsonLdArticle ({ slug, title, cover, desc }: JsonldArticleParam) {
+  return {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     mainEntityOfPage: {
@@ -80,5 +80,5 @@ export function getJsonLdArticle ({ slug, title, cover, desc }: JsonldArticlePar
       name: 'Irfan Maulana'
     },
     description: desc
-  })
+  }
 }
