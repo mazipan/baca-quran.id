@@ -100,12 +100,14 @@ export default class SurahDetailPage extends Vue {
       script: [
         {
           id: 'ld-breadcrumb',
+          // @ts-ignore: Unreachable code error
           innerHTML: JSON.stringify(this.jsonldBreadcrumb),
           type: 'application/ld+json',
           body: true
         },
         {
           id: 'ld-article',
+          // @ts-ignore: Unreachable code error
           innerHTML: JSON.stringify(this.jsonLdArticle),
           type: 'application/ld+json',
           body: true
