@@ -105,6 +105,9 @@ const config = {
    ** Generate multiple entry html from 1 to 114
    */
   generate: {
+    fallback: true,
+    interval: 1000,
+    concurrency: 50,
     routes: getRoutes()
   },
   /*
