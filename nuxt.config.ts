@@ -92,7 +92,7 @@ const config = {
   sitemap: {
     hostname: PROD_PATH,
     cacheTime: 1000 * 60 * 60,
-    lastmod: new Date().toISOString().substring(0, 11),
+    lastmod: new Date(),
     gzip: true,
     path: 'sitemap.xml',
     sitemaps: getSitemaps(),
