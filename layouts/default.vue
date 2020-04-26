@@ -11,8 +11,6 @@
         <ArrowUpIcon w="3em" h="3em" />
       </a>
     </div>
-
-    <script type="application/ld+json" v-html="jsonLdWebsite" />
   </div>
 </template>
 
@@ -28,7 +26,6 @@ import BaseToast from '../components/BaseToast.vue'
 import BottomNav from '../components/BottomNav.vue'
 
 import { isSupportWebp } from '../utils/webp'
-import { getJsonLdWebsite } from '../utils/jsonld'
 
 require('intersection-observer')
 require('vue-ionicons/ionicons.css')
@@ -46,7 +43,6 @@ require('vue-ionicons/ionicons.css')
 export default class DefaultLayout extends Vue {
   showArrowToTop = false;
   webpClass = 'no-webp';
-  jsonLdWebsite = getJsonLdWebsite();
 
   @State settingActiveTheme;
   @State isShowSidebar;
