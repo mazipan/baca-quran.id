@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="wrapper">
-      <div class="arabic">
+      <div class="arabic" style="text-align:center;">
         {{ AppConstant.BISMILLAH }}
       </div>
       <div class="arabic">
