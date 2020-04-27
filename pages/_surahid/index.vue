@@ -5,7 +5,8 @@
         :surah-number="Number(currentSurah.number)"
         :surah-name="currentSurah.name"
         :surah-latin="currentSurah.name_latin"
-        :surah-translation="currentSurah.translations.id.name" />
+        :surah-translation="currentSurah.translations.id.name"
+        source="surah" />
 
       <div class="detail__content">
         <VerseCard
@@ -75,6 +76,7 @@ export default class SurahDetailPage extends Vue {
   loading = true;
 
   @State settingActiveTheme
+
   @Mutation setHeaderTitle
   @Mutation setPage
 
@@ -91,11 +93,16 @@ export default class SurahDetailPage extends Vue {
 
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'twitter:label1', name: 'twitter:label1', content: 'Surat' },
+        // @ts-ignore: Unreachable code error
+        { hid: 'twitter:label2', name: 'twitter:label2', content: this.currentSurah.name_latin },
         {
           hid: 'theme-color',
           name: 'theme-color',
           content: this.settingActiveTheme.bgColor
-        }
+        },
+        // @ts-ignore: Unreachable code error
+        { hid: 'article:tag', name: 'article:tag', content: this.currentSurah.name_latin }
       ],
       script: [
         {

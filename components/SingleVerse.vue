@@ -7,16 +7,8 @@
         {{ Number(verseIndex) }}
       </div>
       <div class="verse__header--right">
-        <div class="verse__header_icon" @click="onClickAudioIcon(Number(verseIndex))">
+        <div class="verse__header_icon" @click="onClickAudioItem(Number(verseIndex))">
           <MdVolumeHighIcon w="2em" h="2em" />
-
-          <div class="tooltip" :class="{'show' : Number(clickedAudioIcon) === Number(verseIndex)}">
-            <ul v-for="audio in audios" :key="audio.id">
-              <li @click="onClickAudioItem(audio, Number(verseIndex))">
-                {{ audio.text }}
-              </li>
-            </ul>
-          </div>
         </div>
 
         <div
@@ -34,7 +26,7 @@
       </div>
     </div>
     <div class="divider clearfix">
-      <div class="verse__arabic font-arabic" dir="rtl">
+      <div class="verse__arabic font-arabic" dir="rtl" lang="ar">
         {{ verse.trim() }}
       </div>
     </div>
@@ -57,6 +49,9 @@
         <i>Sumber: Aplikasi Quran Kementrian Agama Republik Indonesia</i>
       </div>
     </div>
+    <audio v-if="audioLink" :id="`audioVerseRef${verseIndex}`" class="audio">
+      <source :src="audioLink" type="audio/mpeg">
+    </audio>
   </div>
 </template>
 
@@ -83,6 +78,7 @@ export default class SingleVerseCard extends Vue {
   AppConstant = AppConstant;
   audios = MurotalConstant.availableAudio;
   clickedAudioIcon = randomVerse;
+  audioLink = '';
   timeout;
 
   @Prop({ type: [Object, Array], default: () => ({}) }) readonly verseArray!:
@@ -104,24 +100,22 @@ export default class SingleVerseCard extends Vue {
   @Action showNotification;
   @Action shareViaWebshare;
 
-  onClickAudioIcon (verse) {
-    if (this.timeout) {
-      clearTimeout(this.timeout)
-    }
-
-    this.clickedAudioIcon = verse
-    this.timeout = setTimeout(() => {
-      this.clickedAudioIcon = randomVerse
-    }, 5000)
-  }
-
-  onClickAudioItem (audioObj, verse) {
-    if (audioObj.id === 'kemenag') {
-      const hrefAudio = MurotalConstant.getAudioFromKemenag(
-        this.surahId,
-        verse
-      )
-      window.location.href = hrefAudio
+  onClickAudioItem (verse) {
+    this.audioLink = ''
+    const hrefAudio = MurotalConstant.getAudioFromKemenag(
+      this.surahId,
+      verse
+    )
+    this.audioLink = hrefAudio
+    try {
+      setTimeout(async () => {
+        // @ts-ignore
+        const node = document.querySelector(`#audioVerseRef${verse}`)
+        // @ts-ignore
+        await node.play()
+      }, 500)
+    } catch (error) {
+      console.error(error)
     }
   }
 
@@ -201,68 +195,8 @@ export default class SingleVerseCard extends Vue {
     font-style: italic;
   }
 }
-.tooltip {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  background-color: #1a1a1a;
-  color: #41b883;
-  text-align: center;
-  // border-radius: 6px;
-  // padding: 1em 2em;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -50px;
-
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    li {
-      padding: 15px 25px;
-      border-bottom: 1px solid #41b883;
-      &:last-child {
-        border-bottom: 0;
-      }
-    }
-  }
-}
-.tooltip.show {
-  visibility: visible;
-  opacity: 1;
-}
-.tooltip {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  background-color: #1a1a1a;
-  color: #41b883;
-  text-align: center;
-  // border-radius: 6px;
-  // padding: 1em 2em;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -50px;
-
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    li {
-      padding: 15px 25px;
-      border-bottom: 1px solid #41b883;
-      &:last-child {
-        border-bottom: 0;
-      }
-    }
-  }
-}
-.tooltip.show {
-  visibility: visible;
-  opacity: 1;
+.audio{
+  position: fixed;
+  bottom: 70px;
 }
 </style>

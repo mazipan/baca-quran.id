@@ -17,10 +17,7 @@ const getStaticRoutes = (): string[] => {
     '/asmaul-husna',
     '/ayat-kursi',
     '/daily-doa',
-    '/favorite',
-    '/last-verse',
-    '/recommendation',
-    '/settings'
+    '/recommendation'
   ]
   return res
 }

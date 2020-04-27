@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <div class="surah-header">
-      <div class="surah-header_index font-arabic">
-        {{ surahNumber }}
-      </div>
-      <div class="surah-header_content">
-        <div>{{ surahName }}</div>
-        <small>({{ surahLatin }} - {{ surahTranslation }})</small>
-      </div>
+  <nuxt-link class="surah-header" :to="`/${surahNumber}`">
+    <div class="surah-header_index font-arabic">
+      {{ surahNumber }}
     </div>
-  </div>
+    <div class="surah-header_content">
+      <div>{{ surahName }}</div>
+      <small>({{ surahLatin }} - {{ surahTranslation }})</small>
+    </div>
+  </nuxt-link>
 </template>
 
 <script lang="ts">
@@ -32,6 +30,7 @@ export default class SurahHeader extends Vue {
   display: flex;
   align-content: center;
   align-items: center;
+  text-decoration: none;
 
   &_index {
     background-color: var(--bg-card-darken-color);

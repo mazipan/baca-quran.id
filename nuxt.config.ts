@@ -30,9 +30,11 @@ const config = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'robots', name: 'robots', content: 'index' },
       { hid: 'description', name: 'description', content: description },
       { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
 
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Qur\'an Web' },
       { hid: 'og:image', property: 'og:image', content: '/meta-image.png' },
       { hid: 'og:title', property: 'og:title', content: title },
       { hid: 'og:description', property: 'og:description', content: description },
@@ -43,6 +45,12 @@ const config = {
       { hid: 'twitter:title', name: 'twitter:title', content: title },
       { hid: 'twitter:description', name: 'twitter:description', content: description },
       { hid: 'twitter:url', name: 'twitter:url', content: PROD_PATH },
+      { hid: 'twitter:creator', name: 'twitter:creator', content: '@maz_ipan' },
+
+      { hid: 'article:published_time', name: 'article:published_time', content: new Date().toISOString() },
+      { hid: 'article:publisher', name: 'article:publisher', content: 'https://www.facebook.com/mazipanneh' },
+      { hid: 'article:author', name: 'article:author', content: 'https://www.facebook.com/mazipanneh' },
+      { hid: 'article:tag', name: 'article:tag', content: 'quran web' },
 
       {
         content: 'MJwW1iWLvaJ05N5rHDWpEqSQEjeXmHbbwFR-bk6E4vc',

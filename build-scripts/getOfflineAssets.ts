@@ -13,13 +13,10 @@ const getOfflineAssets = (): string[] => {
     '/icon_rosary.svg',
     '/illustration_1.jpg',
     '/illustration_2.jpg',
-    '/illustration_3.jpg'
-    // '/data/surah-info.json'
+    '/illustration_3.jpg',
+    '/fonts/lpmq.otf'
   ]
 
-  // for (let i = 1; i < 115; i++) {
-  //   res.push(`/data/surah/${i}.json`)
-  // }
   return res
 }
 

@@ -156,7 +156,7 @@ export default class DailyDoaPage extends Vue {
   text-align: right;
 }
 .latin{
-  font-size: 1.3rem;
+  font-size: 1rem;
   width: 100%;
   margin-top: 1.5em;
   text-align: left;

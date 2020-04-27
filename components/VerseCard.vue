@@ -18,7 +18,8 @@
         :verse-index="index"
         :surah-id="surahId"
         :translations="translations"
-        :tafsir="tafsir" />
+        :tafsir="tafsir"
+        source="surah" />
     </div>
   </div>
 </template>

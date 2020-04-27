@@ -21,7 +21,8 @@
           class="item">
           <div
             class="arabic font-arabic"
-            dir="rtl">
+            dir="rtl"
+            lang="ar">
             {{ item.arabic }}
           </div>
           <div class="latin">
@@ -143,7 +144,7 @@ export default class AsmaulHusnaPage extends Vue {
   width: 100%;
 }
 .latin{
-  font-size: 1.3rem;
+  font-size: 1rem;
   width: 100%;
   margin-top: 1.5em;
 }

@@ -34,6 +34,7 @@ export default class BaseToast extends Vue {
   z-index: 99;
   left: 10px;
   bottom: 100px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
   &.show {
     visibility: visible;
