@@ -1,4 +1,4 @@
-const SurahConstant = require('./surah')
+import SurahConstant from './surah'
 
 interface sitemapConfigs {
   path: string;

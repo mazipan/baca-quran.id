@@ -1,4 +1,4 @@
-const SurahConstant = require('./surah')
+import SurahConstant from './surah'
 
 const getRoutes = (): string[] => {
   const res: string[] = [

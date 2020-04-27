@@ -65,8 +65,6 @@ import MdVolumeHighIcon from 'vue-ionicons/dist/js/md-volume-high'
 import MurotalConstant from '../constant/murotal'
 import { AppConstant } from '../constant'
 
-const randomVerse = 1000000
-
 @Component({
   components: {
     MdShareIcon,
@@ -76,8 +74,6 @@ const randomVerse = 1000000
 })
 export default class SingleVerseCard extends Vue {
   AppConstant = AppConstant;
-  audios = MurotalConstant.availableAudio;
-  clickedAudioIcon = randomVerse;
   audioLink = '';
   timeout;
 

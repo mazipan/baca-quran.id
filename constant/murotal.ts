@@ -1,10 +1,6 @@
 import { __makeThreeDigit } from '../utils/index'
 
 export default {
-  availableAudio: [{
-    id: 'kemenag',
-    text: 'Kemenag'
-  }],
   // https://quran.kemenag.go.id/cmsq/source/s01/002001.mp3
   // surah from 001 (al-fatihah) three digits
   getAudioFromKemenag: (surah, verse) => {

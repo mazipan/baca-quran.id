@@ -31,7 +31,6 @@ import { State, Action } from 'vuex-class'
 import MdShareIcon from 'vue-ionicons/dist/js/md-share'
 import MdBookmarkIcon from 'vue-ionicons/dist/js/md-bookmark'
 import MdVolumeHighIcon from 'vue-ionicons/dist/js/md-volume-high'
-import MurotalConstant from '../constant/murotal'
 import { AppConstant } from '../constant'
 import SingleVerse from './SingleVerse.vue'
 
@@ -47,7 +46,6 @@ const randomVerse = 1000000
 })
 export default class VerseCard extends Vue {
   AppConstant = AppConstant
-  audios = MurotalConstant.availableAudio;
   clickedAudioIcon = randomVerse;
   timeout;
 
@@ -67,25 +65,6 @@ export default class VerseCard extends Vue {
   @Action setLastReadVerse;
   @Action showNotification;
   @Action shareViaWebshare;
-
-  onClickAudioIcon (verse) {
-    if (this.timeout) { clearTimeout(this.timeout) }
-
-    this.clickedAudioIcon = verse
-    this.timeout = setTimeout(() => {
-      this.clickedAudioIcon = randomVerse
-    }, 5000)
-  }
-
-  onClickAudioItem (audioObj, verse) {
-    if (audioObj.id === 'kemenag') {
-      const hrefAudio = MurotalConstant.getAudioFromKemenag(
-        this.surahId,
-        verse
-      )
-      window.location.href = hrefAudio
-    }
-  }
 
   getTranslation (indexVerse) {
     return this.translations.id.text[indexVerse]

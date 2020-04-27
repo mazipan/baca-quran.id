@@ -33,12 +33,12 @@ jobs:
           key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-
-            
+
       - name: Install dependencies
         run: yarn
 
       - name: Generate static files
-        run: yarn generate
+        run: yarn generate:ci
 
       - name: GitHub Pages Deploy
         uses: peaceiris/actions-gh-pages@v3
