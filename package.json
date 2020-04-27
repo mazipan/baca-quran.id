@@ -79,12 +79,10 @@
   },
   "lint-staged": {
     "*.{vue,ts,js}": [
-      "npm run lint:fix",
-      "git add"
+      "npm run lint:fix"
     ],
     "*.md": [
-      "npm run lint:md",
-      "git add"
+      "npm run lint:md"
     ]
   },
   "husky": {
