@@ -101,12 +101,12 @@ export default class SingleVerseCard extends Vue {
   @Action shareViaWebshare;
 
   onClickAudioItem (verse) {
-    this.audioLink = ''
     const hrefAudio = MurotalConstant.getAudioFromKemenag(
       this.surahId,
       verse
     )
     this.audioLink = hrefAudio
+
     try {
       setTimeout(async () => {
         // @ts-ignore
@@ -114,9 +114,7 @@ export default class SingleVerseCard extends Vue {
         // @ts-ignore
         await node.play()
       }, 500)
-    } catch (error) {
-      console.error(error)
-    }
+    } catch () {}
   }
 
   getTranslation (indexVerse) {
