@@ -10,18 +10,10 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 const store = new Vuex.Store({
-  state: state(),
+  state,
   mutations,
   actions
 })
-
-jest.mock('~/services/index', () => ({
-  getAllSurah: jest.fn(),
-  getSurahById: jest.fn(),
-  getAyatKursi: jest.fn(),
-  getAsmaulHusna: jest.fn(),
-  getDailyDoa: jest.fn()
-}))
 
 describe('store actions', () => {
   test('should dispatch setSettingTafsir correctly', (done) => {

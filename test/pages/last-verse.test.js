@@ -20,13 +20,13 @@ const dummyComponent = {
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
-const i18n = Helpers.initI18n(localVue)
 
 const store = new Vuex.Store({
   state: {
-    settingActiveTheme: Theme.LIGHT,
+    settingActiveTheme: Theme.DARK,
     allSurahList: [dummySurahInfo],
-    lastReadVerse: { surah: 1, verse: 1 }
+    lastReadVerse: { surah: 1, verse: 1 },
+    page: ''
   },
   mutations: {
     [Types.SET_HEADER_TITLE] (state, data) {
@@ -34,6 +34,9 @@ const store = new Vuex.Store({
     },
     [Types.SET_THEME] (state, data) {
       state.settingActiveTheme = data
+    },
+    [Types.SET_PAGE] (state, data) {
+      state.page = data
     }
   },
   actions: {
@@ -46,7 +49,7 @@ const createWrapper = () => {
     sync: false,
     store,
     router,
-    i18n,
+
     localVue,
     mocks: {
       allSurahList: [dummySurahInfo]
@@ -64,16 +67,8 @@ describe('pages last-verse.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = wrapper.vm.$t('pageTitle.lastRead')
-    const expected = {
-      title,
-      meta: [
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'theme-color', name: 'theme-color', content: '#333' }
-      ]
-    }
-    expect(wrapper.vm.metaHead).toEqual(expected)
+    const title = "Ayat terakhir dibaca | Qur'an Web"
+    expect(wrapper.vm.metaHead.title).toEqual(title)
     done()
   })
 })

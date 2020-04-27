@@ -10,13 +10,13 @@ import Theme from '~/constant/theme'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
-const i18n = Helpers.initI18n(localVue)
 
 const store = new Vuex.Store({
   state: {
-    settingActiveTheme: Theme.LIGHT,
+    settingActiveTheme: Theme.DARK,
     settingShowTranslation: false,
-    settingShowTafsir: false
+    settingShowTafsir: false,
+    page: ''
   },
   mutations: {
     [Types.SET_HEADER_TITLE] (state, data) {
@@ -30,6 +30,9 @@ const store = new Vuex.Store({
     },
     [Types.SET_SETTING_TAFSIR] (state, data) {
       state.settingShowTafsir = data
+    },
+    [Types.SET_PAGE] (state, data) {
+      state.page = data
     }
   },
   actions: {
@@ -50,7 +53,7 @@ const createWrapper = () => {
     sync: false,
     store,
     router,
-    i18n,
+
     localVue
   })
 }
@@ -65,16 +68,8 @@ describe('pages settings.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = wrapper.vm.$t('pageTitle.setting')
-    const expected = {
-      title,
-      meta: [
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'theme-color', name: 'theme-color', content: '#333' }
-      ]
-    }
-    expect(wrapper.vm.metaHead).toEqual(expected)
+    const title = "Halaman setelan | Qur'an Web"
+    expect(wrapper.vm.metaHead.title).toEqual(title)
     done()
   })
 
@@ -87,9 +82,12 @@ describe('pages settings.vue', () => {
   })
 
   test('method onSelectTheme fired correctly', (done) => {
+    const mockSetTheme = jest.fn()
+    window.__setPreferredTheme = mockSetTheme
     const wrapper = createWrapper()
     wrapper.vm.onSelectTheme(Theme.DARK)
     expect(wrapper.vm.$store.state.settingActiveTheme).toEqual(Theme.DARK)
+    expect(mockSetTheme).toBeCalled()
     done()
   })
 

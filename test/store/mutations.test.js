@@ -33,20 +33,6 @@ describe('store mutations', () => {
     done()
   })
 
-  test('SET_SURAH_LIST should change state allSurahList', (done) => {
-    const expected = [{ a: 'b', c: 'd' }]
-    store.commit(Types.SET_SURAH_LIST, expected)
-    expect(store.state.allSurahList).toEqual(expected)
-    done()
-  })
-
-  test('SET_SURAH_DETAIL should change state surahDetail', (done) => {
-    const expected = [{ a: 'b', c: 'd' }]
-    store.commit(Types.SET_SURAH_DETAIL, expected)
-    expect(store.state.surahDetail).toEqual(expected)
-    done()
-  })
-
   test('SET_LAST_READ should change state lastReadVerse', (done) => {
     const expected = [{ a: 'b', c: 'd' }]
     store.commit(Types.SET_LAST_READ, expected)
@@ -65,27 +51,6 @@ describe('store mutations', () => {
     const expected = [{ a: 'b', c: 'd' }]
     store.commit(Types.SET_NOTIFICATION, expected)
     expect(store.state.notification).toEqual(expected)
-    done()
-  })
-
-  test('SET_AYAT_KURSI should change state ayatKursi', (done) => {
-    const expected = [{ a: 'b', c: 'd' }]
-    store.commit(Types.SET_AYAT_KURSI, expected)
-    expect(store.state.ayatKursi).toEqual(expected)
-    done()
-  })
-
-  test('SET_ASMAUL_HUSNA should change state asmaulHusna', (done) => {
-    const expected = [{ a: 'b', c: 'd' }]
-    store.commit(Types.SET_ASMAUL_HUSNA, expected)
-    expect(store.state.asmaulHusna).toEqual(expected)
-    done()
-  })
-
-  test('SET_DAILY_DOA should change state dailyDoa', (done) => {
-    const expected = [{ a: 'b', c: 'd' }]
-    store.commit(Types.SET_DAILY_DOA, expected)
-    expect(store.state.dailyDoa).toEqual(expected)
     done()
   })
 

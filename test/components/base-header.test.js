@@ -21,7 +21,6 @@ const router = Helpers.initRouter(localVue, [{
   component: DummyComponent
 }])
 
-const i18n = Helpers.initI18n(localVue)
 const store = new Vuex.Store({
   state: {
     isShowSidebar: false,
@@ -44,7 +43,7 @@ const createWrapper = () => {
     sync: false,
     store,
     router,
-    i18n,
+
     localVue
   })
 }

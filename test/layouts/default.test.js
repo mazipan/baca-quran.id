@@ -9,7 +9,6 @@ import Theme from '~/constant/theme'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
-const i18n = Helpers.initI18n(localVue)
 
 const mockMutations = jest.fn()
 const store = new Vuex.Store({
@@ -31,7 +30,7 @@ const createWrapper = () => {
     sync: false,
     store,
     router,
-    i18n,
+
     localVue
   })
 }

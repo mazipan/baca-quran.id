@@ -7,7 +7,6 @@ import Component from '~/components/VerseCard.vue'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
-const i18n = Helpers.initI18n(localVue)
 
 const mockActionSetLastReadVerse = jest.fn()
 const mockActionShowNotification = jest.fn()
@@ -30,7 +29,7 @@ const createWrapper = (propsData) => {
     sync: false,
     store,
     router,
-    i18n,
+
     localVue,
     propsData
   })
@@ -40,13 +39,6 @@ describe('component BaseHeader.vue', () => {
   test('success mounting components', (done) => {
     const wrapper = createWrapper()
     expect(wrapper).toBeTruthy()
-    done()
-  })
-
-  test('onClickAudioIcon should change clickedAudioIcon', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.onClickAudioIcon({ a: 'b' })
-    expect(wrapper.vm.clickedAudioIcon).toEqual({ a: 'b' })
     done()
   })
 

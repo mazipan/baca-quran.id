@@ -3,7 +3,6 @@ import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import dummySurahInfo from './__mocks__/surah-info-item'
 import dummySurahDetail from './__mocks__/surah-detail'
-import Helpers from '~/test/helper'
 import Component from '~/pages/_surahid/index.vue'
 
 import { Types } from '~/store/types'
@@ -22,16 +21,15 @@ const dummyComponent = {
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-const i18n = Helpers.initI18n(localVue)
-
 const createStore = (dummyAllsurahList) => {
   let surahList = [dummySurahInfo]
   if (dummyAllsurahList) { surahList = dummyAllsurahList }
   return new Vuex.Store({
     state: {
-      settingActiveTheme: Theme.LIGHT,
+      settingActiveTheme: Theme.DARK,
       surahDetail: dummySurahDetail,
-      allSurahList: surahList
+      allSurahList: surahList,
+      page: ''
     },
     mutations: {
       [Types.SET_HEADER_TITLE] (state, data) {
@@ -39,6 +37,9 @@ const createStore = (dummyAllsurahList) => {
       },
       [Types.SET_THEME] (state, data) {
         state.settingActiveTheme = data
+      },
+      [Types.SET_PAGE] (state, data) {
+        state.page = data
       }
     },
     actions: {
@@ -63,7 +64,6 @@ const createWrapper = ($mockRoute, dummyAllsurahList) => {
   return shallowMount(dummyComponent, {
     sync: false,
     store: createStore(dummyAllsurahList),
-    i18n,
     localVue,
     mocks: {
       $route,
@@ -85,16 +85,7 @@ describe('pages _surahid.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = wrapper.vm.$t('pageTitle.surahDetail', { surahName: 'Al-Fatihah', surahNumber: 2 })
-    const expected = {
-      title,
-      meta: [
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'theme-color', name: 'theme-color', content: '#333' }
-      ]
-    }
-    expect(wrapper.vm.metaHead).toEqual(expected)
+    expect(wrapper.vm.metaHead.title).toEqual("Baca Qur'an Surat Al-Fatihah | Qur'an Web")
     done()
   })
 

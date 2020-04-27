@@ -9,7 +9,7 @@ import { Types } from '~/store/types'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
-const i18n = Helpers.initI18n(localVue)
+
 const store = new Vuex.Store({
   state: {
     notification: {
@@ -32,7 +32,7 @@ const createWrapper = () => {
     sync: false,
     store,
     router,
-    i18n,
+
     localVue
   })
 }

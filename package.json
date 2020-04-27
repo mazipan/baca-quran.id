@@ -14,7 +14,8 @@
     "lint:report": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix -f html-extended -o eslint-report.html",
     "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix",
     "lint:md": "remark readme.md -o --color",
-    "test": "cross-env NODE_ENV=test ./node_modules/.bin/jest --coverage",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage",
     "lh": "lighthousebot"
   },
   "dependencies": {
@@ -22,7 +23,6 @@
     "@vue/composition-api": "^0.5.0",
     "intersection-observer": "^0.10.0",
     "nuxt": "2.12.2",
-    "nuxt-i18n": "6.9.1",
     "nuxt-property-decorator": "^2.5.1",
     "vue-ionicons": "3.0.4"
   },

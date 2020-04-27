@@ -1,17 +1,16 @@
 module.exports = {
-  verbose: true,
-  collectCoverage: true,
   collectCoverageFrom: [
     // include folder
     '**/components/**/*.{js,ts,vue}',
     '**/layouts/**/*.{js,ts,vue}',
     '**/pages/**/*.{js,ts,vue}',
     '**/store/**/*.{js,ts,vue}',
+    '**/utils/**/*.{js,ts,vue}',
     // exclude folder and files
-    '!**/utils/**/*.{js,ts,vue}',
     '!**/node_modules/**',
     '!**/.nuxt/**',
     '!**/assets/**',
+    '!**/build-scripts/**',
     '!**/constant/**',
     '!**/coverage/**',
     '!**/dist/**',

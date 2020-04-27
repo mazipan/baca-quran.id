@@ -9,7 +9,6 @@ import { Types } from '~/store/types'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 const router = Helpers.initRouter(localVue)
-const i18n = Helpers.initI18n(localVue)
 
 const mockActionAddToFavorite = jest.fn()
 const mockActionRemoveFromFavorite = jest.fn()
@@ -36,7 +35,7 @@ const createWrapper = () => {
     sync: false,
     store,
     router,
-    i18n,
+
     localVue
   })
 }
@@ -97,7 +96,7 @@ describe('component SurahCard.vue', () => {
       sync: false,
       store: storeLocal,
       router,
-      i18n,
+
       localVue
     })
     const res = wrapper.vm.findInFavorite()
@@ -121,7 +120,7 @@ describe('component SurahCard.vue', () => {
       sync: false,
       store: storeLocal,
       router,
-      i18n,
+
       localVue
     })
     const res = wrapper.vm.findInFavorite({
