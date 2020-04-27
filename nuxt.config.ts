@@ -30,7 +30,7 @@ const config = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'robots', name: 'robots', content: 'index' },
+      { hid: 'robots', name: 'robots', content: 'index' },
       { hid: 'description', name: 'description', content: description },
       { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
 
