@@ -68,7 +68,6 @@ $ yarn lint:fix
 -   Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/muslim_2759837)
 -   [Ramadhan Icon Pack from Flaticon](https://www.flaticon.com/packs/ramadan-31)
 -   [Recite alquran vectors by Vecteezy](https://www.vecteezy.com/free-vector/recite-alquran)
--   [Women pray vector by freepik](https://www.freepik.com/free-vector/flat-design-ramadan-event_7533549.htm)
 -   [Ramadhan with man and woman by freepik](https://www.freepik.com/free-vector/ramadan-with-man-woman-praying_7372126.htm)
 
 * * *

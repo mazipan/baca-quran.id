@@ -18,11 +18,6 @@ const config = {
   buildModules: ['@nuxt/typescript-build'],
   debug: true,
   mode: 'universal',
-  // typescript: {
-  //   typeCheck: {
-  //     eslint: true
-  //   }
-  // },
   /*
    ** Headers of the page
    */
@@ -104,7 +99,7 @@ const config = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    // '@/plugins/composition-api'
+    { src: '~plugins/vue-carousel', ssr: false }
   ],
 
   /*
@@ -139,27 +134,12 @@ const config = {
    */
   build: {
     parallel: true,
-    // extractCSS: true,
     optimizeCSS: true,
     postcss: {
       plugins: {
         autoprefixer: true
       }
     }
-    /*
-     ** You can extend webpack config here
-     */
-    // extend (config: WebpackConfiguration, ctx) {
-    //   // Run ESLint on save
-    //   if (ctx.isDev && ctx.isClient) {
-    //     config.module.rules.push({
-    //       enforce: 'pre',
-    //       test: /\.(js|vue)$/,
-    //       loader: 'eslint-loader',
-    //       exclude: /(node_modules)/
-    //     })
-    //   }
-    // }
   },
   hooks: {
     generate: {

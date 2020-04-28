@@ -8,5 +8,6 @@ export const AppConstant = {
   AYAT_KURSI: 'Ayat kursi',
   ASMAUL_HUSNA: 'Asmaul husna',
   DAILY_DOA: "Do'a harian",
+  TAHLIL: 'Do\'a Tahlil',
   BISMILLAH: '﷽'
 }

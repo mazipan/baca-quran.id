@@ -8,6 +8,7 @@ const getRoutes = (): string[] => {
     '/asmaul-husna',
     '/ayat-kursi',
     '/daily-doa',
+    '/tahlil',
     '/favorite',
     '/last-verse',
     '/recommendation',

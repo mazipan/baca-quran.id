@@ -1,6 +1,7 @@
 @font-face {
   font-family: "lpmq";
-  src: url(/fonts/lpmq.otf) format("opentype")
+  src: url(/fonts/lpmq.otf) format("opentype");
+  font-display: swap;
 }
 
 html {
@@ -32,7 +33,7 @@ a {
 
 .font-arabic{
   font-family: "lpmq", Arial, sans-serif;
-  line-height: 2.5;
+  line-height: 2;
 }
 
 .pointer{

@@ -1,17 +1,15 @@
 <template>
   <section class="container">
     <div class="home">
-      <div class="slideshow-container">
-        <div class="slides fade" :style="{ display: currentIdx === 1 ? 'block' : 'none' }">
-          <div class="hero-image" :style="{ 'background-image': 'url(/illustration_1.jpg)'}" />
-        </div>
-        <div class="slides fade" :style="{ display: currentIdx === 2 ? 'block' : 'none' }">
-          <div class="hero-image" :style="{ 'background-image': 'url(/illustration_2.jpg)'}" />
-        </div>
-        <div class="slides fade" :style="{ display: currentIdx === 3 ? 'block' : 'none' }">
-          <div class="hero-image" :style="{ 'background-image': 'url(/illustration_3.jpg)'}" />
-        </div>
-      </div>
+      <client-only>
+        <carousel :per-page="1" :pagination-enabled="false" :autoplay="true" :loop="true">
+          <slide v-for="item in dataCarousel" :key="item">
+            <div class="slide">
+              <div class="slide_item" :style="{'background-image': `url(${item})`}" />
+            </div>
+          </slide>
+        </carousel>
+      </client-only>
 
       <div class="home__wrapper">
         <div class="item">
@@ -38,7 +36,45 @@
             {{ AppConstant.AYAT_KURSI }}
           </nuxt-link>
         </div>
+        <div class="item">
+          <nuxt-link to="/tahlil" class="item__link has-shadow">
+            <img src="/icon_mosque.svg">
+            {{ AppConstant.TAHLIL }}
+          </nuxt-link>
+        </div>
       </div>
+
+      <client-only>
+        <carousel
+          :per-page="1"
+          :pagination-enabled="false"
+          :navigation-enabled="true"
+          navigation-next-label=">>"
+          navigation-prev-label="<<"
+          :autoplay="true"
+          :loop="true">
+          <slide v-for="item in surahRecommendation" :key="item.index">
+            <nuxt-link class="slide-surah" :to="`/${item.index}`">
+              <div class="block_content has-shadow">
+                <div
+                  class="slide-surah__title font-arabic"
+                  dir="rtl"
+                  lang="ar">
+                  {{ item.arabic }}
+                </div>
+                <div
+                  class="">
+                  {{ item.latin }}
+                </div>
+                <div
+                  class="">
+                  ({{ item.translation }}: {{ item.ayah_count }} Ayat)
+                </div>
+              </div>
+            </nuxt-link>
+          </slide>
+        </carousel>
+      </client-only>
     </div>
   </section>
 </template>
@@ -53,6 +89,7 @@ import MdWifiIcon from 'vue-ionicons/dist/js/md-wifi'
 import IosColorWandIcon from 'vue-ionicons/dist/js/ios-color-wand'
 
 import { AppConstant } from '../constant'
+import surahRecommendation from '../constant/surah-recommendation'
 
 @Component({
   components: {
@@ -64,8 +101,11 @@ import { AppConstant } from '../constant'
 })
 export default class PageIndex extends Vue {
   AppConstant = AppConstant;
-  intervalObj = null;
-  currentIdx = 1;
+  surahRecommendation = surahRecommendation.data
+  dataCarousel = [
+    '/illustration_1.jpg',
+    '/illustration_2.jpg'
+  ]
 
   @State settingActiveTheme;
   @Mutation setHeaderTitle;
@@ -97,67 +137,54 @@ export default class PageIndex extends Vue {
   mounted () {
     this.setHeaderTitle(AppConstant.TITLE)
     this.setPage('home')
-    const _self = this
-    this.intervalObj = setInterval(() => {
-      _self.currentIdx += 1
-      if (_self.currentIdx === 4) {
-        _self.currentIdx = 1
-      }
-    }, 5000)
   }
 
   activated () {
     this.setHeaderTitle(AppConstant.TITLE)
     this.setPage('home')
   }
-
-  deactivated () {
-    clearInterval(this.intervalObj)
-  }
-
-  destroyed () {
-    clearInterval(this.intervalObj)
-  }
 }
 </script>
 
+<style lang="scss">
+.VueCarousel-navigation-prev,
+.VueCarousel-navigation-next{
+  z-index: 2;
+  background: var(--bg-body-color) !important;
+  color: var(--text-color) !important;
+  border-radius: 4px;
+}
+.VueCarousel-navigation-prev{
+  left: 60px !important;
+}
+.VueCarousel-navigation-next{
+  right: 60px !important;
+}
+</style>
+
 <style lang="scss" scoped>
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-.slides {
-  display: none;
-  width: 100%;
-  height: 220px;
-}
-
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+.slide{
+  height: 250px;
+  &_item {
+    width: 100%;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    transition: all 2s ease-in;
+  }
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
+.slide-surah{
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  text-decoration: none;
 
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-.hero-image {
-  width: 100%;
-  height: 220px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  transition: all 2s ease-in;
+  &__title{
+    font-size: 1.5rem;
+  }
 }
 
 .home__wrapper {
@@ -165,12 +192,12 @@ export default class PageIndex extends Vue {
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
 }
 
 .item {
-  width: 40%;
-  margin: 0.5em;
+  flex-grow: 1;
+  margin: 0.3em;
 
   &__link {
     text-decoration: none;
@@ -185,8 +212,8 @@ export default class PageIndex extends Vue {
     color: var(--text-color);
 
     img {
-      width: 48px;
-      height: 48px;
+      width: 24px;
+      height: 24px;
       margin-bottom: 1em;
     }
   }

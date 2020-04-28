@@ -120,15 +120,15 @@ export default class VerseNavigation extends Vue {
   padding: .5em 1.5rem .5em .5rem;
   outline: none;
   border: none;
-  background-color: #fff;
   font-size: 1rem;
   border-radius: 4px;
   margin-left: .5em;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAGCAYAAAARx7TFAAAAAXNSR0IArs4c6QAAAJ1JREFUCB1jzMnJCWdkZBSdPHnyFAYk0NDQwPbmzZuVTExMk5iA4p7//v2bDFScC1OzatUqZqCC5f////cHyikwiYiIJAFNWgIUmARSCKQZDx48OAdIBwJNSZ8yZcp8RpBuoNFMQJ0LgRIxQO4hILYFKsgEOmEmSJ4ZRBw4cOC/l5fXxu/fvysDub5Ak3OAJswAyWEAkIm5ublu6BIADTRHW7YWzxEAAAAASUVORK5CYII=");
   background-position: right 7px center;
   background-repeat: no-repeat;
-  color: var(--text-color);
-  border: 1px solid var(--text-color);
+  color: var(--bg-color);
+  background-color: var(--text-color);
+  border: 1px solid var(--bg-color);
 }
 .text-nav{
   // mobile

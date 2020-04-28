@@ -1,9 +1,10 @@
 <template>
   <div class="surah__root">
-    <a
+    <nuxt-link
       v-for="surah in surahArray"
       :key="surah.index"
       class="surah block_content has-shadow"
+      :to="`/${surah.index}`"
       @click.prevent="goToSurahDetail(surah.index)">
       <div class="surah__header">
         <div class="surah__index tag_index">
@@ -47,7 +48,7 @@
           ({{ surah.translation }}: {{ surah.ayah_count }} Ayat)
         </div>
       </div>
-    </a>
+    </nuxt-link>
   </div>
 </template>
 

@@ -1,5 +1,9 @@
 import SurahConstant from './surah'
-
+interface defaultSetting {
+  changefreq: string;
+  priority: number;
+  lastmod: Date;
+}
 interface sitemapConfigs {
   path: string;
   routes?: string[];
@@ -7,6 +11,7 @@ interface sitemapConfigs {
   exclude?: string[];
   gzip: boolean;
   trailingSlash: boolean;
+  defaults?: defaultSetting;
 }
 
 const getStaticRoutes = (): string[] => {
@@ -17,9 +22,18 @@ const getStaticRoutes = (): string[] => {
     '/asmaul-husna',
     '/ayat-kursi',
     '/daily-doa',
+    '/tahlil',
     '/recommendation'
   ]
   return res
+}
+
+const getExlucedStatic = (): string[] => {
+  return [].concat(getStaticRoutes()).concat([
+    '/favorite',
+    '/last-verse',
+    '/settings'
+  ])
 }
 
 const getSurahRoutes = (): string[] => {
@@ -49,7 +63,12 @@ const getVerseSitemaps = (): sitemapConfigs[] => {
       routes: getVerseRoutes(i),
       gzip: true,
       trailingSlash: true,
-      exclude: getStaticRoutes()
+      exclude: getExlucedStatic(),
+      defaults: {
+        changefreq: 'weekly',
+        priority: 1,
+        lastmod: new Date()
+      }
     }
     res.push(surahSitemap)
   }
@@ -61,7 +80,12 @@ const getSitemaps = (): sitemapConfigs[] => {
     path: 'sitemap-statics.xml',
     routes: getStaticRoutes(),
     gzip: true,
-    trailingSlash: true
+    trailingSlash: true,
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmod: new Date()
+    }
   }
 
   const surahSitemap: sitemapConfigs = {
@@ -69,7 +93,12 @@ const getSitemaps = (): sitemapConfigs[] => {
     routes: getSurahRoutes(),
     gzip: true,
     trailingSlash: true,
-    exclude: getStaticRoutes()
+    exclude: getExlucedStatic(),
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmod: new Date()
+    }
   }
 
   const res: sitemapConfigs[] = [staticSitemap, surahSitemap].concat(getVerseSitemaps())
