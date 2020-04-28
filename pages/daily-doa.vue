@@ -26,7 +26,7 @@
           <div
             v-show="isExpanded(item.title)"
             class="collapsible bounce">
-            <div class="arabic font-arabic">
+            <div class="arabic">
               {{ item.arabic }}
             </div>
             <div class="latin">
@@ -146,8 +146,6 @@ export default class DailyDoaPage extends Vue {
 }
 .collapsible{
   margin-top: 1em;
-  padding: 1em;
-  border-radius: .25em;
   color: var(--text-color);
 }
 .arabic{
