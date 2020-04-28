@@ -2,10 +2,13 @@
 
 ![Nuxt TypeScript](https://img.shields.io/badge/Nuxt-TypeScript-blue.svg)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors)
+
 ![Deploy](https://github.com/mazipan/quran-offline/workflows/Deploy/badge.svg?branch=master)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a2f665dd-6e55-4026-a1e9-35810c8b1af9/deploy-status)](https://app.netlify.com/sites/quran-offline/deploys)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a146a9bea244c28b909499be3bcade8)](https://app.codacy.com/app/mazipan/quran-offline?utm_source=github.com&utm_medium=referral&utm_content=mazipan/quran-offline&utm_campaign=Badge_Grade_Settings)
+
+![Unit Test](https://github.com/mazipan/quran-offline/workflows/Unit%20Test/badge.svg?branch=master)
 [![Codecov](https://codecov.io/gh/mazipan/quran-offline/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/quran-offline)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a146a9bea244c28b909499be3bcade8)](https://app.codacy.com/app/mazipan/quran-offline?utm_source=github.com&utm_medium=referral&utm_content=mazipan/quran-offline&utm_campaign=Badge_Grade_Settings)
 ![Dependencies](https://img.shields.io/david/mazipan/quran-offline.svg)
 
 📖 Read Qur'an Directly from Your Web Browser. No Ads, No Analytics, It's Totally Free.
