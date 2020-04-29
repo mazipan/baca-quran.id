@@ -55,6 +55,8 @@ const getVerseRoutes = (surahIndex: number): string[] => {
   return res
 }
 
+// @ts-ignore
+// eslint-disable-next-line
 const getVerseSitemaps = (): sitemapConfigs[] => {
   const res: sitemapConfigs[] = []
   for (let i = 1; i < 115; i++) {
@@ -101,7 +103,7 @@ const getSitemaps = (): sitemapConfigs[] => {
     }
   }
 
-  const res: sitemapConfigs[] = [staticSitemap, surahSitemap].concat(getVerseSitemaps())
+  const res: sitemapConfigs[] = [staticSitemap, surahSitemap].concat([])
   return res
 }
 
