@@ -8,19 +8,19 @@
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/last-verse">
+        <nuxt-link to="/last-verse/">
           <IosBookmarkIcon w="2em" h="2em" />
           <span>Terakhir</span>
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/favorite">
+        <nuxt-link to="/favorite/">
           <IosStarOutlineIcon w="2em" h="2em" />
           <span>Favorit</span>
         </nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/recommendation">
+        <nuxt-link to="/recommendation/">
           <IosNavigateIcon w="2em" h="2em" />
           <span>Rekomendasi</span>
         </nuxt-link>

@@ -37,7 +37,7 @@ export default class LastReadCard extends Vue {
   @Prop({ default: () => defaultSurahInfo }) readonly surah!: SurahInfo
 
   getSurahDetailUrl (index, verse): string {
-    return `/${index}#verse-${verse}`
+    return `/${index}#verse-${verse}/`
   }
 
   goToSurahDetail (index, verse): void {

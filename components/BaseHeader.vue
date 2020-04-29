@@ -27,7 +27,7 @@
           {{ headerTitle }}
         </h1>
       </div>
-      <nuxt-link v-if="!isHomePage" class="header__nav pointer" to="/settings">
+      <nuxt-link v-if="!isHomePage" class="header__nav pointer" to="/settings/">
         <MdSettingsIcon w="30px" h="30px" name="Setelan" title="Setelan" />
       </nuxt-link>
       <div v-else class="header__nav">
@@ -88,7 +88,7 @@ export default class BaseHeader extends Vue {
   backToPreviousPage () {
     if (this.page === 'surah-detail') {
       this.setPage('all-surah')
-      this.$router.push('/all-surah')
+      this.$router.push('/all-surah/')
     } else {
       this.$router.push('/')
     }

@@ -4,7 +4,7 @@
       v-for="surah in surahArray"
       :key="surah.index"
       class="surah block_content has-shadow"
-      :to="`/${surah.index}`"
+      :to="`/${surah.index}/`"
       @click.prevent="goToSurahDetail(surah.index)">
       <div class="surah__header">
         <div class="surah__index tag_index">
@@ -91,7 +91,7 @@ export default class SurahCard extends Vue {
   }
 
   getSurahDetailUrl (index): string {
-    return `/${index}`
+    return `/${index}/`
   }
 
   goToSurahDetail (index): void {

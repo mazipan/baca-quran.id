@@ -129,8 +129,8 @@ export default class SingleVerseCard extends Vue {
       title: `QS ${this.surahId}:${index}`,
       text: `${verse}
 
-        ${this.getTranslation(index)} (QS ${this.surahId}:${index})`,
-      url: `https://quran-offline.netlify.com/${this.surahId}/${index}`
+        Terjemahan: ${this.getTranslation(index)} (QS ${this.surahId}:${index})`,
+      url: `https://quran-offline.netlify.com/${this.surahId}/${index}/`
     }
     this.shareViaWebshare(data)
   }

@@ -22,7 +22,7 @@
         </li>
         <li class="sidebar__item">
           <nuxt-link
-            to="/all-surah"
+            to="/all-surah/"
             class="sidebar__link"
             @click.native="navigateTo">
             <MdBookIcon
@@ -35,7 +35,7 @@
         </li>
         <li class="sidebar__item">
           <nuxt-link
-            to="/last-verse"
+            to="/last-verse/"
             class="sidebar__link"
             @click.native="navigateTo">
             <IosBookmarkIcon
@@ -48,7 +48,7 @@
         </li>
         <li class="sidebar__item">
           <nuxt-link
-            to="/favorite"
+            to="/favorite/"
             class="sidebar__link"
             @click.native="navigateTo">
             <IosStarOutlineIcon
@@ -61,7 +61,7 @@
         </li>
         <li class="sidebar__item">
           <nuxt-link
-            to="/recommendation"
+            to="/recommendation/"
             class="sidebar__link"
             @click.native="navigateTo">
             <IosNavigateIcon
@@ -74,7 +74,7 @@
         </li>
         <li class="sidebar__item">
           <nuxt-link
-            to="/settings"
+            to="/settings/"
             class="sidebar__link"
             @click.native="navigateTo">
             <MdSettingsIcon
@@ -87,7 +87,7 @@
         </li>
         <li class="sidebar__item">
           <nuxt-link
-            to="/about"
+            to="/about/"
             class="sidebar__link"
             @click.native="navigateTo">
             <MdHelpCircleIcon

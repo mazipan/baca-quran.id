@@ -143,7 +143,7 @@ export default class VerseDetailPage extends Vue {
 
   onChangeVerse (e: any) {
     const val = e.target.value
-    this.$router.push(`/${this.surahId}/${val}`)
+    this.$router.push(`/${this.surahId}/${val}/`)
   }
 
   head () {

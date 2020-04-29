@@ -1,7 +1,7 @@
 <template>
   <div class="surah_nav">
     <nuxt-link
-      :to="`/${surahId - 1}`"
+      :to="`/${surahId - 1}/`"
       class="surah_nav_item surah_nav_prev">
       <MdArrowBackIcon
         v-if="isHavePrev"
@@ -27,7 +27,7 @@
       </select>
     </div>
     <nuxt-link
-      :to="`/${surahId + 1}`"
+      :to="`/${surahId + 1}/`"
       class="surah_nav_item surah_nav_next">
       <span
         v-if="nextSurah"

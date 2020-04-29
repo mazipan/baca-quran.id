@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link class="surah-header" :to="`/${surahNumber}`">
+  <nuxt-link class="surah-header" :to="`/${surahNumber}/`">
     <div class="surah-header_index font-arabic">
       {{ surahNumber }}
     </div>

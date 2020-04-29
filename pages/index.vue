@@ -13,31 +13,31 @@
 
       <div class="home__wrapper">
         <div class="item">
-          <nuxt-link to="/all-surah" class="item__link has-shadow">
+          <nuxt-link to="/all-surah/" class="item__link has-shadow">
             <img src="/icon_quran.svg">
             Daftar Surat
           </nuxt-link>
         </div>
         <div class="item">
-          <nuxt-link to="/daily-doa" class="item__link has-shadow">
+          <nuxt-link to="/daily-doa/" class="item__link has-shadow">
             <img src="/icon_prayer.svg">
             {{ AppConstant.DAILY_DOA }}
           </nuxt-link>
         </div>
         <div class="item">
-          <nuxt-link to="/asmaul-husna" class="item__link has-shadow">
+          <nuxt-link to="/asmaul-husna/" class="item__link has-shadow">
             <img src="/icon_allah.svg">
             {{ AppConstant.ASMAUL_HUSNA }}
           </nuxt-link>
         </div>
         <div class="item">
-          <nuxt-link to="/ayat-kursi" class="item__link has-shadow">
+          <nuxt-link to="/ayat-kursi/" class="item__link has-shadow">
             <img src="/icon_rosary.svg">
             {{ AppConstant.AYAT_KURSI }}
           </nuxt-link>
         </div>
         <div class="item">
-          <nuxt-link to="/tahlil" class="item__link has-shadow">
+          <nuxt-link to="/tahlil/" class="item__link has-shadow">
             <img src="/icon_mosque.svg">
             {{ AppConstant.TAHLIL }}
           </nuxt-link>
@@ -54,7 +54,7 @@
           :autoplay="true"
           :loop="true">
           <slide v-for="item in surahRecommendation" :key="item.index">
-            <nuxt-link class="slide-surah" :to="`/${item.index}`">
+            <nuxt-link class="slide-surah" :to="`/${item.index}/`">
               <div class="block_content has-shadow">
                 <div
                   class="slide-surah__title font-arabic"
