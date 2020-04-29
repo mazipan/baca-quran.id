@@ -50,14 +50,14 @@ describe('component SurahCard.vue', () => {
   test('getSurahDetailUrl should return correct url', (done) => {
     const wrapper = createWrapper()
     const res = wrapper.vm.getSurahDetailUrl(2)
-    expect(res).toBe('/2')
+    expect(res).toBe('/2/')
     done()
   })
 
   test('goToSurahDetail should change route', (done) => {
     const wrapper = createWrapper()
     wrapper.vm.goToSurahDetail(2)
-    expect(wrapper.vm.$route.path).toBe('/2')
+    expect(wrapper.vm.$route.path).toBe('/2/')
     done()
   })
 
