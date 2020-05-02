@@ -63,7 +63,7 @@ const getVerseSitemaps = (): sitemapConfigs[] => {
     const surahSitemap: sitemapConfigs = {
       path: `sitemaps/surah-${i}.xml`,
       routes: getVerseRoutes(i),
-      gzip: true,
+      gzip: false,
       trailingSlash: true,
       exclude: getExlucedStatic(),
       defaults: {
@@ -81,7 +81,7 @@ const getSitemaps = (): sitemapConfigs[] => {
   const staticSitemap: sitemapConfigs = {
     path: 'sitemaps/static.xml',
     routes: getStaticRoutes(),
-    gzip: true,
+    gzip: false,
     trailingSlash: true,
     defaults: {
       changefreq: 'daily',
@@ -93,7 +93,7 @@ const getSitemaps = (): sitemapConfigs[] => {
   const surahSitemap: sitemapConfigs = {
     path: 'sitemaps/allsurah.xml',
     routes: getSurahRoutes(),
-    gzip: true,
+    gzip: false,
     trailingSlash: true,
     exclude: getExlucedStatic(),
     defaults: {
