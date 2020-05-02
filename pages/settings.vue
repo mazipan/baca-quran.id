@@ -118,17 +118,13 @@ export default class SettingsPage extends Vue {
   mounted () {
     this.setHeaderTitle('Setelan')
     this.setPage('settings')
-    setTimeout(() => {
-      this.setDefaultSetting()
-    }, 500)
+    this.setDefaultSetting()
   }
 
   activated () {
     this.setHeaderTitle('Setelan')
     this.setPage('settings')
-    setTimeout(() => {
-      this.setDefaultSetting()
-    }, 500)
+    this.setDefaultSetting()
   }
 }
 </script>

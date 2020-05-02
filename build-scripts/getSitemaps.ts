@@ -61,7 +61,7 @@ const getVerseSitemaps = (): sitemapConfigs[] => {
   const res: sitemapConfigs[] = []
   for (let i = 1; i < 115; i++) {
     const surahSitemap: sitemapConfigs = {
-      path: `sitemap-verse-${i}.xml`,
+      path: `sitemaps/surah-${i}.xml`,
       routes: getVerseRoutes(i),
       gzip: true,
       trailingSlash: true,
@@ -79,7 +79,7 @@ const getVerseSitemaps = (): sitemapConfigs[] => {
 
 const getSitemaps = (): sitemapConfigs[] => {
   const staticSitemap: sitemapConfigs = {
-    path: 'sitemap-statics.xml',
+    path: 'sitemaps/static.xml',
     routes: getStaticRoutes(),
     gzip: true,
     trailingSlash: true,
@@ -91,7 +91,7 @@ const getSitemaps = (): sitemapConfigs[] => {
   }
 
   const surahSitemap: sitemapConfigs = {
-    path: 'sitemap-surah.xml',
+    path: 'sitemaps/allsurah.xml',
     routes: getSurahRoutes(),
     gzip: true,
     trailingSlash: true,
@@ -103,7 +103,7 @@ const getSitemaps = (): sitemapConfigs[] => {
     }
   }
 
-  const res: sitemapConfigs[] = [staticSitemap, surahSitemap].concat([])
+  const res: sitemapConfigs[] = [staticSitemap, surahSitemap].concat(getVerseSitemaps())
   return res
 }
 

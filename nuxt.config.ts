@@ -112,7 +112,7 @@ const config = {
     cacheTime: 1000 * 60 * 60,
     lastmod: new Date(),
     gzip: true,
-    path: 'sitemap.xml',
+    path: 'sitemaps.xml',
     sitemaps: getSitemaps(),
     defaults: {
       changefreq: 'daily',
