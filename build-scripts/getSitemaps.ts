@@ -67,8 +67,8 @@ const getVerseSitemaps = (): sitemapConfigs[] => {
       trailingSlash: true,
       exclude: getExlucedStatic(),
       defaults: {
-        changefreq: 'weekly',
-        priority: 1,
+        changefreq: 'monthly',
+        priority: 0.5,
         lastmod: new Date()
       }
     }
@@ -97,8 +97,8 @@ const getSitemaps = (): sitemapConfigs[] => {
     trailingSlash: true,
     exclude: getExlucedStatic(),
     defaults: {
-      changefreq: 'daily',
-      priority: 1,
+      changefreq: 'weekly',
+      priority: 0.7,
       lastmod: new Date()
     }
   }
