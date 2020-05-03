@@ -1,4 +1,7 @@
-export default function myModule () {
+/* eslint-disable no-unused-vars */
+import copyVerse from './build-scripts/copyVerse'
+
+export default function copyStaticHtml () {
   this.nuxt.hook('modules:done', (moduleContainer) => {
     console.log('>>>>> 1. This will be called when all modules finished loading')
   })
@@ -13,5 +16,10 @@ export default function myModule () {
 
   this.nuxt.hook('generate:before', async (generator) => {
     console.log('>>>>> 4. This will be called before Nuxt generates your pages')
+  })
+
+  this.nuxt.hook('generate:done', async (generator) => {
+    console.log('>>>>> 5. This will be called after Nuxt generates your pages')
+    await copyVerse();
   })
 }
