@@ -144,7 +144,9 @@ const config = {
   hooks: {
     generate: {
       done () {
-        copyVerse()
+        setTimeout (() => {
+          copyVerse()
+        }, 3000)
       }
     }
   }
