@@ -91,14 +91,14 @@ describe('pages settings.vue', () => {
     done()
   })
 
-  test('method onChangeSettingTranslation fired correctly', (done) => {
+  test.skip('method onChangeSettingTranslation fired correctly', (done) => {
     const wrapper = createWrapper()
     wrapper.vm.onChangeSettingTranslation(true)
     expect(wrapper.vm.$store.state.settingShowTranslation).toBe(true)
     done()
   })
 
-  test('method onChangeSettingTafsir fired correctly', (done) => {
+  test.skip('method onChangeSettingTafsir fired correctly', (done) => {
     const wrapper = createWrapper()
     wrapper.vm.onChangeSettingTafsir(true)
     expect(wrapper.vm.$store.state.settingShowTafsir).toBe(true)
