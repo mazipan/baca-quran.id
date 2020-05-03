@@ -105,7 +105,11 @@ const config = {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa', '@nuxtjs/sitemap'],
+  modules: [
+   '@nuxtjs/pwa', 
+   '@nuxtjs/sitemap',
+   '~/modules/copyStaticHtml'
+  ],
 
   sitemap: {
     hostname: PROD_PATH,
