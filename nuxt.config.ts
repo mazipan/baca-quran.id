@@ -2,7 +2,6 @@
 import getRoutes from './build-scripts/getRoutes'
 import getSitemaps from './build-scripts/getSitemaps'
 import getOfflineAssets from './build-scripts/getOfflineAssets'
-import copyVerse from './build-scripts/copyVerse'
 import { getJsonLdWebsite } from './utils/jsonld'
 
 const PROD_PATH = 'https://quran-offline.netlify.app/'
@@ -142,15 +141,6 @@ const config = {
     postcss: {
       plugins: {
         autoprefixer: true
-      }
-    }
-  },
-  hooks: {
-    generate: {
-      done () {
-        setTimeout (() => {
-          copyVerse()
-        }, 3000)
       }
     }
   }
