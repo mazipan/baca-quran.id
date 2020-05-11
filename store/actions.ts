@@ -62,12 +62,16 @@ export const actions: ActionTree<StateType, StateType> = {
     if (state.isSupportWebShare) {
       // @ts-ignore: Unreachable code error
       if (window.navigator.share) { /* eslint-disable-line no-undef */
-        // @ts-ignore: Unreachable code error
-        window.navigator.share({ /* eslint-disable-line no-undef */
-          title,
-          text,
-          url
-        })
+        try {
+          // @ts-ignore: Unreachable code error
+          window.navigator.share({ /* eslint-disable-line no-undef */
+            title,
+            text,
+            url
+          })
+        } catch (error) {
+          console.error('Error using native share API', error)
+        }
       }
     }
   },

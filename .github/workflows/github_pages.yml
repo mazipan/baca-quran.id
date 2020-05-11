@@ -1,10 +1,9 @@
 name: Deploy
 
 on:
-  pull_request:
-  push:
+  schedule:
     branches:
-      - master
+      - cron: "0 0 1 * *"
 
 jobs:
   deploy:

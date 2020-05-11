@@ -48,9 +48,9 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../../utils/jsonld'
     const respDetail = await import(`~/static/data/surah/${params.surahid}.json`)
 
     // @ts-ignore: Unreachable code error
-    const title = `Baca Qur'an Ayat ke-${params.verseid} Surat ${respDetail[params.surahid].name_latin} | Qur'an Web`
+    const title = `Bacaan Qur'an Ayat ke-${params.verseid} Surat ${respDetail[params.surahid].name_latin} ${respDetail[params.surahid].name} (${respDetail[params.surahid].translations.id.name}) | Qur'an Web`
     // @ts-ignore: Unreachable code error
-    const description = `Baca Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Ayat ke-${params.verseid} Surat ${respDetail[params.surahid].name_latin} Berdasarkan Data dari Kemenag`
+    const description = `Bacaan Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Ayat ke-${params.verseid} Surat ${respDetail[params.surahid].name_latin} ${respDetail[params.surahid].name} (${respDetail[params.surahid].translations.id.name}) Berdasarkan Data dari Kemenag`
 
     return {
       currentSurah: respDetail[params.surahid],

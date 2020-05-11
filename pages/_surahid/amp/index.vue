@@ -6,7 +6,7 @@
         :surah-name="currentSurah.name"
         :surah-latin="currentSurah.name_latin"
         :surah-translation="currentSurah.translations.id.name"
-        source="surah" />
+        source="surah-amp" />
 
       <div class="detail__content">
         <VerseCard
@@ -14,7 +14,7 @@
           :surah-id="surahId"
           :translations="currentSurah.translations"
           :tafsir="currentSurah.tafsir"
-          source="surah" />
+          source="surah-amp" />
       </div>
 
       <SurahNavigation
@@ -30,12 +30,12 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import VerseCard from '../../components/VerseCard.vue'
-import SurahHeader from '../../components/SurahHeader.vue'
-import SurahNavigation from '../../components/SurahNavigation.vue'
+import VerseCard from '../../../components/VerseCard.vue'
+import SurahHeader from '../../../components/SurahHeader.vue'
+import SurahNavigation from '../../../components/SurahNavigation.vue'
 
-import { __isNotNull, __isNotEmptyArray } from '../../utils/index'
-import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../utils/jsonld'
+import { __isNotNull, __isNotEmptyArray } from '../../../utils/index'
+import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../../utils/jsonld'
 
 @Component({
   components: {

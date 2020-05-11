@@ -56,8 +56,6 @@ import { AppConstant } from '../constant/index'
 })
 
 export default class BaseHeader extends Vue {
-  isShowMenu = false;
-
   @State headerTitle;
   @State page;
   @Mutation setShowSidebar;
@@ -65,20 +63,6 @@ export default class BaseHeader extends Vue {
 
   get isHomePage (): boolean {
     return this.headerTitle === AppConstant.TITLE
-  }
-
-  navigateTo (link): void {
-    this.toggleMenuRight()
-    this.$router.push(link)
-  }
-
-  toggleMenuRight (): void {
-    this.isShowMenu = !this.isShowMenu
-    if (this.isShowMenu) {
-      setTimeout(() => {
-        this.isShowMenu = false
-      }, 2000)
-    }
   }
 
   toggleSidebar () {

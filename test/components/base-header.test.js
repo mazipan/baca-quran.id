@@ -61,19 +61,6 @@ describe('component BaseHeader.vue', () => {
     expect(wrapper.vm.isHomePage).toBe(false)
     done()
   })
-  test('navigateTo should change route', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.navigateTo('/home')
-    expect(wrapper.vm.$route.path).toBe('/home')
-    done()
-  })
-  test('toggleMenuRight should change isShowMenu', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.isShowMenu = false
-    wrapper.vm.toggleMenuRight()
-    expect(wrapper.vm.isShowMenu).toBe(true)
-    done()
-  })
   test('toggleSidebar should change isShowMenu', (done) => {
     const wrapper = createWrapper()
     wrapper.vm.$store.commit(Types.SET_SHOW_SIDEBAR, false)
@@ -81,7 +68,7 @@ describe('component BaseHeader.vue', () => {
     expect(wrapper.vm.$store.state.isShowSidebar).toBe(true)
     done()
   })
-  test.skip('backToPreviousPage should change router', (done) => {
+  test('backToPreviousPage should change router', (done) => {
     const wrapper = createWrapper()
     wrapper.vm.$router.push('/')
     wrapper.vm.$router.push('/home')
@@ -90,7 +77,7 @@ describe('component BaseHeader.vue', () => {
 
     wrapper.vm.backToPreviousPage()
     process.nextTick(() => {
-      expect(wrapper.vm.$route.path).toBe('/abc')
+      expect(wrapper.vm.$route.path).toBe('/')
       done()
     })
   })

@@ -1,28 +1,34 @@
 <template>
-  <div
-    :id="`verse-${verseIndex}`"
-    class="verse block_content has-shadow">
+  <div :id="`verse-${verseIndex}`" class="verse block_content has-shadow" :data-source="source">
     <div class="verse__header">
       <div class="verse__index tag_index">
         {{ Number(verseIndex) }}
       </div>
       <div class="verse__header--right">
-        <div class="verse__header_icon" @click="onClickAudioItem(Number(verseIndex))">
+        <div v-if="!isAmp" class="verse__header_icon" @click="onClickAudioItem(Number(verseIndex))">
           <MdVolumeHighIcon w="2em" h="2em" />
         </div>
 
         <div
+          v-if="!isAmp"
           class="verse__header_icon"
           @click="doSetLastReadVerse({ surah: surahId, verse: Number(verseIndex) })">
           <MdBookmarkIcon w="2em" h="2em" />
         </div>
 
         <div
-          v-if="isSupportWebShare"
+          v-if="!isAmp && isSupportWebShare"
           class="verse__header_icon"
           @click="shareVerse(verse, Number(verseIndex))">
           <MdShareIcon w="2em" h="2em" />
         </div>
+
+        <nuxt-link
+          v-if="!isAmp && !source.includes('verse')"
+          class="verse__header_icon"
+          :to="`/${surahId}/${verseIndex}/`">
+          <MdLinkIcon w="2em" h="2em" />
+        </nuxt-link>
       </div>
     </div>
     <div class="divider clearfix">
@@ -49,7 +55,7 @@
         <i>Sumber: Aplikasi Quran Kementrian Agama Republik Indonesia</i>
       </div>
     </div>
-    <audio v-if="audioLink" :id="`audioVerseRef${verseIndex}`" class="audio">
+    <audio v-if="!isAmp && audioLink" :id="`audioVerseRef${verseIndex}`" class="audio">
       <source :src="audioLink" type="audio/mpeg">
     </audio>
   </div>
@@ -62,6 +68,7 @@ import { State, Action } from 'vuex-class'
 import MdShareIcon from 'vue-ionicons/dist/js/md-share'
 import MdBookmarkIcon from 'vue-ionicons/dist/js/md-bookmark'
 import MdVolumeHighIcon from 'vue-ionicons/dist/js/md-volume-high'
+import MdLinkIcon from 'vue-ionicons/dist/js/md-link'
 import MurotalConstant from '../constant/murotal'
 import { AppConstant } from '../constant'
 
@@ -69,13 +76,13 @@ import { AppConstant } from '../constant'
   components: {
     MdShareIcon,
     MdBookmarkIcon,
-    MdVolumeHighIcon
+    MdVolumeHighIcon,
+    MdLinkIcon
   }
 })
 export default class SingleVerseCard extends Vue {
   AppConstant = AppConstant;
   audioLink = '';
-  timeout;
 
   @Prop({ type: [Object, Array], default: () => ({}) }) readonly verseArray!:
     | any
@@ -86,6 +93,7 @@ export default class SingleVerseCard extends Vue {
   @Prop({ type: Number, default: 1 }) readonly surahId!: number;
   @Prop({ type: String, default: '' }) readonly verse!: string;
   @Prop({ type: String, default: '1' }) readonly verseIndex!: number;
+  @Prop({ type: String, default: '' }) readonly source!: string;
 
   @State surahFavorite;
   @State isSupportWebShare;
@@ -96,15 +104,21 @@ export default class SingleVerseCard extends Vue {
   @Action showNotification;
   @Action shareViaWebshare;
 
+  get isAmp (): boolean {
+    return this.source.includes('amp')
+  }
+
   onClickAudioItem (verse) {
     const hrefAudio = MurotalConstant.getAudioFromKemenag(this.surahId, verse)
     this.audioLink = hrefAudio
 
     setTimeout(async () => {
-      // @ts-ignore
-      const node = document.querySelector(`#audioVerseRef${verse}`)
-      // @ts-ignore
-      await node.play()
+      try {
+        // @ts-ignore
+        const node = document.querySelector(`#audioVerseRef${verse}`)
+        // @ts-ignore
+        await node.play()
+      } catch {}
     }, 500)
   }
 
@@ -129,7 +143,9 @@ export default class SingleVerseCard extends Vue {
       title: `QS ${this.surahId}:${index}`,
       text: `${verse}
 
-        Terjemahan: ${this.getTranslation(index)} (QS ${this.surahId}:${index})`,
+        Terjemahan: ${this.getTranslation(index)} (QS ${
+        this.surahId
+      }:${index})`,
       url: `https://quran-offline.netlify.com/${this.surahId}/${index}/`
     }
     this.shareViaWebshare(data)
@@ -184,7 +200,7 @@ export default class SingleVerseCard extends Vue {
     font-style: italic;
   }
 }
-.audio{
+.audio {
   position: fixed;
   bottom: 70px;
 }

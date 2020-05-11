@@ -65,7 +65,9 @@ export default class DefaultLayout extends Vue {
 
   mounted () {
     this.initDataFromBrowserStorage()
-    window.addEventListener('scroll', this.handleScroll)
+    if (process.client) {
+      window.addEventListener('scroll', this.handleScroll)
+    }
     // @ts-ignore: Unreachable code error
     if (window.navigator.share) {
       this.setWebshareSupport(true)
@@ -76,7 +78,9 @@ export default class DefaultLayout extends Vue {
   }
 
   beforedestroy () {
-    window.removeEventListener('scroll', this.handleScroll)
+    if (process.client) {
+      window.removeEventListener('scroll', this.handleScroll)
+    }
   }
 }
 </script>

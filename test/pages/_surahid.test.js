@@ -85,7 +85,7 @@ describe('pages _surahid.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    expect(wrapper.vm.metaHead.title).toEqual("Baca Qur'an Surat Al-Fatihah | Qur'an Web")
+    expect(wrapper.vm.metaHead.title).toEqual("Bacaan Qur'an Surat Al-Fatihah الفاتحة (Pembukaan) | Qur'an Web")
     done()
   })
 

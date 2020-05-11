@@ -87,7 +87,7 @@ describe('component SurahCard.vue', () => {
   test('findInFavorite should return false because null state', (done) => {
     const storeLocal = new Vuex.Store({
       state: {
-        surahFavorite: null
+        surahFavorite: []
       },
       mutations: {},
       actions: {}

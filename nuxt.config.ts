@@ -105,9 +105,10 @@ const config = {
    ** Nuxt.js modules
    */
   modules: [
-   '@nuxtjs/pwa', 
-   '@nuxtjs/sitemap',
-   '~/modules/copyStaticHtml'
+    '@nuxtjs/amp',
+    '@nuxtjs/pwa',
+    '@nuxtjs/sitemap',
+    '~/modules/copyStaticHtml'
   ],
 
   sitemap: {
@@ -128,7 +129,6 @@ const config = {
    */
   generate: {
     fallback: true,
-    interval: 1000,
     concurrency: 50,
     routes: getRoutes()
   },
