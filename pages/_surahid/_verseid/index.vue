@@ -45,7 +45,7 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../../utils/jsonld'
     VerseNavigation
   },
   async asyncData ({ params }) {
-    const respDetail = await import(`~/static/data/surah/${params.surahid}.json`)
+    const respDetail = await import(`~/static/data/quran-json/surah/${params.surahid}.json`)
 
     // @ts-ignore: Unreachable code error
     const title = `Bacaan Qur'an Ayat ke-${params.verseid} Surat ${respDetail[params.surahid].name_latin} ${respDetail[params.surahid].name} (${respDetail[params.surahid].translations.id.name}) | Qur'an Web`

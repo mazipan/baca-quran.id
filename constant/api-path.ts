@@ -4,7 +4,7 @@ const rootPath = isProd ? PROD_PATH : PROD_PATH
 
 export default {
   SURAH_INFO: `${rootPath}data/surah-info.json`,
-  SURAH_BY_ID: id => `${rootPath}data/surah/${id}.json`,
+  SURAH_BY_ID: id => `${rootPath}data/quran-json/surah/${id}.json`,
   AYAT_KURSI: `${rootPath}data/ayat-kursi.json`,
   ASMAUL_HUSNA: `${rootPath}data/asmaul-husna.json`,
   DAILY_DOA: `${rootPath}data/daily-doa.json`

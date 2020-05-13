@@ -45,7 +45,7 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../utils/jsonld'
     SurahNavigation
   },
   async asyncData ({ params }) {
-    const respDetail = await import(`~/static/data/surah/${params.surahid}.json`)
+    const respDetail = await import(`~/static/data/quran-json/surah/${params.surahid}.json`)
     const resp = await import('~/static/data/surah-info.json')
 
     // @ts-ignore: Unreachable code error
