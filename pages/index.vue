@@ -126,6 +126,9 @@ export default class PageIndex extends Vue {
           name: 'theme-color',
           content: this.settingActiveTheme.bgColor
         }
+      ],
+      link: [
+        { rel: 'canonical', href: `${AppConstant.PATH}` }
       ]
     }
   }

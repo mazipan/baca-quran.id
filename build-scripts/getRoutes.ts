@@ -14,6 +14,7 @@ const getRoutes = (): string[] => {
   ]
   for (let i = 1; i < 115; i++) {
     res.push(`/${i}`)
+    res.push(`/amp/${i}`)
     res.push(`/${i}/1`)
   }
   return res
