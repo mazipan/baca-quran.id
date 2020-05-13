@@ -30,7 +30,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { AppConstant } from '../../constant'
+import { AppConstant } from '../../../constant'
 import VerseCard from '../../../components/VerseCard.vue'
 import SurahHeader from '../../../components/SurahHeader.vue'
 import SurahNavigation from '../../../components/SurahNavigation.vue'
