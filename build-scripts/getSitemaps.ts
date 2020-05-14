@@ -40,6 +40,7 @@ const getSurahRoutes = (): string[] => {
   const res: string[] = []
   for (let i = 1; i < 115; i++) {
     res.push(`/${i}`)
+    res.push(`/amp/${i}`)
   }
   return res
 }
@@ -68,7 +69,7 @@ const getVerseSitemaps = (): sitemapConfigs[] => {
       exclude: getExlucedStatic(),
       defaults: {
         changefreq: 'weekly',
-        priority: 0.5,
+        priority: 0.8,
         lastmod: new Date()
       }
     }
@@ -98,7 +99,7 @@ const getSitemaps = (): sitemapConfigs[] => {
     exclude: getExlucedStatic(),
     defaults: {
       changefreq: 'daily',
-      priority: 0.7,
+      priority: 1,
       lastmod: new Date()
     }
   }
