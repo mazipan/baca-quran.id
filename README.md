@@ -4,7 +4,6 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors)
 
 ![Deploy](https://github.com/mazipan/quran-offline/workflows/Deploy/badge.svg?branch=master)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a2f665dd-6e55-4026-a1e9-35810c8b1af9/deploy-status)](https://app.netlify.com/sites/quran-offline/deploys)
 
 ![Unit Test](https://github.com/mazipan/quran-offline/workflows/Unit%20Test/badge.svg?branch=master)
 [![Codecov](https://codecov.io/gh/mazipan/quran-offline/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/quran-offline)

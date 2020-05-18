@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - master
-  schedule:
-    - cron: "0 0 1 * *"
+  # schedule:
+  #   - cron: "0 0 1 * *"
 
 jobs:
   deploy:
@@ -15,9 +15,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-         persist-credentials: false
-         fetch-depth: 0
-         submodules: true
+          persist-credentials: false
+          fetch-depth: 0
+          submodules: true
 
       - name: Use node 12
         uses: actions/setup-node@v1
@@ -42,8 +42,23 @@ jobs:
       - name: Generate static files
         run: yarn generate:ci
 
-      - name: GitHub Pages Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to surge
+        uses: dswistowski/surge-sh-action@v1
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./dist
+          domain: 'quran-offline.surge.sh'
+          project: './dist'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
+
+      # - name: Publish
+      #   uses: netlify/actions/cli@master
+      #   with:
+      #     args: deploy --dir=dist --functions=functions
+      #   env:
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      # - name: GitHub Pages Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     personal_token: ${{ secrets.PERSONAL_TOKEN }}
+      #     publish_dir: ./dist

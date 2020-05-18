@@ -105,7 +105,7 @@ const config = {
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/amp',
+    '~/modules/ampify',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
     '~/modules/copyStaticHtml'
