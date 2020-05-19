@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master-not-valid
+      - master
   # schedule:
   #   - cron: "0 0 1 * *"
 
@@ -45,7 +45,7 @@ jobs:
       - name: Deploy to surge
         uses: dswistowski/surge-sh-action@v1
         with:
-          domain: 'quran-offline.surge.sh'
+          domain: 'baca-quran.id'
           project: './dist'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
