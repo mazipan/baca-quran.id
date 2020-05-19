@@ -55,6 +55,7 @@ jobs:
           rm -rf layout
           rm -rf models
           rm -rf modules
+          rm -rf node_modules
           rm -rf pages
           rm -rf plugins
           rm -rf screenshoot
