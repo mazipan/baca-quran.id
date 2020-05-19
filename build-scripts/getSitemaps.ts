@@ -50,7 +50,9 @@ const getVerseRoutes = (surahIndex: number): string[] => {
   const surahObj = SurahConstant.find(item => item.index === surahIndex)
   if (surahObj) {
     for (let j = 1; j < surahObj.ayah_count + 1; j++) {
-      res.push(`/${surahIndex}/${j}`)
+      if (j === 1) {
+        res.push(`/${surahIndex}/${j}`)
+      }
     }
   }
   return res
