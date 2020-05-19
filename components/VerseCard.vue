@@ -90,10 +90,8 @@ export default class VerseCard extends Vue {
 ${verse}
 
 Terjemahan: ${this.getTranslation(index)} (QS ${this.surahId}:${index})
-
-
 `,
-      url: `https://quran-offline.netlify.app/${this.surahId}#verse-${index}`
+      url: `${AppConstant.PATH}${this.surahId}/${index}`
     }
     this.shareViaWebshare(data)
   }

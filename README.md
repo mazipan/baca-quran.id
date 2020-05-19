@@ -18,7 +18,7 @@
 
 ## Live Website
 
-<https://quran-offline.netlify.app/>
+<https://www.baca-quran.id/>
 
 ## Screenshoot
 

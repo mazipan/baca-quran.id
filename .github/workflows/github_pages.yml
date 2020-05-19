@@ -42,23 +42,9 @@ jobs:
       - name: Generate static files
         run: yarn generate:ci
 
-      - name: Deploy to surge
-        uses: dswistowski/surge-sh-action@v1
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.5.0
         with:
-          domain: 'https://www.baca-quran.id'
-          project: './dist'
-          login: ${{ secrets.SURGE_LOGIN }}
-          token: ${{ secrets.SURGE_TOKEN }}
-
-      # - name: Publish
-      #   uses: netlify/actions/cli@master
-      #   with:
-      #     args: deploy --dir=dist --functions=functions
-      #   env:
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-      # - name: GitHub Pages Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     personal_token: ${{ secrets.PERSONAL_TOKEN }}
-      #     publish_dir: ./dist
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          force: true
+          repository: "mazipan-quran-offline/mazipan-quran-offline.github.io"

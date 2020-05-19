@@ -4,7 +4,7 @@ import getSitemaps from './build-scripts/getSitemaps'
 import getOfflineAssets from './build-scripts/getOfflineAssets'
 import { getJsonLdWebsite } from './utils/jsonld'
 
-const PROD_PATH = 'https://quran-offline.netlify.app/'
+const PROD_PATH = 'https://www.baca-quran.id/'
 const title =
   "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Web"
 const description = "Baca ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dimana saja, langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"

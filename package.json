@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt-ts",
     "build": "cross-env NODE_ENV=production nuxt-ts build",
-    "minify:json": "minify-json dist/data/",
+    "remove:json": "rm -rf dist/data/",
     "generate": "nuxt-ts generate",
-    "generate:ci": "cross-env NODE_ENV=production DEBUG=nuxt:* yarn generate && yarn minify:json",
+    "generate:ci": "cross-env DEBUG=nuxt:* yarn generate && yarn remove:json",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore .",
     "lint:report": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix -f html-extended -o eslint-report.html",
     "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix",

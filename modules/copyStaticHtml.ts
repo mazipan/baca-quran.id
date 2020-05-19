@@ -3,7 +3,7 @@
 
 export default function copyStaticHtml () {
   // @ts-ignore
-  this.nuxt.hook('generate:done', async () => {
+  this.nuxt.hook('generate:done', () => {
     console.log('>>>>> Running modules copyStaticHtml')
     // await copyVerse()
   })
