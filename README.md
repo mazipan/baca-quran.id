@@ -8,7 +8,7 @@
 📖 Read Qur'an Directly from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
 <p align="center">
- <img src="static/star-logo-color-64.png"/>
+ <img src="https://raw.githubusercontent.com/mazipan/quran-offline/master/static/star-logo-color-64.png"/>
 </p>
 
 ## Live Website
@@ -19,11 +19,11 @@
 
 |           Home Light Theme           |           Home Dark Theme          |            Home Nature Theme           |
 | :----------------------------------: | :--------------------------------: | :------------------------------------: |
-| ![light](screenshoot/home-light.png) | ![dark](screenshoot/home-dark.png) | ![nature](screenshoot/home-nature.png) |
+| ![light](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/home-light.png) | ![dark](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/home-dark.png) | ![nature](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/home-nature.png) |
 
 |              Asmaul Husna              |              Al-Fatihah             |              Do'a Harian              |
 | :------------------------------------: | :---------------------------------: | :-----------------------------------: |
-| ![light](screenshoot/asmaul-husna.png) | ![dark](screenshoot/al-fatihah.png) | ![nature](screenshoot/doa-harian.png) |
+| ![light](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/asmaul-husna.png) | ![dark](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/al-fatihah.png) | ![nature](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/doa-harian.png) |
 
 ## Build Setup
 
