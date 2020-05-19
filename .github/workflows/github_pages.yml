@@ -68,7 +68,7 @@ jobs:
           rm .eslintignore
           rm .eslintrc.js
           rm .gitignore
-          rm .gitsubmodules
+          rm .gitmodules
           rm .remarkrc
           rm app.html
           rm jest.config.js
