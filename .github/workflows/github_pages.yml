@@ -75,7 +75,7 @@ jobs:
           rm jsconfig.json
           rm package.json
           rm tsconfig.json
-          rm vue.shim.d.ts
+          rm vue-shim.d.ts
           rm yarn.lock
           cp -r dist/. ./
           echo "Commit to repo"
