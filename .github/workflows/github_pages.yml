@@ -42,6 +42,49 @@ jobs:
       - name: Generate static files
         run: yarn generate:ci
 
+      - name: Commit generated files only
+        run: |
+          echo "Remove unused files"
+          rm -rf __mocks__
+          rm -rf .github/workflows
+          rm -rf .nuxt
+          rm -rf assets
+          rm -rf build-scripts
+          rm -rf components
+          rm -rf constant
+          rm -rf layout
+          rm -rf models
+          rm -rf modules
+          rm -rf pages
+          rm -rf plugins
+          rm -rf screenshoot
+          rm -rf static
+          rm -rf store
+          rm -rf test
+          rm -rf utils
+          rm .all-contributorsrc
+          rm .babelrc
+          rm .browserlistrc
+          rm .editorconfig
+          rm .eslintignore
+          rm .eslintrc.js
+          rm .gitignore
+          rm .gitsubmodules
+          rm .remarkrc
+          rm app.html
+          rm jest.config.js
+          rm jsconfig.json
+          rm package.json
+          rm tsconfig.json
+          rm vue.shim.d.ts
+          rm yarn.lock
+          cp -r dist/. ./
+          echo "Commit to repo"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Sync repo from source"
+
       - name: GitHub Push
         uses: ad-m/github-push-action@v0.5.0
         with:
