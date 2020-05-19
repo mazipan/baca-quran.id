@@ -44,7 +44,7 @@ jobs:
 
       - name: Commit generated files only
         run: |
-          echo "Remove unused files"
+          echo "> Start remove unused files..."
           rm -rf __mocks__
           rm -rf .github/workflows
           rm -rf .nuxt
@@ -79,7 +79,8 @@ jobs:
           rm vue-shim.d.ts
           rm yarn.lock
           cp -r dist/. ./
-          echo "Commit to repo"
+          rm -rf dist
+          echo "> Finish commit changes to repo"
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
