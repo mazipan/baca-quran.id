@@ -64,7 +64,6 @@ jobs:
           rm -rf utils
           rm .all-contributorsrc
           rm .babelrc
-          rm .browserlistrc
           rm .editorconfig
           rm .eslintignore
           rm .eslintrc.js
