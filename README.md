@@ -2,18 +2,13 @@
 
 ![Nuxt TypeScript](https://img.shields.io/badge/Nuxt-TypeScript-blue.svg)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors)
-
-![Deploy](https://github.com/mazipan/quran-offline/workflows/Deploy/badge.svg?branch=master)
-
 ![Unit Test](https://github.com/mazipan/quran-offline/workflows/Unit%20Test/badge.svg?branch=master)
 [![Codecov](https://codecov.io/gh/mazipan/quran-offline/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/quran-offline)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a146a9bea244c28b909499be3bcade8)](https://app.codacy.com/app/mazipan/quran-offline?utm_source=github.com&utm_medium=referral&utm_content=mazipan/quran-offline&utm_campaign=Badge_Grade_Settings)
-![Dependencies](https://img.shields.io/david/mazipan/quran-offline.svg)
 
 📖 Read Qur'an Directly from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
 <p align="center">
- <img src="static/star-logo-color-64.png"/>
+ <img src="https://raw.githubusercontent.com/mazipan/quran-offline/master/static/star-logo-color-64.png"/>
 </p>
 
 ## Live Website
@@ -24,11 +19,11 @@
 
 |           Home Light Theme           |           Home Dark Theme          |            Home Nature Theme           |
 | :----------------------------------: | :--------------------------------: | :------------------------------------: |
-| ![light](screenshoot/home-light.png) | ![dark](screenshoot/home-dark.png) | ![nature](screenshoot/home-nature.png) |
+| ![light](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/home-light.png) | ![dark](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/home-dark.png) | ![nature](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/home-nature.png) |
 
 |              Asmaul Husna              |              Al-Fatihah             |              Do'a Harian              |
 | :------------------------------------: | :---------------------------------: | :-----------------------------------: |
-| ![light](screenshoot/asmaul-husna.png) | ![dark](screenshoot/al-fatihah.png) | ![nature](screenshoot/doa-harian.png) |
+| ![light](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/asmaul-husna.png) | ![dark](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/al-fatihah.png) | ![nature](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/doa-harian.png) |
 
 ## Build Setup
 

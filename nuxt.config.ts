@@ -46,9 +46,8 @@ const config = {
       { hid: 'article:publisher', name: 'article:publisher', content: 'https://www.facebook.com/mazipanneh' },
       { hid: 'article:author', name: 'article:author', content: 'https://www.facebook.com/mazipanneh' },
       { hid: 'article:tag', name: 'article:tag', content: 'quran web' },
-
       {
-        content: 'MJwW1iWLvaJ05N5rHDWpEqSQEjeXmHbbwFR-bk6E4vc',
+        content: '25fxaXcctkaxC3eyPtDYikfEMRCaJE_kQI8d43rvgbA',
         hid: 'google-site-verification',
         name: 'google-site-verification'
       }
