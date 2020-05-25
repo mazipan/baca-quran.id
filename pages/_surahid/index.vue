@@ -6,6 +6,7 @@
         :surah-name="currentSurah.name"
         :surah-latin="currentSurah.name_latin"
         :surah-translation="currentSurah.translations.id.name"
+        :verse-count="Number(currentSurah.number_of_ayah)"
         source="surah" />
 
       <div class="detail__content">

@@ -22,58 +22,6 @@
         </li>
         <li class="sidebar__item">
           <nuxt-link
-            to="/all-surah/"
-            class="sidebar__link"
-            @click.native="navigateTo">
-            <MdBookIcon
-              w="2em"
-              h="2em"
-              name="Daftar surat"
-              title="Daftar surat" />
-            Daftar surat
-          </nuxt-link>
-        </li>
-        <li class="sidebar__item">
-          <nuxt-link
-            to="/last-verse/"
-            class="sidebar__link"
-            @click.native="navigateTo">
-            <IosBookmarkIcon
-              w="2em"
-              h="2em"
-              name="Terakhir dibaca"
-              title="Terakhir dibaca" />
-            Terakhir dibaca
-          </nuxt-link>
-        </li>
-        <li class="sidebar__item">
-          <nuxt-link
-            to="/favorite/"
-            class="sidebar__link"
-            @click.native="navigateTo">
-            <IosStarOutlineIcon
-              w="2em"
-              h="2em"
-              name="Surat favorit"
-              title="Surat favorit" />
-            Surat favorit
-          </nuxt-link>
-        </li>
-        <li class="sidebar__item">
-          <nuxt-link
-            to="/recommendation/"
-            class="sidebar__link"
-            @click.native="navigateTo">
-            <IosNavigateIcon
-              w="2em"
-              h="2em"
-              name="Surat rekomendasi"
-              title="Surat rekomendasi" />
-            Surat rekomendasi
-          </nuxt-link>
-        </li>
-        <li class="sidebar__item">
-          <nuxt-link
             to="/settings/"
             class="sidebar__link"
             @click.native="navigateTo">
@@ -122,26 +70,18 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { Mutation } from 'vuex-class'
 
 import MdHomeIcon from 'vue-ionicons/dist/js/md-home'
-import MdBookIcon from 'vue-ionicons/dist/js/md-book'
 import MdHelpCircleIcon from 'vue-ionicons/dist/js/md-help-circle'
 import MdCodeIcon from 'vue-ionicons/dist/js/md-code'
 import MdSettingsIcon from 'vue-ionicons/dist/js/md-settings'
-import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
-import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
-import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 
 import { AppConstant } from '../constant'
 
 @Component({
   components: {
     MdHomeIcon,
-    MdBookIcon,
     MdHelpCircleIcon,
     MdCodeIcon,
-    MdSettingsIcon,
-    IosNavigateIcon,
-    IosStarOutlineIcon,
-    IosBookmarkIcon
+    MdSettingsIcon
   }
 })
 

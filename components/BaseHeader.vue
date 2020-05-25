@@ -45,8 +45,6 @@ import MdMenuIcon from 'vue-ionicons/dist/js/md-menu'
 import MdArrowBackIcon from 'vue-ionicons/dist/js/md-arrow-back'
 import MdSettingsIcon from 'vue-ionicons/dist/js/md-settings'
 
-import { AppConstant } from '../constant/index'
-
 @Component({
   components: {
     MdMenuIcon,
@@ -62,7 +60,7 @@ export default class BaseHeader extends Vue {
   @Mutation setPage;
 
   get isHomePage (): boolean {
-    return this.headerTitle === AppConstant.TITLE
+    return this.$route.path === '/'
   }
 
   toggleSidebar () {

@@ -1,12 +1,12 @@
 <template>
   <div :class="`app-${settingActiveTheme.name} ${webpClass}`" class="quran-offline app js">
     <div v-show="isShowSidebar" class="sidebar-cover" @click="hideSidebar" />
-    <BaseSidebar :class="{'sidebar--open': isShowSidebar}" />
+    <BaseSidebar v-if="isHome" :class="{'sidebar--open': isShowSidebar}" />
     <BaseHeader />
     <nuxt class="app__content" />
     <BottomNav v-if="isHideBottomNav" />
     <BaseToast />
-    <div v-show="showArrowToTop" class="arrowtotop">
+    <div v-if="!isHome" v-show="showArrowToTop" class="arrowtotop">
       <a href="#header">
         <ArrowUpIcon w="3em" h="3em" />
       </a>
@@ -53,6 +53,10 @@ export default class DefaultLayout extends Vue {
 
   get isHideBottomNav (): boolean {
     return this.page !== 'surah-detail' && this.page !== 'verse-detail'
+  }
+
+  get isHome (): boolean {
+    return this.$route.path === '/'
   }
 
   hideSidebar (): void {
