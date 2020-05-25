@@ -53,10 +53,6 @@ const config = {
         name: 'google-site-verification'
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/star-logo-color-32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '64x64', href: '/star-logo-color-64.png' }
-    ],
     noscript: [
       {
         innerHTML: 'This website requires JavaScript.',
