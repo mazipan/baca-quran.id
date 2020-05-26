@@ -113,7 +113,7 @@ export default class PageIndex extends Vue {
 
   get metaHead () {
     const title =
-      "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Web"
+      "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Baca Qur'an"
     const description = "Baca ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dimana saja, langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
     return {
       title,
