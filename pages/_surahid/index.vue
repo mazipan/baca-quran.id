@@ -50,7 +50,7 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../utils/jsonld'
     const resp = await import('~/static/data/surah-info.json')
 
     // @ts-ignore: Unreachable code error
-    const title = `Baca Qur'an Surat ${respDetail[params.surahid].name_latin} | Qur'an Web`
+    const title = `Baca Qur'an Surat ${respDetail[params.surahid].name_latin} | Baca Qur'an`
     // @ts-ignore: Unreachable code error
     const description = `Baca Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Surat ${respDetail[params.surahid].name_latin} Berdasarkan Data dari Kemenag`
 
@@ -85,7 +85,7 @@ export default class SurahDetailPage extends Vue {
 
   get metaHead () {
     // @ts-ignore: Unreachable code error
-    const title = `Bacaan Qur'an Surat ${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name}) | Qur'an Web`
+    const title = `Bacaan Qur'an Surat ${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name}) | Baca Qur'an`
     // @ts-ignore: Unreachable code error
     const description = `Bacaan Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Surat ${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name}) Berdasarkan Data dari Kemenag`
 
