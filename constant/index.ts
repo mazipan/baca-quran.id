@@ -1,6 +1,6 @@
 export const AppConstant = {
   PATH: 'https://www.baca-quran.id/',
-  TITLE: "Qur'an Web",
+  TITLE: "Baca Qur'an",
   LAST_READ: 'Terakhir dibaca',
   FAVORITE: 'Surat favorit',
   RECOMMENDATION: 'Surat rekomendasi',
