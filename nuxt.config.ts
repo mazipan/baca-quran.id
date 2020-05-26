@@ -6,7 +6,7 @@ import { getJsonLdWebsite } from './utils/jsonld'
 
 const PROD_PATH = 'https://www.baca-quran.id/'
 const title =
-  "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Qur'an Web"
+  "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Baca Qur'an"
 const description = "Baca ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dimana saja, langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
 
 const config = {
@@ -29,7 +29,7 @@ const config = {
       { hid: 'description', name: 'description', content: description },
       { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
 
-      { hid: 'og:site_name', property: 'og:site_name', content: 'Qur\'an Web' },
+      { hid: 'og:site_name', property: 'og:site_name', content: title },
       { hid: 'og:image', property: 'og:image', content: '/meta-image.png' },
       { hid: 'og:title', property: 'og:title', content: title },
       { hid: 'og:description', property: 'og:description', content: description },
@@ -69,7 +69,7 @@ const config = {
     __dangerouslyDisableSanitizers: ['script']
   },
   manifest: {
-    name: 'Quran Web',
+    name: 'Baca Quran',
     short_name: 'Quran'
   },
   workbox: {
@@ -133,6 +133,8 @@ const config = {
   build: {
     parallel: true,
     optimizeCSS: true,
+    publicPath: PROD_PATH,
+    quiet: false,
     postcss: {
       plugins: {
         autoprefixer: true
