@@ -64,6 +64,11 @@ $ yarn lint:fix
 -   [Recite alquran vectors by Vecteezy](https://www.vecteezy.com/free-vector/recite-alquran)
 -   [Ramadhan with man and woman by freepik](https://www.freepik.com/free-vector/ramadan-with-man-woman-praying_7372126.htm)
 
+## Support me
+
+- Via [trakteer](https://trakteer.id/mazipan)
+- Direct support, [send me an email](mailto:mazipanneh@gmail.com)
+
 * * *
 
 Copyright © 2018 by Irfan Maulana
