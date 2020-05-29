@@ -72,7 +72,7 @@ export default class AyatKursiPage extends Vue {
   margin: 1em auto;
 }
 .arabic {
-  font-size: 4rem;
+  font-size: 2rem;
   width: 100%;
   margin-top: 1em;
   text-align: right;

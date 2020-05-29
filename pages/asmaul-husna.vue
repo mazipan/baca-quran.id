@@ -127,6 +127,7 @@ export default class AsmaulHusnaPage extends Vue {
   text-align: center;
   background: var(--bg-card-color);
   color: var(--text-color);
+  flex-grow: 1;
   // desktop
   @media screen and (min-width: 768px) {
     width: 30%;
@@ -140,17 +141,13 @@ export default class AsmaulHusnaPage extends Vue {
 }
 .arabic{
   font-size: 2rem;
-  width: 100%;
 }
 .latin{
   font-size: 1rem;
-  width: 100%;
-  margin-top: 1.5em;
+  margin: 1.5em 0 1em;
 }
 .translation{
-  font-size: 0.9rem;
-  width: 100%;
+  font-size: 0.8rem;
   font-style: italic;
-  line-height: 2;
 }
 </style>
