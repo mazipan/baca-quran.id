@@ -5,15 +5,14 @@
       <h3>Baca Al-Qur'an dimana saja, langsung dari web browser Anda, tidak perlu lagi install Apps. Tanpa iklan, tanpa analitik dan GRATIS sepenuhnya...</h3>
       <br>
       <br>
-      <p>Berikut beberapa sumber data untuk Quran Offline:</p>
+      <p>Sumber data web ini:</p>
       <ul style="text-align: left;">
         <li>
           <a
             href="https://github.com/rioastamal/quran-json"
             target="_blank"
             rel="noopener">Quran Json</a>
-          oleh Rio Astamal, merupakan data berbentuk JSON yang dikumpulkan oleh developer Indonesia bernama Rio Astamal bersumber dari situs resmi Kementrian Agama Republik Indonesia yang dapat diakses di
-          <a href="https://quran.kemenag.go.id/">quran.kemenag.go.id</a>
+          oleh Rio Astamal untuk sumber data ayat-ayat Al Qur'an.
         </li>
         <li>
           <a
@@ -47,12 +46,13 @@
         <a
           href="https://github.com/mazipan/quran-offline/issues/new"
           target="_blank"
-          rel="noopener">disini.</a>
+          rel="noopener">di halaman Github issue.</a>
       </div>
 
       <footer class="footer">
-        <p>Dibuat oleh Irfan Maulana</p>
-        <p>Copyright © 2018</p>
+        <p>Dibuat oleh <a href="https://mazipan.space/" target="_blank"
+          rel="noopener" >Irfan Maulana</a></p>
+        <p>Copyright © 2018-2020</p>
       </footer>
     </div>
   </div>
