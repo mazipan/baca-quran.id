@@ -4,7 +4,7 @@
       <div class="arabic font-arabic" style="text-align:center;">
         {{ AppConstant.BISMILLAH }}
       </div>
-      <div class="arabic">
+      <div class="arabic font-arabic">
         {{ ayatKursi.arabic }}
       </div>
       <div class="translation">
