@@ -2,48 +2,27 @@
   <aside class="sidebar">
     <div class="sidebar__content">
       <div class="sidebar__head">
-        <img
-          src="/star-logo-color-64.png"
-          alt="Logo">
+        <img src="/star-logo-color-64.png" alt="Logo" height="50" width="50">
       </div>
       <ul class="sidebar__menu">
         <li class="sidebar__item">
-          <nuxt-link
-            to="/?source=sidebar"
-            class="sidebar__link"
-            @click.native="navigateTo">
-            <MdHomeIcon
-              w="2em"
-              h="2em"
-              name="Beranda"
-              title="Beranda" />
-            Beranda
+          <nuxt-link to="/?source=sidebar" class="sidebar__link" @click.native="navigateTo">
+            <MdHomeIcon w="2em" h="2em" name="Beranda" title="Beranda" />Beranda
           </nuxt-link>
         </li>
         <li class="sidebar__item">
-          <nuxt-link
-            to="/settings/"
-            class="sidebar__link"
-            @click.native="navigateTo">
-            <MdSettingsIcon
-              w="2em"
-              h="2em"
-              name="Setelan"
-              title="Setelan" />
-            Setelan
+          <nuxt-link to="/settings/" class="sidebar__link" @click.native="navigateTo">
+            <MdSettingsIcon w="2em" h="2em" name="Setelan" title="Setelan" />Setelan
           </nuxt-link>
         </li>
         <li class="sidebar__item">
-          <nuxt-link
-            to="/about/"
-            class="sidebar__link"
-            @click.native="navigateTo">
-            <MdHelpCircleIcon
-              w="2em"
-              h="2em"
-              name="Tentang"
-              title="Tentang" />
-            Tentang
+          <a href="https://trakteer.id/mazipan" class="sidebar__link" target="_blank" rel="noopener noreferrer">
+            <MdHeartIcon w="2em" h="2em" name="Tentang" title="Tentang" />Donasi
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <nuxt-link to="/about/" class="sidebar__link" @click.native="navigateTo">
+            <MdHelpCircleIcon w="2em" h="2em" name="Tentang" title="Tentang" />Tentang
           </nuxt-link>
         </li>
         <li class="sidebar__item">
@@ -52,12 +31,7 @@
             target="_blank"
             rel="noopener"
             class="sidebar__link">
-            <MdCodeIcon
-              w="2em"
-              h="2em"
-              name="Kode sumber"
-              title="Kode sumber" />
-            Kode sumber
+            <MdCodeIcon w="2em" h="2em" name="Kode sumber" title="Kode sumber" />Kode sumber
           </a>
         </li>
       </ul>
@@ -73,6 +47,7 @@ import MdHomeIcon from 'vue-ionicons/dist/js/md-home'
 import MdHelpCircleIcon from 'vue-ionicons/dist/js/md-help-circle'
 import MdCodeIcon from 'vue-ionicons/dist/js/md-code'
 import MdSettingsIcon from 'vue-ionicons/dist/js/md-settings'
+import MdHeartIcon from 'vue-ionicons/dist/md-heart.vue'
 
 import { AppConstant } from '../constant'
 
@@ -81,13 +56,13 @@ import { AppConstant } from '../constant'
     MdHomeIcon,
     MdHelpCircleIcon,
     MdCodeIcon,
-    MdSettingsIcon
+    MdSettingsIcon,
+    MdHeartIcon
   }
 })
-
 export default class BaseSidebar extends Vue {
-  AppConstant = AppConstant
-  @Mutation setShowSidebar
+  AppConstant = AppConstant;
+  @Mutation setShowSidebar;
 
   navigateTo (e): void {
     this.hideSidebar()
@@ -101,5 +76,5 @@ export default class BaseSidebar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-  @import '../assets/sidebar.scss';
+@import "../assets/sidebar.scss";
 </style>

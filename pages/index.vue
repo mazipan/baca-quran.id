@@ -1,50 +1,87 @@
 <template>
   <section class="container">
     <div class="home">
-      <client-only>
-        <carousel :per-page="1" :pagination-enabled="false" :autoplay="true" :loop="true">
-          <slide v-for="item in dataCarousel" :key="item">
-            <div class="slide">
-              <div class="slide_item" :style="{'background-image': `url(${item})`}" />
-            </div>
-          </slide>
-        </carousel>
-      </client-only>
+      <div class="slider-top">
+        <client-only>
+          <carousel :per-page="1" :pagination-enabled="false" :autoplay="true" :loop="true">
+            <slide v-for="item in dataCarousel" :key="item">
+              <div class="slide">
+                <div class="slide_item" :style="{'background-image': `url(${item})`}" />
+              </div>
+            </slide>
+          </carousel>
+        </client-only>
+      </div>
 
       <div class="home__wrapper">
         <div class="item">
           <nuxt-link to="/all-surah/" class="item__link has-shadow">
-            <img src="/icon_quran.svg">
+            <img src="/icon_quran.svg" height="24" width="24">
             Daftar Surat
           </nuxt-link>
         </div>
         <div class="item">
           <nuxt-link to="/daily-doa/" class="item__link has-shadow">
-            <img src="/icon_prayer.svg">
+            <img src="/icon_prayer.svg" height="24" width="24">
             {{ AppConstant.DAILY_DOA }}
           </nuxt-link>
         </div>
         <div class="item">
           <nuxt-link to="/asmaul-husna/" class="item__link has-shadow">
-            <img src="/icon_allah.svg">
+            <img src="/icon_allah.svg" height="24" width="24">
             {{ AppConstant.ASMAUL_HUSNA }}
           </nuxt-link>
         </div>
         <div class="item">
           <nuxt-link to="/ayat-kursi/" class="item__link has-shadow">
-            <img src="/icon_rosary.svg">
+            <img src="/icon_rosary.svg" height="24" width="24">
             {{ AppConstant.AYAT_KURSI }}
           </nuxt-link>
         </div>
         <div class="item">
           <nuxt-link to="/tahlil/" class="item__link has-shadow">
-            <img src="/icon_mosque.svg">
+            <img src="/icon_mosque.svg" height="24" width="24">
             {{ AppConstant.TAHLIL }}
           </nuxt-link>
         </div>
       </div>
 
+      <template v-if="isHaveFav">
+        <client-only>
+          <h3 class="text-heading">
+            Surat favorit
+          </h3>
+          <carousel
+            :per-page="1"
+            :pagination-enabled="false"
+            :navigation-enabled="true"
+            navigation-next-label=">>"
+            navigation-prev-label="<<"
+            :autoplay="true"
+            :loop="true">
+            <slide v-for="item in surahFavorite" :key="item.index">
+              <nuxt-link class="slide-surah" :to="`/${item.index}/`">
+                <div class="block_content has-shadow">
+                  <div class="slide-surah__title font-arabic" dir="rtl" lang="ar">
+                    {{ item.arabic }}
+                  </div>
+                  <div class>
+                    {{ item.latin }}
+                  </div>
+                  <div class>
+                    ({{ item.translation }}: {{ item.ayah_count }} Ayat)
+                  </div>
+                </div>
+              </nuxt-link>
+            </slide>
+          </carousel>
+        </client-only>
+      </template>
+
       <client-only>
+        <h3 class="text-heading">
+          Surat rekomendasi
+        </h3>
         <carousel
           :per-page="1"
           :pagination-enabled="false"
@@ -56,18 +93,13 @@
           <slide v-for="item in surahRecommendation" :key="item.index">
             <nuxt-link class="slide-surah" :to="`/${item.index}/`">
               <div class="block_content has-shadow">
-                <div
-                  class="slide-surah__title font-arabic"
-                  dir="rtl"
-                  lang="ar">
+                <div class="slide-surah__title font-arabic" dir="rtl" lang="ar">
                   {{ item.arabic }}
                 </div>
-                <div
-                  class="">
+                <div class>
                   {{ item.latin }}
                 </div>
-                <div
-                  class="">
+                <div class>
                   ({{ item.translation }}: {{ item.ayah_count }} Ayat)
                 </div>
               </div>
@@ -90,6 +122,7 @@ import IosColorWandIcon from 'vue-ionicons/dist/js/ios-color-wand'
 
 import { AppConstant, META_TITLE, META_DESC } from '../constant'
 import surahRecommendation from '../constant/surah-recommendation'
+import { __isNotEmptyArray } from '../utils/index'
 
 @Component({
   components: {
@@ -101,14 +134,17 @@ import surahRecommendation from '../constant/surah-recommendation'
 })
 export default class PageIndex extends Vue {
   AppConstant = AppConstant;
-  surahRecommendation = surahRecommendation.data
-  dataCarousel = [
-    '/illustration_1.jpg'
-  ]
+  surahRecommendation = surahRecommendation.data;
+  dataCarousel = ['/illustration_1.jpg'];
 
+  @State surahFavorite;
   @State settingActiveTheme;
   @Mutation setHeaderTitle;
   @Mutation setPage;
+
+  get isHaveFav () {
+    return __isNotEmptyArray(this.surahFavorite)
+  }
 
   get metaHead () {
     return {
@@ -123,9 +159,7 @@ export default class PageIndex extends Vue {
           content: this.settingActiveTheme.bgColor
         }
       ],
-      link: [
-        { rel: 'canonical', href: `${AppConstant.PATH}` }
-      ]
+      link: [{ rel: 'canonical', href: `${AppConstant.PATH}` }]
     }
   }
 
@@ -147,22 +181,26 @@ export default class PageIndex extends Vue {
 
 <style lang="scss">
 .VueCarousel-navigation-prev,
-.VueCarousel-navigation-next{
+.VueCarousel-navigation-next {
   z-index: 2;
   background: var(--bg-body-color) !important;
   color: var(--text-color) !important;
   border-radius: 4px;
 }
-.VueCarousel-navigation-prev{
+.VueCarousel-navigation-prev {
   left: 60px !important;
 }
-.VueCarousel-navigation-next{
+.VueCarousel-navigation-next {
   right: 60px !important;
 }
 </style>
 
 <style lang="scss" scoped>
-.slide{
+.slider-top{
+  height: 250px;
+  width: 100%;
+}
+.slide {
   height: 250px;
   &_item {
     width: 100%;
@@ -175,13 +213,13 @@ export default class PageIndex extends Vue {
   }
 }
 
-.slide-surah{
+.slide-surah {
   width: 90%;
   margin: 0 auto;
   display: block;
   text-decoration: none;
 
-  &__title{
+  &__title {
     font-size: 1.5rem;
   }
 }
@@ -216,5 +254,9 @@ export default class PageIndex extends Vue {
       margin-bottom: 1em;
     }
   }
+}
+
+.text-heading {
+  padding: 1em 1em 0;
 }
 </style>
