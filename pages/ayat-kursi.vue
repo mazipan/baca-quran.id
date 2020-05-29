@@ -17,7 +17,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
-import { AppConstant } from '../constant'
+import { AppConstant, META_TITLE_AYAT_KURSI, META_DESC_AYAT_KURSI } from '../constant/index'
 
 @Component({
   async asyncData () {
@@ -35,14 +35,12 @@ export default class AyatKursiPage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Bacaan dan terjemahan ayat kursi | Qur'an Web"
-    const description = 'Bacaan dan terjemahan ayat kursi, baca langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya'
     return {
-      title,
+      title: META_TITLE_AYAT_KURSI,
       meta: [
-        { hid: 'description', name: 'description', content: description },
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'description', name: 'description', content: META_DESC_AYAT_KURSI },
+        { hid: 'og:title', property: 'og:title', content: META_TITLE_AYAT_KURSI },
+        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_AYAT_KURSI },
         {
           hid: 'theme-color',
           name: 'theme-color',

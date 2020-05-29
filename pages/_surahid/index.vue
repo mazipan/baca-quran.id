@@ -31,7 +31,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { AppConstant } from '../../constant'
+import { AppConstant, META_TITLE_SURAH, META_DESC_SURAH } from '../../constant'
 import VerseCard from '../../components/VerseCard.vue'
 import SurahHeader from '../../components/SurahHeader.vue'
 import SurahNavigation from '../../components/SurahNavigation.vue'
@@ -48,12 +48,10 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../utils/jsonld'
   async asyncData ({ params }) {
     const respDetail = await import(`~/static/data/quran-json/surah/${params.surahid}.json`)
     const resp = await import('~/static/data/surah-info.json')
-
     // @ts-ignore: Unreachable code error
-    const title = `Baca Qur'an Surat ${respDetail[params.surahid].name_latin} | Baca Qur'an`
+    const title = META_TITLE_SURAH(respDetail[params.surahid].name_latin)
     // @ts-ignore: Unreachable code error
-    const description = `Baca Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Surat ${respDetail[params.surahid].name_latin} Berdasarkan Data dari Kemenag`
-
+    const description = META_DESC_SURAH(respDetail[params.surahid].name_latin)
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })
@@ -85,9 +83,9 @@ export default class SurahDetailPage extends Vue {
 
   get metaHead () {
     // @ts-ignore: Unreachable code error
-    const title = `Bacaan Qur'an Surat ${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name}) | Baca Qur'an`
+    const title = META_TITLE_SURAH(`${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
     // @ts-ignore: Unreachable code error
-    const description = `Bacaan Qur'an, Terjemahan Bahasa Indonesia dan Tafsir Surat ${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name}) Berdasarkan Data dari Kemenag`
+    const description = META_DESC_SURAH(`${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
 
     return {
       title,

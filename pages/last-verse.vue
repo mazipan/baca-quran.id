@@ -28,7 +28,7 @@ import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 
 import LastReadCard from '../components/LastReadCard.vue'
 
-import { AppConstant } from '../constant'
+import { AppConstant, META_TITLE_LAST_VERSE } from '../constant'
 import { __isNotNull } from '../utils/index'
 
 @Component({
@@ -53,13 +53,11 @@ export default class LastVersePage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Ayat terakhir dibaca | Qur'an Web"
     return {
-      title,
+      title: META_TITLE_LAST_VERSE,
       meta: [
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'robots', name: 'robots', content: 'noindex, nofollow' },
+        { hid: 'og:title', property: 'og:title', content: META_TITLE_LAST_VERSE },
+        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_LAST_VERSE },
         {
           hid: 'theme-color',
           name: 'theme-color',

@@ -21,7 +21,7 @@ import { State, Mutation } from 'vuex-class'
 import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 
 import SurahCard from '../components/SurahCard.vue'
-import { AppConstant } from '../constant'
+import { AppConstant, META_TITLE_RECOMMENDATION, META_DESC_RECOMMENDATION } from '../constant'
 import surahRecommendation from '../constant/surah-recommendation'
 
 @Component({
@@ -39,12 +39,12 @@ export default class RecommendationPage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Baca surat rekomendasi dalam Al-Qur'an | Qur'an Web"
     return {
-      title,
+      title: META_TITLE_RECOMMENDATION,
       meta: [
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'description', name: 'description', content: META_DESC_RECOMMENDATION },
+        { hid: 'og:title', property: 'og:title', content: META_TITLE_RECOMMENDATION },
+        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_RECOMMENDATION },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ]
     }

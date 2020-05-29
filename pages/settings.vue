@@ -60,6 +60,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation, Action } from 'vuex-class'
 
+import { META_TITLE_SETTING } from '../constant'
 import Theme from '../constant/theme'
 
 @Component
@@ -80,13 +81,11 @@ export default class SettingsPage extends Vue {
   @Action setSettingTafsir
 
   get metaHead () {
-    const title = "Halaman setelan | Qur'an Web"
     return {
-      title,
+      title: META_TITLE_SETTING,
       meta: [
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'robots', name: 'robots', content: 'noindex, nofollow' },
+        { hid: 'og:title', property: 'og:title', content: META_TITLE_SETTING },
+        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_SETTING },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ]
     }

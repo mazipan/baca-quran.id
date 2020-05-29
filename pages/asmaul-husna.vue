@@ -42,6 +42,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
+import { META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '../constant/index'
 
 @Component({
   async asyncData () {
@@ -60,14 +61,12 @@ export default class AsmaulHusnaPage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Daftar lengkap asmaul husna beserta terjemahan | Qur'an Web"
-    const description = 'Daftar lengkap asmaul husna beserta terjemahan, baca langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya'
     return {
-      title,
+      title: META_TITLE_ASMAUL_HUSNA,
       meta: [
-        { hid: 'description', name: 'description', content: description },
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'description', name: 'description', content: META_DESC_ASMAUL_HUSNA },
+        { hid: 'og:title', property: 'og:title', content: META_TITLE_ASMAUL_HUSNA },
+        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_ASMAUL_HUSNA },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ]
     }

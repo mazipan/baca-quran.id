@@ -88,7 +88,7 @@ import MdGridIcon from 'vue-ionicons/dist/js/md-grid'
 import MdWifiIcon from 'vue-ionicons/dist/js/md-wifi'
 import IosColorWandIcon from 'vue-ionicons/dist/js/ios-color-wand'
 
-import { AppConstant } from '../constant'
+import { AppConstant, META_TITLE, META_DESC } from '../constant'
 import surahRecommendation from '../constant/surah-recommendation'
 
 @Component({
@@ -112,15 +112,12 @@ export default class PageIndex extends Vue {
   @Mutation setPage;
 
   get metaHead () {
-    const title =
-      "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Baca Qur'an"
-    const description = "Baca ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dimana saja, langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
     return {
-      title,
+      title: META_TITLE,
       meta: [
-        { hid: 'description', name: 'description', content: description },
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'description', name: 'description', content: META_DESC },
+        { hid: 'og:title', property: 'og:title', content: META_TITLE },
+        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE },
         {
           hid: 'theme-color',
           name: 'theme-color',

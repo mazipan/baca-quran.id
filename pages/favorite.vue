@@ -51,7 +51,6 @@ export default class FavoritePage extends Vue {
       meta: [
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'robots', name: 'robots', content: 'noindex, nofollow' },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ]
     }

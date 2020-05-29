@@ -28,6 +28,7 @@ import { State, Mutation } from 'vuex-class'
 
 import SurahCard from '../components/SurahCard.vue'
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
+import { META_TITLE_ALL_SURAH, META_DESC_ALL_SURAH } from '../constant/index'
 
 @Component({
   components: {
@@ -52,14 +53,12 @@ export default class PageAllSurah extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Daftar semua surat dalam Al-Qur'an | Qur'an Web"
-    const description = "Daftar semua surat dalam Al-Qur'an beserta terjemahan dan tafsir dimana saja, baca langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
     return {
-      title,
+      title: META_TITLE_ALL_SURAH,
       meta: [
-        { hid: 'description', name: 'description', content: description },
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'description', name: 'description', content: META_DESC_ALL_SURAH },
+        { hid: 'og:title', property: 'og:title', content: META_TITLE_ALL_SURAH },
+        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_ALL_SURAH },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ]
     }

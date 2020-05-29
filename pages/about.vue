@@ -62,7 +62,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { AppConstant } from '../constant/index'
+import { AppConstant, META_DESC } from '../constant/index'
 
 @Component
 export default class PageAbout extends Vue {
@@ -73,13 +73,11 @@ export default class PageAbout extends Vue {
   @Mutation setPage;
 
   get metaHead () {
-    const title = "Tentang | Qur'an Web"
-    const description =
-      "Baca ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dimana saja, langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
+    const title = `${AppConstant.ABOUT} | ${AppConstant.TITLE}`
     return {
       title,
       meta: [
-        { hid: 'description', name: 'description', content: description },
+        { hid: 'description', name: 'description', content: META_DESC },
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         {

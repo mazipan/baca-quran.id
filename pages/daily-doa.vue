@@ -47,6 +47,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import { __isNotEmptyString, __normalizeText } from '../utils/index'
+import { META_TITLE_DAILY_DOA, META_DESC_DAILY_DOA } from '../constant/index'
 
 interface expandedData {
   title: string
@@ -72,14 +73,12 @@ export default class DailyDoaPage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    const title = "Daftar lengkap bacaan do'a sehari-hari beserta terjemahan | Qur'an Web"
-    const description = "Daftar lengkap bacaan do'a sehari-hari beserta terjemahan, baca langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
     return {
-      title,
+      title: META_TITLE_DAILY_DOA,
       meta: [
-        { hid: 'description', name: 'description', content: description },
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'description', name: 'description', content: META_DESC_DAILY_DOA },
+        { hid: 'og:title', property: 'og:title', content: META_TITLE_DAILY_DOA },
+        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_DAILY_DOA },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ]
     }
