@@ -23,17 +23,12 @@ const getStaticRoutes = (): string[] => {
     '/ayat-kursi',
     '/daily-doa',
     '/tahlil',
-    '/recommendation'
-  ]
-  return res
-}
-
-const getExlucedStatic = (): string[] => {
-  return [].concat(getStaticRoutes()).concat([
+    '/recommendation',
     '/favorite',
     '/last-verse',
     '/settings'
-  ])
+  ]
+  return res
 }
 
 const getSurahRoutes = (): string[] => {
@@ -68,9 +63,8 @@ const getVerseSitemaps = (): sitemapConfigs[] => {
       routes: getVerseRoutes(i),
       gzip: false,
       trailingSlash: true,
-      exclude: getExlucedStatic(),
       defaults: {
-        changefreq: 'monthly',
+        changefreq: 'weekly',
         priority: 0.8,
         lastmod: new Date()
       }
@@ -98,9 +92,8 @@ const getSitemaps = (): sitemapConfigs[] => {
     routes: getSurahRoutes(),
     gzip: false,
     trailingSlash: true,
-    exclude: getExlucedStatic(),
     defaults: {
-      changefreq: 'weekly',
+      changefreq: 'daily',
       priority: 1,
       lastmod: new Date()
     }

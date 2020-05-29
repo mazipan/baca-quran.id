@@ -103,8 +103,7 @@ export default class PageIndex extends Vue {
   AppConstant = AppConstant;
   surahRecommendation = surahRecommendation.data
   dataCarousel = [
-    '/illustration_1.jpg',
-    '/illustration_2.jpg'
+    '/illustration_1.jpg'
   ]
 
   @State settingActiveTheme;

@@ -13,7 +13,6 @@ const getOfflineAssets = (): string[] => {
     '/icon_ramadhan.svg',
     '/icon_rosary.svg',
     '/illustration_1.jpg',
-    '/illustration_2.jpg',
     '/meta-image.png',
     '/fonts/lpmq.otf',
     '/fonts/lpmq.woff'
