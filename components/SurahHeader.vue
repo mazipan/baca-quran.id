@@ -7,7 +7,7 @@
       <div class="surah-latin">
         ({{ surahLatin }} - {{ surahTranslation }})
       </div>
-      <div class="surah-latin">
+      <div v-if="verseCount > 0" class="surah-latin">
         {{ verseCount }} Ayat
       </div>
     </nuxt-link>
@@ -86,6 +86,7 @@ export default class SurahHeader extends Vue {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1em;
   & > label[for] {
     padding-right: .5em;
   }

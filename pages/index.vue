@@ -27,15 +27,15 @@
           </nuxt-link>
         </div>
         <div class="item">
-          <nuxt-link to="/asmaul-husna/" class="item__link has-shadow">
-            <img src="/icon_allah.svg" height="24" width="24">
-            {{ AppConstant.ASMAUL_HUSNA }}
+          <nuxt-link to="/wirid/" class="item__link has-shadow">
+            <img src="/icon_rosary.svg" height="24" width="24">
+            {{ AppConstant.WIRID }}
           </nuxt-link>
         </div>
         <div class="item">
-          <nuxt-link to="/ayat-kursi/" class="item__link has-shadow">
-            <img src="/icon_rosary.svg" height="24" width="24">
-            {{ AppConstant.AYAT_KURSI }}
+          <nuxt-link to="/asmaul-husna/" class="item__link has-shadow">
+            <img src="/icon_allah.svg" height="24" width="24">
+            {{ AppConstant.ASMAUL_HUSNA }}
           </nuxt-link>
         </div>
         <div class="item">
@@ -107,6 +107,10 @@
           </slide>
         </carousel>
       </client-only>
+    </div>
+
+    <div class="footnote">
+      Dibuat oleh <a href="https://mazipan.space/" target="_blank" rel="noopener noreferrer">Irfan Maulana</a>
     </div>
   </section>
 </template>

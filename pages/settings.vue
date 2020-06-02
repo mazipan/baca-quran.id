@@ -53,6 +53,9 @@
         </div>
       </div>
     </div>
+    <div class="footnote">
+      Dibuat oleh <a href="https://mazipan.space/" target="_blank" rel="noopener noreferrer">Irfan Maulana</a>
+    </div>
   </div>
 </template>
 
@@ -131,6 +134,10 @@ export default class SettingsPage extends Vue {
 <style lang="scss" scoped>
 @import "../assets/switch.scss";
 .settings{
+  &__themes {
+    display: flex;
+    align-items: center;
+  }
   margin-top: 1em;
 
   &__group {
@@ -149,8 +156,23 @@ export default class SettingsPage extends Vue {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: .5em;
+    padding: .5em 1em;
     text-transform: capitalize;
+    cursor: pointer;
+
+    &:first-child {
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      z-index: 0;
+    }
+    &:nth-child(2) {
+      z-index: 1;
+    }
+    &:last-child {
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      z-index: 0;
+    }
 
     &--active{
       box-shadow: 0 0 0 0.25em rgba(29, 101, 216, 0.7);

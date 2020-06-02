@@ -2,17 +2,11 @@
   <div class="container tahlil">
     <div class="wrapper">
       <div class="wrapper__item">
-        <div
-          v-for="item in tahlilData"
-          :key="item.id"
-          class="item"
-          @click="onClickItem(item)">
+        <div v-for="item in tahlilData" :key="item.id" class="item" @click="onClickItem(item)">
           <div class="item__title">
             {{ item.title }}
           </div>
-          <div
-            v-show="isExpanded(item.id)"
-            class="collapsible">
+          <div v-show="isExpanded(item.id)" class="collapsible">
             <div class="arabic font-arabic">
               {{ item.arabic }}
             </div>
@@ -23,6 +17,12 @@
         </div>
       </div>
     </div>
+    <div class="footnote">
+      Sumber bacaan tahlil <a :href="tahlilSource" target="_blank" rel="noopener noreferrer">islam.nu.or.id</a>
+    </div>
+    <div class="footnote">
+      Dibuat oleh <a href="https://mazipan.space/" target="_blank" rel="noopener noreferrer">Irfan Maulana</a>
+    </div>
   </div>
 </template>
 
@@ -32,26 +32,26 @@ import { State, Mutation } from 'vuex-class'
 import { META_TITLE_TAHLIL, META_DESC_TAHLIL } from '../constant'
 
 interface expandedData {
-  id: number
+  id: number;
 }
 
 @Component({
   async asyncData () {
     const resp = await import('~/static/data/tahlil.json')
     return {
-      tahlilData: resp.data
+      tahlilData: resp.data,
+      tahlilSource: resp.source
     }
   }
 })
-
 export default class TahlilPage extends Vue {
   expandedData: expandedData = {
     id: 0
-  }
+  };
 
-  @State settingActiveTheme
-  @Mutation setHeaderTitle
-  @Mutation setPage
+  @State settingActiveTheme;
+  @Mutation setHeaderTitle;
+  @Mutation setPage;
 
   get metaHead () {
     return {
@@ -59,8 +59,16 @@ export default class TahlilPage extends Vue {
       meta: [
         { hid: 'description', name: 'description', content: META_DESC_TAHLIL },
         { hid: 'og:title', property: 'og:title', content: META_TITLE_TAHLIL },
-        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_TAHLIL },
-        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: META_TITLE_TAHLIL
+        },
+        {
+          hid: 'theme-color',
+          name: 'theme-color',
+          content: this.settingActiveTheme.bgColor
+        }
       ]
     }
   }
@@ -74,7 +82,9 @@ export default class TahlilPage extends Vue {
       this.expandedData = {
         id: 0
       }
-    } else { this.expandedData = item }
+    } else {
+      this.expandedData = item
+    }
   }
 
   isExpanded (id: number): boolean {
@@ -94,9 +104,9 @@ export default class TahlilPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.item{
+.item {
   text-decoration: none;
-  border-radius: .25em;
+  border-radius: 0.25em;
   padding: 1em;
   font-size: 1.3rem;
   width: 100%;
@@ -108,16 +118,16 @@ export default class TahlilPage extends Vue {
     font-size: 1rem;
   }
 }
-.collapsible{
+.collapsible {
   margin-top: 1em;
   color: var(--text-color);
 }
-.arabic{
+.arabic {
   font-size: 1.5rem;
   width: 100%;
   text-align: right;
 }
-.translation{
+.translation {
   margin-top: 2em;
   font-size: 0.9rem;
   width: 100%;

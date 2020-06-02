@@ -9,7 +9,6 @@ interface sitemapConfigs {
   routes?: string[];
   sitemaps?: string[];
   exclude?: string[];
-  gzip: boolean;
   trailingSlash: boolean;
   defaults?: defaultSetting;
 }
@@ -26,7 +25,8 @@ const getStaticRoutes = (): string[] => {
     '/recommendation',
     '/favorite',
     '/last-verse',
-    '/settings'
+    '/settings',
+    '/dzikir'
   ]
   return res
 }
@@ -35,7 +35,6 @@ const getSurahRoutes = (): string[] => {
   const res: string[] = []
   for (let i = 1; i < 115; i++) {
     res.push(`/${i}`)
-    res.push(`/amp/${i}`)
   }
   return res
 }
@@ -55,30 +54,31 @@ const getVerseRoutes = (surahIndex: number): string[] => {
 
 // @ts-ignore
 // eslint-disable-next-line
-const getVerseSitemaps = (): sitemapConfigs[] => {
-  const res: sitemapConfigs[] = []
+const getVerseSitemaps = (): sitemapConfigs => {
+  let r: string[] = []
   for (let i = 1; i < 115; i++) {
-    const surahSitemap: sitemapConfigs = {
-      path: `sitemaps/surah-${i}.xml`,
-      routes: getVerseRoutes(i),
-      gzip: false,
-      trailingSlash: true,
-      defaults: {
-        changefreq: 'weekly',
-        priority: 0.8,
-        lastmod: new Date()
-      }
-    }
-    res.push(surahSitemap)
+    r = r.concat(getVerseRoutes(i))
   }
-  return res
+
+  const surahSitemap: sitemapConfigs = {
+    path: 'sitemaps/allverse.xml',
+    routes: r,
+    exclude: getStaticRoutes(),
+    trailingSlash: true,
+    defaults: {
+      changefreq: 'daily',
+      priority: 1,
+      lastmod: new Date()
+    }
+  }
+
+  return surahSitemap
 }
 
 const getSitemaps = (): sitemapConfigs[] => {
   const staticSitemap: sitemapConfigs = {
     path: 'sitemaps/static.xml',
     routes: getStaticRoutes(),
-    gzip: false,
     trailingSlash: true,
     defaults: {
       changefreq: 'daily',
@@ -90,7 +90,7 @@ const getSitemaps = (): sitemapConfigs[] => {
   const surahSitemap: sitemapConfigs = {
     path: 'sitemaps/allsurah.xml',
     routes: getSurahRoutes(),
-    gzip: false,
+    exclude: getStaticRoutes(),
     trailingSlash: true,
     defaults: {
       changefreq: 'daily',
@@ -99,7 +99,7 @@ const getSitemaps = (): sitemapConfigs[] => {
     }
   }
 
-  const res: sitemapConfigs[] = [staticSitemap, surahSitemap].concat(getVerseSitemaps())
+  const res: sitemapConfigs[] = [staticSitemap, surahSitemap, getVerseSitemaps()]
   return res
 }
 

@@ -110,14 +110,8 @@ const config = {
     hostname: PROD_PATH,
     cacheTime: 1000 * 60 * 60,
     lastmod: new Date(),
-    gzip: true,
     path: 'sitemaps.xml',
-    sitemaps: getSitemaps(),
-    defaults: {
-      changefreq: 'daily',
-      priority: 1,
-      lastmod: new Date()
-    }
+    sitemaps: getSitemaps()
   },
   /*
    ** Generate multiple entry html from 1 to 114

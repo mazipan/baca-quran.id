@@ -49,9 +49,11 @@
           rel="noopener">di halaman Github issue.</a>
       </div>
 
+      <div class="footnote">
+        Dibuat oleh <a href="https://mazipan.space/" target="_blank" rel="noopener noreferrer">Irfan Maulana</a>
+      </div>
+
       <footer class="footer">
-        <p>Dibuat oleh <a href="https://mazipan.space/" target="_blank"
-          rel="noopener" >Irfan Maulana</a></p>
         <p>Copyright © 2018-2020</p>
       </footer>
     </div>

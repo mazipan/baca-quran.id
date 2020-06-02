@@ -10,7 +10,8 @@ const getRoutes = (): string[] => {
     '/favorite',
     '/last-verse',
     '/recommendation',
-    '/settings'
+    '/settings',
+    '/dzikir'
   ]
   for (let i = 1; i < 115; i++) {
     res.push(`/${i}`)

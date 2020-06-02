@@ -111,3 +111,14 @@ a {
   max-width: 500px;
   margin: 0 auto;
 }
+
+.footnote {
+  text-align: center;
+  margin-top: 0.5em;
+  font-size: 0.8rem;
+
+  a {
+    text-decoration: none;
+    color: var(--link-color);
+  }
+}

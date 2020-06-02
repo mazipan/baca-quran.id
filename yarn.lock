@@ -11227,10 +11227,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
-simple-ampify@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/simple-ampify/-/simple-ampify-1.0.1.tgz#60144c1152221ac5712dac9d61c9b7b87ac5f89c"
-  integrity sha512-VWEZQy+pfyY3rGlkT1IqZ2B0oBrqlT10roIDzTgxlnHoKMB0eiTHLNCQn7LzEFTYSlgaBJYhwJY7rWvlV1CF5g==
+simple-ampify@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/simple-ampify/-/simple-ampify-1.1.0.tgz#508015e37fc7e1f32701b5f9d3aac0bbda9926eb"
+  integrity sha512-otukEhSaIroucU9QwHeuU0BvYEihfDqNPliZyJu/N8JnrB8y8bIfW3/pq5LM0vDPrytpXvFKPkn5RdJiZ5OP1A==
 
 simple-swizzle@^0.2.2:
   version "0.2.2"

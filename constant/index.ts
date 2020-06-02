@@ -9,6 +9,7 @@ export const AppConstant = {
   ASMAUL_HUSNA: 'Asmaul husna',
   DAILY_DOA: "Do'a harian",
   TAHLIL: 'Do\'a Tahlil',
+  WIRID: 'Wirid',
   ABOUT: 'Tentang',
   BISMILLAH: '﷽'
 }
@@ -29,11 +30,15 @@ export const META_DESC_AYAT_KURSI = `Bacaan ayat kursi ${postfix(false)}`
 export const META_TITLE_DAILY_DOA = `Daftar lengkap do'a harian beserta terjemahan | ${AppConstant.TITLE}`
 export const META_DESC_DAILY_DOA = `Daftar lengkap do'a harian ${postfix(false)}`
 
-export const META_TITLE_TAHLIL = `Surat rekomendasi | ${AppConstant.TITLE}`
-export const META_DESC_TAHLIL = `Berbagai surat rekomendasi ${postfix(false)}`
+export const META_TITLE_TAHLIL = `Bacaan lengkap tahlil beserta terjemahan | ${AppConstant.TITLE}`
+export const META_DESC_TAHLIL = `Bacaan lengkap tahlil ${postfix(false)}`
+
+export const META_TITLE_WIRID = `Bacaan lengkap wirid setelah sholat | ${AppConstant.TITLE}`
+export const META_DESC_WIRID = `Bacaan lengkap wirid setelah sholat ${postfix(false)}`
 
 export const META_TITLE_LAST_VERSE = `Ayat terakhir dibaca | ${AppConstant.TITLE}`
 export const META_TITLE_SETTING = `Halaman setelan | ${AppConstant.TITLE}`
+
 export const META_TITLE_RECOMMENDATION = `Surat rekomendasi | ${AppConstant.TITLE}`
 export const META_DESC_RECOMMENDATION = `Berbagai surat rekomendasi ${postfix(false)}`
 
