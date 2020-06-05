@@ -8,7 +8,7 @@
         Surat favorit:
       </div>
       <div class="feed__item clearfix">
-        <SurahCard
+        <Surah
           v-if="isHaveFav"
           :surah-array="surahFavorite"
           source="favorite" />
@@ -28,14 +28,14 @@ import { State, Mutation } from 'vuex-class'
 
 import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
 
-import SurahCard from '~/components/SurahCard.vue'
+import Surah from '~/components/Surah.vue'
 import { __isNotEmptyArray } from '~/utils/index'
 import { AppConstant } from '~/constant'
 
 @Component({
   components: {
     IosStarOutlineIcon,
-    SurahCard
+    Surah
   }
 })
 
