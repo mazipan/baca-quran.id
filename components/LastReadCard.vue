@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import { SurahInfo, defaultSurahInfo } from '../models/SurahInfo'
+import { SurahInfo, defaultSurahInfo } from '~/models/SurahInfo'
 
 @Component
 export default class LastReadCard extends Vue {
@@ -48,5 +48,5 @@ export default class LastReadCard extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/surah.scss';
+@import '~/assets/surah.scss';
 </style>

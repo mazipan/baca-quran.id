@@ -20,12 +20,12 @@ import { State, Mutation, Action } from 'vuex-class'
 
 import ArrowUpIcon from 'vue-ionicons/dist/js/ios-arrow-dropup-circle'
 
-import BaseHeader from '../components/BaseHeader.vue'
-import BaseSidebar from '../components/BaseSidebar.vue'
-import BaseToast from '../components/BaseToast.vue'
-import BottomNav from '../components/BottomNav.vue'
+import BaseHeader from '~/components/BaseHeader.vue'
+import BaseSidebar from '~/components/BaseSidebar.vue'
+import BaseToast from '~/components/BaseToast.vue'
+import BottomNav from '~/components/BottomNav.vue'
 
-import { isSupportWebp } from '../utils/webp'
+import { isSupportWebp } from '~/utils/webp'
 
 require('intersection-observer')
 require('vue-ionicons/ionicons.css')

@@ -16,7 +16,7 @@
       </div>
 
       <div class="all-surah">
-        <SurahCard :surah-array="filteredSurah" source="all-surah" />
+        <Surah :surah-array="filteredSurah" />
       </div>
     </div>
     <div class="footnote">
@@ -29,13 +29,13 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import SurahCard from '../components/SurahCard.vue'
-import { __isNotEmptyString, __normalizeText } from '../utils/index'
-import { META_TITLE_ALL_SURAH, META_DESC_ALL_SURAH } from '../constant/index'
+import Surah from '~/components/Surah.vue'
+import { __isNotEmptyString, __normalizeText } from '~/utils/index'
+import { META_TITLE_ALL_SURAH, META_DESC_ALL_SURAH } from '~/constant/index'
 
 @Component({
   components: {
-    SurahCard
+    Surah
   },
   async asyncData () {
     const resp = await import('~/static/data/surah-info.json')

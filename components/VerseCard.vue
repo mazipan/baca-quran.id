@@ -31,8 +31,8 @@ import { State, Action } from 'vuex-class'
 import MdShareIcon from 'vue-ionicons/dist/js/md-share'
 import MdBookmarkIcon from 'vue-ionicons/dist/js/md-bookmark'
 import MdVolumeHighIcon from 'vue-ionicons/dist/js/md-volume-high'
-import { AppConstant } from '../constant'
-import SingleVerse from './SingleVerse.vue'
+import { AppConstant } from '~/constant'
+import SingleVerse from '~/components/SingleVerse.vue'
 
 const randomVerse = 1000000
 

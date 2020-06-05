@@ -1,9 +1,9 @@
 import { MutationTree } from 'vuex'
 
-import { Notification } from '../models/Nofication'
-import { Theme } from '../models/Theme'
 import { StateType } from './state'
 import { Types } from './types'
+import { Notification } from '~/models/Nofication'
+import { Theme } from '~/models/Theme'
 
 export const mutations: MutationTree<StateType> = {
   [Types.SET_SHOW_SIDEBAR] (state: StateType, data: boolean) {

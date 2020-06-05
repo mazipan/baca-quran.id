@@ -124,9 +124,9 @@ import MdGridIcon from 'vue-ionicons/dist/js/md-grid'
 import MdWifiIcon from 'vue-ionicons/dist/js/md-wifi'
 import IosColorWandIcon from 'vue-ionicons/dist/js/ios-color-wand'
 
-import { AppConstant, META_TITLE, META_DESC } from '../constant'
-import surahRecommendation from '../constant/surah-recommendation'
-import { __isNotEmptyArray } from '../utils/index'
+import { AppConstant, META_TITLE, META_DESC } from '~/constant'
+import surahRecommendation from '~/constant/surah-recommendation'
+import { __isNotEmptyArray } from '~/utils/index'
 
 @Component({
   components: {

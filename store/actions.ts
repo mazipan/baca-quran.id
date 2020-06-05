@@ -1,10 +1,10 @@
 import { ActionTree } from 'vuex'
-import storageKey from '../constant/storage-key'
-import Theme from '../constant/theme'
-import { __isNotNull } from '../utils/index'
-import { getItem, setItem } from '../utils/storage'
 import { Types } from './types'
 import { StateType } from './state'
+import storageKey from '~/constant/storage-key'
+import Theme from '~/constant/theme'
+import { __isNotNull } from '~/utils/index'
+import { getItem, setItem } from '~/utils/storage'
 
 export const actions: ActionTree<StateType, StateType> = {
   initDataFromBrowserStorage ({ commit }) {

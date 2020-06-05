@@ -71,7 +71,7 @@ export default class SurahHeader extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/switch.scss";
+@import "~/assets/switch.scss";
 .surah-header {
   width: 90%;
   margin: 1em auto;

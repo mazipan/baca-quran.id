@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// import copyVerse from '../build-scripts/copyVerse'
+// import copyVerse from '~/build-scripts/copyVerse'
 
 export default function copyStaticHtml () {
   // @ts-ignore

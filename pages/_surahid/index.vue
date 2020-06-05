@@ -34,13 +34,13 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { AppConstant, META_TITLE_SURAH, META_DESC_SURAH } from '../../constant'
-import VerseCard from '../../components/VerseCard.vue'
-import SurahHeader from '../../components/SurahHeader.vue'
-import SurahNavigation from '../../components/SurahNavigation.vue'
+import { AppConstant, META_TITLE_SURAH, META_DESC_SURAH } from '~/constant'
+import VerseCard from '~/components/VerseCard.vue'
+import SurahHeader from '~/components/SurahHeader.vue'
+import SurahNavigation from '~/components/SurahNavigation.vue'
 
-import { __isNotNull, __isNotEmptyArray } from '../../utils/index'
-import { getJsonLdBreadcrumb, getJsonLdArticle } from '../../utils/jsonld'
+import { __isNotNull, __isNotEmptyArray } from '~/utils/index'
+import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
 
 @Component({
   components: {

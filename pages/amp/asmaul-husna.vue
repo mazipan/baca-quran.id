@@ -31,7 +31,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '../../constant/index'
+import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '~/constant/index'
 
 @Component({
   async asyncData () {

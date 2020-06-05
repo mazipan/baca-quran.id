@@ -2,7 +2,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Helpers from '~/test/helper'
-import Component from '~/components/SurahCard.vue'
+import Component from '~/components/Surah.vue'
 
 import { Types } from '~/store/types'
 

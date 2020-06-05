@@ -64,7 +64,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { AppConstant, META_DESC } from '../constant/index'
+import { AppConstant, META_DESC } from '~/constant/index'
 
 @Component
 export default class PageAbout extends Vue {

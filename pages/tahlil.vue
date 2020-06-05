@@ -29,7 +29,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
-import { AppConstant, META_TITLE_TAHLIL, META_DESC_TAHLIL } from '../constant'
+import { AppConstant, META_TITLE_TAHLIL, META_DESC_TAHLIL } from '~/constant'
 
 interface expandedData {
   id: number;

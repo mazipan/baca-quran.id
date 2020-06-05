@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
-import { AppConstant, META_TITLE_AYAT_KURSI, META_DESC_AYAT_KURSI } from '../constant/index'
+import { AppConstant, META_TITLE_AYAT_KURSI, META_DESC_AYAT_KURSI } from '~/constant/index'
 
 @Component({
   async asyncData () {

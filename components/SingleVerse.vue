@@ -69,8 +69,8 @@ import MdShareIcon from 'vue-ionicons/dist/js/md-share'
 import MdBookmarkIcon from 'vue-ionicons/dist/js/md-bookmark'
 import MdVolumeHighIcon from 'vue-ionicons/dist/js/md-volume-high'
 import MdLinkIcon from 'vue-ionicons/dist/js/md-link'
-import MurotalConstant from '../constant/murotal'
-import { AppConstant } from '../constant'
+import MurotalConstant from '~/constant/murotal'
+import { AppConstant } from '~/constant'
 
 @Component({
   components: {

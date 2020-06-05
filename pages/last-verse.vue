@@ -26,10 +26,10 @@ import { State, Mutation } from 'vuex-class'
 
 import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 
-import LastReadCard from '../components/LastReadCard.vue'
+import LastReadCard from '~/components/LastReadCard.vue'
 
-import { AppConstant, META_TITLE_LAST_VERSE } from '../constant'
-import { __isNotNull } from '../utils/index'
+import { AppConstant, META_TITLE_LAST_VERSE } from '~/constant'
+import { __isNotNull } from '~/utils/index'
 
 @Component({
   components: {

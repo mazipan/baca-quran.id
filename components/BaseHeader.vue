@@ -79,5 +79,5 @@ export default class BaseHeader extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/header.scss";
+@import "~/assets/header.scss";
 </style>

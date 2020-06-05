@@ -1,8 +1,8 @@
-import { AppConstant } from '../constant/index'
-import ThemeItem from '../constant/theme'
+import { AppConstant } from '~/constant/index'
+import ThemeItem from '~/constant/theme'
 
-import { Notification } from '../models/Nofication'
-import { Theme } from '../models/Theme'
+import { Notification } from '~/models/Nofication'
+import { Theme } from '~/models/Theme'
 
 export interface StateType {
   notification: Notification,

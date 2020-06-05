@@ -44,8 +44,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { __isNotEmptyString, __normalizeText } from '../utils/index'
-import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '../constant/index'
+import { __isNotEmptyString, __normalizeText } from '~/utils/index'
+import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '~/constant/index'
 
 @Component({
   async asyncData () {

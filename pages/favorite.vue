@@ -28,9 +28,9 @@ import { State, Mutation } from 'vuex-class'
 
 import IosStarOutlineIcon from 'vue-ionicons/dist/js/ios-star-outline'
 
-import SurahCard from '../components/SurahCard.vue'
-import { __isNotEmptyArray } from '../utils/index'
-import { AppConstant } from '../constant'
+import SurahCard from '~/components/SurahCard.vue'
+import { __isNotEmptyArray } from '~/utils/index'
+import { AppConstant } from '~/constant'
 
 @Component({
   components: {

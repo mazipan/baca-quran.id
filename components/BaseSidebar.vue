@@ -55,7 +55,7 @@ import MdSettingsIcon from 'vue-ionicons/dist/js/md-settings'
 import MdHeartIcon from 'vue-ionicons/dist/md-heart.vue'
 import MdPaperIcon from 'vue-ionicons/dist/md-paper.vue'
 
-import { AppConstant } from '../constant'
+import { AppConstant } from '~/constant'
 
 @Component({
   components: {
@@ -83,5 +83,5 @@ export default class BaseSidebar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/sidebar.scss";
+@import "~/assets/sidebar.scss";
 </style>

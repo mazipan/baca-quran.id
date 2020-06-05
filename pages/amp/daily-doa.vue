@@ -34,7 +34,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { AppConstant, META_TITLE_DAILY_DOA, META_DESC_DAILY_DOA } from '../../constant/index'
+import { AppConstant, META_TITLE_DAILY_DOA, META_DESC_DAILY_DOA } from '~/constant/index'
 
 interface expandedData {
   title: string
