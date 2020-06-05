@@ -8,7 +8,7 @@
         Surat rekomendasi:
       </div>
       <div class="feed__item clearfix">
-        <SurahCard :surah-array="surahRecommendation" source="recommedation" />
+        <SurahCard :surah-array="surahRecommendation" source="amp-recommedation" />
       </div>
     </div>
   </div>
@@ -21,8 +21,8 @@ import { State, Mutation } from 'vuex-class'
 import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 
 import SurahCard from '../components/SurahCard.vue'
-import { AppConstant, META_TITLE_RECOMMENDATION, META_DESC_RECOMMENDATION } from '../constant'
-import surahRecommendation from '../constant/surah-recommendation'
+import { AppConstant, META_TITLE_RECOMMENDATION, META_DESC_RECOMMENDATION } from '../../constant'
+import surahRecommendation from '../../constant/surah-recommendation'
 
 @Component({
   components: {
@@ -48,7 +48,7 @@ export default class RecommendationPage extends Vue {
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ],
       link: [
-        { rel: 'amphtml', href: `${AppConstant.PATH}amp/recommendation/` }
+        { rel: 'canonical', href: `${AppConstant.PATH}recommendation/` }
       ]
     }
   }

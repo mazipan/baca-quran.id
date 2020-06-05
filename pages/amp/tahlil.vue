@@ -2,11 +2,11 @@
   <div class="container tahlil">
     <div class="wrapper">
       <div class="wrapper__item">
-        <div v-for="item in tahlilData" :key="item.id" class="item" @click="onClickItem(item)">
+        <div v-for="item in tahlilData" :key="item.id" class="item">
           <div class="item__title">
             {{ item.title }}
           </div>
-          <div v-show="isExpanded(item.id)" class="collapsible">
+          <div class="collapsible">
             <div class="arabic font-arabic">
               {{ item.arabic }}
             </div>
@@ -29,7 +29,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
-import { AppConstant, META_TITLE_TAHLIL, META_DESC_TAHLIL } from '../constant'
+import { AppConstant, META_TITLE_TAHLIL, META_DESC_TAHLIL } from '../../constant'
 
 interface expandedData {
   id: number;
@@ -45,10 +45,6 @@ interface expandedData {
   }
 })
 export default class TahlilPage extends Vue {
-  expandedData: expandedData = {
-    id: 0
-  };
-
   @State settingActiveTheme;
   @Mutation setHeaderTitle;
   @Mutation setPage;
@@ -71,27 +67,13 @@ export default class TahlilPage extends Vue {
         }
       ],
       link: [
-        { rel: 'amphtml', href: `${AppConstant.PATH}amp/tahlil/` }
+        { rel: 'canonical', href: `${AppConstant.PATH}tahlil/` }
       ]
     }
   }
 
   head () {
     return this.metaHead
-  }
-
-  onClickItem (item: expandedData): void {
-    if (this.isExpanded(item.id)) {
-      this.expandedData = {
-        id: 0
-      }
-    } else {
-      this.expandedData = item
-    }
-  }
-
-  isExpanded (id: number): boolean {
-    return id === this.expandedData.id
   }
 
   mounted () {

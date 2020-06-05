@@ -10,7 +10,8 @@
       <div class="feed__item clearfix">
         <SurahCard
           v-if="isHaveFav"
-          :surah-array="surahFavorite" />
+          :surah-array="surahFavorite"
+          source="favorite" />
         <div
           v-else
           class="feed__empty">

@@ -10,7 +10,7 @@
         <div class="surah__index tag_index">
           {{ surah.index }}
         </div>
-        <div class="surah__header--right">
+        <div v-if="!isAmp" class="surah__header--right">
           <svg
             v-if="!findInFavorite(surah)"
             viewBox="0 0 512 512"
@@ -61,12 +61,17 @@ import { SurahInfo } from '../models/SurahInfo'
 @Component
 export default class SurahCard extends Vue {
   @Prop({ default: () => [] }) readonly surahArray!: SurahInfo[]
+  @Prop({ type: String, default: '' }) readonly source!: string;
 
   @State surahFavorite
 
   @Action addToFavorite
   @Action removeFromFavorite
   @Action showNotification
+
+  get isAmp (): boolean {
+    return this.source.includes('amp')
+  }
 
   doAddToFavorite (surah): void {
     this.addToFavorite(surah)
