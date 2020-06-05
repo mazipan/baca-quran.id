@@ -16,7 +16,7 @@
       </div>
 
       <div class="all-surah">
-        <SurahCard :surah-array="filteredSurah" />
+        <SurahCard :surah-array="filteredSurah" source="all-surah" />
       </div>
     </div>
     <div class="footnote">

@@ -1,22 +1,9 @@
 <template>
   <div class="container asmaul-husna">
-    <div class="search clearfix">
-      <label
-        for="search-asmaul-husna"
-        class="search__title">
-        Pencarian cepat
-      </label>
-      <input
-        id="search-asmaul-husna"
-        v-model="searchText"
-        type="search"
-        name="search"
-        placeholder="Cari asmaul husna">
-    </div>
     <div class="wrapper">
       <div class="item_wrapper">
         <div
-          v-for="item in filteredAsmaulHusna"
+          v-for="item in asmaulHusna"
           :key="item.index"
           class="item">
           <div
@@ -44,8 +31,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { __isNotEmptyString, __normalizeText } from '../utils/index'
-import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '../constant/index'
+import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '../../constant/index'
 
 @Component({
   async asyncData () {
@@ -57,8 +43,6 @@ import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '..
 })
 
 export default class AsmaulHusnaPage extends Vue {
-  searchText = ''
-
   @State settingActiveTheme
   @Mutation setHeaderTitle
   @Mutation setPage
@@ -73,26 +57,9 @@ export default class AsmaulHusnaPage extends Vue {
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ],
       link: [
-        { rel: 'amphtml', href: `${AppConstant.PATH}amp/asmaul-husna/` }
+        { rel: 'canonical', href: `${AppConstant.PATH}asmaul-husna/` }
       ]
     }
-  }
-
-  get filteredAsmaulHusna () {
-    if (__isNotEmptyString(this.searchText) && this.searchText.length >= 3) {
-      // @ts-ignore: Unreachable code error
-      return this.asmaulHusna.filter((item) => {
-        const predicateTranslation = __normalizeText(item.translation_id).includes(
-          __normalizeText(this.searchText)
-        )
-        const predicateLatin = __normalizeText(item.latin).includes(
-          __normalizeText(this.searchText)
-        )
-
-        return predicateLatin || predicateTranslation
-      })
-    // @ts-ignore: Unreachable code error
-    } else { return this.asmaulHusna || [] }
   }
 
   head () {

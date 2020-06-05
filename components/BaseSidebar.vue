@@ -21,6 +21,11 @@
           </a>
         </li>
         <li class="sidebar__item">
+          <a href="/tulisan" class="sidebar__link" target="_blank" rel="noopener noreferrer">
+            <MdPaperIcon w="2em" h="2em" name="Tentang" title="Tentang" />Blog
+          </a>
+        </li>
+        <li class="sidebar__item">
           <nuxt-link to="/about/" class="sidebar__link" @click.native="navigateTo">
             <MdHelpCircleIcon w="2em" h="2em" name="Tentang" title="Tentang" />Tentang
           </nuxt-link>
@@ -48,6 +53,7 @@ import MdHelpCircleIcon from 'vue-ionicons/dist/js/md-help-circle'
 import MdCodeIcon from 'vue-ionicons/dist/js/md-code'
 import MdSettingsIcon from 'vue-ionicons/dist/js/md-settings'
 import MdHeartIcon from 'vue-ionicons/dist/md-heart.vue'
+import MdPaperIcon from 'vue-ionicons/dist/md-paper.vue'
 
 import { AppConstant } from '../constant'
 
@@ -57,7 +63,8 @@ import { AppConstant } from '../constant'
     MdHelpCircleIcon,
     MdCodeIcon,
     MdSettingsIcon,
-    MdHeartIcon
+    MdHeartIcon,
+    MdPaperIcon
   }
 })
 export default class BaseSidebar extends Vue {

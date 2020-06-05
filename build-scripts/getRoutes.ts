@@ -11,7 +11,14 @@ const getRoutes = (): string[] => {
     '/last-verse',
     '/recommendation',
     '/settings',
-    '/dzikir'
+    '/wirid',
+
+    '/amp/asmaul-husna',
+    '/amp/ayat-kursi',
+    '/amp/daily-doa',
+    '/amp/tahlil',
+    '/amp/recommendation',
+    '/amp/wirid'
   ]
   for (let i = 1; i < 115; i++) {
     res.push(`/${i}`)

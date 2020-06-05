@@ -30,7 +30,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
-import { AppConstant, META_TITLE_WIRID, META_DESC_WIRID } from '../constant'
+import { AppConstant, META_TITLE_WIRID, META_DESC_WIRID } from '../../constant'
 
 @Component({
   async asyncData () {
@@ -57,7 +57,7 @@ export default class WiridPage extends Vue {
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ],
       link: [
-        { rel: 'amphtml', href: `${AppConstant.PATH}amp/wirid/` }
+        { rel: 'canonical', href: `${AppConstant.PATH}wirid/` }
       ]
     }
   }

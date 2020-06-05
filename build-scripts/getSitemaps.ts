@@ -26,7 +26,7 @@ const getStaticRoutes = (): string[] => {
     '/favorite',
     '/last-verse',
     '/settings',
-    '/dzikir'
+    '/wirid'
   ]
   return res
 }
