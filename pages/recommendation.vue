@@ -20,7 +20,7 @@ import { State, Mutation } from 'vuex-class'
 
 import IosNavigateIcon from 'vue-ionicons/dist/js/ios-navigate'
 
-import SurahCard from '../components/SurahCard.vue'
+import SurahCard from '../../components/SurahCard.vue'
 import { AppConstant, META_TITLE_RECOMMENDATION, META_DESC_RECOMMENDATION } from '../constant'
 import surahRecommendation from '../constant/surah-recommendation'
 
