@@ -28,7 +28,7 @@
           <label class="switch">
             <input
               id="setting-translation"
-              v-model="modelSettingTranslation"
+              :checked="settingShowTranslation"
               type="checkbox"
               name="translation"
               @change="onChangeSettingTranslation">
@@ -44,10 +44,26 @@
           <label class="switch">
             <input
               id="setting-tafsir"
-              v-model="modelSettingTafsir"
+              :checked="settingShowTafsir"
               type="checkbox"
               name="translation"
               @change="onChangeSettingTafsir">
+            <span class="slider round" />
+          </label>
+        </div>
+
+        <div class="settings__group settings__group--flex">
+          <label
+            for="setting-muqaddimah">
+            Tampilkan muqaddimah
+          </label>
+          <label class="switch">
+            <input
+              id="setting-muqaddimah"
+              :checked="settingShowMuqaddimah"
+              type="checkbox"
+              name="translation"
+              @change="onChangeSettingMuqaddimah">
             <span class="slider round" />
           </label>
         </div>
@@ -69,19 +85,19 @@ import Theme from '~/constant/theme'
 @Component
 export default class SettingsPage extends Vue {
   themesAvailable = Theme.AVAILABLE_THEME
-  modelSettingTranslation = true
-  modelSettingTafsir = true
 
   @State settingActiveTheme;
   @State settingShowTranslation;
   @State settingShowTafsir;
+  @State settingShowMuqaddimah;
 
   @Mutation setHeaderTitle;
   @Mutation setPage
 
   @Action setActiveTheme;
-  @Action setSettingTranslation
-  @Action setSettingTafsir
+  @Action setSettingTranslation;
+  @Action setSettingTafsir;
+  @Action setSettingMuqaddimah;
 
   get metaHead () {
     return {
@@ -98,35 +114,32 @@ export default class SettingsPage extends Vue {
     return this.metaHead
   }
 
-  setDefaultSetting () {
-    this.modelSettingTranslation = this.settingShowTranslation
-    this.modelSettingTafsir = this.settingShowTafsir
-  }
-
   onSelectTheme (theme) {
     this.setActiveTheme(theme)
     // @ts-ignore
     window.__setPreferredTheme(theme.name.toLowerCase())
   }
 
-  onChangeSettingTranslation () {
-    this.setSettingTranslation(this.modelSettingTranslation)
+  onChangeSettingTranslation (e: any) {
+    this.setSettingTranslation(e.target.checked)
   }
 
-  onChangeSettingTafsir () {
-    this.setSettingTafsir(this.modelSettingTafsir)
+  onChangeSettingTafsir (e: any) {
+    this.setSettingTafsir(e.target.checked)
+  }
+
+  onChangeSettingMuqaddimah (e: any) {
+    this.setSettingMuqaddimah(e.target.checked)
   }
 
   mounted () {
     this.setHeaderTitle('Setelan')
     this.setPage('settings')
-    this.setDefaultSetting()
   }
 
   activated () {
     this.setHeaderTitle('Setelan')
     this.setPage('settings')
-    this.setDefaultSetting()
   }
 }
 </script>

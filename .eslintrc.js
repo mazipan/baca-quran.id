@@ -20,6 +20,7 @@ module.exports = {
         multiline: "never"
       }
     ],
+    "vue/no-v-html": "warn",
     quotes: [2, "single", { avoidEscape: true }]
   }
 }

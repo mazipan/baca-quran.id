@@ -14,6 +14,7 @@ export interface StateType {
   settingActiveTheme: Theme,
   settingShowTranslation: boolean,
   settingShowTafsir: boolean,
+  settingShowMuqaddimah: boolean,
   surahFavorite: any[],
 }
 
@@ -32,5 +33,6 @@ export const state: StateType = {
   settingActiveTheme: ThemeItem.DARK,
   settingShowTranslation: false,
   settingShowTafsir: false,
+  settingShowMuqaddimah: false,
   surahFavorite: []
 }

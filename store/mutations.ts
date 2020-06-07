@@ -35,5 +35,8 @@ export const mutations: MutationTree<StateType> = {
   },
   [Types.SET_SETTING_TAFSIR] (state: StateType, data: boolean) {
     state.settingShowTafsir = data
+  },
+  [Types.SET_SETTING_MUQADDIMAH] (state: StateType, data: boolean) {
+    state.settingShowMuqaddimah = data
   }
 }

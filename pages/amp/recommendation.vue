@@ -8,7 +8,7 @@
         Surat rekomendasi:
       </div>
       <div class="feed__item clearfix">
-        <SurahCard :surah-array="surahRecommendation" />
+        <Surah :surah-array="surahRecommendation" />
       </div>
     </div>
   </div>

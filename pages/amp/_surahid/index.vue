@@ -40,7 +40,6 @@ import SurahHeader from '~/components/SurahHeader.vue'
 import SurahNavigation from '~/components/SurahNavigation.vue'
 import VerseCard from '~/components/VerseCard.vue'
 
-import { __isNotNull, __isNotEmptyArray } from '~/utils/index'
 import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
 
 @Component({
@@ -57,11 +56,16 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
     const title = META_TITLE_SURAH(respDetail[params.surahid].name_latin)
     // @ts-ignore: Unreachable code error
     const description = META_DESC_SURAH(respDetail[params.surahid].name_latin)
+    const allSurah = resp.surah_info
 
     return {
-      allSurahList: resp.surah_info.map((item, idx) => {
-        return Object.assign({}, item, { index: idx + 1 })
-      }),
+      metaTitle: title,
+      metaDesc: description,
+      surahId: Number(params.surahid) || 1,
+      allSurahList: allSurah,
+      currentSurahFromList: allSurah.find(i => i.index === Number(params.surahid)),
+      nextSurah: Number(params.surahid) >= 114 ? null : allSurah.find(i => i.index === (Number(params.surahid) + 1)),
+      prevSurah: Number(params.surahid) <= 1 ? null : allSurah.find(i => i.index === (Number(params.surahid) - 1)),
       currentSurah: respDetail[params.surahid],
       jsonldBreadcrumb: getJsonLdBreadcrumb({
         categoryTitle: 'Daftar Surat',
@@ -88,17 +92,16 @@ export default class SurahDetailPage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    // @ts-ignore: Unreachable code error
-    const title = META_TITLE_SURAH(`${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
-    // @ts-ignore: Unreachable code error
-    const description = META_DESC_SURAH(`${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
     return {
-      title,
+      // @ts-ignore: Unreachable code error
+      title: this.metaTitle,
       meta: [
-        { hid: 'description', name: 'description', content: description },
-
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        // @ts-ignore: Unreachable code error
+        { hid: 'description', name: 'description', content: this.metaDesc },
+        // @ts-ignore: Unreachable code error
+        { hid: 'og:title', property: 'og:title', content: this.metaTitle },
+        // @ts-ignore: Unreachable code error
+        { hid: 'twitter:title', name: 'twitter:title', content: this.metaTitle },
         { hid: 'twitter:label1', name: 'twitter:label1', content: 'Surat' },
         // @ts-ignore: Unreachable code error
         { hid: 'twitter:label2', name: 'twitter:label2', content: this.currentSurah.name_latin },
@@ -111,6 +114,7 @@ export default class SurahDetailPage extends Vue {
         { hid: 'article:tag', name: 'article:tag', content: this.currentSurah.name_latin }
       ],
       link: [
+        // @ts-ignore: Unreachable code error
         { rel: 'canonical', href: `${AppConstant.PATH}${this.surahId}/` }
       ],
       script: [
@@ -131,40 +135,6 @@ export default class SurahDetailPage extends Vue {
       ],
       __dangerouslyDisableSanitizers: ['script']
     }
-  }
-
-  get surahId () {
-    let id = 0
-    if (__isNotNull(this.$route.params && this.$route.params.surahid)) {
-      id = Number(this.$route.params.surahid)
-    }
-    return id
-  }
-
-  get isValidSurah () {
-    return this.surahId > 0 && this.surahId <= 114
-  }
-
-  get prevSurah () {
-    // @ts-ignore: Unreachable code error
-    if (__isNotEmptyArray(this.allSurahList)) {
-      if (this.surahId > 1) {
-        // @ts-ignore: Unreachable code error
-        return this.allSurahList.find(item => item.index === this.surahId - 1)
-      }
-    }
-    return null
-  }
-
-  get nextSurah () {
-    // @ts-ignore: Unreachable code error
-    if (__isNotEmptyArray(this.allSurahList)) {
-      if (this.surahId < 114) {
-        // @ts-ignore: Unreachable code error
-        return this.allSurahList.find(item => item.index === this.surahId + 1)
-      }
-    }
-    return null
   }
 
   head () {

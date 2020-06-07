@@ -1,3 +1,4 @@
+import StorageKey from '../constant/storage-key'
 import { __isNotNull } from './index'
 
 export const getItem = (key, v) => {
@@ -8,8 +9,8 @@ export const getItem = (key, v) => {
         const dataInCache = JSON.parse(cache)
         if (__isNotNull(dataInCache.value)) {
           // check cache version
-          if (__isNotNull(dataInCache.version) && __isNotNull(v)) {
-            const versionInCache = dataInCache.version
+          if (__isNotNull(dataInCache.v) && __isNotNull(v)) {
+            const versionInCache = dataInCache.v
             if (v === versionInCache) { // only return value when version was matched
               return dataInCache.value
             } else {
@@ -27,11 +28,11 @@ export const getItem = (key, v) => {
   return null
 }
 
-export const setItem = (key, value = '', version = null) => {
+export const setItem = (key, value = '', version = StorageKey.VERSION) => {
   if (process.client) {
     try {
       const data = {
-        version,
+        v: version,
         value
       }
       const valString = JSON.stringify(data)

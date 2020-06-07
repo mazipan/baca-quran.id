@@ -15,14 +15,17 @@ export const actions: ActionTree<StateType, StateType> = {
     const cacheLastRead = getItem(storageKey.LAST_READ, null) || {}
     commit(Types.SET_LAST_READ, cacheLastRead)
     // data active theme
-    const cacheTheme = getItem(storageKey.SETTING_THEME, null) || Theme.LIGHT
+    const cacheTheme = getItem(storageKey.SETTING_THEME, storageKey.VERSION) || Theme.DARK
     commit(Types.SET_THEME, cacheTheme)
     // data translation
-    const cacheTranslation = getItem(storageKey.SETTING_TRANSLATION, null)
-    commit(Types.SET_SETTING_TRANSLATION, __isNotNull(cacheTranslation) ? cacheTranslation : true)
+    const cacheTranslation = getItem(storageKey.SETTING_TRANSLATION, storageKey.VERSION)
+    commit(Types.SET_SETTING_TRANSLATION, __isNotNull(cacheTranslation) ? cacheTranslation : false)
     // data tafsir
-    const cacheTafsir = getItem(storageKey.SETTING_TAFSIR, null)
-    commit(Types.SET_SETTING_TAFSIR, __isNotNull(cacheTafsir) ? cacheTafsir : true)
+    const cacheTafsir = getItem(storageKey.SETTING_TAFSIR, storageKey.VERSION)
+    commit(Types.SET_SETTING_TAFSIR, __isNotNull(cacheTafsir) ? cacheTafsir : false)
+    // data muqaddimah
+    const cacheMuqaddimah = getItem(storageKey.SETTING_MUQADDIMAH, storageKey.VERSION)
+    commit(Types.SET_SETTING_MUQADDIMAH, __isNotNull(cacheMuqaddimah) ? cacheMuqaddimah : false)
   },
   showNotification ({ commit }, { title = '', message = '' }) {
     commit(Types.SET_NOTIFICATION, { show: true, title, message })
@@ -76,15 +79,19 @@ export const actions: ActionTree<StateType, StateType> = {
     }
   },
   setActiveTheme ({ commit }, theme) {
-    setItem(storageKey.SETTING_THEME, theme, null)
+    setItem(storageKey.SETTING_THEME, theme, storageKey.VERSION)
     commit(Types.SET_THEME, theme)
   },
   setSettingTranslation ({ commit }, payload) {
-    setItem(storageKey.SETTING_TRANSLATION, payload, null)
+    setItem(storageKey.SETTING_TRANSLATION, payload, storageKey.VERSION)
     commit(Types.SET_SETTING_TRANSLATION, payload)
   },
   setSettingTafsir ({ commit }, payload) {
-    setItem(storageKey.SETTING_TAFSIR, payload, null)
+    setItem(storageKey.SETTING_TAFSIR, payload, storageKey.VERSION)
     commit(Types.SET_SETTING_TAFSIR, payload)
+  },
+  setSettingMuqaddimah ({ commit }, payload) {
+    setItem(storageKey.SETTING_MUQADDIMAH, payload, storageKey.VERSION)
+    commit(Types.SET_SETTING_MUQADDIMAH, payload)
   }
 }

@@ -13,7 +13,7 @@
         </div>
         <div class="surah__header--right">
           <div class="divider clearfix">
-            <div class="surah__title">
+            <div class="surah__title font-arabic" dir="rtl" lang="ar">
               {{ surah.arabic }}
             </div>
           </div>

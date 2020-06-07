@@ -12,27 +12,44 @@
       </div>
     </nuxt-link>
     <div v-if="!isAmp" class="settings__group">
-      <label for="surah-setting-tafsir">Tafsir</label>
-      <label class="switch">
-        <input
-          id="surah-setting-tafsir"
-          :checked="settingShowTafsir"
-          type="checkbox"
-          name="tafsir"
-          @change="onChangeSettingTafsir">
-        <span class="slider round" />
-      </label>
+      <div>
+        <label for="surah-setting-tafsir">Tafsir</label>
+        <label class="switch">
+          <input
+            id="surah-setting-tafsir"
+            :checked="settingShowTafsir"
+            type="checkbox"
+            name="tafsir"
+            @change="onChangeSettingTafsir">
+          <span class="slider round" />
+        </label>
+      </div>
 
-      <label for="surah-setting-translation">Terjemahan</label>
-      <label class="switch">
-        <input
-          id="surah-setting-translation"
-          :checked="settingShowTranslation"
-          type="checkbox"
-          name="translation"
-          @change="onChangeSettingTranslation">
-        <span class="slider round" />
-      </label>
+      <div>
+        <label for="surah-setting-translation">Terjemahan</label>
+        <label class="switch">
+          <input
+            id="surah-setting-translation"
+            :checked="settingShowTranslation"
+            type="checkbox"
+            name="translation"
+            @change="onChangeSettingTranslation">
+          <span class="slider round" />
+        </label>
+      </div>
+
+      <div>
+        <label for="surah-setting-muqaddimah">Muqaddimah</label>
+        <label class="switch">
+          <input
+            id="surah-setting-muqaddimah"
+            :checked="settingShowMuqaddimah"
+            type="checkbox"
+            name="muqaddimah"
+            @change="onChangeSettingMuqaddimah">
+          <span class="slider round" />
+        </label>
+      </div>
     </div>
   </div>
 </template>
@@ -52,20 +69,26 @@ export default class SurahHeader extends Vue {
 
   @State settingShowTranslation;
   @State settingShowTafsir;
+  @State settingShowMuqaddimah;
 
-  @Action setSettingTranslation
-  @Action setSettingTafsir
+  @Action setSettingTranslation;
+  @Action setSettingTafsir;
+  @Action setSettingMuqaddimah;
 
   get isAmp (): boolean {
     return this.source.includes('amp')
   }
 
-  onChangeSettingTranslation () {
-    this.setSettingTranslation(!this.settingShowTranslation)
+  onChangeSettingTranslation (e: any) {
+    this.setSettingTranslation(e.target.checked)
   }
 
-  onChangeSettingTafsir () {
-    this.setSettingTafsir(!this.settingShowTafsir)
+  onChangeSettingTafsir (e: any) {
+    this.setSettingTafsir(e.target.checked)
+  }
+
+  onChangeSettingMuqaddimah (e: any) {
+    this.setSettingMuqaddimah(e.target.checked)
   }
 }
 </script>
@@ -86,12 +109,12 @@ export default class SurahHeader extends Vue {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 1em;
-  & > label[for] {
-    padding-right: .5em;
-  }
-  & > label:not([for]) {
+
+  & > div {
     margin-right: 1em;
+    margin-bottom: 1em;
   }
 }
 </style>

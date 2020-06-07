@@ -38,7 +38,6 @@ import SingleVerse from '~/components/SingleVerse.vue'
 import SurahHeader from '~/components/SurahHeader.vue'
 import VerseNavigation from '~/components/VerseNavigation.vue'
 
-import { __isNotNull } from '~/utils/index'
 import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
 import { META_TITLE_AYAH, META_DESC_AYAH } from '~/constant/index'
 
@@ -56,6 +55,10 @@ import { META_TITLE_AYAH, META_DESC_AYAH } from '~/constant/index'
     const description = META_DESC_AYAH(`${params.verseid}`, `${respDetail[params.surahid].name_latin} ${respDetail[params.surahid].name} (${respDetail[params.surahid].translations.id.name})`)
 
     return {
+      metaTitle: title,
+      metaDesc: description,
+      verseId: Number(params.verseid) || 1,
+      surahId: Number(params.surahid) || 1,
       currentSurah: respDetail[params.surahid],
       jsonldBreadcrumb: getJsonLdBreadcrumb({
         categoryTitle: `QS ${params.surahid}`,
@@ -81,17 +84,16 @@ export default class VerseDetailPage extends Vue {
   @Mutation setPage
 
   get metaHead () {
-    // @ts-ignore: Unreachable code error
-    const title = META_TITLE_AYAH(`${this.$route.params.verseid || 1}`, `${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
-    // @ts-ignore: Unreachable code error
-    const description = META_DESC_AYAH(`${this.$route.params.verseid || 1}`, `${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
     return {
-      title,
+      // @ts-ignore: Unreachable code error
+      title: this.metaTitle,
       meta: [
-        { hid: 'description', name: 'description', content: description },
-
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        // @ts-ignore: Unreachable code error
+        { hid: 'description', name: 'description', content: this.metaDesc },
+        // @ts-ignore: Unreachable code error
+        { hid: 'og:title', property: 'og:title', content: this.metaTitle },
+        // @ts-ignore: Unreachable code error
+        { hid: 'twitter:title', name: 'twitter:title', content: this.metaTitle },
         { hid: 'twitter:label1', name: 'twitter:label1', content: 'Surat' },
         // @ts-ignore: Unreachable code error
         { hid: 'twitter:label2', name: 'twitter:label2', content: this.currentSurah.name_latin },
@@ -123,28 +125,14 @@ export default class VerseDetailPage extends Vue {
     }
   }
 
-  get surahId () {
-    let id = 1
-    if (__isNotNull(this.$route.params && this.$route.params.surahid)) {
-      id = Number(this.$route.params.surahid)
-    }
-    return id
-  }
-
-  get verseId () {
-    let id = 1
-    if (__isNotNull(this.$route.params && this.$route.params.verseid)) {
-      id = Number(this.$route.params.verseid)
-    }
-    return id
-  }
-
   get isValidSurah () {
+    // @ts-ignore: Unreachable code error
     return this.surahId > 0 && this.surahId <= 114
   }
 
   onChangeVerse (e: any) {
     const val = e.target.value
+    // @ts-ignore: Unreachable code error
     this.$router.push(`/${this.surahId}/${val}/`)
   }
 

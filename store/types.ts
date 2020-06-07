@@ -8,5 +8,6 @@ export const Types = {
   SET_FAVORITE: 'setSurahFavorite',
   SET_NOTIFICATION: 'setNotification',
   SET_SETTING_TRANSLATION: 'setSettingTranslation',
-  SET_SETTING_TAFSIR: 'setSettingTafsir'
+  SET_SETTING_TAFSIR: 'setSettingTafsir',
+  SET_SETTING_MUQADDIMAH: 'setSettingMuqaddimah'
 }

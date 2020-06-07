@@ -1,7 +1,7 @@
 export const AppConstant = {
   PATH: 'https://www.baca-quran.id/',
   TITLE: "Baca Qur'an",
-  TITLE_META: "Baca-Quran.id",
+  TITLE_META: 'Baca-Quran.id',
   LAST_READ: 'Terakhir dibaca',
   FAVORITE: 'Surat favorit',
   RECOMMENDATION: 'Surat rekomendasi',
@@ -15,7 +15,7 @@ export const AppConstant = {
   BISMILLAH: '﷽'
 }
 
-const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir resmi dari Kemenag' : ''}, baca langsung dari browser Anda, ❌ tanpa ada iklan, ❌ tanpa ada analitik, ✅ gratis sepenuhnya`
+const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir dari Kemenag' : ''}, ❌ tanpa ada iklan, ❌ tanpa ada analitik, ✅ gratis sepenuhnya`
 export const META_TITLE = `Baca Al-Qur'an dari browser | ${AppConstant.TITLE_META}`
 export const META_DESC = `Ayat-ayat Al-Qur'an ${postfix(true)}`
 

@@ -24,6 +24,7 @@ const getRoutes = (): string[] => {
     res.push(`/${i}`)
     res.push(`/amp/${i}`)
     res.push(`/${i}/1`)
+    res.push(`/${i}/2`)
   }
   return res
 }

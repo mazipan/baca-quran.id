@@ -6,8 +6,8 @@ import { getJsonLdWebsite } from './utils/jsonld'
 
 const PROD_PATH = 'https://www.baca-quran.id/'
 const title =
-  "Baca Al-Qur'an dimana saja, langsung dari web browser Anda | Baca Qur'an"
-const description = "Baca ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dimana saja, langsung dari web browser Anda, tanpa iklan, tanpa analitik, gratis sepenuhnya"
+  "Baca Al-Qur'an dari browser | Baca-Quran.id"
+const description = "Ayat-ayat Al-Qur'an beserta terjemahan dan tafsir dari Kemenag, ❌ tanpa ada iklan, ❌ tanpa ada analitik, ✅ gratis sepenuhnya"
 
 const config = {
   env: {
@@ -69,8 +69,12 @@ const config = {
     __dangerouslyDisableSanitizers: ['script']
   },
   manifest: {
-    name: 'Baca Quran',
-    short_name: 'Quran'
+    name: 'Baca-Quran.id',
+    short_name: 'Quran',
+    description,
+    theme_color: '#f6f7f8',
+    background_color: '#f6f7f8',
+    lang: 'id'
   },
   workbox: {
     offlineAssets: getOfflineAssets()
