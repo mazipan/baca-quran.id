@@ -82,9 +82,9 @@ export default class VerseDetailPage extends Vue {
 
   get metaHead () {
     // @ts-ignore: Unreachable code error
-    const title = META_TITLE_AYAH(`${this.verseid}`, `${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
+    const title = META_TITLE_AYAH(`${this.$route.params.verseid || 1}`, `${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
     // @ts-ignore: Unreachable code error
-    const description = META_DESC_AYAH(`${this.verseid}`, `${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
+    const description = META_DESC_AYAH(`${this.$route.params.verseid || 1}`, `${this.currentSurah.name_latin} ${this.currentSurah.name} (${this.currentSurah.translations.id.name})`)
     return {
       title,
       meta: [
