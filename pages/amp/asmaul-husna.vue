@@ -79,8 +79,6 @@ export default class AsmaulHusnaPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/search.scss';
-
 .wrapper{
   width: 90%;
   margin: 1em auto;

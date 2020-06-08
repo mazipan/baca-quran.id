@@ -18,7 +18,8 @@ const getRoutes = (): string[] => {
     '/amp/daily-doa',
     '/amp/tahlil',
     '/amp/recommendation',
-    '/amp/wirid'
+    '/amp/wirid',
+    '/amp/all-surah'
   ]
   for (let i = 1; i < 115; i++) {
     res.push(`/${i}`)

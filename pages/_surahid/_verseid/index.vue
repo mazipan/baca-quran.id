@@ -1,12 +1,15 @@
 <template>
   <section class="container">
     <div class="detail">
+      <Breadcrumb :surah-name="currentSurah.name_latin" :surah-link="String(currentSurah.number)" :verse-name="String(verseId)" />
+
       <SurahHeader
         :surah-number="Number(currentSurah.number)"
         :surah-name="currentSurah.name"
         :surah-latin="currentSurah.name_latin"
         :surah-translation="currentSurah.translations.id.name"
-        source="verse" />
+        source="verse"
+        :show-settings="false" />
 
       <div class="detail__content">
         <SingleVerse
@@ -15,7 +18,8 @@
           :surah-id="surahId"
           :translations="currentSurah.translations"
           :tafsir="currentSurah.tafsir"
-          source="verse" />
+          source="verse"
+          :show-settings="false" />
       </div>
 
       <VerseNavigation
@@ -34,6 +38,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
+import Breadcrumb from '~/components/Breadcrumb.vue'
 import SingleVerse from '~/components/SingleVerse.vue'
 import SurahHeader from '~/components/SurahHeader.vue'
 import VerseNavigation from '~/components/VerseNavigation.vue'
@@ -43,6 +48,7 @@ import { META_TITLE_AYAH, META_DESC_AYAH } from '~/constant/index'
 
 @Component({
   components: {
+    Breadcrumb,
     SingleVerse,
     SurahHeader,
     VerseNavigation

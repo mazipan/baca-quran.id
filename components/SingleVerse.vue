@@ -36,7 +36,8 @@
         {{ verse.trim() }}
       </div>
     </div>
-    <div v-if="settingShowTranslation" class="divider clearfix">
+
+    <div v-if="!showSettings || settingShowTranslation" class="divider clearfix">
       <div class="verse__bold">
         <b>Terjemah:</b>
       </div>
@@ -44,7 +45,8 @@
         {{ getTranslation(verseIndex) }}
       </div>
     </div>
-    <div v-if="settingShowTafsir" class="divider clearfix">
+
+    <div v-if="!showSettings || settingShowTafsir" class="divider clearfix">
       <div class="verse__bold">
         <b>Tafsir dari Kemenag:</b>
       </div>
@@ -55,6 +57,7 @@
         <i>Sumber: Aplikasi Quran Kementrian Agama Republik Indonesia</i>
       </div>
     </div>
+
     <audio v-if="!isAmp && audioLink" :id="`audioVerseRef${verseIndex}`" class="audio">
       <source :src="audioLink" type="audio/mpeg">
     </audio>
@@ -94,6 +97,7 @@ export default class SingleVerseCard extends Vue {
   @Prop({ type: String, default: '' }) readonly verse!: string;
   @Prop({ type: String, default: '1' }) readonly verseIndex!: number;
   @Prop({ type: String, default: '' }) readonly source!: string;
+  @Prop({ type: Boolean, default: false }) readonly showSettings!: boolean;
 
   @State surahFavorite;
   @State isSupportWebShare;

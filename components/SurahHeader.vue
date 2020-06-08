@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt-link class="surah-header" :to="`/${surahNumber}/`">
+    <div class="surah-header">
       <div class="font-arabic" dir="rtl" lang="ar">
         {{ surahName }}
       </div>
@@ -10,8 +10,8 @@
       <div v-if="verseCount > 0" class="surah-latin">
         {{ verseCount }} Ayat
       </div>
-    </nuxt-link>
-    <div v-if="!isAmp" class="settings__group">
+    </div>
+    <div v-if="showSettings" class="settings__group">
       <div>
         <label for="surah-setting-tafsir">Tafsir</label>
         <label class="switch">
@@ -66,6 +66,7 @@ export default class SurahHeader extends Vue {
   @Prop({ type: String, default: '' }) readonly surahTranslation!: string;
   @Prop({ type: Number, default: 0 }) readonly verseCount!: number;
   @Prop({ type: String, default: '' }) readonly source!: string;
+  @Prop({ type: Boolean, default: false }) readonly showSettings!: boolean;
 
   @State settingShowTranslation;
   @State settingShowTafsir;
@@ -74,10 +75,6 @@ export default class SurahHeader extends Vue {
   @Action setSettingTranslation;
   @Action setSettingTafsir;
   @Action setSettingMuqaddimah;
-
-  get isAmp (): boolean {
-    return this.source.includes('amp')
-  }
 
   onChangeSettingTranslation (e: any) {
     this.setSettingTranslation(e.target.checked)

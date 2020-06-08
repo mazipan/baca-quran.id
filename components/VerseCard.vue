@@ -19,7 +19,8 @@
         :surah-id="surahId"
         :translations="translations"
         :tafsir="tafsir"
-        :source="source" />
+        :source="source"
+        :show-settings="showSettings" />
     </div>
   </div>
 </template>
@@ -57,6 +58,7 @@ export default class VerseCard extends Vue {
   @Prop({ type: Object, default: () => ({}) }) readonly tafsir!: any;
   @Prop({ type: Number, default: 1 }) readonly surahId!: number;
   @Prop({ type: String, default: '' }) readonly source!: string;
+  @Prop({ type: Boolean, default: false }) readonly showSettings!: boolean;
 
   @State surahFavorite;
   @State isSupportWebShare;

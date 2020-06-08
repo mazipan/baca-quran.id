@@ -86,8 +86,6 @@ export default class DailyDoaPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/search.scss';
-
 .item{
   text-decoration: none;
   border-radius: .25em;

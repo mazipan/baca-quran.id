@@ -2,13 +2,16 @@
 <template>
   <section class="container">
     <div class="detail">
+      <Breadcrumb :surah-name="currentSurah.name_latin" />
+
       <SurahHeader
         :surah-number="Number(currentSurah.number)"
         :surah-name="currentSurah.name"
         :surah-latin="currentSurah.name_latin"
         :surah-translation="currentSurah.translations.id.name"
         :verse-count="Number(currentSurah.number_of_ayah)"
-        source="surah" />
+        source="surah"
+        :show-settings="true" />
 
       <div class="detail__content">
         <div v-if="settingShowMuqaddimah" class="block_content has-shadow text-left">
@@ -20,7 +23,8 @@
           :surah-id="surahId"
           :translations="currentSurah.translations"
           :tafsir="currentSurah.tafsir"
-          source="surah" />
+          source="surah"
+          :show-settings="true" />
 
         <div v-if="settingShowMuqaddimah" class="block_content has-shadow text-left">
           <div v-html="currentSurahFromList.closing" />
@@ -44,6 +48,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import { AppConstant, META_TITLE_SURAH, META_DESC_SURAH } from '~/constant'
+import Breadcrumb from '~/components/Breadcrumb.vue'
 import VerseCard from '~/components/VerseCard.vue'
 import SurahHeader from '~/components/SurahHeader.vue'
 import SurahNavigation from '~/components/SurahNavigation.vue'
@@ -52,6 +57,7 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
 
 @Component({
   components: {
+    Breadcrumb,
     VerseCard,
     SurahHeader,
     SurahNavigation
