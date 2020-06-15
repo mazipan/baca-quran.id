@@ -25,7 +25,7 @@ export const actions: ActionTree<StateType, StateType> = {
     commit(Types.SET_SETTING_TAFSIR, __isNotNull(cacheTafsir) ? cacheTafsir : false)
     // data muqaddimah
     const cacheMuqaddimah = getItem(storageKey.SETTING_MUQADDIMAH, storageKey.VERSION)
-    commit(Types.SET_SETTING_MUQADDIMAH, __isNotNull(cacheMuqaddimah) ? cacheMuqaddimah : false)
+    commit(Types.SET_SETTING_MUQADDIMAH, __isNotNull(cacheMuqaddimah) ? cacheMuqaddimah : true)
   },
   showNotification ({ commit }, { title = '', message = '' }) {
     commit(Types.SET_NOTIFICATION, { show: true, title, message })

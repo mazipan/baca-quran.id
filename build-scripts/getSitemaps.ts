@@ -44,35 +44,44 @@ const getVerseRoutes = (surahIndex: number): string[] => {
   const surahObj = SurahConstant.find(item => item.index === surahIndex)
   if (surahObj) {
     for (let j = 1; j < surahObj.ayah_count + 1; j++) {
-      if (j < 2) {
-        res.push(`/${surahIndex}/${j}`)
-      }
+      res.push(`/${surahIndex}/${j}`)
     }
   }
   return res
 }
 
+function chunkArray (arr, len) {
+  const chunks = []; let i = 0; const n = arr.length
+  while (i < n) {
+    chunks.push(arr.slice(i, i += len))
+  }
+  return chunks
+}
 // @ts-ignore
 // eslint-disable-next-line
-const getVerseSitemaps = (): sitemapConfigs => {
+const getVerseSitemaps = (): sitemapConfigs[] => {
   let r: string[] = []
   for (let i = 1; i < 115; i++) {
     r = r.concat(getVerseRoutes(i))
   }
 
-  const surahSitemap: sitemapConfigs = {
-    path: 'sitemaps/allverse.xml',
-    routes: r,
-    exclude: getStaticRoutes(),
-    trailingSlash: true,
-    defaults: {
-      changefreq: 'daily',
-      priority: 1,
-      lastmod: new Date()
+  const chunkArr = chunkArray(r, 1000)
+  const result = chunkArr.map((arr, index) => {
+    const surahSitemap: sitemapConfigs = {
+      path: `sitemaps/allverse${index === 0 ? '' : (index + 1)}.xml`,
+      routes: arr,
+      exclude: getStaticRoutes(),
+      trailingSlash: true,
+      defaults: {
+        changefreq: 'weekly',
+        priority: 0.6,
+        lastmod: new Date()
+      }
     }
-  }
+    return surahSitemap
+  })
 
-  return surahSitemap
+  return result
 }
 
 const getSitemaps = (): sitemapConfigs[] => {
@@ -81,8 +90,8 @@ const getSitemaps = (): sitemapConfigs[] => {
     routes: getStaticRoutes(),
     trailingSlash: true,
     defaults: {
-      changefreq: 'daily',
-      priority: 1,
+      changefreq: 'weekly',
+      priority: 0.9,
       lastmod: new Date()
     }
   }
@@ -99,7 +108,7 @@ const getSitemaps = (): sitemapConfigs[] => {
     }
   }
 
-  const res: sitemapConfigs[] = [staticSitemap, surahSitemap, getVerseSitemaps()]
+  const res: sitemapConfigs[] = [staticSitemap, surahSitemap].concat(getVerseSitemaps())
   return res
 }
 

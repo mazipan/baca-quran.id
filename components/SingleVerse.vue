@@ -173,6 +173,7 @@ export default class SingleVerseCard extends Vue {
     &_icon {
       padding: 0 0.5em;
       position: relative;
+      color: var(--text-color);
     }
   }
   &__arabic {

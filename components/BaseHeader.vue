@@ -12,9 +12,9 @@
         </a>
         <a
           v-else
-          href="javascript:void(0)"
           class="header__hamburger"
           title="Kembali"
+          :href="backUrl"
           @click="backToPreviousPage">
           <MdArrowBackIcon w="30px" h="30px" name="Kembali" title="Kembali" />
         </a>
@@ -61,6 +61,14 @@ export default class BaseHeader extends Vue {
 
   get isHomePage (): boolean {
     return this.$route.path === '/'
+  }
+
+  get backUrl (): string {
+    if (this.page === 'surah-detail') {
+      return '/all-surah/'
+    } else {
+      return '/'
+    }
   }
 
   toggleSidebar () {

@@ -19,10 +19,10 @@ export function getJsonLdWebsite () {
     '@context': 'http://schema.org',
     '@type': 'WebSite',
     url: `${AppConstant.PATH}`,
-    description: 'Baca Al-Qur\'an dimana saja, langsung dari web browser Anda | Qur\'an Web',
+    description: 'Baca Al-Qur\'an dari browser | Baca-Quran.id',
     image: `${AppConstant.PATH}icon.png`,
     thumbnailUrl: `${AppConstant.PATH}icon.png`,
-    name: 'Quran Web',
+    name: 'Baca-Quran.id',
     sameAs: [
       'https://www.facebook.com/mazipanneh',
       'https://instagram.com/maz_ipan',

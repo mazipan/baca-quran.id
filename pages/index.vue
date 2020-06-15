@@ -187,7 +187,7 @@ export default class PageIndex extends Vue {
 .VueCarousel-navigation-prev,
 .VueCarousel-navigation-next {
   z-index: 2;
-  background: var(--bg-body-color) !important;
+  background: var(--bg-card-darken-color) !important;
   color: var(--text-color) !important;
   border-radius: 4px;
 }

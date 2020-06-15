@@ -1,3 +1,5 @@
+import SurahConstant from './surah'
+
 const getRoutes = (): string[] => {
   const res: string[] = [
     '/',
@@ -24,8 +26,13 @@ const getRoutes = (): string[] => {
   for (let i = 1; i < 115; i++) {
     res.push(`/${i}`)
     res.push(`/amp/${i}`)
-    res.push(`/${i}/1`)
-    res.push(`/${i}/2`)
+    const surahObj = SurahConstant.find(item => item.index === i)
+    if (surahObj) {
+      for (let j = 1; j < surahObj.ayah_count + 1; j++) {
+        res.push(`/${i}/${j}`)
+        res.push(`/amp/${i}/${j}`)
+      }
+    }
   }
   return res
 }

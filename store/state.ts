@@ -33,6 +33,6 @@ export const state: StateType = {
   settingActiveTheme: ThemeItem.DARK,
   settingShowTranslation: false,
   settingShowTafsir: false,
-  settingShowMuqaddimah: false,
+  settingShowMuqaddimah: true,
   surahFavorite: []
 }

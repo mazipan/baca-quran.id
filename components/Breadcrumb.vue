@@ -70,7 +70,7 @@ export default class BaseSidebar extends Vue {
       }
       a {
         text-decoration: none;
-        color: var(--bg-card-color);
+        color: var(--text-surah-header-color);
       }
     }
   }

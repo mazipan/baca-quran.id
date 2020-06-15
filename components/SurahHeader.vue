@@ -13,7 +13,7 @@
     </div>
     <div v-if="showSettings" class="settings__group">
       <div>
-        <label for="surah-setting-tafsir">Tafsir</label>
+        <label class="switch__label" for="surah-setting-tafsir">Tafsir</label>
         <label class="switch">
           <input
             id="surah-setting-tafsir"
@@ -26,7 +26,7 @@
       </div>
 
       <div>
-        <label for="surah-setting-translation">Terjemahan</label>
+        <label class="switch__label" for="surah-setting-translation">Terjemahan</label>
         <label class="switch">
           <input
             id="surah-setting-translation"
@@ -39,7 +39,7 @@
       </div>
 
       <div>
-        <label for="surah-setting-muqaddimah">Muqaddimah</label>
+        <label class="switch__label" for="surah-setting-muqaddimah">Muqaddimah</label>
         <label class="switch">
           <input
             id="surah-setting-muqaddimah"
@@ -98,6 +98,10 @@ export default class SurahHeader extends Vue {
   font-size: 2rem;
   text-align: center;
   text-decoration: none;
+  color: var(--text-surah-header-color);
+}
+.switch__label{
+  color: var(--text-surah-header-color);
 }
 .surah-latin {
   font-size: 1rem;

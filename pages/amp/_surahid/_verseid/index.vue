@@ -8,7 +8,7 @@
         :surah-name="currentSurah.name"
         :surah-latin="currentSurah.name_latin"
         :surah-translation="currentSurah.translations.id.name"
-        source="verse"
+        source="amp-verse"
         :show-settings="false" />
 
       <div class="detail__content">
@@ -18,7 +18,7 @@
           :surah-id="surahId"
           :translations="currentSurah.translations"
           :tafsir="currentSurah.tafsir"
-          source="verse"
+          source="amp-verse"
           :show-settings="false" />
       </div>
 
@@ -113,7 +113,7 @@ export default class VerseDetailPage extends Vue {
       ],
       link: [
         // @ts-ignore: Unreachable code error
-        { rel: 'amphtml', href: `${AppConstant.PATH}amp/${this.surahId}/${this.verseId}/` }
+        { rel: 'canonical', href: `${AppConstant.PATH}${this.surahId}/${this.verseId}/` }
       ],
       script: [
         {
