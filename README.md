@@ -29,25 +29,35 @@
 
 This project developed using [Nuxt.js](https://nuxtjs.org/), for complete documentation please take a look into official documentation in <https://nuxtjs.org/>.
 
+### Checkout Project
+
 ```bash
-# install dependencies
+# Checkout project
+$ git checkout git@github.com:mazipan/quran-offline.git
+
+# Update submodule
+$ git submodule init
+$ git submodule update --remote
+```
+
+### Local Setup
+
+```bash
+# Install dependencies
 $ yarn install
 
-# serve with hot reload at localhost:3000
+# Serve with hot reload at localhost:3000
 $ yarn dev
-
-# generate static project
-$ yarn generate
-
-# run unit test
-$ yarn test
-
-# run eslint
-$ yarn lint
-
-# run eslint with auto fix
-$ yarn lint:fix
 ```
+
+### Deployment
+
+```bash
+# Generate static files
+$ yarn generate:ci
+```
+
+Copy `dist` folder to your hosting.
 
 ## Credit
 
