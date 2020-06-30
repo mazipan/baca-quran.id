@@ -37,7 +37,7 @@ import { __isNotNull } from '~/utils/index'
     LastReadCard
   },
   async asyncData () {
-    const resp = await import('~/static/data/surah-info.json')
+    const resp = await import('~/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })

@@ -5,6 +5,7 @@
 dist
 coverage
 
+data
 sw.*
 static/sitemap*
 *rc.{js,ts,vue}

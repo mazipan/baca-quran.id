@@ -144,7 +144,6 @@ export default class PageIndex extends Vue {
   @State surahFavorite;
   @State settingActiveTheme;
   @Mutation setHeaderTitle;
-  @Mutation setPage;
 
   get isHaveFav () {
     return __isNotEmptyArray(this.surahFavorite)
@@ -173,12 +172,10 @@ export default class PageIndex extends Vue {
 
   mounted () {
     this.setHeaderTitle(AppConstant.TITLE)
-    this.setPage('home')
   }
 
   activated () {
     this.setHeaderTitle(AppConstant.TITLE)
-    this.setPage('home')
   }
 }
 </script>

@@ -24,7 +24,7 @@ import { AppConstant, META_TITLE_AYAT_KURSI, META_DESC_AYAT_KURSI } from '~/cons
 
 @Component({
   async asyncData () {
-    const resp = await import('~/static/data/ayat-kursi.json')
+    const resp = await import('~/data/ayat-kursi.json')
     return {
       ayatKursi: resp.data
     }

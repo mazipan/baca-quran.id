@@ -55,16 +55,14 @@ import MdSettingsIcon from 'vue-ionicons/dist/js/md-settings'
 
 export default class BaseHeader extends Vue {
   @State headerTitle;
-  @State page;
   @Mutation setShowSidebar;
-  @Mutation setPage;
 
   get isHomePage (): boolean {
     return this.$route.path === '/'
   }
 
   get backUrl (): string {
-    if (this.page === 'surah-detail') {
+    if (this.$route.name === 'surahid') {
       return '/all-surah/'
     } else {
       return '/'
@@ -76,8 +74,7 @@ export default class BaseHeader extends Vue {
   }
 
   backToPreviousPage () {
-    if (this.page === 'surah-detail') {
-      this.setPage('all-surah')
+    if (this.$route.name === 'surahid') {
       this.$router.push('/all-surah/')
     } else {
       this.$router.push('/')

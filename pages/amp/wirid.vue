@@ -34,7 +34,7 @@ import { AppConstant, META_TITLE_WIRID, META_DESC_WIRID } from '~/constant'
 
 @Component({
   async asyncData () {
-    const resp = await import('~/static/data/wirid.json')
+    const resp = await import('~/data/wirid.json')
     return {
       wiridData: resp.data,
       wiridSource: resp.source

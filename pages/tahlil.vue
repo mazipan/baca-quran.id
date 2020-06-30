@@ -37,7 +37,7 @@ interface expandedData {
 
 @Component({
   async asyncData () {
-    const resp = await import('~/static/data/tahlil.json')
+    const resp = await import('~/data/tahlil.json')
     return {
       tahlilData: resp.data,
       tahlilSource: resp.source
@@ -51,7 +51,6 @@ export default class TahlilPage extends Vue {
 
   @State settingActiveTheme;
   @Mutation setHeaderTitle;
-  @Mutation setPage;
 
   get metaHead () {
     return {
@@ -96,12 +95,10 @@ export default class TahlilPage extends Vue {
 
   mounted () {
     this.setHeaderTitle('Tahlil')
-    this.setPage('tahlil')
   }
 
   activated () {
     this.setHeaderTitle('Tahlil')
-    this.setPage('tahlil')
   }
 }
 </script>

@@ -35,7 +35,7 @@ import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '~/
 
 @Component({
   async asyncData () {
-    const resp = await import('~/static/data/asmaul-husna.json')
+    const resp = await import('~/data/asmaul-husna.json')
     return {
       asmaulHusna: resp.data
     }

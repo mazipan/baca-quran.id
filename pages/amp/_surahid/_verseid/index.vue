@@ -54,7 +54,7 @@ import { AppConstant, META_TITLE_AYAH, META_DESC_AYAH } from '~/constant/index'
     VerseNavigation
   },
   async asyncData ({ params }) {
-    const respDetail = await import(`~/static/data/quran-json/surah/${params.surahid}.json`)
+    const respDetail = await import(`~/data/quran-json/surah/${params.surahid}.json`)
     // @ts-ignore: Unreachable code error
     const title = META_TITLE_AYAH(`${params.verseid}`, `${respDetail[params.surahid].name_latin} ${respDetail[params.surahid].name} (${respDetail[params.surahid].translations.id.name})`)
     // @ts-ignore: Unreachable code error

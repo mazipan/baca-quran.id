@@ -52,6 +52,7 @@ jobs:
           rm -rf build-scripts
           rm -rf components
           rm -rf constant
+          rm -rf data
           rm -rf layout
           rm -rf models
           rm -rf modules

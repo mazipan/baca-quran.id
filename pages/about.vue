@@ -72,7 +72,6 @@ export default class PageAbout extends Vue {
 
   @State settingActiveTheme;
   @Mutation setHeaderTitle;
-  @Mutation setPage;
 
   get metaHead () {
     const title = `${AppConstant.ABOUT} | ${AppConstant.TITLE}`
@@ -97,12 +96,10 @@ export default class PageAbout extends Vue {
 
   mounted () {
     this.setHeaderTitle('Tentang')
-    this.setPage('about')
   }
 
   activated () {
     this.setHeaderTitle('Tentang')
-    this.setPage('about')
   }
 }
 </script>

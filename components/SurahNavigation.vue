@@ -1,5 +1,5 @@
 <template>
-  <div class="surah_nav">
+  <div :class="`surah_nav amp--${isAMP}`">
     <nuxt-link
       :to="`/${surahId - 1}/`"
       class="surah_nav_item surah_nav_prev">
@@ -66,6 +66,10 @@ export default class SurahNavigation extends Vue {
   @Watch('selectedVerse')
   onChildChanged (val: string): void {
     window.location.href = `#verse-${val}`
+  }
+
+  get isAMP (): boolean {
+    return Boolean(this.$route.name.includes('amp'))
   }
 
   get isHavePrev (): boolean {

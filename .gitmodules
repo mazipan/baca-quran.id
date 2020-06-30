@@ -1,3 +1,3 @@
-[submodule "static/data/quran-json"]
-	path = static/data/quran-json
+[submodule "data/quran-json"]
+	path = data/quran-json
 	url = https://github.com/rioastamal/quran-json

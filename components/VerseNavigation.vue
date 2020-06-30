@@ -1,7 +1,7 @@
 <template>
   <div class="surah_nav">
     <nuxt-link
-      :to="`/${surahId}/${verseId - 1}/`"
+      :to="`/${isAMP ? 'amp/' : ''}${surahId}/${verseId - 1}/`"
       class="surah_nav_item surah_nav_prev">
       <MdArrowBackIcon
         v-if="isHavePrev"
@@ -13,7 +13,8 @@
         {{ verseId - 1 }}
       </span>
     </nuxt-link>
-    <div class="surah_nav_item surah_nav_center">
+
+    <div v-if="!isAMP" class="surah_nav_item surah_nav_center">
       <select
         :value="verseId"
         name="verse-select"
@@ -27,8 +28,13 @@
         </option>
       </select>
     </div>
+
+    <div v-if="isAMP" class="surah_nav_item surah_nav_center">
+      <span class="text-nav">{{ verseId }}</span>
+    </div>
+
     <nuxt-link
-      :to="`/${surahId}/${verseId + 1}/`"
+      :to="`/${isAMP ? 'amp/' : ''}${surahId}/${verseId + 1}/`"
       class="surah_nav_item surah_nav_next">
       <span
         v-if="isHaveNext"
@@ -61,6 +67,10 @@ export default class VerseNavigation extends Vue {
   @Prop({ type: Number, default: 1 }) readonly verseId!: number
   @Prop({ type: Number, default: 0 }) readonly verseCount!: number
   @Prop({ type: Function, default: () => {} }) readonly onChangeVerse!: Function
+
+  get isAMP (): boolean {
+    return Boolean(this.$route.name.includes('amp'))
+  }
 
   get isHavePrev (): boolean {
     return this.verseId > 1
@@ -108,13 +118,12 @@ export default class VerseNavigation extends Vue {
   &_prev,
   &_next {
     text-decoration: none;
-    span{
-      padding: 0 .25em;
-      font-size: 2rem;
-    }
   }
 }
-
+.text-nav{
+  padding: 0 .25em;
+  font-size: 2rem;
+}
 .select{
   -webkit-appearance: none;
   padding: .5em 1.5rem .5em .5rem;

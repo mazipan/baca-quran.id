@@ -23,7 +23,7 @@ import { AppConstant, META_TITLE_ALL_SURAH, META_DESC_ALL_SURAH } from '~/consta
     Surah
   },
   async asyncData () {
-    const resp = await import('~/static/data/surah-info.json')
+    const resp = await import('~/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item, idx) => {
         return Object.assign({}, item, { index: idx + 1 })

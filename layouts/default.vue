@@ -1,5 +1,5 @@
 <template>
-  <div :class="`app-${settingActiveTheme.name} ${webpClass}`" class="quran-offline app js">
+  <div :class="`app-${settingActiveTheme.name} ${webpClass} page--${routeName}`" class="quran-offline app js">
     <div v-show="isShowSidebar" class="sidebar-cover" @click="hideSidebar" />
     <BaseSidebar v-if="isHome" :class="{'sidebar--open': isShowSidebar}" />
     <BaseHeader />
@@ -46,13 +46,16 @@ export default class DefaultLayout extends Vue {
 
   @State settingActiveTheme;
   @State isShowSidebar;
-  @State page;
   @Mutation setShowSidebar;
   @Action initDataFromBrowserStorage;
   @Action setWebshareSupport;
 
   get isHideBottomNav (): boolean {
-    return this.page !== 'surah-detail' && this.page !== 'verse-detail'
+    return Boolean(!this.$route.name.includes('surahid'))
+  }
+
+  get routeName (): string {
+    return this.$route.name
   }
 
   get isHome (): boolean {

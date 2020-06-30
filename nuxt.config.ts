@@ -17,6 +17,7 @@ const config = {
   buildModules: ['@nuxt/typescript-build'],
   debug: true,
   mode: 'universal',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -120,7 +121,8 @@ const config = {
   /*
    ** Generate multiple entry html from 1 to 114
    */
-  generate: {
+  export: {
+    crawler: false,
     fallback: true,
     concurrency: 50,
     routes: getRoutes()

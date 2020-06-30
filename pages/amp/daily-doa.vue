@@ -42,7 +42,7 @@ interface expandedData {
 
 @Component({
   async asyncData () {
-    const resp = await import('~/static/data/daily-doa.json')
+    const resp = await import('~/data/daily-doa.json')
     return {
       dailyDoa: resp.data
     }
