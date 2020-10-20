@@ -1,6 +1,6 @@
 ## 👋 Thank you for the PR!
 
-### Description of PR:
+### Description:
 
 Add short description
 
@@ -14,7 +14,7 @@ Add screenshoot if you change the UI
 
 ### Minimum Support
 
-- [ ] Click 🌟 button
+- [ ] Click 🌟 button to this repo
 - [ ] Follow the Author
 
 ### Consider to Support
