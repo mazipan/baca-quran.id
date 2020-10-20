@@ -76,8 +76,10 @@ Copy `dist` folder to your hosting.
 
 ## Support me
 
-- Via [trakteer](https://trakteer.id/mazipan)
-- Direct support, [send me an email](mailto:mazipanneh@gmail.com)
+- 👉 🇮🇩 [Trakteer](https://trakteer.id/mazipan?utm_source=github)
+- 👉 🌍 [BuyMeACoffe](https://www.buymeacoffee.com/mazipan?utm_source=github)
+- 👉 🌍 [Paypal](https://www.paypal.me/mazipan?utm_source=github)
+- 👉 🌍 [Ko-Fi](https://ko-fi.com/mazipan)
 
 * * *
 
