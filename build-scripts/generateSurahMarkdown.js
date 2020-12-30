@@ -11,6 +11,7 @@ const main = async () => {
       encoding: 'utf-8'
     })
     const jsContent = JSON.parse(content)
+    // eslint-disable-next-line array-callback-return
     jsContent.surah_info.map((s) => {
       fileContent += `| ${s.index} | [${s.latin}](https://www.baca-quran.id/${s.index}/) | ${s.arabic} | ${s.translation} | ${s.ayah_count} |
 `

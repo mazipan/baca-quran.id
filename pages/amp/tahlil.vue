@@ -31,6 +31,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 import { AppConstant, META_TITLE_TAHLIL, META_DESC_TAHLIL } from '~/constant'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface expandedData {
   id: number;
 }

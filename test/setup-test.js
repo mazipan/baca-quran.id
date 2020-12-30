@@ -4,10 +4,10 @@
 import Vue from 'vue'
 import Dummy from './Dummy.vue'
 
-Vue.component('nuxt', Dummy)
-Vue.component('nuxt-child', Dummy)
-Vue.component('nuxt-link', Dummy)
-Vue.component('no-ssr', Dummy)
-Vue.component('client-only', Dummy)
-Vue.component('carousel', Dummy)
-Vue.component('slide', Dummy)
+Vue.component('Nuxt', Dummy)
+Vue.component('NuxtChild', Dummy)
+Vue.component('NuxtLink', Dummy)
+Vue.component('NoSsr', Dummy)
+Vue.component('ClientOnly', Dummy)
+Vue.component('Carousel', Dummy)
+Vue.component('Slide', Dummy)
