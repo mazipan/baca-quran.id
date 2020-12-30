@@ -11,18 +11,23 @@
           </nuxt-link>
         </li>
         <li class="sidebar__item">
+          <a href="/tulisan" class="sidebar__link" target="_blank" rel="noopener noreferrer">
+            <MdPaperIcon w="2em" h="2em" name="Blog" title="Blog" />Blog
+          </a>
+        </li>
+        <li class="sidebar__item">
+          <a href="/stories" class="sidebar__link" target="_blank" rel="noopener noreferrer">
+            <MdPhotosIcon w="2em" h="2em" name="Stories" title="Stories" />Stories
+          </a>
+        </li>
+        <li class="sidebar__item">
           <nuxt-link to="/settings/" class="sidebar__link" @click.native="navigateTo">
             <MdSettingsIcon w="2em" h="2em" name="Setelan" title="Setelan" />Setelan
           </nuxt-link>
         </li>
         <li class="sidebar__item">
           <a href="https://trakteer.id/mazipan" class="sidebar__link" target="_blank" rel="noopener noreferrer">
-            <MdHeartIcon w="2em" h="2em" name="Tentang" title="Tentang" />Donasi
-          </a>
-        </li>
-        <li class="sidebar__item">
-          <a href="/tulisan" class="sidebar__link" target="_blank" rel="noopener noreferrer">
-            <MdPaperIcon w="2em" h="2em" name="Tentang" title="Tentang" />Blog
+            <MdHeartIcon w="2em" h="2em" name="Donasi" title="Donasi" />Donasi
           </a>
         </li>
         <li class="sidebar__item">
@@ -54,6 +59,7 @@ import MdCodeIcon from 'vue-ionicons/dist/js/md-code'
 import MdSettingsIcon from 'vue-ionicons/dist/js/md-settings'
 import MdHeartIcon from 'vue-ionicons/dist/md-heart.vue'
 import MdPaperIcon from 'vue-ionicons/dist/md-paper.vue'
+import MdPhotosIcon from 'vue-ionicons/dist/md-photos.vue'
 
 import { AppConstant } from '~/constant'
 
@@ -64,7 +70,8 @@ import { AppConstant } from '~/constant'
     MdCodeIcon,
     MdSettingsIcon,
     MdHeartIcon,
-    MdPaperIcon
+    MdPaperIcon,
+    MdPhotosIcon
   }
 })
 export default class BaseSidebar extends Vue {

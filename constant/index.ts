@@ -15,7 +15,7 @@ export const AppConstant = {
   BISMILLAH: '﷽'
 }
 
-const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir dari Kemenag' : ''}, ❌ tanpa ada iklan, ❌ tanpa ada analitik, ✅ gratis sepenuhnya`
+const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir dari Kemenag' : ''}, ❌ tanpa iklan, ❌ tanpa analitik, ✅ gratis sepenuhnya`
 export const META_TITLE = `Baca Al-Qur'an dari browser | ${AppConstant.TITLE_META}`
 export const META_DESC = `Bacaan lengkap ayat-ayat Al-Qur'an ${postfix(true)}`
 
@@ -46,5 +46,5 @@ export const META_DESC_RECOMMENDATION = `Berbagai surat rekomendasi ${postfix(fa
 export const META_TITLE_SURAH = (name: string) => `Qur'an Surat ${name} | ${AppConstant.TITLE_META}`
 export const META_DESC_SURAH = (name: string) => `Qur'an Surat ${name} ${postfix(true)}`
 
-export const META_TITLE_AYAH = (verseid, name: string) => `Ayat ke ${verseid || 1}, Quran Surat ${name} | ${AppConstant.TITLE_META}`
-export const META_DESC_AYAH = (verseid, name: string) => `Ayat ke ${verseid || 1}, Quran Surat ${name} ${postfix(true)}`
+export const META_TITLE_AYAH = (verseid, name: string) => `Ayat ke ${verseid || 1}, QS ${name} | ${AppConstant.TITLE_META}`
+export const META_DESC_AYAH = (verseid, name: string) => `Ayat ke ${verseid || 1}, QS ${name} ${postfix(true)}`

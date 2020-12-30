@@ -56,9 +56,9 @@ import { AppConstant, META_TITLE_AYAH, META_DESC_AYAH } from '~/constant/index'
   async asyncData ({ params }) {
     const respDetail = await import(`~/data/quran-json/surah/${params.surahid}.json`)
     // @ts-ignore: Unreachable code error
-    const title = META_TITLE_AYAH(`${params.verseid}`, `${respDetail[params.surahid].name_latin} ${respDetail[params.surahid].name} (${respDetail[params.surahid].translations.id.name})`)
+    const title = META_TITLE_AYAH(`${params.verseid}`, `${respDetail[params.surahid].name_latin} (${respDetail[params.surahid].translations.id.name})`)
     // @ts-ignore: Unreachable code error
-    const description = META_DESC_AYAH(`${params.verseid}`, `${respDetail[params.surahid].name_latin} ${respDetail[params.surahid].name} (${respDetail[params.surahid].translations.id.name})`)
+    const description = META_DESC_AYAH(`${params.verseid}`, `${respDetail[params.surahid].name_latin} (${respDetail[params.surahid].translations.id.name})`)
 
     return {
       metaTitle: title,
@@ -99,7 +99,11 @@ export default class VerseDetailPage extends Vue {
         // @ts-ignore: Unreachable code error
         { hid: 'og:title', property: 'og:title', content: this.metaTitle },
         // @ts-ignore: Unreachable code error
+        { hid: 'og:description', property: 'og:title', content: this.metaDesc },
+        // @ts-ignore: Unreachable code error
         { hid: 'twitter:title', name: 'twitter:title', content: this.metaTitle },
+        // @ts-ignore: Unreachable code error
+        { hid: 'twitter:description', name: 'twitter:title', content: this.metaDesc },
         { hid: 'twitter:label1', name: 'twitter:label1', content: 'Surat' },
         // @ts-ignore: Unreachable code error
         { hid: 'twitter:label2', name: 'twitter:label2', content: this.currentSurah.name_latin },

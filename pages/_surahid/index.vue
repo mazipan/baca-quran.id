@@ -115,7 +115,11 @@ export default class SurahDetailPage extends Vue {
         // @ts-ignore: Unreachable code error
         { hid: 'og:title', property: 'og:title', content: this.metaTitle },
         // @ts-ignore: Unreachable code error
+        { hid: 'og:description', property: 'og:title', content: this.metaDesc },
+        // @ts-ignore: Unreachable code error
         { hid: 'twitter:title', name: 'twitter:title', content: this.metaTitle },
+        // @ts-ignore: Unreachable code error
+        { hid: 'twitter:description', name: 'twitter:title', content: this.metaDesc },
         { hid: 'twitter:label1', name: 'twitter:label1', content: 'Surat' },
         // @ts-ignore: Unreachable code error
         { hid: 'twitter:label2', name: 'twitter:label2', content: this.currentSurah.name_latin },
