@@ -2,7 +2,7 @@
   <aside class="sidebar">
     <div class="sidebar__content">
       <div class="sidebar__head">
-        <img src="/star-logo-color-64.png" alt="Logo" height="50" width="50">
+        <img src="/icon.png" alt="Logo" height="50" width="50">
       </div>
       <ul class="sidebar__menu">
         <li class="sidebar__item">

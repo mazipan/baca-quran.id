@@ -14,7 +14,9 @@
         :show-settings="true" />
 
       <div class="detail__content">
-        <div v-if="settingShowMuqaddimah" class="block_content has-shadow text-left">
+        <div
+          v-if="settingShowMuqaddimah"
+          class="block_content has-shadow text-left">
           <div v-html="currentSurahFromList.opening" />
         </div>
 
@@ -26,7 +28,9 @@
           source="surah"
           :show-settings="true" />
 
-        <div v-if="settingShowMuqaddimah" class="block_content has-shadow text-left">
+        <div
+          v-if="settingShowMuqaddimah"
+          class="block_content has-shadow text-left">
           <div v-html="currentSurahFromList.closing" />
         </div>
       </div>
@@ -38,7 +42,11 @@
         :verse-count="Number(currentSurah.number_of_ayah)" />
     </div>
     <div class="footnote">
-      Dibuat oleh <a href="https://mazipan.space/" target="_blank" rel="noopener noreferrer">Irfan Maulana</a>
+      Dibuat oleh
+      <a
+        href="https://mazipan.space/"
+        target="_blank"
+        rel="noopener noreferrer">Irfan Maulana</a>
     </div>
   </section>
 </template>
@@ -62,8 +70,23 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
     SurahHeader,
     SurahNavigation
   },
+  validate ({ params }) {
+    // @ts-ignore: Unreachable code error
+    const isNotNumber = isNaN(params.surahid)
+    if (isNotNumber) {
+      return false
+    }
+    const paramInNumber = parseInt(params.surahid, 10)
+    if (paramInNumber > 0 && paramInNumber < 115) {
+      return true
+    }
+
+    return false // will stop Nuxt.js to render the route and display the error page
+  },
   async asyncData ({ params }) {
-    const respDetail = await import(`~/data/quran-json/surah/${params.surahid}.json`)
+    const respDetail = await import(
+      `~/data/quran-json/surah/${params.surahid}.json`
+    )
     const resp = await import('~/data/surah-info.json')
     // @ts-ignore: Unreachable code error
     const title = META_TITLE_SURAH(respDetail[params.surahid].name_latin)
@@ -76,9 +99,17 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
       metaDesc: description,
       surahId: Number(params.surahid) || 1,
       allSurahList: allSurah,
-      currentSurahFromList: allSurah.find(i => i.index === Number(params.surahid)),
-      nextSurah: Number(params.surahid) >= 114 ? null : allSurah.find(i => i.index === (Number(params.surahid) + 1)),
-      prevSurah: Number(params.surahid) <= 1 ? null : allSurah.find(i => i.index === (Number(params.surahid) - 1)),
+      currentSurahFromList: allSurah.find(
+        i => i.index === Number(params.surahid)
+      ),
+      nextSurah:
+        Number(params.surahid) >= 114
+          ? null
+          : allSurah.find(i => i.index === Number(params.surahid) + 1),
+      prevSurah:
+        Number(params.surahid) <= 1
+          ? null
+          : allSurah.find(i => i.index === Number(params.surahid) - 1),
       currentSurah: respDetail[params.surahid],
       jsonldBreadcrumb: getJsonLdBreadcrumb({
         categoryTitle: 'Daftar Surat',
@@ -95,15 +126,14 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
     }
   }
 })
-
 export default class SurahDetailPage extends Vue {
   loading = true;
 
   @State settingActiveTheme;
   @State settingShowMuqaddimah;
 
-  @Mutation setHeaderTitle
-  @Mutation setPage
+  @Mutation setHeaderTitle;
+  @Mutation setPage;
 
   get metaHead () {
     return {
@@ -116,20 +146,36 @@ export default class SurahDetailPage extends Vue {
         { hid: 'og:title', property: 'og:title', content: this.metaTitle },
         // @ts-ignore: Unreachable code error
         { hid: 'og:description', property: 'og:title', content: this.metaDesc },
-        // @ts-ignore: Unreachable code error
-        { hid: 'twitter:title', name: 'twitter:title', content: this.metaTitle },
-        // @ts-ignore: Unreachable code error
-        { hid: 'twitter:description', name: 'twitter:title', content: this.metaDesc },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          // @ts-ignore: Unreachable code error
+          content: this.metaTitle
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:title',
+          // @ts-ignore: Unreachable code error
+          content: this.metaDesc
+        },
         { hid: 'twitter:label1', name: 'twitter:label1', content: 'Surat' },
-        // @ts-ignore: Unreachable code error
-        { hid: 'twitter:label2', name: 'twitter:label2', content: this.currentSurah.name_latin },
+        {
+          hid: 'twitter:label2',
+          name: 'twitter:label2',
+          // @ts-ignore: Unreachable code error
+          content: this.currentSurah.name_latin
+        },
         {
           hid: 'theme-color',
           name: 'theme-color',
           content: this.settingActiveTheme.bgColor
         },
-        // @ts-ignore: Unreachable code error
-        { hid: 'article:tag', name: 'article:tag', content: this.currentSurah.name_latin }
+        {
+          hid: 'article:tag',
+          name: 'article:tag',
+          // @ts-ignore: Unreachable code error
+          content: this.currentSurah.name_latin
+        }
       ],
       link: [
         // @ts-ignore: Unreachable code error

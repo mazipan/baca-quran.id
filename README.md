@@ -8,7 +8,7 @@
 📖 Read Qur'an Directly from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/mazipan/quran-offline/master/static/star-logo-color-64.png"/>
+ <img src="https://raw.githubusercontent.com/mazipan/quran-offline/master/static/icon.png"/>
 </p>
 
 ## Live Website

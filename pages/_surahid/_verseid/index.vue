@@ -53,6 +53,27 @@ import { AppConstant, META_TITLE_AYAH, META_DESC_AYAH } from '~/constant/index'
     SurahHeader,
     VerseNavigation
   },
+  async validate ({ params }) {
+    // @ts-ignore: Unreachable code error
+    const isNotNumberSurah = isNaN(params.surahid)
+    // @ts-ignore: Unreachable code error
+    const isNotNumberVerse = isNaN(params.verseid)
+    if (isNotNumberSurah || isNotNumberVerse) {
+      return false
+    }
+    const surahInNumber = parseInt(params.surahid, 10)
+    const verseInNumber = parseInt(params.verseid, 10)
+    if (surahInNumber > 0 && surahInNumber < 115) {
+      const respDetail = await import(`~/data/quran-json/surah/${params.surahid}.json`)
+      const totalAyah = parseInt(respDetail[params.surahid].number_of_ayah, 10)
+      if (verseInNumber > totalAyah) {
+        return false
+      }
+      return true
+    }
+
+    return false // will stop Nuxt.js to render the route and display the error page
+  },
   async asyncData ({ params }) {
     const respDetail = await import(`~/data/quran-json/surah/${params.surahid}.json`)
     // @ts-ignore: Unreachable code error
@@ -63,8 +84,8 @@ import { AppConstant, META_TITLE_AYAH, META_DESC_AYAH } from '~/constant/index'
     return {
       metaTitle: title,
       metaDesc: description,
-      verseId: Number(params.verseid) || 1,
-      surahId: Number(params.surahid) || 1,
+      verseId: parseInt(params.verseid, 10) || 1,
+      surahId: parseInt(params.surahid, 10) || 1,
       currentSurah: respDetail[params.surahid],
       jsonldBreadcrumb: getJsonLdBreadcrumb({
         categoryTitle: `QS ${params.surahid}`,

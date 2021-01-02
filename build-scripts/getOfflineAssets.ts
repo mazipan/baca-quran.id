@@ -1,8 +1,5 @@
 const getOfflineAssets = (): string[] => {
   const res: string[] = [
-    '/star-logo-color-32.png',
-    '/star-logo-color-64.png',
-    '/star-logo-color.png',
     '/icon.png',
     '/read-quran.svg',
     '/icon_allah.svg',

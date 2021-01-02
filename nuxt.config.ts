@@ -60,7 +60,7 @@ const config = {
     ],
     script: [
       {
-        id: 'ld-website',
+        hid: 'ld-website',
         innerHTML: JSON.stringify(getJsonLdWebsite()),
         type: 'application/ld+json',
         body: true
