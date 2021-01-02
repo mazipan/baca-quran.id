@@ -119,6 +119,8 @@ export default class ErrorPage extends Vue {
   background: var(--bg-card-darken-color) !important;
   color: var(--text-color) !important;
   border-radius: 4px;
+  height: 48px;
+  width: 48px;
 }
 .VueCarousel-navigation-prev {
   left: 60px !important;

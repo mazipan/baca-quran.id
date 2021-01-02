@@ -74,10 +74,55 @@ const config = {
     description,
     theme_color: '#f6f7f8',
     background_color: '#f6f7f8',
-    lang: 'id'
+    lang: 'id',
+    display: 'standalone'
   },
   workbox: {
-    offlineAssets: getOfflineAssets()
+    cacheNames: {
+      prefix: 'baca-quran'
+    },
+    cleanupOutdatedCaches: true,
+    offlineAssets: getOfflineAssets(),
+    runtimeCaching: [
+      {
+        urlPattern: '^https://www.baca-quran.id/.*\\.(js|css)$',
+        handler: 'StaleWhileRevalidate',
+        strategyOptions: {
+          cacheName: 'js-css'
+        },
+        strategyPlugins: [{
+          use: 'Expiration',
+          config: {
+            maxEntries: 500,
+            maxAgeSeconds: 60 * 60 * 24 * 30
+          }
+        }, {
+          use: 'CacheableResponse',
+          config: {
+            statuses: [200]
+          }
+        }]
+      },
+      {
+        urlPattern: '^https://www.baca-quran.id/.*\\.(jpg|png|bmp|jpeg|svg|webp|gif|ttf|woff)$',
+        handler: 'CacheFirst',
+        strategyOptions: {
+          cacheName: 'assets'
+        },
+        strategyPlugins: [{
+          use: 'Expiration',
+          config: {
+            maxEntries: 100,
+            maxAgeSeconds: 60 * 60 * 24 * 365
+          }
+        }, {
+          use: 'CacheableResponse',
+          config: {
+            statuses: [200]
+          }
+        }]
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
