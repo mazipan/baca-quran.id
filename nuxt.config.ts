@@ -23,9 +23,6 @@ const config = {
   head: {
     title,
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'robots', name: 'robots', content: 'follow,index' },
       { hid: 'description', name: 'description', content: description },
       { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
 
@@ -45,12 +42,7 @@ const config = {
       { hid: 'article:published_time', name: 'article:published_time', content: new Date().toISOString() },
       { hid: 'article:publisher', name: 'article:publisher', content: 'https://www.facebook.com/mazipanneh' },
       { hid: 'article:author', name: 'article:author', content: 'https://www.facebook.com/mazipanneh' },
-      { hid: 'article:tag', name: 'article:tag', content: 'quran web' },
-      {
-        content: '25fxaXcctkaxC3eyPtDYikfEMRCaJE_kQI8d43rvgbA',
-        hid: 'google-site-verification',
-        name: 'google-site-verification'
-      }
+      { hid: 'article:tag', name: 'article:tag', content: 'quran web' }
     ],
     noscript: [
       {
