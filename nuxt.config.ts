@@ -74,11 +74,13 @@ const config = {
       prefix: 'baca-quran'
     },
     cleanupOutdatedCaches: true,
-    offlineAssets: getOfflineAssets(),
+    offline: true,
+    offlineStrategy: 'CacheFirst',
+    preCaching: getOfflineAssets(),
     runtimeCaching: [
       {
         urlPattern: '^https://www.baca-quran.id/.*\\.(js|css)$',
-        handler: 'StaleWhileRevalidate',
+        handler: 'CacheFirst',
         strategyOptions: {
           cacheName: 'js-css'
         },
