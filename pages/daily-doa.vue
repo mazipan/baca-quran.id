@@ -120,12 +120,7 @@ export default class DailyDoaPage extends Vue {
     return title === this.expandedData.title
   }
 
-  mounted () {
-    this.setHeaderTitle("Do'a Harian")
-    this.setPage('daily-doa')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle("Do'a Harian")
     this.setPage('daily-doa')
   }

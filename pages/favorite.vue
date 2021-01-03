@@ -65,12 +65,7 @@ export default class FavoritePage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle(AppConstant.FAVORITE)
-    this.setPage('favorite')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle(AppConstant.FAVORITE)
     this.setPage('favorite')
   }

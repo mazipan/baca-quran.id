@@ -1,4 +1,5 @@
 /* eslint-env jest */
+import VueMeta from 'vue-meta'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Helpers from '~/test/helper'
@@ -9,6 +10,8 @@ import Theme from '~/constant/theme'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(VueMeta, { keyName: 'head' })
+
 const router = Helpers.initRouter(localVue)
 
 const store = new Vuex.Store({
@@ -68,16 +71,8 @@ describe('pages settings.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = "Halaman setelan | Qur'an Web"
+    const title = 'Halaman setelan | Baca-Quran.id'
     expect(wrapper.vm.metaHead.title).toEqual(title)
-    done()
-  })
-
-  test('method setDefaultSetting fired correctly', (done) => {
-    const wrapper = createWrapper()
-    wrapper.vm.setDefaultSetting()
-    expect(wrapper.vm.modelSettingTranslation).toBe(false)
-    expect(wrapper.vm.modelSettingTafsir).toBe(false)
     done()
   })
 

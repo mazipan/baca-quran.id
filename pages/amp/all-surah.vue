@@ -56,12 +56,7 @@ export default class PageAllSurah extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle('Daftar Surat')
-    this.setPage('all-surah')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle('Daftar Surat')
     this.setPage('all-surah')
   }

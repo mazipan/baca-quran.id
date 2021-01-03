@@ -94,11 +94,7 @@ export default class PageAbout extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle('Tentang')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle('Tentang')
   }
 }

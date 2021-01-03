@@ -70,7 +70,7 @@ export default class DefaultLayout extends Vue {
     this.showArrowToTop = window.pageYOffset > 2000
   }
 
-  mounted () {
+  beforeMount () {
     this.initDataFromBrowserStorage()
     if (process.client) {
       window.addEventListener('scroll', this.handleScroll)
@@ -84,7 +84,7 @@ export default class DefaultLayout extends Vue {
     this.webpClass = clasz
   }
 
-  beforedestroy () {
+  beforeDestroy () {
     if (process.client) {
       window.removeEventListener('scroll', this.handleScroll)
     }

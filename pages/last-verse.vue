@@ -86,12 +86,7 @@ export default class LastVersePage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle(AppConstant.LAST_READ)
-    this.setPage('last-verse')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle(AppConstant.LAST_READ)
     this.setPage('last-verse')
   }

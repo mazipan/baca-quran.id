@@ -1,4 +1,5 @@
 /* eslint-env jest */
+import VueMeta from 'vue-meta'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import dummySurahInfo from './__mocks__/surah-info-item'
@@ -19,6 +20,8 @@ const dummyComponent = {
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(VueMeta, { keyName: 'head' })
+
 const router = Helpers.initRouter(localVue)
 
 const store = new Vuex.Store({
@@ -67,7 +70,7 @@ describe('pages last-verse.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = "Ayat terakhir dibaca | Qur'an Web"
+    const title = 'Ayat terakhir dibaca | Baca-Quran.id'
     expect(wrapper.vm.metaHead.title).toEqual(title)
     done()
   })

@@ -29,42 +29,56 @@ const createWrapper = (propsData) => {
 }
 
 describe('component SurahNavigation.vue', () => {
-  test('success mounting components', () => {
-    const wrapper = createWrapper()
-    expect(wrapper).toBeTruthy()
-  })
-
   test('isHavePrev should return true', () => {
     const wrapper = createWrapper({
-      surahId: 2
+      surahId: 2,
+      verseCount: 100,
+      nextSurah: {
+        arabic: 'next surah dummy'
+      },
+      prevSurah: {
+        arabic: 'prev surah dummy'
+      }
     })
     expect(wrapper.vm.isHavePrev).toBe(true)
   })
 
-  test('isHavePrev should return false', () => {
+  test('isHavePrev should false, isHaveNext should true', () => {
     const wrapper = createWrapper({
-      surahId: 1
+      surahId: 1,
+      verseCount: 100,
+      nextSurah: {
+        arabic: 'next surah dummy'
+      },
+      prevSurah: null
     })
     expect(wrapper.vm.isHavePrev).toBe(false)
-  })
-
-  test('isHaveNext should return true', () => {
-    const wrapper = createWrapper({
-      surahId: 1
-    })
     expect(wrapper.vm.isHaveNext).toBe(true)
   })
 
-  test('isHaveNext should return false', () => {
+  test('isHaveNext should return false, isHavePrev should true', () => {
     const wrapper = createWrapper({
-      surahId: 114
+      surahId: 114,
+      verseCount: 100,
+      nextSurah: null,
+      prevSurah: {
+        arabic: 'prev surah dummy'
+      }
     })
     expect(wrapper.vm.isHaveNext).toBe(false)
+    expect(wrapper.vm.isHavePrev).toBe(true)
   })
 
-  test.skip('arrayAyah should generated correctly', () => {
+  test('arrayAyah should generated correctly', () => {
     const wrapper = createWrapper({
-      numberAyah: 5
+      verseCount: 5,
+      surahId: 2,
+      nextSurah: {
+        arabic: 'next surah dummy'
+      },
+      prevSurah: {
+        arabic: 'prev surah dummy'
+      }
     })
     expect(wrapper.vm.arrayAyah).toEqual([1, 2, 3, 4, 5])
   })

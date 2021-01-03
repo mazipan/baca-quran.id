@@ -1,4 +1,5 @@
 /* eslint-env jest */
+import VueMeta from 'vue-meta'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import dummyAyatKursi from './__mocks__/ayat-kursi'
@@ -19,6 +20,8 @@ const dummyComponent = {
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(VueMeta, { keyName: 'head' })
+
 const router = Helpers.initRouter(localVue)
 
 const mockAction = jest.fn().mockResolvedValue(dummyAyatKursi)
@@ -66,7 +69,7 @@ describe('pages ayat-kursi.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = "Bacaan dan terjemahan ayat kursi | Qur'an Web"
+    const title = 'Bacaan ayat kursi beserta terjemahan | Baca-Quran.id'
     expect(wrapper.vm.metaHead.title).toEqual(title)
     done()
   })

@@ -1,6 +1,4 @@
-// import 'core-js/modules/es.promise'
-// import 'core-js/modules/es.array.iterator'
-
+import 'jsdom-global'
 import Vue from 'vue'
 import Dummy from './Dummy.vue'
 

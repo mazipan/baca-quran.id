@@ -3,7 +3,7 @@ name: Unit Test
 on:
   push:
     branches:
-      - master-not-valid
+      - master
 
 jobs:
   unit_test:

@@ -66,12 +66,7 @@ export default class AsmaulHusnaPage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle('Asmaul Husna')
-    this.setPage('asmaul-husna')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle('Asmaul Husna')
     this.setPage('asmaul-husna')
   }

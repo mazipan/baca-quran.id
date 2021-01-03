@@ -39,9 +39,9 @@ describe('store actions', () => {
   })
   test('should dispatch initDataFromBrowserStorage correctly', (done) => {
     store.dispatch('initDataFromBrowserStorage')
-    expect(store.state.settingShowTranslation).toBe(true)
-    expect(store.state.settingShowTafsir).toBe(true)
-    expect(store.state.settingActiveTheme).toEqual(Theme.LIGHT)
+    expect(store.state.settingShowTranslation).toBe(false)
+    expect(store.state.settingShowTafsir).toBe(false)
+    expect(store.state.settingActiveTheme).toEqual(Theme.DARK)
     done()
   })
   test('should dispatch showNotification correctly', (done) => {

@@ -18,9 +18,9 @@
       ]
     }
   },
-  "plugins": [
-    "@babel/plugin-syntax-dynamic-import",
-    "dynamic-import-node-babel-7",
-    "@babel/plugin-syntax-jsx"
-  ]
+  // "plugins": [
+  //   "@babel/plugin-syntax-dynamic-import",
+  //   "dynamic-import-node-babel-7",
+  //   "@babel/plugin-syntax-jsx"
+  // ]
 }

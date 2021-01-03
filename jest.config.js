@@ -1,4 +1,9 @@
 module.exports = {
+  // preset: "@nuxt/test-utils",
+  verbose: true,
+  testRegex: '(/test/.*.(test.js|spec.js))$',
+  testEnvironment: 'jsdom',
+  testURL: 'http://localhost/',
   collectCoverageFrom: [
     // include folder
     '**/components/**/*.{js,ts,vue}',
@@ -26,6 +31,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': '<rootDir>/__mocks__/fileMock.js',
     '\\.(gif|ttf|eot|svg)$': '<rootDir>/__mocks__/fileMock.js',
+    'vue-ionicons/dist/(.*)$': '<rootDir>/__mocks__/vue-ionicons.vue',
     '^~/(.*)$': '<rootDir>/$1',
     '^@/(.*)$': '<rootDir>/$1',
     '^vue$': 'vue/dist/vue.common.js'
@@ -37,7 +43,7 @@ module.exports = {
     '^.+.vue$': '<rootDir>/node_modules/vue-jest'
   },
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
-  setupFilesAfterEnv: ['<rootDir>/test/setup-test.js'],
+  setupFilesAfterEnv: ['<rootDir>/test/setup.js'],
   globals: {
     'ts-jest': {
       diagnostics: false

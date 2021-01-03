@@ -408,11 +408,7 @@ export default class PageIndex extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle(AppConstant.TITLE)
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle(AppConstant.TITLE)
   }
 }

@@ -1,4 +1,5 @@
 /* eslint-env jest */
+import VueMeta from 'vue-meta'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import dummydailyDoa from './__mocks__/daily-doa'
@@ -19,6 +20,8 @@ const dummyComponent = {
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(VueMeta, { keyName: 'head' })
+
 const router = Helpers.initRouter(localVue)
 
 const mockAction = jest.fn().mockResolvedValue(dummydailyDoa)
@@ -67,7 +70,7 @@ describe('pages daily-doa.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = "Daftar lengkap bacaan do'a sehari-hari beserta terjemahan | Qur'an Web"
+    const title = "Daftar lengkap do'a harian beserta terjemahan | Baca-Quran.id"
     expect(wrapper.vm.metaHead.title).toEqual(title)
     done()
   })

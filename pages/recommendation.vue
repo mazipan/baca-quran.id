@@ -57,12 +57,7 @@ export default class RecommendationPage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle(AppConstant.RECOMMENDATION)
-    this.setPage('recommendation')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle(AppConstant.RECOMMENDATION)
     this.setPage('recommendation')
   }

@@ -87,29 +87,26 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
     const respDetail = await import(
       `~/data/quran-json/surah/${params.surahid}.json`
     )
-    const resp = await import('~/data/surah-info.json')
     // @ts-ignore: Unreachable code error
     const title = META_TITLE_SURAH(respDetail[params.surahid].name_latin)
     // @ts-ignore: Unreachable code error
     const description = META_DESC_SURAH(respDetail[params.surahid].name_latin)
-    const allSurah = resp.surah_info
+
+    const currentSurahInfo = await import(`~/data/surah-info/${params.surahid}.json`)
 
     return {
       metaTitle: title,
       metaDesc: description,
       surahId: Number(params.surahid) || 1,
-      allSurahList: allSurah,
-      currentSurahFromList: allSurah.find(
-        i => i.index === Number(params.surahid)
-      ),
+      currentSurahFromList: currentSurahInfo.current,
       nextSurah:
         Number(params.surahid) >= 114
           ? null
-          : allSurah.find(i => i.index === Number(params.surahid) + 1),
+          : currentSurahInfo.next,
       prevSurah:
         Number(params.surahid) <= 1
           ? null
-          : allSurah.find(i => i.index === Number(params.surahid) - 1),
+          : currentSurahInfo.prev,
       currentSurah: respDetail[params.surahid],
       jsonldBreadcrumb: getJsonLdBreadcrumb({
         categoryTitle: 'Daftar Surat',
@@ -205,13 +202,7 @@ export default class SurahDetailPage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    // @ts-ignore: Unreachable code error
-    this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
-    this.setPage('surah-detail')
-  }
-
-  activated () {
+  beforeMount () {
     // @ts-ignore: Unreachable code error
     this.setHeaderTitle(`${this.surahId}: ${this.currentSurah.name_latin}`)
     this.setPage('surah-detail')

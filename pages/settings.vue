@@ -132,12 +132,7 @@ export default class SettingsPage extends Vue {
     this.setSettingMuqaddimah(e.target.checked)
   }
 
-  mounted () {
-    this.setHeaderTitle('Setelan')
-    this.setPage('settings')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle('Setelan')
     this.setPage('settings')
   }

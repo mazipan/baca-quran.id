@@ -1,4 +1,5 @@
 /* eslint-env jest */
+import VueMeta from 'vue-meta'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import dummySurahInfo from './__mocks__/surah-info-item'
@@ -10,6 +11,8 @@ import Theme from '~/constant/theme'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(VueMeta, { keyName: 'head' })
+
 const router = Helpers.initRouter(localVue)
 
 const store = new Vuex.Store({

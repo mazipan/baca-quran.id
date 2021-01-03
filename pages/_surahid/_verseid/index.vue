@@ -175,13 +175,7 @@ export default class VerseDetailPage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    // @ts-ignore: Unreachable code error
-    this.setHeaderTitle(`${this.surahId}:${this.verseId} ${this.currentSurah.name_latin}`)
-    this.setPage('verse-detail')
-  }
-
-  activated () {
+  beforeMount () {
     // @ts-ignore: Unreachable code error
     this.setHeaderTitle(`${this.surahId}:${this.verseId} ${this.currentSurah.name_latin}`)
     this.setPage('verse-detail')

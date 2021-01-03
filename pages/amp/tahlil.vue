@@ -76,11 +76,7 @@ export default class TahlilPage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle('Tahlil')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle('Tahlil')
   }
 }

@@ -60,12 +60,7 @@ export default class AyatKursiPage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle('Ayat Kursi')
-    this.setPage('ayat-kursi')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle('Ayat Kursi')
     this.setPage('ayat-kursi')
   }

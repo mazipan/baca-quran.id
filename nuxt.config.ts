@@ -15,8 +15,10 @@ const config = {
     envBuildTime: new Date().toISOString()
   },
   buildModules: ['@nuxt/typescript-build'],
-  debug: true,
   target: 'static',
+  router: {
+    prefetchLinks: false
+  },
   /*
    ** Headers of the page
    */

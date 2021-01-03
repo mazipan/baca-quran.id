@@ -99,15 +99,10 @@ export default class ErrorPage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
+  beforeMount () {
     this.setHeaderTitle(AppConstant.ERROR)
     this.setPage('Error')
     console.error(this.error)
-  }
-
-  activated () {
-    this.setHeaderTitle(AppConstant.ERROR)
-    this.setPage('Error')
   }
 }
 </script>

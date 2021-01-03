@@ -66,12 +66,7 @@ export default class WiridPage extends Vue {
     return this.metaHead
   }
 
-  mounted () {
-    this.setHeaderTitle('Wirid')
-    this.setPage('wirid')
-  }
-
-  activated () {
+  beforeMount () {
     this.setHeaderTitle('Wirid')
     this.setPage('wirid')
   }

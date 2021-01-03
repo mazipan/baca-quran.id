@@ -1,4 +1,5 @@
 /* eslint-env jest */
+import VueMeta from 'vue-meta'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import Helpers from '~/test/helper'
@@ -9,6 +10,8 @@ import Theme from '~/constant/theme'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(VueMeta, { keyName: 'head' })
+
 const router = Helpers.initRouter(localVue)
 
 const store = new Vuex.Store({
@@ -51,7 +54,7 @@ describe('pages recommendation.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = "Baca surat rekomendasi dalam Al-Qur'an | Qur'an Web"
+    const title = 'Surat rekomendasi | Baca-Quran.id'
     expect(wrapper.vm.metaHead.title).toEqual(title)
     done()
   })

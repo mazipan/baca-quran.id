@@ -57,7 +57,7 @@ describe('component BaseHeader.vue', () => {
   test('isHomepage should return correct value', (done) => {
     const wrapper = createWrapper()
     expect(wrapper.vm.isHomePage).toBe(true)
-    wrapper.vm.$store.commit(Types.SET_HEADER_TITLE, 'dummy-title')
+    wrapper.vm.$router.push('/foo')
     expect(wrapper.vm.isHomePage).toBe(false)
     done()
   })
