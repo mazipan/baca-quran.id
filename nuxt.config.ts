@@ -25,7 +25,7 @@ const config = {
   head: {
     title,
     meta: [
-      { hid: 'viewport', name: 'viewport', content: 'width=device-width,initial-scale=1' },
+      // { hid: 'viewport', name: 'viewport', content: 'width=device-width,initial-scale=1' },
      
       { hid: 'description', name: 'description', content: description },
       { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
