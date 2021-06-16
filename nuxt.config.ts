@@ -77,13 +77,16 @@ const config = {
     cacheNames: {
       prefix: 'baca-quran'
     },
+    clientsClaim: true,
+    skipWaiting: true,
     cleanupOutdatedCaches: true,
     offline: true,
-    offlineStrategy: 'CacheFirst',
+    offlineStrategy: 'NetworkFirst',
     preCaching: getOfflineAssets(),
+    cacheAssets: true,
     runtimeCaching: [
       {
-        urlPattern: '^https://www.baca-quran.id/.*\\.(js|css)$',
+        urlPattern: '.(js|css)$',
         handler: 'CacheFirst',
         strategyOptions: {
           cacheName: 'js-css'
@@ -102,7 +105,7 @@ const config = {
         }]
       },
       {
-        urlPattern: '^https://www.baca-quran.id/.*\\.(jpg|png|bmp|jpeg|svg|webp|gif|ttf|woff)$',
+        urlPattern: '.(jpg|png|bmp|jpeg|svg|webp|gif|ttf|woff|woff2)$',
         handler: 'CacheFirst',
         strategyOptions: {
           cacheName: 'assets'
