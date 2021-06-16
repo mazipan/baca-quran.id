@@ -80,50 +80,10 @@ const config = {
     clientsClaim: true,
     skipWaiting: true,
     cleanupOutdatedCaches: true,
-    offline: true,
+    offline: false,
     offlineStrategy: 'NetworkFirst',
     preCaching: getOfflineAssets(),
-    cacheAssets: true,
-    runtimeCaching: [
-      {
-        urlPattern: '.(js|css)$',
-        handler: 'CacheFirst',
-        strategyOptions: {
-          cacheName: 'js-css'
-        },
-        strategyPlugins: [{
-          use: 'Expiration',
-          config: {
-            maxEntries: 500,
-            maxAgeSeconds: 60 * 60 * 24 * 30
-          }
-        }, {
-          use: 'CacheableResponse',
-          config: {
-            statuses: [200]
-          }
-        }]
-      },
-      {
-        urlPattern: '.(jpg|png|bmp|jpeg|svg|webp|gif|ttf|woff|woff2)$',
-        handler: 'CacheFirst',
-        strategyOptions: {
-          cacheName: 'assets'
-        },
-        strategyPlugins: [{
-          use: 'Expiration',
-          config: {
-            maxEntries: 100,
-            maxAgeSeconds: 60 * 60 * 24 * 365
-          }
-        }, {
-          use: 'CacheableResponse',
-          config: {
-            statuses: [200]
-          }
-        }]
-      }
-    ]
+    cacheAssets: true
   },
   /*
    ** Customize the progress-bar color
