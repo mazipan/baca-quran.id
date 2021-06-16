@@ -18,12 +18,6 @@
         </div>
       </div>
     </div>
-    <div class="footnote">
-      Sumber bacaan wirid <a :href="wiridSource" target="_blank" rel="noopener noreferrer">islam.nu.or.id</a>
-    </div>
-    <div class="footnote">
-      Dibuat oleh <a href="https://mazipan.space/" target="_blank" rel="noopener noreferrer">Irfan Maulana</a>
-    </div>
   </div>
 </template>
 

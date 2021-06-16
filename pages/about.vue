@@ -37,7 +37,7 @@
             href="https://islam.nu.or.id/post/read/107344/susunan-bacaan-tahlil-doa-arwah-lengkap-dan-terjemahannya"
             target="_blank"
             rel="noopener">islam.nu.or.id</a>
-          untuk bacaan tahlil
+          untuk bacaan tahlil dan wirid
         </li>
       </ul>
 
@@ -47,10 +47,6 @@
           href="https://github.com/mazipan/quran-offline/issues/new"
           target="_blank"
           rel="noopener">di halaman Github issue.</a>
-      </div>
-
-      <div class="footnote">
-        Dibuat oleh <a href="https://mazipan.space/" target="_blank" rel="noopener noreferrer">Irfan Maulana</a>
       </div>
 
       <footer class="footer">

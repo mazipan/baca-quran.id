@@ -19,9 +19,6 @@
         <Surah :surah-array="filteredSurah" source="normal" />
       </div>
     </div>
-    <div class="footnote">
-      Dibuat oleh <a href="https://mazipan.space/" target="_blank" rel="noopener noreferrer">Irfan Maulana</a>
-    </div>
   </section>
 </template>
 

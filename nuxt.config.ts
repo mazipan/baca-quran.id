@@ -26,7 +26,7 @@ const config = {
     title,
     meta: [
       // { hid: 'viewport', name: 'viewport', content: 'width=device-width,initial-scale=1' },
-     
+
       { hid: 'description', name: 'description', content: description },
       { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
 
@@ -173,9 +173,6 @@ const config = {
    ** Build configuration
    */
   build: {
-    // babel: {
-    //   plugins: ['transform-decorators-legacy', 'transform-class-properties']
-    // },
     parallel: true,
     optimizeCSS: true,
     publicPath: PROD_PATH,

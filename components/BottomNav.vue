@@ -61,9 +61,9 @@ export default class BaseHeader extends Vue {}
   position: fixed;
   bottom: 0;
   left: initial;
+  width: 100%;
   max-width: 500px;
   z-index: 10;
-  width: 100%;
   height: 50px;
   display: flex;
   align-items: center;

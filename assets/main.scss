@@ -108,19 +108,9 @@ a {
 }
 
 #__layout{
+  width: 100%;
   max-width: 500px;
   margin: 0 auto;
 }
 .text-left { text-align: left; }
 
-.footnote {
-  text-align: center;
-  margin-top: 1em;
-  font-size: 0.8rem;
-
-  a {
-    text-decoration: none;
-    color: var(--link-author);
-    font-weight: bold;
-  }
-}

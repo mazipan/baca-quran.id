@@ -34,7 +34,7 @@
         </li>
         <li class="sidebar__item">
           <a
-            href="https://github.com/mazipan/quran-offline"
+            href="https://github.com/mazipan/baca-quran.id"
             target="_blank"
             rel="noopener"
             class="sidebar__link">

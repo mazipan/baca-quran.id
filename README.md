@@ -1,14 +1,14 @@
-# quran-offline
+# baca-quran.id
 
 ![Nuxt TypeScript](https://img.shields.io/badge/Nuxt-TypeScript-blue.svg)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors)
-![Unit Test](https://github.com/mazipan/quran-offline/workflows/Unit%20Test/badge.svg?branch=master)
-[![Codecov](https://codecov.io/gh/mazipan/quran-offline/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/quran-offline)
+![Unit Test](https://github.com/mazipan/baca-quran.id/workflows/Unit%20Test/badge.svg?branch=master)
+[![Codecov](https://codecov.io/gh/mazipan/baca-quran.id/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/baca-quran.id)
 
 📖 Read Qur'an Directly from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/mazipan/quran-offline/master/static/icon.png"/>
+ <img src="https://raw.githubusercontent.com/mazipan/baca-quran.id/master/static/icon.png"/>
 </p>
 
 ## Live Website
@@ -19,11 +19,11 @@
 
 |           Home Light Theme           |           Home Dark Theme          |            Home Nature Theme           |
 | :----------------------------------: | :--------------------------------: | :------------------------------------: |
-| ![light](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/home-light.png) | ![dark](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/home-dark.png) | ![nature](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/home-nature.png) |
+| ![light](https://raw.githubusercontent.com/mazipan/baca-quran.id/master/screenshoot/home-light.png) | ![dark](https://raw.githubusercontent.com/mazipan/baca-quran.id/master/screenshoot/home-dark.png) | ![nature](https://raw.githubusercontent.com/mazipan/baca-quran.id/master/screenshoot/home-nature.png) |
 
 |              Asmaul Husna              |              Al-Fatihah             |              Do'a Harian              |
 | :------------------------------------: | :---------------------------------: | :-----------------------------------: |
-| ![light](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/asmaul-husna.png) | ![dark](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/al-fatihah.png) | ![nature](https://raw.githubusercontent.com/mazipan/quran-offline/master/screenshoot/doa-harian.png) |
+| ![light](https://raw.githubusercontent.com/mazipan/baca-quran.id/master/screenshoot/asmaul-husna.png) | ![dark](https://raw.githubusercontent.com/mazipan/baca-quran.id/master/screenshoot/al-fatihah.png) | ![nature](https://raw.githubusercontent.com/mazipan/baca-quran.id/master/screenshoot/doa-harian.png) |
 
 ## Build Setup
 
@@ -33,7 +33,7 @@ This project developed using [Nuxt.js](https://nuxtjs.org/), for complete docume
 
 ```bash
 # Checkout project
-$ git checkout git@github.com:mazipan/quran-offline.git
+$ git checkout git@github.com:mazipan/baca-quran.id.git
 
 # Update submodule
 $ git submodule init
@@ -93,7 +93,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- prettier-ignore -->
 
-<table><tr><td align="center"><a href="https://mazipan.space/"><img src="https://avatars0.githubusercontent.com/u/7221389?v=4" width="100px;" alt="Irfan Maulana"/><br /><sub><b>Irfan Maulana</b></sub></a><br /><a href="https://github.com/mazipan/quran-offline/commits?author=mazipan" title="Code">💻</a> <a href="#maintenance-mazipan" title="Maintenance">🚧</a></td><td align="center"><a href="http://altera.id"><img src="https://avatars2.githubusercontent.com/u/8231792?v=4" width="100px;" alt="azul"/><br /><sub><b>azul</b></sub></a><br /><a href="https://github.com/mazipan/quran-offline/issues?q=author%3Aazulkipli" title="Bug reports">🐛</a></td></tr></table>
+<table><tr><td align="center"><a href="https://mazipan.space/"><img src="https://avatars0.githubusercontent.com/u/7221389?v=4" width="100px;" alt="Irfan Maulana"/><br /><sub><b>Irfan Maulana</b></sub></a><br /><a href="https://github.com/mazipan/baca-quran.id/commits?author=mazipan" title="Code">💻</a> <a href="#maintenance-mazipan" title="Maintenance">🚧</a></td><td align="center"><a href="http://altera.id"><img src="https://avatars2.githubusercontent.com/u/8231792?v=4" width="100px;" alt="azul"/><br /><sub><b>azul</b></sub></a><br /><a href="https://github.com/mazipan/baca-quran.id/issues?q=author%3Aazulkipli" title="Bug reports">🐛</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 

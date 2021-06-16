@@ -3,7 +3,10 @@
     <div v-show="isShowSidebar" class="sidebar-cover" @click="hideSidebar" />
     <BaseSidebar v-if="isHome" :class="{'sidebar--open': isShowSidebar}" />
     <BaseHeader />
-    <nuxt class="app__content" />
+    <div class="app__content">
+      <nuxt class="app__nuxt" />
+      <FootNote />
+    </div>
     <BottomNav v-if="isHideBottomNav" />
     <BaseToast />
     <div v-if="!isHome" v-show="showArrowToTop" class="arrowtotop">
@@ -24,6 +27,7 @@ import BaseHeader from '~/components/BaseHeader.vue'
 import BaseSidebar from '~/components/BaseSidebar.vue'
 import BaseToast from '~/components/BaseToast.vue'
 import BottomNav from '~/components/BottomNav.vue'
+import FootNote from '~/components/FootNote.vue'
 
 import { isSupportWebp } from '~/utils/webp'
 
@@ -36,6 +40,7 @@ require('vue-ionicons/ionicons.css')
     BaseSidebar,
     BaseToast,
     BottomNav,
+    FootNote,
     ArrowUpIcon
   }
 })

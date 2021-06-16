@@ -28,9 +28,6 @@
         :verse-count="Number(currentSurah.number_of_ayah)"
         :on-change-verse="onChangeVerse" />
     </div>
-    <div class="footnote">
-      Dibuat oleh <a href="https://mazipan.space/" target="_blank" rel="noopener noreferrer">Irfan Maulana</a>
-    </div>
   </section>
 </template>
 
