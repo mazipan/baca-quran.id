@@ -366,8 +366,8 @@ export default class PageIndex extends Vue {
   dataCarousel = [
     {
       id: '1',
-      origin: '/illustration_1.jpg',
-      webp: '/illustration_1.webp'
+      origin: '/assets/images/illustration_1.jpg',
+      webp: '/assets/images/illustration_1.webp'
     }
   ];
 

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import getRoutes from './build-scripts/getRoutes'
 import getSitemaps from './build-scripts/getSitemaps'
-import getOfflineAssets from './build-scripts/getOfflineAssets'
+// import getOfflineAssets from './build-scripts/getOfflineAssets'
 import { getJsonLdWebsite } from './utils/jsonld'
 
 const PROD_PATH = 'https://www.baca-quran.id/'
@@ -31,13 +31,13 @@ const config = {
       { hid: 'theme-color', name: 'theme-color', content: '#f6f7f8' },
 
       { hid: 'og:site_name', property: 'og:site_name', content: title },
-      { hid: 'og:image', property: 'og:image', content: '/meta-image.png' },
+      { hid: 'og:image', property: 'og:image', content: '/assets/images/meta-image.png' },
       { hid: 'og:title', property: 'og:title', content: title },
       { hid: 'og:description', property: 'og:description', content: description },
       { hid: 'og:url', property: 'og:url', content: PROD_PATH },
 
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-      { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/meta-image.png' },
+      { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/assets/images/meta-image.png' },
       { hid: 'twitter:title', name: 'twitter:title', content: title },
       { hid: 'twitter:description', name: 'twitter:description', content: description },
       { hid: 'twitter:url', name: 'twitter:url', content: PROD_PATH },
@@ -73,18 +73,18 @@ const config = {
     lang: 'id',
     display: 'standalone'
   },
-  workbox: {
-    cacheNames: {
-      prefix: 'baca-quran'
-    },
-    clientsClaim: true,
-    skipWaiting: true,
-    cleanupOutdatedCaches: true,
-    offline: false,
-    offlineStrategy: 'NetworkFirst',
-    preCaching: getOfflineAssets(),
-    cacheAssets: true
-  },
+  // workbox: {
+  //   cacheNames: {
+  //     prefix: 'baca-quran'
+  //   },
+  //   clientsClaim: true,
+  //   skipWaiting: true,
+  //   cleanupOutdatedCaches: true,
+  //   offline: false,
+  //   offlineStrategy: 'NetworkFirst',
+  //   preCaching: getOfflineAssets(),
+  //   cacheAssets: true
+  // },
   /*
    ** Customize the progress-bar color
    */
@@ -140,6 +140,14 @@ const config = {
     optimizeCSS: true,
     publicPath: PROD_PATH,
     quiet: false,
+    filenames: {
+      app: ({ isDev, isModern }) => isDev ? `_nuxt/js/[name]${isModern ? '.modern' : ''}.js` : `_nuxt/js/[contenthash:7]${isModern ? '.modern' : ''}.js`,
+      chunk: ({ isDev, isModern }) => isDev ? `_nuxt/js/[name]${isModern ? '.modern' : ''}.js` : `_nuxt/js/[contenthash:7]${isModern ? '.modern' : ''}.js`,
+      css: ({ isDev }) => isDev ? '_nuxt/css/[name].css' : '_nuxt/css/[contenthash:7].css',
+      img: ({ isDev }) => isDev ? '_nuxt/img/[path][name].[ext]' : '_nuxt/img/[name].[contenthash:7].[ext]',
+      font: ({ isDev }) => isDev ? '_nuxt/fonts/[path][name].[ext]' : '_nuxt/fonts/[name].[contenthash:7].[ext]',
+      video: ({ isDev }) => isDev ? '_nuxt/videos/[path][name].[ext]' : '_nuxt/videos/[name].[contenthash:7].[ext]'
+    },
     postcss: {
       preset: {
         autoprefixer: {

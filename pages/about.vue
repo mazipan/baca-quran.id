@@ -1,7 +1,7 @@
 <template>
   <div class="container about center">
     <div class="wrapper" style="line-height: 1.5;">
-      <img src="/icon.png" alt="Logo">
+      <img src="/assets/images/icon.png" alt="Logo">
       <h3>Baca Al-Qur'an dimana saja, langsung dari web browser Anda, tidak perlu lagi install Apps. Tanpa iklan, tanpa analitik dan GRATIS sepenuhnya...</h3>
       <br>
       <br>

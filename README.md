@@ -8,7 +8,7 @@
 📖 Read Qur'an Directly from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
 <p align="center">
- <img src="https://raw.githubusercontent.com/mazipan/baca-quran.id/master/static/icon.png"/>
+ <img src="https://raw.githubusercontent.com/mazipan/baca-quran.id/master/static/assets/images/icon.png"/>
 </p>
 
 ## Live Website

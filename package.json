@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production nuxt-ts build",
     "start": "cross-env NODE_ENV=production nuxt-ts",
     "generate": "nuxt-ts build && nuxt-ts export",
-    "generate:ci": "cross-env DEBUG=nuxt:* yarn generate",
+    "generate:ci": "cross-env yarn generate",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore .",
     "lint:report": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix -f html-extended -o eslint-report.html",
     "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore . --fix",
@@ -17,7 +17,7 @@
     "test:coverage": "cross-env NODE_ENV=test jest --coverage"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxt/typescript-runtime": "^2.1.0",
     "intersection-observer": "^0.12.0",
     "levenary": "^1.1.1",
     "nuxt": "2.15.7",
@@ -67,8 +67,8 @@
     "style-loader": "2.0.0",
     "ts-jest": "27.0.3",
     "ts-loader": "^8.0.12",
-    "ts-node": "9.1.1",
-    "typescript": "4.3.2",
+    "ts-node": "10.0.0",
+    "typescript": "4.3.3",
     "vue-class-component": "7.2.6",
     "vue-jest": "3.0.7",
     "vue-loader": "15.9.7",
