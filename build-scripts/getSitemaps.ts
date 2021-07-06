@@ -35,6 +35,7 @@ const getSurahRoutes = (): string[] => {
   const res: string[] = []
   for (let i = 1; i < 115; i++) {
     res.push(`/${i}`)
+    res.push(`/amp/${i}`)
   }
   return res
 }
@@ -45,6 +46,7 @@ const getVerseRoutes = (surahIndex: number): string[] => {
   if (surahObj) {
     for (let j = 1; j < surahObj.ayah_count + 1; j++) {
       res.push(`/${surahIndex}/${j}`)
+      res.push(`/amp/${surahIndex}/${j}`)
     }
   }
   return res
