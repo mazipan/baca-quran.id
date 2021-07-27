@@ -15,6 +15,16 @@
 
 <https://www.baca-quran.id/>
 
+## Blog
+
+- Repo: https://github.com/mazipan-quran-offline/tulisan
+- Live: https://www.baca-quran.id/tulisan/
+
+## Stories
+
+- Repo: https://github.com/mazipan-quran-offline/stories
+- Live: https://www.baca-quran.id/stories/
+
 ## Screenshoot
 
 |           Home Light Theme           |           Home Dark Theme          |            Home Nature Theme           |
