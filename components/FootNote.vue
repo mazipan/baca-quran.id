@@ -15,9 +15,9 @@
         rel="noopener noreferrer">Ksana.in</a>
       &nbsp;
       <a
-        href="https://buku-saku-pramuka.vercel.app/"
+        href="https://pramuka.online/"
         target="_blank"
-        rel="noopener noreferrer">Buku Saku Pramuka</a>
+        rel="noopener noreferrer">Pramuka.Online</a>
     </div>
   </div>
 </template>
