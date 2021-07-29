@@ -8,11 +8,16 @@
         rel="noopener noreferrer">Irfan Maulana</a>
     </div>
     <div>
-      Lihat karya lain
+      Cek juga&nbsp;
       <a
         href="https://ksana.in/"
         target="_blank"
         rel="noopener noreferrer">Ksana.in</a>
+      &nbsp;
+      <a
+        href="https://buku-saku-pramuka.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer">Buku Saku Pramuka</a>
     </div>
   </div>
 </template>
