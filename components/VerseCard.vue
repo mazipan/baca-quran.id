@@ -27,28 +27,18 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import { State, Action } from 'vuex-class'
 
-import MdShareIcon from 'vue-ionicons/dist/js/md-share'
-import MdBookmarkIcon from 'vue-ionicons/dist/js/md-bookmark'
-import MdVolumeHighIcon from 'vue-ionicons/dist/js/md-volume-high'
 import { AppConstant } from '~/constant'
 import SingleVerse from '~/components/SingleVerse.vue'
 
-const randomVerse = 1000000
-
 @Component({
   components: {
-    MdShareIcon,
-    MdBookmarkIcon,
-    MdVolumeHighIcon,
     SingleVerse
   }
 })
+
 export default class VerseCard extends Vue {
   AppConstant = AppConstant
-  clickedAudioIcon = randomVerse;
-  timeout;
 
   @Prop({ type: [Object, Array], default: () => ({}) }) readonly verseArray!:
     | any
@@ -59,44 +49,6 @@ export default class VerseCard extends Vue {
   @Prop({ type: Number, default: 1 }) readonly surahId!: number;
   @Prop({ type: String, default: '' }) readonly source!: string;
   @Prop({ type: Boolean, default: false }) readonly showSettings!: boolean;
-
-  @State surahFavorite;
-  @State isSupportWebShare;
-  @State settingShowTranslation;
-  @State settingShowTafsir;
-
-  @Action setLastReadVerse;
-  @Action showNotification;
-  @Action shareViaWebshare;
-
-  getTranslation (indexVerse) {
-    return this.translations.id.text[indexVerse]
-  }
-
-  getTafsir (indexVerse) {
-    return this.tafsir.id.kemenag.text[indexVerse]
-  }
-
-  doSetLastReadVerse (data) {
-    this.setLastReadVerse(data)
-    this.showNotification({
-      title: 'Pesan Sukses',
-      message: 'Ayat telah ditambahkan ke terakhir dibaca.'
-    })
-  }
-
-  shareVerse (verse, index) {
-    const data = {
-      title: `QS ${this.surahId}:${index}`,
-      text: `
-${verse}
-
-Terjemahan: ${this.getTranslation(index)} (QS ${this.surahId}:${index})
-`,
-      url: `${AppConstant.PATH}${this.surahId}/${index}`
-    }
-    this.shareViaWebshare(data)
-  }
 }
 </script>
 

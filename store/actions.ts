@@ -26,6 +26,7 @@ export const actions: ActionTree<StateType, StateType> = {
     // data muqaddimah
     const cacheMuqaddimah = getItem(storageKey.SETTING_MUQADDIMAH, storageKey.VERSION)
     commit(Types.SET_SETTING_MUQADDIMAH, __isNotNull(cacheMuqaddimah) ? cacheMuqaddimah : true)
+    console.info('Read all data from storage...')
   },
   showNotification ({ commit }, { title = '', message = '' }) {
     commit(Types.SET_NOTIFICATION, { show: true, title, message })

@@ -2,21 +2,19 @@
   <div class="container">
     <div class="feed clearfix">
       <div class="feed__title">
-        <IosStarOutlineIcon
-          w="1em"
-          h="1em" />
+        <IosStarOutlineIcon w="1em" h="1em" />
         Surat favorit:
       </div>
       <div class="feed__item clearfix">
-        <Surah
-          v-if="isHaveFav"
-          :surah-array="surahFavorite"
-          source="favorite" />
-        <div
-          v-else
-          class="feed__empty">
-          Anda belum punya surat yang ditandai sebagai favorit.
-        </div>
+        <client-only>
+          <Surah
+            v-if="isHaveFav"
+            :surah-array="surahFavorite"
+            source="favorite" />
+          <div v-else class="feed__empty">
+            Anda belum punya surat yang ditandai sebagai favorit.
+          </div>
+        </client-only>
       </div>
     </div>
   </div>
@@ -38,12 +36,11 @@ import { AppConstant } from '~/constant'
     Surah
   }
 })
-
 export default class FavoritePage extends Vue {
   @State settingActiveTheme;
   @State surahFavorite;
   @Mutation setHeaderTitle;
-  @Mutation setPage
+  @Mutation setPage;
 
   get metaHead () {
     const title = "Baca berbagai surat favorit dalam Al-Qur'an | Qur'an Web"
@@ -52,7 +49,11 @@ export default class FavoritePage extends Vue {
       meta: [
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
+        {
+          hid: 'theme-color',
+          name: 'theme-color',
+          content: this.settingActiveTheme.bgColor
+        }
       ]
     }
   }
@@ -73,5 +74,5 @@ export default class FavoritePage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/feed.scss';
+@import "@/assets/feed.scss";
 </style>

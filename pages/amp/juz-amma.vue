@@ -13,38 +13,42 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import Surah from '~/components/Surah.vue'
-import { AppConstant, META_TITLE_ALL_SURAH, META_DESC_ALL_SURAH } from '~/constant/index'
+import { AppConstant, META_TITLE_JUZ_AMMA, META_DESC_JUZ_AMMA } from '~/constant/index'
+import { SurahInfo, SurahInfoJson } from '~/models/SurahInfo'
 
 @Component({
   components: {
     Surah
   },
   async asyncData () {
-    const resp = await import('~/data/surah-info.json')
+    // @ts-ignore
+    const resp: SurahInfoJson = await import('~/data/surah-info.json')
+    const juzAmmaData: SurahInfo[] = (resp && resp.surah_info.length > 0) ? resp.surah_info.filter(i => i.index >= 78) : []
+
     return {
-      allSurahList: resp.surah_info.map((item) => {
+      allSurahList: juzAmmaData.map((item) => {
         return Object.assign({}, item, { index: item.index + 1 })
       })
     }
   }
 })
 
-export default class PageAllSurah extends Vue {
+export default class PageJuzAmma extends Vue {
   @State settingActiveTheme
   @Mutation setHeaderTitle
   @Mutation setPage
 
   get metaHead () {
     return {
-      title: META_TITLE_ALL_SURAH,
+      title: META_TITLE_JUZ_AMMA,
       meta: [
-        { hid: 'description', name: 'description', content: META_DESC_ALL_SURAH },
-        { hid: 'og:title', property: 'og:title', content: META_TITLE_ALL_SURAH },
-        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_ALL_SURAH },
+        { hid: 'description', name: 'description', content: META_DESC_JUZ_AMMA },
+        { hid: 'og:title', property: 'og:title', content: META_TITLE_JUZ_AMMA },
+        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_JUZ_AMMA },
         { hid: 'theme-color', name: 'theme-color', content: this.settingActiveTheme.bgColor }
       ],
       link: [
-        { rel: 'canonical', href: `${AppConstant.PATH}all-surah/` }
+        { rel: 'canonical', href: `${AppConstant.PATH}juz-amma/` }
       ]
     }
   }
@@ -54,8 +58,8 @@ export default class PageAllSurah extends Vue {
   }
 
   beforeMount () {
-    this.setHeaderTitle('Daftar Surat')
-    this.setPage('all-surah')
+    this.setHeaderTitle('Juz Amma')
+    this.setPage('juz-amma')
   }
 }
 </script>

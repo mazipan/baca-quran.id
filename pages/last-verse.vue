@@ -2,19 +2,18 @@
   <div class="container">
     <div class="feed clearfix">
       <div class="feed__title">
-        <IosBookmarkIcon
-          w="1em"
-          h="1em" />Ayat terakhir dibaca:
+        <IosBookmarkIcon w="1em" h="1em" />Ayat terakhir dibaca:
       </div>
       <div class="feed__item clearfix">
-        <div v-if="isHaveLastRead">
-          <LastReadCard :surah="lastReadVerseData" />
-        </div>
-        <div
-          v-else
-          class="feed__empty">
-          Anda belum pernah menandai salah satu ayat sebagai terakhir dibaca.
-        </div>
+        <client-only>
+          <div v-if="Boolean(lastReadVerseData)" class="last-read-section">
+            <LastReadCard :surah="lastReadVerseData" />
+          </div>
+
+          <div v-if="!Boolean(lastReadVerseData)" class="feed__empty">
+            Anda belum pernah menandai salah satu ayat sebagai terakhir dibaca.
+          </div>
+        </client-only>
       </div>
     </div>
   </div>
@@ -29,7 +28,6 @@ import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 import LastReadCard from '~/components/LastReadCard.vue'
 
 import { AppConstant, META_TITLE_LAST_VERSE } from '~/constant'
-import { __isNotNull } from '~/utils/index'
 
 @Component({
   components: {
@@ -39,25 +37,32 @@ import { __isNotNull } from '~/utils/index'
   async asyncData () {
     const resp = await import('~/data/surah-info.json')
     return {
-      allSurahList: resp.surah_info.map((item, idx) => {
-        return Object.assign({}, item, { index: idx + 1 })
+      allSurahList: resp.surah_info.map((item) => {
+        return Object.assign({}, item, { index: item.index + 1 })
       })
     }
   }
 })
-
 export default class LastVersePage extends Vue {
   @State settingActiveTheme;
   @State lastReadVerse;
-  @Mutation setHeaderTitle
-  @Mutation setPage
+  @Mutation setHeaderTitle;
+  @Mutation setPage;
 
   get metaHead () {
     return {
       title: META_TITLE_LAST_VERSE,
       meta: [
-        { hid: 'og:title', property: 'og:title', content: META_TITLE_LAST_VERSE },
-        { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE_LAST_VERSE },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: META_TITLE_LAST_VERSE
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: META_TITLE_LAST_VERSE
+        },
         {
           hid: 'theme-color',
           name: 'theme-color',
@@ -67,12 +72,8 @@ export default class LastVersePage extends Vue {
     }
   }
 
-  get isHaveLastRead () {
-    return __isNotNull(this.lastReadVerse && this.lastReadVerse.surah)
-  }
-
   get lastReadVerseData () {
-    if (this.isHaveLastRead) {
+    if (this.lastReadVerse) {
       // @ts-ignore: Unreachable code error
       const res = this.allSurahList.find(
         item => item.index === this.lastReadVerse.surah

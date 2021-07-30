@@ -8,6 +8,9 @@ export interface SurahInfo {
   opening: string,
   closing: string,
 }
+export interface SurahInfoJson {
+  surah_info: SurahInfo[],
+}
 
 export const defaultSurahInfo: SurahInfo = {
   translation: '',

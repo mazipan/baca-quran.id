@@ -76,7 +76,7 @@ export default class BaseToast extends Vue {
     this.addToFavorite(surah)
     this.showNotification({
       title: 'Pesan Sukses',
-      message: 'Surat berhasil ditambahkan ke daftar favorit.'
+      message: `Surat ${surah.latin} berhasil ditambahkan ke daftar favorit. `
     })
   }
 
@@ -84,7 +84,7 @@ export default class BaseToast extends Vue {
     this.removeFromFavorite(surah)
     this.showNotification({
       title: 'Pesan Sukses',
-      message: 'Surat berhasil dihapus dari daftar favorit.'
+      message: `Surat ${surah.latin} berhasil dihapus dari daftar favorit. `
     })
   }
 

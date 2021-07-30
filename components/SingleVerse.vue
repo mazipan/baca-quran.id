@@ -138,7 +138,7 @@ export default class SingleVerseCard extends Vue {
     this.setLastReadVerse(data)
     this.showNotification({
       title: 'Pesan Sukses',
-      message: 'Ayat telah ditambahkan ke terakhir dibaca.'
+      message: `QS ${data.surah}:${data.verse} telah ditambahkan ke terakhir dibaca.`
     })
   }
 

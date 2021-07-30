@@ -7,13 +7,12 @@
         target="_blank"
         rel="noopener noreferrer">Irfan Maulana</a>
     </div>
-    <div>
-      Cek juga&nbsp;
+    <div style="margin-top: .5em;">
+      Cek juga:
       <a
         href="https://ksana.in/"
         target="_blank"
-        rel="noopener noreferrer">Ksana.in</a>
-      &nbsp;
+        rel="noopener noreferrer">Ksana.in</a>,
       <a
         href="https://pramuka.online/"
         target="_blank"
