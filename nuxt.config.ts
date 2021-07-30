@@ -50,7 +50,7 @@ const config = {
     ],
     noscript: [
       {
-        innerHTML: 'This website requires JavaScript.',
+        innerHTML: 'Baca-Quran.id membutuhkan JavaScript agar berjalan dengan baik.',
         body: true
       }
     ],
@@ -73,18 +73,26 @@ const config = {
     lang: 'id',
     display: 'standalone'
   },
-  // workbox: {
-  //   cacheNames: {
-  //     prefix: 'baca-quran'
-  //   },
-  //   clientsClaim: true,
-  //   skipWaiting: true,
-  //   cleanupOutdatedCaches: true,
-  //   offline: false,
-  //   offlineStrategy: 'NetworkFirst',
-  //   preCaching: getOfflineAssets(),
-  //   cacheAssets: true
-  // },
+  pwa: {
+    workbox: {
+      cacheNames: {
+        prefix: 'bacaquran'
+      },
+      cleanupOutdatedCaches: true,
+      cacheAssets: true,
+      runtimeCaching: [
+        {
+          urlPattern: 'https://www.baca-quran.id/tulisan/.*',
+          handler: 'NetworkFirst'
+        },
+        {
+          urlPattern: 'https://www.baca-quran.id/stories/.*',
+          handler: 'NetworkFirst'
+        }
+      ],
+      pagesURLPattern: getRoutes()
+    }
+  },
   /*
    ** Customize the progress-bar color
    */
