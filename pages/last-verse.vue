@@ -38,7 +38,7 @@ import { AppConstant, META_TITLE_LAST_VERSE } from '~/constant'
     const resp = await import('~/data/surah-info.json')
     return {
       allSurahList: resp.surah_info.map((item) => {
-        return Object.assign({}, item, { index: item.index + 1 })
+        return Object.assign({}, item, { index: item.index })
       })
     }
   }

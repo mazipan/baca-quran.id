@@ -42,7 +42,7 @@ import { SurahInfo, SurahInfoJson } from '~/models/SurahInfo'
 
     return {
       allSurahList: juzAmmaData.map((item) => {
-        return Object.assign({}, item, { index: item.index + 1 })
+        return Object.assign({}, item, { index: item.index })
       })
     }
   }

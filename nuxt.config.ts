@@ -88,6 +88,20 @@ const config = {
         {
           urlPattern: 'https://www.baca-quran.id/stories/.*',
           handler: 'NetworkFirst'
+        },
+        {
+          urlPattern: 'https://www.baca-quran.id/assets/.*',
+          handler: 'CacheFirst',
+          strategyOptions: {
+            cacheName: 'static-cache'
+          },
+          strategyPlugins: [{
+            use: 'Expiration',
+            config: {
+              maxEntries: 50,
+              maxAgeSeconds: 60 * 60 * 24 * 30
+            }
+          }]
         }
       ],
       pagesURLPattern: getRoutes()

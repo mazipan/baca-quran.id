@@ -1974,14 +1974,6 @@
     ts-loader "^8.0.17"
     typescript "~4.2"
 
-"@nuxt/typescript-runtime@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@nuxt/typescript-runtime/-/typescript-runtime-2.1.0.tgz#8838bc929519f44ac40d8d2331aeb095a05965a5"
-  integrity sha512-quzxXiWq+jGdnCedDIYuBiExrfIJL3VL9o4gJyq6QzthKLYSvLzB6w4RiH6UbLtnNJyDoO9ywyNSI2+RUJr/Ng==
-  dependencies:
-    ts-node "^9.1.1"
-    typescript "~4.2"
-
 "@nuxt/utils@2.15.7":
   version "2.15.7"
   resolved "https://registry.yarnpkg.com/@nuxt/utils/-/utils-2.15.7.tgz#686c8e06c30c02b2af3b15f8bdd48e10a813766b"
@@ -13398,18 +13390,6 @@ ts-node@10.0.0:
     "@tsconfig/node12" "^1.0.7"
     "@tsconfig/node14" "^1.0.0"
     "@tsconfig/node16" "^1.0.1"
-    arg "^4.1.0"
-    create-require "^1.1.0"
-    diff "^4.0.1"
-    make-error "^1.1.1"
-    source-map-support "^0.5.17"
-    yn "3.1.1"
-
-ts-node@^9.1.1:
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-9.1.1.tgz#51a9a450a3e959401bda5f004a72d54b936d376d"
-  integrity sha512-hPlt7ZACERQGf03M253ytLY3dHbGNGrAq9qIHWUY9XHYl1z7wYngSr3OQ5xmui8o2AaxsONxIzjafLUiWBo1Fg==
-  dependencies:
     arg "^4.1.0"
     create-require "^1.1.0"
     diff "^4.0.1"
