@@ -18,6 +18,8 @@
       <div class="all-surah">
         <Surah :surah-array="filteredSurah" source="normal" />
       </div>
+
+      <SeoText :paragraph="`Baca Juz Amma (Qur'an Juz 30) beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`" />
     </div>
   </section>
 </template>
@@ -31,9 +33,12 @@ import { __isNotEmptyString, __normalizeText } from '~/utils/index'
 import { AppConstant, META_TITLE_JUZ_AMMA, META_DESC_JUZ_AMMA } from '~/constant/index'
 import { SurahInfo, SurahInfoJson } from '~/models/SurahInfo'
 
+import SeoText from '~/components/SeoText.vue'
+
 @Component({
   components: {
-    Surah
+    Surah,
+    SeoText
   },
   async asyncData () {
     // @ts-ignore

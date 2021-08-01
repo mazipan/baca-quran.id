@@ -173,7 +173,7 @@ const config = {
     postcss: {
       preset: {
         autoprefixer: {
-          grid: true
+          grid: false
         }
       }
     }

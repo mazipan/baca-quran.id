@@ -17,6 +17,7 @@
           </div>
         </div>
       </div>
+      <SeoText :paragraph="`Bacaan, urutan dan tata cara Wirid setelah sholat. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`" />
     </div>
   </div>
 </template>
@@ -26,7 +27,12 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 import { AppConstant, META_TITLE_WIRID, META_DESC_WIRID } from '~/constant'
 
+import SeoText from '~/components/SeoText.vue'
+
 @Component({
+  components: {
+    SeoText
+  },
   async asyncData () {
     const resp = await import('~/data/wirid.json')
     return {

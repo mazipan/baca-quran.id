@@ -4,6 +4,8 @@
       <div class="all-surah">
         <Surah :surah-array="allSurahList" source="amp" />
       </div>
+
+      <SeoText :paragraph="`Baca Quran lengkap 30 Juz 114 Surat beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`" />
     </div>
   </section>
 </template>
@@ -13,11 +15,14 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import Surah from '~/components/Surah.vue'
+import SeoText from '~/components/SeoText.vue'
+
 import { AppConstant, META_TITLE_ALL_SURAH, META_DESC_ALL_SURAH } from '~/constant/index'
 
 @Component({
   components: {
-    Surah
+    Surah,
+    SeoText
   },
   async asyncData () {
     const resp = await import('~/data/surah-info.json')

@@ -33,6 +33,8 @@
           class="block_content has-shadow text-left">
           <div v-html="currentSurahFromList.closing" />
         </div>
+
+        <SeoText :paragraph="`Baca Quran Surat ${currentSurah.name_latin} beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`" />
       </div>
 
       <SurahNavigation
@@ -53,6 +55,7 @@ import Breadcrumb from '~/components/Breadcrumb.vue'
 import VerseCard from '~/components/VerseCard.vue'
 import SurahHeader from '~/components/SurahHeader.vue'
 import SurahNavigation from '~/components/SurahNavigation.vue'
+import SeoText from '~/components/SeoText.vue'
 
 import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
 
@@ -61,7 +64,8 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
     Breadcrumb,
     VerseCard,
     SurahHeader,
-    SurahNavigation
+    SurahNavigation,
+    SeoText
   },
   validate ({ params }) {
     // @ts-ignore: Unreachable code error
@@ -85,21 +89,17 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
     // @ts-ignore: Unreachable code error
     const description = META_DESC_SURAH(respDetail[params.surahid].name_latin)
 
-    const currentSurahInfo = await import(`~/data/surah-info/${params.surahid}.json`)
+    const currentSurahInfo = await import(
+      `~/data/surah-info/${params.surahid}.json`
+    )
 
     return {
       metaTitle: title,
       metaDesc: description,
       surahId: Number(params.surahid) || 1,
       currentSurahFromList: currentSurahInfo.current,
-      nextSurah:
-        Number(params.surahid) >= 114
-          ? null
-          : currentSurahInfo.next,
-      prevSurah:
-        Number(params.surahid) <= 1
-          ? null
-          : currentSurahInfo.prev,
+      nextSurah: Number(params.surahid) >= 114 ? null : currentSurahInfo.next,
+      prevSurah: Number(params.surahid) <= 1 ? null : currentSurahInfo.prev,
       currentSurah: respDetail[params.surahid],
       jsonldBreadcrumb: getJsonLdBreadcrumb({
         categoryTitle: 'Daftar Surat',

@@ -33,6 +33,8 @@
           </div>
         </div>
       </div>
+
+      <SeoText :paragraph="`Daftar Asmaul Husna, lengkap dengan tulisan arab dan artinya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`" />
     </div>
   </div>
 </template>
@@ -44,7 +46,12 @@ import { State, Mutation } from 'vuex-class'
 import { __isNotEmptyString, __normalizeText } from '~/utils/index'
 import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '~/constant/index'
 
+import SeoText from '~/components/SeoText.vue'
+
 @Component({
+  components: {
+    SeoText
+  },
   async asyncData () {
     const resp = await import('~/data/asmaul-husna.json')
     return {

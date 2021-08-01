@@ -72,7 +72,7 @@ describe('pages all-surah.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = "Daftar semua surat dalam Al-Qur'an | Baca-Quran.id"
+    const title = "Semua Surat Al-Qur'an | Baca-Quran.id"
     expect(wrapper.vm.metaHead.title).toEqual(title)
     done()
   })

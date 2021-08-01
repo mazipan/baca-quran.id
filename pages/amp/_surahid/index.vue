@@ -20,6 +20,8 @@
           :tafsir="currentSurah.tafsir"
           source="surah-amp"
           :show-settings="false" />
+
+        <SeoText :paragraph="`Baca Quran Surat ${currentSurah.name_latin} beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`" />
       </div>
 
       <SurahNavigation
@@ -40,6 +42,7 @@ import Breadcrumb from '~/components/Breadcrumb.vue'
 import SurahHeader from '~/components/SurahHeader.vue'
 import SurahNavigation from '~/components/SurahNavigation.vue'
 import VerseCard from '~/components/VerseCard.vue'
+import SeoText from '~/components/SeoText.vue'
 
 import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
 
@@ -48,7 +51,8 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
     Breadcrumb,
     VerseCard,
     SurahHeader,
-    SurahNavigation
+    SurahNavigation,
+    SeoText
   },
   async asyncData ({ params }) {
     const respDetail = await import(`~/data/quran-json/surah/${params.surahid}.json`)

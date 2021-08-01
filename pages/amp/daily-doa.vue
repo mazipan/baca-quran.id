@@ -23,6 +23,8 @@
           </div>
         </div>
       </div>
+
+      <SeoText :paragraph="`Kumpulan bacaan Do'a sehari-hari untuk anak dan dewasa beserta tulisan latin dan terjemahan bahasa Indonesia. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`" />
     </div>
   </div>
 </template>
@@ -33,12 +35,17 @@ import { State, Mutation } from 'vuex-class'
 
 import { AppConstant, META_TITLE_DAILY_DOA, META_DESC_DAILY_DOA } from '~/constant/index'
 
+import SeoText from '~/components/SeoText.vue'
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface expandedData {
   title: string
 }
 
 @Component({
+  components: {
+    SeoText
+  },
   async asyncData () {
     const resp = await import('~/data/daily-doa.json')
     return {

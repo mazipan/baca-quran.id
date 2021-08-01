@@ -70,7 +70,7 @@ describe('pages asmaul-husna.vue', () => {
     const wrapper = createWrapper()
     // trigger change state with commit via mutations
     wrapper.vm.$store.commit(Types.SET_THEME, Theme.DARK)
-    const title = 'Daftar lengkap asmaul husna beserta terjemahan | Baca-Quran.id'
+    const title = 'Asmaul husna beserta terjemahan | Baca-Quran.id'
     expect(wrapper.vm.metaHead.title).toEqual(title)
     done()
   })

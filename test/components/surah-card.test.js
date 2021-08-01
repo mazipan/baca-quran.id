@@ -63,7 +63,7 @@ describe('component SurahCard.vue', () => {
 
   test('doAddToFavorite should trigger action in vuex', (done) => {
     const wrapper = createWrapper()
-    wrapper.vm.doAddToFavorite()
+    wrapper.vm.doAddToFavorite({ latin: 'Al-Fatihah' })
     expect(mockActionAddToFavorite).toHaveBeenCalled()
     expect(mockActionShowNotification).toHaveBeenCalled()
     done()
@@ -71,7 +71,7 @@ describe('component SurahCard.vue', () => {
 
   test('doRemoveFromfavorite should trigger action in vuex', (done) => {
     const wrapper = createWrapper()
-    wrapper.vm.doRemoveFromfavorite()
+    wrapper.vm.doRemoveFromfavorite({ latin: 'Al-Fatihah' })
     expect(mockActionRemoveFromFavorite).toHaveBeenCalled()
     expect(mockActionShowNotification).toHaveBeenCalled()
     done()

@@ -10,6 +10,8 @@
       <div class="translation">
         {{ ayatKursi.translation }}
       </div>
+
+      <SeoText :paragraph="`Bacaan Ayat Kursi dengan terjemahan bahasa Indonesia. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`" />
     </div>
   </div>
 </template>
@@ -19,7 +21,12 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 import { AppConstant, META_TITLE_AYAT_KURSI, META_DESC_AYAT_KURSI } from '~/constant/index'
 
+import SeoText from '~/components/SeoText.vue'
+
 @Component({
+  components: {
+    SeoText
+  },
   async asyncData () {
     const resp = await import('~/data/ayat-kursi.json')
     return {

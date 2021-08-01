@@ -16,6 +16,7 @@
           </div>
         </div>
       </div>
+      <SeoText :paragraph="`Bacaan Tahlil lengkap beserta urutan dan tata caranya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`" />
     </div>
   </div>
 </template>
@@ -25,12 +26,17 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 import { AppConstant, META_TITLE_TAHLIL, META_DESC_TAHLIL } from '~/constant'
 
+import SeoText from '~/components/SeoText.vue'
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface expandedData {
   id: number;
 }
 
 @Component({
+  components: {
+    SeoText
+  },
   async asyncData () {
     const resp = await import('~/data/tahlil.json')
     return {

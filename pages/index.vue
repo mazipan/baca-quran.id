@@ -420,6 +420,7 @@ import { __isNotEmptyArray } from '~/utils/index'
 @Component({
   components: {}
 })
+
 export default class PageIndex extends Vue {
   AppConstant = AppConstant;
   surahRecommendation = surahRecommendation.data;
@@ -518,24 +519,24 @@ export default class PageIndex extends Vue {
 }
 
 .home__wrapper {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 1em 1em 0 1em;
+  margin: 1em;
+  display: grid;
+  gap: .5em;
+  grid-template-columns: repeat(3, minmax(0,1fr));
 }
 
 .item {
-  flex-grow: 1;
-  margin: 0.3em;
 
   &__link {
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     flex-direction: column;
-    padding: 1em;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 1em .5em;
     border-radius: 4px;
     font-size: 0.8rem;
     background: var(--bg-card-color);
