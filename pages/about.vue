@@ -50,7 +50,7 @@
       </div>
 
       <footer class="footer">
-        <p>Copyright © 2018-2020</p>
+        <p>Copyright © 2018-{{ copyrightYear }}</p>
       </footer>
     </div>
   </div>
@@ -83,6 +83,12 @@ export default class PageAbout extends Vue {
           content: this.settingActiveTheme.bgColor
         }
       ]
+    }
+  }
+
+  data () {
+    return {
+      copyrightYear: new Date().getFullYear()
     }
   }
 
