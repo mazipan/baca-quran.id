@@ -27,6 +27,7 @@ import { State, Mutation } from 'vuex-class'
 import { AppConstant, META_TITLE_TAHLIL, META_DESC_TAHLIL } from '~/constant'
 
 import SeoText from '~/components/SeoText.vue'
+import { getTahlil } from '~/utils/asyncData'
 
 interface expandedData {
   id: number;
@@ -37,11 +38,7 @@ interface expandedData {
     SeoText
   },
   async asyncData () {
-    const resp = await import('~/data/tahlil.json')
-    return {
-      tahlilData: resp.data,
-      tahlilSource: resp.source
-    }
+    return await getTahlil()
   }
 })
 export default class TahlilPage extends Vue {

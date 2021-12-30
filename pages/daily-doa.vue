@@ -49,6 +49,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import { __isNotEmptyString, __normalizeText } from '~/utils/index'
+import { getDailyDoa } from '~/utils/asyncData'
 import { AppConstant, META_TITLE_DAILY_DOA, META_DESC_DAILY_DOA } from '~/constant/index'
 
 import SeoText from '~/components/SeoText.vue'
@@ -62,10 +63,7 @@ interface expandedData {
     SeoText
   },
   async asyncData () {
-    const resp = await import('~/data/daily-doa.json')
-    return {
-      dailyDoa: resp.data
-    }
+    return await getDailyDoa()
   }
 })
 

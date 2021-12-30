@@ -1,25 +1,14 @@
-## 👋 Thank you for the PR!
+Closes <!-- mention the issue that you're trying to close with this PR -->
 
-### Description:
+## Description
 
-Add short description
+<!-- Describe your implementation plan and approach -->
 
-### Issue Reference
+## Current Tasks
 
-Add issue reference
+<!-- (Optional) List the tasks that you're planning to do in this PR.
+This is to indicate how much you have been progressing before this PR is ready for review -->
 
-### Screenshoot
-
-Add screenshoot if you change the UI
-
-### Minimum Support
-
-- [ ] Click 🌟 button to this repo
-- [ ] Follow the Author
-
-### Consider to Support
-
-- 👉 🇮🇩 [Trakteer](https://trakteer.id/mazipan?utm_source=github)
-- 👉 🌍 [BuyMeACoffe](https://www.buymeacoffee.com/mazipan?utm_source=github)
-- 👉 🌍 [Paypal](https://www.paypal.me/mazipan?utm_source=github)
-- 👉 🌍 [Ko-Fi](https://ko-fi.com/mazipan)
+- [ ] (task 1)
+- [ ] (task 2)
+- [ ] (task 3)

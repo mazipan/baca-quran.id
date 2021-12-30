@@ -42,8 +42,8 @@ import SurahHeader from '~/components/SurahHeader.vue'
 import VerseNavigation from '~/components/VerseNavigation.vue'
 import SeoText from '~/components/SeoText.vue'
 
-import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
-import { AppConstant, META_TITLE_AYAH, META_DESC_AYAH } from '~/constant/index'
+import { getVerseDetail } from '~/utils/asyncData'
+import { AppConstant } from '~/constant/index'
 
 @Component({
   components: {
@@ -54,31 +54,7 @@ import { AppConstant, META_TITLE_AYAH, META_DESC_AYAH } from '~/constant/index'
     SeoText
   },
   async asyncData ({ params }) {
-    const respDetail = await import(`~/data/quran-json/surah/${params.surahid}.json`)
-    // @ts-ignore: Unreachable code error
-    const title = META_TITLE_AYAH(`${params.verseid}`, `${respDetail[params.surahid].name_latin} (${respDetail[params.surahid].translations.id.name})`)
-    // @ts-ignore: Unreachable code error
-    const description = META_DESC_AYAH(`${params.verseid}`, `${respDetail[params.surahid].name_latin} (${respDetail[params.surahid].translations.id.name})`)
-
-    return {
-      metaTitle: title,
-      metaDesc: description,
-      verseId: Number(params.verseid) || 1,
-      surahId: Number(params.surahid) || 1,
-      currentSurah: respDetail[params.surahid],
-      jsonldBreadcrumb: getJsonLdBreadcrumb({
-        categoryTitle: `QS ${params.surahid}`,
-        categorySlug: `${params.surahid}`,
-        title: `QS ${params.surahid}:${params.verseid}`,
-        slug: `${params.surahid}/${params.verseid}`
-      }),
-      jsonLdArticle: getJsonLdArticle({
-        desc: `${description}`,
-        cover: 'meta-image.png',
-        title: `${title}`,
-        slug: `${params.surahid}/${params.verseid}`
-      })
-    }
+    return await getVerseDetail({ surahid: params.surahid, verseid: params.verseid })
   }
 })
 

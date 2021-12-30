@@ -28,6 +28,7 @@ import IosBookmarkIcon from 'vue-ionicons/dist/js/ios-bookmark'
 import LastReadCard from '~/components/LastReadCard.vue'
 
 import { AppConstant, META_TITLE_LAST_VERSE } from '~/constant'
+import { getAllSurah } from '~/utils/asyncData'
 
 @Component({
   components: {
@@ -35,12 +36,7 @@ import { AppConstant, META_TITLE_LAST_VERSE } from '~/constant'
     LastReadCard
   },
   async asyncData () {
-    const resp = await import('~/data/surah-info.json')
-    return {
-      allSurahList: resp.surah_info.map((item) => {
-        return Object.assign({}, item, { index: item.index })
-      })
-    }
+    return await getAllSurah()
   }
 })
 export default class LastVersePage extends Vue {

@@ -28,17 +28,14 @@ import { State, Mutation } from 'vuex-class'
 import { AppConstant, META_TITLE_WIRID, META_DESC_WIRID } from '~/constant'
 
 import SeoText from '~/components/SeoText.vue'
+import { getWirid } from '~/utils/asyncData'
 
 @Component({
   components: {
     SeoText
   },
   async asyncData () {
-    const resp = await import('~/data/wirid.json')
-    return {
-      wiridData: resp.data,
-      wiridSource: resp.source
-    }
+    return await getWirid()
   }
 })
 

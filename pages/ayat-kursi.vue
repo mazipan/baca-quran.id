@@ -22,16 +22,14 @@ import { State, Mutation } from 'vuex-class'
 import { AppConstant, META_TITLE_AYAT_KURSI, META_DESC_AYAT_KURSI } from '~/constant/index'
 
 import SeoText from '~/components/SeoText.vue'
+import { getAyatKursi } from '~/utils/asyncData'
 
 @Component({
   components: {
     SeoText
   },
   async asyncData () {
-    const resp = await import('~/data/ayat-kursi.json')
-    return {
-      ayatKursi: resp.data
-    }
+    return await getAyatKursi()
   }
 })
 export default class AyatKursiPage extends Vue {

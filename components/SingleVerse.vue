@@ -1,12 +1,16 @@
 <template>
-  <div :id="`verse-${verseIndex}`" class="verse block_content has-shadow" :data-source="source">
+  <div :id="`verse-${verseIndex}`" class="verse block_content has-shadow" :class="{ 'playing' : playing}" :data-source="source">
     <div class="verse__header">
       <div class="verse__index tag_index">
         {{ Number(verseIndex) }}
       </div>
       <div class="verse__header--right">
-        <div v-if="!isAmp" class="verse__header_icon" @click="onClickAudioItem(Number(verseIndex))">
-          <MdVolumeHighIcon w="2em" h="2em" />
+        <div v-if="!isAmp && !playing" class="verse__header_icon" @click="onClickPlayAudioItem(Number(verseIndex))">
+          <MdPlayIcon w="2em" h="2em" />
+        </div>
+
+        <div v-if="!isAmp && playing" class="verse__header_icon" @click="onClickPauseAudioItem(Number(verseIndex))">
+          <MdPauseIcon w="2em" h="2em" />
         </div>
 
         <div
@@ -70,7 +74,8 @@ import { State, Action } from 'vuex-class'
 
 import MdShareIcon from 'vue-ionicons/dist/js/md-share'
 import MdBookmarkIcon from 'vue-ionicons/dist/js/md-bookmark'
-import MdVolumeHighIcon from 'vue-ionicons/dist/js/md-volume-high'
+import MdPauseIcon from 'vue-ionicons/dist/js/md-pause'
+import MdPlayIcon from 'vue-ionicons/dist/js/md-play'
 import MdLinkIcon from 'vue-ionicons/dist/js/md-link'
 import MurotalConstant from '~/constant/murotal'
 import { AppConstant } from '~/constant'
@@ -79,13 +84,14 @@ import { AppConstant } from '~/constant'
   components: {
     MdShareIcon,
     MdBookmarkIcon,
-    MdVolumeHighIcon,
+    MdPlayIcon,
+    MdPauseIcon,
     MdLinkIcon
   }
 })
 export default class SingleVerseCard extends Vue {
   AppConstant = AppConstant;
-  audioLink = '';
+  playing = false;
 
   @Prop({ type: [Object, Array], default: () => ({}) }) readonly verseArray!:
     | any
@@ -112,18 +118,52 @@ export default class SingleVerseCard extends Vue {
     return this.source.includes('amp')
   }
 
-  onClickAudioItem (verse) {
-    const hrefAudio = MurotalConstant.getAudioFromKemenag(this.surahId, verse)
-    this.audioLink = hrefAudio
+  get audioLink (): string {
+    return MurotalConstant.getAudioFromKemenag(this.surahId, this.verseIndex)
+  }
 
-    setTimeout(async () => {
-      try {
+  onClickPlayAudioItem (verse) {
+    const scopeVue = this
+    try {
+      const player: HTMLAudioElement = document.querySelector(`#audioVerseRef${verse}`)
+      scopeVue.playing = true
+
+      player.addEventListener('ended', function () {
+        scopeVue.playing = false
+      })
+
+      player.addEventListener('pause', function () {
+        scopeVue.playing = false
+      })
+
+      // @ts-ignore
+      if (window.currentAudio) {
         // @ts-ignore
-        const node = document.querySelector(`#audioVerseRef${verse}`)
+        console.log('window.currentAudio exist', window.currentAudio)
         // @ts-ignore
-        await node.play()
-      } catch {}
-    }, 500)
+        const _currentAudio = window.currentAudio
+        _currentAudio.pause()
+
+        console.log('window.currentAudio paused')
+        player.play()
+        // @ts-ignore
+        window.currentAudio = player
+      } else {
+        console.log('window.currentAudio not exist')
+        // @ts-ignore
+        window.currentAudio = player
+        player.play()
+      }
+    } catch {}
+  }
+
+  onClickPauseAudioItem (verse) {
+    const scopeVue = this
+    try {
+      scopeVue.playing = false
+      const player: HTMLAudioElement = document.querySelector(`#audioVerseRef${verse}`)
+      player.pause()
+    } catch {}
   }
 
   getTranslation (indexVerse) {
@@ -161,6 +201,10 @@ export default class SingleVerseCard extends Vue {
 .verse {
   text-align: left;
 
+  &.playing {
+    border: 2px solid var(--text-color);
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -174,6 +218,7 @@ export default class SingleVerseCard extends Vue {
       padding: 0 0.5em;
       position: relative;
       color: var(--text-color);
+      cursor: pointer;
     }
   }
   &__arabic {

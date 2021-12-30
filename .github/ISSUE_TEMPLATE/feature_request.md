@@ -1,20 +1,24 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Feature Request
+about: Propose feature additions to the project.
 title: ''
-labels: ''
-assignees: ''
+labels: enhancement
+assignees: mazipan
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## Description
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+<!-- Describe the proposed feature and how the project could benefit from it. -->
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Implementation Model
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+<!-- (Optional) If available, outline the possible steps to take (e.g. lines of code to change, architectural details, etc.) to implement the feature. -->
+
+## Tasks
+
+<!-- (Optional) List any available tasks for this issue with checkbox lists. -->
+
+- [ ] ...
+- [ ] ...
+- [ ] ...

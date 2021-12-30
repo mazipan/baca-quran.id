@@ -50,14 +50,14 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
-import { AppConstant, META_TITLE_SURAH, META_DESC_SURAH } from '~/constant'
+import { AppConstant } from '~/constant'
 import Breadcrumb from '~/components/Breadcrumb.vue'
 import VerseCard from '~/components/VerseCard.vue'
 import SurahHeader from '~/components/SurahHeader.vue'
 import SurahNavigation from '~/components/SurahNavigation.vue'
 import SeoText from '~/components/SeoText.vue'
 
-import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
+import { getSurahDetail } from '~/utils/asyncData'
 
 @Component({
   components: {
@@ -81,39 +81,7 @@ import { getJsonLdBreadcrumb, getJsonLdArticle } from '~/utils/jsonld'
     return false // will stop Nuxt.js to render the route and display the error page
   },
   async asyncData ({ params }) {
-    const respDetail = await import(
-      `~/data/quran-json/surah/${params.surahid}.json`
-    )
-    // @ts-ignore: Unreachable code error
-    const title = META_TITLE_SURAH(respDetail[params.surahid].name_latin)
-    // @ts-ignore: Unreachable code error
-    const description = META_DESC_SURAH(respDetail[params.surahid].name_latin)
-
-    const currentSurahInfo = await import(
-      `~/data/surah-info/${params.surahid}.json`
-    )
-
-    return {
-      metaTitle: title,
-      metaDesc: description,
-      surahId: Number(params.surahid) || 1,
-      currentSurahFromList: currentSurahInfo.current,
-      nextSurah: Number(params.surahid) >= 114 ? null : currentSurahInfo.next,
-      prevSurah: Number(params.surahid) <= 1 ? null : currentSurahInfo.prev,
-      currentSurah: respDetail[params.surahid],
-      jsonldBreadcrumb: getJsonLdBreadcrumb({
-        categoryTitle: 'Daftar Surat',
-        categorySlug: 'all-surah',
-        title: `${respDetail[params.surahid].name_latin}`,
-        slug: `${params.surahid}`
-      }),
-      jsonLdArticle: getJsonLdArticle({
-        desc: `${description}`,
-        cover: 'meta-image.png',
-        title: `${title}`,
-        slug: `${params.surahid}`
-      })
-    }
+    return await getSurahDetail({ surahid: params.surahid })
   }
 })
 export default class SurahDetailPage extends Vue {
