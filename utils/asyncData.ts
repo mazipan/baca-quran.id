@@ -1,5 +1,5 @@
 import { getJsonLdArticle, getJsonLdBreadcrumb } from './jsonld'
-import { META_DESC_SURAH, META_TITLE_SURAH } from '~/constant'
+import { META_DESC_AYAH, META_DESC_SURAH, META_TITLE_AYAH, META_TITLE_SURAH } from '~/constant'
 import { SurahInfo, SurahInfoJson } from '~/models/SurahInfo'
 
 const _getAllSurah = async () => {
