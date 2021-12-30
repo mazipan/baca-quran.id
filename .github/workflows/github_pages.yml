@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - master-not-valid
+      - master
   # schedule:
   #   - cron: "0 0 1 * *"
 
