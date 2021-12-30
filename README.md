@@ -29,7 +29,7 @@
 
 |                Light                 |              Blueish               |                 Nature                 |
 | :----------------------------------: | :--------------------------------: | :------------------------------------: |
-| ![light](screenshoot/home-light.png) | ![dark](screenshoot/home-dark.png) | ![nature](screenshoot/home-nature.png) |
+| ![light](screenshoot/tlight.png) | ![dark](screenshoot/tblue.png) | ![nature](screenshoot/tnature.png) |
 
 |           Asmaul Husna            |           Al-Fatihah            |           Do'a Harian           |
 | :-------------------------------: | :-----------------------------: | :-----------------------------: |
