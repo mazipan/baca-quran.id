@@ -82,4 +82,5 @@ dist
 .idea
 sw.*
 static/sitemap*
+static/timestamp.json
 eslint-report.html

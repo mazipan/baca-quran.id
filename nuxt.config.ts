@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import getRoutes from './build-scripts/getRoutes'
 import getSitemaps from './build-scripts/getSitemaps'
+import generateBuildTimestamp from './build-scripts/generateBuildTimestamp'
 // import getOfflineAssets from './build-scripts/getOfflineAssets'
 import { getJsonLdWebsite } from './utils/jsonld'
 
@@ -175,6 +176,14 @@ const config = {
         autoprefixer: {
           grid: false
         }
+      }
+    }
+  },
+
+  hooks: {
+    build: {
+      done () {
+        generateBuildTimestamp()
       }
     }
   }
