@@ -5,7 +5,7 @@
 ![Unit Test](https://github.com/mazipan/baca-quran.id/workflows/Unit%20Test/badge.svg?branch=master)
 [![Codecov](https://codecov.io/gh/mazipan/baca-quran.id/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/baca-quran.id)
 
-📖 Read Qur'an Directly from Your Web Browser. No Ads, No Analytics, It's Totally Free.
+📖 Read Qur'an from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
 <p align="center">
  <img src="static/assets/images/icon.png"/>
