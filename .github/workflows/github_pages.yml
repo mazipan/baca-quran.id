@@ -1,11 +1,7 @@
 name: Deploy
 
 on:
-  push:
-    branches:
-      - master-not-valid
-  # schedule:
-  #   - cron: "0 0 1 * *"
+  workflow_dispatch:
 
 jobs:
   deploy:
