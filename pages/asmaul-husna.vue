@@ -44,6 +44,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { State, Mutation } from 'vuex-class'
 
 import { __isNotEmptyString, __normalizeText } from '~/utils/index'
+import { getAsmaulHusna } from '~/utils/asyncData'
 import { AppConstant, META_TITLE_ASMAUL_HUSNA, META_DESC_ASMAUL_HUSNA } from '~/constant/index'
 
 import SeoText from '~/components/SeoText.vue'
@@ -53,10 +54,7 @@ import SeoText from '~/components/SeoText.vue'
     SeoText
   },
   async asyncData () {
-    const resp = await import('~/data/asmaul-husna.json')
-    return {
-      asmaulHusna: resp.data
-    }
+    return await getAsmaulHusna()
   }
 })
 

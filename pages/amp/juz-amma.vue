@@ -16,9 +16,9 @@ import { State, Mutation } from 'vuex-class'
 
 import Surah from '~/components/Surah.vue'
 import { AppConstant, META_TITLE_JUZ_AMMA, META_DESC_JUZ_AMMA } from '~/constant/index'
-import { SurahInfo, SurahInfoJson } from '~/models/SurahInfo'
 
 import SeoText from '~/components/SeoText.vue'
+import { getJuzAmma } from '~/utils/asyncData'
 
 @Component({
   components: {
@@ -26,15 +26,7 @@ import SeoText from '~/components/SeoText.vue'
     SeoText
   },
   async asyncData () {
-    // @ts-ignore
-    const resp: SurahInfoJson = await import('~/data/surah-info.json')
-    const juzAmmaData: SurahInfo[] = (resp && resp.surah_info.length > 0) ? resp.surah_info.filter(i => i.index >= 78) : []
-
-    return {
-      allSurahList: juzAmmaData.map((item) => {
-        return Object.assign({}, item, { index: item.index })
-      })
-    }
+    return await getJuzAmma()
   }
 })
 

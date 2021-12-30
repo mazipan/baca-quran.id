@@ -32,6 +32,7 @@ import Surah from '~/components/Surah.vue'
 import SeoText from '~/components/SeoText.vue'
 
 import { __isNotEmptyString, __normalizeText } from '~/utils/index'
+import { getAllSurah } from '~/utils/asyncData'
 import { AppConstant, META_TITLE_ALL_SURAH, META_DESC_ALL_SURAH } from '~/constant/index'
 
 @Component({
@@ -40,12 +41,7 @@ import { AppConstant, META_TITLE_ALL_SURAH, META_DESC_ALL_SURAH } from '~/consta
     SeoText
   },
   async asyncData () {
-    const resp = await import('~/data/surah-info.json')
-    return {
-      allSurahList: resp.surah_info.map((item) => {
-        return Object.assign({}, item, { index: item.index })
-      })
-    }
+    return await getAllSurah()
   }
 })
 

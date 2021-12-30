@@ -36,6 +36,7 @@ import { State, Mutation } from 'vuex-class'
 import { AppConstant, META_TITLE_DAILY_DOA, META_DESC_DAILY_DOA } from '~/constant/index'
 
 import SeoText from '~/components/SeoText.vue'
+import { getDailyDoa } from '~/utils/asyncData'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface expandedData {
@@ -47,10 +48,7 @@ interface expandedData {
     SeoText
   },
   async asyncData () {
-    const resp = await import('~/data/daily-doa.json')
-    return {
-      dailyDoa: resp.data
-    }
+    return await getDailyDoa()
   }
 })
 
