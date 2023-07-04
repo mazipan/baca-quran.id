@@ -33,7 +33,7 @@
 	</div>
 
 	<div class="mt-8 flex flex-col gap-4">
-		{#each Object.entries(surahData.text) as [numberVerse, verse]}
+		{#each Object.entries(surahData.text) as [numberVerse, verse] (verse)}
 			<div class="rounded overflow-hidden shadow-lg border-2">
 				<div class="px-6 py-4 flex justify-end gap-4 items-start">
 					<div class="font-bold text-2xl text-right font-arabic">{verse}</div>

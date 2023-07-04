@@ -1,4 +1,14 @@
-const surahInfo = {
+export type SurahInfoItem = {
+  translation: string
+  arabic: string
+  latin: string
+  ayah_count: number
+  index: number
+}
+
+export type SurahInfo = Record<string, SurahInfoItem>
+
+const surahInfo: SurahInfo = {
 	"1": {
 		"translation": "Pembukaan",
 		"arabic": "الفاتحة",

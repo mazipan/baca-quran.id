@@ -5,6 +5,10 @@
 			title: 'Daftar Semua Surat'
 		},
     {
+			href: '/juz-amma',
+			title: 'Juz Amma'
+		},
+    {
 			href: '/1/1',
 			title: 'Baca per Ayat'
 		}

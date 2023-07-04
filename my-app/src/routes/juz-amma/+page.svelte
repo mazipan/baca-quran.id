@@ -1,9 +1,15 @@
 <script>
 	import SurahInfo from '../../data/surah-info';
+
+  const SURAH_START = 78;
+
+  let juzAmma = Object.keys(SurahInfo).map(key => {
+    return SurahInfo[key]
+  }).filter(surah => surah.index >= SURAH_START)
 </script>
 
 <div class="px-2 flex flex-col gap-2">
-	{#each Object.entries(SurahInfo) as [_, item] (item.latin)}
+	{#each juzAmma as item (item.latin)}
 		<a class="rounded overflow-hidden shadow-lg border-2" href={`/${item.index}`}>
 			<div class="px-6 py-4 flex justify-between">
         <div class="flex gap-2 items-center">
