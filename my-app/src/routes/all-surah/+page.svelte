@@ -1,11 +1,9 @@
 <script>
-	import { surah_info } from '../../data/surah-info.json';
-
-	console.log(surah_info);
+	import SurahInfo from '../../data/surah-info';
 </script>
 
 <div class="flex flex-col gap-2">
-	{#each surah_info as item (item.index)}
+	{#each Object.entries(SurahInfo) as [_, item]}
 		<div class="rounded overflow-hidden shadow-lg">
 			<div class="px-6 py-4 flex justify-between">
         <div class="flex gap-2 items-center">

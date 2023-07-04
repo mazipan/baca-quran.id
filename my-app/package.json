@@ -11,7 +11,9 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"json:parse": "node ./scripts/parseJson.js",
-		"json:clean": "node ./scripts/cleanJson.js"
+		"json:clean": "node ./scripts/cleanJson.js",
+		"json:extract": "node ./scripts/extractOpening.js",
+		"json:compact": "node ./scripts/makeInfoCompact.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
