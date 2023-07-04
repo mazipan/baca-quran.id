@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { error } from '@sveltejs/kit';
 
-export const prerender = true
-
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
   if (params.surahid) {
@@ -30,4 +28,18 @@ export async function load({ params }) {
   }
 
   throw error(404, 'Not found');
+}
+
+export const prerender = true;
+
+/** @type {import('./$types').EntryGenerator} */
+export function entries() {
+  const allSurah = []
+  for (let index = 0; index < 114; index++) {
+    allSurah.push(index + 1)
+  }
+
+  return allSurah.map(surahId => ({
+    surahid: `${surahId}`
+  }))
 }

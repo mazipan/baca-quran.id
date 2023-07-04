@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { error } from '@sveltejs/kit';
-
-export const prerender = true
+import allSurahInfo from '../../../data/surah-info';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
@@ -38,4 +37,24 @@ export async function load({ params }) {
   }
 
   throw error(404, 'Not found');
+}
+
+export const prerender = true;
+
+/** @type {import('./$types').EntryGenerator} */
+export async function entries() {
+  const allSurahAndVerse = []
+  for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
+    const info = allSurahInfo[`${indexSurah + 1}`]
+    const allVerses = info.ayah_count
+    for (let indexVerse = 0; indexVerse < allVerses; indexVerse++) {
+      allSurahAndVerse.push({
+        surahid: `${indexSurah + 1}`,
+        verseid: `${indexVerse + 1}`,
+      })
+    }
+  }
+
+  console.log("DEBUG::", allSurahAndVerse)
+  return allSurahAndVerse
 }
