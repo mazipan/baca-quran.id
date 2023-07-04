@@ -1,6 +1,7 @@
 <script lang="ts">
   import { navigating } from '$app/stores'
 	import Pagination from '$lib/Pagination.svelte';
+	import VerseCard from '$lib/VerseCard.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -41,14 +42,7 @@
 
 	<div class="mt-8 flex flex-col gap-4">
 		{#each Object.entries(surahData.text) as [numberVerse, verse] (verse)}
-			<div class="rounded overflow-hidden shadow-lg border-2">
-				<div class="px-6 py-4 flex justify-end gap-4 items-start">
-					<div class="font-bold text-2xl text-right font-arabic">{verse}</div>
-					<div class="flex items-center justify-center border-2 rounded-lg h-8 px-2">
-						{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
-					</div>
-				</div>
-			</div>
+			<VerseCard verse={`${verse}`} numberVerse={numberVerse} />
 		{/each}
 	</div>
 

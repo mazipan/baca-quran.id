@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Drawer from '$lib/Drawer.svelte';
 	import Footer from '$lib/Footer.svelte';
-	// import Gradient from '$lib/Gradient.svelte';
 	import Header from '$lib/Header.svelte';
+	import { onMount } from 'svelte';
+	import { CONSTANTS, settingAudio, settingMuqadimah, settingTafsir, settingTranslation } from '../store';
 
 	import '../app.css';
 
@@ -11,6 +12,25 @@
   let handleToggleDrawer = () => {
     isDrawerOpen = !isDrawerOpen
   }
+
+  onMount(() => {
+    // Make sure it's only run on the client
+    if (typeof window !== 'undefined') {
+      if (typeof localStorage !== 'undefined') {
+        const storageAudio = localStorage.getItem(CONSTANTS.STORAGE_KEY.AUDIO)
+        settingAudio.set(!!(storageAudio && storageAudio === 'y'))
+
+        const storageMukadimah = localStorage.getItem(CONSTANTS.STORAGE_KEY.MUKADIMAH)
+        settingMuqadimah.set(!!(storageMukadimah && storageMukadimah === 'y'))
+
+        const storageTafsir = localStorage.getItem(CONSTANTS.STORAGE_KEY.TAFSIR)
+        settingTafsir.set(!!(storageTafsir && storageTafsir === 'y'))
+
+        const storageTranslation = localStorage.getItem(CONSTANTS.STORAGE_KEY.TRANSLATION)
+        settingTranslation.set(!!(storageTranslation && storageTranslation === 'y'))
+      }
+    }
+  })
 </script>
 
 <div>
