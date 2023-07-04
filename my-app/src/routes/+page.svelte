@@ -5,13 +5,29 @@
 			title: 'Daftar Semua Surat'
 		},
     {
+			href: '/1/1',
+			title: 'Baca per Ayat'
+		},
+    {
 			href: '/juz-amma',
 			title: 'Juz Amma'
 		},
     {
-			href: '/1/1',
-			title: 'Baca per Ayat'
-		}
+			href: '/asmaul-husna',
+			title: 'Asmaul Husna'
+		},
+    {
+			href: '/daily-doa',
+			title: 'Doa Harian'
+		},
+    {
+			href: '/wirid',
+			title: 'Wirid'
+		},
+    {
+			href: '/tahlil',
+			title: 'Tahlil'
+		},
 	];
 </script>
 

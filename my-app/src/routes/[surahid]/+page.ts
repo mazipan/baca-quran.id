@@ -7,13 +7,15 @@ export const prerender = true
 export async function load({ params }) {
   if (params.surahid) {
     try {
-      const surahData = await import(`../../data/surah-data/${params.surahid}.ts`);
-      const surahInfo = await import(`../../data/surah-info/${params.surahid}.ts`);
+      const isNotNumber = Number.isNaN(params.surahid);
+      const surahIdWithFallback = isNotNumber ? 1 : params.surahid;
+      const surahData = await import(`../../data/surah-data/${surahIdWithFallback}.ts`);
+      const surahInfo = await import(`../../data/surah-info/${surahIdWithFallback}.ts`);
 
       if (surahData) {
         return {
-          surahid: params.surahid,
-          surahData: surahData.default[params.surahid],
+          surahid: surahIdWithFallback,
+          surahData: surahData.default[surahIdWithFallback],
           surahInfo: surahInfo.default
         };
       }

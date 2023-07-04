@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Footer from '$lib/Footer.svelte';
 	// import Gradient from '$lib/Gradient.svelte';
 	import Header from '$lib/Header.svelte';

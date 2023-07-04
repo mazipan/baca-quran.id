@@ -6,18 +6,22 @@ export const prerender = true
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
   if (params.surahid && params.verseid) {
+    const isSurahNotNumber = Number.isNaN(params.surahid);
+    const surahIdWithFallback = isSurahNotNumber ? 1 : params.surahid;
+    const isVerseNotNumber = Number.isNaN(params.verseid);
+    const verseIdWithFallback = isVerseNotNumber ? 1 : params.verseid;
     try {
-      const surahData = await import(`../../../data/surah-data/${params.surahid}.ts`);
-      const surahInfo = await import(`../../../data/surah-info/${params.surahid}.ts`);
+      const surahData = await import(`../../../data/surah-data/${surahIdWithFallback}.ts`);
+      const surahInfo = await import(`../../../data/surah-info/${surahIdWithFallback}.ts`);
 
       if (surahData) {
         return {
-          surahid: params.surahid,
-          verseid: params.verseid,
+          surahid: surahIdWithFallback,
+          verseid: verseIdWithFallback,
           verseData: {
-            text: surahData.default[params.surahid].text[params.verseid],
-            translation: surahData.default[params.surahid].translations.id.text[params.verseid],
-            tafsir: surahData.default[params.surahid].tafsir.id.kemenag.text[params.verseid]
+            text: surahData.default[surahIdWithFallback].text[verseIdWithFallback],
+            translation: surahData.default[surahIdWithFallback].translations.id.text[verseIdWithFallback],
+            tafsir: surahData.default[surahIdWithFallback].tafsir.id.kemenag.text[verseIdWithFallback]
           },
           surahInfo: surahInfo.default
         };

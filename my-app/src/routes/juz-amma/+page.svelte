@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import SurahInfo from '../../data/surah-info';
 
   const SURAH_START = 78;
