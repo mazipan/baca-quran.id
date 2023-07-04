@@ -1,14 +1,22 @@
 <script lang="ts">
+	import Drawer from '$lib/Drawer.svelte';
 	import Footer from '$lib/Footer.svelte';
 	// import Gradient from '$lib/Gradient.svelte';
 	import Header from '$lib/Header.svelte';
 
 	import '../app.css';
+
+  let isDrawerOpen = false;
+
+  let handleToggleDrawer = () => {
+    isDrawerOpen = !isDrawerOpen
+  }
 </script>
 
-<div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200">
+<div>
 	<div class="relative container mx-auto max-w-[500px]">
-		<Header />
+    <Drawer open={isDrawerOpen} onToggle={handleToggleDrawer} />
+		<Header onToggleDrawer={handleToggleDrawer} />
 		<!-- <Gradient variant="top" /> -->
 		<main class="min-h-[70vh]">
 			<slot />
