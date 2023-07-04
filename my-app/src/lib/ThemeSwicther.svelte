@@ -23,7 +23,7 @@
 	});
 </script>
 
-<button class="theme-swither cursor-pointer p-2 border-2 rounded-md"
+<button class="theme-swither cursor-pointer p-2 rounded-md"
 on:click={handleSwitchTheme}>
 	{#if $activeTheme === 'dark'}
 		<svg

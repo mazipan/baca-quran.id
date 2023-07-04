@@ -1,5 +1,6 @@
 <script lang="ts">
   import { navigating } from '$app/stores'
+	import Pagination from '$lib/Pagination.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -8,6 +9,10 @@
 	let surahData = data?.surahData;
 	let surahInfo = data?.surahInfo;
 </script>
+
+<div class="flex gap-2 px-2 mb-4">
+  <h1 class="text-3xl font-bold">📖 Baca per Surat</h1>
+</div>
 
 <article class="px-2">
   {#if $navigating}
@@ -32,6 +37,8 @@
 		</div>
 	</div>
 
+  <Pagination variant="surah" surahInfo={surahInfo} surahid={surahid} verseid=""/>
+
 	<div class="mt-8 flex flex-col gap-4">
 		{#each Object.entries(surahData.text) as [numberVerse, verse] (verse)}
 			<div class="rounded overflow-hidden shadow-lg border-2">
@@ -45,42 +52,6 @@
 		{/each}
 	</div>
 
-	<nav class="mt-8 flex justify-between">
-		{#if surahInfo.prev}
-			<a
-				href={`/${parseInt(surahid, 10) - 1}`}
-				class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        data-sveltekit-reload
-			>
-				&lt;&lt; Prev
-			</a>
-		{:else}
-			<a
-				href={`/114`}
-				class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        data-sveltekit-reload
-			>
-				&lt;&lt; Ke surat terakhir
-			</a>
-		{/if}
-
-		{#if surahInfo.next}
-			<a
-				href={`/${parseInt(surahid, 10) + 1}`}
-				class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        data-sveltekit-reload
-			>
-				Next &gt;&gt;
-			</a>
-		{:else}
-			<a
-				href={`/1`}
-				class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        data-sveltekit-reload
-			>
-				Ke surat awal &gt;&gt;
-			</a>
-		{/if}
-	</nav>
+  <Pagination variant="surah" surahInfo={surahInfo} surahid={surahid} verseid=""/>
   {/if}
 </article>

@@ -2,6 +2,10 @@
 	import asmaulHusna from '../../data/asmaul-husna';
 </script>
 
+<div class="flex gap-2 px-2 mb-4">
+  <h1 class="text-3xl font-bold">💯 Asmaul Husna</h1>
+</div>
+
 <div class="px-2 flex flex-col gap-2">
 	{#each asmaulHusna as item (item.latin)}
 		<div class="rounded overflow-hidden shadow-lg border-2">

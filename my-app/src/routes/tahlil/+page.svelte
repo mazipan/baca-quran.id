@@ -2,6 +2,10 @@
 	import tahlil from '../../data/tahlil';
 </script>
 
+<div class="flex gap-2 px-2 mb-4">
+  <h1 class="text-3xl font-bold">🤲 Tahlil</h1>
+</div>
+
 <div class="px-2 flex flex-col gap-2">
 	{#each tahlil.data as item (item.id)}
 		<div class="rounded overflow-hidden shadow-lg border-2">

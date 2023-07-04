@@ -10,7 +10,7 @@
 	<div class="relative container mx-auto max-w-[500px]">
 		<Header />
 		<!-- <Gradient variant="top" /> -->
-		<main class="min-h-screen">
+		<main class="min-h-[70vh]">
 			<slot />
 		</main>
 		<!-- <Gradient variant="bottom" /> -->

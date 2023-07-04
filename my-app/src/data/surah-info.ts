@@ -6,6 +6,12 @@ export type SurahInfoItem = {
   index: number
 }
 
+export type SurahInfoPage = {
+  current: SurahInfoItem
+  next?: SurahInfoItem
+  prev?: SurahInfoItem
+}
+
 export type SurahInfo = Record<string, SurahInfoItem>
 
 const surahInfo: SurahInfo = {

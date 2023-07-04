@@ -2,31 +2,31 @@
 	let actionIcons = [
 		{
 			href: '/all-surah',
-			title: 'Daftar Semua Surat'
+			title: '📚 Daftar Semua Surat'
 		},
     {
 			href: '/1/1',
-			title: 'Baca per Ayat'
+			title: '📖 Baca per Ayat'
 		},
     {
 			href: '/juz-amma',
-			title: 'Juz Amma'
+			title: '📒 Juz Amma'
 		},
     {
 			href: '/asmaul-husna',
-			title: 'Asmaul Husna'
+			title: '💯 Asmaul Husna'
 		},
     {
 			href: '/daily-doa',
-			title: 'Doa Harian'
+			title: '🙏 Doa Harian'
 		},
     {
 			href: '/wirid',
-			title: 'Wirid'
+			title: '📿 Wirid'
 		},
     {
 			href: '/tahlil',
-			title: 'Tahlil'
+			title: '🤲 Tahlil'
 		},
 	];
 </script>

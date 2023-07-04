@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
+	import Pagination from '$lib/Pagination.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -10,6 +11,10 @@
 	let surahInfo = data?.surahInfo;
 </script>
 
+<div class="flex gap-2 px-2 mb-4">
+  <h1 class="text-3xl font-bold">📖 Baca per Ayat</h1>
+</div>
+
 <article class="px-2">
 	{#if $navigating}
 		<span>Loading...</span>
@@ -17,11 +22,8 @@
 		<div class="rounded overflow-hidden shadow-lg border-2">
 			<div class="px-6 py-4 flex justify-between">
 				<div class="flex gap-2 items-center">
-					<div class="flex items-center justify-center text-5xl">
-						{parseInt(surahid, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
-					</div>
 					<div class="flex flex-col items-start justify-center">
-						<span class="font-bold">{surahInfo.current.latin}</span>
+						<a class="font-bold underline" href={`/${surahid}`}>{surahInfo.current.latin}</a>
 						<small class="text-xs text-gray-400">{surahInfo.current.translation}</small>
 					</div>
 				</div>
@@ -45,60 +47,7 @@
 			</div>
 		</div>
 
-		<nav class="mt-8 flex justify-between items-center">
-			{#if parseInt(verseid, 10) > 1}
-				<a
-					href={`/${surahid}/${parseInt(verseid, 10) - 1}`}
-					class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-					data-sveltekit-reload
-				>
-					&lt;&lt; Prev
-				</a>
-			{:else if surahInfo.prev}
-				<a
-					href={`/${parseInt(surahid, 10) - 1}`}
-					class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-					data-sveltekit-reload
-				>
-					&lt;&lt; Ke surat sebelumnya
-				</a>
-			{:else}
-				<a
-					href={`/114/1`}
-					class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-					data-sveltekit-reload
-				>
-					&lt;&lt; Ke surat terakhir
-				</a>
-			{/if}
+    <Pagination variant="verse" surahInfo={surahInfo} surahid={surahid} verseid={verseid}/>
 
-      <span>{verseid} / {surahInfo.current.ayah_count}</span>
-
-			{#if parseInt(verseid, 10) < parseInt(surahInfo.current.ayah_count, 10)}
-				<a
-					href={`/${surahid}/${parseInt(verseid, 10) + 1}`}
-					class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-					data-sveltekit-reload
-				>
-					Next &gt;&gt;
-				</a>
-			{:else if surahInfo.next}
-				<a
-					href={`/${parseInt(surahid, 10) + 1}/1`}
-					class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-					data-sveltekit-reload
-				>
-					Ke surat berikutnya &gt;&gt;
-				</a>
-			{:else}
-				<a
-					href={`/1/1`}
-					class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-					data-sveltekit-reload
-				>
-					Ke surat awal &gt;&gt;
-				</a>
-			{/if}
-		</nav>
 	{/if}
 </article>
