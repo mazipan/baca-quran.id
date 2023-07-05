@@ -47,14 +47,11 @@ jobs:
           pnpm run build
           touch build/.nojekyll
 
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.PERSONAL_TOKEN }}
-      #     publish_dir: ./build
-      #     external_repository: mazipan-quran-offline/mazipan-quran-offline.github.io
-      #     publish_branch: master
-
+      - name: Commit generated files only
+        run: |
+          echo "> Start remove unused files..."
+          git config --local user.email "mazipanneh@gmail.com"
+          git config --local user.name "Irfan Maulana"
 
       - name: GitHub
         uses: ad-m/github-push-action@v0.6.0
