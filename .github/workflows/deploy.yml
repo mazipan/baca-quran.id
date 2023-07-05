@@ -49,27 +49,34 @@ jobs:
           pnpm run build
           touch build/.nojekyll
 
-      - name: Upload Artifacts
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: 'build/'
-
-  deploy:
-    needs: build_site
-    runs-on: ubuntu-latest
-
-    permissions:
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
       - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v2
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./build
+
+  #     - name: Upload Artifacts
+  #       uses: actions/upload-pages-artifact@v1
+  #       with:
+  #         path: 'build/'
+
+  # deploy:
+  #   needs: build_site
+  #   runs-on: ubuntu-latest
+
+  #   permissions:
+  #     pages: write
+  #     id-token: write
+
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+
+  #   steps:
+  #     - name: Deploy
+  #       id: deployment
+  #       uses: actions/deploy-pages@v2
+  #       with:
+  #         token: ${{ secrets.PERSONAL_TOKEN }}
 
