@@ -1,35 +1,35 @@
 <script lang="ts">
 	let actionIcons = [
 		{
-			href: '/all-surah',
+			href: '/all-surah/',
 			title: '📚 Daftar Semua Surat'
 		},
     {
-			href: '/1/1',
+			href: '/surah/1/1/',
 			title: '📖 Baca per Ayat'
 		},
     {
-			href: '/juz-amma',
+			href: '/juz-amma/',
 			title: '📒 Juz Amma'
 		},
     {
-			href: '/asmaul-husna',
+			href: '/asmaul-husna/',
 			title: '💯 Asmaul Husna'
 		},
     {
-			href: '/daily-doa',
+			href: '/daily-doa/',
 			title: '🙏 Doa Harian'
 		},
     {
-			href: '/wirid',
+			href: '/wirid/',
 			title: '📿 Wirid'
 		},
     {
-			href: '/tahlil',
+			href: '/tahlil/',
 			title: '🤲 Tahlil'
 		},
     {
-			href: '/ayat-kursi',
+			href: '/ayat-kursi/',
 			title: '🪑 Ayat Kursi'
 		},
 	];

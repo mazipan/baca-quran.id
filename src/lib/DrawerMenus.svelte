@@ -76,7 +76,7 @@
 	<li class="sidebar__item">
 		<a
 			data-sveltekit-reload
-			href="/settings"
+			href="/settings/"
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-700 dark:focus:bg-gray-700"
 		>
 			<svg
@@ -125,7 +125,7 @@
 	<li class="sidebar__item">
 		<a
 			data-sveltekit-reload
-			href="/about"
+			href="/about/"
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-700 dark:focus:bg-gray-700"
 		>
 			<svg

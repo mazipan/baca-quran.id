@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { error } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
@@ -7,8 +7,8 @@ export async function load({ params }) {
     try {
       const isNotNumber = Number.isNaN(params.surahid);
       const surahIdWithFallback = isNotNumber ? 1 : params.surahid;
-      const surahData = await import(`../../data/surah-data/${surahIdWithFallback}.ts`);
-      const surahInfo = await import(`../../data/surah-info/${surahIdWithFallback}.ts`);
+      const surahData = await import(`../../../data/surah-data/${surahIdWithFallback}.ts`);
+      const surahInfo = await import(`../../../data/surah-info/${surahIdWithFallback}.ts`);
 
       if (surahData) {
         return {
@@ -27,10 +27,11 @@ export async function load({ params }) {
     };
   }
 
-  throw error(404, 'Not found');
+  throw redirect(307, '/');
 }
 
 export const prerender = true;
+export const trailingSlash = 'always';
 
 /** @type {import('./$types').EntryGenerator} */
 export function entries() {

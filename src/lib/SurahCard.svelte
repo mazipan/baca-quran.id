@@ -4,7 +4,7 @@
 	export let surah: SurahInfoItem;
 </script>
 
-<a class="rounded overflow-hidden shadow-lg border-2" href={`/${surah.index}`}>
+<a class="rounded overflow-hidden shadow-lg border-2" href={`/surah/${surah.index}/`}>
 	<div class="px-6 py-4 flex justify-between">
 		<div class="flex gap-2 items-center">
 			<div class="flex items-center justify-center text-3xl">
