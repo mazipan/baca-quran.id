@@ -2,14 +2,13 @@
 
 ![Nuxt TypeScript](https://img.shields.io/badge/Nuxt-TypeScript-blue.svg)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors)
-![Unit Test](https://github.com/mazipan/baca-quran.id/workflows/Unit%20Test/badge.svg?branch=master)
 [![Codecov](https://codecov.io/gh/mazipan/baca-quran.id/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/baca-quran.id)
 ![Last Deployed](https://img.shields.io/endpoint?url=https%3A%2F%2Fwww.baca-quran.id%2Ftimestamp.json)
 
 📖 Read Qur'an from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
 <p align="center">
- <img src="static/assets/images/icon.png"/>
+ <img src="static/images/icon.png"/>
 </p>
 
 ## Live Website
