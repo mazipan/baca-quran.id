@@ -28,6 +28,10 @@
 			href: '/tahlil',
 			title: '🤲 Tahlil'
 		},
+    {
+			href: '/ayat-kursi',
+			title: '🪑 Ayat Kursi'
+		},
 	];
 </script>
 

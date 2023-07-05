@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
 	import Pagination from '$lib/Pagination.svelte';
+	import SeoText from '$lib/SeoText.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
 
 	/** @type {import('./$types').PageData} */
@@ -13,7 +14,7 @@
 </script>
 
 <div class="flex gap-2 px-2 mb-4">
-  <h1 class="text-3xl font-bold">📖 Baca per Ayat</h1>
+	<h1 class="text-3xl font-bold">📖 Baca per Ayat</h1>
 </div>
 
 <article class="px-2">
@@ -41,7 +42,11 @@
 			<VerseCard verse={`${verseData.text}`} numberVerse={verseid} />
 		</div>
 
-    <Pagination variant="verse" surahInfo={surahInfo} surahid={surahid} verseid={verseid}/>
-
+		<Pagination variant="verse" {surahInfo} {surahid} {verseid} />
 	{/if}
 </article>
+
+<SeoText
+	variant="AYAT_DETAIL"
+	params={{ surahLatin: surahInfo.current.latin, verseNumber: verseid }}
+/>

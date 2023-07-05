@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoText from '$lib/SeoText.svelte';
 	import asmaulHusna from '../../data/asmaul-husna';
 </script>
 
@@ -25,3 +26,5 @@
 		</div>
 	{/each}
 </div>
+
+<SeoText variant="ASMAUL_HUSNA" />

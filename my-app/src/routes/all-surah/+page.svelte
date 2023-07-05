@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoText from '$lib/SeoText.svelte';
 	import SurahCard from '$lib/SurahCard.svelte';
 import SurahInfo from '../../data/surah-info';
 </script>
@@ -12,3 +13,5 @@ import SurahInfo from '../../data/surah-info';
     <SurahCard surah={item}/>
 	{/each}
 </div>
+
+<SeoText variant="ALL_SURAH" />
