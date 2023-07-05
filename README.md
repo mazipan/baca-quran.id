@@ -36,39 +36,20 @@
 | :-------------------------------: | :-----------------------------: | :-----------------------------: |
 | ![](screenshoot/asmaul-husna.png) | ![](screenshoot/al-fatihah.png) | ![](screenshoot/doa-harian.png) |
 
-## Build Setup
-
-This project developed using [Nuxt.js](https://nuxtjs.org/), for complete documentation please take a look into official documentation in <https://nuxtjs.org/>.
-
-### Checkout Project
+## Local Setup
 
 ```bash
-# Checkout project
-$ git checkout git@github.com:mazipan/baca-quran.id.git
-
-# Update submodule
-$ git submodule init
-$ git submodule update --remote
-```
-
-### Local Setup
-
-```bash
-# Install dependencies
-$ yarn install
-
-# Serve with hot reload at localhost:3000
-$ yarn dev
+$ pnpm i
+$ pnpm run dev
 ```
 
 ### Deployment
 
 ```bash
-# Generate static files
-$ yarn generate:ci
+$ pnpm run build
 ```
 
-Copy `dist` folder to your hosting.
+Copy `build` folder to your hosting.
 
 ## Credit
 

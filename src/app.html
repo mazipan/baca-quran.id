@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200">
+		<div style="display: contents">%sveltekit.body%</div>
+
+		<script>
+			(function () {
+				window.__header_theme = { dark: '#172642', light: '#f5f7fb' };
+				window.__onThemeChange = function () {};
+				var preferredTheme;
+				try {
+					preferredTheme = localStorage.getItem('theme');
+				} catch (err) {}
+
+				function setTheme(newTheme) {
+					window.__theme = newTheme;
+					preferredTheme = newTheme;
+					// document.body.className = newTheme;
+          document.querySelector('html').className = newTheme;
+					document
+						.querySelector('meta[name="theme-color"]')
+						?.setAttribute('content', window.__header_theme[newTheme]);
+
+					window.__onThemeChange(newTheme);
+				}
+
+				window.__setPreferredTheme = function (newTheme) {
+					setTheme(newTheme);
+					try {
+						localStorage.setItem('theme', newTheme);
+					} catch (err) {}
+				};
+
+				var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+				darkQuery.addListener(function (e) {
+					window.__setPreferredTheme(e.matches ? 'dark' : 'light');
+				});
+
+				setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+			})();
+		</script>
+	</body>
+</html>
