@@ -1,12 +1,13 @@
-# nuxt.js build output
-.nuxt
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
 
-# Nuxt generate
-dist
-coverage
-
-data
-sw.*
-static/sitemap*
-*rc.{js,ts,vue}
-*.config.{js,ts,vue}
+# Ignore files for PNPM, NPM and YARN
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
