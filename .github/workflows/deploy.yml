@@ -42,17 +42,24 @@ jobs:
         run: pnpm install
 
       - name: build
-        env:
-          BASE_PATH: 'baca-quran.id'
         run: |
           pnpm run json:timestamp
           pnpm run build
           touch build/.nojekyll
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.PERSONAL_TOKEN }}
+      #     publish_dir: ./build
+      #     external_repository: mazipan-quran-offline/mazipan-quran-offline.github.io
+      #     publish_branch: master
+
+
+      - name: GitHub
+        uses: ad-m/github-push-action@v0.6.0
         with:
+          directory: ./build
           github_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./build
-          external_repository: mazipan-quran-offline/mazipan-quran-offline.github.io
-          publish_branch: master
+          force: true
+          repository: mazipan-quran-offline/mazipan-quran-offline.github.io
