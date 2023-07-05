@@ -1,6 +1,10 @@
 <script lang="ts">
+
+	import { settingTranslation, settingTafsir } from '../store';
 	export let verse: string;
 	export let numberVerse: string;
+	export let translation: string;
+	export let tafsir: string;
 </script>
 
 <div class="rounded overflow-hidden shadow-lg border-2">
@@ -10,4 +14,13 @@
       {parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
     </div>
   </div>
+  {#if $settingTranslation && translation}
+    <p class="p-4 italic text-gray-600 dark:text-gray-300">🔸 Terjemahan: {translation}</p>
+  {/if}
+  {#if $settingTafsir && tafsir}
+    <div class="p-4 text-gray-600 dark:text-gray-300">
+      <p class="mb-2 text-gray-600 dark:text-gray-300">🔹 Tafsir: {tafsir}</p>
+      <small class="italic">Sumber: Kemenag - Aplikasi Quran Kementrian Agama Republik Indonesia</small>
+    </div>
+  {/if}
 </div>

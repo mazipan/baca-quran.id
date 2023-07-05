@@ -3,6 +3,8 @@
 	import Pagination from '$lib/Pagination.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
+	import { META_DESC_AYAH, META_TITLE_AYAH } from '$lib/constants';
+	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/json-ld';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -12,6 +14,26 @@
 	let verseData = data?.verseData;
 	let surahInfo = data?.surahInfo;
 </script>
+
+<svelte:head>
+	{@html serializeSchema(
+		getJsonLdArticle({
+			slug: `/${surahid}/${verseid}`,
+			title: META_TITLE_AYAH(verseid, surahInfo.current.latin),
+			cover: 'meta-image.png',
+			desc: META_DESC_AYAH(verseid, surahInfo.current.latin)
+		})
+	)}
+
+	{@html serializeSchema(
+		getJsonLdBreadcrumb({
+      categoryTitle: `QS ${surahid}`,
+      categorySlug: `${surahid}`,
+      title: `QS ${surahid}:${verseid}`,
+      slug: `${surahid}/${verseid}`
+		})
+	)}
+</svelte:head>
 
 <div class="flex gap-2 px-2 mb-4">
 	<h1 class="text-3xl font-bold">📖 Baca per Ayat</h1>
@@ -39,7 +61,7 @@
 		</div>
 
 		<div class="mt-8 flex flex-col gap-4">
-			<VerseCard verse={`${verseData.text}`} numberVerse={verseid} />
+			<VerseCard verse={`${verseData.text}`} numberVerse={verseid} translation={verseData.translation} tafsir={verseData.tafsir} />
 		</div>
 
 		<Pagination variant="verse" {surahInfo} {surahid} {verseid} />

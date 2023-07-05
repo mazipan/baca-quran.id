@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { CONSTANTS, settingAudio, settingMuqadimah, settingTafsir, settingTranslation } from '../../store';
+	import { CONSTANTS } from '$lib/constants';
+	import { settingAudio, settingMuqadimah, settingTafsir, settingTranslation } from '../../store';
 </script>
 
 <div class="flex gap-2 px-2 mb-4">
@@ -15,8 +16,8 @@
 				name="chk-translation"
 				checked={$settingTranslation}
 				on:change={(e) => {
-          const checked = e?.target?.checked ?? false
-          localStorage.setItem(CONSTANTS.STORAGE_KEY.TRANSLATION, checked ? 'y' : 'n');
+					const checked = e?.target?.checked ?? false;
+					localStorage.setItem(CONSTANTS.STORAGE_KEY.TRANSLATION, checked ? 'y' : 'n');
 
 					settingTranslation.update((val) => !val);
 				}}
@@ -30,8 +31,8 @@
 				name="chk-tafsir"
 				checked={$settingTafsir}
 				on:change={(e) => {
-          const checked = e?.target?.checked ?? false
-          localStorage.setItem(CONSTANTS.STORAGE_KEY.TAFSIR, checked ? 'y' : 'n');
+					const checked = e?.target?.checked ?? false;
+					localStorage.setItem(CONSTANTS.STORAGE_KEY.TAFSIR, checked ? 'y' : 'n');
 
 					settingTafsir.update((val) => !val);
 				}}
@@ -45,8 +46,8 @@
 				name="chk-mukadimah"
 				checked={$settingMuqadimah}
 				on:change={(e) => {
-          const checked = e?.target?.checked ?? false
-          localStorage.setItem(CONSTANTS.STORAGE_KEY.MUKADIMAH, checked ? 'y' : 'n');
+					const checked = e?.target?.checked ?? false;
+					localStorage.setItem(CONSTANTS.STORAGE_KEY.MUKADIMAH, checked ? 'y' : 'n');
 
 					settingMuqadimah.update((val) => !val);
 				}}
@@ -60,8 +61,8 @@
 				name="chk-audio"
 				checked={$settingAudio}
 				on:change={(e) => {
-          const checked = e?.target?.checked ?? false
-          localStorage.setItem(CONSTANTS.STORAGE_KEY.AUDIO, checked ? 'y' : 'n');
+					const checked = e?.target?.checked ?? false;
+					localStorage.setItem(CONSTANTS.STORAGE_KEY.AUDIO, checked ? 'y' : 'n');
 
 					settingAudio.update((val) => !val);
 				}}

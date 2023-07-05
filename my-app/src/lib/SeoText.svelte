@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SEO_TEXT, type SeoArgs, type PageVariant, SEO_TEXT_DYNAMIC } from '../store';
+	import { SEO_TEXT, type SeoArgs, type PageVariant, SEO_TEXT_DYNAMIC } from './constants';
 
 	export let variant: PageVariant;
 	export let params: SeoArgs | null = null;
