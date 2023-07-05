@@ -18,7 +18,7 @@ export async function load({ params }) {
         };
       }
     } catch (error) {
-      console.error(error)
+      console.error("Error loading data in route '/[surahid]'", params, error)
     }
     return {
       surahid: params.surahid,
