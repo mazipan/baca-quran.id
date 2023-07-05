@@ -71,7 +71,7 @@ jobs:
           rm svelte.config.js
           rm tailwind.config.js
           rm tsconfig.json
-          rm vite.config.js
+          rm vite.config.ts
           cp -r build/. ./
           rm -rf build
           git config --local user.email "mazipanneh@gmail.com"
