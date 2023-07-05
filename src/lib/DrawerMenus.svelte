@@ -25,7 +25,7 @@
 	</li>
 	<li class="sidebar__item">
 		<a
-			href="/tulisan"
+			href="https://www.baca-quran.id/tulisan"
 			target="_blank"
 			rel="noopener noreferrer"
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-700 dark:focus:bg-gray-700"
@@ -50,7 +50,7 @@
 	</li>
 	<li class="sidebar__item">
 		<a
-			href="/stories"
+			href="https://www.baca-quran.id/stories"
 			target="_blank"
 			rel="noopener noreferrer"
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-700 dark:focus:bg-gray-700"
@@ -150,7 +150,7 @@
 		<a
 			href="https://github.com/mazipan/baca-quran.id"
 			target="_blank"
-			rel="noopener"
+			rel="noopener noreferrer"
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-700 dark:focus:bg-gray-700"
 		>
 			<svg

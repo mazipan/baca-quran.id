@@ -12,7 +12,7 @@
 >
 	<div class="p-4 h-full flex flex-col justify-between">
 		<div>
-			<div class="flex justify-end">
+			<div class="flex justify-end gap-2">
 				<button
 					on:click={onToggle}
 					class="cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-700 dark:focus:bg-gray-700"
