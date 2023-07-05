@@ -1,6 +1,7 @@
 name: Deploy to GitHub Pages
 
 on:
+  workflow_dispatch:
   push:
     branches: 'master'
 
@@ -44,6 +45,7 @@ jobs:
         env:
           BASE_PATH: 'baca-quran.id'
         run: |
+          pnpm run json:timestamp
           pnpm run build
           touch build/.nojekyll
 
