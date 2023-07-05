@@ -50,8 +50,35 @@ jobs:
       - name: Commit generated files only
         run: |
           echo "> Start remove unused files..."
+          rm -rf markdownds
+          rm -rf .github/workflows
+          rm -rf screenshoot
+          rm -rf scripts
+          rm -rf static
+          rm -rf src
+          rm .all-contributorsrc
+          rm .editorconfig
+          rm .eslintignore
+          rm .eslintrc.cjs
+          rm .gitignore
+          rm .kodiak.toml
+          rm .npmrc
+          rm .prettierignore
+          rm .prettierrc
+          rm package.json
+          rm pnpm-lock.yaml
+          rm postcss.config.js
+          rm svelte.config.js
+          rm tailwind.config.js
+          rm tsconfig.json
+          rm vite.config.js
+          cp -r build/. ./
+          rm -rf build
           git config --local user.email "mazipanneh@gmail.com"
           git config --local user.name "Irfan Maulana"
+          git add -A
+          git commit -m "[CI]: Auto Deploy 🚀"
+          echo "> Finish commit changes to repo"
 
       - name: GitHub
         uses: ad-m/github-push-action@v0.6.0
