@@ -50,6 +50,9 @@ devDependencies:
   schema-dts:
     specifier: ^1.1.2
     version: 1.1.2(typescript@5.1.6)
+  sitemaps:
+    specifier: ^2.0.4
+    version: 2.0.4
   svelte:
     specifier: ^4.0.4
     version: 4.0.4
@@ -1894,6 +1897,10 @@ packages:
       '@polka/url': 1.0.0-next.21
       mrmime: 1.0.1
       totalist: 3.0.1
+    dev: true
+
+  /sitemaps@2.0.4:
+    resolution: {integrity: sha512-Rhry9M5rPguNmE3XuoNJPfWAqmD5vFqH02dZW5Cplsow203dQ3VxVt0UWEGIlfVO/KDZhzKmJNyQ2J4+Py59hw==}
     dev: true
 
   /slash@3.0.0:
