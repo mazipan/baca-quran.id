@@ -6,7 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200">
+	<body
+		data-sveltekit-preload-data="hover"
+		class="bg-white dark:bg-blueish-600 text-gray-900 dark:text-gray-200"
+	>
 		<div style="display: contents">%sveltekit.body%</div>
 
 		<script>
@@ -22,7 +25,7 @@
 					window.__theme = newTheme;
 					preferredTheme = newTheme;
 					// document.body.className = newTheme;
-          document.querySelector('html').className = newTheme;
+					document.querySelector('html').className = newTheme;
 					document
 						.querySelector('meta[name="theme-color"]')
 						?.setAttribute('content', window.__header_theme[newTheme]);
@@ -44,6 +47,29 @@
 
 				setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
 			})();
+		</script>
+
+		<!-- Install Service Worker -->
+		<script>
+			const registerServiceWorker = async () => {
+				if ('serviceWorker' in navigator) {
+					try {
+						const registration = await navigator.serviceWorker.register('/sw.js', {
+							scope: '/'
+						});
+						if (registration.installing) {
+							console.debug('[Baca-Quran.id] > Service worker installing...');
+						} else if (registration.waiting) {
+							console.debug('[Baca-Quran.id] > Service worker installed!');
+						} else if (registration.active) {
+							console.debug('[Baca-Quran.id] > Service worker active!');
+						}
+					} catch (error) {
+						console.error(`[Baca-Quran.id] > SW Registration failed with ${error}`);
+					}
+				}
+			};
+			registerServiceWorker();
 		</script>
 	</body>
 </html>

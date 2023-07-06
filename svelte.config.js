@@ -1,13 +1,13 @@
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
-import allSurahInfo from './scripts/surah-info.js';
+
+import verseCountPerSurah from './scripts/verseCountPerSurah.js';
 
 const allSurahAndVerse = []
 for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
   allSurahAndVerse.push(`/surah/${indexSurah + 1}`)
-  const info = allSurahInfo[`${indexSurah + 1}`]
-  const allVerses = info.ayah_count
-  for (let indexVerse = 0; indexVerse < allVerses; indexVerse++) {
+  const verseCount = verseCountPerSurah[`${indexSurah + 1}`]
+  for (let indexVerse = 0; indexVerse < verseCount; indexVerse++) {
     allSurahAndVerse.push(`/surah/${indexSurah + 1}/${indexVerse + 1}`)
   }
 }

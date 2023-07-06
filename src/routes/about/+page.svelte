@@ -1,8 +1,8 @@
-<div class="flex gap-2 px-2 mb-4">
+<div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">ℹ️ Tentang</h1>
 </div>
 
-<article class="px-2">
+<article class="px-4">
   <p class="mb-4">
     Baca-Quran.id merupakan aplikasi untuk membaca Al-Quran melalui peramban (browser), tanpa perlu lagi install aplikasi tambahan, tanpa iklan dan tanpa analitik apapun sehingga lebih aman untuk privasi data Anda.
   </p>

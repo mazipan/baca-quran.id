@@ -12,11 +12,11 @@
 		.filter((surah) => surah.index >= SURAH_START);
 </script>
 
-<div class="flex gap-2 px-2 mb-4">
+<div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">📒 Juz Amma</h1>
 </div>
 
-<div class="px-2 flex flex-col gap-2">
+<div class="px-4 flex flex-col gap-2">
 	{#each juzAmma as item (item.latin)}
 		<SurahCard surah={item} />
 	{/each}

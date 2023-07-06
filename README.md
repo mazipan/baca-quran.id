@@ -1,15 +1,17 @@
-# baca-quran.id
+# 📖 Baca-Quran.id
 
-![Nuxt TypeScript](https://img.shields.io/badge/Nuxt-TypeScript-blue.svg)
+![Svelte Kit](https://img.shields.io/badge/SvelteKit-TypeScript-blue.svg)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors)
 [![Codecov](https://codecov.io/gh/mazipan/baca-quran.id/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/baca-quran.id)
 ![Last Deployed](https://img.shields.io/endpoint?url=https%3A%2F%2Fwww.baca-quran.id%2Ftimestamp.json)
 
-📖 Read Qur'an from Your Web Browser. No Ads, No Analytics, It's Totally Free.
+Read Qur'an from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
-<p align="center">
- <img src="static/images/icon.png"/>
-</p>
+## Screenshots
+
+| Home - Dark | Home - Light |
+| --- | --- |
+|![Dark Home V2](screenshoot/v2/home-dark.png)|![Light Home V2](screenshoot/v2/home-light.png)|
 
 ## Live Website
 
@@ -25,30 +27,34 @@
 - Repo: https://github.com/mazipan-quran-offline/stories
 - Live: https://www.baca-quran.id/stories/
 
-## Screenshoot
-
-|                Light                 |              Blueish               |                 Nature                 |
-| :----------------------------------: | :--------------------------------: | :------------------------------------: |
-| ![light](screenshoot/tlight.png) | ![dark](screenshoot/tblue.png) | ![nature](screenshoot/tnature.png) |
-
-|           Asmaul Husna            |           Al-Fatihah            |           Do'a Harian           |
-| :-------------------------------: | :-----------------------------: | :-----------------------------: |
-| ![](screenshoot/asmaul-husna.png) | ![](screenshoot/al-fatihah.png) | ![](screenshoot/doa-harian.png) |
-
 ## Local Setup
 
 ```bash
-$ pnpm i
-$ pnpm run dev
+pnpm i
+pnpm run dev
 ```
 
 ### Deployment
 
 ```bash
-$ pnpm run build
+pnpm run build
 ```
 
 Copy `build` folder to your hosting.
+
+## Baca-Quran V1
+
+V1 can be viewed in [`v1`](https://github.com/mazipan/baca-quran.id/tree/v1) branch.
+
+### Screenshots V1
+
+|              Light               |            Blueish             |               Nature               |
+| :------------------------------: | :----------------------------: | :--------------------------------: |
+| ![light](screenshoot/tlight.png) | ![dark](screenshoot/tblue.png) | ![nature](screenshoot/tnature.png) |
+
+|           Asmaul Husna            |           Al-Fatihah            |           Do'a Harian           |
+| :-------------------------------: | :-----------------------------: | :-----------------------------: |
+| ![asmaul husna](screenshoot/asmaul-husna.png) | ![al-fatihah](screenshoot/al-fatihah.png) | ![doa harian](screenshoot/doa-harian.png) |
 
 ## Credit
 
@@ -67,10 +73,11 @@ Copy `build` folder to your hosting.
 
 ## Support me
 
-- 👉 🇮🇩 [Trakteer](https://trakteer.id/mazipan/tip?utm_source=github)
-- 👉 🌍 [BuyMeACoffe](https://www.buymeacoffee.com/mazipan?utm_source=github)
-- 👉 🌍 [Paypal](https://www.paypal.me/mazipan?utm_source=github)
-- 👉 🌍 [Ko-Fi](https://ko-fi.com/mazipan)
+- 👉 🇮🇩 [Trakteer](https://trakteer.id/mazipan/tip?utm_source=github-mazipan)
+- 👉 🇮🇩 [NihBuatJajan](https://www.nihbuatjajan.com/mazipan?utm_source=github-mazipan)
+- 👉 🌍 [BuyMeACoffe](https://www.buymeacoffee.com/mazipan?utm_source=github-mazipan)
+- 👉 🌍 [Paypal](https://www.paypal.me/mazipan?utm_source=github-mazipan)
+- 👉 🌍 [Ko-Fi](https://ko-fi.com/mazipan?utm_source=github-mazipan)
 
 ---
 

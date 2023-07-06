@@ -1,11 +1,12 @@
 <script lang="ts">
-	import type { SurahInfoItem } from "../data/surah-info";
+	import type { SurahInfoItem } from '../data/surah-info';
+	import CardShadow from './CardShadow.svelte';
 
 	export let surah: SurahInfoItem;
 </script>
 
-<a class="rounded overflow-hidden shadow-lg border-2" href={`/surah/${surah.index}/`}>
-	<div class="px-6 py-4 flex justify-between">
+<CardShadow href={`/surah/${surah.index}/`} _as="a">
+	<div class="flex justify-between">
 		<div class="flex gap-2 items-center">
 			<div class="flex items-center justify-center text-3xl">
 				{surah.index.toLocaleString('ar-u-nu-arab', { useGrouping: false })}
@@ -21,4 +22,4 @@
 			<small class="text-xs text-gray-400 text-right">{surah.ayah_count} ayat</small>
 		</div>
 	</div>
-</a>
+</CardShadow>

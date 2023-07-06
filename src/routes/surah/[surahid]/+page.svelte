@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
+	import CardShadow from '$lib/CardShadow.svelte';
 	import Pagination from '$lib/Pagination.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
@@ -34,16 +35,16 @@
 	)}
 </svelte:head>
 
-<div class="flex gap-2 px-2 mb-4">
+<div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">📖 Baca per Surat</h1>
 </div>
 
-<article class="px-2">
+<article class="px-4">
 	{#if $navigating}
 		<span>Loading...</span>
 	{:else}
-		<div class="rounded overflow-hidden shadow-lg border-2">
-			<div class="px-6 py-4 flex justify-between">
+		<CardShadow>
+			<div class="flex justify-between">
 				<div class="flex gap-2 items-center">
 					<div class="flex items-center justify-center text-5xl">
 						{parseInt(surahid, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
@@ -60,7 +61,7 @@
 					>
 				</div>
 			</div>
-		</div>
+		</CardShadow>
 
 		<Pagination variant="surah" {surahInfo} {surahid} verseid="" />
 

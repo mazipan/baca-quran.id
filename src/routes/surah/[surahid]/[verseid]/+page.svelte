@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
+	import CardShadow from '$lib/CardShadow.svelte';
+	import Gradient from '$lib/Gradient.svelte';
 	import Pagination from '$lib/Pagination.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
@@ -27,24 +29,24 @@
 
 	{@html serializeSchema(
 		getJsonLdBreadcrumb({
-      categoryTitle: `QS ${surahid}`,
-      categorySlug: `${surahid}`,
-      title: `QS ${surahid}:${verseid}`,
-      slug: `/surah/${surahid}/${verseid}`
+			categoryTitle: `QS ${surahid}`,
+			categorySlug: `${surahid}`,
+			title: `QS ${surahid}:${verseid}`,
+			slug: `/surah/${surahid}/${verseid}`
 		})
 	)}
 </svelte:head>
 
-<div class="flex gap-2 px-2 mb-4">
+<div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">📖 Baca per Ayat</h1>
 </div>
 
-<article class="px-2">
+<article class="px-4">
 	{#if $navigating}
 		<span>Loading...</span>
 	{:else}
-		<div class="rounded overflow-hidden shadow-lg border-2">
-			<div class="px-6 py-4 flex justify-between">
+		<CardShadow>
+			<div class="flex justify-between">
 				<div class="flex gap-2 items-center">
 					<div class="flex flex-col items-start justify-center">
 						<a class="font-bold underline" href={`/surah/${surahid}/`}>{surahInfo.current.latin}</a>
@@ -58,10 +60,15 @@
 					>
 				</div>
 			</div>
-		</div>
+		</CardShadow>
 
 		<div class="mt-8 flex flex-col gap-4">
-			<VerseCard verse={`${verseData.text}`} numberVerse={verseid} translation={verseData.translation} tafsir={verseData.tafsir} />
+			<VerseCard
+				verse={`${verseData.text}`}
+				numberVerse={verseid}
+				translation={verseData.translation}
+				tafsir={verseData.tafsir}
+			/>
 		</div>
 
 		<Pagination variant="verse" {surahInfo} {surahid} {verseid} />
