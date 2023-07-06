@@ -17,7 +17,11 @@
 </script>
 
 <svelte:head>
-  <MetaTag title={META_TITLE_SURAH(surahInfo.current.latin)} desc={META_DESC_SURAH(surahInfo.current.latin)} url={`${TITLE_CONSTANTS.PATH}surah/${surahid}`} />
+	<MetaTag
+		title={META_TITLE_SURAH(surahInfo.current.latin)}
+		desc={META_DESC_SURAH(surahInfo.current.latin)}
+		url={`${TITLE_CONSTANTS.PATH}surah/${surahid}`}
+	/>
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
@@ -57,6 +61,7 @@
 					{numberVerse}
 					translation={surahData?.translations?.id?.text?.[numberVerse] || ''}
 					tafsir={surahData?.tafsir?.id?.kemenag?.text?.[numberVerse] || ''}
+					numberSurah={surahid}
 				/>
 			{/each}
 		</div>
@@ -68,19 +73,19 @@
 <SeoText variant="SURAH_DETAIL" params={{ surahLatin: surahInfo.current.latin }} />
 
 {@html serializeSchema(
-  getJsonLdArticle({
-    slug: `/surah/${surahid}`,
-    title: META_TITLE_SURAH(surahInfo.current.latin),
-    cover: 'meta-image.png',
-    desc: META_DESC_SURAH(surahInfo.current.latin)
-  })
+	getJsonLdArticle({
+		slug: `/surah/${surahid}`,
+		title: META_TITLE_SURAH(surahInfo.current.latin),
+		cover: 'meta-image.png',
+		desc: META_DESC_SURAH(surahInfo.current.latin)
+	})
 )}
 
 {@html serializeSchema(
-  getJsonLdBreadcrumb({
-    categoryTitle: 'Daftar Surat',
-    categorySlug: 'all-surah',
-    title: `${surahInfo.current.latin}`,
-    slug: `${surahid}`
-  })
+	getJsonLdBreadcrumb({
+		categoryTitle: 'Daftar Surat',
+		categorySlug: 'all-surah',
+		title: `${surahInfo.current.latin}`,
+		slug: `${surahid}`
+	})
 )}
