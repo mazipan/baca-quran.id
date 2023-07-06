@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
 	import CardShadow from '$lib/CardShadow.svelte';
-	import Gradient from '$lib/Gradient.svelte';
+	import MetaTag from '$lib/MetaTag.svelte';
 	import Pagination from '$lib/Pagination.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
-	import { META_DESC_AYAH, META_TITLE_AYAH } from '$lib/constants';
+	import { META_DESC_AYAH, META_TITLE_AYAH, TITLE_CONSTANTS } from '$lib/constants';
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/json-ld';
 
 	/** @type {import('./$types').PageData} */
@@ -18,23 +18,7 @@
 </script>
 
 <svelte:head>
-	{@html serializeSchema(
-		getJsonLdArticle({
-			slug: `/surah/${surahid}/${verseid}`,
-			title: META_TITLE_AYAH(verseid, surahInfo.current.latin),
-			cover: 'meta-image.png',
-			desc: META_DESC_AYAH(verseid, surahInfo.current.latin)
-		})
-	)}
-
-	{@html serializeSchema(
-		getJsonLdBreadcrumb({
-			categoryTitle: `QS ${surahid}`,
-			categorySlug: `${surahid}`,
-			title: `QS ${surahid}:${verseid}`,
-			slug: `/surah/${surahid}/${verseid}`
-		})
-	)}
+  <MetaTag title={META_TITLE_AYAH(verseid, surahInfo.current.latin)} desc={META_DESC_AYAH(verseid, surahInfo.current.latin)} url={`${TITLE_CONSTANTS.PATH}surah/${surahid}/${verseid}`} />
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
@@ -79,3 +63,22 @@
 	variant="AYAT_DETAIL"
 	params={{ surahLatin: surahInfo.current.latin, verseNumber: verseid }}
 />
+
+
+{@html serializeSchema(
+  getJsonLdArticle({
+    slug: `/surah/${surahid}/${verseid}`,
+    title: META_TITLE_AYAH(verseid, surahInfo.current.latin),
+    cover: 'meta-image.png',
+    desc: META_DESC_AYAH(verseid, surahInfo.current.latin)
+  })
+)}
+
+{@html serializeSchema(
+  getJsonLdBreadcrumb({
+    categoryTitle: `QS ${surahid}`,
+    categorySlug: `${surahid}`,
+    title: `QS ${surahid}:${verseid}`,
+    slug: `/surah/${surahid}/${verseid}`
+  })
+)}

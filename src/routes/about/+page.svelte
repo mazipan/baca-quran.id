@@ -1,3 +1,12 @@
+<script lang="ts">
+	import MetaTag from '$lib/MetaTag.svelte';
+	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
+</script>
+
+<svelte:head>
+  <MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}`} />
+</svelte:head>
+
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">ℹ️ Tentang</h1>
 </div>

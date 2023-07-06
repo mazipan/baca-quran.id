@@ -1,8 +1,14 @@
 <script lang="ts">
 	import CardShadow from '$lib/CardShadow.svelte';
+	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
+	import { META_DESC_TAHLIL, META_TITLE_TAHLIL, TITLE_CONSTANTS } from '$lib/constants';
 	import tahlil from '../../data/tahlil';
 </script>
+
+<svelte:head>
+  <MetaTag title={META_TITLE_TAHLIL} desc={META_DESC_TAHLIL} url={`${TITLE_CONSTANTS.PATH}tahlil/`} />
+</svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">🤲 Tahlil</h1>

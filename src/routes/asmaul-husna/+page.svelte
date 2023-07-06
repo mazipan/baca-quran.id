@@ -1,8 +1,14 @@
 <script lang="ts">
 	import CardShadow from '$lib/CardShadow.svelte';
+	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
+	import { META_DESC_ASMAUL_HUSNA, META_TITLE_ASMAUL_HUSNA, TITLE_CONSTANTS } from '$lib/constants';
 	import asmaulHusna from '../../data/asmaul-husna';
 </script>
+
+<svelte:head>
+  <MetaTag title={META_TITLE_ASMAUL_HUSNA} desc={META_DESC_ASMAUL_HUSNA} url={`${TITLE_CONSTANTS.PATH}`} />
+</svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">💯 Asmaul Husna</h1>

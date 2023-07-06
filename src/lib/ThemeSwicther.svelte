@@ -23,7 +23,7 @@
 	});
 </script>
 
-<button class="theme-swither cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+<button class="theme-swither cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
 on:click={handleSwitchTheme}>
 	{#if $activeTheme === 'dark'}
 		<svg
