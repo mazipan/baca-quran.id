@@ -1,8 +1,14 @@
 <script lang="ts">
 	import CardShadow from '$lib/CardShadow.svelte';
+	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
+	import { META_DESC_AYAT_KURSI, META_TITLE_AYAT_KURSI, TITLE_CONSTANTS } from '$lib/constants';
 	import ayatKursi from '../../data/ayat-kursi';
 </script>
+
+<svelte:head>
+  <MetaTag title={META_TITLE_AYAT_KURSI} desc={META_DESC_AYAT_KURSI} url={`${TITLE_CONSTANTS.PATH}ayat-kursi/`} />
+</svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">🪑 Ayat Kursi</h1>

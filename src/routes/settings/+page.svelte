@@ -1,7 +1,12 @@
 <script lang="ts">
-	import { CONSTANTS } from '$lib/constants';
+	import MetaTag from '$lib/MetaTag.svelte';
+	import { CONSTANTS, META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
 	import { settingAudio, settingMuqadimah, settingTafsir, settingTranslation } from '../../store';
 </script>
+
+<svelte:head>
+  <MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}`} />
+</svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">⚙️ Setelan</h1>

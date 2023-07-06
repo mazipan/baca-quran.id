@@ -5,7 +5,7 @@
 </script>
 
 <header class="flex justify-between items-center py-4 px-2">
-	<button class="cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-gray-700 dark:focus:bg-gray-700" on:click={onToggleDrawer}>
+	<button class="cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700" on:click={onToggleDrawer}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="w-6 h-6 cursor-pointer"

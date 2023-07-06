@@ -1,8 +1,14 @@
 <script lang="ts">
 	import CardShadow from '$lib/CardShadow.svelte';
+	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
+	import { META_DESC_WIRID, META_TITLE_WIRID, TITLE_CONSTANTS } from '$lib/constants';
 	import wirid from '../../data/wirid';
 </script>
+
+<svelte:head>
+  <MetaTag title={META_TITLE_WIRID} desc={META_DESC_WIRID} url={`${TITLE_CONSTANTS.PATH}wirid/`} />
+</svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">📿 Wirid</h1>

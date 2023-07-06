@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
 	import CardShadow from '$lib/CardShadow.svelte';
+	import MetaTag from '$lib/MetaTag.svelte';
 	import Pagination from '$lib/Pagination.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
-	import { META_DESC_SURAH, META_TITLE_SURAH } from '$lib/constants';
+	import { META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/json-ld';
 
 	/** @type {import('./$types').PageData} */
@@ -16,23 +17,7 @@
 </script>
 
 <svelte:head>
-	{@html serializeSchema(
-		getJsonLdArticle({
-			slug: `/surah/${surahid}`,
-			title: META_TITLE_SURAH(surahInfo.current.latin),
-			cover: 'meta-image.png',
-			desc: META_DESC_SURAH(surahInfo.current.latin)
-		})
-	)}
-
-	{@html serializeSchema(
-		getJsonLdBreadcrumb({
-			categoryTitle: 'Daftar Surat',
-			categorySlug: 'all-surah',
-			title: `${surahInfo.current.latin}`,
-			slug: `${surahid}`
-		})
-	)}
+  <MetaTag title={META_TITLE_SURAH(surahInfo.current.latin)} desc={META_DESC_SURAH(surahInfo.current.latin)} url={`${TITLE_CONSTANTS.PATH}surah/${surahid}`} />
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
@@ -81,3 +66,21 @@
 </article>
 
 <SeoText variant="SURAH_DETAIL" params={{ surahLatin: surahInfo.current.latin }} />
+
+{@html serializeSchema(
+  getJsonLdArticle({
+    slug: `/surah/${surahid}`,
+    title: META_TITLE_SURAH(surahInfo.current.latin),
+    cover: 'meta-image.png',
+    desc: META_DESC_SURAH(surahInfo.current.latin)
+  })
+)}
+
+{@html serializeSchema(
+  getJsonLdBreadcrumb({
+    categoryTitle: 'Daftar Surat',
+    categorySlug: 'all-surah',
+    title: `${surahInfo.current.latin}`,
+    slug: `${surahid}`
+  })
+)}
