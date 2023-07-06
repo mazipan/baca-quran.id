@@ -6,5 +6,5 @@ export const activeTheme = writable('');
 export const settingTranslation = writable(false);
 export const settingTafsir = writable(false);
 export const settingMuqadimah = writable(false);
-export const settingAudio = writable(false);
+export const settingAudio = writable('1');
 // Settings storage -- END

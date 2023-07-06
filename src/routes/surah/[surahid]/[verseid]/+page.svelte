@@ -18,7 +18,11 @@
 </script>
 
 <svelte:head>
-  <MetaTag title={META_TITLE_AYAH(verseid, surahInfo.current.latin)} desc={META_DESC_AYAH(verseid, surahInfo.current.latin)} url={`${TITLE_CONSTANTS.PATH}surah/${surahid}/${verseid}`} />
+	<MetaTag
+		title={META_TITLE_AYAH(verseid, surahInfo.current.latin)}
+		desc={META_DESC_AYAH(verseid, surahInfo.current.latin)}
+		url={`${TITLE_CONSTANTS.PATH}surah/${surahid}/${verseid}`}
+	/>
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
@@ -50,6 +54,7 @@
 			<VerseCard
 				verse={`${verseData.text}`}
 				numberVerse={verseid}
+				numberSurah={surahid}
 				translation={verseData.translation}
 				tafsir={verseData.tafsir}
 			/>
@@ -64,21 +69,20 @@
 	params={{ surahLatin: surahInfo.current.latin, verseNumber: verseid }}
 />
 
-
 {@html serializeSchema(
-  getJsonLdArticle({
-    slug: `/surah/${surahid}/${verseid}`,
-    title: META_TITLE_AYAH(verseid, surahInfo.current.latin),
-    cover: 'meta-image.png',
-    desc: META_DESC_AYAH(verseid, surahInfo.current.latin)
-  })
+	getJsonLdArticle({
+		slug: `/surah/${surahid}/${verseid}`,
+		title: META_TITLE_AYAH(verseid, surahInfo.current.latin),
+		cover: 'meta-image.png',
+		desc: META_DESC_AYAH(verseid, surahInfo.current.latin)
+	})
 )}
 
 {@html serializeSchema(
-  getJsonLdBreadcrumb({
-    categoryTitle: `QS ${surahid}`,
-    categorySlug: `${surahid}`,
-    title: `QS ${surahid}:${verseid}`,
-    slug: `/surah/${surahid}/${verseid}`
-  })
+	getJsonLdBreadcrumb({
+		categoryTitle: `QS ${surahid}`,
+		categorySlug: `${surahid}`,
+		title: `QS ${surahid}:${verseid}`,
+		slug: `/surah/${surahid}/${verseid}`
+	})
 )}

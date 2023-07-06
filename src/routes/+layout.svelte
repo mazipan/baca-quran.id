@@ -19,9 +19,6 @@
 		// Make sure it's only run on the client
 		if (typeof window !== 'undefined') {
 			if (typeof localStorage !== 'undefined') {
-				const storageAudio = localStorage.getItem(CONSTANTS.STORAGE_KEY.AUDIO);
-				settingAudio.set(!!(storageAudio && storageAudio === 'y'));
-
 				const storageMukadimah = localStorage.getItem(CONSTANTS.STORAGE_KEY.MUKADIMAH);
 				settingMuqadimah.set(!!(storageMukadimah && storageMukadimah === 'y'));
 
@@ -30,6 +27,13 @@
 
 				const storageTranslation = localStorage.getItem(CONSTANTS.STORAGE_KEY.TRANSLATION);
 				settingTranslation.set(!!(storageTranslation && storageTranslation === 'y'));
+
+				const storageAudio = localStorage.getItem(CONSTANTS.STORAGE_KEY.AUDIO);
+        if (storageAudio) {
+          settingAudio.set(storageAudio);
+        } else {
+          settingAudio.set('1');
+        }
 			}
 		}
 	});
