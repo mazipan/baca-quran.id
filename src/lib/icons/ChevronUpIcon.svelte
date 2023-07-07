@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CLASS_BY_SIZE, type IconSize } from "./utils";
+	import { CLASS_BY_SIZE, type IconSize } from './utils';
 
 	export let size: IconSize = 'md';
 </script>
@@ -12,5 +12,5 @@
 	stroke="currentColor"
 	class={$$props.class || CLASS_BY_SIZE[size]}
 >
-	<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
+	<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
 </svg>
