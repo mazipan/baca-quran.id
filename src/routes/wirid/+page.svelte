@@ -11,7 +11,7 @@
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
-	<h1 class="text-3xl font-bold">📿 Wirid</h1>
+	<h1 class="text-3xl font-bold">🧎 Wirid</h1>
 </div>
 
 <div class="px-4 flex flex-col gap-2">

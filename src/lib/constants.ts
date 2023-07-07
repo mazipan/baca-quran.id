@@ -13,6 +13,7 @@ export const TITLE_CONSTANTS = {
   TAHLIL: 'Do\'a Tahlil',
   WIRID: 'Wirid',
   JUZ_AMMA: 'Juz Amma',
+  TASBIH: 'Tasbih',
   SURAT_LIST: 'Daftar Surat',
   ABOUT: 'Tentang',
 }
@@ -53,6 +54,9 @@ export const META_DESC_TAHLIL = `Bacaan lengkap tahlil ${postfix(false)}`
 export const META_TITLE_WIRID = `Bacaan lengkap wirid setelah sholat | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC_WIRID = `Bacaan lengkap wirid setelah sholat ${postfix(false)}`
 
+export const META_TITLE_TASBIH = `Tasbih Online | ${TITLE_CONSTANTS.TITLE_META}`
+export const META_DESC_TASBIH = `Tasbih online, mempermudah menghitung Dzikirmu ${postfix(false)}`
+
 export const META_TITLE_LAST_VERSE = `Ayat terakhir dibaca | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_TITLE_SETTING = `Halaman setelan | ${TITLE_CONSTANTS.TITLE_META}`
 
@@ -70,7 +74,7 @@ export type SeoArgs = {
   verseNumber?: string
 }
 
-export type PageVariant = 'ALL_SURAH' | 'ASMAUL_HUSNA' | 'AYAT_KURSI' | 'DAILY_DOA' | 'JUZ_AMMA' | 'TAHLIL' | 'WIRID' | 'SURAH_DETAIL' | 'AYAT_DETAIL'
+export type PageVariant = 'ALL_SURAH' | 'ASMAUL_HUSNA' | 'AYAT_KURSI' | 'DAILY_DOA' | 'JUZ_AMMA' | 'TAHLIL' | 'WIRID' | 'SURAH_DETAIL' | 'AYAT_DETAIL' | 'TASBIH'
 
 export const SEO_TEXT = {
   ALL_SURAH: 'Baca Quran lengkap 30 Juz 114 Surat beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
@@ -80,6 +84,7 @@ export const SEO_TEXT = {
   JUZ_AMMA: 'Baca Juz Amma (Qur\'an Juz 30) beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
   TAHLIL: 'Bacaan Tahlil lengkap beserta urutan dan tata caranya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
   WIRID: 'Bacaan, urutan dan tata cara Wirid setelah sholat. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+  TASBIH: 'Tasbih online, mempermudah menghitung Dzikirmu. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
   SURAH_DETAIL: '',
   AYAT_DETAIL: ''
 }

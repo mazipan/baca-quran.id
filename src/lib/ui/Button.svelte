@@ -6,14 +6,21 @@
 {#if variant === 'subtle'}
 	<button
 		on:click={onClick}
-		class="cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+		class={`cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700 ${$$props.class}`}
 	>
 		<slot />
 	</button>
-{:else}
+{:else if variant === 'filled'}
 	<button
 		on:click={onClick}
-		class="cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+		class={`cursor-pointer p-2 rounded-md bg-gray-100 dark:bg-blueish-700 focus:ring-2 focus:ring-blue-500 ${$$props.class}`}
+	>
+		<slot />
+	</button>
+{:else if variant === 'outline'}
+	<button
+		on:click={onClick}
+		class={`cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700 ${$$props.class}`}
 	>
 		<slot />
 	</button>

@@ -26,7 +26,11 @@
 		},
 		{
 			href: '/wirid/',
-			title: '📿 Wirid'
+			title: '🧎 Wirid'
+		},
+		{
+			href: '/tasbih/',
+			title: '📿 Tasbih'
 		},
 		{
 			href: '/tahlil/',
