@@ -2,7 +2,7 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import { RECITER_ARRAY } from '$lib/audio';
 	import { CONSTANTS, META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
-	import { settingAudio, settingMuqadimah, settingTafsir, settingTranslation } from '../../store';
+	import { settingAudio, settingAutoNext, settingMuqadimah, settingTafsir, settingTranslation } from '../../store';
 </script>
 
 <svelte:head>
@@ -15,6 +15,7 @@
 
 <article class="px-4 flex flex-col gap-4 divide-y">
 	<div class="flex flex-col gap-2">
+    <h3 class="text-xl font-bold">💠 Setelan Fitur</h3>
 		<div>
 			<input
 				type="checkbox"
@@ -62,22 +63,41 @@
 		</div>
 	</div>
 
-  <div class="pt-4">
-		<label for="select-qari" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-			>Pilih Qari</label
-		>
-		<select
-			id="select-qari"
-			bind:value={$settingAudio}
-			on:change={(e) => {
-				const value = e?.target?.value ?? 1;
-				localStorage.setItem(CONSTANTS.STORAGE_KEY.AUDIO, value ? value : '1');
-			}}
-			class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blueish-700 dark:border-blueish-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blueish-500 dark:focus:border-blueish-500"
-		>
-			{#each RECITER_ARRAY as item (item.id)}
-				<option value={item.id}>{item.name}</option>
-			{/each}
-		</select>
+	<div class="pt-4 flex flex-col gap-2">
+    <h3 class="text-xl font-bold">🔈 Setelan Audio</h3>
+		<div>
+			<label for="select-qari" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+				>Pilih Qari</label
+			>
+			<select
+				id="select-qari"
+				bind:value={$settingAudio}
+				on:change={(e) => {
+					const value = e?.target?.value ?? 1;
+					localStorage.setItem(CONSTANTS.STORAGE_KEY.AUDIO, value ? value : '1');
+				}}
+				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blueish-700 dark:border-blueish-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blueish-500 dark:focus:border-blueish-500"
+			>
+				{#each RECITER_ARRAY as item (item.id)}
+					<option value={item.id}>{item.name}</option>
+				{/each}
+			</select>
+		</div>
+
+    <div>
+			<input
+				type="checkbox"
+				id="chk-auto-next"
+				name="chk-auto-next"
+				checked={$settingAutoNext}
+				on:change={(e) => {
+					const checked = e?.target?.checked ?? false;
+					localStorage.setItem(CONSTANTS.STORAGE_KEY.AUTO_NEXT, checked ? 'y' : 'n');
+
+					settingAutoNext.update((val) => !val);
+				}}
+			/>
+			<label for="chk-auto-next">Otomatis putar ayat berikutnya</label>
+		</div>
 	</div>
 </article>

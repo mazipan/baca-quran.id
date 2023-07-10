@@ -4,10 +4,11 @@
 	import Header from '$lib/Header.svelte';
 	import { CONSTANTS } from '$lib/constants';
 	import { onMount } from 'svelte';
-	import { settingAudio, settingMuqadimah, settingTafsir, settingTranslation } from '../store';
+	import { settingAudio, settingMuqadimah, settingTafsir, settingTranslation, settingAutoNext, currentTrack } from '../store';
 
 	import '../app.css';
 	import { getJsonLdWebsite, serializeSchema } from '$lib/json-ld';
+	import VerseAudioPlayer from '$lib/VerseAudioPlayer.svelte';
 
 	let isDrawerOpen = false;
 
@@ -28,9 +29,12 @@
 				const storageTranslation = localStorage.getItem(CONSTANTS.STORAGE_KEY.TRANSLATION);
 				settingTranslation.set(!!(storageTranslation && storageTranslation === 'y'));
 
+				const storageAutoNext = localStorage.getItem(CONSTANTS.STORAGE_KEY.AUTO_NEXT);
+				settingAutoNext.set(!!(storageAutoNext && storageAutoNext === 'y'));
+
 				const storageAudio = localStorage.getItem(CONSTANTS.STORAGE_KEY.AUDIO);
         if (storageAudio) {
-          settingAudio.set(storageAudio);
+          settingAudio.set(storageAudio as '1' | '2' | '3');
         } else {
           settingAudio.set('1');
         }
@@ -53,6 +57,7 @@
 		</main>
 		<!-- <Gradient variant="bottom" /> -->
 		<Footer />
+		<VerseAudioPlayer />
 	</div>
 </div>
 

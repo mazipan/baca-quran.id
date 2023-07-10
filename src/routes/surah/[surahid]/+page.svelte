@@ -62,6 +62,8 @@
 					translation={surahData?.translations?.id?.text?.[numberVerse] || ''}
 					tafsir={surahData?.tafsir?.id?.kemenag?.text?.[numberVerse] || ''}
 					numberSurah={surahid}
+          totalAyah={parseInt(surahInfo.current.ayah_count, 10)}
+          source="surah"
 				/>
 			{/each}
 		</div>

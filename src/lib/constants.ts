@@ -24,6 +24,7 @@ export const CONSTANTS = {
     TAFSIR: 'tfsr',
     MUKADIMAH: 'mkdmh',
     AUDIO: 'aud',
+    AUTO_NEXT: 'anxt',
   },
   BISMILLAH: '﷽'
 };
