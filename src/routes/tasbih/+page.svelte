@@ -14,6 +14,14 @@
 	const handleIncrement = () => {
 		if (counter <= target - 1) {
 			counter = counter + 1;
+			if (counter === target) {
+				if (
+					typeof window.navigator !== 'undefined' &&
+					typeof window.navigator.vibrate !== 'undefined'
+				) {
+					window.navigator.vibrate([1000, 500, 1000]);
+				}
+			}
 		}
 	};
 
@@ -121,5 +129,5 @@
 </div>
 
 <div class="mt-8">
-  <SeoText variant="TASBIH" />
+	<SeoText variant="TASBIH" />
 </div>
