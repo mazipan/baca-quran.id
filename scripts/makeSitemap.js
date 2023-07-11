@@ -2,6 +2,7 @@ import path from 'node:path';
 import { createSitemap, createSitemapIndex } from 'sitemaps';
 
 import verseCountPerSurah from './verseCountPerSurah.js';
+import { staticUrls } from './routes.js';
 
 const BASE_URL = 'https://www.baca-quran.id'
 const BASE_DIR_TARGET = path.resolve(path.join('static/sitemaps'))
@@ -27,7 +28,6 @@ for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
   }
 }
 
-const staticUrls = ['/', '/about/', '/all-surah/', '/asmaul-husna/', '/ayat-kursi/', '/daily-doa/', '/juz-amma/', '/settings/', '/tahlil/', '/wirid/']
 const staticUrlsObject = staticUrls.map(url => makeObjectSitemap(url))
 
 createSitemap({

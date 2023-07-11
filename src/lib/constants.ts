@@ -25,6 +25,8 @@ export const CONSTANTS = {
     MUKADIMAH: 'mkdmh',
     AUDIO: 'aud',
     AUTO_NEXT: 'anxt',
+    PINNED_SURAH: 'srh',
+    LAST_VERSES: 'vres',
   },
   BISMILLAH: '﷽'
 };

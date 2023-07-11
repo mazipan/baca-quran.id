@@ -24,3 +24,12 @@ export const currentTrack = writable<CurrentTrackParam>({
   surah: '',
   totalAyah: 0
 });
+
+export type PinnedSurahItem = {
+  i: string
+  l: string
+  a: string
+}
+
+export const pinnedSurah = writable<PinnedSurahItem[]>([]);
+export const lastReadVerses = writable([]);
