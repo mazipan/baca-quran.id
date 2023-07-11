@@ -4,7 +4,7 @@
 	import Header from '$lib/Header.svelte';
 	import { CONSTANTS } from '$lib/constants';
 	import { onMount } from 'svelte';
-	import { settingAudio, settingMuqadimah, settingTafsir, settingTranslation, settingAutoNext, currentTrack } from '../store';
+	import { settingAudio, settingMuqadimah, settingTafsir, settingTranslation, settingAutoNext, pinnedSurah, lastReadVerses } from '../store';
 
 	import '../app.css';
 	import { getJsonLdWebsite, serializeSchema } from '$lib/json-ld';
@@ -37,6 +37,22 @@
           settingAudio.set(storageAudio as '1' | '2' | '3');
         } else {
           settingAudio.set('1');
+        }
+
+				const storagePinnedSurah = localStorage.getItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH);
+        if (storagePinnedSurah) {
+          const parsedValue = JSON.parse(storagePinnedSurah)
+          pinnedSurah.set(parsedValue || []);
+        } else {
+          pinnedSurah.set([]);
+        }
+
+				const storageLastVerses = localStorage.getItem(CONSTANTS.STORAGE_KEY.LAST_VERSES);
+        if (storageLastVerses) {
+          const parsedValue = JSON.parse(storageLastVerses)
+          lastReadVerses.set(parsedValue || []);
+        } else {
+          lastReadVerses.set([]);
         }
 			}
 		}

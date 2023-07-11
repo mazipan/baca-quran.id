@@ -2,6 +2,7 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
 
 import verseCountPerSurah from './scripts/verseCountPerSurah.js';
+import { staticUrls } from './scripts/routes.js';
 
 const allSurahAndVerse = []
 for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
@@ -35,7 +36,7 @@ const config = {
     }),
     prerender: {
       crawl: true,
-      entries: ['*', '/', '/about/', '/all-surah/', '/asmaul-husna/', '/ayat-kursi/', '/daily-doa/', '/juz-amma/', '/settings/', '/tahlil/', '/wirid/', ...allSurahAndVerse],
+      entries: ['*', ...staticUrls, ...allSurahAndVerse],
       handleEntryGeneratorMismatch: 'warn'
     }
   }
