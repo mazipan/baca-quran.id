@@ -6,6 +6,7 @@
 	import HeartIcon from './icons/HeartIcon.svelte';
 	import Button from './ui/Button.svelte';
 	import { CONSTANTS } from './constants';
+	import HeartSolidIcon from './icons/HeartSolidIcon.svelte';
 
 	export let surah: SurahInfoItem;
 	let isSurahExistInStorage = false;
@@ -20,11 +21,11 @@
 		};
 
 		if (!isSurahExistInStorage) {
-      if ($pinnedSurah.length < 3) {
-        pinnedSurah.update((val) => [...val, thisItem]);
-        isSurahExistInStorage = true;
-        localStorage.setItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH, JSON.stringify($pinnedSurah));
-      }
+			if ($pinnedSurah.length < 3) {
+				pinnedSurah.update((val) => [...val, thisItem]);
+				isSurahExistInStorage = true;
+				localStorage.setItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH, JSON.stringify($pinnedSurah));
+			}
 		} else {
 			pinnedSurah.update((val) => val.filter((i) => i.i !== thisItem.i));
 			isSurahExistInStorage = false;
@@ -33,10 +34,10 @@
 	};
 
 	onMount(() => {
-    setTimeout(() => {
-      const isInStorage = $pinnedSurah.find((val) => val.i === surah.index.toString());
-      isSurahExistInStorage = !!isInStorage;
-    }, 500)
+		setTimeout(() => {
+			const isInStorage = $pinnedSurah.find((val) => val.i === surah.index.toString());
+			isSurahExistInStorage = !!isInStorage;
+		}, 500);
 	});
 </script>
 
@@ -59,7 +60,11 @@
 	</div>
 	<div>
 		<Button onClick={handlePinSurah}>
-			<HeartIcon size="sm" class={`w-4 h-4 z-10 ${isSurahExistInStorage ? 'text-red-500' : ''}`} />
+			{#if isSurahExistInStorage}
+				<HeartSolidIcon size="sm" class="w-4 h-4 z-10 text-red-500" />
+			{:else}
+				<HeartIcon size="sm" class="w-4 h-4 z-10" />
+			{/if}
 		</Button>
 	</div>
 </CardShadow>

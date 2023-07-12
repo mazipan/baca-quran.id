@@ -64,6 +64,8 @@
 					numberSurah={surahid}
           totalAyah={parseInt(surahInfo.current.ayah_count, 10)}
           source="surah"
+          surahLatin={surahInfo.current.latin}
+          surahArabic={surahInfo.current.arabic}
 				/>
 			{/each}
 		</div>
