@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CardShadow from '$lib/CardShadow.svelte';
+	import LastReadVerses from '$lib/LastReadVerses.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import PinnedSurah from '$lib/PinnedSurah.svelte';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
@@ -50,6 +51,7 @@
 
 <div class="px-4 flex flex-col gap-2">
 	<PinnedSurah />
+  <LastReadVerses />
 
 	<div class="flex gap-2 mt-2 mb-2">
 		<h2 class="text-xl font-bold">💫 Semua fitur</h2>

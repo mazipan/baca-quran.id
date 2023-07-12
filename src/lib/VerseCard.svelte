@@ -2,11 +2,14 @@
 	import { settingTranslation, settingTafsir } from '../store';
 	import CardShadow from './CardShadow.svelte';
 	import VerseAudioPlayerTrigger from './VerseAudioPlayerTrigger.svelte';
+	import VerseSaveLastRead from './VerseSaveLastRead.svelte';
 
 	export let verse: string;
 	export let numberVerse: string;
 	export let numberSurah: string;
 	export let totalAyah: number;
+	export let surahLatin: string;
+	export let surahArabic: string;
 
 	export let translation: string;
 	export let tafsir: string;
@@ -20,9 +23,12 @@
 			{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
 		</div>
 	</div>
-	<div>
+
+	<div class="mt-4 flex justify-end gap-2">
 		<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
+		<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
 	</div>
+
 	{#if $settingTranslation && translation}
 		<p class="p-4 italic text-gray-600 dark:text-gray-300">🔸 Terjemahan: {translation}</p>
 	{/if}

@@ -32,4 +32,13 @@ export type PinnedSurahItem = {
 }
 
 export const pinnedSurah = writable<PinnedSurahItem[]>([]);
-export const lastReadVerses = writable([]);
+
+
+export type BookmarkVerseItem = {
+  s: string
+  v: string
+  l: string
+  a: string
+}
+
+export const lastReadVerses = writable<BookmarkVerseItem[]>([]);

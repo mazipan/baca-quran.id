@@ -2,7 +2,6 @@
 	import { pinnedSurah } from '../store';
 	import CardShadow from './CardShadow.svelte';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
-	import Button from './ui/Button.svelte';
 </script>
 
 <div class="flex gap-2 mb-2">

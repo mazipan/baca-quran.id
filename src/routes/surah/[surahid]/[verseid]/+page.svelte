@@ -59,6 +59,8 @@
 				tafsir={verseData.tafsir}
         totalAyah={parseInt(surahInfo.current.ayah_count, 10)}
         source="verse"
+        surahLatin={surahInfo.current.latin}
+        surahArabic={surahInfo.current.arabic}
 			/>
 		</div>
 
