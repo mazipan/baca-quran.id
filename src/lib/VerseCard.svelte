@@ -3,6 +3,9 @@
 	import CardShadow from './CardShadow.svelte';
 	import VerseAudioPlayerTrigger from './VerseAudioPlayerTrigger.svelte';
 	import VerseSaveLastRead from './VerseSaveLastRead.svelte';
+	import { TITLE_CONSTANTS } from './constants';
+	import ShareIcon from './icons/ShareIcon.svelte';
+	import Button from './ui/Button.svelte';
 
 	export let verse: string;
 	export let numberVerse: string;
@@ -14,6 +17,23 @@
 	export let translation: string;
 	export let tafsir: string;
 	export let source: string;
+
+	async function handleShare() {
+		const shareData = {
+			title: 'Baca-Quran.id',
+			text: `[QS ${numberSurah}:${numberVerse}] Surat ${surahLatin}, Ayat ${numberVerse}.`,
+			url: `${TITLE_CONSTANTS.PATH}${numberSurah}/${numberVerse}/`
+		};
+		try {
+			if (typeof navigator !== 'undefined' && typeof navigator.share !== 'undefined') {
+				await navigator.share(shareData);
+			} else {
+				window.open(`https://twitter.com/intent/tweet?text=${shareData.text}+%0A+${shareData.url}`, '_blank');
+			}
+		} catch (err) {
+			console.error(`Error when exec navigator.share: ${err}`);
+		}
+	}
 </script>
 
 <CardShadow>
@@ -25,6 +45,9 @@
 		<div class="flex items-center gap-2">
 			<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
 			<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
+			<Button onClick={handleShare}>
+				<ShareIcon />
+			</Button>
 		</div>
 		<div class="flex items-center justify-center border-2 rounded-full h-8 w-8">
 			{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
