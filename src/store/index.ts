@@ -1,3 +1,4 @@
+import type { ReciterKey } from '$lib/audio';
 import { writable } from 'svelte/store';
 
 export const activeTheme = writable('');
@@ -6,7 +7,7 @@ export const activeTheme = writable('');
 export const settingTranslation = writable(false);
 export const settingTafsir = writable(false);
 export const settingMuqadimah = writable(false);
-export const settingAudio = writable<'1' | '2' | '3'>('1');
+export const settingAudio = writable<ReciterKey>('1');
 export const settingAutoNext = writable(false);
 // Settings storage -- END
 

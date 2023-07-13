@@ -9,6 +9,7 @@
 	import '../app.css';
 	import { getJsonLdWebsite, serializeSchema } from '$lib/json-ld';
 	import VerseAudioPlayer from '$lib/VerseAudioPlayer.svelte';
+	import type { ReciterKey } from '$lib/audio';
 
 	let isDrawerOpen = false;
 
@@ -34,7 +35,7 @@
 
 				const storageAudio = localStorage.getItem(CONSTANTS.STORAGE_KEY.AUDIO);
         if (storageAudio) {
-          settingAudio.set(storageAudio as '1' | '2' | '3');
+          settingAudio.set(storageAudio as ReciterKey);
         } else {
           settingAudio.set('1');
         }

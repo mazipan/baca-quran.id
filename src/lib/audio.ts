@@ -11,6 +11,8 @@ export const makeThreeDigit = (numberText: string) => {
   return res
 }
 
+export type ReciterKey =  '1' | '2' | '3' | '4' | '5';
+
 export const RECITER_1 = {
   id: '1',
   name: 'Sheikh Abdurrahman As-Sudais',
@@ -29,14 +31,33 @@ export const RECITER_3 = {
   url: 'Alafasy_128kbps'
 }
 
+export const RECITER_4 = {
+  id: '4',
+  name: 'Sheikh Nasser Al Qatami',
+  url: 'Nasser_Alqatami_128kbps'
+}
+
+export const RECITER_5 = {
+  id: '5',
+  name: 'Sheikh Akram Al Alaqimy',
+  url: 'Akram_AlAlaqimy_128kbps'
+}
+
+export const RECITER_6 = {
+  id: '6',
+  name: 'Abu Bakr al-Shatri',
+  url: 'Abu_Bakr_Ash-Shaatree_128kbps'
+}
+
 export const RECITER_MAP = {
   '1': RECITER_1,
   '2': RECITER_2,
-  '3': RECITER_3
+  '3': RECITER_3,
+  '4': RECITER_4,
+  '5': RECITER_5,
 }
 
-export const RECITER_ARRAY = [RECITER_1, RECITER_2, RECITER_3]
-
+export const RECITER_ARRAY = [RECITER_1, RECITER_2, RECITER_3, RECITER_4, RECITER_5]
 /**
  * Return a string of Audio URL from every ayah
  *
