@@ -19,19 +19,22 @@
 <CardShadow>
 	<div class="flex justify-end gap-4 items-start" id={`ayat-${numberVerse}`} data-source={source}>
 		<div class="font-bold text-2xl text-right font-arabic">{verse}</div>
-		<div class="flex items-center justify-center border-2 rounded-lg h-8 px-2">
-			{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
-		</div>
 	</div>
 
-	<div class="mt-4 flex justify-end gap-2">
-		<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
-		<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
+	<div class="mt-4 flex justify-between items-center gap-2">
+		<div class="flex items-center gap-2">
+			<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
+			<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
+		</div>
+		<div class="flex items-center justify-center border-2 rounded-full h-8 w-8">
+			{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
+		</div>
 	</div>
 
 	{#if $settingTranslation && translation}
 		<p class="p-4 italic text-gray-600 dark:text-gray-300">🔸 Terjemahan: {translation}</p>
 	{/if}
+
 	{#if $settingTafsir && tafsir}
 		<div class="p-4 text-gray-600 dark:text-gray-300">
 			<p class="mb-2 text-gray-600 dark:text-gray-300">🔹 Tafsir: {tafsir}</p>
