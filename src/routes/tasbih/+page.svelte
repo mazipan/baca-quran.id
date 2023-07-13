@@ -1,5 +1,4 @@
 <script lang="ts">
-	import CardShadow from '$lib/CardShadow.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import { META_DESC_TASBIH, META_TITLE_TASBIH, TITLE_CONSTANTS } from '$lib/constants';
