@@ -107,6 +107,9 @@
 			});
 
 			audioRef.addEventListener('ended', handleEndPlaying);
+			window.addEventListener('paused', () => {
+				pause();
+			});
 		}
 	}
 
@@ -136,6 +139,15 @@
 					<Button onClick={playNextSurah} class="text-sm"
 						>Berikutnya <ArrowRightIcon size="sm" /></Button
 					>
+				{:else}
+					<span class="text-sm flex items-center gap-2">
+						<span
+							class={`relative inline-flex rounded-full h-3 w-3 ${
+								$settingAutoNext ? 'bg-green-500' : 'bg-red-500'
+							}`}
+						/>
+						{$settingAutoNext ? 'Auto Next: ON' : 'Auto Next: OFF'}
+					</span>
 				{/if}
 			</div>
 
@@ -156,15 +168,7 @@
 			</div>
 
 			<div class="text-sm mt-2 flex justify-between items-center">
-				<span>Qari: {RECITER_MAP[$settingAudio].name}</span>
-				<span class="flex items-center gap-2">
-					<span
-						class={`relative inline-flex rounded-full h-3 w-3 ${
-							$settingAutoNext ? 'bg-green-500' : 'bg-red-500'
-						}`}
-					/>
-					{$settingAutoNext ? 'Auto Next: ON' : 'Auto Next: OFF'}
-				</span>
+				<span class="font-bold">🔊 {RECITER_MAP[$settingAudio]?.name || RECITER_MAP[1]?.name}</span>
 			</div>
 		</CardShadow>
 	</div>

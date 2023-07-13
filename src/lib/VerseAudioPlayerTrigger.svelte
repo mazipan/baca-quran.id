@@ -1,9 +1,5 @@
 <script lang="ts">
-	import {
-		isShowingAudioPlayer,
-		currentTrack,
-		type CurrentTrackParam
-	} from '../store';
+	import { isShowingAudioPlayer, currentTrack, type CurrentTrackParam } from '../store';
 
 	import PlayIcon from './icons/PlayIcon.svelte';
 	import Button from './ui/Button.svelte';
@@ -21,6 +17,9 @@
 				verse: '',
 				totalAyah: 0
 			});
+			window.dispatchEvent(
+				new CustomEvent('paused')
+			);
 			isShowingAudioPlayer.set(false);
 		} else {
 			currentTrack.set({

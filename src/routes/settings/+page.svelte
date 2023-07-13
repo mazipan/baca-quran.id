@@ -1,8 +1,15 @@
 <script lang="ts">
 	import MetaTag from '$lib/MetaTag.svelte';
+	import VerseAudioPlayerTrigger from '$lib/VerseAudioPlayerTrigger.svelte';
 	import { RECITER_ARRAY } from '$lib/audio';
 	import { CONSTANTS, META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
-	import { settingAudio, settingAutoNext, settingMuqadimah, settingTafsir, settingTranslation } from '../../store';
+	import {
+		settingAudio,
+		settingAutoNext,
+		settingMuqadimah,
+		settingTafsir,
+		settingTranslation
+	} from '../../store';
 </script>
 
 <svelte:head>
@@ -15,7 +22,7 @@
 
 <article class="px-4 flex flex-col gap-4 divide-y">
 	<div class="flex flex-col gap-2">
-    <h3 class="text-xl font-bold">💠 Setelan Fitur</h3>
+		<h3 class="text-xl font-bold">💠 Setelan Fitur</h3>
 		<div>
 			<input
 				type="checkbox"
@@ -29,7 +36,7 @@
 					settingTranslation.update((val) => !val);
 				}}
 			/>
-			<label for="chk-translation">Tampilkan terjemahan</label>
+			<label for="chk-translation">Selalu tampilkan terjemahan</label>
 		</div>
 		<div>
 			<input
@@ -44,7 +51,7 @@
 					settingTafsir.update((val) => !val);
 				}}
 			/>
-			<label for="chk-tafsir">Tampilkan tafsir</label>
+			<label for="chk-tafsir">Selalu tampilkan tafsir</label>
 		</div>
 		<div>
 			<input
@@ -59,32 +66,13 @@
 					settingMuqadimah.update((val) => !val);
 				}}
 			/>
-			<label for="chk-mukadimah">Tampilkan mukadimah</label>
+			<label for="chk-mukadimah">Selalu tampilkan mukadimah</label>
 		</div>
 	</div>
 
 	<div class="pt-4 flex flex-col gap-2">
-    <h3 class="text-xl font-bold">🔈 Setelan Audio</h3>
+		<h3 class="text-xl font-bold">🔈 Setelan Audio</h3>
 		<div>
-			<label for="select-qari" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-				>Pilih Qari</label
-			>
-			<select
-				id="select-qari"
-				bind:value={$settingAudio}
-				on:change={(e) => {
-					const value = e?.target?.value ?? 1;
-					localStorage.setItem(CONSTANTS.STORAGE_KEY.AUDIO, value ? value : '1');
-				}}
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blueish-700 dark:border-blueish-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blueish-500 dark:focus:border-blueish-500"
-			>
-				{#each RECITER_ARRAY as item (item.id)}
-					<option value={item.id}>{item.name}</option>
-				{/each}
-			</select>
-		</div>
-
-    <div>
 			<input
 				type="checkbox"
 				id="chk-auto-next"
@@ -99,5 +87,34 @@
 			/>
 			<label for="chk-auto-next">Otomatis putar ayat berikutnya</label>
 		</div>
+
+		<div>
+			<label for="select-qari" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+				>Pilih Qari</label
+			>
+			<div class="flex items-center gap-2">
+				<select
+					id="select-qari"
+					bind:value={$settingAudio}
+					on:change={(e) => {
+						const value = e?.target?.value ?? 1;
+						localStorage.setItem(CONSTANTS.STORAGE_KEY.AUDIO, value ? value : '1');
+					}}
+					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blueish-700 dark:border-blueish-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blueish-500 dark:focus:border-blueish-500"
+				>
+					{#each RECITER_ARRAY as item (item.id)}
+						<option value={item.id}>{item.name}</option>
+					{/each}
+				</select>
+				<VerseAudioPlayerTrigger
+					totalAyah={7}
+					numberSurah={`1`}
+					numberVerse={`1`}
+					source="setting"
+				/>
+			</div>
+		</div>
+
+		<div />
 	</div>
 </article>
