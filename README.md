@@ -59,7 +59,7 @@ V1 can be viewed in [`v1`](https://github.com/mazipan/baca-quran.id/tree/v1) bra
 ## Credit
 
 - Thanks for awesome repo [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
-- Asmaul Husna source from [jagad.id](https://jagad.id/99-asmaul-husna-latin-arab-dan-terjemahan-indonesia-inggris/)
+- Asmaul Husna source from [islam.nu.or.id](https://islam.nu.or.id/ubudiyah/99-asmaul-husna-dan-artinya-1T8jl)
 - Daily Do'a from [doaharianislami.com](http://www.doaharianislami.com/2017/06/kumpulan-doa-sehari-hari-lengkap-dalam-bahasa-arab-latin-dan-artinya.html)
 - MP3 Audio from [kemenag.go.id](https://quran.kemenag.go.id/)
 - Tahlil from [islam.nu.or.id](https://islam.nu.or.id/post/read/107344/susunan-bacaan-tahlil-doa-arwah-lengkap-dan-terjemahannya)
