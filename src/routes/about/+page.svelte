@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-  <MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}`} />
+	<MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}`} />
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
@@ -12,11 +12,13 @@
 </div>
 
 <article class="px-4">
-  <p class="mb-4">
-    Baca-Quran.id merupakan aplikasi untuk membaca Al-Quran melalui peramban (browser), tanpa perlu lagi install aplikasi tambahan, tanpa iklan dan tanpa analitik apapun sehingga lebih aman untuk privasi data Anda.
-  </p>
+	<p class="mb-4">
+		Baca-Quran.id merupakan aplikasi untuk membaca Al-Quran melalui peramban (browser), tanpa perlu
+		lagi install aplikasi tambahan, tanpa iklan dan tanpa analitik apapun sehingga lebih aman untuk
+		privasi data Anda.
+	</p>
 
-  <p class="mb-2">Baca-Quran.id menggunakan berbagai sumber data, diantaranya:</p>
+	<p class="mb-2">Baca-Quran.id menggunakan berbagai sumber data, diantaranya:</p>
 	<ul class="list-decimal ml-6">
 		<li>
 			<a
@@ -26,15 +28,6 @@
 				rel="noopener">Quran Json</a
 			>
 			oleh Rio Astamal untuk sumber data ayat-ayat Al Qur'an.
-		</li>
-		<li>
-			<a
-				class="underline"
-				href="https://jagad.id/99-asmaul-husna-latin-arab-dan-terjemahan-indonesia-inggris/"
-				target="_blank"
-				rel="noopener">Jagad.id</a
-			>
-			untuk data Asmaul Husna
 		</li>
 		<li>
 			<a
@@ -58,7 +51,13 @@
 				target="_blank"
 				rel="noopener">islam.nu.or.id</a
 			>
-			untuk bacaan tahlil dan wirid
+			untuk bacaan tahlil, wirid dan
+			<a
+				class="underline"
+				href="https://islam.nu.or.id/ubudiyah/99-asmaul-husna-dan-artinya-1T8jl"
+				target="_blank"
+				rel="noopener">Asmaul Husna</a
+			>
 		</li>
 	</ul>
 </article>
