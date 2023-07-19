@@ -6,6 +6,7 @@
 	import ChevronUpIcon from '$lib/icons/ChevronUpIcon.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import { toast } from '../../store/toast';
 
 	let counter = 0;
 	let target = 33;
@@ -19,6 +20,11 @@
 					typeof window.navigator.vibrate !== 'undefined'
 				) {
 					window.navigator.vibrate([1000, 500, 1000]);
+
+					toast.show({
+						message: `Kamu telah mencapai target!`,
+						type: 'success'
+					});
 				}
 			}
 		}
@@ -99,15 +105,22 @@
 	</div>
 
 	<div class="relative mt-6 flex flex-col items-center">
-		<button
-			on:click={handleReset}
-			class="-mb-6 z-10 cursor-pointer p-2 rounded-full bg-gray-100 focus:ring-4 focus:ring-blue-500 dark:bg-blueish-700 border-4 border-white dark:border-blueish-600"
-		>
-			<ResetIcon size="xl" />
-		</button>
+		<div class="relative -mb-6 z-10 flex flex-col">
+			<button
+				on:click={handleReset}
+				class="z-10 cursor-pointer p-2 rounded-full bg-gray-100 focus:ring-4 focus:ring-blue-500 dark:bg-blueish-700 border-4 border-white dark:border-blueish-600"
+			>
+				<ResetIcon size="xl" />
+			</button>
+			{#if counter >= target}
+				<span
+					class="animate-ping z-0 absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-50"
+				/>
+			{/if}
+		</div>
 		<button
 			on:click={handleIncrement}
-			class="cursor-pointer p-2 rounded-full bg-gray-100 focus:ring-4 focus:ring-blue-500 dark:bg-blueish-700 border-4 border-white dark:border-blueish-600"
+			class="cursor-pointer p-2 rounded-full bg-gray-100 focus:ring-4 focus:ring-blue-500 dark:bg-blueish-700 border-4 border-white dark:border-blueish-600 outline-none"
 		>
 			<ChevronUpIcon size="xl" class="w-40 h-40" />
 		</button>
@@ -118,13 +131,6 @@
 			<ChevronDownIcon size="xl" />
 		</button>
 	</div>
-
-	{#if counter >= target}
-		<div class={`text-sm text-center text-red-600`}>
-			<small>Kamu sudah mencapai target!</small><br />
-			<small>Mulai lagi dengan <strong>klik tombol reset</strong>.</small>
-		</div>
-	{/if}
 </div>
 
 <div class="mt-8">

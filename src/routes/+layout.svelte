@@ -4,12 +4,21 @@
 	import Header from '$lib/Header.svelte';
 	import { CONSTANTS } from '$lib/constants';
 	import { onMount } from 'svelte';
-	import { settingAudio, settingMuqadimah, settingTafsir, settingTranslation, settingAutoNext, pinnedSurah, lastReadVerses } from '../store';
+	import {
+		settingAudio,
+		settingMuqadimah,
+		settingTafsir,
+		settingTranslation,
+		settingAutoNext,
+		pinnedSurah,
+		lastReadVerses
+	} from '../store';
 
 	import '../app.css';
 	import { getJsonLdWebsite, serializeSchema } from '$lib/json-ld';
 	import VerseAudioPlayer from '$lib/VerseAudioPlayer.svelte';
 	import type { ReciterKey } from '$lib/audio';
+	import Toaster from '$lib/Toaster.svelte';
 
 	let isDrawerOpen = false;
 
@@ -34,34 +43,34 @@
 				settingAutoNext.set(!!(storageAutoNext && storageAutoNext === 'y'));
 
 				const storageAudio = localStorage.getItem(CONSTANTS.STORAGE_KEY.AUDIO);
-        if (storageAudio) {
-          settingAudio.set(storageAudio as ReciterKey);
-        } else {
-          settingAudio.set('1');
-        }
+				if (storageAudio) {
+					settingAudio.set(storageAudio as ReciterKey);
+				} else {
+					settingAudio.set('1');
+				}
 
 				const storagePinnedSurah = localStorage.getItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH);
-        if (storagePinnedSurah) {
-          const parsedValue = JSON.parse(storagePinnedSurah)
-          pinnedSurah.set(parsedValue || []);
-        } else {
-          pinnedSurah.set([]);
-        }
+				if (storagePinnedSurah) {
+					const parsedValue = JSON.parse(storagePinnedSurah);
+					pinnedSurah.set(parsedValue || []);
+				} else {
+					pinnedSurah.set([]);
+				}
 
 				const storageLastVerses = localStorage.getItem(CONSTANTS.STORAGE_KEY.LAST_VERSES);
-        if (storageLastVerses) {
-          const parsedValue = JSON.parse(storageLastVerses)
-          lastReadVerses.set(parsedValue || []);
-        } else {
-          lastReadVerses.set([]);
-        }
+				if (storageLastVerses) {
+					const parsedValue = JSON.parse(storageLastVerses);
+					lastReadVerses.set(parsedValue || []);
+				} else {
+					lastReadVerses.set([]);
+				}
 			}
 		}
 	});
 </script>
 
 <svelte:head>
-  {@html serializeSchema(getJsonLdWebsite())}
+	{@html serializeSchema(getJsonLdWebsite())}
 </svelte:head>
 
 <div>
@@ -75,6 +84,6 @@
 		<!-- <Gradient variant="bottom" /> -->
 		<Footer />
 		<VerseAudioPlayer />
+		<Toaster />
 	</div>
 </div>
-
