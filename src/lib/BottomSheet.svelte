@@ -16,7 +16,7 @@
 		}`}
 		role="alert"
 	>
-		<div class="flex justify-between items-center p-4">
+		<div class="flex justify-between items-center p-4 gap-2">
       <h3 class="text-xl font-bold">{title}</h3>
 			<button
 				type="button"

@@ -24,12 +24,16 @@
 		showBottomSheet = !showBottomSheet;
 	};
 
-	async function handleShare() {
+	async function handleShare(type: 'arabic' | 'terjemah' = 'arabic') {
+		const TEXT_ARABIC = `${surahArabic} (QS ${numberSurah}:${numberVerse})`;
+		const TEXT_TERJEMAH = `${translation} (QS ${numberSurah}:${numberVerse})`;
+		const TEXT = type === 'arabic' ? TEXT_ARABIC : TEXT_TERJEMAH;
 		const shareData = {
 			title: 'Baca-Quran.id',
-			text: `[QS ${numberSurah}:${numberVerse}] Surat ${surahLatin}, Ayat ${numberVerse}.`,
-			url: `${TITLE_CONSTANTS.PATH}${numberSurah}/${numberVerse}/`
+			text: TEXT,
+			url: `${TITLE_CONSTANTS.PATH}surah/${numberSurah}/${numberVerse}/`
 		};
+
 		try {
 			if (typeof navigator !== 'undefined' && typeof navigator.share !== 'undefined') {
 				await navigator.share(shareData);
@@ -54,7 +58,12 @@
 		<div class="flex items-center gap-2">
 			<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
 			<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
-			<Button onClick={handleShare} ariaLabel="Bagikan Ayat">
+			<Button
+				onClick={() => {
+					handleShare('arabic');
+				}}
+				ariaLabel="Bagikan Ayat"
+			>
 				<ShareIcon />
 			</Button>
 			<Button onClick={toggleBottomSheet} ariaLabel="Baca Terjemah">
@@ -73,13 +82,27 @@
 	onClose={toggleBottomSheet}
 >
 	<details class="p-4" open>
-		<summary class="text-lg font-bold text-gray-600 dark:text-gray-300">🔸 Terjemahan</summary>
+		<summary class="cursor-pointer text-lg font-bold text-gray-600 dark:text-gray-300">
+			🔸 Terjemahan
+		</summary>
 		<p class="pt-2 italic text-gray-600 dark:text-gray-300">
 			{translation}
+
+			<Button
+				onClick={() => {
+					handleShare('terjemah');
+				}}
+				ariaLabel="Bagikan Terjemahan"
+        class="mt-4"
+			>
+				Bagikan terjemahan <ShareIcon size="sm" />
+			</Button>
 		</p>
 	</details>
-  <details class="px-4 pt-2">
-		<summary class="text-lg font-bold text-gray-600 dark:text-gray-300">🔹 Tafsir</summary>
+	<details class="px-4 pt-2">
+		<summary class="cursor-pointer text-lg font-bold text-gray-600 dark:text-gray-300">
+			🔹 Tafsir
+		</summary>
 		<p class="pt-2 italic text-gray-600 dark:text-gray-300">
 			{tafsir}
 		</p>

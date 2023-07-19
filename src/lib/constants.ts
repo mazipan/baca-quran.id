@@ -69,8 +69,8 @@ export const META_DESC_RECOMMENDATION = `Berbagai surat rekomendasi untuk dibaca
 export const META_TITLE_SURAH = (name: string) => `Qur'an Surat ${name} | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC_SURAH = (name: string) => `Qur'an Surat ${name} ${postfix(true)}`
 
-export const META_TITLE_AYAH = (verseid: string, name: string) => `Ayat ke ${verseid || 1}, QS ${name} | ${TITLE_CONSTANTS.TITLE_META}`
-export const META_DESC_AYAH = (verseid: string, name: string) => `Ayat ke ${verseid || 1}, QS ${name} ${postfix(true)}`
+export const META_TITLE_AYAH = (verseid: string, name: string) => `Surat ${name}, Ayat ke ${verseid || 1} | ${TITLE_CONSTANTS.TITLE_META}`
+export const META_DESC_AYAH = (verseid: string, name: string) => `Surat ${name}, Ayat ke ${verseid || 1} ${postfix(true)}`
 
 export type SeoArgs = {
   surahLatin: string
