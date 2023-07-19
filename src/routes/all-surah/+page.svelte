@@ -5,9 +5,22 @@
 	import SurahCard from '$lib/SurahCard.svelte';
 	import { META_DESC_ALL_SURAH, META_TITLE_ALL_SURAH, TITLE_CONSTANTS } from '$lib/constants';
 	import surahInfo, { type SurahInfo } from '../../data/surah-info';
+	import MakkiyahMadaniyah from '../../data/makkiyah-madaniyah';
 
+	function insertMakkiyahMadaniyah() {
+		let result: SurahInfo = {};
+		for (const [surahIndex, surah] of Object.entries(surahInfo)) {
+			result[surahIndex] = {
+        ...surah,
+        revelation: MakkiyahMadaniyah[surahIndex] ? MakkiyahMadaniyah[surahIndex] : 0
+      };
+		}
+    return result
+	}
+
+  let originSurahInfo = insertMakkiyahMadaniyah()
 	let searchText = '';
-	let filteredSurahInfo: SurahInfo = surahInfo;
+	let filteredSurahInfo: SurahInfo = originSurahInfo;
 	const noSpecialChars = (str: string) => str.replace(/[^a-zA-Z0-9 ]/g, '');
 
 	const handleSearchChange = (e: Event) => {
@@ -19,7 +32,7 @@
 		if (searchText.length > 1) {
 			let result: SurahInfo = {};
 
-			for (const [surahIndex, surah] of Object.entries(surahInfo)) {
+			for (const [surahIndex, surah] of Object.entries(originSurahInfo)) {
 				if (
 					noSpecialChars(surah.latin.toLowerCase()).indexOf(
 						noSpecialChars(searchText.toLowerCase())
@@ -34,10 +47,9 @@
 
 			filteredSurahInfo = result;
 		} else {
-			filteredSurahInfo = surahInfo;
+			filteredSurahInfo = originSurahInfo;
 		}
 	}
-
 </script>
 
 <svelte:head>

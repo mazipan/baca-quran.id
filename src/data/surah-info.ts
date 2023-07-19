@@ -4,6 +4,7 @@ export type SurahInfoItem = {
   latin: string
   ayah_count: number
   index: number
+  revelation?: number
 }
 
 export type SurahInfoPage = {

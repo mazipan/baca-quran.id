@@ -8,6 +8,7 @@
 	import { CONSTANTS } from './constants';
 	import HeartSolidIcon from './icons/HeartSolidIcon.svelte';
 	import { toast } from '../store/toast';
+	import { MAKKIYAH_MADANIYAH_TEXT } from '../data/makkiyah-madaniyah';
 
 	export let surah: SurahInfoItem;
 	let isSurahExistInStorage = false;
@@ -64,15 +65,22 @@
 			<div class="flex flex-col items-start justify-center">
 				<span class="font-bold">{surah.latin}</span>
 				<small class="text-xs text-gray-400">{surah.translation}</small>
+        {#if surah.revelation}
+          <small class="text-xs text-gray-400">
+            {MAKKIYAH_MADANIYAH_TEXT[surah?.revelation?.toString()]}
+          </small>
+        {/if}
 			</div>
 		</div>
 
 		<div class="flex flex-col items-end justify-center">
 			<span class="font-bold text-xl font-arabic">{surah.arabic}</span>
-			<small class="text-xs text-gray-400 text-right">{surah.ayah_count} ayat</small>
+			<small class="text-xs text-gray-400 text-right">
+        {surah.ayah_count} ayat
+      </small>
 		</div>
 	</div>
-	<div>
+	<div class="mt-2">
 		<Button onClick={handlePinSurah}>
 			{#if isSurahExistInStorage}
 				<HeartSolidIcon size="sm" class="w-4 h-4 z-10 text-red-500" />
