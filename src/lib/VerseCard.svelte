@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { settingTranslation, settingTafsir } from '../store';
+	import BottomSheet from './BottomSheet.svelte';
 	import CardShadow from './CardShadow.svelte';
 	import VerseAudioPlayerTrigger from './VerseAudioPlayerTrigger.svelte';
 	import VerseSaveLastRead from './VerseSaveLastRead.svelte';
 	import { TITLE_CONSTANTS } from './constants';
+	import DocumentTextIcon from './icons/DocumentTextIcon.svelte';
 	import ShareIcon from './icons/ShareIcon.svelte';
 	import Button from './ui/Button.svelte';
 
@@ -18,6 +19,11 @@
 	export let tafsir: string;
 	export let source: string;
 
+	let showBottomSheet = false;
+	let toggleBottomSheet = () => {
+		showBottomSheet = !showBottomSheet;
+	};
+
 	async function handleShare() {
 		const shareData = {
 			title: 'Baca-Quran.id',
@@ -28,7 +34,10 @@
 			if (typeof navigator !== 'undefined' && typeof navigator.share !== 'undefined') {
 				await navigator.share(shareData);
 			} else {
-				window.open(`https://twitter.com/intent/tweet?text=${shareData.text}+%0A+${shareData.url}`, '_blank');
+				window.open(
+					`https://twitter.com/intent/tweet?text=${shareData.text}+%0A+${shareData.url}`,
+					'_blank'
+				);
 			}
 		} catch (err) {
 			console.error(`Error when exec navigator.share: ${err}`);
@@ -45,25 +54,40 @@
 		<div class="flex items-center gap-2">
 			<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
 			<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
-			<Button onClick={handleShare}>
+			<Button onClick={handleShare} ariaLabel="Bagikan Ayat">
 				<ShareIcon />
+			</Button>
+			<Button onClick={toggleBottomSheet} ariaLabel="Baca Terjemah">
+				<DocumentTextIcon />
 			</Button>
 		</div>
 		<div class="flex items-center justify-center border-2 rounded-full h-8 w-8">
 			{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
 		</div>
 	</div>
-
-	{#if $settingTranslation && translation}
-		<p class="p-4 italic text-gray-600 dark:text-gray-300">🔸 Terjemahan: {translation}</p>
-	{/if}
-
-	{#if $settingTafsir && tafsir}
-		<div class="p-4 text-gray-600 dark:text-gray-300">
-			<p class="mb-2 text-gray-600 dark:text-gray-300">🔹 Tafsir: {tafsir}</p>
-			<small class="italic"
-				>Sumber: Kemenag - Aplikasi Quran Kementrian Agama Republik Indonesia</small
-			>
-		</div>
-	{/if}
 </CardShadow>
+
+<BottomSheet
+	title={`💠 Terjemah & Tafsir Surat ${surahLatin}, Ayat ${numberVerse}`}
+	show={showBottomSheet}
+	onClose={toggleBottomSheet}
+>
+	<details class="p-4" open>
+		<summary class="text-lg font-bold text-gray-600 dark:text-gray-300">🔸 Terjemahan</summary>
+		<p class="pt-2 italic text-gray-600 dark:text-gray-300">
+			{translation}
+		</p>
+	</details>
+  <details class="px-4 pt-2">
+		<summary class="text-lg font-bold text-gray-600 dark:text-gray-300">🔹 Tafsir</summary>
+		<p class="pt-2 italic text-gray-600 dark:text-gray-300">
+			{tafsir}
+		</p>
+	</details>
+
+	<div class="p-4 text-gray-600 dark:text-gray-300">
+		<small class="italic"
+			>Sumber: Kemenag - Aplikasi Quran Kementrian Agama Republik Indonesia</small
+		>
+	</div>
+</BottomSheet>

@@ -56,7 +56,8 @@
 	};
 </script>
 
-<Button data-trigger-source={source} onClick={handleBookmarkVerse}>
+<Button data-trigger-source={source} onClick={handleBookmarkVerse}
+ariaLabel="Bookmark Ayat">
 	{#if !!$lastReadVerses.find((val) => val.s === numberSurah.toString() && val.v === numberVerse.toString())}
 		<BookmarkSolidIcon size="md" class="w-6 h-6 z-10 text-red-500" />
 	{:else}

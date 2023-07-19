@@ -41,6 +41,7 @@
 			totalAyah: totalAyah
 		});
 	}}
+  ariaLabel={`${$isShowingAudioPlayer ? "Stop" : "Play"}`}
 >
 	{#if $isShowingAudioPlayer}
 		<SpeakerXMarkIcon />
