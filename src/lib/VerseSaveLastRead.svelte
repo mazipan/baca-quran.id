@@ -5,6 +5,7 @@
 	import BookmarkIcon from './icons/BookmarkIcon.svelte';
 	import { CONSTANTS } from './constants';
 	import BookmarkSolidIcon from './icons/BookmarkSolidIcon.svelte';
+	import { toast } from '../store/toast';
 
 	export let surahLatin: string;
 	export let surahArabic: string;
@@ -22,7 +23,9 @@
 			a: surahArabic
 		};
 
-    let isVerseExistInStorage = !!$lastReadVerses.find((val) => val.s === numberSurah.toString() && val.v === numberVerse.toString())
+		let isVerseExistInStorage = !!$lastReadVerses.find(
+			(val) => val.s === numberSurah.toString() && val.v === numberVerse.toString()
+		);
 
 		if (!isVerseExistInStorage) {
 			if ($lastReadVerses.length < 9) {
@@ -33,12 +36,22 @@
 
 				lastReadVerses.set([...lastVersesWithoutCurrentSurah, thisItem]);
 				localStorage.setItem(CONSTANTS.STORAGE_KEY.LAST_VERSES, JSON.stringify($lastReadVerses));
+
+				toast.show({
+					message: `Berhasil menandai Surat <b>${surahLatin}</b> Ayat <b>${numberVerse}</b> sebagai terakhir dibaca!`,
+					type: 'success'
+				});
 			}
 		} else {
 			lastReadVerses.update((val) =>
 				val.filter((i) => i.s !== thisItem.s.toString() && i.v !== thisItem.v.toString())
 			);
 			localStorage.setItem(CONSTANTS.STORAGE_KEY.LAST_VERSES, JSON.stringify($lastReadVerses));
+
+			toast.show({
+				message: `Berhasil menandai Surat <b>${surahLatin}</b> Ayat <b>${numberVerse}</b> sebagai terakhir dibaca!`,
+				type: 'success'
+			});
 		}
 	};
 </script>

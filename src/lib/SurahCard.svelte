@@ -7,6 +7,7 @@
 	import Button from './ui/Button.svelte';
 	import { CONSTANTS } from './constants';
 	import HeartSolidIcon from './icons/HeartSolidIcon.svelte';
+	import { toast } from '../store/toast';
 
 	export let surah: SurahInfoItem;
 	let isSurahExistInStorage = false;
@@ -21,15 +22,28 @@
 		};
 
 		if (!isSurahExistInStorage) {
-			if ($pinnedSurah.length < 3) {
+			if ($pinnedSurah.length < 4) {
 				pinnedSurah.update((val) => [...val, thisItem]);
 				isSurahExistInStorage = true;
 				localStorage.setItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH, JSON.stringify($pinnedSurah));
-			}
+				toast.show({
+					message: `Berhasil menyematkan surat <b>${surah.latin}</b>!`,
+					type: 'success'
+				});
+			} else {
+        toast.show({
+					message: `Kamu telah menyematkan maksimum 4 surat!`,
+					type: 'error'
+				});
+      }
 		} else {
 			pinnedSurah.update((val) => val.filter((i) => i.i !== thisItem.i));
 			isSurahExistInStorage = false;
 			localStorage.setItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH, JSON.stringify($pinnedSurah));
+			toast.show({
+				message: `Berhasil menghapus surat <b>${surah.latin}</b> dari penyematan!`,
+				type: 'success'
+			});
 		}
 	};
 
