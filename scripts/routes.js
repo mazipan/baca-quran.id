@@ -9,5 +9,7 @@ export const staticUrls = [
   '/settings/',
   '/tahlil/',
   '/tasbih/',
-  '/wirid/'
+  '/wirid/',
+  '/surah-makkiyah/',
+  '/surah-madaniyah/'
 ]

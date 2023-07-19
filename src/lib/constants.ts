@@ -39,6 +39,12 @@ export const META_DESC = `Bacaan lengkap ayat-ayat Al-Qur'an ${postfix(true)}`
 export const META_TITLE_ALL_SURAH = `Semua Surat Al-Qur'an | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC_ALL_SURAH = `Daftar semua surat dalam Al-Qur'an ${postfix(false)}`
 
+export const META_TITLE_MAKKIYAH = `Surat Makkiyah Al-Qur'an | ${TITLE_CONSTANTS.TITLE_META}`
+export const META_DESC_MAKKIYAH = `Daftar semua surat-surat Makkiyah dalam Al-Qur'an ${postfix(false)}`
+
+export const META_TITLE_MADANIYAH = `Surat Madaniyah Al-Qur'an | ${TITLE_CONSTANTS.TITLE_META}`
+export const META_DESC_MADANIYAH = `Daftar semua surat-surat Madaniyah dalam Al-Qur'an ${postfix(false)}`
+
 export const META_TITLE_JUZ_AMMA = `Juz Amma (Juz 30) Al-Qur'an | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC_JUZ_AMMA = `Daftar semua surat Juz Amma (Juz 30) dalam Al-Qur'an ${postfix(false)}`
 
@@ -77,10 +83,12 @@ export type SeoArgs = {
   verseNumber?: string
 }
 
-export type PageVariant = 'ALL_SURAH' | 'ASMAUL_HUSNA' | 'AYAT_KURSI' | 'DAILY_DOA' | 'JUZ_AMMA' | 'TAHLIL' | 'WIRID' | 'SURAH_DETAIL' | 'AYAT_DETAIL' | 'TASBIH'
+export type PageVariant = 'ALL_SURAH' | 'ASMAUL_HUSNA' | 'AYAT_KURSI' | 'DAILY_DOA' | 'JUZ_AMMA' | 'TAHLIL' | 'WIRID' | 'SURAH_DETAIL' | 'AYAT_DETAIL' | 'TASBIH' | 'MAKKIYAH' | 'MADANIYAH'
 
 export const SEO_TEXT = {
   ALL_SURAH: 'Baca Quran lengkap 30 Juz 114 Surat beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+  MAKKIYAH: 'Baca Quran Surat-Surat Makkiyah beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+  MADANIYAH: 'Baca Quran Surat-Surat Madaniyah beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
   ASMAUL_HUSNA: 'Daftar Asmaul Husna, lengkap dengan tulisan arab dan artinya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
   AYAT_KURSI: 'Bacaan Ayat Kursi dengan terjemahan bahasa Indonesia. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
   DAILY_DOA: 'Kumpulan bacaan Do\'a sehari-hari untuk anak dan dewasa beserta tulisan latin dan terjemahan bahasa Indonesia. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',

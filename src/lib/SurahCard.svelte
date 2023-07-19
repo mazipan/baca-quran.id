@@ -8,7 +8,7 @@
 	import { CONSTANTS } from './constants';
 	import HeartSolidIcon from './icons/HeartSolidIcon.svelte';
 	import { toast } from '../store/toast';
-	import { MAKKIYAH_MADANIYAH_TEXT } from '../data/makkiyah-madaniyah';
+	import { MADANIYAH_CODE, MAKKIYAH_MADANIYAH_TEXT } from '../data/makkiyah-madaniyah';
 
 	export let surah: SurahInfoItem;
 	let isSurahExistInStorage = false;
@@ -32,11 +32,11 @@
 					type: 'success'
 				});
 			} else {
-        toast.show({
+				toast.show({
 					message: `Kamu telah menyematkan maksimum 4 surat!`,
 					type: 'error'
 				});
-      }
+			}
 		} else {
 			pinnedSurah.update((val) => val.filter((i) => i.i !== thisItem.i));
 			isSurahExistInStorage = false;
@@ -65,19 +65,22 @@
 			<div class="flex flex-col items-start justify-center">
 				<span class="font-bold">{surah.latin}</span>
 				<small class="text-xs text-gray-400">{surah.translation}</small>
-        {#if surah.revelation}
-          <small class="text-xs text-gray-400">
-            {MAKKIYAH_MADANIYAH_TEXT[surah?.revelation?.toString()]}
-          </small>
-        {/if}
+				{#if surah.revelation}
+					<a
+						class="text-xs z-10 underline"
+						href={`/surah-${surah?.revelation === MADANIYAH_CODE ? 'madaniyah' : 'makkiyah'}/`}
+					>
+						{MAKKIYAH_MADANIYAH_TEXT[surah?.revelation?.toString()]}
+					</a>
+				{/if}
 			</div>
 		</div>
 
 		<div class="flex flex-col items-end justify-center">
 			<span class="font-bold text-xl font-arabic">{surah.arabic}</span>
 			<small class="text-xs text-gray-400 text-right">
-        {surah.ayah_count} ayat
-      </small>
+				{surah.ayah_count} ayat
+			</small>
 		</div>
 	</div>
 	<div class="mt-2">
