@@ -1,15 +1,20 @@
 <script lang="ts">
 	import MetaTag from '$lib/MetaTag.svelte';
 	import VerseAudioPlayerTrigger from '$lib/VerseAudioPlayerTrigger.svelte';
+	import VerseCard from '$lib/VerseCard.svelte';
 	import { RECITER_ARRAY } from '$lib/audio';
 	import { CONSTANTS, META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
+	import surahData from '../../data/surah-data/108';
 	import {
 		settingAudio,
 		settingAutoNext,
-		settingMuqadimah,
 		settingTafsir,
 		settingTranslation
 	} from '../../store';
+  let SURAH_SAMPLE = 108
+  let SURAH_SAMPLE_TOTAL_AYAH = 3
+  let SURAH_SAMPLE_ARABIC = "الكوثر"
+  let SURAH_SAMPLE_LATIN = "Al-Kausar"
 </script>
 
 <svelte:head>
@@ -51,9 +56,9 @@
 					settingTafsir.update((val) => !val);
 				}}
 			/>
-			<label for="chk-tafsir">Selalu tampilkan tafsir</label>
+			<label for="chk-tafsir">Tampilkan tombol tafsir</label>
 		</div>
-		<div>
+		<!-- <div>
 			<input
 				type="checkbox"
 				id="chk-mukadimah"
@@ -67,6 +72,26 @@
 				}}
 			/>
 			<label for="chk-mukadimah">Selalu tampilkan mukadimah</label>
+		</div> -->
+		<div>
+			<b>Preview</b>
+			<div>
+				<div class="mt-2 flex flex-col gap-1">
+					{#each Object.entries(surahData[SURAH_SAMPLE].text) as [numberVerse, verse] (verse)}
+						<VerseCard
+							verse={`${verse}`}
+							{numberVerse}
+							translation={surahData[SURAH_SAMPLE]?.translations.id?.text?.[numberVerse] || ''}
+							tafsir={surahData[SURAH_SAMPLE]?.tafsir?.id?.kemenag?.text?.[numberVerse] || ''}
+							numberSurah={SURAH_SAMPLE.toString()}
+							totalAyah={SURAH_SAMPLE_TOTAL_AYAH}
+							source="surah"
+							surahLatin={SURAH_SAMPLE_LATIN}
+							surahArabic={SURAH_SAMPLE_ARABIC}
+						/>
+					{/each}
+				</div>
+			</div>
 		</div>
 	</div>
 

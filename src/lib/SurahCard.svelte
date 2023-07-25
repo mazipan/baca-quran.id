@@ -9,6 +9,7 @@
 	import HeartSolidIcon from './icons/HeartSolidIcon.svelte';
 	import { toast } from '../store/toast';
 	import { MADANIYAH_CODE, MAKKIYAH_MADANIYAH_TEXT } from '../data/makkiyah-madaniyah';
+	import Badge from './ui/Badge.svelte';
 
 	export let surah: SurahInfoItem;
 	let isSurahExistInStorage = false;
@@ -57,22 +58,11 @@
 </script>
 
 <CardShadow href={`/surah/${surah.index}/`} _as="a">
-	<div class="flex justify-between">
+	<div class="flex justify-between items-start">
 		<div class="flex gap-2 items-center">
-			<div class="flex items-center justify-center text-3xl">
-				{surah.index.toLocaleString('ar-u-nu-arab', { useGrouping: false })}
-			</div>
 			<div class="flex flex-col items-start justify-center">
 				<span class="font-bold">{surah.latin}</span>
 				<small class="text-xs text-gray-400">{surah.translation}</small>
-				{#if surah.revelation}
-					<a
-						class="text-xs z-10 underline"
-						href={`/surah-${surah?.revelation === MADANIYAH_CODE ? 'madaniyah' : 'makkiyah'}/`}
-					>
-						{MAKKIYAH_MADANIYAH_TEXT[surah?.revelation?.toString()]}
-					</a>
-				{/if}
 			</div>
 		</div>
 
@@ -83,7 +73,23 @@
 			</small>
 		</div>
 	</div>
-	<div class="mt-2">
+	<div class="mt-2 flex items-center justify-between">
+		<div class="flex items-center gap-2">
+			<div class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8">
+				{surah.index.toLocaleString('ar-u-nu-arab', { useGrouping: false })}
+			</div>
+
+			{#if surah.revelation}
+				<a
+					class="z-10"
+					href={`/surah-${surah?.revelation === MADANIYAH_CODE ? 'madaniyah' : 'makkiyah'}/`}
+				>
+					<Badge color={surah?.revelation === MADANIYAH_CODE ? 'green' : 'orange'}>
+						{MAKKIYAH_MADANIYAH_TEXT[surah?.revelation?.toString()]}
+					</Badge>
+				</a>
+			{/if}
+		</div>
 		<Button onClick={handlePinSurah}>
 			{#if isSurahExistInStorage}
 				<HeartSolidIcon size="sm" class="w-4 h-4 z-10 text-red-500" />

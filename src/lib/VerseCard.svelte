@@ -7,6 +7,7 @@
 	import DocumentTextIcon from './icons/DocumentTextIcon.svelte';
 	import ShareIcon from './icons/ShareIcon.svelte';
 	import Button from './ui/Button.svelte';
+	import { settingTafsir, settingTranslation } from '../store';
 
 	export let verse: string;
 	export let numberVerse: string;
@@ -25,7 +26,7 @@
 	};
 
 	async function handleShare(type: 'arabic' | 'terjemah' = 'arabic') {
-		const TEXT_ARABIC = `${surahArabic} (QS ${numberSurah}:${numberVerse})`;
+		const TEXT_ARABIC = `${verse} (QS ${numberSurah}:${numberVerse})`;
 		const TEXT_TERJEMAH = `${translation} (QS ${numberSurah}:${numberVerse})`;
 		const TEXT = type === 'arabic' ? TEXT_ARABIC : TEXT_TERJEMAH;
 		const shareData = {
@@ -54,6 +55,12 @@
 		<div class="font-bold text-2xl text-right font-arabic">{verse}</div>
 	</div>
 
+	{#if $settingTranslation}
+		<p class="pt-2 text-xs italic text-gray-600 dark:text-gray-300">
+			{translation}
+		</p>
+	{/if}
+
 	<div class="mt-4 flex justify-between items-center gap-2">
 		<div class="flex items-center gap-2">
 			<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
@@ -66,11 +73,13 @@
 			>
 				<ShareIcon />
 			</Button>
-			<Button onClick={toggleBottomSheet} ariaLabel="Baca Terjemah">
-				<DocumentTextIcon />
-			</Button>
+			{#if $settingTafsir}
+				<Button onClick={toggleBottomSheet} ariaLabel="Baca Terjemah">
+					<DocumentTextIcon />
+				</Button>
+			{/if}
 		</div>
-		<div class="flex items-center justify-center border-2 rounded-full h-8 w-8">
+		<div class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8">
 			{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
 		</div>
 	</div>
@@ -93,7 +102,7 @@
 					handleShare('terjemah');
 				}}
 				ariaLabel="Bagikan Terjemahan"
-        class="mt-4"
+				class="mt-4"
 			>
 				Bagikan terjemahan <ShareIcon size="sm" />
 			</Button>
@@ -106,11 +115,10 @@
 		<p class="pt-2 italic text-gray-600 dark:text-gray-300">
 			{tafsir}
 		</p>
+		<div class="py-4 text-gray-600 dark:text-gray-300">
+			<small class="italic"
+				>Sumber: Kemenag - Aplikasi Quran Kementrian Agama Republik Indonesia</small
+			>
+		</div>
 	</details>
-
-	<div class="p-4 text-gray-600 dark:text-gray-300">
-		<small class="italic"
-			>Sumber: Kemenag - Aplikasi Quran Kementrian Agama Republik Indonesia</small
-		>
-	</div>
 </BottomSheet>
