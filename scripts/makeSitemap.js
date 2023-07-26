@@ -7,7 +7,7 @@ import { staticUrls } from './routes.js';
 const BASE_URL = 'https://www.baca-quran.id'
 const BASE_DIR_TARGET = path.resolve(path.join('static/sitemaps'))
 
-function makeObjectSitemap (url, priority = 0.8) {
+function makeObjectSitemap (url, priority = 0.5) {
   return {
     loc: BASE_URL + url,
     lastmod: new Date().toISOString(),
@@ -20,7 +20,7 @@ const allSurahObject = []
 const allVerseObject = []
 
 for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
-  allSurahObject.push(makeObjectSitemap(`/surah/${indexSurah + 1}`))
+  allSurahObject.push(makeObjectSitemap(`/surah/${indexSurah + 1}`, 0.7))
   const verseCount = verseCountPerSurah[`${indexSurah + 1}`]
 
   for (let indexVerse = 0; indexVerse < verseCount; indexVerse++) {
@@ -28,7 +28,7 @@ for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
   }
 }
 
-const staticUrlsObject = staticUrls.map(url => makeObjectSitemap(url))
+const staticUrlsObject = staticUrls.map(url => makeObjectSitemap(url, 0.8))
 
 createSitemap({
   filePath: path.join(BASE_DIR_TARGET, 'static.xml'),
@@ -78,7 +78,7 @@ const indexSitemaps = [
   '/sitemaps/surah.xml',
   ...verseChunksUrls,
 ]
-const indexUrlsObject = indexSitemaps.map(url => makeObjectSitemap(url))
+const indexUrlsObject = indexSitemaps.map(url => makeObjectSitemap(url, 0.8))
 
 createSitemapIndex({
   filePath: path.join(BASE_DIR_TARGET, 'sitemap-index.xml'),
