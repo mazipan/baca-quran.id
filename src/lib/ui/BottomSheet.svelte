@@ -1,5 +1,6 @@
 <script lang="ts">
 	import XMarkIcon from '../icons/XMarkIcon.svelte';
+	import Button from './Button.svelte';
 
 	export let show = false;
 	export let title = '';
@@ -13,22 +14,17 @@
 		data-component="bottom-sheet"
     data-id={id}
 		data-show={show}
-		class={`fixed bottom-0 left-0 z-50 ml-4 max-w-[500px] text-gray-500 bg-white rounded-2xl shadow-lg dark:text-gray-400 dark:bg-gray-800 transition-all duration-500 transform ${
+		class={`fixed bottom-0 left-0 z-50 ml-4 max-w-[500px] text-gray-700 border border-gray-200 bg-white rounded-2xl shadow-lg dark:text-gray-400 dark:bg-blueish-700 dark:border-blueish-900 transition-all duration-500 transform ${
 			show ? 'translate-y-[10%]' : 'translate-y-[120%]'
 		}`}
     style="width: calc(100% - 2rem)"
 		role="alert"
 	>
-		<div class="flex justify-between items-center p-4 gap-2">
+		<div class="flex justify-between items-center p-4 gap-2 rounded-t-2xl bg-gray-200 dark:bg-blueish-900">
       <h3 class="text-xl font-bold">{title}</h3>
-			<button
-				type="button"
-				class="ml-3 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-				aria-label="Close"
-				on:click={onClose}
-			>
-				<XMarkIcon />
-			</button>
+      <Button onClick={onClose}>
+        <XMarkIcon />
+      </Button>
 		</div>
 
 		<div class="mb-16 text-sm font-normal overflow-auto max-h-[500px]">

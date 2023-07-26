@@ -14,10 +14,10 @@
 			<PaginationButton
 				variant="prev"
 				href={`/surah/${parseInt(surahid, 10) - 1}/`}
-				title="Prev"
+				title={surahInfo.prev.latin}
 			/>
 		{:else}
-			<PaginationButton variant="prev" href={`/surah/114/`} title="Ke surat terakhir" />
+			<PaginationButton variant="prev" href={`/surah/114/`} title="An-Nas" />
 		{/if}
 
 		<span>{surahid} / 114</span>
@@ -26,10 +26,10 @@
 			<PaginationButton
 				variant="next"
 				href={`/surah/${parseInt(surahid, 10) + 1}/`}
-				title="Next"
+				title={surahInfo.next.latin}
 			/>
 		{:else}
-			<PaginationButton variant="next" href={`/surah/1/`} title="Ke surat awal" />
+			<PaginationButton variant="next" href={`/surah/1/`} title="Al-Fatihah" />
 		{/if}
 	</nav>
 {:else}
@@ -38,16 +38,16 @@
 			<PaginationButton
 				variant="prev"
 				href={`/surah/${surahid}/${parseInt(verseid, 10) - 1}/`}
-				title="Prev"
+				title={`Ayat ${parseInt(verseid, 10) - 1}`}
 			/>
 		{:else if surahInfo.prev}
 			<PaginationButton
 				variant="prev"
 				href={`/surah/${parseInt(surahid, 10) - 1}/`}
-				title="Ke surat sebelumnya"
+				title={surahInfo.prev.latin}
 			/>
 		{:else}
-			<PaginationButton variant="prev" href={`/surah/114/1/`} title="Ke surat terakhir" />
+			<PaginationButton variant="prev" href={`/surah/114/1/`} title="An-Nas" />
 		{/if}
 
 		<span>{verseid} / {surahInfo.current.ayah_count}</span>
@@ -56,16 +56,16 @@
 			<PaginationButton
 				variant="next"
 				href={`/surah/${surahid}/${parseInt(verseid, 10) + 1}/`}
-				title="Next"
+				title={`Ayat ${parseInt(verseid, 10) + 1}`}
 			/>
 		{:else if surahInfo.next}
 			<PaginationButton
 				variant="next"
 				href={`/surah/${parseInt(surahid, 10) + 1}/1/`}
-				title="Ke surat berikutnya"
+				title={surahInfo.next.latin}
 			/>
 		{:else}
-			<PaginationButton variant="next" href={`/surah/1/1/`} title="Ke surat awal" />
+			<PaginationButton variant="next" href={`/surah/1/1/`} title="Al-Fatihah" />
 		{/if}
 	</nav>
 {/if}

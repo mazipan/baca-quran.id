@@ -7,13 +7,14 @@
 	import VerseCard from '$lib/VerseCard.svelte';
 	import { META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/json-ld';
+	import type { SurahInfoPage } from '../../../data/surah-info';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
 
 	let surahid = data?.surahid;
 	let surahData = data?.surahData;
-	let surahInfo = data?.surahInfo;
+	let surahInfo = data?.surahInfo as SurahInfoPage;
 </script>
 
 <svelte:head>
@@ -62,7 +63,7 @@
 					translation={surahData?.translations?.id?.text?.[numberVerse] || ''}
 					tafsir={surahData?.tafsir?.id?.kemenag?.text?.[numberVerse] || ''}
 					numberSurah={surahid}
-          totalAyah={parseInt(surahInfo.current.ayah_count, 10)}
+          totalAyah={parseInt(`${surahInfo.current.ayah_count}`, 10)}
           source="surah"
           surahLatin={surahInfo.current.latin}
           surahArabic={surahInfo.current.arabic}

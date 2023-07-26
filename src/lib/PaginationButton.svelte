@@ -9,7 +9,7 @@
 
 <a
 	{href}
-	class="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+	class={`flex items-center gap-2 text-white py-2 px-4 rounded cursor-pointer bg-blue-500 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800`}
 	data-sveltekit-reload
 >
 	{#if variant === 'prev'}
