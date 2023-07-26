@@ -19,6 +19,8 @@
 	import VerseAudioPlayer from '$lib/VerseAudioPlayer.svelte';
 	import type { ReciterKey } from '$lib/audio';
 	import Toaster from '$lib/Toaster.svelte';
+	import VerseTafsirBottomSheet from '$lib/VerseTafsirBottomSheet.svelte';
+	import VerseShareBottomSheet from '$lib/VerseShareBottomSheet.svelte';
 
 	let isDrawerOpen = false;
 
@@ -85,5 +87,7 @@
 		<Footer />
 		<VerseAudioPlayer />
 		<Toaster />
+		<VerseTafsirBottomSheet />
+		<VerseShareBottomSheet />
 	</div>
 </div>

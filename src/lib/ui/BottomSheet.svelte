@@ -1,8 +1,9 @@
 <script lang="ts">
-	import XMarkIcon from './icons/XMarkIcon.svelte';
+	import XMarkIcon from '../icons/XMarkIcon.svelte';
 
 	export let show = false;
 	export let title = '';
+	export let id = '';
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	export let onClose: () => void = () => {};
 </script>
@@ -10,10 +11,12 @@
 <div class="relative">
 	<div
 		data-component="bottom-sheet"
+    data-id={id}
 		data-show={show}
-		class={`fixed bottom-0 left-0 z-50 w-full max-w-[500px] text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 transition-all duration-500 transform ${
+		class={`fixed bottom-0 left-0 z-50 ml-4 max-w-[500px] text-gray-500 bg-white rounded-2xl shadow-lg dark:text-gray-400 dark:bg-gray-800 transition-all duration-500 transform ${
 			show ? 'translate-y-[10%]' : 'translate-y-[120%]'
 		}`}
+    style="width: calc(100% - 2rem)"
 		role="alert"
 	>
 		<div class="flex justify-between items-center p-4 gap-2">
