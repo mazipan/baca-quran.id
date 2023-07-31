@@ -7,6 +7,7 @@ export const staticUrls = [
   '/daily-doa/',
   '/juz-amma/',
   '/kebijakan-privasi/',
+  '/ketentuan-layanan/',
   '/settings/',
   '/surah-makkiyah/',
   '/surah-madaniyah/',

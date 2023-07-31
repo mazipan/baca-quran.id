@@ -2,6 +2,8 @@
 	import CardShadow from '$lib/CardShadow.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
+	import InformationCircleIcon from '$lib/icons/InformationCircleIcon.svelte';
+	import ShieldCheckIcon from '$lib/icons/ShieldCheckIcon.svelte';
 </script>
 
 <svelte:head>
@@ -13,6 +15,24 @@
 </div>
 
 <article class="px-4">
+
+	<div class="flex gap-2 mb-4">
+		<a
+			href="/kebijakan-privasi/"
+			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-gray-100 dark:bg-blueish-700"
+		>
+			<ShieldCheckIcon />
+			Kebijakan Privasi</a
+		>
+		<a
+			href="/ketentuan-layanan/"
+			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-gray-100 dark:bg-blueish-700"
+		>
+			<InformationCircleIcon />
+			Ketentuan Layanan</a
+		>
+	</div>
+
 	<p class="mb-4">
 		Kami di Baca-Quran.id menyadari bahwa Anda mengharapkan privasi dan keamanan dalam hal informasi
 		yang mengidentifikasi Anda secara pribadi dan memungkinkan Anda untuk dihubungi secara individu
@@ -26,7 +46,7 @@
 			Baca-Quran.id mengumpulkan dan menyimpan Informasi Pribadi tentang Anda hanya ketika Anda
 			telah berkomunikasi dengan kami melalui email (kami akan mengumpulkan alamat email Anda),
 			ketika Anda mendaftar untuk menggunakan layanan Baca-Quran.id (kami akan menanyakan nama dan
-			alamat email Anda) , dan saat Anda mendaftar untuk layanan berbayar (kami akan meminta
+			alamat email Anda), dan saat Anda mendaftar untuk layanan berbayar (kami akan meminta
 			informasi umum seperti nama, alamat email, alamat penagihan, dan informasi kartu kredit Anda).
 			Kami menggunakan informasi tersebut untuk bertransaksi bisnis dengan Anda dan memberikan
 			layanan yang diminta dari waktu ke waktu, serta peningkatan layanan, kontak, dan penelitian.
