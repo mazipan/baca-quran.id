@@ -36,7 +36,7 @@
 		<CardShadow>
 			<div class="flex justify-between">
 				<div class="flex gap-2 items-center">
-					<div class="flex items-center justify-center text-5xl">
+					<div class="flex items-center justify-center text-5xl tracking-tighter">
 						{parseInt(surahid, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
 					</div>
 					<div class="flex flex-col items-start justify-center">

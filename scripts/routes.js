@@ -6,10 +6,11 @@ export const staticUrls = [
   '/ayat-kursi/',
   '/daily-doa/',
   '/juz-amma/',
+  '/kebijakan-privasi/',
   '/settings/',
+  '/surah-makkiyah/',
+  '/surah-madaniyah/',
   '/tahlil/',
   '/tasbih/',
-  '/wirid/',
-  '/surah-makkiyah/',
-  '/surah-madaniyah/'
+  '/wirid/'
 ]
