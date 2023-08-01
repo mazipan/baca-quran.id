@@ -44,7 +44,7 @@
 			localStorage.setItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH, JSON.stringify($pinnedSurah));
 			toast.show({
 				message: `Berhasil menghapus surat <b>${surah.latin}</b> dari penyematan!`,
-				type: 'success'
+				type: 'info'
 			});
 		}
 	};

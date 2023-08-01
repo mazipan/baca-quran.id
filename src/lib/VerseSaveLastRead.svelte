@@ -43,14 +43,22 @@
 				});
 			}
 		} else {
-			lastReadVerses.update((val) =>
-				val.filter((i) => i.s !== thisItem.s.toString() && i.v !== thisItem.v.toString())
-			);
-			localStorage.setItem(CONSTANTS.STORAGE_KEY.LAST_VERSES, JSON.stringify($lastReadVerses));
+			lastReadVerses.update((prev) => {
+        const newArray = prev.filter((val) => {
+          if (val.s === numberSurah.toString() && val.v === numberVerse.toString()) {
+            return false
+          }
+          return true
+        })
+
+        localStorage.setItem(CONSTANTS.STORAGE_KEY.LAST_VERSES, JSON.stringify(newArray));
+        return newArray
+      });
+
 
 			toast.show({
-				message: `Berhasil menandai Surat <b>${surahLatin}</b> Ayat <b>${numberVerse}</b> sebagai terakhir dibaca!`,
-				type: 'success'
+				message: `Berhasil membuang Surat <b>${surahLatin}</b> Ayat <b>${numberVerse}</b> dari terakhir dibaca!`,
+				type: 'info'
 			});
 		}
 	};
