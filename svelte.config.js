@@ -35,7 +35,7 @@ const config = {
       strict: false,
     }),
     prerender: {
-      crawl: true,
+      crawl: false,
       entries: ['*', ...staticUrls, ...allSurahAndVerse],
       handleEntryGeneratorMismatch: 'warn'
     }
