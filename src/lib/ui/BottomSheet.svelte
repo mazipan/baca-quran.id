@@ -14,7 +14,7 @@
 		data-component="bottom-sheet"
     data-id={id}
 		data-show={show}
-		class={`fixed bottom-0 left-0 z-50 ml-4 max-w-[500px] text-gray-700 border border-gray-200 bg-white rounded-2xl shadow-lg dark:text-gray-400 dark:bg-blueish-700 dark:border-blueish-900 transition-all duration-500 transform ${
+		class={`fixed bottom-0 left-0 z-50 ml-4 max-w-[500px] text-gray-700 border-2 border-gray-200 bg-white rounded-2xl shadow-lg dark:text-gray-400 dark:bg-blueish-800 dark:border-blueish-900 transition-all duration-500 transform ${
 			show ? 'translate-y-[10%]' : 'translate-y-[120%]'
 		}`}
     style="width: calc(100% - 2rem)"

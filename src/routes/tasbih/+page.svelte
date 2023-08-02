@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import { META_DESC_TASBIH, META_TITLE_TASBIH, TITLE_CONSTANTS } from '$lib/constants';
@@ -55,6 +56,14 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">📿 Tasbih</h1>
+</div>
+
+<div class="px-4 mb-4">
+	<Breadcrumb
+		items={[
+			{ text: '🏠 Beranda', href: '/' }
+		]}
+	/>
 </div>
 
 <div class="px-4 flex flex-col gap-2">

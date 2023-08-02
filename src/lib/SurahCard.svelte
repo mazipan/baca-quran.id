@@ -24,7 +24,7 @@
 		};
 
 		if (!isSurahExistInStorage) {
-			if ($pinnedSurah.length < 4) {
+			if ($pinnedSurah.length < 6) {
 				pinnedSurah.update((val) => [...val, thisItem]);
 				isSurahExistInStorage = true;
 				localStorage.setItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH, JSON.stringify($pinnedSurah));
@@ -34,7 +34,7 @@
 				});
 			} else {
 				toast.show({
-					message: `Kamu telah menyematkan maksimum 4 surat!`,
+					message: `Kamu telah menyematkan maksimum 6 surat!`,
 					type: 'error'
 				});
 			}
@@ -62,15 +62,12 @@
 		<div class="flex gap-2 items-center">
 			<div class="flex flex-col items-start justify-center">
 				<span class="font-bold">{surah.latin}</span>
-				<small class="text-xs text-gray-400">{surah.translation}</small>
+				<small class="text-xs text-gray-400">{surah.translation} • {surah.ayah_count} ayat</small>
 			</div>
 		</div>
 
 		<div class="flex flex-col items-end justify-center">
 			<span class="font-bold text-xl font-arabic">{surah.arabic}</span>
-			<small class="text-xs text-gray-400 text-right">
-				{surah.ayah_count} ayat
-			</small>
 		</div>
 	</div>
 	<div class="mt-2 flex items-center justify-between">

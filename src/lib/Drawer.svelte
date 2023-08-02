@@ -49,14 +49,9 @@
 			<DrawerMenus />
 		</div>
 		<div class="py-2">
-			<small
-				>Baca-Quran.id by <a
-					class="underline"
-					href="https://mazipan.space/"
-					target="_blank"
-					rel="noopener noreferrer">Irfan Maulana</a
-				></small
-			>
+			<small class="text-sm">
+				<a href="/" class="underline" data-sveltekit-reload>Baca-Quran.id</a>
+			</small>
 		</div>
 	</div>
 </div>

@@ -13,7 +13,7 @@
 		<div class="flex justify-between items-center">
 			<div>
 				<p>Kamu belum punya surah yang di pin!</p>
-				<p>Mulai pin 4 surah agar mudah diakses.</p>
+				<p>Mulai pin 6 surah agar mudah diakses.</p>
 			</div>
 			<a
 				href="/all-surah/"
@@ -25,7 +25,7 @@
 		</div>
 	</CardShadow>
 {:else}
-	<div class="flex gap-2 flex-wrap">
+	<div class="grid grid-cols-3 gap-2">
 		{#each $pinnedSurah as surah (surah.i)}
 			<CardShadow href={`/surah/${surah.i}/`} _as="a">
 				<div class="flex flex-col items-center justify-center">

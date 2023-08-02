@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import SurahList from '$lib/SurahList.svelte';
@@ -35,6 +36,14 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">📒 Juz Amma</h1>
+</div>
+
+<div class="px-4 mb-4">
+	<Breadcrumb
+		items={[
+			{ text: '🏠 Beranda', href: '/' }
+		]}
+	/>
 </div>
 
 <SurahList {originSurahInfo} />

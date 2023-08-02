@@ -7,10 +7,12 @@ import { staticUrls } from './routes.js';
 const BASE_URL = 'https://www.baca-quran.id'
 const BASE_DIR_TARGET = path.resolve(path.join('static/sitemaps'))
 
-function makeObjectSitemap (url, priority = 0.5) {
+function makeObjectSitemap(url, priority = 0.5) {
+  const date = new Date()
+  date.setHours(0, 0, 0, 0);
   return {
     loc: BASE_URL + url,
-    lastmod: new Date().toISOString(),
+    lastmod: date.toISOString(),
     changefreq: 'weekly',
     priority: priority,
   }
@@ -44,9 +46,9 @@ console.log(`>> Write surah sitemap with ${allSurahObject.length} urls...`)
 
 function chunk(arr, chunkSize) {
   return arr.reduce((resultArray, item, index) => {
-    const chunkIndex = Math.floor(index/chunkSize)
+    const chunkIndex = Math.floor(index / chunkSize)
 
-    if(!resultArray[chunkIndex]) {
+    if (!resultArray[chunkIndex]) {
       resultArray[chunkIndex] = [] // start a new chunk
     }
 

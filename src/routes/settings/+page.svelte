@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import VerseAudioPlayerTrigger from '$lib/VerseAudioPlayerTrigger.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
@@ -23,6 +24,14 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">⚙️ Setelan</h1>
+</div>
+
+<div class="px-4 mb-4">
+	<Breadcrumb
+		items={[
+			{ text: '🏠 Beranda', href: '/' }
+		]}
+	/>
 </div>
 
 <article class="px-4 flex flex-col gap-4 divide-y">

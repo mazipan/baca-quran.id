@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
-	import CardShadow from '$lib/CardShadow.svelte';
+	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import Pagination from '$lib/Pagination.svelte';
 	import SeoText from '$lib/SeoText.svelte';
+	import SurahCard from '$lib/SurahCard.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
 	import { META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/json-ld';
@@ -29,29 +30,23 @@
 	<h1 class="text-3xl font-bold">📖 Baca per Surat</h1>
 </div>
 
+<div class="px-4 mb-4">
+	<Breadcrumb
+		items={[
+			{ text: '🏠', href: '/' },
+			{ text: 'Semua Surat', href: '/all-surah/' },
+			{ text: surahInfo.current.latin, href: `/surah/${surahid}/` }
+		]}
+	/>
+</div>
+
 <article class="px-4">
 	{#if $navigating}
 		<span>Loading...</span>
 	{:else}
-		<CardShadow>
-			<div class="flex justify-between">
-				<div class="flex gap-2 items-center">
-					<div class="flex items-center justify-center text-5xl tracking-tighter">
-						{parseInt(surahid, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
-					</div>
-					<div class="flex flex-col items-start justify-center">
-						<span class="font-bold">{surahInfo.current.latin}</span>
-						<small class="text-xs text-gray-400">{surahInfo.current.translation}</small>
-					</div>
-				</div>
-
-				<div class="flex flex-col items-end justify-center">
-					<span class="font-bold text-xl font-arabic">{surahInfo.current.arabic}</span>
-					<small class="text-xs text-gray-400 text-right">{surahInfo.current.ayah_count} ayat</small
-					>
-				</div>
-			</div>
-		</CardShadow>
+    <div class="flex flex-col gap-2">
+      <SurahCard surah={surahInfo.current} />
+    </div>
 
 		<Pagination variant="surah" {surahInfo} {surahid} verseid="" />
 
@@ -63,10 +58,10 @@
 					translation={surahData?.translations?.id?.text?.[numberVerse] || ''}
 					tafsir={surahData?.tafsir?.id?.kemenag?.text?.[numberVerse] || ''}
 					numberSurah={surahid}
-          totalAyah={parseInt(`${surahInfo.current.ayah_count}`, 10)}
-          source="surah"
-          surahLatin={surahInfo.current.latin}
-          surahArabic={surahInfo.current.arabic}
+					totalAyah={parseInt(`${surahInfo.current.ayah_count}`, 10)}
+					source="surah"
+					surahLatin={surahInfo.current.latin}
+					surahArabic={surahInfo.current.arabic}
 				/>
 			{/each}
 		</div>

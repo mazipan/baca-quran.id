@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import CardShadow from '$lib/CardShadow.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
@@ -12,6 +13,14 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">🙏 Doa Harian</h1>
+</div>
+
+<div class="px-4 mb-4">
+	<Breadcrumb
+		items={[
+			{ text: '🏠 Beranda', href: '/' }
+		]}
+	/>
 </div>
 
 <div class="px-4 flex flex-col gap-2">

@@ -5,6 +5,7 @@
 	import surahInfo, { type SurahInfo } from '../../data/surah-info';
 	import MakkiyahMadaniyah, { MAKKIYAH_CODE } from '../../data/makkiyah-madaniyah';
 	import SurahList from '$lib/SurahList.svelte';
+	import Breadcrumb from '$lib/Breadcrumb.svelte';
 
 	function filterOnlyMakkiyah() {
 		let result: SurahInfo = {};
@@ -33,6 +34,15 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">📚 Daftar Surat Makkiyah</h1>
+</div>
+
+<div class="px-4 mb-4">
+	<Breadcrumb
+		items={[
+			{ text: '🏠', href: '/' },
+			{ text: 'Semua Surat', href: '/all-surah/' }
+		]}
+	/>
 </div>
 
 <SurahList {originSurahInfo} />

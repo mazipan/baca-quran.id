@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import CardShadow from '$lib/CardShadow.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
@@ -12,6 +13,14 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">🤝 Ketentuan Layanan</h1>
+</div>
+
+<div class="px-4 mb-4">
+	<Breadcrumb
+		items={[
+			{ text: '🏠 Beranda', href: '/' }
+		]}
+	/>
 </div>
 
 <article class="px-4">
