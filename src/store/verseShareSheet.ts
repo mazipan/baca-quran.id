@@ -45,7 +45,7 @@ function createVerseShareSheet() {
           await navigator.share(shareData);
         } else {
           window.open(
-            `https://twitter.com/intent/tweet?text=${shareData.text}+%0A+${shareData.url}`,
+            `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareData.text)}+%0A+${shareData.url}`,
             '_blank'
           );
         }
