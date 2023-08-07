@@ -11,6 +11,8 @@ export type VerseShareSheetParam = {
   type?: 'arabic' | 'terjemah'
 }
 
+const HASHTAG = '#AyatHariIni'
+
 function createVerseShareSheet() {
   const { subscribe, set, update } = writable<VerseShareSheetParam>({
     show: false,
@@ -29,8 +31,8 @@ function createVerseShareSheet() {
       show: false
     })),
     share: async (params: Omit<VerseShareSheetParam, 'show'>) => {
-      const TEXT_ARABIC = `${params.verse} (QS ${params.numberSurah}:${params.numberVerse})`;
-      const TEXT_TERJEMAH = `${params.translation} (QS ${params.numberSurah}:${params.numberVerse})`;
+      const TEXT_ARABIC = `${params.verse} (QS ${params.numberSurah}:${params.numberVerse}) ${HASHTAG}`;
+      const TEXT_TERJEMAH = `${params.translation} (QS ${params.numberSurah}:${params.numberVerse}) ${HASHTAG}`;
       const TEXT = params?.type === 'arabic' ? TEXT_ARABIC : TEXT_TERJEMAH;
       const shareData = {
         title: 'Baca-Quran.id',

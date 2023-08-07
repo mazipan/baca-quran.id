@@ -31,10 +31,9 @@ export const CONSTANTS = {
   BISMILLAH: '﷽'
 };
 
-
-const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir dari Kemenag' : ''}, ❌ tanpa iklan, ❌ tanpa analitik, ✅ gratis sepenuhnya`
-export const META_TITLE = `Baca Al-Qur'an dari browser | ${TITLE_CONSTANTS.TITLE_META}`
-export const META_DESC = `Bacaan lengkap ayat-ayat Al-Qur'an ${postfix(true)}`
+const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir dari Kemenag' : ''}, 💯 gratis, ❌ tanpa iklan, ❌ tanpa analitik`
+export const META_TITLE = `Qur'an Online Gratis | ${TITLE_CONSTANTS.TITLE_META}`
+export const META_DESC = `Bacaan lengkap Al-Qur'an 30 Juz ${postfix(true)}`
 
 export const META_TITLE_ALL_SURAH = `Semua Surat Al-Qur'an | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC_ALL_SURAH = `Daftar semua surat dalam Al-Qur'an ${postfix(false)}`
@@ -65,12 +64,6 @@ export const META_DESC_WIRID = `Bacaan lengkap wirid setelah sholat ${postfix(fa
 
 export const META_TITLE_TASBIH = `Tasbih Online | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC_TASBIH = `Tasbih online, mempermudah menghitung Dzikirmu ${postfix(false)}`
-
-export const META_TITLE_LAST_VERSE = `Ayat terakhir dibaca | ${TITLE_CONSTANTS.TITLE_META}`
-export const META_TITLE_SETTING = `Halaman setelan | ${TITLE_CONSTANTS.TITLE_META}`
-
-export const META_TITLE_RECOMMENDATION = `Surat rekomendasi | ${TITLE_CONSTANTS.TITLE_META}`
-export const META_DESC_RECOMMENDATION = `Berbagai surat rekomendasi untuk dibaca ${postfix(false)}`
 
 export const META_TITLE_SURAH = (name: string) => `Qur'an Surat ${name} | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC_SURAH = (name: string) => `Qur'an Surat ${name} ${postfix(true)}`

@@ -4,7 +4,19 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import { META_DESC_AYAT_KURSI, META_TITLE_AYAT_KURSI, TITLE_CONSTANTS } from '$lib/constants';
+	import DocumentTextIcon from '$lib/icons/DocumentTextIcon.svelte';
+	import Button from '$lib/ui/Button.svelte';
 	import ayatKursi from '../../data/ayat-kursi';
+	import { globalBottomSheet } from '../../store/globalBottomSheet';
+
+
+  let toggleBottomSheet = () => {
+    globalBottomSheet.show({
+      title: `💠 Terjemahan: Ayat Kursi`,
+      content: `<p class="mb-4">🔸 <b>Terjemahan</b>: ${ayatKursi.translation}</p>
+        <p>🔹 <b>Tafsir</b>: ${ayatKursi.tafsir}</p>`
+    })
+  }
 </script>
 
 <svelte:head>
@@ -28,8 +40,13 @@
     <div class="flex flex-col justify-center gap-4">
       <span class="font-bold text-2xl font-arabic text-right">{ayatKursi.arabic}</span>
       <small class="text-sm text-gray-400 italic">{ayatKursi.latin}</small>
-      <small class="text-xs text-gray-400">🔸 Terjemahan: {ayatKursi.translation}</small>
-      <small class="text-xs text-gray-400">🔸 Tafsir: {ayatKursi.tafsir}</small>
+    </div>
+    <div class="mt-4 flex justify-between items-center gap-2">
+      <div class="flex items-center gap-2">
+        <Button onClick={toggleBottomSheet} ariaLabel="Baca Terjemah">
+          <DocumentTextIcon />
+        </Button>
+      </div>
     </div>
   </CardShadow>
 </div>

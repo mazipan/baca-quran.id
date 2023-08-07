@@ -70,6 +70,7 @@ V1 can be viewed in [`v1`](https://github.com/mazipan/baca-quran.id/tree/v1) bra
 - [Ramadhan Icon Pack from Flaticon](https://www.flaticon.com/packs/ramadan-31)
 - [Recite alquran vectors by Vecteezy](https://www.vecteezy.com/free-vector/recite-alquran)
 - [Ramadhan with man and woman by freepik](https://www.freepik.com/free-vector/ramadan-with-man-woman-praying_7372126.htm)
+- محمد الحراق, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
 
 ## Support me
 

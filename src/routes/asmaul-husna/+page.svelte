@@ -4,6 +4,7 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import { META_DESC_ASMAUL_HUSNA, META_TITLE_ASMAUL_HUSNA, TITLE_CONSTANTS } from '$lib/constants';
+	import Badge from '$lib/ui/Badge.svelte';
 	import asmaulHusna from '../../data/asmaul-husna';
 </script>
 
@@ -24,12 +25,17 @@
 </div>
 
 <div class="px-4 flex flex-col gap-2">
-	{#each asmaulHusna as item (item.latin)}
+	{#each asmaulHusna as item, index (item.latin)}
 		<CardShadow>
 			<div class="flex justify-between">
 				<div class="flex gap-2 items-center">
 					<div class="flex flex-col items-start justify-center">
-						<span class="font-bold">{item.latin}</span>
+            <div class="flex gap-2 mb-2">
+              <Badge color='green'>
+                {index + 1}
+              </Badge>
+              <span class="font-bold">{item.latin}</span>
+            </div>
 						<small class="text-xs text-gray-400">🇬🇧 {item.translation_en}</small>
 						<small class="text-xs text-gray-400">🇮🇩 {item.translation_id}</small>
 					</div>

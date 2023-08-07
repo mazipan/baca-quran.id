@@ -21,6 +21,7 @@
 	import Toaster from '$lib/Toaster.svelte';
 	import VerseTafsirBottomSheet from '$lib/VerseTafsirBottomSheet.svelte';
 	import VerseShareBottomSheet from '$lib/VerseShareBottomSheet.svelte';
+	import GlobalBottomSheet from '$lib/GlobalBottomSheet.svelte';
 
 	let isDrawerOpen = false;
 
@@ -89,5 +90,6 @@
 		<Toaster />
 		<VerseTafsirBottomSheet />
 		<VerseShareBottomSheet />
+		<GlobalBottomSheet />
 	</div>
 </div>
