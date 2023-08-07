@@ -41,6 +41,10 @@
 		{
 			href: '/ayat-kursi/',
 			title: '🪑 Ayat Kursi'
+		},
+		{
+			href: '/jadwal-sholat/',
+			title: '⏰ Jadwal Sholat'
 		}
 	];
 </script>

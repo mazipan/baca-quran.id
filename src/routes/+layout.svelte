@@ -11,7 +11,8 @@
 		settingTranslation,
 		settingAutoNext,
 		pinnedSurah,
-		lastReadVerses
+		lastReadVerses,
+    settingLocation,
 	} from '../store';
 
 	import '../app.css';
@@ -66,6 +67,17 @@
 					lastReadVerses.set(parsedValue || []);
 				} else {
 					lastReadVerses.set([]);
+				}
+
+        const storageLocation = localStorage.getItem(CONSTANTS.STORAGE_KEY.LOCATION);
+				if (storageLocation) {
+					const parsedValue = JSON.parse(storageLocation);
+					settingLocation.set({
+            lt: parsedValue.lt || 0,
+            lg: parsedValue.lg || 0
+          });
+				} else {
+					settingLocation.set(null);
 				}
 			}
 		}

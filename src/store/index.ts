@@ -9,6 +9,13 @@ export const settingTafsir = writable(false);
 export const settingMuqadimah = writable(false);
 export const settingAudio = writable<ReciterKey>('1');
 export const settingAutoNext = writable(false);
+
+export type LocationParam = {
+  lt: number
+  lg: number
+}
+
+export const settingLocation = writable<LocationParam | null>(null);
 // Settings storage -- END
 
 export const isShowingAudioPlayer = writable(false);

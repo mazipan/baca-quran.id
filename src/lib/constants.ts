@@ -27,6 +27,7 @@ export const CONSTANTS = {
     AUTO_NEXT: 'anxt',
     PINNED_SURAH: 'srh',
     LAST_VERSES: 'vres',
+    LOCATION: 'loc',
   },
   BISMILLAH: '﷽'
 };
@@ -65,6 +66,9 @@ export const META_DESC_WIRID = `Bacaan lengkap wirid setelah sholat ${postfix(fa
 export const META_TITLE_TASBIH = `Tasbih Online | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC_TASBIH = `Tasbih online, mempermudah menghitung Dzikirmu ${postfix(false)}`
 
+export const META_TITLE_JADWAL_SHOLAT = `Jadwal sholat | ${TITLE_CONSTANTS.TITLE_META}`
+export const META_DESC_JADWAL_SHOLAT = `Jadwal sholat sesuai lokasi 💯 gratis, ❌ tanpa iklan, ❌ tanpa analitik`
+
 export const META_TITLE_SURAH = (name: string) => `Qur'an Surat ${name} | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC_SURAH = (name: string) => `Qur'an Surat ${name} ${postfix(true)}`
 
@@ -76,7 +80,7 @@ export type SeoArgs = {
   verseNumber?: string
 }
 
-export type PageVariant = 'ALL_SURAH' | 'ASMAUL_HUSNA' | 'AYAT_KURSI' | 'DAILY_DOA' | 'JUZ_AMMA' | 'TAHLIL' | 'WIRID' | 'SURAH_DETAIL' | 'AYAT_DETAIL' | 'TASBIH' | 'MAKKIYAH' | 'MADANIYAH'
+export type PageVariant = 'ALL_SURAH' | 'ASMAUL_HUSNA' | 'AYAT_KURSI' | 'DAILY_DOA' | 'JUZ_AMMA' | 'TAHLIL' | 'WIRID' | 'SURAH_DETAIL' | 'AYAT_DETAIL' | 'TASBIH' | 'MAKKIYAH' | 'MADANIYAH' | 'JADWAL_SHOLAT'
 
 export const SEO_TEXT = {
   ALL_SURAH: 'Baca Quran lengkap 30 Juz 114 Surat beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
@@ -89,6 +93,7 @@ export const SEO_TEXT = {
   TAHLIL: 'Bacaan Tahlil lengkap beserta urutan dan tata caranya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
   WIRID: 'Bacaan, urutan dan tata cara Wirid setelah sholat. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
   TASBIH: 'Tasbih online, mempermudah menghitung Dzikirmu. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+  JADWAL_SHOLAT: "Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.",
   SURAH_DETAIL: '',
   AYAT_DETAIL: ''
 }
