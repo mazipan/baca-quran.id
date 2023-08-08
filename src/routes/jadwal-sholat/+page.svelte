@@ -10,12 +10,61 @@
 	} from '$lib/constants';
 	import MarkerIcon from '$lib/icons/MarkerIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import { onMount } from 'svelte';
 	import { settingLocation } from '../../store';
+	import CardShadow from '$lib/CardShadow.svelte';
+	import type { PrayerTimeData, PrayerTimeResponse } from '$lib/types';
+	import Clock from '$lib/Clock.svelte';
 
-	let getGeolocation = () => {
+	const BASE_URL = 'http://api.aladhan.com/v1/calendar';
+	let prayerTimes: PrayerTimeData[] = [];
+
+	$: todayPrayerTime = prayerTimes.find((time) => {
+		return (
+			time.date.gregorian.date ===
+			new Date()
+				.toLocaleDateString('id-ID', { month: '2-digit', day: '2-digit', year: 'numeric' })
+				.replace(new RegExp(/\//g), '-')
+		);
+	});
+
+	// Source from: https://aladhan.com/prayer-times-api
+  async function refetchPrayerTime({ latitude, longitude }: { latitude: number; longitude: number }) {
+    const year = new Date().getFullYear();
+			const month = new Date().getMonth() + 1;
+
+			const rawResponse = await fetch(
+				`${BASE_URL}/${year}/${month}?method=15&shafaq=general&latitude=${latitude}&longitude=${longitude}`
+			);
+			const response = (await rawResponse.json()) as PrayerTimeResponse;
+			prayerTimes = response?.data || [];
+
+			localStorage.setItem(CONSTANTS.STORAGE_KEY.PRAYER, JSON.stringify(response));
+  }
+
+	async function fetchPrayerTime({ latitude, longitude }: { latitude: number; longitude: number }) {
+		const fromStorage = localStorage.getItem(CONSTANTS.STORAGE_KEY.PRAYER);
+		if (fromStorage) {
+			const parsedValue = JSON.parse(fromStorage);
+      // check current month is still the same
+			prayerTimes = parsedValue?.data || [];
+
+      const firstRow = prayerTimes[0]
+      if (firstRow) {
+        const monthFromData = firstRow.date.gregorian.month.number
+        const currentMonth = new Date().getMonth() + 1
+        if (monthFromData !== currentMonth) {
+          await refetchPrayerTime({ latitude, longitude });
+        }
+      }
+		} else {
+			await refetchPrayerTime({ latitude, longitude });
+		}
+	}
+
+	let getGeolocation = async () => {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition((position) => {
-				console.log(position);
+			navigator.geolocation.getCurrentPosition(async (position) => {
 				settingLocation.set({
 					lt: position.coords.latitude || 0,
 					lg: position.coords.longitude || 0
@@ -28,9 +77,25 @@
 						lg: position.coords.longitude || 0
 					})
 				);
+
+				await fetchPrayerTime({
+					latitude: position.coords.latitude,
+					longitude: position.coords.longitude
+				});
 			});
 		}
 	};
+
+	onMount(async () => {
+		setTimeout(async () => {
+			if ($settingLocation?.lg && $settingLocation.lg) {
+				await fetchPrayerTime({
+					latitude: $settingLocation.lt,
+					longitude: $settingLocation.lg
+				});
+			}
+		}, 1000);
+	});
 </script>
 
 <svelte:head>
@@ -53,19 +118,54 @@
 	{#if $settingLocation === null}
 		<div class="flex flex-wrap gap-2 justify-between items-center">
 			<h2 class="text-xl font-bold">Lokasi belum diketahui</h2>
-      <div>
-        <Button onClick={getGeolocation}>
-          <MarkerIcon />Beri akses lokasi?</Button>
-      </div>
-		</div>
-	{:else}
-		<div class="flex flex-col gap-2">
-			<h2 class="text-xl font-bold">Lokasi Anda Saat Ini</h2>
-			<div class="mt-2 ml-2">
-				<p>Longitude: {$settingLocation.lg}</p>
-				<p>Latitude: {$settingLocation.lt}</p>
+			<div>
+				<Button onClick={getGeolocation}>
+					<MarkerIcon />Beri akses lokasi?</Button
+				>
 			</div>
 		</div>
+	{:else}
+		<div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+			<div class="flex gap-2 items-center">
+				<MarkerIcon size="sm" /> <small>{$settingLocation.lt}, {$settingLocation.lg}</small>
+			</div>
+		</div>
+	{/if}
+
+	<div class="mb-4">
+		<Clock />
+	</div>
+	{#if todayPrayerTime}
+		<CardShadow>
+			<div class="flex justify-between items-center gap-2">
+        <span>Subuh</span>
+        <span>{todayPrayerTime.timings.Fajr}</span>
+			</div>
+		</CardShadow>
+		<CardShadow>
+			<div class="flex justify-between items-center gap-2">
+        <span>Dzuhur</span>
+        <span>{todayPrayerTime.timings.Dhuhr}</span>
+			</div>
+		</CardShadow>
+		<CardShadow>
+			<div class="flex justify-between items-center gap-2">
+        <span>Ashar</span>
+        <span>{todayPrayerTime.timings.Asr}</span>
+			</div>
+		</CardShadow>
+		<CardShadow>
+			<div class="flex justify-between items-center gap-2">
+        <span>Maghrib</span>
+        <span>{todayPrayerTime.timings.Maghrib}</span>
+			</div>
+		</CardShadow>
+		<CardShadow>
+			<div class="flex justify-between items-center gap-2">
+        <span>Isya</span>
+        <span>{todayPrayerTime.timings.Isha}</span>
+			</div>
+		</CardShadow>
 	{/if}
 </div>
 

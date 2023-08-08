@@ -28,6 +28,7 @@ export const CONSTANTS = {
     PINNED_SURAH: 'srh',
     LAST_VERSES: 'vres',
     LOCATION: 'loc',
+    PRAYER: 'pryr',
   },
   BISMILLAH: '﷽'
 };
