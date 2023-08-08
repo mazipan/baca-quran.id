@@ -8,11 +8,11 @@
 	let actionIcons = [
 		{
 			href: '/all-surah/',
-			title: '📚 Daftar Semua Surat'
+			title: '📚 Semua Surat'
 		},
 		{
 			href: '/surah/1/1/',
-			title: '📖 Baca per Ayat'
+			title: '📖 Per Ayat'
 		},
 		{
 			href: '/juz-amma/',
@@ -55,15 +55,17 @@
 
 <div class="px-4 flex flex-col gap-2">
 	<PinnedSurah />
-  <LastReadVerses />
+	<LastReadVerses />
 
 	<div class="flex gap-2 mt-2 mb-2">
-		<h2 class="text-xl font-bold">💫 Semua fitur</h2>
+		<h2 class="text-xl font-bold">🌟 Fitur Baca-Quran.id</h2>
 	</div>
 
-	{#each actionIcons as item (item.href)}
-		<CardShadow href={item.href} _as="a">
-			{item.title}
-		</CardShadow>
-	{/each}
+	<div class="grid grid-cols-2 gap-2">
+		{#each actionIcons as item (item.href)}
+			<CardShadow href={item.href} _as="a">
+				{item.title}
+			</CardShadow>
+		{/each}
+	</div>
 </div>

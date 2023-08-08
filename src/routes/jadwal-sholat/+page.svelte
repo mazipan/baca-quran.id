@@ -15,8 +15,10 @@
 	import CardShadow from '$lib/CardShadow.svelte';
 	import type { PrayerTimeData, PrayerTimeResponse } from '$lib/types';
 	import Clock from '$lib/Clock.svelte';
+	import { toast } from '../../store/toast';
+	import PrayerTimeCard from '$lib/PrayerTimeCard.svelte';
 
-	const BASE_URL = 'http://api.aladhan.com/v1/calendar';
+	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
 	let prayerTimes: PrayerTimeData[] = [];
 
 	$: todayPrayerTime = prayerTimes.find((time) => {
@@ -78,6 +80,12 @@
 					})
 				);
 
+
+				toast.show({
+					message: `Berhasil mendapatkan lokasi teranyar!`,
+					type: 'success'
+				});
+
 				await fetchPrayerTime({
 					latitude: position.coords.latitude,
 					longitude: position.coords.longitude
@@ -129,6 +137,9 @@
 			<div class="flex gap-2 items-center">
 				<MarkerIcon size="sm" /> <small>{$settingLocation.lt}, {$settingLocation.lg}</small>
 			</div>
+      <Button onClick={getGeolocation}>
+        <MarkerIcon />Perbarui Lokasi</Button
+      >
 		</div>
 	{/if}
 
@@ -136,36 +147,20 @@
 		<Clock />
 	</div>
 	{#if todayPrayerTime}
-		<CardShadow>
-			<div class="flex justify-between items-center gap-2">
-        <span>Subuh</span>
-        <span>{todayPrayerTime.timings.Fajr}</span>
-			</div>
-		</CardShadow>
-		<CardShadow>
-			<div class="flex justify-between items-center gap-2">
-        <span>Dzuhur</span>
-        <span>{todayPrayerTime.timings.Dhuhr}</span>
-			</div>
-		</CardShadow>
-		<CardShadow>
-			<div class="flex justify-between items-center gap-2">
-        <span>Ashar</span>
-        <span>{todayPrayerTime.timings.Asr}</span>
-			</div>
-		</CardShadow>
-		<CardShadow>
-			<div class="flex justify-between items-center gap-2">
-        <span>Maghrib</span>
-        <span>{todayPrayerTime.timings.Maghrib}</span>
-			</div>
-		</CardShadow>
-		<CardShadow>
-			<div class="flex justify-between items-center gap-2">
-        <span>Isya</span>
-        <span>{todayPrayerTime.timings.Isha}</span>
-			</div>
-		</CardShadow>
+    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Fajr"/>
+    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Dhuhr"/>
+    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Asr"/>
+    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Maghrib"/>
+    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Isha"/>
+  {:else}
+    {#each [1, 2, 3, 4, 5] as item}
+      <CardShadow>
+        <div class="flex justify-between items-center gap-2" data-key={item}>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+        </div>
+      </CardShadow>
+    {/each}
 	{/if}
 </div>
 

@@ -5,7 +5,7 @@
 </script>
 
 <div class="flex gap-2 mb-2">
-	<h2 class="text-xl font-bold">✨ Surat yang disematkan</h2>
+	<h2 class="text-xl font-bold">📌 Surat yang disematkan</h2>
 </div>
 
 {#if $pinnedSurah.length === 0}
