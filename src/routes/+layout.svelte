@@ -73,8 +73,9 @@
 				if (storageLocation) {
 					const parsedValue = JSON.parse(storageLocation);
 					settingLocation.set({
-            lt: parsedValue.lt || 0,
-            lg: parsedValue.lg || 0
+            lt: parsedValue?.lt || 0,
+            lg: parsedValue?.lg || 0,
+            district: parsedValue?.district || ''
           });
 				} else {
 					settingLocation.set(null);

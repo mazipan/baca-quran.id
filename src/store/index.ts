@@ -13,6 +13,7 @@ export const settingAutoNext = writable(false);
 export type LocationParam = {
   lt: number
   lg: number
+  district: string
 }
 
 export const settingLocation = writable<LocationParam | null>(null);

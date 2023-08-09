@@ -31,55 +31,86 @@
 	});
 
 	// Source from: https://aladhan.com/prayer-times-api
-  async function refetchPrayerTime({ latitude, longitude }: { latitude: number; longitude: number }) {
-    const year = new Date().getFullYear();
-			const month = new Date().getMonth() + 1;
+	async function refetchPrayerTime({
+		latitude,
+		longitude
+	}: {
+		latitude: number;
+		longitude: number;
+	}) {
+		const year = new Date().getFullYear();
+		const month = new Date().getMonth() + 1;
 
-			const rawResponse = await fetch(
-				`${BASE_URL}/${year}/${month}?method=15&shafaq=general&latitude=${latitude}&longitude=${longitude}`
-			);
-			const response = (await rawResponse.json()) as PrayerTimeResponse;
-			prayerTimes = response?.data || [];
+		const rawResponse = await fetch(
+			`${BASE_URL}/${year}/${month}?method=15&shafaq=general&latitude=${latitude}&longitude=${longitude}`
+		);
+		const response = (await rawResponse.json()) as PrayerTimeResponse;
+		prayerTimes = response?.data || [];
 
-			localStorage.setItem(CONSTANTS.STORAGE_KEY.PRAYER, JSON.stringify(response));
-  }
+		localStorage.setItem(CONSTANTS.STORAGE_KEY.PRAYER, JSON.stringify(response));
+	}
 
 	async function fetchPrayerTime({ latitude, longitude }: { latitude: number; longitude: number }) {
 		const fromStorage = localStorage.getItem(CONSTANTS.STORAGE_KEY.PRAYER);
 		if (fromStorage) {
 			const parsedValue = JSON.parse(fromStorage);
-      // check current month is still the same
+			// check current month is still the same
 			prayerTimes = parsedValue?.data || [];
 
-      const firstRow = prayerTimes[0]
-      if (firstRow) {
-        const monthFromData = firstRow.date.gregorian.month.number
-        const currentMonth = new Date().getMonth() + 1
-        if (monthFromData !== currentMonth) {
-          await refetchPrayerTime({ latitude, longitude });
-        }
-      }
+			const firstRow = prayerTimes[0];
+			if (firstRow) {
+				const monthFromData = firstRow.date.gregorian.month.number;
+				const currentMonth = new Date().getMonth() + 1;
+				if (monthFromData !== currentMonth) {
+					await refetchPrayerTime({ latitude, longitude });
+				}
+			}
 		} else {
 			await refetchPrayerTime({ latitude, longitude });
+		}
+	}
+
+	async function getDistrictByLatLong({
+		latitude,
+		longitude
+	}: {
+		latitude: number;
+		longitude: number;
+	}) {
+		try {
+			const resRaw = await fetch(
+				`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+			);
+			const res = await resRaw.json();
+			return res?.address?.city_district || '';
+		} catch (error) {
+			console.error(`Failed get distric for lat: ${latitude}, long: ${longitude}`);
+			return '';
 		}
 	}
 
 	let getGeolocation = async () => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(async (position) => {
+				const district = await getDistrictByLatLong({
+					latitude: position.coords.latitude || 0,
+					longitude: position.coords.longitude || 0
+				});
+
 				settingLocation.set({
 					lt: position.coords.latitude || 0,
-					lg: position.coords.longitude || 0
+					lg: position.coords.longitude || 0,
+					district
 				});
 
 				localStorage.setItem(
 					CONSTANTS.STORAGE_KEY.LOCATION,
 					JSON.stringify({
 						lt: position.coords.latitude || 0,
-						lg: position.coords.longitude || 0
+						lg: position.coords.longitude || 0,
+						district
 					})
 				);
-
 
 				toast.show({
 					message: `Berhasil mendapatkan lokasi teranyar!`,
@@ -134,12 +165,19 @@
 		</div>
 	{:else}
 		<div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-			<div class="flex gap-2 items-center">
-				<MarkerIcon size="sm" /> <small>{$settingLocation.lt}, {$settingLocation.lg}</small>
+			<div class="flex flex-col gap-2">
+        {#if $settingLocation.district}
+          <div class="flex gap-2 items-center">
+            <MarkerIcon /> <span>{$settingLocation.district}</span>
+          </div>
+        {/if}
+				<small>{$settingLocation.lt}, {$settingLocation.lg}</small>
 			</div>
-      <Button onClick={getGeolocation}>
-        <MarkerIcon />Perbarui Lokasi</Button
-      >
+
+			<Button onClick={getGeolocation}>
+				<MarkerIcon />
+				Perbarui Lokasi
+			</Button>
 		</div>
 	{/if}
 
@@ -147,20 +185,20 @@
 		<Clock />
 	</div>
 	{#if todayPrayerTime}
-    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Fajr"/>
-    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Dhuhr"/>
-    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Asr"/>
-    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Maghrib"/>
-    <PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Isha"/>
-  {:else}
-    {#each [1, 2, 3, 4, 5] as item}
-      <CardShadow>
-        <div class="flex justify-between items-center gap-2" data-key={item}>
-          <span>&nbsp;</span>
-          <span>&nbsp;</span>
-        </div>
-      </CardShadow>
-    {/each}
+		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Fajr" />
+		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Dhuhr" />
+		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Asr" />
+		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Maghrib" />
+		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Isha" />
+	{:else}
+		{#each [1, 2, 3, 4, 5] as item}
+			<CardShadow>
+				<div class="flex justify-between items-center gap-2" data-key={item}>
+					<span>&nbsp;</span>
+					<span>&nbsp;</span>
+				</div>
+			</CardShadow>
+		{/each}
 	{/if}
 </div>
 
