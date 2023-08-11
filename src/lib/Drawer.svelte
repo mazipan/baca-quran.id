@@ -1,5 +1,16 @@
 <script lang="ts">
 	import DrawerMenus from './DrawerMenus.svelte';
+	import { activeTheme } from '../store';
+	import { onDestroy } from 'svelte';
+	let currentTheme: string;
+
+	const unsubscribe = activeTheme.subscribe((value) => {
+		currentTheme = value;
+	});
+
+	onDestroy(() => {
+		unsubscribe();
+	});
 
 	export let open: boolean;
 	export let onToggle: () => void;
