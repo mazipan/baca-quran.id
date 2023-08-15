@@ -33,7 +33,7 @@ export const CONSTANTS = {
   BISMILLAH: '﷽'
 };
 
-const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir dari Kemenag' : ''}, 💯 gratis, ❌ tanpa iklan, ❌ tanpa analitik`
+const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir dari Kemenag' : ''}, 💸 gratis sepenuhnya, 💫 tanpa iklan, 📈 tanpa analitik`
 export const META_TITLE = `Qur'an Online Gratis | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC = `Bacaan lengkap Al-Qur'an 30 Juz ${postfix(true)}`
 
