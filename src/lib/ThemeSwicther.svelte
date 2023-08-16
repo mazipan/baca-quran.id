@@ -1,33 +1,16 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	import { THEMES } from './constants';
 
-	let show = false;
 	import { onMount } from 'svelte';
 	import { activeTheme } from '../store';
-
-	const handleSwitchTheme = (e: string) => {
-		if (e === 'light') {
-			activeTheme.set('light');
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			window.__setPreferredTheme('light');
-		} else if (e === 'light-blue') {
-			activeTheme.set('dark');
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			window.__setPreferredTheme('dark');
-		} else if (e === 'sepia') {
-			activeTheme.set('sepia');
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			window.__setPreferredTheme('sepia');
-		}
-		else if (e === 'yellow') {
-			activeTheme.set('yellow');
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			window.__setPreferredTheme('yellow');
-		}
+	let show = false;
+	
+	const handleSwitchTheme = (theme: string) => {
+		activeTheme.set(theme);
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		window.__setPreferredTheme(theme);
 	};
 
 	onMount(() => {
@@ -41,7 +24,7 @@
 	<div>
 		<button
 			type="button"
-			class="theme-swither cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+			class="theme-swither cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary"
 			id="menu-button"
 			aria-expanded={show}
 			aria-haspopup="true"
@@ -66,46 +49,24 @@
 
 	{#if show}
 		<div
-			class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+		class={`absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="menu-button"
 			tabindex="-1"
 			transition:fade={{ duration: 100 }}
 		>
-			<div class="py-1" role="none">
-				<button
-					type="submit"
-					class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-3"
-					on:click={() => handleSwitchTheme('light')}>Light</button
-				>
-				<button
-					type="submit"
-					class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-3"
-					on:click={() => handleSwitchTheme('light-blue')}>Light Blue</button
-				>
-				<button
-					type="submit"
-					class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-3"
-					on:click={() => handleSwitchTheme('sepia')}>Red</button
-				>
-				<button
-					type="submit"
-					class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-3"
-					on:click={() => handleSwitchTheme('yellow')}>Yellow</button
-				>
+			<div class="py-1 " role="none">
+				{#each THEMES as theme}
+					<button
+						type="submit"
+						class={`text-gray-700 block w-full px-4 py-2 text-left text-sm hover:bg-gray-200`}
+						role="menuitem"
+						tabindex="-1"
+						id="menu-item-3"
+						on:click={() => handleSwitchTheme(theme)}>{theme}</button
+					>
+				{/each}
 			</div>
 		</div>
 	{/if}
