@@ -17,24 +17,25 @@
 					sepia: '#704214',
 					yellow: '#ffff00'
 				};
+				const textColor = {
+					light: 'text-gray-900',
+					dark: 'text-gray-200',
+					sepia: 'text-gray-200',
+				};
 				window.__onThemeChange = function () {};
 				var preferredTheme;
 				try {
 					preferredTheme = localStorage.getItem('theme');
 				} catch (err) {}
 
-				function setBodyClass(className) {
-					document.getElementById('body').className = className;
-				}
-
 				function setTheme(newTheme) {
 					window.__theme = newTheme;
 					preferredTheme = newTheme;
 					// document.body.className = newTheme;
-					document.querySelector('html').className = newTheme;
+					document.querySelector('html').setAttribute('class', `theme-${newTheme}`)
 					document
-						.querySelector('meta[name="theme-color"]')
-						?.setAttribute('content', window.__header_theme[newTheme]);
+						.querySelector('body')
+						?.setAttribute('class', ` bg-primary ${textColor[newTheme]}`);
 
 					window.__onThemeChange(newTheme);
 				}
@@ -42,33 +43,18 @@
 				window.__setPreferredTheme = function (newTheme) {
 					setTheme(newTheme);
 					try {
-						if (newTheme === 'dark') {
-							setBodyClass('theme-dark theme-dark:bg-blueish-600 theme-dark:text-gray-200');
-						} else if (newTheme === 'sepia') {
-							setBodyClass('theme-sepia theme-sepia:bg-[#704214] theme-sepia:text-gray-200');
-						} else if (newTheme === 'yellow') {
-							setBodyClass('theme-yellow theme-yellow:bg-yellow-500');
-						}
-						else if (newTheme === 'light') {
-							setBodyClass('bg-white');
-						}
 						localStorage.setItem('theme', newTheme);
 					} catch (err) {}
 				};
 
-				const colorSchema = {
-					light: 'bg-white text-black',
-					dark: 'theme-dark theme-dark:bg-blueish-600 theme-dark:text-gray-200',
-					sepia: 'theme-sepia theme-sepia:bg-[#704214] theme-sepia:text-gray-200',
-					yellow: 'theme-yellow theme-yellow:bg-yellow-500'
-				};
+				
 
 				var darkQuery = window.matchMedia(`(prefers-color-scheme: ${preferredTheme})`);
 				darkQuery.addListener(function (e) {
-					window.__setPreferredTheme(colorSchema[preferredTheme]);
+					window.__setPreferredTheme(preferredTheme);
 				});
 
-				setTheme(colorSchema[preferredTheme]);
+				setTheme(preferredTheme);
 			})();
 		</script>
 
