@@ -17,7 +17,7 @@
 </script>
 
 <div
-	class={`fixed top-0 left-auto z-20 w-[250px] h-full transition-all duration-500 transform shadow-lg bg-white dark:bg-blueish-800 ${
+	class={`fixed top-0 left-auto z-20 w-[250px] h-full transition-all duration-500 transform shadow-lg bg-secondary  ${
 		open ? 'translate-x-0' : '-translate-x-full'
 	}`}
 >
@@ -26,7 +26,7 @@
 			<div class="flex justify-end gap-2">
 				<button
 					on:click={onToggle}
-					class="cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+					class="cursor-pointer p-2 rounded-md hover:bg-primary focus:bg-primary"
 				>
 					{#if open}
 						<svg

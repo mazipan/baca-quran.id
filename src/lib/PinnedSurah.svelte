@@ -17,7 +17,7 @@
 			</div>
 			<a
 				href="/all-surah/"
-				class="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"
+				class="flex items-center gap-2 bg-secondary hover:bg-blue-700 text-white py-2 px-4 rounded"
 				data-sveltekit-reload
 			>
 				<ArrowRightIcon />

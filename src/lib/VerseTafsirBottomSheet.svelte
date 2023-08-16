@@ -10,21 +10,21 @@
 	onClose={verseTafsirSheet.hide}
 >
 	<details class="p-4" open>
-		<summary class="cursor-pointer text-lg font-bold text-gray-600 dark:text-gray-300">
+		<summary class="cursor-pointer text-lg font-bold ">
 			🔸 Terjemahan
 		</summary>
-		<p class="pt-2 italic text-gray-600 dark:text-gray-300">
+		<p class="pt-2 italic ">
 			{$verseTafsirSheet.translation}
 		</p>
 	</details>
 	<details class="px-4 pt-2">
-		<summary class="cursor-pointer text-lg font-bold text-gray-600 dark:text-gray-300">
+		<summary class="cursor-pointer text-lg font-bold ">
 			🔹 Tafsir
 		</summary>
-		<p class="pt-2 italic text-gray-600 dark:text-gray-300">
+		<p class="pt-2 italic ">
 			{$verseTafsirSheet.tafsir}
 		</p>
-		<div class="py-4 text-gray-600 dark:text-gray-300">
+		<div class="py-4 ">
 			<small class="italic"
 				>Sumber: Kemenag - Aplikasi Quran Kementrian Agama Republik Indonesia</small
 			>

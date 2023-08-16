@@ -35,7 +35,7 @@
 		</Button>
 		<a
 			href={`/surah/${$verseShareSheet.numberSurah}/${$verseShareSheet.numberVerse}/`}
-			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-gray-100 dark:bg-blueish-700 focus:ring-2 focus:ring-blue-500"
+			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-primary focus:ring-2 focus:ring-blue-500"
 			data-sveltekit-reload
 		>
 			<LinkIcon size="sm" /> Kunjungi Tautan Ayat
