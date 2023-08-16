@@ -18,16 +18,19 @@ export default {
 	plugins: [
 		createThemes({
 			light: {
-				primary: 'steelblue'
+				primary: 'white',
+				secondary: '#F3F4F6',
+				text: 'black'
 			},
 			dark: {
-				primary: 'turquoise'
-			},
-			yellow: {
-				primary: 'yellow'
+				primary: '#142C66',
+				secondary: '#0a1d3d',
+				text: 'white'
 			},
 			sepia: {
-				primary: '#704214'
+				primary: '#704214',
+				secondary: '#653B12',
+				text: '#5E4636'
 			}
 		})
 	]
