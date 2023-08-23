@@ -28,7 +28,7 @@
 	</a>
 
 	<div class="flex gap-2">
-    <a class="cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700" href="/sync">
+    <a class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary" href="/sync">
       <ResetIcon />
     </a>
 		<ThemeSwicther />

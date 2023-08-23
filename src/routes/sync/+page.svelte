@@ -19,8 +19,7 @@
 		updateDoc,
 		query,
 		where,
-		type DocumentData,
-		doc
+		type DocumentData
 	} from 'firebase/firestore';
 	import {
 		GoogleAuthProvider,
@@ -31,10 +30,16 @@
 		type User
 	} from 'firebase/auth';
 
-	import { settingAudio, settingAutoNext, settingTafsir, settingTranslation } from '../../store';
+	import {
+		settingAudio,
+		settingAutoNext,
+		settingTafsir,
+		settingTranslation,
+		activeTheme,
+		settingLocation
+	} from '../../store';
 	import { toast } from '../../store/toast';
 	import { CONSTANTS } from '$lib/constants';
-	import CardShadow from '$lib/CardShadow.svelte';
 	import EyeIcon from '$lib/icons/EyeIcon.svelte';
 	import SignOutIcon from '$lib/icons/SignOutIcon.svelte';
 	import ArrowUpTray from '$lib/icons/ArrowUpTray.svelte';
@@ -115,10 +120,26 @@
 
 		const querySnapshot = await getDocs(q);
 
+		console.log(querySnapshot);
+
 		if (querySnapshot.size > 0) {
 			querySnapshot.forEach((doc) => {
 				currentRemoteProgress = doc.data();
 			});
+		} else {
+			currentRemoteProgress = {
+				uid: currentUser?.uid,
+				[CONSTANTS.STORAGE_KEY.AUDIO]: 'N/A',
+				[CONSTANTS.STORAGE_KEY.AUTO_NEXT]: 'N/A',
+				[CONSTANTS.STORAGE_KEY.TAFSIR]: 'N/A',
+				[CONSTANTS.STORAGE_KEY.TRANSLATION]: 'N/A',
+				[CONSTANTS.STORAGE_KEY.THEME]: 'N/A',
+				[CONSTANTS.STORAGE_KEY.LOCATION]: {
+					lt: 'N/A',
+					lg: 'N/A',
+					district: 'N/A'
+				}
+			};
 		}
 	};
 
@@ -128,7 +149,9 @@
 			[CONSTANTS.STORAGE_KEY.AUDIO]: $settingAudio,
 			[CONSTANTS.STORAGE_KEY.AUTO_NEXT]: $settingAutoNext ? 1 : 0,
 			[CONSTANTS.STORAGE_KEY.TAFSIR]: $settingTafsir ? 1 : 0,
-			[CONSTANTS.STORAGE_KEY.TRANSLATION]: $settingTranslation ? 1 : 0
+			[CONSTANTS.STORAGE_KEY.TRANSLATION]: $settingTranslation ? 1 : 0,
+			[CONSTANTS.STORAGE_KEY.THEME]: $activeTheme || '',
+			[CONSTANTS.STORAGE_KEY.LOCATION]: $settingLocation || null
 		};
 		const dbRef = collection(db, 'progress');
 		const q = query(dbRef, where('uid', '==', currentUser?.uid));
@@ -136,9 +159,23 @@
 		const querySnapshot = await getDocs(q);
 
 		if (querySnapshot.size > 0) {
-			querySnapshot.forEach(async (doc) => {
-				await updateDoc(doc.ref, localData);
-			});
+			try {
+				querySnapshot.forEach(async (doc) => {
+					await updateDoc(doc.ref, localData);
+				});
+
+				toast.show({
+					message: `Berhasil memperbarui data remote dengan data lokal`,
+					type: 'success'
+				});
+			} catch (e) {
+				console.error('Error updating document: ', localData, e);
+
+				toast.show({
+					message: `Gagal memperbarui data lokal ke remote`,
+					type: 'error'
+				});
+			}
 		} else {
 			try {
 				await addDoc(collection(db, 'progress'), localData);
@@ -172,6 +209,12 @@
 					settingTranslation.set(data?.[CONSTANTS.STORAGE_KEY.TRANSLATION] === 1);
 					settingAutoNext.set(data?.[CONSTANTS.STORAGE_KEY.AUTO_NEXT] === 1);
 					settingAudio.set(data?.[CONSTANTS.STORAGE_KEY.AUDIO]);
+					if (data?.[CONSTANTS.STORAGE_KEY.THEME]) {
+						activeTheme.set(data?.[CONSTANTS.STORAGE_KEY.THEME]);
+					}
+					if (data?.[CONSTANTS.STORAGE_KEY.LOCATION]) {
+						settingLocation.set(data?.[CONSTANTS.STORAGE_KEY.LOCATION]);
+					}
 
 					currentRemoteProgress = doc.data();
 				}
@@ -202,46 +245,88 @@
 	{#if currentUser}
 		<p>Kamu telah login sebagai: <b>{currentUser.displayName}</b></p>
 
+		<div class="flex flex-col flex-wrap gap-2 my-4">
+			<Button variant="subtle" onClick={checkRemote}>
+				<EyeIcon />
+				Bandingkan remote & local data
+			</Button>
+		</div>
+
 		{#if currentRemoteProgress}
-			<div class="mt-4 relative overflow-x-auto shadow-md sm:rounded-lg">
-				<table class="w-full text-sm text-left">
-					<thead
-						class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400"
-					>
+			<div class="mt-4 relative overflow-x-auto shadow-md rounded-lg border-2 border-secondary">
+				<table class="table-stripped">
+					<thead>
 						<tr>
-							<th scope="col" class="px-6 py-3">Field</th>
-							<th scope="col" class="px-6 py-3">Remote</th>
-							<th scope="col" class="px-6 py-3">Local</th>
+							<th scope="col">Field</th>
+							<th scope="col">Remote</th>
+							<th scope="col">Local</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-							<td class="px-6 py-3">Audio</td>
-							<td class="px-6 py-3">
+						<tr >
+							<td>Audio</td>
+							<td>
 								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.AUDIO]}
 							</td>
-							<td class="px-6 py-3">{$settingAudio}</td>
+							<td>{$settingAudio}</td>
 						</tr>
-						<tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-							<td class="px-6 py-3">Auto Next</td>
-							<td class="px-6 py-3">
+						<tr >
+							<td>Auto Next</td>
+							<td>
 								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.AUTO_NEXT]}
 							</td>
-							<td class="px-6 py-3">{$settingAutoNext ? 1 : 0}</td>
+							<td>{$settingAutoNext ? 1 : 0}</td>
 						</tr>
-						<tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-							<td class="px-6 py-3">Tafsir</td>
-							<td class="px-6 py-3">
+						<tr >
+							<td>Tafsir</td>
+							<td>
 								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.TAFSIR]}
 							</td>
-							<td class="px-6 py-3">{$settingTafsir ? 1 : 0}</td>
+							<td>{$settingTafsir ? 1 : 0}</td>
 						</tr>
-						<tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-							<td class="px-6 py-3">Translation</td>
-							<td class="px-6 py-3">
+						<tr >
+							<td>Translation</td>
+							<td>
 								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.TRANSLATION]}
 							</td>
-							<td class="px-6 py-3">{$settingTranslation ? 1 : 0}</td>
+							<td>{$settingTranslation ? 1 : 0}</td>
+						</tr>
+						<tr >
+							<td>Theme</td>
+							<td>
+								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.THEME]}
+							</td>
+							<td>{$activeTheme}</td>
+						</tr>
+						<tr >
+							<td>Location</td>
+							<td>
+								{#if typeof currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION] === 'string'}
+									<span>{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]}</span>
+								{:else if typeof currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION] === 'object'}
+									<ul class="flex flex-col gap-2">
+										<li>
+											Lon: {currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]?.lg ||
+												'N/A'}
+										</li>
+										<li>
+											Lat: {currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]?.lt ||
+												'N/A'}
+										</li>
+										<li>
+											City: {currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]
+												?.district || 'N/A'}
+										</li>
+									</ul>
+								{/if}
+							</td>
+							<td>
+								<ul class="flex flex-col gap-2">
+									<li>Lon: {$settingLocation?.lg || 'N/A'}</li>
+									<li>Lat: {$settingLocation?.lt || 'N/A'}</li>
+									<li>City: {$settingLocation?.district || 'N/A'}</li>
+								</ul>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -249,19 +334,15 @@
 		{/if}
 
 		<div class="flex flex-col flex-wrap gap-2 mt-4">
-			<Button onClick={checkRemote}>
-				<EyeIcon />
-				Bandingkan remote & local data
-			</Button>
-			<Button onClick={handleUpload}>
+			<Button variant="subtle" onClick={handleUpload}>
 				<ArrowUpTray />
 				Upload local data to the remote
 			</Button>
-			<Button onClick={handleDownload}>
+			<Button variant="subtle" onClick={handleDownload}>
 				<ArrowDownTray />
 				Sync local with remote data
 			</Button>
-			<Button onClick={handleSignOut}>
+			<Button variant="subtle" onClick={handleSignOut}>
 				<SignOutIcon />
 				Sign Out
 			</Button>
@@ -269,7 +350,7 @@
 	{:else}
 		<p>Masuk ke Akun Google untuk melakukan sync</p>
 		<div class="flex gap-2 mt-4">
-			<Button onClick={handleSignIn}>Sign In</Button>
+			<Button variant="subtle" onClick={handleSignIn}>Sign In</Button>
 		</div>
 	{/if}
 </div>

@@ -8,16 +8,16 @@
 	<button
 		type="button"
 		on:click={onClick}
-		class={`flex  items-center gap-2 bg-secondary cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100  ${$$props.class}`}
+		class={`flex items-center gap-2 bg-secondary cursor-pointer p-2 rounded-md ${$$props.class}`}
 		aria-label={ariaLabel}
-	> 
+	>
 		<slot />
 	</button>
 {:else if variant === 'filled'}
 	<button
 		type="button"
 		on:click={onClick}
-		class={`flex bg-primary items-center gap-2 cursor-pointer p-2 rounded-md  focus:ring-2 focus:ring-blue-500 ${$$props.class}`}
+		class={`flex bg-primary items-center gap-2 cursor-pointer p-2 rounded-md focus:ring-2 focus:ring-blue-500 ${$$props.class}`}
 		aria-label={ariaLabel}
 	>
 		<slot />
@@ -26,7 +26,7 @@
 	<button
 		type="button"
 		on:click={onClick}
-		class={`flex items-center gap-2 cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700 ${$$props.class}`}
+		class={`flex items-center gap-2 cursor-pointer p-2 rounded-md border border-primary ${$$props.class}`}
 		aria-label={ariaLabel}
 	>
 		<slot />
