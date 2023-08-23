@@ -89,9 +89,20 @@ Copyright © 2018 by Irfan Maulana
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.mazipan.xyz/"><img src="https://avatars0.githubusercontent.com/u/7221389?v=4?s=100" width="100px;" alt="Irfan Maulana"/><br /><sub><b>Irfan Maulana</b></sub></a><br /><a href="https://github.com/mazipan/baca-quran.id/commits?author=mazipan" title="Code">💻</a> <a href="#maintenance-mazipan" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://altera.id"><img src="https://avatars2.githubusercontent.com/u/8231792?v=4?s=100" width="100px;" alt="azul"/><br /><sub><b>azul</b></sub></a><br /><a href="https://github.com/mazipan/baca-quran.id/issues?q=author%3Aazulkipli" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Abizrh"><img src="https://avatars.githubusercontent.com/u/106458960?v=4?s=100" width="100px;" alt="Abizarah &#124; 比周"/><br /><sub><b>Abizarah &#124; 比周</b></sub></a><br /><a href="https://github.com/mazipan/baca-quran.id/commits?author=Abizrh" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
 
-<!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://mazipan.space/"><img src="https://avatars0.githubusercontent.com/u/7221389?v=4" width="100px;" alt="Irfan Maulana"/><br /><sub><b>Irfan Maulana</b></sub></a><br /><a href="https://github.com/mazipan/baca-quran.id/commits?author=mazipan" title="Code">💻</a> <a href="#maintenance-mazipan" title="Maintenance">🚧</a></td><td align="center"><a href="http://altera.id"><img src="https://avatars2.githubusercontent.com/u/8231792?v=4" width="100px;" alt="azul"/><br /><sub><b>azul</b></sub></a><br /><a href="https://github.com/mazipan/baca-quran.id/issues?q=author%3Aazulkipli" title="Bug reports">🐛</a></td></tr></table>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
