@@ -36,7 +36,9 @@
 		settingTafsir,
 		settingTranslation,
 		activeTheme,
-		settingLocation
+		settingLocation,
+		lastReadVerses,
+		pinnedSurah
 	} from '../../store';
 	import { toast } from '../../store/toast';
 	import { CONSTANTS } from '$lib/constants';
@@ -44,6 +46,7 @@
 	import SignOutIcon from '$lib/icons/SignOutIcon.svelte';
 	import ArrowUpTray from '$lib/icons/ArrowUpTray.svelte';
 	import ArrowDownTray from '$lib/icons/ArrowDownTray.svelte';
+	import JsonSurahViewer from '$lib/JsonSurahViewer.svelte';
 
 	const firebaseConfig = {
 		apiKey: PUBLIC_FIREBASE_API_KEY,
@@ -70,6 +73,7 @@
 	});
 
 	const auth = getAuth();
+
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
 			currentUser = user;
@@ -81,36 +85,33 @@
 	const handleSignIn = () => {
 		signInWithPopup(auth, provider)
 			.then((result) => {
-				// This gives you a Google Access Token. You can use it to access the Google API.
-				const credential = GoogleAuthProvider.credentialFromResult(result);
-				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore
-				const token = credential.accessToken;
-				// The signed-in user info.
 				const user = result.user;
-				// IdP data available using getAdditionalUserInfo(result)
-				// ...
-				console.log(token, user);
+				toast.show({
+					message: `Berhasil login. Selamat datang ${user.displayName}!`,
+					type: 'success'
+				});
 			})
 			.catch((error) => {
-				// Handle Errors here.
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				// The email of the user's account used.
-				const email = error.customData.email;
-				// The AuthCredential type that was used.
-				const credential = GoogleAuthProvider.credentialFromError(error);
-				// ...
+				toast.show({
+					message: `Gagal login: ${error.message}`,
+					type: 'error'
+				});
 			});
 	};
 
 	const handleSignOut = () => {
 		signOut(auth)
 			.then(() => {
-				// Sign-out successful.
+				toast.show({
+					message: `Berhasil logout!`,
+					type: 'success'
+				});
 			})
 			.catch((error) => {
-				// An error happened.
+				toast.show({
+					message: `Gagal logout: ${error.message}`,
+					type: 'error'
+				});
 			});
 	};
 
@@ -119,8 +120,6 @@
 		const q = query(dbRef, where('uid', '==', currentUser?.uid));
 
 		const querySnapshot = await getDocs(q);
-
-		console.log(querySnapshot);
 
 		if (querySnapshot.size > 0) {
 			querySnapshot.forEach((doc) => {
@@ -138,7 +137,9 @@
 					lt: 'N/A',
 					lg: 'N/A',
 					district: 'N/A'
-				}
+				},
+				[CONSTANTS.STORAGE_KEY.LAST_VERSES]: [],
+				[CONSTANTS.STORAGE_KEY.PINNED_SURAH]: []
 			};
 		}
 	};
@@ -151,7 +152,9 @@
 			[CONSTANTS.STORAGE_KEY.TAFSIR]: $settingTafsir ? 1 : 0,
 			[CONSTANTS.STORAGE_KEY.TRANSLATION]: $settingTranslation ? 1 : 0,
 			[CONSTANTS.STORAGE_KEY.THEME]: $activeTheme || '',
-			[CONSTANTS.STORAGE_KEY.LOCATION]: $settingLocation || null
+			[CONSTANTS.STORAGE_KEY.LOCATION]: $settingLocation || null,
+			[CONSTANTS.STORAGE_KEY.LAST_VERSES]: $lastReadVerses || null,
+			[CONSTANTS.STORAGE_KEY.PINNED_SURAH]: $pinnedSurah || null
 		};
 		const dbRef = collection(db, 'progress');
 		const q = query(dbRef, where('uid', '==', currentUser?.uid));
@@ -215,6 +218,12 @@
 					if (data?.[CONSTANTS.STORAGE_KEY.LOCATION]) {
 						settingLocation.set(data?.[CONSTANTS.STORAGE_KEY.LOCATION]);
 					}
+					if (data?.[CONSTANTS.STORAGE_KEY.LAST_VERSES]) {
+						lastReadVerses.set(data?.[CONSTANTS.STORAGE_KEY.LAST_VERSES]);
+					}
+					if (data?.[CONSTANTS.STORAGE_KEY.PINNED_SURAH]) {
+						pinnedSurah.set(data?.[CONSTANTS.STORAGE_KEY.PINNED_SURAH]);
+					}
 
 					currentRemoteProgress = doc.data();
 				}
@@ -250,6 +259,14 @@
 				<EyeIcon />
 				Bandingkan remote & local data
 			</Button>
+			<Button variant="subtle" onClick={handleUpload}>
+				<ArrowUpTray />
+				Upload local data to the remote
+			</Button>
+			<Button variant="subtle" onClick={handleDownload}>
+				<ArrowDownTray />
+				Sync local with remote data
+			</Button>
 		</div>
 
 		{#if currentRemoteProgress}
@@ -263,42 +280,42 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr >
+						<tr>
 							<td>Audio</td>
 							<td>
 								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.AUDIO]}
 							</td>
 							<td>{$settingAudio}</td>
 						</tr>
-						<tr >
+						<tr>
 							<td>Auto Next</td>
 							<td>
 								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.AUTO_NEXT]}
 							</td>
 							<td>{$settingAutoNext ? 1 : 0}</td>
 						</tr>
-						<tr >
+						<tr>
 							<td>Tafsir</td>
 							<td>
 								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.TAFSIR]}
 							</td>
 							<td>{$settingTafsir ? 1 : 0}</td>
 						</tr>
-						<tr >
+						<tr>
 							<td>Translation</td>
 							<td>
 								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.TRANSLATION]}
 							</td>
 							<td>{$settingTranslation ? 1 : 0}</td>
 						</tr>
-						<tr >
+						<tr>
 							<td>Theme</td>
 							<td>
 								{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.THEME]}
 							</td>
 							<td>{$activeTheme}</td>
 						</tr>
-						<tr >
+						<tr>
 							<td>Location</td>
 							<td>
 								{#if typeof currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION] === 'string'}
@@ -306,26 +323,44 @@
 								{:else if typeof currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION] === 'object'}
 									<ul class="flex flex-col gap-2">
 										<li>
-											Lon: {currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]?.lg ||
-												'N/A'}
+											{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]?.lt || 'N/A'}, {currentRemoteProgress?.[
+												CONSTANTS.STORAGE_KEY.LOCATION
+											]?.lg || 'N/A'}
 										</li>
 										<li>
-											Lat: {currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]?.lt ||
+											{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]?.district ||
 												'N/A'}
-										</li>
-										<li>
-											City: {currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]
-												?.district || 'N/A'}
 										</li>
 									</ul>
 								{/if}
 							</td>
 							<td>
 								<ul class="flex flex-col gap-2">
-									<li>Lon: {$settingLocation?.lg || 'N/A'}</li>
-									<li>Lat: {$settingLocation?.lt || 'N/A'}</li>
-									<li>City: {$settingLocation?.district || 'N/A'}</li>
+									<li>{$settingLocation?.lt || 'N/A'}, {$settingLocation?.lg || 'N/A'}</li>
+									<li>{$settingLocation?.district || 'N/A'}</li>
 								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>Last Read</td>
+							<td>
+								<JsonSurahViewer
+									jsonArrayObject={currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LAST_VERSES]}
+								/>
+							</td>
+							<td>
+								<JsonSurahViewer jsonArrayObject={$lastReadVerses} />
+							</td>
+						</tr>
+						<tr>
+							<td>Pinned Surah</td>
+							<td>
+								<JsonSurahViewer
+									jsonArrayObject={currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.PINNED_SURAH]}
+								/>
+							</td>
+							<td>
+								<JsonSurahViewer jsonArrayObject={$pinnedSurah} />
 							</td>
 						</tr>
 					</tbody>
@@ -334,14 +369,6 @@
 		{/if}
 
 		<div class="flex flex-col flex-wrap gap-2 mt-4">
-			<Button variant="subtle" onClick={handleUpload}>
-				<ArrowUpTray />
-				Upload local data to the remote
-			</Button>
-			<Button variant="subtle" onClick={handleDownload}>
-				<ArrowDownTray />
-				Sync local with remote data
-			</Button>
 			<Button variant="subtle" onClick={handleSignOut}>
 				<SignOutIcon />
 				Sign Out
