@@ -142,7 +142,19 @@ export const SEO_TEXT_DYNAMIC = {
 };
 
 export const THEMES = [
-	'light',
-	'dark',
-	'sepia'
+  {
+    name: 'light',
+    bg: 'white',
+    border: '#142C66',
+  },
+  {
+    name: 'dark',
+    bg: '#142C66',
+    border: '#FFF',
+  },
+  {
+    name: 'sepia',
+    bg: '#704214',
+    border: '#FFF',
+  },
 ];

@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { createThemes } = require('tw-colors');
+
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {

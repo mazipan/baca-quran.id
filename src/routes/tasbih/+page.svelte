@@ -59,11 +59,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
 </div>
 
 <div class="px-4 flex flex-col gap-2">
@@ -99,7 +95,7 @@
 			<span class="text-xl">99</span>
 		</Button>
 		<input
-			class="text-md bg-gray-50 border-0 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 block p-2.5 dark:bg-blueish-700 dark:placeholder-gray-400 dark:text-white w-20"
+			class="text-md border-0 rounded-lg focus:ring-2 focus:ring-blue-500 block p-2.5 placeholder-gray-400 w-20 bg-secondary"
 			bind:value={target}
 			type="number"
 		/>
@@ -117,7 +113,7 @@
 		<div class="relative -mb-6 z-10 flex flex-col">
 			<button
 				on:click={handleReset}
-				class="z-10 cursor-pointer p-2 rounded-full bg-gray-100 focus:ring-4 focus:ring-blue-500 dark:bg-blueish-700 border-4 border-white dark:border-blueish-600"
+				class="z-10 cursor-pointer p-2 rounded-full bg-secondary focus:ring-4 focus:ring-blue-500 border-4 border-primary"
 			>
 				<ResetIcon size="xl" />
 			</button>
@@ -129,13 +125,13 @@
 		</div>
 		<button
 			on:click={handleIncrement}
-			class="cursor-pointer p-2 rounded-full bg-gray-100 focus:ring-4 focus:ring-blue-500 dark:bg-blueish-700 border-4 border-white dark:border-blueish-600 outline-none"
+			class="cursor-pointer p-2 rounded-full focus:ring-4 focus:ring-blue-500 border-4 bg-secondary border-primary outline-none"
 		>
 			<ChevronUpIcon size="xl" class="w-40 h-40" />
 		</button>
 		<button
 			on:click={handleDecrement}
-			class="-mt-6 z-10 cursor-pointer p-2 rounded-full bg-gray-100 focus:ring-4 focus:ring-blue-500 dark:bg-blueish-700 border-4 border-white dark:border-blueish-600"
+			class="-mt-6 z-10 cursor-pointer p-2 rounded-full focus:ring-4 focus:ring-blue-500 bg-secondary border-4 border-primary"
 		>
 			<ChevronDownIcon size="xl" />
 		</button>
