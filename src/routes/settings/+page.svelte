@@ -46,7 +46,7 @@
 				on:change={(e) => {
 					const checked = e?.target?.checked ?? false;
 					localStorage.setItem(CONSTANTS.STORAGE_KEY.TRANSLATION, checked ? 'y' : 'n');
-
+					
 					settingTranslation.update((val) => !val);
 				}}
 			/>
@@ -123,7 +123,7 @@
 		</div>
 
 		<div>
-			<label for="select-qari" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+			<label for="select-qari" class="block mb-2 text-sm font-medium "
 				>Pilih Qari</label
 			>
 			<div class="flex items-center gap-2">
@@ -134,8 +134,9 @@
 						const value = e?.target?.value ?? 1;
 						localStorage.setItem(CONSTANTS.STORAGE_KEY.AUDIO, value ? value : '1');
 					}}
-					class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blueish-700 dark:border-blueish-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blueish-500 dark:focus:border-blueish-500"
+					class="bg-primary border border-gray-300  text-sm rounded-lg  block w-full p-2.5"
 				>
+
 					{#each RECITER_ARRAY as item (item.id)}
 						<option value={item.id}>{item.name}</option>
 					{/each}

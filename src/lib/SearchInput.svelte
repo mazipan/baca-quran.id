@@ -7,7 +7,7 @@
 </script>
 <div class="relative mb-4">
   <input
-    class="text-md bg-gray-50 border-0 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 block p-2.5 pl-10 dark:bg-blueish-700 dark:placeholder-gray-400 dark:text-white w-full"
+    class="text-md border-0 text-gray-900 rounded-lg focus:ring-2 focus:ring-blue-500 block p-2.5 pl-10 placeholder-gray-400 w-full bg-secondary"
     value={searchText}
     on:input={onChange}
     type="search"

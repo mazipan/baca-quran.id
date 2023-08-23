@@ -45,13 +45,13 @@
 	</div>
 
 	{#if $settingTranslation}
-		<p class="pt-2 text-xs italic text-gray-600 dark:text-gray-300">
+		<p class="pt-2 text-xs italic">
 			{translation}
 		</p>
 	{/if}
 
 	<div class="mt-4 flex justify-between items-center gap-2">
-		<div class="flex items-center gap-2">
+		<div class="flex items-center  gap-2">
 			<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
 			<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
 			<Button

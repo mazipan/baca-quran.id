@@ -41,6 +41,9 @@
 	"type": "module",
 	"engines": {
 		"node": ">=18",
-    "pnpm": ">=8"
+		"pnpm": ">=8"
+	},
+	"dependencies": {
+		"tw-colors": "^2.0.3"
 	}
 }

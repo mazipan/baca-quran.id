@@ -1,19 +1,20 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+	import { THEMES } from './constants';
+
 	import { onMount } from 'svelte';
 	import { activeTheme } from '../store';
+	import CheckCircleIcon from './icons/CheckCircleIcon.svelte';
+	let show = false;
 
-	const handleSwitchTheme = () => {
-		if ($activeTheme === 'dark') {
-			activeTheme.set('light');
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			window.__setPreferredTheme('light');
-		} else {
-			activeTheme.set('dark');
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			window.__setPreferredTheme('dark');
-		}
+	const handleSwitchTheme = (theme: string) => {
+		activeTheme.set(theme);
+    // See app.html for window.__setActiveTheme implementation
+
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		window.__setActiveTheme(theme);
+		show = false;
 	};
 
 	onMount(() => {
@@ -23,37 +24,51 @@
 	});
 </script>
 
-<button class="theme-swither cursor-pointer p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
-on:click={handleSwitchTheme}>
-	{#if $activeTheme === 'dark'}
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke-width="1.5"
-			stroke="currentColor"
-			class="w-6 h-6"
+<div class="relative inline-block text-left">
+	<div>
+		<button
+			type="button"
+			class="theme-swither cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary"
+			id="menu-button"
+			aria-expanded={show}
+			aria-haspopup="true"
+			on:click={() => (show = !show)}
 		>
-			<path
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-			/>
-		</svg>
-	{:else}
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke-width="1.5"
-			stroke="currentColor"
-			class="w-6 h-6"
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+    </svg>
+		</button>
+	</div>
+
+	{#if show}
+		<div
+			class={`absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none bg-secondary`}
+			role="menu"
+			aria-orientation="vertical"
+			aria-labelledby="menu-button"
+			tabindex="-1"
+			transition:fade={{ duration: 100 }}
 		>
-			<path
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-			/>
-		</svg>
+			<div class="p-1" role="none">
+				{#each THEMES as theme (theme.name)}
+					<button
+						type="submit"
+						class={`flex gap-2 items-center justify-between rounded-md w-full px-4 py-2 text-left text-sm hover:bg-primary`}
+						role="menuitem"
+						tabindex="-1"
+						id="menu-item-3"
+						on:click={() => handleSwitchTheme(theme.name)}
+					>
+          <div class="flex items-center gap-2">
+						<span class="flex w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 border" style={`background-color: ${theme.bg}; border-color: ${theme.name === $activeTheme ? theme.border : theme.bg};`}/>
+						{theme.name.toUpperCase()}
+          </div>
+          {#if theme.name === $activeTheme}
+            <CheckCircleIcon class="w-6 h-6 text-green-400"/>
+          {/if}
+					</button>
+				{/each}
+			</div>
+		</div>
 	{/if}
-</button>
+</div>

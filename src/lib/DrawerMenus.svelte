@@ -14,7 +14,7 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 		<a
 			href="/?source=sidebar"
 			data-sveltekit-reload
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<HomeIcon />
 			Beranda
@@ -24,7 +24,7 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 		<a
 			data-sveltekit-reload
 			href="/settings/"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<SettingIcon />
 			Setelan
@@ -35,7 +35,7 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 			href="https://www.baca-quran.id/tulisan"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<NewspaperIcon />
 			Blog
@@ -46,7 +46,7 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 			href="https://www.baca-quran.id/stories"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<GalleryIcon />
 			Stories
@@ -57,7 +57,7 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 			href="https://mazipan.space/support"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<HeartIcon />
 			Donasi
@@ -67,7 +67,7 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 		<a
 			data-sveltekit-reload
 			href="/about/"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<InformationCircleIcon />
 			Tentang
@@ -77,7 +77,7 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 		<a
 			data-sveltekit-reload
 			href="/kebijakan-privasi/"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<ShieldCheckIcon />
 			Kebijakan Privacy
@@ -88,7 +88,7 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 			href="https://github.com/mazipan/baca-quran.id"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-gray-100 focus:bg-gray-100 dark:hover:bg-blueish-700 dark:focus:bg-blueish-700"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<CodeIcon />
 			Kode sumber
