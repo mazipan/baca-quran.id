@@ -23,7 +23,7 @@
 	<MetaTag
 		title={META_TITLE_AYAH(verseid, surahInfo.current.latin)}
 		desc={META_DESC_AYAH(verseid, surahInfo.current.latin)}
-		url={`${TITLE_CONSTANTS.PATH}surah/${surahid}/${verseid}`}
+		url={`${TITLE_CONSTANTS.PATH}surah/${surahid}/${verseid}/`}
 	/>
 </svelte:head>
 

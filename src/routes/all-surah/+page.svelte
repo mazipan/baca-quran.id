@@ -26,7 +26,7 @@
 	<MetaTag
 		title={META_TITLE_ALL_SURAH}
 		desc={META_DESC_ALL_SURAH}
-		url={`${TITLE_CONSTANTS.PATH}`}
+		url={`${TITLE_CONSTANTS.PATH}all-surah/`}
 	/>
 </svelte:head>
 

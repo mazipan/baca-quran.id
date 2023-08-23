@@ -22,9 +22,9 @@
 	<MetaTag
 		title={META_TITLE_SURAH(surahInfo.current.latin)}
 		desc={META_DESC_SURAH(surahInfo.current.latin)}
-		url={`${TITLE_CONSTANTS.PATH}surah/${surahid}`}
+		url={`${TITLE_CONSTANTS.PATH}surah/${surahid}/`}
+    canonical={`${TITLE_CONSTANTS.PATH}surah/${surahid}/`}
 	/>
-  <link rel="canonical" href={`${TITLE_CONSTANTS.PATH}surah/${surahid}`} />
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">

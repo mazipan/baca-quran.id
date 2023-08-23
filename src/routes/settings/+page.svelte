@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-	<MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}`} />
+	<MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}settings`} />
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
