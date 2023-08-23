@@ -9,9 +9,11 @@
 
 	const handleSwitchTheme = (theme: string) => {
 		activeTheme.set(theme);
+    // See app.html for window.__setActiveTheme implementation
+
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
-		window.__setPreferredTheme(theme);
+		window.__setActiveTheme(theme);
 		show = false;
 	};
 

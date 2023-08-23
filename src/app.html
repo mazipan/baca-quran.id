@@ -11,50 +11,42 @@
 
 		<script>
 			(function () {
-				window.__header_theme = {
+        // Unused for now
+				window.__headerTheme = {
 					dark: '#172642',
 					light: '#f5f7fb',
 					sepia: '#704214',
-					yellow: '#ffff00'
 				};
-				const textColor = {
+
+				var __textColor = {
 					light: 'text-gray-900',
 					dark: 'text-gray-200',
 					sepia: 'text-gray-200',
 				};
-				window.__onThemeChange = function () {};
-				var preferredTheme;
+
+				var __currentTheme;
 				try {
-					preferredTheme = localStorage.getItem('theme');
+					__currentTheme = localStorage.getItem('theme');
 				} catch (err) {}
 
 				function setTheme(newTheme) {
 					window.__theme = newTheme;
-					preferredTheme = newTheme;
+					__currentTheme = newTheme;
 					// document.body.className = newTheme;
 					document.querySelector('html').setAttribute('class', `theme-${newTheme}`)
 					document
 						.querySelector('body')
-						?.setAttribute('class', ` bg-primary ${textColor[newTheme]}`);
+						?.setAttribute('class', ` bg-primary ${__textColor[newTheme]}`);
 
-					window.__onThemeChange(newTheme);
-				}
-
-				window.__setPreferredTheme = function (newTheme) {
-					setTheme(newTheme);
 					try {
 						localStorage.setItem('theme', newTheme);
 					} catch (err) {}
-				};
+				}
 
-				
+				window.__setActiveTheme = setTheme
 
-				var darkQuery = window.matchMedia(`(prefers-color-scheme: ${preferredTheme})`);
-				darkQuery.addListener(function (e) {
-					window.__setPreferredTheme(preferredTheme);
-				});
-
-				setTheme(preferredTheme);
+        // Run on the page load
+				setTheme(__currentTheme);
 			})();
 		</script>
 
