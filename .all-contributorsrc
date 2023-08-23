@@ -23,11 +23,22 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "Abizrh",
+      "name": "Abizarah | 比周",
+      "avatar_url": "https://avatars.githubusercontent.com/u/106458960?v=4",
+      "profile": "https://github.com/Abizrh",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "baca-quran.id",
   "projectOwner": "mazipan",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "commitType": "docs",
+  "commitConvention": "angular"
 }
