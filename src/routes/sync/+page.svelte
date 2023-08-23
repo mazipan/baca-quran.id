@@ -41,12 +41,13 @@
 		pinnedSurah
 	} from '../../store';
 	import { toast } from '../../store/toast';
-	import { CONSTANTS } from '$lib/constants';
+	import { CONSTANTS, TITLE_CONSTANTS } from '$lib/constants';
 	import EyeIcon from '$lib/icons/EyeIcon.svelte';
 	import SignOutIcon from '$lib/icons/SignOutIcon.svelte';
 	import ArrowUpTray from '$lib/icons/ArrowUpTray.svelte';
 	import ArrowDownTray from '$lib/icons/ArrowDownTray.svelte';
 	import JsonSurahViewer from '$lib/JsonSurahViewer.svelte';
+	import MetaTag from '$lib/MetaTag.svelte';
 
 	const firebaseConfig = {
 		apiKey: PUBLIC_FIREBASE_API_KEY,
@@ -241,6 +242,14 @@
 		}
 	};
 </script>
+
+<svelte:head>
+	<MetaTag
+		title={`Sync Data | ${TITLE_CONSTANTS.TITLE_META}`}
+		desc={`Sync Data ${TITLE_CONSTANTS.TITLE_META}`}
+		url={`${TITLE_CONSTANTS.PATH}sync/`}
+	/>
+</svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">🔄 Sync Data</h1>
