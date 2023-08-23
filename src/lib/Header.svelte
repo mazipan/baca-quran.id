@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ThemeSwicther from './ThemeSwicther.svelte';
+	import ResetIcon from './icons/ResetIcon.svelte';
 
 	export let onToggleDrawer: () => void;
 </script>
@@ -27,6 +28,9 @@
 	</a>
 
 	<div class="flex gap-2">
+    <a class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary" href="/sync">
+      <ResetIcon />
+    </a>
 		<ThemeSwicther />
 	</div>
 </header>

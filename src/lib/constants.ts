@@ -29,6 +29,7 @@ export const CONSTANTS = {
     LAST_VERSES: 'vres',
     LOCATION: 'loc',
     PRAYER: 'pryr',
+    THEME: 'theme'
   },
   BISMILLAH: '﷽'
 };

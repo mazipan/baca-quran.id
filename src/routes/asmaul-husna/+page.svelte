@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-  <MetaTag title={META_TITLE_ASMAUL_HUSNA} desc={META_DESC_ASMAUL_HUSNA} url={`${TITLE_CONSTANTS.PATH}`} />
+  <MetaTag title={META_TITLE_ASMAUL_HUSNA} desc={META_DESC_ASMAUL_HUSNA} url={`${TITLE_CONSTANTS.PATH}asmaul-husna/`} />
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
