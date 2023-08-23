@@ -12,6 +12,7 @@ export const staticUrls = [
   '/settings/',
   '/surah-makkiyah/',
   '/surah-madaniyah/',
+  '/sync/',
   '/tahlil/',
   '/tasbih/',
   '/wirid/'
