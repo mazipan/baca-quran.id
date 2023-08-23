@@ -18,6 +18,21 @@ export const TITLE_CONSTANTS = {
 	ABOUT: 'Tentang'
 };
 
+export const CONSTANTS = {
+  STORAGE_KEY: {
+    TRANSLATION: 'trsla',
+    TAFSIR: 'tfsr',
+    MUKADIMAH: 'mkdmh',
+    AUDIO: 'aud',
+    AUTO_NEXT: 'anxt',
+    PINNED_SURAH: 'srh',
+    LAST_VERSES: 'vres',
+    LOCATION: 'loc',
+    PRAYER: 'pryr',
+  },
+  BISMILLAH: '﷽'
+};
+
 const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir dari Kemenag' : ''}, 💸 gratis sepenuhnya, 💫 tanpa iklan, 📈 tanpa analitik`
 export const META_TITLE = `Qur'an Online Gratis | ${TITLE_CONSTANTS.TITLE_META}`
 export const META_DESC = `Bacaan lengkap Al-Qur'an 30 Juz ${postfix(true)}`
