@@ -28,14 +28,14 @@
 	<div class="flex gap-2 mb-4">
 		<a
 			href="/kebijakan-privasi/"
-			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-gray-100 dark:bg-blueish-700"
+			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-secondary"
 		>
 			<ShieldCheckIcon />
 			Kebijakan Privasi</a
 		>
 		<a
 			href="/ketentuan-layanan/"
-			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-gray-100 dark:bg-blueish-700"
+			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-secondary"
 		>
 			<InformationCircleIcon />
 			Ketentuan Layanan</a
