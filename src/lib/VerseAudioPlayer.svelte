@@ -16,6 +16,7 @@
 	import CardShadow from './CardShadow.svelte';
 	import { RECITER_MAP } from '$lib/audio';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
+	import XMarkIcon from './icons/XMarkIcon.svelte';
 
 	let reachingEndOfSurah = false;
 	let totalTime = 0;
@@ -113,6 +114,11 @@
 		}
 	}
 
+	function closePlayer() {
+		pause();
+		isShowingAudioPlayer.set(false);
+	}
+
 	$: if ($isShowingAudioPlayer) {
 		play($currentTrack);
 	}
@@ -124,8 +130,8 @@
 
 {#if $isShowingAudioPlayer}
 	<div class="fixed bottom-0 left-0 right-0 px-6 py-4 z-20 mx-auto max-w-[500px]">
-		<CardShadow class="border-blue-500 dark:border-gray-100">
-			<div class="flex justify-between items-center">
+		<CardShadow class="border-primary border-2">
+			<div class="flex justify-between items-center gap-2 rounded-t-2xl bg-secondary mb-2">
 				<div class="text-sm flex items-center gap-2">
 					<span class="relative flex h-3 w-3">
 						<span
@@ -135,22 +141,11 @@
 					</span>
 					<span>Memutar Q.S {$currentTrack?.surah}:{$currentTrack?.verse}</span>
 				</div>
-				{#if reachingEndOfSurah}
-					<Button onClick={playNextSurah} class="text-sm"
-						>Berikutnya <ArrowRightIcon size="sm" /></Button
-					>
-				{:else}
-					<span class="text-sm flex items-center gap-2">
-						<span
-							class={`relative inline-flex rounded-full h-3 w-3 ${
-								$settingAutoNext ? 'bg-green-500' : 'bg-red-500'
-							}`}
-						/>
-						{$settingAutoNext ? 'Auto Next: ON' : 'Auto Next: OFF'}
-					</span>
-				{/if}
-			</div>
 
+				<Button onClick={closePlayer}>
+					<XMarkIcon size="sm" />
+				</Button>
+			</div>
 			<div class="flex justify-between items-center my-2 text-sm">
 				<span>{formatAudioTime(currentTime)}</span>
 				<Button onClick={handlePlayPauseAudio}>
@@ -163,13 +158,22 @@
 				<span>{formatAudioTime(totalTime)} </span>
 			</div>
 
-			<div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
-				<div class="bg-blue-600 h-1.5 rounded-full" style={`width: ${percent}%`} />
+			<div class="w-full bg-primary rounded-full h-1.5">
+				<div class="bg-lime-400 h-1.5 rounded-full" style={`width: ${percent}%`} />
 			</div>
 
 			<div class="text-sm mt-2 flex justify-between items-center">
 				<span class="font-bold">🔊 {RECITER_MAP[$settingAudio]?.name || RECITER_MAP[1]?.name}</span>
 			</div>
+
+			{#if reachingEndOfSurah}
+				<div class="mt-2">
+					<Button onClick={playNextSurah} class="text-sm w-full justify-center">
+						Surat Berikutnya
+						<ArrowRightIcon size="sm" />
+					</Button>
+				</div>
+			{/if}
 		</CardShadow>
 	</div>
 {/if}

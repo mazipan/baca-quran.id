@@ -1,10 +1,11 @@
 <script>
 	import CodeIcon from './icons/CodeIcon.svelte';
-import GalleryIcon from './icons/GalleryIcon.svelte';
+	import GalleryIcon from './icons/GalleryIcon.svelte';
 	import HeartIcon from './icons/HeartIcon.svelte';
 	import HomeIcon from './icons/HomeIcon.svelte';
 	import InformationCircleIcon from './icons/InformationCircleIcon.svelte';
 	import NewspaperIcon from './icons/NewspaperIcon.svelte';
+	import ResetIcon from './icons/ResetIcon.svelte';
 	import SettingIcon from './icons/SettingIcon.svelte';
 	import ShieldCheckIcon from './icons/ShieldCheckIcon.svelte';
 </script>
@@ -28,6 +29,16 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 		>
 			<SettingIcon />
 			Setelan
+		</a>
+	</li>
+	<li class="sidebar__item">
+		<a
+			data-sveltekit-reload
+			href="/sync/"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
+		>
+			<ResetIcon />
+			Sync
 		</a>
 	</li>
 	<li class="sidebar__item">
@@ -66,16 +77,6 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 	<li class="sidebar__item">
 		<a
 			data-sveltekit-reload
-			href="/about/"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
-		>
-			<InformationCircleIcon />
-			Tentang
-		</a>
-	</li>
-	<li class="sidebar__item">
-		<a
-			data-sveltekit-reload
 			href="/kebijakan-privasi/"
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
@@ -91,7 +92,17 @@ import GalleryIcon from './icons/GalleryIcon.svelte';
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<CodeIcon />
-			Kode sumber
+			Kode Sumber
+		</a>
+	</li>
+	<li class="sidebar__item">
+		<a
+			data-sveltekit-reload
+			href="/about/"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
+		>
+			<InformationCircleIcon />
+			Tentang
 		</a>
 	</li>
 </ul>
