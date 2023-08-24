@@ -4,7 +4,6 @@
 
 	import { onMount } from 'svelte';
 	import { activeTheme } from '../store';
-	import CheckCircleIcon from './icons/CheckCircleIcon.svelte';
 	let show = false;
 
 	const handleSwitchTheme = (theme: string) => {
@@ -49,11 +48,11 @@
 			tabindex="-1"
 			transition:fade={{ duration: 100 }}
 		>
-			<div class="p-1" role="none">
+			<div class="p-1 flex flex-col gap-2" role="none">
 				{#each THEMES as theme (theme.name)}
 					<button
 						type="submit"
-						class={`flex gap-2 items-center justify-between rounded-md w-full px-4 py-2 text-left text-sm hover:bg-primary`}
+						class={`flex gap-2 items-center justify-between rounded-md w-full px-4 py-2 text-left text-sm hover:bg-primary ${theme.name === $activeTheme ? "border-2 border-blue-400" : ""}`}
 						role="menuitem"
 						tabindex="-1"
 						id="menu-item-3"
@@ -63,9 +62,6 @@
 						<span class="flex w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 border" style={`background-color: ${theme.bg}; border-color: ${theme.name === $activeTheme ? theme.border : theme.bg};`}/>
 						{theme.name.toUpperCase()}
           </div>
-          {#if theme.name === $activeTheme}
-            <CheckCircleIcon class="w-6 h-6 text-green-400"/>
-          {/if}
 					</button>
 				{/each}
 			</div>
