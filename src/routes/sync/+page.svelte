@@ -209,21 +209,68 @@
 			querySnapshot.forEach((doc) => {
 				const data = doc.data();
 				if (data) {
+					// tafsir
 					settingTafsir.set(data?.[CONSTANTS.STORAGE_KEY.TAFSIR] === 1);
+					localStorage.setItem(
+						CONSTANTS.STORAGE_KEY.TAFSIR,
+						data?.[CONSTANTS.STORAGE_KEY.TAFSIR] === 1 ? 'y' : 'n'
+					);
+
+					// translation
 					settingTranslation.set(data?.[CONSTANTS.STORAGE_KEY.TRANSLATION] === 1);
+					localStorage.setItem(
+						CONSTANTS.STORAGE_KEY.TRANSLATION,
+						data?.[CONSTANTS.STORAGE_KEY.TRANSLATION] === 1 ? 'y' : 'n'
+					);
+
+					// auto next
 					settingAutoNext.set(data?.[CONSTANTS.STORAGE_KEY.AUTO_NEXT] === 1);
+					localStorage.setItem(
+						CONSTANTS.STORAGE_KEY.AUTO_NEXT,
+						data?.[CONSTANTS.STORAGE_KEY.AUTO_NEXT] === 1 ? 'y' : 'n'
+					);
+
+					// audio - qori
 					settingAudio.set(data?.[CONSTANTS.STORAGE_KEY.AUDIO]);
+					localStorage.setItem(
+						CONSTANTS.STORAGE_KEY.AUDIO,
+						data?.[CONSTANTS.STORAGE_KEY.AUDIO] || '1'
+					);
+
+					// active theme
 					if (data?.[CONSTANTS.STORAGE_KEY.THEME]) {
 						activeTheme.set(data?.[CONSTANTS.STORAGE_KEY.THEME]);
+						localStorage.setItem(
+							CONSTANTS.STORAGE_KEY.THEME,
+							data?.[CONSTANTS.STORAGE_KEY.THEME] || 'light'
+						);
 					}
+
+					// location
 					if (data?.[CONSTANTS.STORAGE_KEY.LOCATION]) {
 						settingLocation.set(data?.[CONSTANTS.STORAGE_KEY.LOCATION]);
+						localStorage.setItem(
+							CONSTANTS.STORAGE_KEY.LOCATION,
+							JSON.stringify(data?.[CONSTANTS.STORAGE_KEY.LOCATION] || {})
+						);
 					}
+
+					// last read verses
 					if (data?.[CONSTANTS.STORAGE_KEY.LAST_VERSES]) {
 						lastReadVerses.set(data?.[CONSTANTS.STORAGE_KEY.LAST_VERSES]);
+						localStorage.setItem(
+							CONSTANTS.STORAGE_KEY.LAST_VERSES,
+							JSON.stringify(data?.[CONSTANTS.STORAGE_KEY.LAST_VERSES] || [])
+						);
 					}
+
+          // pinned surah
 					if (data?.[CONSTANTS.STORAGE_KEY.PINNED_SURAH]) {
 						pinnedSurah.set(data?.[CONSTANTS.STORAGE_KEY.PINNED_SURAH]);
+						localStorage.setItem(
+							CONSTANTS.STORAGE_KEY.PINNED_SURAH,
+							JSON.stringify(data?.[CONSTANTS.STORAGE_KEY.PINNED_SURAH] || [])
+						);
 					}
 
 					currentRemoteProgress = doc.data();
@@ -232,7 +279,7 @@
 
 			toast.show({
 				message: `Data di lokal berhasil diperbarui!`,
-				type: 'error'
+				type: 'success'
 			});
 		} else {
 			toast.show({
@@ -337,8 +384,7 @@
 											]?.lg || 'N/A'}
 										</li>
 										<li>
-											{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]?.district ||
-												'N/A'}
+											{currentRemoteProgress?.[CONSTANTS.STORAGE_KEY.LOCATION]?.district || 'N/A'}
 										</li>
 									</ul>
 								{/if}
