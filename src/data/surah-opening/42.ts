@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Asy Syuura terdiri atas 53 ayat, t
 const closing = `<span class="gen"><br> Surat Asy Syuura dimulai dengan menerangkan hal-hal yang berhubungan dengan wahyu, keimanan, Al Quran yang diturunkan kepada Nabi Muhammad s.a.w. benar-benar berasal dari Allah; agama yang dibawa Nabi Muhammad s.a.w. sama pokok-pokoknya dengan agama yang dibawa para rasul yang dahulu; janji kepada orang-orang mukmin dan ancaman kepada orang-orang kafir. Surat ini ditutup dengan menerangkan bagaimana caranya Allah berhubungan dengan manusia.<br><br><i>HUBUNGAN SURAT ASY SYUURA DENGAN SURAT AZ ZUKHRUF</i><br><br> 1. Kedua surat ini sama-sama dimulai dengan pembicaraan mengenai Al Quran yang diturunkan dari Tuhan Yang MAha Perkasa lagi Maha Bijaksana.<br><br> 2. Kedua surat ini sama-sama mengutarakan bagaimana sikap orang-orang kafir terhadap Al Quran dan mengemukakan dalil-dalil atas keesaan dan kekuasaan Allah.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

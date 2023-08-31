@@ -17,9 +17,7 @@
 				verse: '',
 				totalAyah: 0
 			});
-			window.dispatchEvent(
-				new CustomEvent('paused')
-			);
+			window.dispatchEvent(new CustomEvent('paused'));
 			isShowingAudioPlayer.set(false);
 		} else {
 			currentTrack.set({
@@ -41,7 +39,7 @@
 			totalAyah: totalAyah
 		});
 	}}
-  ariaLabel={`${$isShowingAudioPlayer ? "Stop" : "Play"}`}
+	ariaLabel={`${$isShowingAudioPlayer ? 'Stop' : 'Play'}`}
 >
 	{#if $isShowingAudioPlayer}
 		<SpeakerXMarkIcon />

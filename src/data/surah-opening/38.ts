@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Shaad terdiri atas 88 ayat termasu
 const closing = `<span class="gen"><br> Dari surat ini dapat disimpulkan bahwa tiap nabi yang dahulu selalu mendapat tantangan dan perlawanan dari musuh-musuhnya, tetapi musuh-musuhnya itu dihancurkan Allah. Demikian juga halnya Nabi Muhammad s.a.w. yang mendapat tantangan dan perlawanan dari kaum musyrikin, tetapi akhirnya kaum musyrikin itu hancur. Juga dapat disimpulkan bahwa Al Quran itu adalah semata-mata wahyu dari Tuhan, karena di dalamnya dikhabarkan hal-hal yang hanya dapat diketahui dengan perantaraan wahyu, yaitu hal-hal yang akan terjadi di masa yang akan datang dan hal-hal yang telah terjadi dahulu kala tanpa ada yang menceritakannya, hal-hal yaag terjadi di alam atas dan di akhirat nanti.<br><br><i>HUBUNGAN SURAT SHAAD DENGAN SURAT AZ ZUMAR</i><br><br> 1. Akhir surat Shaad menerangkan bahwa Al Quran itu adalah peringatan bagi semesta alam, sedang permulaan surat Az Zumar menerangkan bahwa Al Quran turun dari Allah Yang Maha Perkasa lagi Maha Bijaksana.<br><br> 2. Sama-sama menyebut hal ikhwal makhluk sejak permulaan sampai kembali kepada Allah.<br><br> 3. Kalau kita perhatikan seakan-akan surat Az-Zumar merupakan lanjutan dari surat Shaad, karena pada akhir surat Shaad diterangkan penciptaan Adam. Kemudian pada surat Az-Zumar diterangkan Allah menciptakan manusia semuanya dan menerangkan kesudahan nasib manusia yaitu bahwa semua manusia akan mati, kemudian dibangkitkan kembali dan dihisab, akhirya orang yang bertakwa dimasukkan ke dalam surga, dan orang yang kafir dimasukkan ke dalam neraka.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

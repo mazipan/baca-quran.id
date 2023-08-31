@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Insaan terdiri atas 31 ayat, te
 const closing = `<span class="gen"><br> Surat Al Insaan menerangkan bahwa setelah manusia diciptakan, manusia diberi petunjuk untuk mencapai kehidupan yang sempurna, ada yang mengingkari dan ada yang tidak mengikutinya, ganjaran bagi mereka yang mengikuti dan ancaman bagi mereka yang tidak mengikutinya.<br><br><i>HUBUNGAN SURAT AL INSAAN DENGAN SURAT AL MURSALAAT</i><br><br> 1. Surat Al Insaan menerangkan tentang ancaman Allah terhadap orang-orang yang durhaka, sedang pada surat Al Mursalaat Allah bersumpah bahwa semua ancamannya itu pasti terjadi.<br> 2. Surat Al Insaan menerangkan tentang kejadian manusia secara umum, sedang surat Al Mursalaat menerangkan kejadian itu secara terperinci.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

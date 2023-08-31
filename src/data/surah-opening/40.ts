@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Mu'min terdiri atas 85 ayat, te
 const closing = `<span class="gen"><br> Surat Al Mu'min mengemukakan hal-hal yang berhubungan dengan bantahan orang-orang kafir dan pengakuan orang-orang mukmin terhadap Al Qurannulkarim terutama yang berhubungan dengan ketauhidan, penegasan kebangkitan dan kerasulan, kemudian mengemukakan bahwa keadaan orang-orang musyrik akan sama halnya dengan keadaan Fir'aun, Qarun, dan Haman, bila orang-orang musyrik tetap pada kemusyrikannya.<br><br><i>HUBUNGAN SURAT AL MU'MIN DENGAN SURAT FUSHSHILAT</i><br><br> 1. Sama-sama memberikan peringatan kepada orang-orang Quraisy yang mengingkari Muhammad s.a.w.<br><br> 2. Sama-sama dimulai dengan menyebut sifat-sifat Al Quran.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

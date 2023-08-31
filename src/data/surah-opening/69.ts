@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 52 ayat,termasuk 
 const closing = `<span class="gen"><br> Surat Al Haaqqah memberi peringatan kepada mereka yang tidak mentaati Rasulullah s.a.w. dengan memberikan contoh-contoh tentang azab yang ditimpakan kepada umat yang dahulu yang mengingkari rasul-rasul-Nya.<br><br><i>HUBUNGAN SURAT AL HAAQQAH DENGAN SURAT AL MA'AARIJ</i><br><br> 1. Surat Al Ma'aarij melengkapi surat Al Haaqqah tentang gambaran hari kiamat dan hari berhisab.<br> 2. Dalam surat Al Haaqqah disebutkan dua golongan manusia pada hari kiamat yaitu ahli surga yang menerima kitab dari sebelah kanannya dan ahli neraka yang menerima kitab dari sebelah kirinya, sedang surat Al Ma'aarij menerangkan sifat-sifat kedua golongan itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

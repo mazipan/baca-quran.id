@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 8 ayat, termasuk 
 const closing = `<span class="gen"><br> Surat Alam Nasyrah ini merupakan tasliyah (penghibur hati) bagi Nabi Muhammad s.a.w.<br><br><i>HUBUNGAN SURAT ALAM NASYRAH DENGAN SURAT AT TIIN</i><br><br> Dalam surat Alam Nasyrah, Allah s.w.t. menjelaskan perintah kepada Nabi Muhammad s.a.w selaku manusia sempurna. Maka dalam surat At Tiin, diterangkan bahwa manusia itu adalah makhluk Allah yang mempunyai kesanggupan baik lahir maupun batin. Kesanggupannya itu menjadi kenyataan bilamana mereka mengikuti jejak Nabi Muhammad s.a.w<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

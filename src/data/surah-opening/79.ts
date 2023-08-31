@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat An Naazi´aat terdiri atas 46 ayat
 const closing = `<span class="gen"><br> Surat An Naazi´aat mengutarakan sumpah Allah dengan menyebut malaikat yang bermacam-macam tugasnya, bahwa hari kiamat pasti terjadi, dan membangkitkan manusia itu adalah mudah bagi Allah, serta mengancam orang- orang musyrik yang mengingkari kebangkitan dengan siksaan yang telah dialami Fir´aun dan pengikut-pengikutnya. Selanjutnya surat ini menerangkan keadaan orang-orang musyrik pada hari kiamat dan bagaimana kedahsyatan hari kiamat itu.<br><br><i>HUBUNGAN SURAT AN NAAZI´AAT DENGAN SURAT ´ABASA</i><br><br> Pada akhir surat An Naazi´aat ditaerangkan bahwa Nabi Muhammad s.a.w. hanyalah pemberi peringatan kepada orang-orang yang takut dengan hari kiamat, sedang pada permulaan surat ´Abasa dibayangkan bahwa dalam memberikan peringatan itu hendaklah memberikan penghargaan yang sama kepada orang-orang yang diberi peringatan dengan tidak memandang kedudukan seseorang dalam masyarakat.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

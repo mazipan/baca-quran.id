@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Asy Syams terdiri atas 15 ayat, te
 const closing = `<span class="gen"><br> Surat Asy Syams berisi dorongan kepada manusia untuk membersihkan jiwanya agar mendapat keberuntungan di dunia dan di akhirat dan menyatakan bahwa Allah akan menimpakan azab kepada orang-orang yang mengotori jiwanya seperti halnya kaum Tsamud.<br><br><i>HUBUNGAN SURAT ASY SYAMS DENGAN SURAT AL LAIL</i><br><br> Surat Asy Syams menerangkan bahwa orang yang mensucikan jiwanya akan memperoleh keberuntungan dan orang yang mengotori jiwanya akan diazab Allah, sedang surat Al Lail menerangkan perbuatan yang mensucikan jiwa itu sehingga menghasilkan keuntungan dan perbuatan yang mengotorkan jiwa sehingga menghasilkan kerugian.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

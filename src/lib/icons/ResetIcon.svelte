@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { CLASS_BY_SIZE, type IconSize } from "./utils";
+	import { CLASS_BY_SIZE, type IconSize } from './utils';
 
 	export let size: IconSize = 'md';
 </script>
+
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	fill="none"

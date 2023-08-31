@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 111 ayat, termasu
 const closing = `<span class="gen"><br> Banyak ayat-ayat dalam surat ini mengemukakan bahwa Al Quran yang dibawa Nabi Muhammad s.a.w. benar-benar wahyu Allah, dan bahwa manusia itu pasti mengalami hari berbangkit. Dalam surat ini dikemukakan pula dalil-dalil kekuasaan dan ke-esaan Allah s.w.t. serta hukum-hukum yang diturunkan-Nya yang wajib diperhatikan dan dikerjakan oleh manusia.<br><br><i>HUBUNGAN SURAT AL ISRAA' DENGAN SURAT AL KAHFI</i><br><br> 1. Surat Al Israa' dimulai dengan tasbih (membaca subhanallah) pada Allah sedang surat Al Kahfi dibuka dengan tahmid (membaca alhamdulillah) kepada-Nya. Tasbih dan tahmid adalah dua kata yang acapkali bergandengan dalam firman-firman Allah.<br><br> 2. Persamaan antara penutup surat Al Israa' dengan pembukaan surat Al Kahfi yaitu sama-sama dengan tahmid kepada Allah.<br><br> 3. Menurut riwayat, ada tiga buah pertanyaan yang dihadapkan oleh orang-orang Yahudi dengan perantaraan orang-orang musyrikin kepada Nabi Muhammad s.a.w. yakni masalah roh, cerita Ashabul Kahfi dan kisah Zulqarnain. Masalah roh itu dijawab dalam surat Al Israa', dan dua masalah lainnya pada surat Al Kahfi.<br><br> 4. Dalam surat Al Israa' ayat 85 Allah berfirman: <i>Dan tidaklah kamu diberi ilmu hanyalah sedikit</i> Firman ini ditujukan kepada sebagian orang-orang Yahudi yang merasa sombong dengan ilmu pengetahuan yang ada pada mereka, sebab bagaimanapun juga mereka adalah manusia yang hanya diberi ilmu pengetahuan yang sedikit. Dalam surat Al-Kahfi Allah menceritakan tentang Nabi Musa a.s. dengan Nabi Khidhr a.s. yang belum pernah diketahui oleh orang-orang Yahudi.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

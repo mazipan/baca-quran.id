@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Hajj, termasuk golongan surat-s
 const closing = `<span class="gen"><br> Surat Al Hajj mengingatkan manusia kepada adanya hari berbangkit dengan mengemukakan bukti-bukti tentang kejadian dan proses perkembangan manusia, hewan dan tumbuh-tumbuhan. Oleh sebab itu sudah sewajarnya manusia bersyukur dan menyembah Allah Tuhan semesta alam. Juga mengemukakan tentang disyariatkannya haji, mengenai waktu-waktu yang boleh melakukan peperangan dan yang tidak boleh melakukannya berhubungan adanya bulan-bulan suci yang ditentukan Allah.<br><br><i>HUBUNGAN SURAT AL HAJJ DENGAN SURAT AL MU'MINUUN</i><br><br> 1. Surat Al Hajj menyuruh orang-orang mukmin mendirikan sembahyang, menunaikan zakat, mengerjakan aneka rupa kebaikan agar mendapat keberuntungan, sedang permulaan surat Al Mu'minuun menegaskan bahwa orang-orang mukmin bila mereka betul-betul mengerjakan apa yang diperintahkan Allah dan menjauhi apa yang dilarang-Nya seperti zina, pasti mendapat keberuntungan.<br><br> 2. Sama-sama mengemukakan tentang penciptaan manusia, perkembangan kejadian dan kehidupan, dan menjadikan hal yang demikian sebagai bukti adanya hari berbangkit.<br><br> 3. Sama-sama menyinggung umat-umat yang dahulu yang tidak mengindahkan seruan nabi-nabi mereka, untuk menjadi i'tibar bagi orang-orang yang datang di belakang mereka.<br><br> 4. Sama-sama mengemukakan bukti-bukti adanya Allah dan keesaan- Nya.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

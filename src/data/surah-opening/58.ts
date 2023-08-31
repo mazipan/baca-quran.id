@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Mujaadilah terdiri atas 22 ayat
 const closing = `<span class="gen"><br> Surat ini menerangkan tentang zhihar dan hukumnya, larangan mengambil orang kafir sebagai teman akrab serta beberapa hal yang berhubungan dengan adab sopan santun.<br><br><i>HUBUNGAN SURAT AL MUJAADILAH DENGAN SURAT AL HASYR</i><br><br> 1. Pada akhir surat Al Mujaadilah Allah menyatakan bahwa agama Allah akan menang, yaitu pengusiran Bani Nadhir dari Madinah.<br> 2. Dalam surat Al Mujaadilah Allah menyebutkan bahwa orang-orang yang menentang Allah dan Rasul-Nya akan mendapat kebinasaan, sedang pada surat Al Hasyr Allah menyebutkan bahwa orang-orang yang menentang Allah Allah dan Rasul-Nya akan mendapat azab yang sangat.<br> 3. Dalam surat Al Mujaadilah Allah menyebutkan hal-hal orang-orang munafik dan orang-orang Yahudi dan bagaimana mereka bantu membantu dalam memusuhi kaum muslim, sedang dalam surat Al Hasyr disebutkan kekalahan yang menimpa mereka dan persatuan mereka tidak dapat menolong mereka sedikitpun.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

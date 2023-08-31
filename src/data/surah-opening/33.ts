@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Ahzab terdiri atas 73 ayat, ter
 const closing = `<span class="gen"><br> Surat Al Ahzab mengemukakan: tingkah laku orang-orang munafik dan usaha- usaha mereka menyakiti Nabi Muhammad s.a.w., sebab-sebab perang Ahzab dan kesudahannya, tentang perkawinan Nabi dengan isteri-isterinya, sopan-santun di rumah Nabi; fitnah terhadap Nabi Muhammad s.a.w., dan adab sopan santun menurut Islam yang semuanya itu diperlukan untuk membentuk masyarakat Islam yang baru berdiri di Medinah terutama sesudah perang Badar. Dari surat Al Ahzab ini dapat kita ambil kesimpulan bahwa kemenangan orang-orang mukmin terhadap musuh-musuhnya ialah karena persatuan kaum muslimin itu dan ketaatan mereka kepada pimpinan. Fitnah terhadap nabi Muhammad s.a.w. bagaimanapun pandainya musuh-musuh Islam melancarkannya, akhirnya terbongar juga.<br><br><i>HUBUNGAN SURAT AL AHZAB DENGAN SURAT SABA'</i><br><br> 1. Pada akhir surat Al Ahzab disebutkan bahwa Allah bersifat Maha Pengampun lagi Maha Penyayang, sedang di awal surat Saba' disebutkan pula sifat yang demikian itu.<br><br> 2. Pada surat Al Ahzab diceritakan bahwa orang-orang kafir menanyakan bila terjadinya hari kiamat dengan maksud memperolok-olokkan Nabi Muhammad s.a.w. sedang dalam surat Saba' diceritakan pula bahwa orang kafir itu menjadikan berita hari kiamat itu bukan saja sebagai olok-olokan bahkan dengan tegas mengingkarinya dan mencela orang-orang yang percaya kepada hari kiamat itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

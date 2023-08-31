@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Faathir terdiri atas 45 ayat, term
 const closing = `<span class="gen"><br> Kesimpulan surat Faathir ialah mengajak manusia mensyukuri nikmat yang diberikan Allah kepada manusia, menjauhi perbuatan yang jahat memikirkan tentang keindahan-keindahan semesta alam dan manusia adalah sebagai Khalifah Allah di muka bumi.<br><br><i>HUBUNGAN SURAT FAATHIR DENGAN SURAT YAASIIN</i><br><br> 1.Pada bagian akhir surat Faathir dikemukakan bahwa orang-orang musyrik bersumpah akan beriman apabila datang kepada mereka seorang pemberi peringatan (rasul), tetapi setelah datang kepada mereka rasul, mereka mengingkarinya. Pada permulaan surat Yaa Siin Allah menegaskan bahwa Nabi Muhammad s.a.w adalah seorang Rasul yang selalu berada di jalan yang lurus untuk memberi peringatan kepada mereka, tetapi mereka tetap tidak beriman.<br><br> 2.Pada surat Faathir disebut bahwa Allah menundukkan matahari dan bulan, masing-masing beredar menurut waktunya yang tertentu, sedang pada surat Yaa Siin disebutkan bahwa matahari beredar pada garis edarnya yang telah ditetapkan Allah, dan bulan mempunyai garis-garis edar yang telah ditentukan pula.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

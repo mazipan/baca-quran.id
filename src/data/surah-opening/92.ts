@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 21 ayat, termasuk
 const closing = `<span class="gen"><br> Surat Al Lail menerangkan bahwa amalan-amalan yang dikerjakan dengan tulus ikhlas semata-mata mencari keridhaan Allah itulah yang membawa kebahagiaan di akhirat kelak.<br><br><i>HUBUNGAN SURAT AL LAIL DENGAN SURAT ADH DHUHAA</i><br><br> Pada surat Al Lail diterangkan bahwa orang yang taqwa akan dimudahkan Allah mengerjakan prbuatan taqwa sehingga memperoleh kebahagiaan. Sedang pada surat Adh Dhuhaa diterangkan bahwa keberuntungan di akhirat lebih baik dari keberuntungan di dunia.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

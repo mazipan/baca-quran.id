@@ -1,13 +1,13 @@
 const deleteOldCaches = async () => {
-  caches.keys().then(function (names) {
-    for (let name of names) {
-      caches.delete(name);
-    }
-  });
-}
+	caches.keys().then(function (names) {
+		for (let name of names) {
+			caches.delete(name);
+		}
+	});
+};
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(deleteOldCaches());
+self.addEventListener('activate', (event) => {
+	event.waitUntil(deleteOldCaches());
 });
 
 // const addResourcesToCache = async (resources) => {
@@ -51,4 +51,3 @@ self.addEventListener("activate", (event) => {
 // self.addEventListener("fetch", (event) => {
 //   event.respondWith(cacheFirst(event.request));
 // });
-

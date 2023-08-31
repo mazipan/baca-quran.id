@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 12 ayat, termasuk
 const closing = `<span class="gen"><br> Surat At Tahrim menerangkan tentang hubungan Rasulullah SAW dengan isteri-isterinya, diikuti dengan keharusan bagi orang-orang mukmin untuk bertaubat; dan ditutup dengan contoh-contoh wanita-wanita yang baik dan yang buruk.<br><br><i>HUBUNGAN SURAT AT TAHRIM DENGAN SURAT AL MULK</i><br><br> Dalam surat At Tahrim diterangkan bahwa Allah mengetahui segala rahasia, sedang pada surat Al Mulk ditegaskan lagi bahwa Allah mengetahui segala rahasia karena Allah menguasai seluruh alam.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

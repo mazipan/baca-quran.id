@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat <i>Ali 'Imran</i> yang terdiri dar
 const closing = `<span class="gen"><br> Surat Ali 'Imran mengandung dalil-dalil dan alasan-alasan untuk membantah kaum nasrani yang memper-Tuhankan Nabi Isa a.s., menerangkan peperangan Badar dan Uhud, agar kemenangan di peperangan Badar dan kekalahan di peperangan Uhud yang dialami kaum muslimin itu, dapat dijadikan pelajaran.<br><br><i>HUBUNGAN SURAT ALI 'IMRAN DENGAN SURAT AN NISAA'</i><br><br> 1. Surat Ali 'Imran disudahi dengan perintah bertakwa, sesuai dengan permulaan surat An Nisaa'.<br><br> 2. Dalam surat Ali 'Imran disebutkan peperangan Badar dan Uhud dengan sempurna, keterangan mana sebahagiannya diulangi dalam surat An Nisaa'.<br><br> 3. Dalam surat Ali 'Imran dikisahkan peperangan Hamraa-ul Asad yang terjadi setelah perang Uhud, dan peperangan itu disinggung pula dalam surat An Nisaa'.<br><br> 4. Dalam surat Ali 'Imran disebutkan bahwa banyak yang gugur di kalangan kaum muslimin sebagai Syuhadaa', yang berarti mereka meninggalkan anak-anak dan isteri-isteri mereka, maka dalam bahagian permulaan surat An Nisaa' disebutkan perintah memelihara anak yatim serta pembahagian harta pusaka.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

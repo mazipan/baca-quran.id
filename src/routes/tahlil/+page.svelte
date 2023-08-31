@@ -9,16 +9,20 @@
 	import tahlil, { type TahlilItem } from '../../data/tahlil';
 	import { globalBottomSheet } from '../../store/globalBottomSheet';
 
-  let toggleBottomSheet = (item: TahlilItem) => {
-    globalBottomSheet.show({
-      title: `💠 Terjemahan: ${item.title}`,
-      content: `🔸 ${item.translation}`
-    })
-  }
+	let toggleBottomSheet = (item: TahlilItem) => {
+		globalBottomSheet.show({
+			title: `💠 Terjemahan: ${item.title}`,
+			content: `🔸 ${item.translation}`
+		});
+	};
 </script>
 
 <svelte:head>
-  <MetaTag title={META_TITLE_TAHLIL} desc={META_DESC_TAHLIL} url={`${TITLE_CONSTANTS.PATH}tahlil/`} />
+	<MetaTag
+		title={META_TITLE_TAHLIL}
+		desc={META_DESC_TAHLIL}
+		url={`${TITLE_CONSTANTS.PATH}tahlil/`}
+	/>
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
@@ -26,11 +30,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
 </div>
 
 <div class="px-4 flex flex-col gap-2">
@@ -42,9 +42,14 @@
 			</div>
 			<div class="mt-4 flex justify-between items-center gap-2">
 				<div class="flex items-center gap-2">
-					<Button onClick={() => {toggleBottomSheet(item)}} ariaLabel="Baca Terjemah">
-            <DocumentTextIcon />
-          </Button>
+					<Button
+						onClick={() => {
+							toggleBottomSheet(item);
+						}}
+						ariaLabel="Baca Terjemah"
+					>
+						<DocumentTextIcon />
+					</Button>
 				</div>
 			</div>
 		</CardShadow>

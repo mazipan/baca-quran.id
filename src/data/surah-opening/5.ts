@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Maa'idah terdiri dari 120 ayat;
 const closing = `<span class="gen"><br> Surat Al Maa'idah mengemukakan bagaimana seharusnya orang mukmin bersikap terhadap sesamanya maupun terhadap orang bukan mukmin; manfaat memenuhi janji prasetia terhadap Allah, perjanjian yang dilakukan oleh sesama manusia, dan ketauhidan Allah.<br><br><i>HUBUNGAN SURAT AL MAA-IDAH DENGAN SURAT AL AN'AAM</i><br><br> 1. Surat Al Maa'idah mengemukakan hujjah terhadap ahli kitab, sedang surat Al An'aam mengemukakan hujjah terhadap kaum musyrikin.<br><br> 2. Surat Al An'aam memuat makanan-makanan yang diharamkan dan binatang sembelihan secara umum, sedang surat Al Maa'idah memuat secara terperinci.<br><br> 3. Akhir Surat Al Maa'idah mengemukakan bahwa Allah s.w.t. menguasai langit dan bumi, memberi balaan terhadap perbuatan-perbuatan manusia selama didunia, sedang permulaan surat Al An'aam mengutarakan bahwa segala puji hanya untuk Allah, Pencipta langit dan bumi dan Sumber kebahagiaan manusia.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

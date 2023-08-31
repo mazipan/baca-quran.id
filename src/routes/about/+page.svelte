@@ -2,7 +2,7 @@
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
-	</script>
+</script>
 
 <svelte:head>
 	<MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}about/`} />
@@ -13,11 +13,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
 </div>
 
 <article class="px-4">
@@ -85,7 +81,8 @@
 				target="_blank"
 				rel="noopener">nominatim.org</a
 			>
-			untuk mendapatkan informasi reverse geocoding sebagai bagian dari syarat mendapatkan data jadwal sholat
+			untuk mendapatkan informasi reverse geocoding sebagai bagian dari syarat mendapatkan data jadwal
+			sholat
 		</li>
 	</ul>
 
@@ -102,7 +99,7 @@
 		</a>
 	</p>
 
-  <p class="mb-4">
+	<p class="mb-4">
 		Untuk berdonasi terhadap pengembangan Baca-Quran.id, kamu bisa mendapatkan informasinya di:
 		<a
 			href="https://mazipan.space/support"
@@ -114,49 +111,33 @@
 		</a>
 	</p>
 
-
 	<p class="mb-2">Beberapa tautan lain yang terkait dengan Baca-Quran.id:</p>
 
 	<ul class="list-decimal ml-6 mb-4">
 		<li>
-			<a
-				class="underline"
-				href="https://twitter.com/BacaQuranID"
-				target="_blank"
-				rel="noopener">Twitter Baca-Quran.id, </a
-			>
+			<a class="underline" href="https://twitter.com/BacaQuranID" target="_blank" rel="noopener"
+				>Twitter Baca-Quran.id,
+			</a>
 			mempublikasikan satu ayat pilihan setiap harinya
 		</li>
 		<li>
-			<a
-				class="underline"
-				href="https://www.baca-quran.id/tulisan"
-				target="_blank"
-				rel="noopener">Blog Baca-Quran.id, </a
-			>
+			<a class="underline" href="https://www.baca-quran.id/tulisan" target="_blank" rel="noopener"
+				>Blog Baca-Quran.id,
+			</a>
 			artikel yang dipublikasikan oleh tim Baca-Quran.id
 		</li>
 		<li>
-			<a
-				class="underline"
-				href="https://www.baca-quran.id/stories"
-				target="_blank"
-				rel="noopener">Baca-Quran.id: Stories, </a
-			>
+			<a class="underline" href="https://www.baca-quran.id/stories" target="_blank" rel="noopener"
+				>Baca-Quran.id: Stories,
+			</a>
 			mini web stories yang dipublikasikan oleh tim Baca-Quran.id
 		</li>
 		<li>
-			<a
-				class="underline"
-				href="/kebijakan-privasi/">Kebijakan Privasi, </a
-			>
+			<a class="underline" href="/kebijakan-privasi/">Kebijakan Privasi, </a>
 			laman kebijakan privasi dari Baca-Quran.id
 		</li>
 		<li>
-			<a
-				class="underline"
-				href="/ketentuan-layanan/">Ketentuan Layanan, </a
-			>
+			<a class="underline" href="/ketentuan-layanan/">Ketentuan Layanan, </a>
 			laman syarat dan ketentuan layanan dari Baca-Quran.id
 		</li>
 		<li>
@@ -164,8 +145,9 @@
 				class="underline"
 				href="https://neosense.bgnlab.id/status/GKEnf4FhEZdY?timeframe=hourly"
 				target="_blank"
-				rel="noopener">Status Uptime, </a
-			>
+				rel="noopener"
+				>Status Uptime,
+			</a>
 			status dari kondisi server Baca-Quran.id
 		</li>
 	</ul>

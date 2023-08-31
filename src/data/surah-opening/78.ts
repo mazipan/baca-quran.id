@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat An Naba´ terdiri atas 40 ayat, te
 const closing = `<span class="gen"><br> Surat An Naba´ menerangkan pengingkaran orang-orang musyrik terhadap hari berbangkit, ancaman Allah terhadap sikap mereka, azab yang mereka terima di hari kiamat serta kebahagiaan orang-orang yang beriman.<br><br><i>HUBUNGAN SURAT AN NABA´ DENGAN SURAT AN NAAZI´AAT</i><br><br> 1. Surat An Naba´ menerangkan ancaman Allah terhadap sikap orang-orang musyrik yang mengingkari adanya hari berbangkit, serta mengemukakan bukti-bukti adanya hari berbangkit, sedang pada surat An Naazi´aat Allah bersumpah bahwa hari kiamat yang mendahului hari berbangkit itu pasti terjadi.<br> 2. Sama-sama menerangkan huru-hara yang terjadi pada hari kiamat dan hari berbangkit.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

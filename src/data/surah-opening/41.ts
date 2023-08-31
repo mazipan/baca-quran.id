@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Fushshilat terdiri atas 54 ayat, t
 const closing = `<span class="gen"><br> Surat Fushshilat mengutarakan hal-hal yang berhubungan dengan Al Quran dan sikap orang-orang musyrik terhadapnya; kekuasaan Allah di langit dan di bumi; ancaman kepada orang-orang musyrik di dunia dan di akhirat. Kemudian dikemukakan tentang keadaan orang-orang yang selalu beribadat kepada Tuhannya, dan disusuli dengan mengemukakan beberapa tabiat manusia.<br><br><i>HUBUNGAN SURAT FUSHSHILAT DENGAN SURAT ASY SYUURA</i><br><br> Kedua surat ini sama-sama mengutarakan kebenaran Al Quran, menolak kecaman dan celaan orang-orang kafir Mekah terhadapnya; bujukan terhadap Nabi Muhammad s.a.w agar jangan bersedih hati dan berputus asa, karena kecaman dan celaan itu sudah sewajarnya datang dari musuh-musuh agama, dan hal itu telah dialami oleh rasul-rasul sebelumnya.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

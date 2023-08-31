@@ -3,40 +3,40 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "lpmq";
-  src: url(/fonts/lpmq.otf) format("opentype");
-  font-display: swap;
+	font-family: 'lpmq';
+	src: url(/fonts/lpmq.otf) format('opentype');
+	font-display: swap;
 }
 
-.font-arabic{
-  font-family: "lpmq", "Traditional Arabic", Arial, sans-serif;
-  line-height: 2;
+.font-arabic {
+	font-family: 'lpmq', 'Traditional Arabic', Arial, sans-serif;
+	line-height: 2;
 }
 
 .table-stripped {
-  @apply w-full text-sm text-left;
+	@apply w-full text-sm text-left;
 }
 
 .table-stripped > thead {
-  @apply uppercase bg-secondary font-extrabold;
+	@apply uppercase bg-secondary font-extrabold;
 }
 
 .table-stripped > thead > tr > th {
-  @apply px-6 py-3;
+	@apply px-6 py-3;
 }
 
 .table-stripped > tbody > tr:not(:last-child) {
-  @apply border-b;
+	@apply border-b;
 }
 
 .table-stripped > tbody > tr:nth-child(even) {
-  @apply bg-secondary;
+	@apply bg-secondary;
 }
 
 .table-stripped > tbody > tr:nth-child(odd) {
-  @apply bg-primary;
+	@apply bg-primary;
 }
 
 .table-stripped > tbody > tr > td {
-  @apply px-6 py-3 align-top;
+	@apply px-6 py-3 align-top;
 }

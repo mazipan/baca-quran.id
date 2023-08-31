@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Ash Shaaffaat terdiri atas 182 aya
 const closing = `<span class="gen"><br> Surat ini mengemukakan tentang ke-Esaan Tuhan dan dari bukti-bukti tersebut dapat diambil kesimpulan bahwa tauhid akan menang. Dari kisah-kisah yang dikemukakan surat ini dapat diambil kesimpulan bahwa kaum yang menentang rasulnya akan hancur. Begitu pula halnya dengan kaum musyrik Mekah yang menentang Nabi Muhammad s.a.w. akan mengalami kehancuran.<br><br><i>HUBUNGAN SURAT ASH SHAAFFAAT DENGAN SURAT SHAAD</i><br><br> 1. Dalam surat Ash Shaaffaat disebutkan kisah para nabi, sedang surat Shaad menyebutkan kisah nabi-nabi yang belum disebutkan pada surat Ash Shaaffaat, seperti kisah Daud a.s. dan Sulaiman a.s. dan lain-lain.<br><br> 2. Dalam surat Ash Shaaffaat diterangkan bahwa orang-orang musyrik sebelum diutusnya Rasulullah s.a.w. selalu mengatakan, andaikata mereka mempunyai sebuah kitab pemberi peringatan di antara kitab-kitab yang telah diturunkan kepada orang-orang dahulu, mereka akan taat sedang dalam surat Shaad ditegaskan bahwa Al Quranlah kitab yang lebih sempurna yang seharusnya mereka taati andaikata mereka jujur dalam pengakuannya itu.<br><br> 3. Dalam surat Ash Shaaffaat diterangkan bahwa sesudah datang kepada orang-orang musyrik Mekah Al Quran yang memberi peringatan tetapi mereka mengingkarinya, sedang dalam surat Shaad diterangkan sebab-sebab keingkaran mereka.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

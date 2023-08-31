@@ -10,6 +10,6 @@
 	onClose={globalBottomSheet.hide}
 >
 	<div class="p-4">
-    <p>{@html $globalBottomSheet.content}</p>
+		<p>{@html $globalBottomSheet.content}</p>
 	</div>
 </BottomSheet>

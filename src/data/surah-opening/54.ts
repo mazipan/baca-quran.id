@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Qamar terdiri atas 55 ayat, ter
 const closing = `<span class="gen"><br> Surat Al Qamar mengandung hal-hal yang berhubungan dengan janji dan ancaman Allah, keadaan umat-umat dahulu yang mendustakan rasul-rasul mereka agar menjadi pelajaran bagi umat-umat yang datang kemudian, ancaman kepada orang-orang kafir bahwa mereka akan diazab pada hari kiamat dan balasan diterima oleh orang-orang yang takwa di akhirat nanti.<br><br><i>HUBUNGAN SURAT AL QAMAR DENGAN SURAT AR RAHMAAN</i><br><br> 1. Surat Al Qamar menerangkan keadaan orang-orang kafir di neraka dan keadaan orang-orang mukmin di syurga secara garis besarnya, sedang surat Ar Rahmaan menerangkan secara agak luas.<br> 2. Surat Al Qamar menyebutkan azab yang ditimpakan kepada umat-umat dahulu yang mendurhakai nabi-nabi mereka, sedang surat Ar Rahmaan menyebutkan nikmat Allah yang telah dilimpahkan-Nya kepada hamba-hamba-Nya, tetapi kebanyakan mereka tidak mensyukurinya.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

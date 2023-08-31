@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Thaahaa terdiri atas 135 ayat, dit
 const closing = `<span class="gen"><br> Dalam surat Thaahaa ini diterangkan bahwa Al Quran sebagai kitab yang diwahyukan Allah kepada Nabi Muhammad s.a.w., adalah peringatan dan kabar gembira bagi manusia, wajib diikuti dan dipercayai. Amatlah besar akibat yang dialami oleh orang dahulu yang tidak mempercayai dan mengingkari rasul-rasul yang diutus kepada mereka, seperti Fir'aun dan pengikut-pengikutnya. Kisah Bani Israilpun dipaparkan Allah dalam surat ini sebagai suatu umat yang banyak mengingkari perintah nabinya.<br><br><i>HUBUNGAN SURAT THAAHA DENGAN SURAT AL ANBIYAA'</i><br><br> Surat Thaahaa diakhiri dengan menerangkan bahwa manusia mudah dipengaruhi oleh kenikmatan hidup duniawi, yang oleh Allah dijadikan sebagai cobaan bagi manusia, juga diakhiri dengan menyuruh bersabar dan bersembahyang, serta menerangkan apa-apa yang diterima oleh orang-orang yang bertakwa. Hal itu diulangi lagi pada permulaan surat Al Anbiyaa' dan ditegaskan bahwa manusia selalu lalai dan lupa terhadap perbuatan-perbuatan yang harus dilakukannya untuk menghadapi hari kiamat dan berhisab di akhirat nanti.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

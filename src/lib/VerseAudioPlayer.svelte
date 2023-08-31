@@ -8,13 +8,12 @@
 		currentTrack,
 		type CurrentTrackParam
 	} from '../store';
-	import { formatAudioTime, getAudioFromEveryAyah } from './audio';
+	import { formatAudioTime, getAudioFromEveryAyah, RECITER_MAP } from '$lib/utils/audio';
 
 	import PauseIcon from './icons/PauseIcon.svelte';
 	import PlayIcon from './icons/PlayIcon.svelte';
 	import Button from './ui/Button.svelte';
 	import CardShadow from './CardShadow.svelte';
-	import { RECITER_MAP } from '$lib/audio';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
 	import XMarkIcon from './icons/XMarkIcon.svelte';
 

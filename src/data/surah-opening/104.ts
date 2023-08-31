@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Humazah terdiri atas 9 ayat, te
 const closing = `<span class="gen"><br> Dalam surat ini diterangkan bahwa orang-orang yang suka mencela orang-orang lain, suka memfitnah dan suka mengumpulkan harta tetapi tidak dinafkahkannya di jalan Allah, akan diazab.<br><br><i>HUBUNGAN SURAT AL HUMAZAH DENGAN SURAT AL FIIL</i><br><br> Dalam surat Humazah diterangkan bahwa harta tidak berguna sedikitpun untuk menghadapi kekuasaan Allah, sedang surat Al Fiil menerangkan bahwa tentara gajah dengan segala macam perlengkapan perangnya tidak dapat menghadapi kekuasaan Allah.</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

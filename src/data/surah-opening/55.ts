@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Ar Rahmaan terdiri atas 78 ayat, t
 const closing = `<span class="gen"><br> Surat Ar Rahmaan menyebutkan bermacam-macam nikmat Allah yang telah dilimpahkan kepada hamba-hamban-Nya yaitu dengan menciptakan alam dengan segala yang ada padanya. Kemudian diterangkan pem- balasan di akhirat, keadaan penghuni neraka dan keadaan penghuni syurga yang dijanjikan Allah kepada orang yang bertakwa.<br><br><i>HUBUNGAN SURAT AR RAHMAAN DENGAN SURAT AL WAAQI'AH</i><br><br> 1. Kedua surat ini sama-sama menerangkan keadaan di akhirat dan keadaan di syurga dan di neraka.<br> 2. Dalam surat Ar Rahmaan diterangkan azab yang ditimpakan kepada orang-orang yang berdosa dan nikmat yang diterima orang-orang yang bertakwa;dijelaskan bahwa ada dua macam syurga yang disediakan bagi orang-orang mukmin. Pada surat Al Waaqi'ah diterangkan pembagian manusia di akhirat pada tiga golongan, yaitu golongan kiri, golongan kanan dan golongan orang-orang yang lebih dahulu beriman dan diterangkan pula bagaimana nasib masing-masing golongan itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

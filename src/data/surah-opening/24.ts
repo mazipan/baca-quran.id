@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat An Nuur terdiri atas 64 ayat, dan 
 const closing = `<span class="gen"><br> Dalam surat An Nuur terdapat ayat-ayat hukum dan petunjuk-petunjuk Allah bagi manusia, baik yang berhubungan dengan hidup kemasyarakatan maupun dengan hidup berumah tangga. Kesemuanya itu merupakan cahaya yang menyinari kehidupan manusia dalam menempuh jalan yang menuju kepada kebahagiaan dunia dan akhirat.<br><br><i>HUBUNGAN SURAT AN NUUR DENGAN SURAT AL FURQAAN</i><br><br> 1. Surat An Nuur ini, ditutup oleh Allah s.w.t. dengan keterangan bahwa Dialah yang memiliki langit dan bumi serta segala isinya dan yang mengaturnya berdasarkan hikmah dan kemaslahatan yang dikehendaki-Nya. Dan Dia pulalah yang berbuat perhitungan terhadap segala amal perbuatan hamba-hamba-Nya pada hari kiamat. Maka dalam surat Al Furqaan Allah memulai dengan menunjukkan ketinggian-Nya baik pada zat, sifat-sifat, dan perbuatan-Nya, dan menunjukkan pula kecintaan-Nya kepada hamba- hamba-Nya dengan dengan menurunkan Al Quran sebagai pedoman hidup bagi mereka.<br><br> 2. Pada akhir surat ini Allah mewajibkan kaum muslimin mengikuti Rasul-Nya, Muhammad s.a.w; serta mengancam dengan azab bagi mereka yang menentangnya; maka pada permulaan surat Al Furqaan, Allah menyebutkan bahwa kepada Nabi Muhammad s.a.w. diberikan Al Quran yang membimbing umat manusia.<br><br> 3. Pada masing-masing umat digambarkan keadaan awan, turunnya hujan dan penghijauan bumi sebagai bukti kekuasaan Allah.<br><br> 4. Dalam kedua surat ini Allah menjelaskan bahwa amal usaha orang-orang kafir pada hari kiamat tidak diberi pahala barang sedikitpun, dan keduanya menerangkan pula asal mula kejadian manusia.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

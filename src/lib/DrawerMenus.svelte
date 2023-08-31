@@ -1,9 +1,7 @@
 <script>
-	import GalleryIcon from './icons/GalleryIcon.svelte';
 	import HashtagIcon from './icons/HashtagIcon.svelte';
 	import HomeIcon from './icons/HomeIcon.svelte';
 	import InformationCircleIcon from './icons/InformationCircleIcon.svelte';
-	import NewspaperIcon from './icons/NewspaperIcon.svelte';
 	import ResetIcon from './icons/ResetIcon.svelte';
 	import SettingIcon from './icons/SettingIcon.svelte';
 </script>
@@ -41,9 +39,9 @@
 	</li>
 	<li class="sidebar__item">
 		<a
-      href="https://twitter.com/BacaQuranID"
-      target="_blank"
-      rel="noopener"
+			href="https://twitter.com/BacaQuranID"
+			target="_blank"
+			rel="noopener"
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<HashtagIcon />

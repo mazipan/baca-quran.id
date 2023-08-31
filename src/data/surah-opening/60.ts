@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Mumtahanah terdiri atas 13 ayat
 const closing = `<span class="gen"><br> Surat ini menerangkan tentang pergaulan orang-orang Islam dan yang bukan Islam dalam waktu perang dan damai serta dari segi perkawinan.<br><br><i>HUBUNGAN SURAT AL MUMTAHANAH DENGAN SURAT ASH SHAFF</i><br><br> Pada surat Al Mumtahanah Allah melarang orang-orang muslim mengadakan hubungan persahabatan dengan oarang-orang kafir dan meninggalkan orang-orang mukmin, sedang surat Ash Shaff menguatkannya dengan menganjurkan agar berjihad di jalan Allah.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

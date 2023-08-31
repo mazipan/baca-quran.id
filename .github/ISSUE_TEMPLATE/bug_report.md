@@ -4,7 +4,6 @@ about: Something's not working as expected.
 title: ''
 labels: bug
 assignees: mazipan
-
 ---
 
 ## Description

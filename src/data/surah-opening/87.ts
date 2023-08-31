@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 19 ayat, termasuk
 const closing = `<span class="gen"><br> Surat Al A´laa mengemukakan sifat-sifat Allah s.w.t dan salah satu sifat Nabi Muhammad s.a.w. dan orang-orang yang akan mendapat kebahagiaan di akhirat.<br><br><i>HUBUNGAN SURAT AL A´laa DENGAN SURAT AL GHAASYIYAH</i><br><br> Pada surat Al A´laa diterangkan secara umum tentang orang-orang yang beriman, orang yang kafir, syurga dan neraka. Kemudian dalam surat Al Ghaasyiyah dikemukakan kembali dengan cara yang lebih luas.</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

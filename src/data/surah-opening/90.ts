@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Balad terdiri atas 20 ayat, ter
 const closing = `<span class="gen"><br> Surat Al Balad mengutarakan bahwa manusia haruslah bersusah payah mencari kebahagiaan dan Allah sendiri telah menunjukkan jalan yang membawa kepada kebaikan, dan jalan yang membawa kepada kesengsaraan. Tuhan menggambarkan bahwa jalan yang membawa kepada kebahagiaan itu lebih sulit menempuhnya daripada yang membawa kepada kesengsaraan.<br><br><i>HUBUNGAN SURAT AL BALAD DENGAN SURAT ASY SYAMS</i><br><br> 1. Kedua-dua surat ini sama-sama menerangkan bahwa Allah telah menunjukkan kepada manusia dua buah jalan yaitu jalan yang pada surat Asy Syams disebut jalan kefasikan dan jalan ketakwaan.<br> 2. Pada surat Asy Syams ditegaskan bahwa orang yang menjalani jalan ketakwaan itu akan berbahagia dan orang yang menjalani jalan kefasikan itu akan merugi.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

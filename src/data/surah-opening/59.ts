@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Hasyr terdiri atas 24 ayat, ter
 const closing = `<span class="gen"><br> Surat ini menerangkan tentang bagaimana seharusnya sikap setiap orang Islam terhadap orang-orang yang tidak Islam yang melakukan tindakan-tindakan yang merugikan umat Islam sebagai yang dilakukan oleh Bani Nadhir; hukum fai-i dan pembagiannya, kewajiban bertakwa; ketinggian dan keagungan Al Quran, kemudian ditutup dengan menyebut sebagian Al Asmaa-ul Husna.<br><br><i>HUBUNGAN SURAT AL HASYR DENGAN SURAT AL MUMTAHANAH</i><br><br> Dalam surat Al Hasyr disebutkan bagaimana orang-orang munafik saling tolong-menolong dengan orang-orang Yahudi dalam memusuhi kaum muslimin, sedang dalam surat Al Mumtahanah Allah melarang orang muslim mengangkat orang-orang kafir menjadi pemimpin atau menjadikan mereka teman setia. Dalam pada itu dibolehkan bekerja sama, tolong-menolong dengan mereka selama mereka tidak memusuhi kaum muslimin.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 11 ayat, termasuk
 const closing = `<span class="gen"><br> Surat Al Qaari'ah, seluruhnya menjelaskan hal-hal yang akan terjadi di hari kiamat.<br><br><i>HUBUNGAN SURAT AL QAARI'AH DENGAN SURAT AT TAKAATSUR</i><br> Dalam surat Al Qaari'ah dijelaskan golongan orang-orang yang masuk surga dan golongan yang masuk neraka, sedang pada surat At Takaatsur diterangkan salah satu sebab yang membawa orang masuk neraka.</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

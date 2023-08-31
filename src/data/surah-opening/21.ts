@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Anbiyaa' yang terdiri atas 112 
 const closing = `<span class="gen"><br> PENUTUP<br><br> Surat Al Anbiyaa' menerangkan bahwa sudah menjadi sunnah Allah bahwa para nabi atau rasul yang diutus-Nya adalah dari jenis manusia yang diberikan kepada mereka kitab dan mukjizat. Dasar agama (aqidah) yang dibawa oleh para nabi itu adalah sama, hanya berbeda dalam syariat (hukum furu'), karena ini disesuaikan dengan perkembangan masa dan keadaan.<br><br><i>HUBUNGAN SURAT AL ANBIYAA' DENGAN SURAT AL HAJJ</i><br><br> 1. Pada akhir surat Al Anbiyaa' dikemukakan hal-hal yang berhubungan dengan hari kiamat, sedang pada bahagian permulaan surat Al Hajj mengemukakan bukti-bukti adanya hari berbangkit dengan dalil akal.<br><br> 2. Surat Al Anbiyaa' mengutarakan bahwa Allah tidak menjadikan manusia sebagai makhluk yang kekal hidupnya; semuanya akan merasai mati. Kemudian mereka dibangkitkan di hari kiamat untuk dihisab perbuatan-perbuatan yang teIah mereka lakukan di dunia. Pada surat Al Hajj diterangkan bahwa manusia dapat menjadikan dalil keadaan pertumbuhan yang terdapat di alam semesta, dari ada kepada tidak ada dan sebaliknya, sebagai bukti bahwa janji Allah tentang hari berbangkit pasti akan menjadi kenyataan.<br><br> 3. Surat Al Anbiyaa' menerangkan kisah nabi-nabi dan dalil-dalil yang dihadapkan kepada kaumnya tentang kebenaran agama yang dibawanya, sedang surat Al Hajj menuntut agar manusia memperhatikan aneka ragam ciptaan Allah dan pengaturannya, untuk memperkuat kepercayaan kepada kebenaran agama Allah.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

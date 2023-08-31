@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Luqman terdiri dari 34 ayat, terma
 const closing = `<span class="gen"><br> Surat Luqman mengemukakan hal-hal yang berhubungan dengan hari berbangkit, ke-esaan Allah, kebenaran risalah yang dibawa para rasul dan nasihat-nasihat Luqman kepada anaknya.<br><br><i>HUBUNGAN SURAT LUQMAN DENGAN SURAT AS SAJDAH</i><br><br> 1. Kedua surat ini sama-sama menerangkan dalil-dalil dan bukti-bukti ke- esaan Allah<br><br> 2. Dalam surat Luqman disebutkan keingkaran kaum musyrikin terhadap Al Quran, sedang surat as Sajdah menegaskan bahwa Al Quran itu sungguh- sungguh diturunkan dari Tuhan.<br><br> 3. Dalam surat Luqman ayat 34 disebutkan bahwa ada lima hal yang ghaib yang hanya Allah saja mengetahuinya, sedang dalam surat As Sajdah Allah menerangkan dengan lebih luas hal-hal yang berhubungan dengan yang ghaib itu (lihat ayat 5 s/d 11 dan 27 surat As Sajdah).<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

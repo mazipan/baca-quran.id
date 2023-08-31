@@ -11,17 +11,17 @@
 		let result: SurahInfo = {};
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		for (const [_, surah] of Object.entries(surahInfo)) {
-      if (MakkiyahMadaniyah[surah.index] === MAKKIYAH_CODE) {
-        result[surah.index] = {
-        ...surah,
-        revelation: MakkiyahMadaniyah[surah.index] ? MakkiyahMadaniyah[surah.index] : 0
-      };
-      }
+			if (MakkiyahMadaniyah[surah.index] === MAKKIYAH_CODE) {
+				result[surah.index] = {
+					...surah,
+					revelation: MakkiyahMadaniyah[surah.index] ? MakkiyahMadaniyah[surah.index] : 0
+				};
+			}
 		}
-    return result
+		return result;
 	}
 
-  let originSurahInfo = filterOnlyMakkiyah()
+	let originSurahInfo = filterOnlyMakkiyah();
 </script>
 
 <svelte:head>

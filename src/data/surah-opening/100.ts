@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 11 ayat, termasuk
 const closing = `<span class="gen"><br> Surat Al 'Aadiyaat menjelaskan sifat-sifat buruk manusia dan kebangkitan mereka serta pembalasan kepada mereka pada hari kiamat.<br><br><i>HUBUNGAN SURAT AL 'AADIYAAT DENGAN SURAT AL QAARI'AH</i><br><br> Surat Al 'Aadiyaat ditutup dengan penyebutan hari kiamat, sedang Surat Al Qaari'ah seluruhnya menjelaskan tentang hari kiamat itu.</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

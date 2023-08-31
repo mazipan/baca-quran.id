@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Ad Dukhaan terdiri atas 59 ayat, t
 const closing = `<span class="gen"><br> Surat Ad Dukhaan dimulai dengan menyebut keagungan Al Quran. Kaum Quraisy karena tidak mengikuti seruan Nabi Muhammad s.a.w., Nabi mendoakan agar didatangkan musim kemarau yang panjang, kemudian mereka beriman dan mengharap agar Nabi mendoa kepada Allah agar diturunkan hujan, setelah hujan diturunkan, mereka kafir kembali, lalu mereka diancam Allah dengan kehancuran. Kisah Fir'aun dan kaumnya disebutkan di sini sebagai peringatan bagi mereka.<br><br><i>HUBUNGAN SURAT AD DUKHAAN DENGAN SURAT AL JAATSIAH</i><br><br> Kedua surat ini hampir sama isi dan maksudnya, seperti menjelaskan keterangan mengenai adanya Allah dan kekuasaan-Nya, sikap orang kafir terhadap seruan Nabi Muhammad s.a.w., ancaman kepada orang-orang kafir dan siksaan hebat yang mereka derita pada hari kiamat.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

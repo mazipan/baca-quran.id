@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Saba' terdiri atas 54 ayat, termas
 const closing = `<span class="gen"><br> Surat Saba' mengutarakan hal-hal yang berhubungan dengan kebangkitan di akhirat, celaan terhadap perbuatan-perbuatan dan kepercayaan orang musyrik dan berhala-berhala mereka yang tidak dapat memberi faedah kepada mereka; kemudian diselingi dengan kisah-kisah, seperti kisah Nabi Daud a.s. dan Nabi Sulaiman a.s., dan kisah kaum Saba' yang hidup berlebih-lebihan sampai melupakan Tuhan; kemudian menemui kehancurannya. Semuanya ini adalah sebagai pelajaran bagi kaum mukmin dan sebagai penawar bagi Nabi Muhammad s.a.w. dalam menghadapi orang-orang kafir.<br><br><i>HUBUNGAN SURAT SABA' DENGAN SURAT FAATHIR</i><br><br> 1. Sama-sama dimulai dengan puji-pujian kepada Allah Pemilik dan Pencipta semesta alam.<br><br> 2. Surat Saba' menceritakan kehancuran orang musyrik akibat perbuatan mereka yang selalu memusuhi para nabi dan orang-orang mukmin; sedang surat Faathir; menyuruh agar orang-orang mukmin bersyukur dan memuji Allah atas nikmat-nikmat-Nya yang di antaranya kehancuran musuh-musuh mereka.<br><br> 3. Dalam surat Saba' Allah menerangkan bahwa segala sesuatu yang berada di langit dan di bumi adalah milik-Nya dan di bawah pengetahuan-Nya sedang surat Faathir menjelaskan bagaimana Allah menerangkan dan mengatur apa yang dimiliki-Nya itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

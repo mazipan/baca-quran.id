@@ -9,9 +9,9 @@ Read Qur'an from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
 ## Screenshots
 
-| Home - Dark | Home - Light |
-| --- | --- |
-|![Dark Home V2](screenshoot/v2/home-dark.png)|![Light Home V2](screenshoot/v2/home-light.png)|
+| Home - Dark                                   | Home - Light                                    |
+| --------------------------------------------- | ----------------------------------------------- |
+| ![Dark Home V2](screenshoot/v2/home-dark.png) | ![Light Home V2](screenshoot/v2/home-light.png) |
 
 ## Live Website
 
@@ -52,8 +52,8 @@ V1 can be viewed in [`v1`](https://github.com/mazipan/baca-quran.id/tree/v1) bra
 | :------------------------------: | :----------------------------: | :--------------------------------: |
 | ![light](screenshoot/tlight.png) | ![dark](screenshoot/tblue.png) | ![nature](screenshoot/tnature.png) |
 
-|           Asmaul Husna            |           Al-Fatihah            |           Do'a Harian           |
-| :-------------------------------: | :-----------------------------: | :-----------------------------: |
+|                 Asmaul Husna                  |                Al-Fatihah                 |                Do'a Harian                |
+| :-------------------------------------------: | :---------------------------------------: | :---------------------------------------: |
 | ![asmaul husna](screenshoot/asmaul-husna.png) | ![al-fatihah](screenshoot/al-fatihah.png) | ![doa harian](screenshoot/doa-harian.png) |
 
 ## Credit

@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat An Nashr terdiri atas 3 ayat, term
 const closing = `<span class="gen"><br> Surat ini mengisyaratkan bahwa tugas Nabi Muhammad s.a.w. sebagai Rasul telah mendekati akhirnya.<br><br><i>HUBUNGAN SURAT AN NASHR DENGAN SURAT AL LAHAB</i><br><br> Surat An Nashr menerangkan tentang kemenangan yang diperoleh Nabi Muhammad s.a.w. dan pengikut-pengikutnya, sedang surat Al Lahab menerangkan tentang kebinasaan dan siksaan yang akan diderita oleh Abu Lahab dan isterinya sebagai orang-orang yang menentang Nabi.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

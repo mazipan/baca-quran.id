@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Muhammad terdiri atas 38 ayat, ter
 const closing = `<span class="gen"><br> Surat Muhammad menerangkan keadaan orang-orang kafir dan orang-orang mukmin di dunia dan akhirat dan menyatakan perbedaan keadaan mereka dan hasil yang mereka peroleh. Dan surat ini menerangkan tentang hukum perang dan cara orang-orang mukmin menghadapi orang-orang kafir.<br><br><i>HUBUNGAN SURAT MUHAMMAD DENGAN SURAT AL FATH</i><br><br> 1. Pada kedua surat ini terdapat keterangan-keterangan mengenai orang-orang mukmin yang ikhlas dan keterangan-keterangan mengenai orang-orang musyrik dan munafik.<br><br> 2. Pada surat Muhammad terdapat perintah agar meminta ampun kepada Allah, sedang pada surat Al Fath disebutkan janji Allah bahwa orang-orang mukmin yang beramal saleh akan mendapat ampunan dan pahala yang banyak dari Allah.<br><br> 3. Pada surat Muhammad diperintahkan supaya Muhammad s.a.w memerangi musuh-musuh Allah, sedang dalam surat Al Fath dinyatakan bahwa Allah akan memberikan kemenangan kepada Muhammad s.a.w.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

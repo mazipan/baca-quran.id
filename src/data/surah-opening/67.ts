@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 30 ayat, termasuk
 const closing = `<span class="gen"><br> Surat Al Mulk menunjukkan bukti-bukti kebesaran dan kekuasaan Allah yang terdapat di alam semesta dan menganjurkannya agar manusia memperhatikannya dengan seksama sehingga mereka beriman kepada-Nya. Bilamana manusia itu tetap mengingkari, Allah akan menjatuhkan azab kepada mereka.<br><br><i>HUBUNGAN SURAT AL MULK DENGAN SURAT AL QALAM</i><br><br> 1. Pada akhir surat Al Mulk, Allah mengancam orang yang tidak bersyukur kepda nikmat Allah dengan mengeringkan bumi atas mereka, sedang dalam surat Al Qalam diberikan contoh tentang azab terhadap orang-orang yang tidak bersyukur terhadap nikmat Allah.<br> 2. Kedua surat ini sama-sama memberikan ancaman kepada orang-orang kafir.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

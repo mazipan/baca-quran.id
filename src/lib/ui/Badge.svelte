@@ -3,7 +3,7 @@
 
 	const CLASS_BY_COLOR = {
 		orange: 'bg-orange-100 text-orange-600',
-		green: 'bg-green-100 text-green-600',
+		green: 'bg-green-100 text-green-600'
 	};
 </script>
 

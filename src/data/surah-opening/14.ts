@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Ibrahim ini terdiri atas 52 ayat, 
 const closing = `<span class="gen"><br> Surat Ibrahim mengandung petunjuk-petunjuk bagi manusia untuk mengenal Tuhan mereka dan janji Allah menyediakan syurga kepada orang-orang yang beriman. Dalam surat ini Allah menjelaskan bahwa rasul-rasul itu diutus dengan mempergunakan bahasa kaumnya agar mudah bagi kaum itu memahami perintah dan larangan Allah. Kemudian Allah menjelaskan pula apa yang terjadi antara rasul-rasul itu dengan kaumnya.<br><br><i>HUBUNGAN SURAT IBRAHIM DENGAN SURAT AL HIJR</i><br><br> 1. Kedua-duanya sama-sama dimulai dengan <i>Alief laam Raa</i> dan menerangkan sifat Al Quranul Karim.<br><br> 2. Dalam surat Ibrahim Allah menjelaskan bahwa Al Quran itu pembimbing manusia ke jalan Allah, kemudian dalam surat Al Hijr Allah menambahkan lagi bahwa Al Quran itu akan tetap dijaga kemurniannya sepanjang masa.<br><br> 3. Masing-masing surat ini melukiskan keadaan langit dan bumi dan sama-sama menjelaskan bahwa kejadian-kejadian alam ini mengandung hikmah, sebagai tanda keesaan dan kebesaran Allah s.w.t.<br><br> 4. Keduanya mengandung kisah Nabi Ibrahim a.s. dengan terperinci.<br><br> 5. Keduanya sama-sama menerangkan keadaan orang-orang kafir di hari kiamat dan penyesalan mereka, mengapa mereka sewaktu hidup di dunia tidak jadi orang mukmin.<br><br> 6. Kedua surat ini sama-sama menceritakan kisah-kisah nabi zaman dahulu dengan kaumnya serta menerangkan keadaan orang-orang yang ingkar kepada nabi-nabi itu pada hari kiamat. Kisah-kisah itu disampaikan kepada Nabi Muhammad s.a.w. untuk menghibur hati beliau di waktu menghadapi berbagai kesulitan yang beliau temui dalam menyiarkan agama Islam.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

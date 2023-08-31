@@ -51,13 +51,10 @@
 	{/if}
 
 	<div class="mt-4 flex justify-between items-center gap-2">
-		<div class="flex items-center  gap-2">
+		<div class="flex items-center gap-2">
 			<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
 			<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
-			<Button
-				onClick={handleShare}
-				ariaLabel="Bagikan Ayat"
-			>
+			<Button onClick={handleShare} ariaLabel="Bagikan Ayat">
 				<ShareIcon />
 			</Button>
 			{#if $settingTafsir}

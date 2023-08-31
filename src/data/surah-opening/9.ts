@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat At Taubah terdiri atas 129 ayat te
 const closing = `<span class="gen"><br> Surat At-Taubah mengandung pernyatan pembatalan perjanjian damai pleh Nabi Muhammad s.a.w. dengan kaum musyrikin, karena mereka tidak memenuhi syarat-syarat perjanjian damai pada perjanjian Hudaibiyyah. Selanjutnya Surat At Taubah mengandung hukum peperangan dan perdamaian, hukum kenegaraan, keadaan Nabi Muhammad s.a.w. di waktu hijrah, dan kewajiban menafkahkan harta dan orang-orang yang berhak menerimanya.<br><br><i>HUBUNGAN SURAT AT-TAUBAH DENGAN SURAT YUNUS</i><br><br> 1. Akhir surat At-Taubah ditutup dengan menyebutkan tentang risalah Nabi Muhammad s.a.w. dan hal-hal serupa disebutkan pula pada akhir surat Yunus.<br><br> 2. Surat At-Taubah menyebutkan keadaan orang-orang munafik serta menerangkan perbuatan mereka di waktu Al Quran diturunkan, sedang surat Yunus menerangkan sikap orang kafir terhadap Al Quran.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

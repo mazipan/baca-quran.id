@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 44 ayat, termasuk
 const closing = `<span class="gen"><br> Surat Al Ma´aarij menerangkan sifat-sifat yang buruk serta memberi petunjuk kepada jalan-jalan yang dapat mencapai kemuliaan dan derajat yang tinggi.<br><br><i>HUBUNGAN SURAT AL MA´AARIJ DENGAN SURAT NUH</i><br><br> 1. Pada akhir surat Al Ma´aarij Allah menerangkan bahwa Dia berkuasa mengganti kaum yang durhaka dengan kaum yang lebih baik, sedang dalam surat Nuh dibuktikan dengan penenggelaman kaum Nuh yang durhaka.<br> 2. Kedua surat ini dimulai dengan ancaman azab kepada orang-orang kafir.</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

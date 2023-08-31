@@ -19,24 +19,27 @@ export const TITLE_CONSTANTS = {
 };
 
 export const CONSTANTS = {
-  STORAGE_KEY: {
-    TRANSLATION: 'trsla',
-    TAFSIR: 'tfsr',
-    MUKADIMAH: 'mkdmh',
-    AUDIO: 'aud',
-    AUTO_NEXT: 'anxt',
-    PINNED_SURAH: 'srh',
-    LAST_VERSES: 'vres',
-    LOCATION: 'loc',
-    PRAYER: 'pryr',
-    THEME: 'theme'
-  },
-  BISMILLAH: '﷽'
+	STORAGE_KEY: {
+		TRANSLATION: 'trsla',
+		TAFSIR: 'tfsr',
+		MUKADIMAH: 'mkdmh',
+		AUDIO: 'aud',
+		AUTO_NEXT: 'anxt',
+		PINNED_SURAH: 'srh',
+		LAST_VERSES: 'vres',
+		LOCATION: 'loc',
+		PRAYER: 'pryr',
+		THEME: 'theme'
+	},
+	BISMILLAH: '﷽'
 };
 
-const postfix = (withTafsir: boolean) => `beserta terjemahan${withTafsir ? ' dan tafsir dari Kemenag' : ''}, 💸 gratis sepenuhnya, 💫 tanpa iklan, 📈 tanpa analitik`
-export const META_TITLE = `Qur'an Online Gratis | ${TITLE_CONSTANTS.TITLE_META}`
-export const META_DESC = `Bacaan lengkap Al-Qur'an 30 Juz ${postfix(true)}`
+const postfix = (withTafsir: boolean) =>
+	`beserta terjemahan${
+		withTafsir ? ' dan tafsir dari Kemenag' : ''
+	}, 💸 gratis sepenuhnya, 💫 tanpa iklan, 📈 tanpa analitik`;
+export const META_TITLE = `Qur'an Online Gratis | ${TITLE_CONSTANTS.TITLE_META}`;
+export const META_DESC = `Bacaan lengkap Al-Qur'an 30 Juz ${postfix(true)}`;
 
 export const META_TITLE_ALL_SURAH = `Semua Surat Al-Qur'an | ${TITLE_CONSTANTS.TITLE_META}`;
 export const META_DESC_ALL_SURAH = `Daftar semua surat dalam Al-Qur'an ${postfix(false)}`;
@@ -143,19 +146,19 @@ export const SEO_TEXT_DYNAMIC = {
 };
 
 export const THEMES = [
-  {
-    name: 'light',
-    bg: 'white',
-    border: '#142C66',
-  },
-  {
-    name: 'dark',
-    bg: '#142C66',
-    border: '#FFF',
-  },
-  {
-    name: 'sepia',
-    bg: '#704214',
-    border: '#FFF',
-  },
+	{
+		name: 'light',
+		bg: 'white',
+		border: '#142C66'
+	},
+	{
+		name: 'dark',
+		bg: '#142C66',
+		border: '#FFF'
+	},
+	{
+		name: 'sepia',
+		bg: '#704214',
+		border: '#FFF'
+	}
 ];

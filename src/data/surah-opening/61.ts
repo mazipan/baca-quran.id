@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Ash Shaff terdiri atas 14 ayat ter
 const closing = `<span class="gen"><br> Surat ini menganjurkan supaya orang-orang mukmin selalu menyesuaikan ucapan dengan perbuatan, dan menerima tawaran Allah yaitu ampunanNya dan surga dapat dicapai dengan iman dan berjihad di jalan Allah dengan harta dan jiwa.<br><br><i>HUBUNGAN SURAT ASH SHAFF DENGAN SURAT AL JUMU'AH</i><br><br> 1. Sama-sama dimulai dengan <i>sabbaha lillahi</i> bertasbih kepada Allah dan bahwa Allah Maha Perkasa lagi MAha Bijaksana.<br><br> 2. Pada surat Ash Shaff diterangkan bahwa orang-orang Yahudi itu adalah kaum yang sesat dan fasik, sedang pada surat Al Jumu'ah diterangkan lagi bahwa mereka adalah orang yang bodoh seperti keledai yang membawa buku-buku yang banyak, tetapi tidak dapat memahaminya.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

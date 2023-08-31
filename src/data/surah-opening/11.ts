@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Huud termasuk golongan surat-surat
 const closing = `<span class="gen"><br> Surat Hud mengandung hal-hal yang berhubungan dengan pokok-pokok agama, seperti: Ketauhidan, kerasulan, hari berbangkit, kemudian dihubungkan dengan da'wah yang telah dilakukan oleh para Nabi kepada kaumnya.<br><br><i>HUBUNGAN SURAT HUUD DENGAN SURAT YUSUF</i><br><br> 1. Kedua surat ini sama-sama dimulai dengan aliif laam raa dan kemudian diiringi dengan penjelasan tentang Al Quran.<br><br> 2. Surat Yusuf menyempurnakan penjelasan kisah para rasul yang disebut dalam surat Hud dan surat Yusuf, kemudian kisah itu dijadikan dalil untuk menyatakan bahwa Al Quran itu adalah wahyu Ilahi; tidak ada lagi sesudah Nabi Muhammad s.a.w. nabi-nabi atau rasul-rasul yang diutus Allah.<br><br> 3. Perbedaan kedua surat ini dalam menjelaskan kisah-kisah para Nabi ialah bahwa dalam surat Hud diutarakan kisah beberapa orang rasul dengan kaumnya dalam menyampaikan risalahnya, akibat-akibat bagi orang yang mengikuti mereka dan akibat bagi orang yang mendustakan, kemudian dijadikan perbandingan dan khabar yang mengancam kaum musyrikin Arab beserta pengikut-pengikutnya. Dalam surat Yusuf diterangkan tentang kehidupan Nabi Yusuf yang mula-mula dianiaya oleh saudara-saudaranya yang kemudian menjadi orang yang berkuasa yang dapat menolong saudara-saudaranya dan ibu bapanya. Pribadi Nabi Yusuf a.s. ini harus dijadikan teladan oleh semua yang beriman kepada Nabi Muhammad s.a.w.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

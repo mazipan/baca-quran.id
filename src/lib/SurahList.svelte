@@ -3,7 +3,7 @@
 	import SurahCard from '$lib/SurahCard.svelte';
 	import type { SurahInfo } from '../data/surah-info';
 
-  export let originSurahInfo: SurahInfo;
+	export let originSurahInfo: SurahInfo;
 
 	let searchText = '';
 	let filteredSurahInfo: SurahInfo = originSurahInfo;

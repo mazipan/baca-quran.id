@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Maryam terdiri atas 98 ayat, terma
 const closing = `<span class="gen"><br> Surat Maryam mengemukakan hal-hal yang perlu diperhatikan oleh manusia apabila mereka memikirkan kejadian-kejadian di alam semesta dalam hubungan dengan Penciptanya; ada kejadian yang terjadi sesuai dengan sunnah Allah dan dapat dipikirkan oleh manusia; dan ada pula kejadian yang luar biasa, aneh lagi ajaib yang tidak sampai pikiran manusia kepadanya. Kejadian-kejadian yang luar biasa ini terjadi pada orang-orang yang telah dipilih oleh Allah, dan dikemukakan kepada manusia agar mereka percaya kepada Allah Maha Pencipta.<br><br><i>HUBUNGAN SURAT MARYAM DENGAN SURAT THAAHAA</i><br><br> 1. Surat Maryam mengemukakan kisah beberapa nabi dan rasul; ada yang secara terperinci, ada yang secara ringkas dan ada pula yang hanya disebut namanya saja, yaitu Nabi Adam a.s. Surat Thaahaa mengemukakan pula kisah beberapa orang nabi dan rasul sebagaimana halnya surat Maryam. Kisah Musa a.s. dalam surat Maryam disebut secara singkat, sedang dalam surat Thaahaa dikemukakan secara terperinci. Begitu pula kisah Adam a.s. yang hanya namanya saja disebut dalam surat Maryam, sedang dalam surat Thaahaa dikemukakan secara terperinci.<br><br> 2. Menurut riwayat Ibnu Abbas, surat Thaahaa diturunkan kepada Nabi Muhammad s.a.w. setelah Allah menurunkan surat Maryam.<br><br> 3. Akhir surat Maryam menerangkan bahwa Al Quran diturunkan dalam bahasa Arab, sebagai kabar gembira bagi orang-orang yang takwa dan peringatan bagi orang-orang yang ingkar, sedang awal surat Thaahaa menerangkan dan menguatkannya lagi.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

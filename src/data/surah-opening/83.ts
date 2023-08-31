@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 36 ayat, termasuk
 const closing = `<span class="gen"><br> Surat Al Muthaffifiin mengandung ancaman-ancaman terhadap orang-orang kafir dan orang-orang yang melakukan kecurangan, di samping itu memberikan janji yang baik kepada mereka yang beriman dan melakukan kebajikan.<br><br><i>HUBUNGAN SURAT AL MUTHAFFIFFIIN DENGAN SURAT AL INSYIQAAQ</i><br><br> 1. Dalam surat Al Muthaffiffiin, Allah s.w.t. menerangkan bahwa segala amalperbuatan manusia, yang baik maupun yang buruk tercatat dalam suatu buku yang terpelihara. Dalam surat Al Insyiqaaq Allah s.w.t. menjelaskan bahwa buku-buku catatan itu akan diberikan kepada manusia pada hari kiamat dan cara bagaimana pemberiannya.<br> 2. Dalam kedua surat ini, Allah juga menggambarkan ancaman bagi orang yang kafir dan ganjaran yang tak terhingga bagi orang-orang yang beriman.</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat <i>Yaasiin</i> terdiri atas 83 aya
 const closing = `<span class="gen"><br> Surat <i>Yaasiin</i> mengemukakan tentang Al Quran, kanabian Muhammad, menegaskan adanya hari berbangkit disertai bukti-buktinya baik bukti-bukti alamiyah maupun bukti-bukti akliyah; kemudian mengemukakan beberapa perumpamaan diantaranya dengan mengemukakan kisah utusan-utusan Nabi Isa Almasih a.s dengan penduduk Anthakiyah. Kesemuanya dikemukakan sebagai penghibur hati Rasulullah s.a.w. dan untuk menambah keyakinan orang-orang yang beriman yang sedang mengalami tekanan-tekanan dari kaum musyrikin.<br><br><i>HUBUNGAN SURAT YAA SIIN DENGAN SURAT ASH SHAFFAAT</i><br><br> 1. Pada surat Yaa Siin disebut secara umum tentang umat-umat yang telah dihancurkan Allah karena ingkar kepada-Nya, sedang surat Ash Shaffaat menjelaskannya dengan menyebut kisah-kisah Nuh a.s., Isa a.s. dengan kaumnya.<br><br> 2. Pada akhir surat Yaasiin disebut secara umum keadaan orang-orang mukmin dan orang-orang kafir di hari kiamat, sedang surat Ash Shaffaat menjelaskannya.<br><br> 3. Pada surat Yaasiin disebutkan tentang kekuasaan Allah membangkitkan manusia dan menghidupkannya kembali, karena Dia-lah yang menciptakan mereka dan Dia-lah yang menghendaki demikian, sedang surat Ash Shaffaat menjelaskan lebih luas dengan mengemukakan contoh-contoh yang berhubugnan dengan itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

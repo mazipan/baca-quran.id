@@ -9,7 +9,11 @@
 </script>
 
 <svelte:head>
-  <MetaTag title={META_TITLE_ASMAUL_HUSNA} desc={META_DESC_ASMAUL_HUSNA} url={`${TITLE_CONSTANTS.PATH}asmaul-husna/`} />
+	<MetaTag
+		title={META_TITLE_ASMAUL_HUSNA}
+		desc={META_DESC_ASMAUL_HUSNA}
+		url={`${TITLE_CONSTANTS.PATH}asmaul-husna/`}
+	/>
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
@@ -17,11 +21,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
 </div>
 
 <div class="px-4 flex flex-col gap-2">
@@ -30,12 +30,12 @@
 			<div class="flex justify-between">
 				<div class="flex gap-2 items-center">
 					<div class="flex flex-col items-start justify-center">
-            <div class="flex gap-2 mb-2">
-              <Badge color='green'>
-                {index + 1}
-              </Badge>
-              <span class="font-bold">{item.latin}</span>
-            </div>
+						<div class="flex gap-2 mb-2">
+							<Badge color="green">
+								{index + 1}
+							</Badge>
+							<span class="font-bold">{item.latin}</span>
+						</div>
 						<small class="text-xs text-gray-400">🇬🇧 {item.translation_en}</small>
 						<small class="text-xs text-gray-400">🇮🇩 {item.translation_id}</small>
 					</div>

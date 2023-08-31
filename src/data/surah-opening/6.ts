@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al An'aam (binatang ternak: unta, 
 const closing = `<span class="gen"><br> Dalam surat Al An'aam Allah menjelaskan keesaaan dan kesempurnaan sifat-sifat-Nya, menyatakan kebatalan kepercayaan orang-orang musyrik dengan bantahan-bantahan yang logis dan mudah diterima oleh akal. Hukuman yang berat akan dijatuhkan atas mereka yang berkepala batu menolak kebenaran.<br><br><i>HUBUNGAN SURAT AL AN'AAM DENGAN SURAT AL A'RAAF</i><br><br> 1. Kedua surat tersebut termasuk di antara 7 surat yang panjang (assab'uththiwaal), keduanya sama-sama emmbicarakan pokok aqidah agama. Dalam surat Al An'aam dikemukakan garis-garis besar aqidah-aqidah itu, sedang surat Al A'raaf menjelaskannya.<br><br> 2. Dalam surat Al An'aam Allah menerangkan asal usul kejadian manusia yaitu dari tanah serta menjelaskan tentang beberapa generasi manusia yang telah dibinasakan Allah, kemudian disinggung pula tentang rasul-rasul dengan menyebut beberapa nama mereka secara garis besarnya, sedang surat Al A'raaf menjelaskannya.<br><br> 3. Pada bahagian terakhir surat Al An'aam, Allah mengatakan bahwa Dia menjadikanmanusia khalifah-khalifah di bumi serta mengangkat derajat sebahagian mereka, maka bagian permulaan surat Al A'raaf Allah mengemukakan penciptaan Adam a.s. dan anak cucunya dan dijadikan-Nya Khalifah di atas bumi begitu juga anak cucunya.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

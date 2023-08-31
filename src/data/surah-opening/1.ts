@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat <i>Al Faatihah</i> (Pembukaan) yan
 const closing = `<span class="gen"><br> Surat Al Fatihaah ini melengkapi unsur-unsur pokok syari'at Islam, kemudian dijelaskan perinciannya oleh ayat-ayat Al Quran yang 113 surat berikutnya.<br><br> Persesuaian surat ini dengan surat Al Baqarah dan surat-surat sesudahnya ialah surat Al Faatihah merupakan titik-titik pembahasan yang akan diperinci dalam surat Al Baqarah dan surat-surat yang sesudahnya.<br><br> Dibahagian akhir surat Al Faatihah disebutkan permohonan hamba supaya diberi petunjuk oleh Tuhan kejalan yang lurus, sedang surat Al Baqarah dimulai dengan penunjukan <i>al Kitaab</i> (Al Quran) yang cukup sempurna sebagai pedoman menuju jalan yang dimaksudkan itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

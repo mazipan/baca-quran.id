@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br><br> Surat 'Abasa terdiri atas 42 ayat, t
 const closing = `<span class="gen"><br> Surat 'Abasa mengandung teguran Allah kepada Rasululah s.a.w. yang lebih mengutamakan pembesar-pembesar Quraisy yang diharapkan agar mereka masuk Islam daripada Ibnu Ummi Maktum yang buta, tapi telah diyakini keimanannya; Al Quran adalah sebagai peringatan; dan salah satu sifat manusia ialah tidak mensyukuri nikmat Allah.<br><br><i>HUBUNGAN SURAT 'ABASA DENGAN SURAT AT TAKWIIR</i><br><br> 1. Sama-sama menerangkan tentang huru-hara pada hari kiamat.<br> 2. Sama-sama menerangkan bahwa manusia pada hari kiamat terbagi dua.<br> 3. Pada surat 'Abasa Allah s.w.t. menegur Muhammad s.a.w. sedang dalam surat At Takwiir Allah menegaskan bahwa Muhammad s.a.w. adalah seorang Rasul yang mulia.<br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

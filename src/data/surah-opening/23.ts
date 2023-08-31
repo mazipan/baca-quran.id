@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Mu'minuun terdiri atas 118 ayat
 const closing = `<span class="gen"><br> Surat Al Mu'minuun dimulai dengan sifat-sifat yang dipunyai oleh seorang mukmin yang berbahagia hidup di dunia dan di akhirat. Sekalipun Allah tidak membeda-bedakan pemberian rezki di dunia ini kepada manusia apakah ia mukmin atau kafir, tetapi kebahagiaan yang sebenarnya hanya diberikan kepada orang-orang yang mukmin di akhirat kelak.<br> Kemudian dikemukakan apa yang telah dialami oleh para nabi dan kaum-kaum kepada siapa mereka diutus; orang-orang yang mengikuti nabi selalu mendapat pertolongan dari Allah, sedang orang-orang yang mengingkari nabi dihancurkan dan dimusnahkan Allah agar menjadi i'tibar bagi umat-umat yang datang kemudian. Setelah menggambarkan kedahsyatan hari kiamat, maka surat ini ditutup dengan menggambarkan hasil yang diperoleh oleh orang-orang mukmin dan orang-orang kafir di akhirat nanti.<br><br><i>HUBUNGAN SURAT AL MU'MINUUN DENGAN SURAT AN NUUR</i><br><br> 1. Pada bagian permulaan surat Al Mu'minuun disebutkan bahwa salah satu tanda orang-orang mukmin itu ialah orang yang menjaga kemaluannya, sedang permulaan surat An Nuur menetapkan hukum bagi orang-orang yang tidak dapat menjaga kemaluannya yaitu pezina wanita, pezina laki-laki dan apa yang berhubungan dengannya, seperti menuduh orang berbuat zina, qishshatul ifki, keharusan menutup mata terhadap hal-hal yang ada hubungannya dengan perbuatan zina, menyuruh agar orang-orang yang tidak sanggup melakukan pernikahan menahan diri dan sebagainya.<br><br> 2. Pada surat Al Mu'minuun Allah menegaskan bahwa Dia menciptakan alam ini ada hikmatnya, yaitu agar semua makhluk yang diciptakan-Nya itu melaksanakan perintah-perintah dan menghentikan larangan-larangan-Nya, sedang surat An Nuur menyebutkan sejumlah perintah-perintah dan larangan-larangan itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

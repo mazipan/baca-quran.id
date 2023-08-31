@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Fath terdiri atas 29 ayat, term
 const closing = `<span class="gen"><br> Surat Al Fath menerangkan tentang peristiwa-peristiwa yang berhubungan dengan Perdamaian Hudaibiyah dan janji Allah akan kemenangan kaum muslimin. Surat ini ditutup dengan menerangkan sifat-sifat Nabi Muhammad s.a.w. dan sahabat-sahabatnya.<br><br><i>HUBUNGAN SURAT AL FATH DENGAN SURAT AL HUJURAAT</i><br><br> 1. Di dalam surat Al fath disebutkan perintah memerangi orang-orang kafir, sedang dalam surat Al Hujuraat disebutkan perintah mengadakan perdamaian antara dua golongan dari kaum muslimin yang bersengketa, dan perintah memerangi golongan kaum muslimin yang berbuat aniaya kepada golongan kaum muslimin yang lain, sampai terjaga selalu kesatuan dan persatuan umat Islam.<br><br> 2. Surat Al Fath ditutup dengan keterangan mengenai sifat-sifat Rasulullah s.a.w. dan sahabat-sahabatnya, sedang surat AL Hujuraat dimulai dengan bagaiman seharusnya para sahabat bergaul dengan Nabi Muhammad s.a.w.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

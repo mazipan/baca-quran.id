@@ -6,7 +6,10 @@
 </script>
 
 <header class="flex justify-between items-center py-4 px-2">
-	<button class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary" on:click={onToggleDrawer}>
+	<button
+		class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary"
+		on:click={onToggleDrawer}
+	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="w-6 h-6 cursor-pointer"
@@ -28,9 +31,9 @@
 	</a>
 
 	<div class="flex gap-2">
-    <a class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary" href="/sync">
-      <ResetIcon />
-    </a>
+		<a class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary" href="/sync">
+			<ResetIcon />
+		</a>
 		<ThemeSwicther />
 	</div>
 </header>

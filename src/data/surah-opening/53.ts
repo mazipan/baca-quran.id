@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat An Najm terdiri atas 62 ayat, term
 const closing = `<span class="gen"><br> Surat An Najm mengandung hal-hal yang berhubungan dengan penegasan risalah Muhammad s.a.w. dan Al Quran adalah wahyu dari Allah, menerangkan kebatalan berhala-berhala yang disembah orang-orang musyrik yang tidak dapat memberi manfaat dan mudharat, menerangkan sifat orang-orang yang muhsin.<br> Dan surat ini juga menyebutkan sebahagian hakekat Islam yang tersebut pada Suhuf-suhuf Musa dan Suhuf-suhuf Ibrahim.<br><br><i>Hubungan surat An Najm dan surat Al Qamar</i><br> 1. Pada akhir surat An Najm disebutkan hal yang mngenai hari kiamat, sedang pada awal surat Al Qamar disebutkan pula hal itu.<br> 2. Dalam surat An Najm disinggung secara sepintas lalu keadaan umat-umat yang terdahulu, sedang pada surat Al Qamar disebutkan pula keadaan umat-umat yang terdahulu yang mendustakan rasul-rasul mereka.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

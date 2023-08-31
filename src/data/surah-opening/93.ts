@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 11 ayat, termasuk
 const closing = `<span class="gen"><br> Surat Adh Dhuhaa, menerangkan tentang bimbingan pemeliharaan Allah s.w.t. terhadap Nabi Muhammad s.a.w. dengan cara yang tak putus-putusnya dan mengandung pula perintah kepada Nabi supaya mensyukuri segala nikmat itu.<br><br><i>HUBUNGAN SURAT ADH DHUHAA DENGAN SURAT ALAM NASYRAH</i><br><br> 1. Kedua surat ini amat erat hubungannya karena sama-sama ditujukan kepada Nabi Muhammad s.a.w.<br> 2. Kedua surat ini sama-sama menerangkan nikmat Allah dan memerintahkan kepada Nabi untuk mensyukuri nikmat itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

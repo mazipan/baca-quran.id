@@ -12,13 +12,13 @@
 		settingAutoNext,
 		pinnedSurah,
 		lastReadVerses,
-    settingLocation,
+		settingLocation
 	} from '../store';
 
 	import '../app.css';
-	import { getJsonLdWebsite, serializeSchema } from '$lib/json-ld';
+	import { getJsonLdWebsite, serializeSchema } from '$lib/utils/json-ld';
 	import VerseAudioPlayer from '$lib/VerseAudioPlayer.svelte';
-	import type { ReciterKey } from '$lib/audio';
+	import type { ReciterKey } from '$lib/utils/audio';
 	import Toaster from '$lib/Toaster.svelte';
 	import VerseTafsirBottomSheet from '$lib/VerseTafsirBottomSheet.svelte';
 	import VerseShareBottomSheet from '$lib/VerseShareBottomSheet.svelte';
@@ -69,14 +69,14 @@
 					lastReadVerses.set([]);
 				}
 
-        const storageLocation = localStorage.getItem(CONSTANTS.STORAGE_KEY.LOCATION);
+				const storageLocation = localStorage.getItem(CONSTANTS.STORAGE_KEY.LOCATION);
 				if (storageLocation) {
 					const parsedValue = JSON.parse(storageLocation);
 					settingLocation.set({
-            lt: parsedValue?.lt || 0,
-            lg: parsedValue?.lg || 0,
-            district: parsedValue?.district || ''
-          });
+						lt: parsedValue?.lt || 0,
+						lg: parsedValue?.lg || 0,
+						district: parsedValue?.district || ''
+					});
 				} else {
 					settingLocation.set(null);
 				}

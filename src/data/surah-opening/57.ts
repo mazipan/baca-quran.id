@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Hadiid terdiri atas 29 ayat, te
 const closing = `<span class="gen"><br> Surat Al Hadiid pada umumnya menerangkan hal-hal yang berhubungan dengan anjuran bernafkah dan membelanjakan harta di jalan Allah. Dan juga menerangkan bahwa Allah mengutus para nabi dengan membawa agama untuk kebahagiaan hidup manusia di samping itu menciptakan besi yang bermanfaat bagi manusia dalam kehidupannya dan untuk mempertahankan agama yang dibawa oleh rasul-rasul itu.<br><br><i>HUBUNGAN SURAT AL HADIID DENGAN SURAT AL MUJAADILAH</i><br><br> 1. Pada surat Al Hadiid disebutkan beberapa Al Asmaa-ul Husna, di antaranya ialah <i>Al Bathin</i> dan <i>mengetahui segala sesuatu</i>, sedang pada surat Al Mujaadilah disebutkan bahwa Allah mengetahui pembicaraan-pembicaraan yang dirahasiakan.<br> 2. Pada akhir surat Al Hadiid disebutkan bahwa Allah mempunyai karunia-Nya kepada wanita, yaitu dengan menghilangkan hal-hal yang merugikan pihak wanita pada hukum zhihar yang berlaku di kalangan Arab Jahiliyah.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

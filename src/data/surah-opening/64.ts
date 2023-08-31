@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 18 ayat, termasuk
 const closing = `<span class="gen"><br> Pada surat At Taghaabun Allah memberi peringatan kepada kaum musyrikin tentang azab yang ditimpakan kepada umat-umat sebelumnya dan memberi hiburan kepada Nabi bahwa keingkaran orang-orang kafir itu tidak akan mendatangkan kemudaratan kepadanya.<br><br><i>HUBUNGAN SURAT AT TAGHAABUN DENGAN SURAT ATH THALAAQ</i><br><br> Dalam surat At Taghaabun diterangkan bahwa diantara isteri-isteri dan anak-anak ada yang menjadi musuh, dan permusuhan antara suami dan isteri mungkin membawa kepada perceraian (talaq), maka dalam surat Ath-Thalaaq diterangkan hukum-hukum talaq secara ringkas.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

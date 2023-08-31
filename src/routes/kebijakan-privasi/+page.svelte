@@ -16,15 +16,10 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
 </div>
 
 <article class="px-4">
-
 	<div class="flex gap-2 mb-4">
 		<a
 			href="/kebijakan-privasi/"

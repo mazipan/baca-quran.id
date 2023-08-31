@@ -44,17 +44,16 @@
 			}
 		} else {
 			lastReadVerses.update((prev) => {
-        const newArray = prev.filter((val) => {
-          if (val.s === numberSurah.toString() && val.v === numberVerse.toString()) {
-            return false
-          }
-          return true
-        })
+				const newArray = prev.filter((val) => {
+					if (val.s === numberSurah.toString() && val.v === numberVerse.toString()) {
+						return false;
+					}
+					return true;
+				});
 
-        localStorage.setItem(CONSTANTS.STORAGE_KEY.LAST_VERSES, JSON.stringify(newArray));
-        return newArray
-      });
-
+				localStorage.setItem(CONSTANTS.STORAGE_KEY.LAST_VERSES, JSON.stringify(newArray));
+				return newArray;
+			});
 
 			toast.show({
 				message: `Berhasil membuang Surat <b>${surahLatin}</b> Ayat <b>${numberVerse}</b> dari terakhir dibaca!`,
@@ -64,8 +63,7 @@
 	};
 </script>
 
-<Button data-trigger-source={source} onClick={handleBookmarkVerse}
-ariaLabel="Bookmark Ayat">
+<Button data-trigger-source={source} onClick={handleBookmarkVerse} ariaLabel="Bookmark Ayat">
 	{#if !!$lastReadVerses.find((val) => val.s === numberSurah.toString() && val.v === numberVerse.toString())}
 		<BookmarkSolidIcon size="md" class="w-6 h-6 z-10 text-red-500" />
 	{:else}

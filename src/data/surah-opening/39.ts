@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Az Zumar terdiri ataz 75 ayat, ter
 const closing = `<span class="gen"><br> Dari surat Az Zumar dapat diambil pelajaran sebagai berikut:<br> a. Al Quran adalah petunjuk yang paling sempurna bagi manusia.<br> b. Tiap-tiap makhluk akan mati dan di akhirat akan dihisab tentang amalan-amalannya.<br> c. Sekalipun manusia itu banyak dosanya, dilarang berputus-asa terhadap rahmat Allah.<br><br><i>HUBUNGAN SURAT AZ ZUMAR DENGAN SURAT AL MU'MIN</i><br> 1. Surat Az Zumar menerangkan bagaimana kesudahan orang-orang mukmin dan kesudahan orang-orang kafir yang selalu mengingkari Nabi yang diutus kepada mereka. Surat Al Mu'min menerangkan bahwa Allah mengampuni segala dosa hamba-Nya yang mau mengikuti jalan yang benar. Hal ini merupakan ajakan Allah kepada orang-orang kafir agar mereka beriman.<br> 2. Sama-sama mengutarakan hal-hal yang berhubungan dengan keadaan hari kiamat, keadaan mahsyar, syurga dan neraka.</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Qaaf terdiri atas 45 ayat, termasu
 const closing = `<span class="gen"><br> Sebagaimana halnya surat-surat Makkiyah pada umumnya, maka surat Qaaf mengemukakan hal-hal yang berhubungan dengan kebangkitan, syurga dan neraka, mengemukakan bahwa keingkaran orang-orang kafir kepada Nabi itu adalah wajar, karena rasul-rasul dahulu juga diingkari dan didustakan oleh umat-umatnya.<br><br><i>HUBUNGAN SURAT QAAF DENGAN SURAT ADZ DZAARIYAAT</i><br> 1. Pada surat Qaaf disebutkan hal-hal mengenai hari berbangkit, pembalasan, syurga dan neraka; sedang surat Adz Dzaariyaat dimulai dengan menerangkan bahwa semua itu adalah benar dan pembalasan pada hari kiamat itu benar akan terlaksana.<br> 2. Pada surat Qaaf disebutkan secara sepintas lalu pembinasaan umat-umat dahulu yang mendustakan rasul-rasul sedang pada surat Adz Dzaariyaat diterangkan keadaan mereka dengan agak terperinci.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

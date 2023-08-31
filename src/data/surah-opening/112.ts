@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 4 ayat, termasuk 
 const closing = `<span class="gen"><br> Surat Al Ikhlash ini menegaskan kemurnian keesaan Allah s.w.t.<br><br><i>HUBUNGAN SURAT AL IKHLASH DENGAN SURAT AL FALAQ</i><br><br> Surat Al Ikhlash menegaskan kemurnian Allah s.w.t. sedang surat Al Falaq memerintahkan agar semata-mata kepada-Nya-lah orang memohon perlindungan dari segala macam kejahatan.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

@@ -166,11 +166,11 @@
 	{:else}
 		<div class="flex flex-wrap items-center justify-between gap-2 mb-4">
 			<div class="flex flex-col gap-2">
-        {#if $settingLocation.district}
-          <div class="flex gap-2 items-center">
-            <MarkerIcon /> <span>{$settingLocation.district}</span>
-          </div>
-        {/if}
+				{#if $settingLocation.district}
+					<div class="flex gap-2 items-center">
+						<MarkerIcon /> <span>{$settingLocation.district}</span>
+					</div>
+				{/if}
 				<small>{$settingLocation.lt}, {$settingLocation.lg}</small>
 			</div>
 

@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Jaatsiyah terdiri atas 37 ayat,
 const closing = `<span class="gen"><br> Surat Al Jaatsiyah mengutarakan tentang Al Quran yang diturunkan Allah, Pencipta dan Pengatur semesta alam. Sesungguhnya segala macam kejadian yang terdapat pada alam dapat dijadikan bukti bagi adanya Allah, kecelakaan yang besarlah bagi orang yang tidak mempercayai dan mensyukuri nikmat Allah, segala puji hanya untuk Allah saja, keagungan hanyalah kepunyaan Allah.<br><br><i>HUBUNGAN SURAT AL JAATSIYAH DENGAN SURAT AL AHQAAF</i><br><br> 1. Surat Al Jaatsiyah ditutup dengan ketauhidan, keagungan dan kebesaran Allah, sedang surat Al Ahqaaf dimulai dengan ketauhidan pula dengan menerangkan bahwa berhala-berhala yang disembah orang-orang musyrik itu tidak dapat menciptakan sesuatu apapun.<br><br> 2. Surat Al Jaatsiyah memuat ancaman terhadap kaum musyrik, sedang pada surat Al Ahqaaf ancaman itu lebih dipertegas dengan mengingatkan azab yang telah menimpa kaum 'Aad.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

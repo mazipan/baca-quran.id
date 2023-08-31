@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Kautsar terdiri atas 3 ayat, te
 const closing = `<span class="gen"><br> Surat ini menganjurkan agar orang selalu beribadah kepada Allah dan berkorban sebagai tanda bersyukur atas nikmat yang telah dilimpahkan-Nya.<br><br><i>HUBUNGAN SURAT AL KAUTSAR DENGAN SURAT AL KAAFIRUUN</i><br><br> Dalam surat Al Kautsar Allah memerintahkan agar memperhambakan diri kepada Allah, sedang dalam surat Al Kaafiruun perintah tersebut ditandaskan lagi.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

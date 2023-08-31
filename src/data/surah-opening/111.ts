@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 5 ayat, termasuk 
 const closing = `<span class="gen"><br> Surat Al Lahab menjelaskan kegagalan lawan-lawan Muhammad s.a.w.<br><br><i>HUBUNGAN SURAT AL LAHAB DEGAN SURAT AL IKHLASH</i><br><br> Surat Al Lahab mengisyaratkan bahwa kemusyrikan itu tidak dapat dipertahankan dan tidak akan menang walaupun pendukung-pendukungnya bekerja keras. Surat Al Ikhlash mengemukakan bahwa tauhid dalam Islam adalah tauhid yang semurni-murninya.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

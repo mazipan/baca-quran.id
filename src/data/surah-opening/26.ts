@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri dari 227 ayat termasuk
 const closing = `<span class="gen"><br> Sebagian besar surat Asy Syu'araa' menerangkan kisah nabi-nabi dengan umatnya masing-masing. Mereka mengalami penderitaan dan permusuhan dari kaumnya, tetapi pada akhirnya mereka mendapat kemenangan, dan lawan-lawan mereka mengalami kehancuran.<br> Kisah-kisah ini diceritakan olah Allah untuk menghibur hati Rasulullah s.a.w. dan kaum muslimin; karena kelak mereka akan mendapat kemenangan sebagaimana para rasul zaman dahulu itu.<br><br><i>HUBUNGAN SURAT ASY SYU'ARAA' DENGAN SURAT AN NAML</i><br> 1. Surat An Naml melengkapi surat Asy Syu'araa' dengan menambahkan ke dalamnya kisah nabi-nabi yang tidak terdapat dalam surat Asy Syu'araa', yaitu kisah Nabi Daud a.s. dan Nabi Sulaiman a.s.<br> 2. Juga terdapat pada surat An Naml tambahan-tambahan uraian kisah Nabi Luth a.s. dan Nabi Musa a.s. yang keduanya ada diceritakan dalam surat Asy Syu'araa'.<br> 3. Masing-masing dari kedua surat ini memuat sifat Al Quran dan menerangkan bahwa Al Quran itu benar-benar diturunkan dari sisi Allah s.w.t.<br> 4. Kedua surat ini sama-sama menghibur hati Nabi Muhammad s.a.w. yang mengalami bermacam-macam penderitaan dan permusuhan dari kaumnya.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

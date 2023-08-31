@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat An Naml terdiri atas 98 ayat, term
 const closing = `<span class="gen"><br> Surat An Naml dimulai dengan menerangkan sifat-sifat Al Quran, menerangkan kisah beberapa orang rasul dengan umat-umatnya yang mau mengikuti ajaran-ajaran yang dibawanya dan yang tidak mau mengikutinya. Kemudian surat ini diakhiri dengan perintah menyembah Allah dan membaca Al Quran dan bahwa Allah memperlihatkan kepada kaum musyrikin kebenaran ayat-ayat-Nya.<br><br><i>HUBUNGAN SURAT AN NAML DENGAN AL QASHASH</i><br><br> 1. Kedua surat ini sama-sama dimulai dengan huruf abjad, menerangkan sifat-sifat Al Quran dan dengan kisah Musa a.s. Hanya saja kisah Musa a.s. dalam surat Al Qashash diterangkan lebih lengkap dibandingkan kisah Musa a.s. yang terdapat dalam surat An Naml.<br><br> 2. Surat An Naml menerangkan secara garis besarnya bahwa keingkaran orang-orang kafir terhadap adanya hari berbangkit itu tidak beralasan kemudian dikemukakan kepada mereka persoalan-persoalan yang ada hubungannya dengan kebangkitan itu. Hal ini diterangkan lebih jelas dalam surat Al Qashash.<br><br> 3. Surat An Naml menerangkan kehancuran kaum Shaleh dan kaum Luth akibat durhaka kepada Allah dan Nabi-Nya, sedang surat Al Qashash menyinggungnya pula.<br><br> 4. Surat An Naml menyebut balasan pada hari kiamat terhadap orang-orang yang membuat keburukan di dunia, dan surat Al Qashash menyebutkannya pula.<br><br> 5. Bahagian akhir kedua surat ini sama-sama menyebutkan perintah menyembah Allah dan membaca ayat-ayat Al Quran.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

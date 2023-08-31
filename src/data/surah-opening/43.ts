@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Az Zukhruf terdiri atas 89 ayat, t
 const closing = `<span class="gen"><br> Surat Az Zukhruf dimulai dengan menerangkan bahwa Al Quran adalah wahyu Ilahi dan diambil dari Lauh Mahfuzh. Kemudian menerangkan sikap orang musyrik terhadap para nabi dan menyebutkan sebahagian hikmah Allah yang dilimpahkan kepada manusia. Dikemukakan juga tentang sifat orang-orang musyrik yang suka mengada-adakan kebathilan dan kerusakan kepercayaan mereka dan sifat-sifat mereka yang sombong, walaupun mereka telah diperingatkan dengan nasib umat-umat yang dahulu yang mendurhakai Allah.<br><br> Akhirnya, mengingat tindakan-tindakan orang-orang musyrikin yang lebih mementingkan perhiasan dan keduniawian itu, maka surat ini ditutup dengan perintah Allah agar Nabi Muhammad s.a w. berpaling dari orang-orang musyrik itu, nanti mereka akan merasakan dan mengetahui kebenaran ancaman Allah.<br><br><i>HUBUNGAN SURAT AZ ZUKHRUF DENGAN SURAT AD DUKHAAN</i><br><br> 1. Kedua surat itu sama-sama dimulai dengan menyebutkan sifat-sifat Al-Quran.<br><br> 2. Pada akhir surat Az Zukhruf disebutkan ancaman kepada orang-orang kafir dan pada permulaan surat Ad-Dukhaan terdapat pula peringatan dan ancaman itu.<br><br> 3. Pada surat ini terdapat kesatuan sikap antara Nabi Muhammad s.a.w. da Nabi Musa a.s. yaitu pada surat Az Zukhruf Nabi Muhammad s.a.w. mengadu kepada Tuhannya bahwa kaumnya adalah orang yang tidak mau beriman, sedang pada surat Ad Dukhaan Nabi Musa a.s. mengadu kepada Tuhannya bahwa kaumnya adalah orang yang durhaka dan banyak dosa.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

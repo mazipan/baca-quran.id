@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Buruuj terdiri atas 22 ayat, te
 const closing = `<span class="gen"><br> Surat Al Buruuj mengutarakan sikap dan tindakan yang biasa dilakukan oleh orang-orang kafir sejak dahulu kepada orang-orang yang mengikuti seruan rasul dengan mengemukakan beberapa contoh yang telah dilakukan oleh orang-orang yang dahulu. Kemudian Allah mengisyaratkan kemenangan orang-orang yang beriman dan akan mengazab orang-orang kafir sebagai bujukan kepada Nabi Muhammad s.a.w. dan pengikut-pengikutnya dalam menghadapi tindakan-tindakan orang-orang musyrik pada periode Mekah.<br><br> HUBUNGAN SURAT AL BURUUJ DENGAN SURAT ATH THAARIQ<br><br> 1. Kedua surat ini sama-sama dimulai dengan bersumpahnya Allah dengan menyebut langit.<br> 2. Pada surat Al Buruuj disebutkan bahwa Al Quran itu dijaga dan dipelihara Allah dari segala yang dapat merusaknya, sedang surat Ath Thaariq menerangkan bahwa Al Quran adalah pemisah antara yang hak dan yang batil</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

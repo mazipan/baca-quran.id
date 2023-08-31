@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Hujuraat terdiri atas 18 ayat, 
 const closing = `<span class="gen"><br> Surat Al Hujuraat menerangkan tentang akhlak yang baik yang berhubungan dengan sikap orang mukmin terhadap Allah, Nabi Muhammad SAW, sikap mereka terhadap saudara-saudara mereka seagama, sopan santun dalam pergaulan dan pergaulan antar bangsa. Juga surat ini menerangkan bagaimana sikap orang-orang mukmin dalam menerima berita dari orang-orang fasik. Kemudian surat ini ditutup dengan menerangkan hakekat iman dan keutamaan amal orang-orang mukmin.<br><br><i>HUBUNGAN SURAT AL HUJURAAT DENGAN SURAT QAAF</i><br><br> 1. Pada akhir surat Al Hujuraat disebutkan bagaimana keimanan orang-orang Badui dan sebenarnya mereka belum beriman. Hal ini dapat membawa kepada bertambahnya iman mereka dan dapat pula menjadikan mereka orang yang mengingkari kenabian dan hari berbangkit; sedang pada awal surat Qaaf disebutkan beberapa sifat orang kafir yang mengingkari kenabian dan hari berbangkit.<br><br> 2. Surat Al Hujuraat lebih banyak menguraikan soal-soal duniawi sedang surat Qaaf lebih banyak menguraikan tentang ukhrawi.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

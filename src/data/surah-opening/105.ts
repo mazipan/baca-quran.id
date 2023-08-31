@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 5 ayat, termasuk 
 const closing = `<span class="gen"><br> Surat Al Fiil ini menjelaskan tentang kegagalan pasukan bergajah yang dipimpin oleh Abrahah, karena Ka'bah dipelihara oleh Allah s.w.t.<br><br><i>HUBUNGAN SURAT AL FIIL DENGAN SURAT QURAISY</i><br><br> Dalam surat Al Fiil, Allah s.w.t. menjelaskan kehancuran pasukan bergajah yang hendak merobohkan Ka'bah, sedang dalam surat Quraisy Allah memerintahkan kepada penduduk Mekah untuk menyembah Allah pemilik Ka'bah itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

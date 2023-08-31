@@ -16,11 +16,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
 </div>
 
 <article class="px-4">
@@ -43,10 +39,10 @@
 
 	<section class="mb-4">
 		<p class="mb-4">
-			Terima kasih telah menggunakan Baca-Quran.id. Persyaratan layanan ini merupakan perjanjian yang
-			mengikat dan mengatur penggunaan Anda atas Baca-Quran.id dan akses ke situs web Baca-Quran.id. Dengan
-			menggunakan salah satu layanan Baca-Quran.id, atau mengakses salah satu situs web kami, Anda setuju
-			untuk terikat oleh persyaratan layanan berikut.
+			Terima kasih telah menggunakan Baca-Quran.id. Persyaratan layanan ini merupakan perjanjian
+			yang mengikat dan mengatur penggunaan Anda atas Baca-Quran.id dan akses ke situs web
+			Baca-Quran.id. Dengan menggunakan salah satu layanan Baca-Quran.id, atau mengakses salah satu
+			situs web kami, Anda setuju untuk terikat oleh persyaratan layanan berikut.
 		</p>
 
 		<p class="mb-4">
@@ -84,8 +80,9 @@
 	<CardShadow class="mb-4">
 		<h2 class="mb-2 text-xl font-bold">🔹 Ketentuan Privasi</h2>
 		<p>
-			Kami menghormati privasi Anda. Pernyataan lengkap tentang <a href="/kebijakan-privasi/"
-			 class="underline">kebijakan privasi</a
+			Kami menghormati privasi Anda. Pernyataan lengkap tentang <a
+				href="/kebijakan-privasi/"
+				class="underline">kebijakan privasi</a
 			> kami dapat ditemukan di halaman kebijakan privasi. Kebijakan privasi kami secara tegas dimasukkan
 			sebagai referensi ke dalam perjanjian ini.
 		</p>
@@ -94,14 +91,16 @@
 	<CardShadow class="mb-4">
 		<h2 class="mb-2 text-xl font-bold">🔹 Persyaratan Akun</h2>
 		<div>
-      <p class="mb-4">Untuk menggunakan layanan ini, Anda harus:</p>
+			<p class="mb-4">Untuk menggunakan layanan ini, Anda harus:</p>
 			<ol class="list-disc ml-6">
 				<li class="mb-4">
 					Berusia 11 tahun atau lebih dan jadilah manusia. Akun yang didaftarkan oleh "bot" atau
 					metode otomatis lainnya tidak diizinkan. berikan nama lengkap resmi Anda, alamat email
 					yang valid, dan informasi lainnya yang diminta untuk menyelesaikan proses pendaftaran.
 				</li>
-				<li class="mb-4">Anda bertanggung jawab untuk menjaga keamanan akun dan kata sandi Anda.</li>
+				<li class="mb-4">
+					Anda bertanggung jawab untuk menjaga keamanan akun dan kata sandi Anda.
+				</li>
 				<li class="mb-4">
 					Kami tidak dapat dan tidak akan bertanggung jawab atas kehilangan atau kerusakan akibat
 					kegagalan Anda untuk mematuhi kewajiban keamanan ini. Login Anda hanya dapat digunakan

@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Bayyinah terdiri atas 8 ayat, t
 const closing = `<span class="gen"><br> Dalam surat ini Allah menerangkan bahwa ajaran Muhammad s.a.w. adalah ajaran yang benar dan agama yang dibawanya adalah agama yang lurus yang mencakup pokok-poko ajaran yang dibawa nabi-nabi yang dahulu.<br><br><i>HUBUNGAN SURAT AL BAYYINAH DENGA SURAT AZ ZALZALAH</i><br><br> Pada surat Al Bayyinah diterangkan orang yang akan mendapat balasan yang baik dan orang yang akan mendapat siksa, sedang surat Az Zalzalah menerangkan kapan datangnya balasan itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

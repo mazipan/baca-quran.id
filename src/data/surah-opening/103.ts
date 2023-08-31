@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al 'Ashr terdiri atas 3 ayat, term
 const closing = `<span class="gen"><br> Surat ini menerangkan bahwa manusia yang tidak dapat menggunakan masanya dengan sebaik-baiknya termasuk golongan yang merugi.<br><br><i>HUBUNGAN SURAT AL 'ASHR DENGAN SURAT AL HUMAZAH</i><br><br> Pada surat Al 'Ashr Allah menerangkan sifat-sifat orang yang tidak merugi, sedang dalam surat Al Humazah Allah menerangkan bberapa sifat orang yang selalu merugi.</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

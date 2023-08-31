@@ -4,7 +4,6 @@ about: Propose feature additions to the project.
 title: ''
 labels: enhancement
 assignees: mazipan
-
 ---
 
 ## Description

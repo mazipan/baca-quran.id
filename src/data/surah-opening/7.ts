@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al A'raaf yang berjumlah 206 ayat 
 const closing = `<span class="gen"><br> Surat Al A'raaf dimulai dengan pengutaraan tentang kewajiban manusia mengikuti rasul serta akibat-akibat mengingkarinya. Selanjutnya diterangkan tentang perselisihan antara Nabi Adam dan iblis di surga yang juga merupakan permulaan perselisihan antara golongan yang taat kepada perintah Allah dan golongan yang mengingkari sebagaimana yang terjadi pada nabi-nabi dahulu dengan umat-umatnya. Kemudian surat ini ditutup dengan adab-adab orang mukmin, adab-adab mendengarkan ayat-ayat Allah dan bagaimana cara berdoa dan berzikir kepada-Nya.<br><br><i>HUBUNGAN ANTARA SURAT AL A'RAAF DENGAN SURAT AL ANFAAL</i><br><br> 1. Akhir surat Al A'raaf mengemukakan keadaan beberapa orang rasul sebelum Nabi Muhammad s.a.w. dalam menghadapi kaumnya, sedang permulaan surat Al Anfaal menerangkan keadaan Nabi Muhammad s.a.w. dalam menghadapi umatnya.<br><br> 2. Permusuhan antara Adam dan iblis di surga kemudian dilanjutkan dengan permusuhan antara manusia yang menerima petunjuk Allah dengan yang mengingkarinya, hal ini diterangkan dalam surat Al A'raaf. Hal yang serupa diterangkan lebih jelas dalam surat Al Anfaal sebagaimana pertentangan ke dua golongan itu, serta tingkah laku mereka dalam peperangan Badar.<br><br> Surat Al A'raaf termasuk surat yang banyak persesuaiannya dengan surat-surat Al Quran yang lain: seperti dengan surat Al Baqarah, Ali 'Imran, At Taubah, Yunus dan sebagainya.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Qadr terdiri atas 5 ayat, terma
 const closing = `<span class="gen"><br> Pada surat Al Qadr ini diterangkan bahwa permulaan Al Quran diturunkan ialah pada malam lailatul Qadr dan diterangkan juga ketinggian malam lailatul Qadr itu.<br><br><i>HUBUNGAN SURAT AL QADR DENGAN SURAT AL BAYYINAH</i><br><br> Surat Al Qadr menerangkan tentang permulaan Al Quran diturunkan, sedang surat Al Bayyinah menerangkan salah satu sebab Allah menurunkan Al Quran.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

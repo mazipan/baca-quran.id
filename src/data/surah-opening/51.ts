@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Adz Dzaariyaat terdiri atas 60 aya
 const closing = `<span class="gen"><br> Surat Adz Dzaariyaat menerangkan hal-hal yang berhubungan dengan penegasan adanya hari berbangkit, balasan yang diterima orang mukmin dan kafir di akhirat. Kemudian dikemukakan kisah beberapa orang nabi dan kaumnya sebagai bujukan kepada Nabi Muhammad SAW agar jangan bersedih hati terhadap sikap kaumnya yang keras kepala dan selalu mendustakannya.<br><br><i>Hubungan surat Adz Dzaariyaat dengan surat Ath Thuur</i><br> 1. Surat Adz Dzaariyaat dimulai dengan ancaman kepada orang-orang kafir dan nikmat-nikmat yang diterima orang-orang mukmin kelak, sedangkan surat Ath Thuur dimulai dengan ancaman pula dan diiringi dengan menerangkan nikmat yang diterima orang-orang mukmin, akan tetapi ancaman dan nikmat-nikmat ini dalam surat Ath Thuur diterangkan dengan lebih jelas.<br> 2. Sama-sama dimulai dengan sumpah Allah dengan menyebutkan ciptaan- ciptaan-Nya.<br> 3. Sama-sama mengandung perintah kepada Rasulullah SAW supaya berpaling dari orang-orang musyrik yang berkepala batu dan alasan-alasan serta dalil-dalil keesaan Allah dan adanya hari berbangkit.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

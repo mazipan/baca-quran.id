@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br><br><br> Surat Yunus terdiri atas 109 aya
 const closing = `<span class="gen"><br><br><br> Surat Yunus mengandung hal-hal yang berhubungan dengan pokok-pokok kepercayaan, lenyapnya syirik, pengutusan rasul, hari berbangkit, hari pembalasan dan hal-hal yang berhubungan dengan pokok-pokok agama sebagaimana biasa didapati dalam surat-surat Makkiyyah.<br><br><i>HUBUNGAN SURAT YUNUS DENGAN SURAT HUUD</i><br><br> 1. Kedua surat ini sama-sama dimulai dengan <i>alif laam raa</i>, kemudian diiringi dengan menyebutkan risalah nabi-nabi yang diutus Allah dan menerangkan kedudukan para rasul sebagai pemberi kabar gembira dan pemberi peringatan.<br><br> 2. Kedua surat ini pada pertengahannya sama-sama menerangkan tentang keingkaran orang-orang kafir terhadap Al Quran, bantahan terhadap anggapan kepalsuan risalah para rasul, keingkaran kaum musyrikin terhadap pokok agama. Kemudian kedua surat ini sama-sama ditutup dengan seruan agar mengikuti rasul, bersabar terhadap semua tindakan jahat kaum musyrikin, istiqaamah dan bertawakkal kepada Allah.<br><br> 3. Sama-sama menerangkan kisah para nabi, tetapi kisah para disebut dalam surat Huud bersifat menjelaskan apa yang telah dalam surat Yunus. Pada umumnya apa yang diutarakan dalam surat Huud merupakan penjelasan dari apa yang telah disebut dalam surat Yunus.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

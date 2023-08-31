@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Ar Ruum terdiri atas 60 ayat, term
 const closing = `<span class="gen"><br> Surat Ar Ruum menyebutkan hal-hal yang berhubungan dengan kekuasaan Allah yang mutlak terhadap semua urusan baik sebelum atau sesudah maupun di saat terjadinya suatu peristiwa; agama tauhid (Islam) pasti menang; ancaman-ancaman terhadap kaum musyrikin ; watak-watak manusia; penyebutan kejadian-kejadian pada alam ini sebagai bukti kekuasaan dan ke-Esaan Allah.<br><br><i>HUBUNGAN SURAT AR RUUM DENGAN SURAT LUQMAN</i><br><br> 1. Dalam surat Ar Ruum disebutkan bahwa di dalam Al Quran Allah banyak membuat tamsil/ibarat yang bermanfaat bagi manusia, sedang dalam surat Luqman Allah mengisyaratkan yang demikian.<br><br> 2. Pada bagian akhir surah Ar Ruum disebutkan bahwa keadaan orang kafir itu bila dibacakan kepada mereka ayat-ayat Al Quran mereka selalu membantah dan mendustakannya, sedang pada bahagian permulaan surat Luqman diterangkan keadaan mereka yaitu mereka selalu berpaling dan bersifat sombong terhadap ayat-ayat Al Quran itu.<br><br> 3. Pada surat Ar Ruum terdapat ketegasan bahwa Allah-lah yang memulai penciptaan makhluk dan Dia pulalah yang menciptakannya pada kali yang kedua. Hal itu amat mudah bagi-Nya. Dalam surat Luqman Allah menegaskan bahwa penciptaan manusia dan membangkitkannya kembali di akhirat adalah mudah pula bagi Allah.<br><br> 4. Pada surat Ar Ruum Allah menerangkan tabi'at manusia bahwa apabila mereka ditimpa bahaya mereka berserah diri kepada Tuhannya dan bila mendapat rahmat sebahagian dari mereka kembali mempersekutukan-Nya. Dalam surat Luqman diterangkan tentang watak manusia itu dengan memberikan contoh, yaitu ketika manusia ditimpa bahaya di tengah lautan, dan ketika mereka telah selamat sampai di darat.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

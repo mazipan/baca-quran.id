@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al 'Alaq terdiri atas 19 ayat, ter
 const closing = `<span class="gen"><br><br><br> Surat Al 'Alaq menerangkan bahwa Allah menciptakan manusia dari benda yang hina kemudian memuliakannya dengan mengajar membaca, menulis dan memberinya pengetahuan. Tetapi manusia tidak ingat lagi akan asalnya, karena itu dia tidak mensyukuri nikmat Allah itu, bahkan dia bertindak melampaui batas karena melihat dirinya telah merasa serba cukup.<br><br><i>HUBUNGAN SURAT AL 'ALAQ DENGA SURAT AL QADR</i><br><br> Pada surat Al 'Alaq Allah memerintahkan agar Rasulullah s.a.w. membaca Al Quran, sedang pada surat Al Qadr Allah menerangkan tentang permulaan turunnya Al Quran.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

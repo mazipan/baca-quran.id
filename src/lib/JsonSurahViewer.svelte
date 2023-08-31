@@ -11,5 +11,5 @@
 		{/each}
 	</ul>
 {:else}
-  <span>N/A</span>
+	<span>N/A</span>
 {/if}

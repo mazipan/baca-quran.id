@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 11 ayat, termasuk
 const closing = `<span class="gen"><br> Surat Al Munaafiquun menerangkan sifat-sifat orang munafik dan mengandung anjuran untuk berkorban dengan harta benda.<br><br><i>HUBUNGAN SURAT AL MUNAAFIQUUN DENGAN SURAT AT TAGHAABUN</i><br><br> 1. Dalam surat Al Munaafiquun diterangkan sifat-sifat orang munafik sedang pada surat At Taghaabun diterangkan sifat-sifat orang kafir.<br><br> 2. Dalam surat Al Munaafiquun Allah memperingatkan bahwa harta benda dan anak-anak jangan sampai melalaikan seseorang dari mengingat Allah, dan pada surat At Taghaabun ditegaskan bahwa harta benda dan anak-anak itu adalah cobaan dan ujian bagi keimanan seseorang.<br><br> 3. Kedua surat ini sama-sama mengajak agar menafkahkan harta untuk menegakkan agama Allah.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

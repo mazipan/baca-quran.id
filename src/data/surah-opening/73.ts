@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Muzzammil terdiri atas 20 ayat,
 const closing = `<span class="gen"><br> Surat Al Muzzammil menerangkan hal-hal yang berhubungan dengan petunjuk-petunjuk Allah untuk menguatkan jiwa yang bagi seseorang yang akan melakukan tugas yang berat.<br><br><i>HUBUNGAN SURAT AL MUZZAMMIL DENGAN SURAT AL MUDDATSTSIR</i><br><br> 1. Kedua surat ini sama-sama dimulai dengan seruan kepada Nabi Muhammad s.a.w.<br> 2. Surat Al Muzzammil berisi perintah bangun di malam hari bersembahyang tahajjud dan membaca Al Quran untuk menguatkan jiwa seseorang sedang Surat Al Muddatstsir berisi perintah melakukan da'wah mensucikan diri, dan bersabar.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

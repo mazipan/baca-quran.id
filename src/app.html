@@ -11,17 +11,17 @@
 
 		<script>
 			(function () {
-        // Unused for now
+				// Unused for now
 				window.__headerTheme = {
 					dark: '#172642',
 					light: '#f5f7fb',
-					sepia: '#704214',
+					sepia: '#704214'
 				};
 
 				var __textColor = {
 					light: 'text-gray-900',
 					dark: 'text-gray-200',
-					sepia: 'text-gray-200',
+					sepia: 'text-gray-200'
 				};
 
 				var __currentTheme;
@@ -33,7 +33,7 @@
 					window.__theme = newTheme;
 					__currentTheme = newTheme;
 					// document.body.className = newTheme;
-					document.querySelector('html').setAttribute('class', `theme-${newTheme}`)
+					document.querySelector('html').setAttribute('class', `theme-${newTheme}`);
 					document
 						.querySelector('body')
 						?.setAttribute('class', ` bg-primary ${__textColor[newTheme]}`);
@@ -43,9 +43,9 @@
 					} catch (err) {}
 				}
 
-				window.__setActiveTheme = setTheme
+				window.__setActiveTheme = setTheme;
 
-        // Run on the page load
+				// Run on the page load
 				setTheme(__currentTheme);
 			})();
 		</script>

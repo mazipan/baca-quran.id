@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Insyiqaaq, terdiri atas 25 ayat
 const closing = `<span class="gen"><br> Surat Al Insyiqaaq mengutarakan kejadian-kejadian permulaan terjadinya hari kiamat, bagaimana balasan amaan yang baik dan perbuatan yang buruk; dan kepastian terjadinya hari kiamat yang ditentang oleh orang-orang kafir.<br><br> HUBUNGAN SURAT AL INSYIQAAQ DENGAN SURAT AL BURUUJ<br><br> 1. Kedua surat ini sama-sama menerangkan janji-janji Allah kepada orang- orang mukmin serta ancaman-anacaman-Nya kepada orang yang mengingkari seruan Rasululah s.a.w.<br> 2. Pada surat Al Insyiqaaq diterangkan sikap orang-orang musyrik terhadap seruan rasululah s.a.w., sedang surat Al Buruuj menerangkan sikap orang- orang musyrik dan tindakan-tindakan mereka yang biasa mereka lakukan sejak dahulu terhadap orang-orang yang menerima seruan para rasul.</span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

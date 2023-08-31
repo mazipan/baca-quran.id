@@ -8,7 +8,10 @@
 		<slot />
 	</div>
 {:else}
-	<a class={`relative rounded-lg overflow-hidden shadow  p-4   bg-secondary ${$$props.class}`} href={href}>
+	<a
+		class={`relative rounded-lg overflow-hidden shadow  p-4   bg-secondary ${$$props.class}`}
+		{href}
+	>
 		<slot />
 	</a>
 {/if}

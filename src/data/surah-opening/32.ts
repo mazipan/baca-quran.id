@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat As Sajdah terdiri atas 30 ayat ter
 const closing = `<span class="gen"><br> Surat As Sajdah mengemukakan hal-hal yang berhubungan dengan kebenaran Nabi Muhammad SAW sebagai Rasul Allah dan Al-Quran yang diturunkan kepadanya merupakan petunjuk bagi manusia, menegaskan tentang ketauhidan dan kekuasaan Allah dengan mengemukakan hal-hal yang ber- hubungan dengan masa terciptanya alam, proses kejadian manusia dan kebangkitan di hari kiamat serta keajaiban yang terdapat pada alam semesta. Semuanya itu dikemukakan sebagai bantahan terhadap hujah-hujah yang dikemukakan oleh orang-orang musyrikin dan untuk menghilangkan keragu-raguan mereka.<br><br><i>HUBUNGAN SURAT AS SAJDAH DENGAN SURAT AL AHZAB</i><br><br> Surat As Sajdah diakhiri dengan perintah Nabi Muhammad SAW kepada orang-orang mukmin supaya jangan menghiraukan orang-orang kafir itu dan hendaklah ditunggu saja siksaan yang akan menimpa mereka, sedang surat Al Ahzab dimulai dengan perintah Nabi Muhammad SAW supaya orang- orang mukmin tetap bertakwa dan jangan mengikuti orang-orang kafir dan munafik.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

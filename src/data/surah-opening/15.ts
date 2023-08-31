@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 99 ayat, termasuk
 const closing = `<span class="gen"><br> Dalam surat Al Hijr ini banyak terdapat ayat-ayat yang menunjukkan bukti-bukti adanya Allah serta kekuasaan-Nya, baik bukti-bukti yang ada di langit dan di bumi, maupun yang ada pada kejadian manusia serta kehidupan mereka. Disebutkan pula di dalamnya kisah-kisah beberapa nabi dan macam-macam azab yang ditimpakan kepada kaum yang mendustakan para rasul Allah itu. Tercantum juga tentang anugerah Allah yang besar yang diberikan kepada Nabi Muhammad s.a.w. yakni As Sab'ul Matsaani atau surat Al Faatihah dan Al Quranul Karim.<br><br><i>HUBUNGAN SURAT AL HIJR DENGAN SURAT AN NAHL</i><br><br> 1. Sebagaimana umumnya surat-surat yang turun di Mekah sebelum hijrah berisi soal-soal ketauhidan, kerasulan dan hari kiamat, begitu pulalah kedua surat ini.<br><br> 2. Pada bagian akhir surat Al Hijr (ayat 92, 93), Allah menyatakan bahwa manusia akan diminta pertanggungan jawabnya pada hari kiamat terhadap apa yang telah dikerjakannya di dunia ini, maka pada awal surat An Nahl, Allah menegaskan kepastian datangnya hari kiamat itu, dan pada ayat 93 An Nahl ditegaskan lagi pertanggungan jawab manusia itu.<br><br> 3. Pada bagian pertama surat Al Hijr, Allah menerangkan tentang kebenaran Al Quran serta jaminan-Nya untuk memeliharanya, sedang dalam surat An Nahl terdapat ancaman-ancaman terhadap mereka yang mendustakan kebenaran Al Quran itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

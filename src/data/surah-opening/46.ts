@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Al Ahqaaf terdiri dari 35 ayat ter
 const closing = `<span class="gen"><br> Surat Al Ahqaaf menerangkan tentang diturunkannya Al Qur'an daripada Allah s.w.t. dan imannya segolongan jin kepada Nabi Muhammad s.a.w., keimanan, kebatilan, syirik, pernyataan bahwa risalah Muhammad s.a.w. adalah dari Allah, perintah Allah supaya menghormati orang tua dan mendoakannya, memperingatkan kaum musyrikin tentang azab yang telah ditimpakan kepada kaum Hud. Dan surat ini ditutup dengan nasehat keharusan bersabar bagi Nabi Muhammad s.a.w.<br><br><i>HUBUNGAN SURAT AL AHQAAF DENGAN SURAT MUHAMMAD</i><br><br> Hubungan surat Al Ahqaaf dengan surat Muhammad ialah pada Al Ahqaaf Allah mengancam orang-orang kafir dengan kebinasaan, pada permulaan surat Muhammad disebutkan bahwa Allah membinasakan semua orang kafir dan Allah memerintahkan Muhammad s.a.w. memerangi mereka.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

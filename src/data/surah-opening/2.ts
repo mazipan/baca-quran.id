@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat <i>Al Baqarah</i> yang 286 ayat it
 const closing = `<span class="gen"><br><br><i>Kesimpulan Surat Al Baqarah ialah:</i><br><br> 1. Menjelaskan beberapa hukum dalam agama Islam.<br> 2. Mengemukakan beberapa perumpamaan.<br> 3. Mengemukakan hujjah-hujjah.<br><br><i>Persesuaian surat Al Baqarah dengan surat Ali 'Imran</i><br><br> 1. Dalam surat Al Baqarah disebutkan Nabi Adam a.s. yang langsung diciptakan Tuhan, sedang dalam surat Ali 'Imran disebutkan tentang kelahiran Nabi Isa a.s. yang kedua-duanya dijadikan Allah menyimpang dari kebiasaan.<br> 2. Dalam surat Al Baqarah sifat dan perbuatan orang-orang Yahudi dibentangkan secara luas, disertai dengan hujjah untuk mematahkan hujjah-hujjah mereka yang membela kesesatan, sedang dalam surat Ali 'Imran dibentangkan hal-hal yang serupa yang berhubungan dengan orang Nasrani.<br> 3. Surat Al Baqarah dimulai dengan menyebutkan tiga golongan manusia, ialah orang-orang mukmin, orang-orang kafir dan orang-orang munafik, sedang surat Ali 'Imran dimulai dengan menyebutkan orang-orang yang suka menta'wilkan ayat yang mutasyabihaat dengan ta'wil yang salah untuk memfitnah orang mukmin dan menyebutkan orang yang mempunyai keahlian dalam menta'wilkannya.<br> 4. Surat Al Baqarah disudahi dengan permohonan kepada Allah agar diampuni kesalahan-kesalahan dan kealpaan dalam melaksanakan taat, sedang surat Ali 'Imrandisudahi dengan permohonan kepada Allah agar Dia memberi pahala atas amal kebaikan hamba-Nya.<br> 5. Surat Al Baqarah dimulai dengan menyebutkan sifat-sifat orang yang bertakwa, sedang surat Ali 'Imran dimulai dengan perintah bertaqwa.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

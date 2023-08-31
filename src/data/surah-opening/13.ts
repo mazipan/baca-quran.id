@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Ar Ra'd ini terdiri atas 43 ayat t
 const closing = `<span class="gen"><br> Surat Ar-Ra'd lebih banyak menitik beratkan pada pembuktian kebenaran keesaan Allah, kepastian akan terjadinya hari berbangkit. Dijelaskan pula tugas-tugas para rasul dan kebenaran dari kitab-kitab suci yang dibawa mereka. Terhadap mereka yang ingkar dan memusuhi para nabi-nabi itu, diterangkan bahwa mereka pasti mengalami kegagalan dan kehancuran.<br><br><i>HUBUNGAN SURAT AR RA'D DENGAN SURAT IBRAHIM</i><br><br> 1. Dalam surat Ar Ra'd disebutkan bahwa Al Quran itu diturunkan dalam bahasa Arab, sebagai pemisah antara yang baik dengan yang bathil, sedangkan hikmah menurunkan dalam bahasa Arab itu belum dijelaskan. Dalam surat Ibrahim hikmah itu dijelaskan.<br><br> 2. Dalam surat Ar Ra'd Allah mengatakan bahwa seorang rasul tak akan dapat melakukan suatu mukjizat tanpa izin dari Allah, maka dalam surat Ibrahim para rasul menegaskan bahwa beliau-beliau adalah manusia biasa, tak dapat mendatangkan suatu mukjizat tanpa izin Allah.<br><br> 3. Dalam surat Ar Ra'd disebutkan bahwa Nabi Muhammad s.a.w. menyerukan agar manusia bertawakkal kepada Allah, dan dalam surat Ibrahim, Nabi Muhammad s.a.w. menerangkan bahwa para rasul bertawakkal hanya kepada Allah.<br><br> 4. Dalam surat Ar Ra'd Allah menyebutkan perbuatan-perbuatan makar orang-orang kafir, maka di surat Ibrahim diulangi lagi, dan disebutkan pula sifat-sifat mereka yang tidak tersebut dalam surat Ar Ra'd itu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

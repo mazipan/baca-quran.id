@@ -264,7 +264,7 @@
 						);
 					}
 
-          // pinned surah
+					// pinned surah
 					if (data?.[CONSTANTS.STORAGE_KEY.PINNED_SURAH]) {
 						pinnedSurah.set(data?.[CONSTANTS.STORAGE_KEY.PINNED_SURAH]);
 						localStorage.setItem(

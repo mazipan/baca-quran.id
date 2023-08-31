@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 110 ayat, termasu
 const closing = `<span class="gen"><br> Surat Al Kahfi dimulai dengan menerangkan sifat Al Quran sebagai petunjuk dan peringatan bagi manusia, dan sebagai peringatan pula terhadap mereka yang mengatakan bahwa Allah mempunyai anak. Semua yang ada dipermukaan bumi merupakan perhiasan bagi bumi dan sengaja diciptakan Allah agar manusia memikirkan bagaimana cara mengambil manfaat dari semuanya itu. Kekuasaan Allah dan betapa luas pengetahuan-Nya dikemukakan dalam surat ini dengan menyebutkan kisah Nabi Musa a.s. dengan Khidhr a.s., kisah Dzulqarnain dan dengan mengibaratkan bahwa seandainya semua air yang ada di bumi dan ditambah lagi sebanyak itu pula dijadikan tinta untuk menulis ilmu Allah, tentu tidak akan mencukupi. Kemudian diterangkan bahwa semua amal orang musyrik itu tidak diberi pahala di akhirat, sedang untuk orang-orang mukmin disediakan Jannatun Na'im.<br><br><i>HUBUNGAN SURAT AL KAHFI DENGAN SURAT MARYAM</i><br><br> 1. Kedua surat ini sama-sama mengandung kisah yang ajaib, seperti surat Al Kahfi mengemukakan kisah Ashhabul Kahfi, kisah Musa a.s. dengan Khidhr a.s., kisah Dzulqarnain, sedang surat Maryam mengemukakan kisah keluarga Yahya a.s. di waktu bapaknya Zakariya a.s. telah sangat tua dan ibunya seorang wanita tua yang mandul, dan kisah kelahiran Isa a.s. tanpa bapak.<br><br> 2. Bagian akhir surat Al Kahfi menerangkan tentang ancaman Allah terhadap orang-orang kafir yang mengambil pelindung selain Allah, semua amal mereka sia-sia dan mereka dimasukkan ke dalam neraka, sedang pada bagian akhir surat Maryam diulangi lagi celaan dan ancaman Allah terhadap orang-orang yang mempersekutukan-Nya.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

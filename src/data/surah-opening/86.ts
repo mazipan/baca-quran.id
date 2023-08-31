@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat Ath Thaariq terdiri atas 17 ayat, 
 const closing = `<span class="gen"><br> Surat Ath Thaariq menerangkan bahwa tiap-tiap diri tidak luput dari pengawasan Allah. Sebagaimana Allah menciptakan manusia, maka Allah dapat pula menghidupkan kembali bila ia telah mati; keterangan tentang Al Quran; bujukan kepada Nabi Muhammad s.a.w. terhadap tipu daya orang- orang kafir.<br><br><i>HUBUNGAN SURAT ATH THAARIQ DENGAN SURAT AL A'LAA</i><br><br> Pada surat Ath Thaariq diterangkan tentang penciptaan manusia dan diisyaratkan pula penciptaan tumbuh-tumbuhan, sedang pada surat Al A'laa diterangkan bahwa Allah menciptakan alam dengan sempurna dan dengan ukuran-ukuran tertentu.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;

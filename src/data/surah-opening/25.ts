@@ -3,8 +3,8 @@ const opening = `<span class="gen"><br> Surat ini terdiri atas 77 ayat, termasuk
 const closing = `<span class="gen"><br><br><br> Surat Al Furqaan mengandung penjelasan tentang kebenaraan ke Esaan Allah, kenabian Muhammad s.a.w. serta peristiwa-peristiwa yang terjadi pada hari kiamat dan mengemukakan pula kebatalan kemusyrikan dan kekafiran. Kejadian alamiyah seperti pergantian siang dan malam, bertiupnya angin, turunnya hujan dan lain-lain diterangkan Allah dalam surat ini sebagai bukti dari ke Esaan dan kekuasaan-Nya. Akibat umat-umat yang dahulu yang ingkar dan menentang nabi-nabi dikisahkan pula secara ringkas. Pada bagian terakhir, Allah menerangkan sifat-sifat yang terpuji dari hamba-Nya yang beriman.<br><br><i>HUBUNGAN SURAT AL FURQAAN DENGAN SURAT ASY SYU'ARAA'</i><br><br> 1. Beberapa persoalan dalam surat Al Furqaan diuraikan lagi secara luas di dalam surat yang Asy Syu'araa' antara lain beberapa kisah nabi-nabi.<br><br> 2. Masing-masing dari kedua surat itu dimulai dengan keterangan dari Allah bahwa Al Quran adalah petunjuk bagi alam semesta dan membedakan barang yang hak dengan yang batil, dan ditutup dengan ancaman kepada orang- orang yang mendustakan.<br><br></span>`;
 
 const openingClosing = {
-  opening,
-  closing,
+	opening,
+	closing
 };
 
 export default openingClosing;
