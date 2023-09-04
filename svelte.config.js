@@ -1,5 +1,6 @@
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import adapter from '@sveltejs/adapter-static';
+import * as child_process from 'node:child_process';
 
 import verseCountPerSurah from './scripts/verseCountPerSurah.js';
 import { staticUrls } from './scripts/routes.js';
@@ -24,6 +25,9 @@ const config = {
 	}),
 
 	kit: {
+    version: {
+      name: child_process.execSync('git rev-parse --short HEAD').toString().trim() || Date.now().toString()
+    },
 		alias: {
 			$lib: 'src/lib',
 			$data: 'src/data',
