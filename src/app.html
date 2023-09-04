@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-light">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/images/icon-32.png" />
@@ -13,8 +13,8 @@
 			(function () {
 				// Unused for now
 				window.__headerTheme = {
-					dark: '#172642',
 					light: '#f5f7fb',
+					dark: '#172642',
 					sepia: '#704214'
 				};
 
@@ -24,15 +24,10 @@
 					sepia: 'text-gray-200'
 				};
 
-				var __currentTheme;
-				try {
-					__currentTheme = localStorage.getItem('theme');
-				} catch (err) {}
+				window.__theme = 'light';
 
 				function setTheme(newTheme) {
 					window.__theme = newTheme;
-					__currentTheme = newTheme;
-					// document.body.className = newTheme;
 					document.querySelector('html').setAttribute('class', `theme-${newTheme}`);
 					document
 						.querySelector('body')
@@ -46,7 +41,10 @@
 				window.__setActiveTheme = setTheme;
 
 				// Run on the page load
-				setTheme(__currentTheme);
+				try {
+					window.__theme = localStorage.getItem('theme');
+				} catch (err) {}
+				setTheme(window.__theme);
 			})();
 		</script>
 

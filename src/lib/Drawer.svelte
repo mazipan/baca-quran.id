@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class={`fixed top-0 left-auto z-20 w-[250px] h-full transition-all duration-500 transform shadow-lg bg-secondary  ${
+	class={`fixed top-0 left-auto z-20 w-[250px] h-full transition-all duration-500 transform shadow-lg bg-secondary ${
 		open ? 'translate-x-0' : '-translate-x-full'
 	}`}
 >
