@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover" id="body">
+	<body data-sveltekit-preload-data="hover" id="body" class="bg-primary">
 		<div style="display: contents">%sveltekit.body%</div>
 
 		<script>
@@ -27,24 +27,29 @@
 				window.__theme = 'light';
 
 				function setTheme(newTheme) {
-					window.__theme = newTheme;
-					document.querySelector('html').setAttribute('class', `theme-${newTheme}`);
-					document
-						.querySelector('body')
-						?.setAttribute('class', ` bg-primary ${__textColor[newTheme]}`);
+					if (newTheme) {
+						window.__theme = newTheme;
+						document.querySelector('html').setAttribute('class', `theme-${newTheme}`);
+						document
+							.querySelector('body')
+							?.setAttribute('class', `bg-primary ${__textColor[newTheme]}`);
 
-					try {
-						localStorage.setItem('theme', newTheme);
-					} catch (err) {}
+						try {
+							localStorage.setItem('theme', newTheme);
+						} catch (err) {}
+					}
 				}
 
 				window.__setActiveTheme = setTheme;
 
 				// Run on the page load
 				try {
-					window.__theme = localStorage.getItem('theme');
+          var t = localStorage.getItem('theme')
+          if (t) {
+					  window.__theme = t;
+          }
 				} catch (err) {}
-				setTheme(window.__theme);
+				setTheme(window.__theme || 'light');
 			})();
 		</script>
 
