@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover" id="body" class="bg-primary">
+	<body data-sveltekit-preload-data="hover" id="body" class="bg-primary text-gray-900">
 		<div style="display: contents">%sveltekit.body%</div>
 
 		<script>
@@ -26,17 +26,23 @@
 
 				window.__theme = 'light';
 
-				function setTheme(newTheme) {
-					if (newTheme) {
-						window.__theme = newTheme;
-						document.querySelector('html').setAttribute('class', `theme-${newTheme}`);
-						document
-							.querySelector('body')
-							?.setAttribute('class', `bg-primary ${__textColor[newTheme]}`);
+				function setProperTheme(newTheme = 'light') {
+					window.__theme = newTheme;
+					document.querySelector('html').setAttribute('class', `theme-${newTheme}`);
+					document
+						.querySelector('body')
+						.setAttribute('class', `bg-primary ${__textColor[newTheme]}`);
 
-						try {
-							localStorage.setItem('theme', newTheme);
-						} catch (err) {}
+					try {
+						localStorage.setItem('theme', newTheme);
+					} catch (err) {}
+				}
+
+				function setTheme(newTheme = 'light') {
+					if (newTheme && newTheme !== 'null') {
+						setProperTheme(newTheme);
+					} else {
+						setProperTheme('light');
 					}
 				}
 
@@ -44,12 +50,12 @@
 
 				// Run on the page load
 				try {
-          var t = localStorage.getItem('theme')
-          if (t) {
-					  window.__theme = t;
-          }
+					var t = localStorage.getItem('theme');
+					if (t && t !== 'null') {
+						window.__theme = t;
+					}
 				} catch (err) {}
-				setTheme(window.__theme || 'light');
+				setTheme(window.__theme);
 			})();
 		</script>
 
