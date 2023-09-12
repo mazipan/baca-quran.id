@@ -34,6 +34,7 @@
 				{/each}
 			{/each}
 
+			<circle class="clock-center" r="2" />
 			<!-- hour hand -->
 			<line class="hour" y1="2" y2="-20" transform="rotate({30 * hours + minutes / 2})" />
 
@@ -47,16 +48,14 @@
 			</g>
 		</svg>
 	</div>
-	<div class="flex flex-col gap-2 flex-1 items-center justify-center">
+	<div class="flex flex-col gap-2 flex-1 items-end justify-center">
 		<div class="flex gap-2 justify-end text-2xl font-bold">
 			<span>{hours < 10 ? `0${hours}` : hours}</span>
 			<span>:</span>
 			<span>{minutes < 10 ? `0${minutes}` : minutes}</span>
-			<span>:</span>
-			<span>{seconds < 10 ? `0${seconds}` : seconds}</span>
 		</div>
 		<div class="flex justify-end text-lg">
-			{new Date().toLocaleDateString('id-ID', { month: 'long', day: '2-digit', year: 'numeric' })}
+			{new Date().toLocaleDateString('id-ID', { month: 'short', day: '2-digit', year: 'numeric' })}
 		</div>
 	</div>
 </div>
@@ -72,6 +71,11 @@
 		fill: white;
 	}
 
+  .clock-center{
+		stroke: #333;
+    fill: #333;
+  }
+
 	.minor {
 		stroke: #999;
 		stroke-width: 0.5;
@@ -84,10 +88,11 @@
 
 	.hour {
 		stroke: #333;
+		stroke-width: 2;
 	}
 
 	.minute {
-		stroke: #666;
+		stroke: #999;
 	}
 
 	.second,

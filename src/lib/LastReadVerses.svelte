@@ -27,7 +27,7 @@
 {:else}
 	<div class="grid grid-cols-3 gap-2">
 		{#each $lastReadVerses as verse (`${verse.s}-${verse.v}`)}
-			<CardShadow href={`/surah/${verse.s}/${verse.v}/`} _as="a">
+			<CardShadow href={`/surah/${verse.s}/#ayat-${verse.v}`} _as="a">
 				<span
 					class="absolute top-1 left-1 flex w-2.5 h-2.5 bg-blue-600 rounded-full mr-1.5 flex-shrink-0"
 				/>

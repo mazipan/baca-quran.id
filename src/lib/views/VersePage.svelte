@@ -20,8 +20,8 @@
 
 <svelte:head>
 	<MetaTag
-		title={META_TITLE_AYAH(verseid, surahInfo.current.latin)}
-		desc={META_DESC_AYAH(verseid, surahInfo.current.latin)}
+		title={META_TITLE_AYAH(verseid, surahid, surahInfo.current.latin, surahInfo.current.translation)}
+		desc={META_DESC_AYAH(verseid, surahid, surahInfo.current.latin, surahInfo.current.translation)}
 		url={`${TITLE_CONSTANTS.PATH}surah/${surahid}/${verseid}/`}
 		canonical={`${TITLE_CONSTANTS.PATH}surah/${surahid}/${verseid}/`}
 	/>

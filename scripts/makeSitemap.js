@@ -23,12 +23,14 @@ const allVerseObject = [];
 
 for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
 	allSurahObject.push(makeObjectSitemap(`/surah/${indexSurah + 1}/`, 0.7));
+	allSurahObject.push(makeObjectSitemap(`/amp/${indexSurah + 1}/`, 0.7));
 	allSurahObject.push(makeObjectSitemap(`/${indexSurah + 1}/`, 0.7));
 
 	const verseCount = verseCountPerSurah[`${indexSurah + 1}`];
 
 	for (let indexVerse = 0; indexVerse < verseCount; indexVerse++) {
 		allVerseObject.push(makeObjectSitemap(`/surah/${indexSurah + 1}/${indexVerse + 1}/`));
+		allVerseObject.push(makeObjectSitemap(`/amp/${indexSurah + 1}/${indexVerse + 1}/`));
 		allVerseObject.push(makeObjectSitemap(`/${indexSurah + 1}/${indexVerse + 1}/`));
 	}
 }

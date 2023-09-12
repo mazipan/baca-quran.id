@@ -8,10 +8,12 @@ import { staticUrls } from './scripts/routes.js';
 const allSurahAndVerse = [];
 for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
 	allSurahAndVerse.push(`/${indexSurah + 1}`);
+	allSurahAndVerse.push(`/amp/${indexSurah + 1}`);
 	allSurahAndVerse.push(`/surah/${indexSurah + 1}`);
 	const verseCount = verseCountPerSurah[`${indexSurah + 1}`];
 	for (let indexVerse = 0; indexVerse < verseCount; indexVerse++) {
 		allSurahAndVerse.push(`/${indexSurah + 1}/${indexVerse + 1}`);
+		allSurahAndVerse.push(`/amp/${indexSurah + 1}/${indexVerse + 1}`);
 		allSurahAndVerse.push(`/surah/${indexSurah + 1}/${indexVerse + 1}`);
 	}
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { navigating } from '$app/stores';
+	import { navigating, page } from '$app/stores';
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import Pagination from '$lib/Pagination.svelte';
@@ -9,12 +9,37 @@
 	import { META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/utils/json-ld';
 	import type { SurahInfoPage } from '$data/surah-info';
+	import { onMount } from 'svelte';
 
 	export let data: any;
 
 	let surahid = data?.surahid;
 	let surahData = data?.surahData;
 	let surahInfo = data?.surahInfo as SurahInfoPage;
+  let timeout: any = null
+
+	onMount(() => {
+		if ($page.url.hash) {
+      if (timeout !== null) {
+        clearTimeout(timeout)
+      }
+
+			timeout = setTimeout(() => {
+				const element = document.getElementById($page.url.hash.replace('#', ''));
+				if (element && element.getBoundingClientRect) {
+					const elementPosition = element.getBoundingClientRect().top;
+					const offsetPosition = elementPosition + window.pageYOffset;
+
+					if (window.scrollTo) {
+						window.scrollTo({
+							top: offsetPosition,
+							behavior: 'smooth'
+						});
+					}
+				}
+			}, 500);
+		}
+	});
 </script>
 
 <svelte:head>

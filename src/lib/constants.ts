@@ -84,10 +84,10 @@ export const META_TITLE_SURAH = (name: string) =>
 	`Qur'an Surat ${name} | ${TITLE_CONSTANTS.TITLE_META}`;
 export const META_DESC_SURAH = (name: string) => `Qur'an Surat ${name} ${postfix(true)}`;
 
-export const META_TITLE_AYAH = (verseid: string, name: string) =>
-	`Surat ${name}, Ayat ke ${verseid || 1} | ${TITLE_CONSTANTS.TITLE_META}`;
-export const META_DESC_AYAH = (verseid: string, name: string) =>
-	`Surat ${name}, Ayat ke ${verseid || 1} ${postfix(true)}`;
+export const META_TITLE_AYAH = (verseid: string, surahid: string, name: string, translation: string) =>
+	`QS ${surahid}:${verseid}, Surat ${name} - ${translation}, Ayat ${verseid || 1} | ${TITLE_CONSTANTS.TITLE_META}`;
+export const META_DESC_AYAH = (verseid: string, surahid: string, name: string, translation: string) =>
+	`Ayat ${verseid || 1} dari Surat ${name} - ${translation} - (QS ${surahid}:${verseid}) ${postfix(true)}`;
 
 export type SeoArgs = {
 	surahLatin: string;
