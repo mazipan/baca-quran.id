@@ -18,6 +18,13 @@ for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
 	}
 }
 
+const gitRev = child_process.execSync('git rev-parse --short HEAD').toString().trim() || ''
+const dateRev = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit'
+}).replace(/-|\//g, "")
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
@@ -28,7 +35,7 @@ const config = {
 
 	kit: {
     version: {
-      name: child_process.execSync('git rev-parse --short HEAD').toString().trim() || Date.now().toString()
+      name: `${gitRev}-${dateRev}`
     },
 		alias: {
 			$lib: 'src/lib',
