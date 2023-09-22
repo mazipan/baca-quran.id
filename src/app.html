@@ -1,37 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-light">
+<html lang="en" class="light">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/images/icon-32.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover" id="body" class="bg-primary text-gray-900">
+	<body data-sveltekit-preload-data="hover" id="body" class="bg-primary text-foreground">
 		<div style="display: contents">%sveltekit.body%</div>
 
 		<script>
 			(function () {
-				// Unused for now
-				window.__headerTheme = {
-					light: '#f5f7fb',
-					dark: '#172642',
-					sepia: '#704214'
-				};
-
-				var __textColor = {
-					light: 'text-gray-900',
-					dark: 'text-gray-200',
-					sepia: 'text-gray-200'
-				};
-
 				window.__theme = 'light';
 
 				function setProperTheme(newTheme = 'light') {
 					window.__theme = newTheme;
-					document.querySelector('html').setAttribute('class', `theme-${newTheme}`);
-					document
-						.querySelector('body')
-						.setAttribute('class', `bg-primary ${__textColor[newTheme]}`);
+					document.querySelector('html').setAttribute('class', `${newTheme}`);
 
 					try {
 						localStorage.setItem('theme', newTheme);

@@ -67,35 +67,37 @@
 		Goal: {target}
 	</div>
 	<div class="flex justify-center items-center gap-4">
-		<Button
-			variant="filled"
-			class={`px-4 ${target === 11 ? 'bg-gray-300 dark:bg-blueish-500' : ''}`}
-			onClick={() => {
-				handleSetTarget(11);
-			}}
-		>
-			<span class="text-xl">11</span>
-		</Button>
-		<Button
-			variant="filled"
-			class={`px-4 ${target === 33 ? 'bg-gray-300 dark:bg-blueish-500' : ''}`}
-			onClick={() => {
-				handleSetTarget(33);
-			}}
-		>
-			<span class="text-xl">33</span>
-		</Button>
-		<Button
-			variant="filled"
-			class={`px-4 ${target === 99 ? 'bg-gray-300 dark:bg-blueish-500' : ''}`}
-			onClick={() => {
-				handleSetTarget(99);
-			}}
-		>
-			<span class="text-xl">99</span>
-		</Button>
+		<div class="flex justify-center items-center">
+			<Button
+				variant="filled"
+				class={`px-4 rounded-l-lg rounded-r-none border-2 border-secondary ${target === 11 ? 'bg-secondary' : ''}`}
+				onClick={() => {
+					handleSetTarget(11);
+				}}
+			>
+				<span class="text-xl">11</span>
+			</Button>
+			<Button
+				variant="filled"
+				class={`px-4 rounded-none border-t-2 border-b-2 border-secondary ${target === 33 ? 'bg-secondary' : ''}`}
+				onClick={() => {
+					handleSetTarget(33);
+				}}
+			>
+				<span class="text-xl">33</span>
+			</Button>
+			<Button
+				variant="filled"
+				class={`px-4 rounded-r-lg rounded-l-none border-2 border-secondary ${target === 99 ? 'bg-secondary' : ''}`}
+				onClick={() => {
+					handleSetTarget(99);
+				}}
+			>
+				<span class="text-xl">99</span>
+			</Button>
+		</div>
 		<input
-			class="text-md border-0 rounded-lg focus:ring-2 focus:ring-blue-500 block p-2.5 placeholder-gray-400 w-20 bg-secondary"
+			class="text-md border-0 rounded-lg focus:ring-2 focus:ring-blue-500 block p-2.5 placeholder-foreground-secondary w-20 bg-secondary"
 			bind:value={target}
 			type="number"
 		/>

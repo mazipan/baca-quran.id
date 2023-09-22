@@ -32,9 +32,9 @@
 					class="absolute top-1 left-1 flex w-2.5 h-2.5 bg-blue-600 rounded-full mr-1.5 flex-shrink-0"
 				/>
 				<div class="flex flex-col gap-1 items-center justify-center">
-					<span class="text-xs text-gray-400">{verse.l}</span>
+					<span class="text-xs text-foreground-secondary">{verse.l}</span>
 					<span class="font-bold text-xl font-arabic">{verse.a}</span>
-					<span class="text-sm text-gray-400">Ayat {verse.v}</span>
+					<span class="text-sm text-foreground-secondary">Ayat {verse.v}</span>
 				</div>
 			</CardShadow>
 		{/each}

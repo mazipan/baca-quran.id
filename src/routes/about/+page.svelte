@@ -151,4 +151,22 @@
 			status dari kondisi server Baca-Quran.id
 		</li>
 	</ul>
+
+
+	<p class="mb-2">Karya lain:</p>
+
+	<ul class="list-decimal ml-6 mb-4">
+		<li>
+			<a class="underline" href="https://ksana.in/" target="_blank" rel="noopener"
+				>Ksana.in,
+			</a>
+			Pemendek tautan yang mudah dan gratis
+		</li>
+		<li>
+			<a class="underline" href="https://www.tanyaaja.in/" target="_blank" rel="noopener"
+				>TanyaAja.in,
+			</a>
+			Kumpulkan pertanyaan secara anonim dari siapa saja dengan mudah
+		</li>
+	</ul>
 </article>

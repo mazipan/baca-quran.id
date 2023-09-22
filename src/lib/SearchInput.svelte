@@ -8,7 +8,7 @@
 
 <div class="relative mb-4">
 	<input
-		class="text-md border-0 rounded-lg focus:ring-2 focus:ring-blue-500 block p-2.5 pl-10 placeholder-gray-400 w-full bg-secondary"
+		class="text-md border-0 rounded-lg focus:ring-2 focus:ring-blue-500 block p-2.5 pl-10 placeholder-foreground-secondary w-full bg-secondary"
 		value={searchText}
 		on:input={onChange}
 		type="search"

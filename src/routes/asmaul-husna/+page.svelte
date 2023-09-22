@@ -36,8 +36,8 @@
 							</Badge>
 							<span class="font-bold">{item.latin}</span>
 						</div>
-						<small class="text-xs text-gray-400">🇬🇧 {item.translation_en}</small>
-						<small class="text-xs text-gray-400">🇮🇩 {item.translation_id}</small>
+						<small class="text-xs text-foreground-secondary">🇬🇧 {item.translation_en}</small>
+						<small class="text-xs text-foreground-secondary">🇮🇩 {item.translation_id}</small>
 					</div>
 				</div>
 

@@ -52,7 +52,7 @@
 
 	{#if show}
 		<div
-			class={`absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none bg-secondary`}
+			class={`absolute right-0 z-20 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none bg-secondary`}
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="menu-button"
@@ -73,7 +73,7 @@
 					>
 						<div class="flex items-center gap-2">
 							<span
-								class="flex w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 border"
+								class="flex w-6 h-6 rounded-full flex-shrink-0 border"
 								style={`background-color: ${theme.bg}; border-color: ${
 									theme.name === $activeTheme ? theme.border : theme.bg
 								};`}

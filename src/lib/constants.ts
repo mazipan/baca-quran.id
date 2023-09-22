@@ -156,9 +156,25 @@ export const THEMES = [
 		bg: '#142C66',
 		border: '#FFF'
 	},
+  // -- issue with hsl conversion
+	// {
+	// 	name: 'sepia',
+	// 	bg: '#704214',
+	// 	border: '#FFF'
+	// },
 	{
-		name: 'sepia',
-		bg: '#704214',
+		name: 'forest',
+		bg: '#016A70',
+		border: '#FFF'
+	},
+	{
+		name: 'pinky',
+		bg: '#FF597B',
+		border: '#FFF'
+	},
+	{
+		name: 'halloween',
+		bg: '#451952',
 		border: '#FFF'
 	}
 ];

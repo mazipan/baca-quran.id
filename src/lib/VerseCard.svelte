@@ -63,7 +63,7 @@
 				</Button>
 			{/if}
 		</div>
-		<div class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8">
+		<div class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8 border-foreground">
 			{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
 		</div>
 	</div>

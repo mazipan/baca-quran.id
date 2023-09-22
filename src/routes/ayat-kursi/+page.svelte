@@ -38,7 +38,7 @@
 	<CardShadow>
 		<div class="flex flex-col justify-center gap-4">
 			<span class="font-bold text-2xl font-arabic text-right">{ayatKursi.arabic}</span>
-			<small class="text-sm text-gray-400 italic">{ayatKursi.latin}</small>
+			<small class="text-sm text-foreground-secondary italic">{ayatKursi.latin}</small>
 		</div>
 		<div class="mt-4 flex justify-between items-center gap-2">
 			<div class="flex items-center gap-2">

@@ -62,7 +62,7 @@
 		<div class="flex gap-2 items-center">
 			<div class="flex flex-col items-start justify-center">
 				<span class="font-bold">{surah.latin}</span>
-				<small class="text-xs text-gray-400">{surah.translation} • {surah.ayah_count} ayat</small>
+				<small class="text-xs text-foreground-secondary">{surah.translation} • {surah.ayah_count} ayat</small>
 			</div>
 		</div>
 
@@ -72,7 +72,7 @@
 	</div>
 	<div class="mt-2 flex items-center justify-between">
 		<div class="flex items-center gap-2">
-			<div class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8">
+			<div class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8 border-foreground">
 				{surah.index.toLocaleString('ar-u-nu-arab', { useGrouping: false })}
 			</div>
 

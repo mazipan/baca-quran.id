@@ -30,7 +30,7 @@
 			<CardShadow href={`/surah/${surah.i}/`} _as="a">
 				<div class="flex flex-col items-center justify-center">
 					<span class="font-bold text-xl font-arabic">{surah.a}</span>
-					<span class="text-xs text-gray-400">{surah.l}</span>
+					<span class="text-xs text-foreground-secondary">{surah.l}</span>
 				</div>
 			</CardShadow>
 		{/each}
