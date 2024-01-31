@@ -1,11 +1,18 @@
 import path from 'node:path';
+import { mkdirSync } from 'node:fs';
 import { createSitemap, createSitemapIndex } from 'sitemaps';
 
 import verseCountPerSurah from './verseCountPerSurah.js';
 import { staticUrls } from './routes.js';
 
 const BASE_URL = 'https://www.baca-quran.id';
-const BASE_DIR_TARGET = path.resolve(path.join('static/sitemaps'));
+const BASE_DIR_TARGET = path.resolve(path.join('build/sitemaps'));
+
+try {
+  mkdirSync(BASE_DIR_TARGET);
+} catch {
+  // Do nothing
+}
 
 function makeObjectSitemap(url, priority = 0.5) {
 	const date = new Date();

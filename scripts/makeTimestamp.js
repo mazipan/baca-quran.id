@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 
-const TARGET_PATH = 'static/timestamp.json';
+const TARGET_PATH = 'build/timestamp.json';
 
 const DATENOW = new Date();
 const TIMESTAMP = DATENOW.toISOString().split('T')[0];
