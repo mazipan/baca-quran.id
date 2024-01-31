@@ -9,7 +9,7 @@ export async function load({ params }) {
 		return loadSurahData(params.surahid);
 	}
 
-	throw redirect(307, '/');
+	redirect(307, '/');
 }
 
 export const prerender = true;

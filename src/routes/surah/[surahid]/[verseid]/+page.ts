@@ -9,7 +9,7 @@ export async function load({ params }) {
 		return loadVerseData(params.surahid, params.verseid);
 	}
 
-	throw redirect(307, '/');
+	redirect(307, '/');
 }
 
 export const prerender = true;
