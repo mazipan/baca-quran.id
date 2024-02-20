@@ -8,6 +8,15 @@ on:
 jobs:
   build_site:
     runs-on: ubuntu-latest
+
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -58,44 +67,60 @@ jobs:
           pnpm run build
           touch build/.nojekyll
 
-      - name: Commit generated files only
-        run: |
-          echo "> Start remove unused files..."
-          rm -rf markdowns
-          rm -rf .github/workflows
-          rm -rf .svelte-kit
-          rm -rf screenshoot
-          rm -rf scripts
-          rm -rf static
-          rm -rf src
-          rm -rf node_modules
-          rm .all-contributorsrc
-          rm .editorconfig
-          rm .eslintignore
-          rm .eslintrc.cjs
-          rm .gitignore
-          rm .kodiak.toml
-          rm .npmrc
-          rm .prettierignore
-          rm .prettierrc
-          rm package.json
-          rm pnpm-lock.yaml
-          rm postcss.config.js
-          rm svelte.config.js
-          rm tailwind.config.js
-          rm tsconfig.json
-          rm vite.config.ts
-          cp -r build/. ./
-          rm -rf build
-          git config --local user.email "mazipanneh@gmail.com"
-          git config --local user.name "Irfan Maulana"
-          git add -A
-          git commit -m "[CI]: Auto Deploy 🚀"
-          echo "> Finish commit changes to repo"
+      # - name: Commit generated files only
+      #   run: |
+      #     echo "> Start remove unused files..."
+      #     rm -rf markdowns
+      #     rm -rf .github/workflows
+      #     rm -rf .svelte-kit
+      #     rm -rf screenshoot
+      #     rm -rf scripts
+      #     rm -rf static
+      #     rm -rf src
+      #     rm -rf node_modules
+      #     rm .all-contributorsrc
+      #     rm .editorconfig
+      #     rm .eslintignore
+      #     rm .eslintrc.cjs
+      #     rm .gitignore
+      #     rm .kodiak.toml
+      #     rm .npmrc
+      #     rm .prettierignore
+      #     rm .prettierrc
+      #     rm package.json
+      #     rm pnpm-lock.yaml
+      #     rm postcss.config.js
+      #     rm svelte.config.js
+      #     rm tailwind.config.js
+      #     rm tsconfig.json
+      #     rm vite.config.ts
+      #     cp -r build/. ./
+      #     rm -rf build
+      #     git config --local user.email "mazipanneh@gmail.com"
+      #     git config --local user.name "Irfan Maulana"
+      #     git add -A
+      #     git commit -m "[CI]: Auto Deploy 🚀"
+      #     echo "> Finish commit changes to repo"
 
-      - name: GitHub Push
-        uses: ad-m/github-push-action@v0.6.0
+      - name: Fix permissions
+        run: |
+          chmod -c -R +rX "_site/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          force: true
-          repository: mazipan-quran-offline/mazipan-quran-offline.github.io
+          path: build
+          name: pages
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
+
+      # - name: GitHub Push
+      #   uses: ad-m/github-push-action@v0.6.0
+      #   with:
+      #     github_token: ${{ secrets.PERSONAL_TOKEN }}
+      #     force: true
+      #     repository: mazipan-quran-offline/mazipan-quran-offline.github.io
