@@ -6,14 +6,6 @@ on:
     branches: 'master'
 
 jobs:
-  env:
-    PUBLIC_FIREBASE_API_KEY: ${{ secrets.PUBLIC_FIREBASE_API_KEY }}
-    PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.PUBLIC_FIREBASE_AUTH_DOMAIN }}
-    PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.PUBLIC_FIREBASE_PROJECT_ID }}
-    PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.PUBLIC_FIREBASE_STORAGE_BUCKET }}
-    PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
-    PUBLIC_FIREBASE_APP_ID: ${{ secrets.PUBLIC_FIREBASE_APP_ID }}
-    PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.PUBLIC_FIREBASE_MEASUREMENT_ID }}
   build_site:
     runs-on: ubuntu-latest
     steps:
@@ -25,8 +17,8 @@ jobs:
         with:
           node-version: 18
 
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
           version: 8
@@ -38,8 +30,8 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -49,7 +41,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: build
+      - name: Build project
+        env:
+          PUBLIC_FIREBASE_API_KEY: ${{ secrets.PUBLIC_FIREBASE_API_KEY }}
+          PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.PUBLIC_FIREBASE_AUTH_DOMAIN }}
+          PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.PUBLIC_FIREBASE_PROJECT_ID }}
+          PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.PUBLIC_FIREBASE_STORAGE_BUCKET }}
+          PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
+          PUBLIC_FIREBASE_APP_ID: ${{ secrets.PUBLIC_FIREBASE_APP_ID }}
+          PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.PUBLIC_FIREBASE_MEASUREMENT_ID }}
         run: |
           pnpm run build
           touch build/.nojekyll
@@ -87,7 +87,7 @@ jobs:
           git commit -m "[CI]: Auto Deploy 🚀"
           echo "> Finish commit changes to repo"
 
-      - name: GitHub
+      - name: GitHub Push
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.PERSONAL_TOKEN }}
