@@ -104,7 +104,7 @@ jobs:
 
       - name: Fix permissions
         run: |
-          chmod -c -R +rX "_site/" | while read line; do
+          chmod -c -R +rX "build/" | while read line; do
             echo "::warning title=Invalid file permissions automatically fixed::$line"
           done
 
@@ -112,7 +112,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
-          name: pages
 
       - name: Deploy to GitHub Pages
         id: deployment
