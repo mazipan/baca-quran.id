@@ -75,9 +75,9 @@
 {@html serializeSchema(
 	getJsonLdArticle({
 		slug: `/surah/${surahid}/${verseid}`,
-		title: META_TITLE_AYAH(verseid, surahInfo.current.latin),
+		title: META_TITLE_AYAH(verseid, surahid, surahInfo.current.latin, surahInfo.current.translation),
 		cover: 'meta-image.png',
-		desc: META_DESC_AYAH(verseid, surahInfo.current.latin)
+		desc: META_DESC_AYAH(verseid, surahid, surahInfo.current.latin, surahInfo.current.translation)
 	})
 )}
 

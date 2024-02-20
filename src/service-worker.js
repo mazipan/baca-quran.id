@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /// <reference types="@sveltejs/kit" />
 /// <reference no-default-lib="true"/>
 /// <reference lib="esnext" />
@@ -19,6 +20,7 @@ self.addEventListener('install', (event) => {
 		await cache.addAll(ASSETS);
 	}
 
+	// @ts-ignore
 	event.waitUntil(addFilesToCache());
 });
 
@@ -30,14 +32,17 @@ self.addEventListener('activate', (event) => {
 		}
 	}
 
+	// @ts-ignore
 	event.waitUntil(deleteOldCaches());
 });
 
 self.addEventListener('fetch', (event) => {
 	// ignore POST requests etc
+	// @ts-ignore
 	if (event.request.method !== 'GET') return;
 
 	async function respond() {
+		// @ts-ignore
 		const url = new URL(event.request.url);
 		const cache = await caches.open(CACHE);
 
@@ -53,6 +58,7 @@ self.addEventListener('fetch', (event) => {
 		// for everything else, try the network first, but
 		// fall back to the cache if we're offline
 		try {
+			// @ts-ignore
 			const response = await fetch(event.request);
 
 			// if we're offline, fetch can return a value that is not a Response
@@ -62,11 +68,13 @@ self.addEventListener('fetch', (event) => {
 			}
 
 			if (response.status === 200) {
+				// @ts-ignore
 				cache.put(event.request, response.clone());
 			}
 
 			return response;
 		} catch (err) {
+			// @ts-ignore
 			const response = await cache.match(event.request);
 
 			if (response) {
@@ -79,5 +87,6 @@ self.addEventListener('fetch', (event) => {
 		}
 	}
 
+	// @ts-ignore
 	event.respondWith(respond());
 });

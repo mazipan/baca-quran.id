@@ -4,7 +4,7 @@ export type SurahInfoItem = {
 	latin: string;
 	ayah_count: number;
 	index: number;
-	revelation?: number;
+	revelation?: 1 | 2;
 };
 
 export type SurahInfoPage = {

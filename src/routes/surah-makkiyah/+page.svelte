@@ -14,7 +14,7 @@
 			if (MakkiyahMadaniyah[surah.index] === MAKKIYAH_CODE) {
 				result[surah.index] = {
 					...surah,
-					revelation: MakkiyahMadaniyah[surah.index] ? MakkiyahMadaniyah[surah.index] : 0
+					revelation: MakkiyahMadaniyah[surah.index] as 1 | 2 ? MakkiyahMadaniyah[surah.index] as 1 | 2 : 1
 				};
 			}
 		}

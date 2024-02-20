@@ -46,7 +46,7 @@ export async function loadVerseData(surahid: string, verseid: string) {
 			};
 		}
 	} catch (error) {
-		console.error("Error loading data in route '/[surahid]/[verseid]'", params, error);
+		console.error("Error loading data in route '/[surahid]/[verseid]'", error);
 	}
 	return {
 		surahid: surahid,

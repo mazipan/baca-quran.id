@@ -11,11 +11,13 @@
 	import type { SurahInfoPage } from '$data/surah-info';
 	import { onMount } from 'svelte';
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	export let data: any;
 
 	let surahid = data?.surahid;
 	let surahData = data?.surahData;
 	let surahInfo = data?.surahInfo as SurahInfoPage;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let timeout: any = null
 
 	onMount(() => {
