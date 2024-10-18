@@ -75,7 +75,6 @@ V1 can be viewed in [`v1`](https://github.com/mazipan/baca-quran.id/tree/v1) bra
 ## Support me
 
 - 👉 🇮🇩 [Trakteer](https://trakteer.id/mazipan/tip?utm_source=github-mazipan)
-- 👉 🇮🇩 [NihBuatJajan](https://www.nihbuatjajan.com/mazipan?utm_source=github-mazipan)
 - 👉 🌍 [BuyMeACoffe](https://www.buymeacoffee.com/mazipan?utm_source=github-mazipan)
 - 👉 🌍 [Paypal](https://www.paypal.me/mazipan?utm_source=github-mazipan)
 - 👉 🌍 [Ko-Fi](https://ko-fi.com/mazipan?utm_source=github-mazipan)
