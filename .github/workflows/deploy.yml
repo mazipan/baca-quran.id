@@ -26,6 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           ref: ${{ github.head_ref }}
           fetch-depth: 0
           token: ${{ secrets.PERSONAL_TOKEN }}
@@ -81,4 +82,32 @@ jobs:
           folder: build
           clean: true
           branch: gh-pages
-          # token: ${{ secrets.PERSONAL_TOKEN }}
+          token: ${{ secrets.PERSONAL_TOKEN }}
+
+      - name: Commit generated files only
+        run: |
+          echo "> Start remove unused files..."
+          rm -rf .github/workflows .svelte-kit markdowns screenshoot scripts static src node_modules
+          rm -rf .all-contributorsrc .editorconfig .eslintignore .eslintrc.cjs .gitignore .kodiak.toml .npmrc .prettierignore .prettierrc package.json pnpm-lock.yaml postcss.config.js svelte.config.js tailwind.config.js tsconfig.json vite.config.ts
+
+          echo "> Copy build directory..."
+          cp -r build/. ./
+          rm -rf build
+
+          echo "> Set git config..."
+          git config --local user.email "mazipanneh@gmail.com"
+          git config --local user.name "Irfan Maulana"
+
+          echo "> Add and commit files..."
+          git add -A
+          git commit -m "[CI]: Auto Deploy 🚀"
+          echo "> Finish commit changes to repo"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          repository: mazipan-quran-offline/mazipan-quran-offline.github.io
+          force: true
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          branch: master
+          directory: build
