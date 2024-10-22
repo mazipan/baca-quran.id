@@ -64,31 +64,31 @@ jobs:
             echo "::warning title=Invalid file permissions automatically fixed::$line"
           done
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          name: github-pages
-          path: build
+      # - name: Upload Pages artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     name: github-pages
+      #     path: build
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-        with:
-          artifact_name: github-pages
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
+      #   with:
+      #     artifact_name: github-pages
 
-      - name: Force push gh-pages branch
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build
-          clean: true
-          branch: gh-pages
-          token: ${{ secrets.PERSONAL_TOKEN }}
+      # - name: Force push gh-pages branch
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     folder: build
+      #     clean: true
+      #     branch: gh-pages
+      #     token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: Commit generated files only
         run: |
           echo "> Start remove unused files..."
           rm -rf .github/workflows .svelte-kit markdowns screenshoot scripts static src node_modules
-          rm -rf .all-contributorsrc .editorconfig .eslintignore .eslintrc.cjs .gitignore .kodiak.toml .npmrc .prettierignore .prettierrc package.json pnpm-lock.yaml postcss.config.js svelte.config.js tailwind.config.js tsconfig.json vite.config.ts
+          rm -rf .all-contributorsrc .editorconfig .eslintignore .eslintrc.cjs .gitignore .kodiak.toml .npmrc .prettierignore .prettierrc package.json pnpm-lock.yaml postcss.config.js svelte.config.js tailwind.config.js tsconfig.json vite.config.ts .env.example .env.production .nvmrc
 
           echo "> Copy build directory..."
           cp -r build/. ./
