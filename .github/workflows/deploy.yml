@@ -110,4 +110,3 @@ jobs:
           force: true
           github_token: ${{ secrets.PERSONAL_TOKEN }}
           branch: master
-          directory: build
