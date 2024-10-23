@@ -19,11 +19,13 @@ for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
 }
 
 const gitRev = child_process.execSync('git rev-parse --short HEAD').toString().trim() || ''
-const dateRev = new Date().toLocaleDateString('en-US', {
+
+const dateRev = new Date().toLocaleDateString('en-CA', {
   year: 'numeric',
   month: '2-digit',
-  day: '2-digit'
-}).replace(/-|\//g, "")
+  day: '2-digit',
+  timeZone: "Asia/Jakarta"
+}).replace(/-|\//g, "");
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

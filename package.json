@@ -15,7 +15,7 @@
 		"make:sitemap": "node ./scripts/makeSitemap.js"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^3.2.5",
+		"@sveltejs/adapter-auto": "^3.3.0",
 		"@sveltejs/adapter-static": "^3.0.5",
 		"@sveltejs/kit": "^2.7.2",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
@@ -46,8 +46,8 @@
     "pnpm": "^9.12.2"
   },
 	"dependencies": {
-		"tw-colors": "^3.3.1",
-		"firebase": "^10.7.2",
-		"svelte": "^4.2.9"
+		"tw-colors": "^3.3.2",
+		"firebase": "^11.0.1",
+		"svelte": "^4.2.19"
 	}
 }

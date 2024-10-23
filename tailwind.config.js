@@ -22,13 +22,6 @@ export default {
         foreground: 'white',
         'foreground-secondary': '#d1d5db'
       },
-      // -- issue with hsl conversion
-      // sepia: {
-      //   primary: '#884A39',
-      //   secondary: '#653B12',
-      //   foreground: '#5E4636',
-      //   'foreground-secondary': '#5E4636'
-      // },
       forest: {
         'primary': '#016A70',
         'secondary': '#014c4f',

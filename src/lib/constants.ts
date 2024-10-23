@@ -156,12 +156,6 @@ export const THEMES = [
 		bg: '#142C66',
 		border: '#FFF'
 	},
-  // -- issue with hsl conversion
-	// {
-	// 	name: 'sepia',
-	// 	bg: '#704214',
-	// 	border: '#FFF'
-	// },
 	{
 		name: 'forest',
 		bg: '#016A70',
