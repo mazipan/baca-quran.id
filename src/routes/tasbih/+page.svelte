@@ -9,8 +9,8 @@
 	import Button from '$lib/ui/Button.svelte';
 	import { toast } from '../../store/toast';
 
-	let counter = 0;
-	let target = 33;
+	let counter = $state(0);
+	let target = $state(33);
 
 	const handleIncrement = () => {
 		if (counter <= target - 1) {
@@ -114,7 +114,7 @@
 	<div class="relative mt-6 flex flex-col items-center">
 		<div class="relative -mb-6 z-10 flex flex-col">
 			<button
-				on:click={handleReset}
+				onclick={handleReset}
 				class="z-10 cursor-pointer p-2 rounded-full bg-secondary focus:ring-4 focus:ring-blue-500 border-4 border-primary"
 			>
 				<ResetIcon size="xl" />
@@ -122,17 +122,17 @@
 			{#if counter >= target}
 				<span
 					class="animate-ping z-0 absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-50"
-				/>
+				></span>
 			{/if}
 		</div>
 		<button
-			on:click={handleIncrement}
+			onclick={handleIncrement}
 			class="cursor-pointer p-2 rounded-full focus:ring-4 focus:ring-blue-500 border-4 bg-secondary border-primary outline-none"
 		>
 			<ChevronUpIcon size="xl" class="w-40 h-40" />
 		</button>
 		<button
-			on:click={handleDecrement}
+			onclick={handleDecrement}
 			class="-mt-6 z-10 cursor-pointer p-2 rounded-full focus:ring-4 focus:ring-blue-500 bg-secondary border-4 border-primary"
 		>
 			<ChevronDownIcon size="xl" />

@@ -2,13 +2,18 @@
 	import ThemeSwicther from './ThemeSwicther.svelte';
 	import ResetIcon from './icons/ResetIcon.svelte';
 
-	export let onToggleDrawer: () => void;
+	interface Props {
+		onToggleDrawer: () => void;
+	}
+
+	let { onToggleDrawer }: Props = $props();
 </script>
 
 <header class="flex justify-between items-center py-4 px-2">
 	<button
 		class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary"
-		on:click={onToggleDrawer}
+		onclick={onToggleDrawer}
+		aria-label="Toggle Drawer"
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

@@ -9,9 +9,9 @@ const BASE_URL = 'https://www.baca-quran.id';
 const BASE_DIR_TARGET = path.resolve(path.join('build/sitemaps'));
 
 try {
-  mkdirSync(BASE_DIR_TARGET);
+	mkdirSync(BASE_DIR_TARGET);
 } catch {
-  // Do nothing
+	// Do nothing
 }
 
 function makeObjectSitemap(url, priority = 0.5) {

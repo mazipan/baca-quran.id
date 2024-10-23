@@ -5,7 +5,11 @@
 		text: string;
 		href: string;
 	}
-	export let items: BreadcrumbItem[] = [];
+	interface Props {
+		items?: BreadcrumbItem[];
+	}
+
+	let { items = [] }: Props = $props();
 </script>
 
 <div class="flex gap-1 items-center">

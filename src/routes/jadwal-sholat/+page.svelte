@@ -19,16 +19,18 @@
 	import PrayerTimeCard from '$lib/PrayerTimeCard.svelte';
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
-	let prayerTimes: PrayerTimeData[] = [];
+	let prayerTimes: PrayerTimeData[] = $state([]);
 
-	$: todayPrayerTime = prayerTimes.find((time) => {
-		return (
-			time.date.gregorian.date ===
-			new Date()
-				.toLocaleDateString('id-ID', { month: '2-digit', day: '2-digit', year: 'numeric' })
-				.replace(new RegExp(/\//g), '-')
-		);
-	});
+	let todayPrayerTime = $derived(
+		prayerTimes.find((time) => {
+			return (
+				time.date.gregorian.date ===
+				new Date()
+					.toLocaleDateString('id-ID', { month: '2-digit', day: '2-digit', year: 'numeric' })
+					.replace(new RegExp(/\//g), '-')
+			);
+		})
+	);
 
 	// Source from: https://aladhan.com/prayer-times-api
 	async function refetchPrayerTime({

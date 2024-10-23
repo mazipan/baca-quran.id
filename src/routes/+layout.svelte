@@ -23,8 +23,13 @@
 	import VerseTafsirBottomSheet from '$lib/VerseTafsirBottomSheet.svelte';
 	import VerseShareBottomSheet from '$lib/VerseShareBottomSheet.svelte';
 	import GlobalBottomSheet from '$lib/GlobalBottomSheet.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
 
-	let isDrawerOpen = false;
+	let { children }: Props = $props();
+
+	let isDrawerOpen = $state(false);
 
 	let handleToggleDrawer = () => {
 		isDrawerOpen = !isDrawerOpen;
@@ -95,7 +100,7 @@
 		<Header onToggleDrawer={handleToggleDrawer} />
 		<!-- <Gradient variant="top" /> -->
 		<main class="min-h-[70vh]">
-			<slot />
+			{@render children?.()}
 		</main>
 		<!-- <Gradient variant="bottom" /> -->
 		<Footer />

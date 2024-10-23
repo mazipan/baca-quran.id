@@ -2,10 +2,14 @@
 	import type { SurahInfoPage } from '../data/surah-info';
 	import PaginationButton from './PaginationButton.svelte';
 
-	export let variant: 'surah' | 'verse';
-	export let surahInfo: SurahInfoPage;
-	export let surahid: string;
-	export let verseid: string;
+	interface Props {
+		variant: 'surah' | 'verse';
+		surahInfo: SurahInfoPage;
+		surahid: string;
+		verseid: string;
+	}
+
+	let { variant, surahInfo, surahid, verseid }: Props = $props();
 </script>
 
 {#if variant === 'surah'}

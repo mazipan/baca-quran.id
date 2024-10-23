@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { onMount } from 'svelte';
 	import {
 		settingAudio,
@@ -17,11 +19,11 @@
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
 	import XMarkIcon from './icons/XMarkIcon.svelte';
 
-	let reachingEndOfSurah = false;
-	let totalTime = 0;
-	let currentTime = 0;
-	let percent = 0;
-	let audioRef: HTMLAudioElement;
+	let reachingEndOfSurah = $state(false);
+	let totalTime = $state(0);
+	let currentTime = $state(0);
+	let percent = $state(0);
+	let audioRef: HTMLAudioElement = $state();
 
 	function play({ surah, verse, totalAyah }: CurrentTrackParam) {
 		if (audioRef) {
@@ -118,9 +120,11 @@
 		isShowingAudioPlayer.set(false);
 	}
 
-	$: if ($isShowingAudioPlayer) {
-		play($currentTrack);
-	}
+	run(() => {
+		if ($isShowingAudioPlayer) {
+			play($currentTrack);
+		}
+	});
 
 	onMount(() => {
 		attachListeners();
@@ -135,8 +139,8 @@
 					<span class="relative flex h-3 w-3">
 						<span
 							class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"
-						/>
-						<span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500" />
+						></span>
+						<span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
 					</span>
 					<span>Memutar Q.S {$currentTrack?.surah}:{$currentTrack?.verse}</span>
 				</div>
@@ -158,7 +162,7 @@
 			</div>
 
 			<div class="w-full bg-primary rounded-full h-1.5">
-				<div class="bg-lime-400 h-1.5 rounded-full" style={`width: ${percent}%`} />
+				<div class="bg-lime-400 h-1.5 rounded-full" style={`width: ${percent}%`}></div>
 			</div>
 
 			<div class="text-sm mt-2 flex justify-between items-center">

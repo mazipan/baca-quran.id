@@ -1,7 +1,11 @@
 <script lang="ts">
 	import type { PinnedSurahItem, BookmarkVerseItem } from '../store';
 
-	export let jsonArrayObject: PinnedSurahItem[] | BookmarkVerseItem[] = [];
+	interface Props {
+		jsonArrayObject?: PinnedSurahItem[] | BookmarkVerseItem[];
+	}
+
+	let { jsonArrayObject = [] }: Props = $props();
 </script>
 
 {#if Array.isArray(jsonArrayObject)}

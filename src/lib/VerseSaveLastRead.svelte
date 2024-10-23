@@ -7,11 +7,15 @@
 	import BookmarkSolidIcon from './icons/BookmarkSolidIcon.svelte';
 	import { toast } from '../store/toast';
 
-	export let surahLatin: string;
-	export let surahArabic: string;
-	export let numberVerse: string;
-	export let numberSurah: string;
-	export let source: string;
+	interface Props {
+		surahLatin: string;
+		surahArabic: string;
+		numberVerse: string;
+		numberSurah: string;
+		source: string;
+	}
+
+	let { surahLatin, surahArabic, numberVerse, numberSurah, source }: Props = $props();
 
 	let handleBookmarkVerse = (e: MouseEvent) => {
 		e.preventDefault();

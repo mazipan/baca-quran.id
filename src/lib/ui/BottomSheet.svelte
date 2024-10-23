@@ -2,11 +2,16 @@
 	import XMarkIcon from '../icons/XMarkIcon.svelte';
 	import Button from './Button.svelte';
 
-	export let show = false;
-	export let title = '';
-	export let id = '';
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	export let onClose: () => void = () => {};
+	interface Props {
+		show?: boolean;
+		title?: string;
+		id?: string;
+		// eslint-disable-next-line @typescript-eslint/no-empty-function
+		onClose?: () => void;
+		children?: import('svelte').Snippet;
+	}
+
+	let { show = false, title = '', id = '', onClose = () => {}, children }: Props = $props();
 </script>
 
 <div class="relative">
@@ -28,7 +33,7 @@
 		</div>
 
 		<div class="mb-16 text-sm font-normal overflow-auto max-h-[500px]">
-			<slot />
+			{@render children?.()}
 		</div>
 	</div>
 </div>

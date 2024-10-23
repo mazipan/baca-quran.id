@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { version } from '$app/environment';
+	import { version } from '$app/environment';
 
 	let currentYear = new Date().getFullYear();
 </script>
@@ -13,5 +13,7 @@
 		>
 	</p>
 	<small>Copyright © 2018 - {currentYear}</small>
-  <p class="text-sm"><small>Versi: <span class="bg-secondary rounded px-2 py-1">{version}</span></small></p>
+	<p class="text-sm">
+		<small>Versi: <span class="bg-secondary rounded px-2 py-1">{version}</span></small>
+	</p>
 </footer>

@@ -1,16 +1,20 @@
 <script lang="ts">
 	import SearchIcon from './icons/SearchIcon.svelte';
 
-	export let onChange: (e: Event) => void;
-	export let searchText = '';
-	export let placeholder = 'Cari surat apa?';
+	interface Props {
+		onChange: (e: Event) => void;
+		searchText?: string;
+		placeholder?: string;
+	}
+
+	let { onChange, searchText = '', placeholder = 'Cari surat apa?' }: Props = $props();
 </script>
 
 <div class="relative mb-4">
 	<input
 		class="text-md border-0 rounded-lg focus:ring-2 focus:ring-blue-500 block p-2.5 pl-10 placeholder-foreground-secondary w-full bg-secondary"
 		value={searchText}
-		on:input={onChange}
+		oninput={onChange}
 		type="search"
 		{placeholder}
 	/>

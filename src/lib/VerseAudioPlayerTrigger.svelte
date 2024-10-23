@@ -5,10 +5,14 @@
 	import Button from './ui/Button.svelte';
 	import SpeakerXMarkIcon from './icons/SpeakerXMarkIcon.svelte';
 
-	export let totalAyah: number;
-	export let numberVerse: string;
-	export let numberSurah: string;
-	export let source: string;
+	interface Props {
+		totalAyah: number;
+		numberVerse: string;
+		numberSurah: string;
+		source: string;
+	}
+
+	let { totalAyah, numberVerse, numberSurah, source }: Props = $props();
 
 	const handleOpenClosePlayer = ({ surah, verse, totalAyah }: CurrentTrackParam) => {
 		if ($isShowingAudioPlayer) {

@@ -1,14 +1,19 @@
 <script lang="ts">
 	import { CLASS_BY_SIZE, type IconSize } from './utils';
 
-	export let size: IconSize = 'md';
+	interface Props {
+		size?: IconSize;
+		class?: string;
+	}
+
+	let { size = 'md', class: clazz }: Props = $props();
 </script>
 
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	viewBox="0 0 48 48"
-	class={$$props.class || CLASS_BY_SIZE[size]}
+	class={clazz || CLASS_BY_SIZE[size]}
 >
 	<defs>
 		<path

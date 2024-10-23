@@ -15,7 +15,7 @@
 				<p>Kamu belum punya surah yang di pin!</p>
 				<p>Mulai pin 6 surah agar mudah diakses.</p>
 			</div>
-      <a
+			<a
 				href="/all-surah/"
 				class="flex bg-primary items-center gap-2 cursor-pointer p-2 rounded-md focus:ring-2 focus:ring-blue-500"
 				data-sveltekit-reload

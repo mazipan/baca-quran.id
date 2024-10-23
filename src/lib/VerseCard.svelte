@@ -9,16 +9,29 @@
 	import { verseTafsirSheet } from '../store/verseTafsirSheet';
 	import { verseShareSheet } from '../store/verseShareSheet';
 
-	export let verse: string;
-	export let numberVerse: string;
-	export let numberSurah: string;
-	export let totalAyah: number;
-	export let surahLatin: string;
-	export let surahArabic: string;
+	interface Props {
+		verse: string;
+		numberVerse: string;
+		numberSurah: string;
+		totalAyah: number;
+		surahLatin: string;
+		surahArabic: string;
+		translation: string;
+		tafsir: string;
+		source: string;
+	}
 
-	export let translation: string;
-	export let tafsir: string;
-	export let source: string;
+	let {
+		verse,
+		numberVerse,
+		numberSurah,
+		totalAyah,
+		surahLatin,
+		surahArabic,
+		translation,
+		tafsir,
+		source
+	}: Props = $props();
 
 	let toggleBottomSheet = () => {
 		verseTafsirSheet.show({
@@ -63,7 +76,9 @@
 				</Button>
 			{/if}
 		</div>
-		<div class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8 border-foreground">
+		<div
+			class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8 border-foreground"
+		>
 			{parseInt(numberVerse, 10).toLocaleString('ar-u-nu-arab', { useGrouping: false })}
 		</div>
 	</div>

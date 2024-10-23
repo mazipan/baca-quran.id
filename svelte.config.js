@@ -18,14 +18,16 @@ for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
 	}
 }
 
-const gitRev = child_process.execSync('git rev-parse --short HEAD').toString().trim() || ''
+const gitRev = child_process.execSync('git rev-parse --short HEAD').toString().trim() || '';
 
-const dateRev = new Date().toLocaleDateString('en-CA', {
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit',
-  timeZone: "Asia/Jakarta"
-}).replace(/-|\//g, "");
+const dateRev = new Date()
+	.toLocaleDateString('en-CA', {
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit',
+		timeZone: 'Asia/Jakarta'
+	})
+	.replace(/-|\//g, '');
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -36,9 +38,9 @@ const config = {
 	}),
 
 	kit: {
-    version: {
-      name: `${gitRev}-${dateRev}`
-    },
+		version: {
+			name: `${gitRev}-${dateRev}`
+		},
 		alias: {
 			$lib: 'src/lib',
 			$data: 'src/data',

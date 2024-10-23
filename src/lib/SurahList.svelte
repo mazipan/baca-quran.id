@@ -1,12 +1,18 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import SearchInput from '$lib/SearchInput.svelte';
 	import SurahCard from '$lib/SurahCard.svelte';
 	import type { SurahInfo } from '../data/surah-info';
 
-	export let originSurahInfo: SurahInfo;
+	interface Props {
+		originSurahInfo: SurahInfo;
+	}
 
-	let searchText = '';
-	let filteredSurahInfo: SurahInfo = originSurahInfo;
+	let { originSurahInfo }: Props = $props();
+
+	let searchText = $state('');
+	let filteredSurahInfo: SurahInfo = $state(originSurahInfo);
 	const noSpecialChars = (str: string) => str.replace(/[^a-zA-Z0-9 ]/g, '');
 
 	const handleSearchChange = (e: Event) => {
@@ -14,7 +20,7 @@
 		searchText = target?.value || '';
 	};
 
-	$: {
+	run(() => {
 		if (searchText.length > 1) {
 			let result: SurahInfo = {};
 
@@ -36,7 +42,7 @@
 		} else {
 			filteredSurahInfo = originSurahInfo;
 		}
-	}
+	});
 </script>
 
 <div class="px-4 flex flex-col gap-2">

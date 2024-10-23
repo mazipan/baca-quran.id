@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { SEO_TEXT, type SeoArgs, type PageVariant, SEO_TEXT_DYNAMIC } from './constants';
 
-	export let variant: PageVariant;
-	export let params: SeoArgs | null = null;
+	interface Props {
+		variant: PageVariant;
+		params?: SeoArgs | null;
+	}
+
+	let { variant, params = null }: Props = $props();
 </script>
 
 <div class="text-center p-4 text-sm text-foreground-secondary">

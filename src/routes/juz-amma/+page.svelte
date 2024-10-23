@@ -16,7 +16,9 @@
 			if (surah.index >= SURAH_START) {
 				result[surah.index] = {
 					...surah,
-					revelation: MakkiyahMadaniyah[surah.index] as 1 | 2 ? MakkiyahMadaniyah[surah.index] as 1 | 2 : 1
+					revelation: (MakkiyahMadaniyah[surah.index] as 1 | 2)
+						? (MakkiyahMadaniyah[surah.index] as 1 | 2)
+						: 1
 				};
 			}
 		}
