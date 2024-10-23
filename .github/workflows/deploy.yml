@@ -59,6 +59,8 @@ jobs:
           touch build/.nojekyll
 
       - name: Fix permissions
+        # Only run this on forked repo in mazipan-quran-offline
+        if: github.repository == 'mazipan-quran-offline/baca-quran.id'
         run: |
           chmod -c -R +rX "build/" | while read line; do
             echo "::warning title=Invalid file permissions automatically fixed::$line"
@@ -85,6 +87,8 @@ jobs:
       #     token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: Commit generated files only
+        # Only run this on forked repo in mazipan-quran-offline
+        if: github.repository == 'mazipan-quran-offline/baca-quran.id'
         run: |
           echo "> Start remove unused files..."
           rm -rf .github/workflows .svelte-kit markdowns screenshoot scripts static src node_modules
@@ -105,6 +109,8 @@ jobs:
 
       - name: Push changes
         uses: ad-m/github-push-action@master
+        # Only run this on forked repo in mazipan-quran-offline
+        if: github.repository == 'mazipan-quran-offline/baca-quran.id'
         with:
           repository: mazipan-quran-offline/mazipan-quran-offline.github.io
           force: true
