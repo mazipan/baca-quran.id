@@ -63,8 +63,8 @@
 	const app = initializeApp(firebaseConfig);
 	const db = getFirestore(app);
 
-	let currentUser: User | null = null;
-	let currentRemoteProgress: DocumentData | null = null;
+	let currentUser: User | null = $state(null);
+	let currentRemoteProgress: DocumentData | null = $state(null);
 
 	const provider = new GoogleAuthProvider();
 	provider.addScope('https://www.googleapis.com/auth/userinfo.profile');

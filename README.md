@@ -88,5 +88,7 @@ Copyright © 2018 by Irfan Maulana
 Thanks goes to these wonderful people
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+
 [![Contributors](https://contrib.rocks/image?repo=mazipan/baca-quran.id)](https://github.com/mazipan/baca-quran.id/graphs/contributors)
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->

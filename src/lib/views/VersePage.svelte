@@ -10,7 +10,11 @@
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/utils/json-ld';
 	import type { SurahInfoPage } from '$data/surah-info';
 
-	export let data: any;
+	interface Props {
+		data: any;
+	}
+
+	let { data }: Props = $props();
 
 	let surahid = data?.surahid;
 	let verseid = data?.verseid;
@@ -20,7 +24,12 @@
 
 <svelte:head>
 	<MetaTag
-		title={META_TITLE_AYAH(verseid, surahid, surahInfo.current.latin, surahInfo.current.translation)}
+		title={META_TITLE_AYAH(
+			verseid,
+			surahid,
+			surahInfo.current.latin,
+			surahInfo.current.translation
+		)}
 		desc={META_DESC_AYAH(verseid, surahid, surahInfo.current.latin, surahInfo.current.translation)}
 		url={`${TITLE_CONSTANTS.PATH}surah/${surahid}/${verseid}/`}
 		canonical={`${TITLE_CONSTANTS.PATH}surah/${surahid}/${verseid}/`}
@@ -75,7 +84,12 @@
 {@html serializeSchema(
 	getJsonLdArticle({
 		slug: `/surah/${surahid}/${verseid}`,
-		title: META_TITLE_AYAH(verseid, surahid, surahInfo.current.latin, surahInfo.current.translation),
+		title: META_TITLE_AYAH(
+			verseid,
+			surahid,
+			surahInfo.current.latin,
+			surahInfo.current.translation
+		),
 		cover: 'meta-image.png',
 		desc: META_DESC_AYAH(verseid, surahid, surahInfo.current.latin, surahInfo.current.translation)
 	})

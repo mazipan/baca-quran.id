@@ -1,8 +1,12 @@
 <script lang="ts">
 	import DrawerMenus from './DrawerMenus.svelte';
 
-	export let open: boolean;
-	export let onToggle: () => void;
+	interface Props {
+		open: boolean;
+		onToggle: () => void;
+	}
+
+	let { open, onToggle }: Props = $props();
 </script>
 
 <div
@@ -14,7 +18,7 @@
 		<div>
 			<div class="flex justify-end gap-2">
 				<button
-					on:click={onToggle}
+					onclick={onToggle}
 					class="cursor-pointer p-2 rounded-md hover:bg-primary focus:bg-primary"
 				>
 					{#if open}
@@ -57,9 +61,9 @@
 </div>
 
 <div
-	on:click={onToggle}
+	onclick={onToggle}
 	class={`fixed z-10 top-0 bottom-0 left-0 right-0 w-full h-full bg-gray-500 opacity-50 transition-all duration-500 transform ${
 		open ? 'translate-x-0' : '-translate-x-full'
 	}`}
 	role="presentation"
-/>
+></div>

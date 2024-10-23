@@ -2,9 +2,13 @@
 	import ArrowLeftIcon from './icons/ArrowLeftIcon.svelte';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
 
-	export let href: string;
-	export let title: string;
-	export let variant: 'next' | 'prev';
+	interface Props {
+		href: string;
+		title: string;
+		variant: 'next' | 'prev';
+	}
+
+	let { href, title, variant }: Props = $props();
 </script>
 
 <a

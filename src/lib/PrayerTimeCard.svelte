@@ -10,8 +10,12 @@
 		Isha: 'Isya'
 	};
 
-	export let timings: PrayerTimings | null = null;
-	export let prayerKey: 'Fajr' | 'Dhuhr' | 'Asr' | 'Maghrib' | 'Isha' = 'Fajr';
+	interface Props {
+		timings?: PrayerTimings | null;
+		prayerKey?: 'Fajr' | 'Dhuhr' | 'Asr' | 'Maghrib' | 'Isha';
+	}
+
+	let { timings = null, prayerKey = 'Fajr' }: Props = $props();
 </script>
 
 {#if timings}

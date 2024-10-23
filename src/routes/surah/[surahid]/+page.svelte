@@ -1,10 +1,11 @@
 <script lang="ts">
+	import type { PageData } from './$types';
 	import SurahPage from '$lib/views/SurahPage.svelte';
+	interface Props {
+		data: PageData;
+	}
 
-	/** @type {import('./$types').PageData} */
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-	export let data;
+	let { data }: Props = $props();
 </script>
 
 <SurahPage {data} />

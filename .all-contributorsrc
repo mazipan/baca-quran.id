@@ -1,44 +1,35 @@
 {
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "contributors": [
-    {
-      "login": "mazipan",
-      "name": "Irfan Maulana",
-      "avatar_url": "https://avatars0.githubusercontent.com/u/7221389?v=4",
-      "profile": "https://www.mazipan.xyz/",
-      "contributions": [
-        "code",
-        "maintenance"
-      ]
-    },
-    {
-      "login": "azulkipli",
-      "name": "azul",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/8231792?v=4",
-      "profile": "http://altera.id",
-      "contributions": [
-        "bug"
-      ]
-    },
-    {
-      "login": "Abizrh",
-      "name": "Abizarah | 比周",
-      "avatar_url": "https://avatars.githubusercontent.com/u/106458960?v=4",
-      "profile": "https://github.com/Abizrh",
-      "contributions": [
-        "code"
-      ]
-    }
-  ],
-  "contributorsPerLine": 7,
-  "projectName": "baca-quran.id",
-  "projectOwner": "mazipan",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "commitType": "docs",
-  "commitConvention": "angular"
+	"files": ["README.md"],
+	"imageSize": 100,
+	"commit": false,
+	"contributors": [
+		{
+			"login": "mazipan",
+			"name": "Irfan Maulana",
+			"avatar_url": "https://avatars0.githubusercontent.com/u/7221389?v=4",
+			"profile": "https://www.mazipan.xyz/",
+			"contributions": ["code", "maintenance"]
+		},
+		{
+			"login": "azulkipli",
+			"name": "azul",
+			"avatar_url": "https://avatars2.githubusercontent.com/u/8231792?v=4",
+			"profile": "http://altera.id",
+			"contributions": ["bug"]
+		},
+		{
+			"login": "Abizrh",
+			"name": "Abizarah | 比周",
+			"avatar_url": "https://avatars.githubusercontent.com/u/106458960?v=4",
+			"profile": "https://github.com/Abizrh",
+			"contributions": ["code"]
+		}
+	],
+	"contributorsPerLine": 7,
+	"projectName": "baca-quran.id",
+	"projectOwner": "mazipan",
+	"repoType": "github",
+	"repoHost": "https://github.com",
+	"commitType": "docs",
+	"commitConvention": "angular"
 }

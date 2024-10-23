@@ -1,10 +1,14 @@
 <script lang="ts">
 	import { TITLE_CONSTANTS } from './constants';
 
-	export let title = '';
-	export let desc = '';
-	export let url: string = TITLE_CONSTANTS.PATH;
-	export let canonical = '';
+	interface Props {
+		title?: string;
+		desc?: string;
+		url?: string;
+		canonical?: string;
+	}
+
+	let { title = '', desc = '', url = TITLE_CONSTANTS.PATH, canonical = '' }: Props = $props();
 </script>
 
 <title>{title}</title>

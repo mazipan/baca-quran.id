@@ -11,20 +11,24 @@
 	import type { SurahInfoPage } from '$data/surah-info';
 	import { onMount } from 'svelte';
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	export let data: any;
+	interface Props {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		data: any;
+	}
+
+	let { data }: Props = $props();
 
 	let surahid = data?.surahid;
 	let surahData = data?.surahData;
 	let surahInfo = data?.surahInfo as SurahInfoPage;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let timeout: any = null
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	let timeout: any = null;
 
 	onMount(() => {
 		if ($page.url.hash) {
-      if (timeout !== null) {
-        clearTimeout(timeout)
-      }
+			if (timeout !== null) {
+				clearTimeout(timeout);
+			}
 
 			timeout = setTimeout(() => {
 				const element = document.getElementById($page.url.hash.replace('#', ''));

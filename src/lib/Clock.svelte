@@ -1,13 +1,13 @@
 <script>
 	import { onMount } from 'svelte';
 
-	let time = new Date();
+	let time = $state(new Date());
 
 	// these automatically update when `time`
 	// changes, because of the `$:` prefix
-	$: hours = time.getHours();
-	$: minutes = time.getMinutes();
-	$: seconds = time.getSeconds();
+	let hours = $derived(time.getHours());
+	let minutes = $derived(time.getMinutes());
+	let seconds = $derived(time.getSeconds());
 
 	onMount(() => {
 		const interval = setInterval(() => {
@@ -71,10 +71,10 @@
 		fill: white;
 	}
 
-  .clock-center{
+	.clock-center {
 		stroke: #333;
-    fill: #333;
-  }
+		fill: #333;
+	}
 
 	.minor {
 		stroke: #999;

@@ -4,7 +4,7 @@
 
 	import { onMount } from 'svelte';
 	import { activeTheme } from '../store';
-	let show = false;
+	let show = $state(false);
 
 	const handleSwitchTheme = (theme: string) => {
 		activeTheme.set(theme);
@@ -31,7 +31,8 @@
 			id="menu-button"
 			aria-expanded={show}
 			aria-haspopup="true"
-			on:click={() => (show = !show)}
+			onclick={() => (show = !show)}
+      aria-label="Switch Theme"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +70,7 @@
 						role="menuitem"
 						tabindex="-1"
 						id="menu-item-3"
-						on:click={() => handleSwitchTheme(theme.name)}
+						onclick={() => handleSwitchTheme(theme.name)}
 					>
 						<div class="flex items-center gap-2">
 							<span
@@ -77,7 +78,7 @@
 								style={`background-color: ${theme.bg}; border-color: ${
 									theme.name === $activeTheme ? theme.border : theme.bg
 								};`}
-							/>
+							></span>
 							{theme.name.toUpperCase()}
 						</div>
 					</button>

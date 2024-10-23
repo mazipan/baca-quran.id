@@ -34,9 +34,9 @@
 				id="chk-translation"
 				name="chk-translation"
 				checked={$settingTranslation}
-				on:change={(e) => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
+				onchange={(e) => {
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore
 					const checked = e?.target?.checked ?? false;
 					localStorage.setItem(CONSTANTS.STORAGE_KEY.TRANSLATION, checked ? 'y' : 'n');
 
@@ -51,9 +51,9 @@
 				id="chk-tafsir"
 				name="chk-tafsir"
 				checked={$settingTafsir}
-				on:change={(e) => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
+				onchange={(e) => {
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore
 					const checked = e?.target?.checked ?? false;
 					localStorage.setItem(CONSTANTS.STORAGE_KEY.TAFSIR, checked ? 'y' : 'n');
 
@@ -107,9 +107,9 @@
 				id="chk-auto-next"
 				name="chk-auto-next"
 				checked={$settingAutoNext}
-				on:change={(e) => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
+				onchange={(e) => {
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore
 					const checked = e?.target?.checked ?? false;
 					localStorage.setItem(CONSTANTS.STORAGE_KEY.AUTO_NEXT, checked ? 'y' : 'n');
 
@@ -125,9 +125,9 @@
 				<select
 					id="select-qari"
 					bind:value={$settingAudio}
-					on:change={(e) => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
+					onchange={(e) => {
+						// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+						// @ts-ignore
 						const value = e?.target?.value ?? 1;
 						localStorage.setItem(CONSTANTS.STORAGE_KEY.AUDIO, value ? value : '1');
 					}}
@@ -146,6 +146,6 @@
 			</div>
 		</div>
 
-		<div />
+		<div></div>
 	</div>
 </article>

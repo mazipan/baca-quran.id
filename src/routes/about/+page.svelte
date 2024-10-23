@@ -152,14 +152,11 @@
 		</li>
 	</ul>
 
-
 	<p class="mb-2">Karya lain:</p>
 
 	<ul class="list-decimal ml-6 mb-4">
 		<li>
-			<a class="underline" href="https://ksana.in/" target="_blank" rel="noopener"
-				>Ksana.in,
-			</a>
+			<a class="underline" href="https://ksana.in/" target="_blank" rel="noopener">Ksana.in, </a>
 			Pemendek tautan yang mudah dan gratis
 		</li>
 		<li>
