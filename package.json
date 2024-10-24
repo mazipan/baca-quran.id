@@ -33,11 +33,11 @@
 		"prettier-plugin-svelte": "^3.2.7",
 		"schema-dts": "^1.1.2",
 		"sitemaps": "^2.0.6",
-		"svelte-check": "^4.0.0",
+		"svelte-check": "^4.0.5",
 		"tailwindcss": "^3.4.14",
 		"tslib": "^2.8.0",
 		"typescript": "^5.6.3",
-		"vite": "^5.4.9"
+		"vite": "^5.4.10"
 	},
 	"type": "module",
 	"packageManager": "pnpm@9.12.2",
@@ -46,8 +46,9 @@
 		"pnpm": "^9.12.2"
 	},
 	"dependencies": {
-		"tw-colors": "^3.3.2",
+		"dayjs": "^1.11.13",
 		"firebase": "^11.0.1",
-		"svelte": "^5.0.0"
+		"svelte": "^5.0.0",
+		"tw-colors": "^3.3.2"
 	}
 }

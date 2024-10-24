@@ -70,6 +70,7 @@ V1 can be viewed in [`v1`](https://github.com/mazipan/baca-quran.id/tree/v1) bra
 - [Ramadhan Icon Pack from Flaticon](https://www.flaticon.com/packs/ramadan-31)
 - [Recite alquran vectors by Vecteezy](https://www.vecteezy.com/free-vector/recite-alquran)
 - [Ramadhan with man and woman by freepik](https://www.freepik.com/free-vector/ramadan-with-man-woman-praying_7372126.htm)
+- محمد الحراق, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
 
 ## Support me
 
@@ -84,13 +85,10 @@ Copyright © 2018 by Irfan Maulana
 
 ## Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 
-<!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://mazipan.space/"><img src="https://avatars0.githubusercontent.com/u/7221389?v=4" width="100px;" alt="Irfan Maulana"/><br /><sub><b>Irfan Maulana</b></sub></a><br /><a href="https://github.com/mazipan/baca-quran.id/commits?author=mazipan" title="Code">💻</a> <a href="#maintenance-mazipan" title="Maintenance">🚧</a></td><td align="center"><a href="http://altera.id"><img src="https://avatars2.githubusercontent.com/u/8231792?v=4" width="100px;" alt="azul"/><br /><sub><b>azul</b></sub></a><br /><a href="https://github.com/mazipan/baca-quran.id/issues?q=author%3Aazulkipli" title="Bug reports">🐛</a></td></tr></table>
+[![Contributors](https://contrib.rocks/image?repo=mazipan/baca-quran.id)](https://github.com/mazipan/baca-quran.id/graphs/contributors)
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

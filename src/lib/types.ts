@@ -73,3 +73,5 @@ export interface PrayerMetaMethod {
 export interface PrayerMetaParams {
 	shafaq: string;
 }
+
+export type PrayerKey = 'Fajr' | 'Dhuhr' | 'Asr' | 'Maghrib' | 'Isha'

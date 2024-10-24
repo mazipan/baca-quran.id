@@ -16,7 +16,7 @@
 	import type { PrayerTimeData, PrayerTimeResponse } from '$lib/types';
 	import Clock from '$lib/Clock.svelte';
 	import { toast } from '../../store/toast';
-	import PrayerTimeCard from '$lib/PrayerTimeCard.svelte';
+	import PrayerTimeList from '$lib/PrayerTimeList.svelte';
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
 	let prayerTimes: PrayerTimeData[] = $state([]);
@@ -52,9 +52,9 @@
 		localStorage.setItem(CONSTANTS.STORAGE_KEY.PRAYER, JSON.stringify(response));
 	}
 
-	async function fetchPrayerTime({ latitude, longitude }: { latitude: number; longitude: number }) {
+	async function fetchPrayerTime({ latitude, longitude, checkCache }: { latitude: number; longitude: number; checkCache: boolean }) {
 		const fromStorage = localStorage.getItem(CONSTANTS.STORAGE_KEY.PRAYER);
-		if (fromStorage) {
+		if (checkCache && fromStorage) {
 			const parsedValue = JSON.parse(fromStorage);
 			// check current month is still the same
 			prayerTimes = parsedValue?.data || [];
@@ -121,7 +121,8 @@
 
 				await fetchPrayerTime({
 					latitude: position.coords.latitude,
-					longitude: position.coords.longitude
+					longitude: position.coords.longitude,
+          checkCache: false,
 				});
 			});
 		}
@@ -132,7 +133,8 @@
 			if ($settingLocation?.lg && $settingLocation.lg) {
 				await fetchPrayerTime({
 					latitude: $settingLocation.lt,
-					longitude: $settingLocation.lg
+					longitude: $settingLocation.lg,
+          checkCache: true,
 				});
 			}
 		}, 1000);
@@ -187,11 +189,7 @@
 		<Clock />
 	</div>
 	{#if todayPrayerTime}
-		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Fajr" />
-		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Dhuhr" />
-		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Asr" />
-		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Maghrib" />
-		<PrayerTimeCard timings={todayPrayerTime.timings} prayerKey="Isha" />
+    <PrayerTimeList timings={todayPrayerTime.timings} />
 	{:else}
 		{#each [1, 2, 3, 4, 5] as item}
 			<CardShadow>
