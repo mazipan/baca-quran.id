@@ -1,7 +1,6 @@
 # 📖 Baca-Quran.id
 
 ![Svelte Kit](https://img.shields.io/badge/SvelteKit-TypeScript-blue.svg)
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg)](#contributors)
 [![Codecov](https://codecov.io/gh/mazipan/baca-quran.id/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/baca-quran.id)
 ![Last Deployed](https://img.shields.io/endpoint?url=https%3A%2F%2Fwww.baca-quran.id%2Ftimestamp.json)
 
@@ -29,8 +28,20 @@ Read Qur'an from Your Web Browser. No Ads, No Analytics, It's Totally Free.
 
 ## Local Setup
 
+### Requirement
+
+- Node v20 (use [nvm](https://github.com/nvm-sh/nvm) or other version manager)
+- pnpm v9: https://pnpm.io/installation
+
+### Install Dependencies
+
 ```bash
 pnpm i
+```
+
+### Run in your local
+
+```bash
 pnpm run dev
 ```
 
@@ -42,27 +53,15 @@ pnpm run build
 
 Copy `build` folder to your hosting.
 
-## Baca-Quran V1
+## Credits
 
-V1 can be viewed in [`v1`](https://github.com/mazipan/baca-quran.id/tree/v1) branch.
-
-### Screenshots V1
-
-|              Light               |            Blueish             |               Nature               |
-| :------------------------------: | :----------------------------: | :--------------------------------: |
-| ![light](screenshoot/tlight.png) | ![dark](screenshoot/tblue.png) | ![nature](screenshoot/tnature.png) |
-
-|                 Asmaul Husna                  |                Al-Fatihah                 |                Do'a Harian                |
-| :-------------------------------------------: | :---------------------------------------: | :---------------------------------------: |
-| ![asmaul husna](screenshoot/asmaul-husna.png) | ![al-fatihah](screenshoot/al-fatihah.png) | ![doa harian](screenshoot/doa-harian.png) |
-
-## Credit
-
-- Thanks for awesome repo [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
-- Asmaul Husna source from [islam.nu.or.id](https://islam.nu.or.id/ubudiyah/99-asmaul-husna-dan-artinya-1T8jl)
-- Daily Do'a from [doaharianislami.com](http://www.doaharianislami.com/2017/06/kumpulan-doa-sehari-hari-lengkap-dalam-bahasa-arab-latin-dan-artinya.html)
-- MP3 Audio from [kemenag.go.id](https://quran.kemenag.go.id/)
-- Tahlil from [islam.nu.or.id](https://islam.nu.or.id/post/read/107344/susunan-bacaan-tahlil-doa-arwah-lengkap-dan-terjemahannya)
+- [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
+- Asmaul Husna: from [islam.nu.or.id](https://islam.nu.or.id/ubudiyah/99-asmaul-husna-dan-artinya-1T8jl)
+- Daily Do'a: from [doaharianislami.com](http://www.doaharianislami.com/2017/06/kumpulan-doa-sehari-hari-lengkap-dalam-bahasa-arab-latin-dan-artinya.html)
+- MP3 Audio: from [kemenag.go.id](https://quran.kemenag.go.id/)
+- Tahlil: from [islam.nu.or.id](https://islam.nu.or.id/post/read/107344/susunan-bacaan-tahlil-doa-arwah-lengkap-dan-terjemahannya)
+- Reverse Geolocation: [nominatim](https://nominatim.openstreetmap.org)
+- Prayer Schedule: from [api.aladhan.com](https://api.aladhan.com)
 
 ## Icons & Backgrounds
 
@@ -79,16 +78,12 @@ V1 can be viewed in [`v1`](https://github.com/mazipan/baca-quran.id/tree/v1) bra
 - 👉 🌍 [Paypal](https://www.paypal.me/mazipan?utm_source=github-mazipan)
 - 👉 🌍 [Ko-Fi](https://ko-fi.com/mazipan?utm_source=github-mazipan)
 
----
-
-Copyright © 2018 by Irfan Maulana
-
 ## Contributors
 
 Thanks goes to these wonderful people
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-
 [![Contributors](https://contrib.rocks/image?repo=mazipan/baca-quran.id)](https://github.com/mazipan/baca-quran.id/graphs/contributors)
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+---
+
+Copyright © 2018-present by Irfan Maulana
