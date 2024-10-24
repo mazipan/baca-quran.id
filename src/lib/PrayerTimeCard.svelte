@@ -7,6 +7,8 @@
   import 'dayjs/locale/id'
 	import { onMount } from 'svelte';
 
+	import { activeTheme } from '../store';
+
   dayjs.locale('id')
   dayjs.extend(relativeTime);
   dayjs.extend(duration);
@@ -34,7 +36,7 @@
 </script>
 
 {#if timings}
-	<CardShadow class={`${isPast ? 'grayscale' : ''}`}>
+	<CardShadow class={`${isPast ? $activeTheme === 'light' ? '!bg-gray-400' : 'grayscale' : ''}`}>
 		<div class="flex justify-between gap-2 relative">
       <div>
         <p>{prayerTitle}</p>
