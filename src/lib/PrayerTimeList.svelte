@@ -30,5 +30,5 @@
 </script>
 
 {#each PRAYER_LIST as prayer (prayer.key)}
-  <PrayerTimeCard timings={timings} prayerKey={prayer.key} />
+  <PrayerTimeCard timings={timings} prayerKey={prayer.key} prayerTitle={prayer.title} />
 {/each}

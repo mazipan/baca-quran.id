@@ -16,7 +16,6 @@
 	import type { PrayerTimeData, PrayerTimeResponse } from '$lib/types';
 	import Clock from '$lib/Clock.svelte';
 	import { toast } from '../../store/toast';
-	import PrayerTimeCard from '$lib/PrayerTimeCard.svelte';
 	import PrayerTimeList from '$lib/PrayerTimeList.svelte';
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';

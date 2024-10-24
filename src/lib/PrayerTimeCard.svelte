@@ -10,21 +10,13 @@
   dayjs.locale('id')
   dayjs.extend(relativeTime);
   dayjs.extend(duration);
-
-	const TITLE_MAP = {
-		Fajr: 'Subuh',
-		Dhuhr: 'Dzuhur',
-		Asr: 'Ashar',
-		Maghrib: 'Maghrib',
-		Isha: 'Isya'
-	};
-
 	interface Props {
 		timings?: PrayerTimings | null;
-		prayerKey?: PrayerKey;
+		prayerKey: PrayerKey;
+    prayerTitle: string
 	}
 
-	let { timings = null, prayerKey = 'Fajr' }: Props = $props();
+	let { timings = null, prayerKey, prayerTitle = '' }: Props = $props();
 	let isPast: boolean = $state(false);
 	let durationText: string = $state('');
 
@@ -45,7 +37,7 @@
 	<CardShadow class={`${isPast ? 'grayscale' : ''}`}>
 		<div class="flex justify-between gap-2 relative">
       <div>
-        <p>{TITLE_MAP[prayerKey]}</p>
+        <p>{prayerTitle}</p>
       </div>
       <div>
         <p>{timings[prayerKey]}</p>
