@@ -114,10 +114,10 @@
 
 <div class="px-4 flex flex-col gap-2">
 	<p class="text-lg">Catatan ibadah pada {selectedDateFormatted}</p>
-	<div class="flex gap-2 w-full overflow-x-auto pb-4 mt-2">
+	<div class="flex gap-2 w-full overflow-x-auto pb-4 pt-2 px-4 mt-2">
 		{#each dayRanges as day (day)}
 			<button
-				class={`h-12 w-12 rounded flex items-center justify-center p-4 border ${day === selectedDate ? 'bg-primary' : 'bg-secondary'}`}
+				class={`h-12 w-12 rounded flex items-center justify-center p-4 border focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${day === selectedDate ? 'bg-primary font-bold border-blue-500' : 'bg-secondary'}`}
 				onclick={() => {
 					selectedDate = day;
 				}}
