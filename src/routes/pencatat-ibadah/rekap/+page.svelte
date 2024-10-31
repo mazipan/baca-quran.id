@@ -8,8 +8,7 @@
 		TITLE_CONSTANTS
 	} from '$lib/constants';
 	import { formatDate, getAllMonths } from '$lib/utils/date';
-	import {
-		logPrayer	} from '$store';
+	import { logPrayer } from '$store';
 
 	let monthRanges = getAllMonths();
 
@@ -42,7 +41,12 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }, { text: '⏺️ Pencatat Ibadah', href: '/pencatat-ibadah/' }]} />
+	<Breadcrumb
+		items={[
+			{ text: '🏠 Beranda', href: '/' },
+			{ text: '⏺️ Pencatat Ibadah', href: '/pencatat-ibadah/' }
+		]}
+	/>
 </div>
 
 <div class="px-4 flex flex-col gap-2">
@@ -61,7 +65,9 @@
 			</button>
 		{/each}
 	</div>
-	<div class="mt-4 mb-8 min-h-[300px] p-4 relative overflow-x-auto shadow-md rounded-lg border-2 border-secondary">
+	<div
+		class="mt-4 mb-8 min-h-[300px] p-4 relative overflow-x-auto shadow-md rounded-lg border-2 border-secondary"
+	>
 		{#if selectedLogPrayer.length > 0}
 			<table class="table-stripped">
 				<thead>
@@ -86,7 +92,16 @@
 				</tbody>
 			</table>
 		{:else}
-			<div>Belum ada data rekap untuk bulan {selectedMonth}</div>
+			<div class="m-6 flex flex-col gap-2 justify-center items-center p-4">
+				<p class="text-2xl text-center font-bold">
+          Belum ada data rekap untuk bulan {selectedMonth}
+        </p>
+				<img
+					src="/images/illustrasion-error.svg"
+					alt="The monsters eating your page"
+					class="w-[80%] mt-8 mb-8"
+				/>
+			</div>
 		{/if}
 	</div>
 </div>
