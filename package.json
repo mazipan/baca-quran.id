@@ -6,6 +6,7 @@
 		"prepare": "svelte-kit sync",
 		"dev": "vite dev",
 		"build": "svelte-kit sync && vite build && pnpm run make:timestamp && pnpm run make:sitemap",
+		"build:ci": "svelte-kit sync && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
