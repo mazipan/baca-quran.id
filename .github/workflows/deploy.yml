@@ -92,7 +92,7 @@ jobs:
         run: |
           echo "> Start remove unused files..."
           rm -rf .github/workflows .svelte-kit markdowns screenshoot scripts static src node_modules
-          rm -rf .all-contributorsrc .editorconfig .eslintignore .eslintrc.cjs .gitignore .kodiak.toml .npmrc .prettierignore .prettierrc package.json pnpm-lock.yaml postcss.config.js svelte.config.js tailwind.config.js tsconfig.json vite.config.ts .env.example .env.production .nvmrc
+          rm -rf .all-contributorsrc .editorconfig .eslintignore .eslintrc.cjs .gitignore .kodiak.toml .npmrc .prettierignore .prettierrc package.json pnpm-lock.yaml postcss.config.js svelte.config.js tailwind.config.js tsconfig.json vite.config.ts .env.example .nvmrc
 
           echo "> Copy build directory..."
           cp -r build/. ./

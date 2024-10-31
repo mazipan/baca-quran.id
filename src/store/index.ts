@@ -53,3 +53,18 @@ export type BookmarkVerseItem = {
 };
 
 export const lastReadVerses = writable<BookmarkVerseItem[]>([]);
+
+export type LogPrayerItemKey = '1' | '2' | '3' | '4' | '5';
+export type LogPrayerItemValue = 1 | 0;
+export type LogPrayerValue = Record<LogPrayerItemKey, LogPrayerItemValue>;
+/**
+ * Key is date in YYYYMMDD format
+ * Value is record { id: 1 | 0 }
+ * ID is ==> 1: Fajr, 2: Dhuhr, 3: Asr, 4: Maghrib, 5: Isha
+ */
+export type LogPrayer = Record<string, LogPrayerValue>;
+
+export const logPrayer = writable<LogPrayer>({});
+export const getLogPrayer = () => {
+	return get(logPrayer);
+};

@@ -38,7 +38,8 @@
 		activeTheme,
 		settingLocation,
 		lastReadVerses,
-		pinnedSurah
+		pinnedSurah,
+    logPrayer,
 	} from '../../store';
 	import { toast } from '../../store/toast';
 	import { CONSTANTS, TITLE_CONSTANTS } from '$lib/constants';
@@ -140,7 +141,8 @@
 					district: 'N/A'
 				},
 				[CONSTANTS.STORAGE_KEY.LAST_VERSES]: [],
-				[CONSTANTS.STORAGE_KEY.PINNED_SURAH]: []
+				[CONSTANTS.STORAGE_KEY.PINNED_SURAH]: [],
+        [CONSTANTS.STORAGE_KEY.LOG_PRAYER]: {}
 			};
 		}
 	};
@@ -155,7 +157,8 @@
 			[CONSTANTS.STORAGE_KEY.THEME]: $activeTheme || '',
 			[CONSTANTS.STORAGE_KEY.LOCATION]: $settingLocation || null,
 			[CONSTANTS.STORAGE_KEY.LAST_VERSES]: $lastReadVerses || null,
-			[CONSTANTS.STORAGE_KEY.PINNED_SURAH]: $pinnedSurah || null
+			[CONSTANTS.STORAGE_KEY.PINNED_SURAH]: $pinnedSurah || null,
+			[CONSTANTS.STORAGE_KEY.LOG_PRAYER]: $logPrayer || null
 		};
 		const dbRef = collection(db, 'progress');
 		const q = query(dbRef, where('uid', '==', currentUser?.uid));
@@ -270,6 +273,15 @@
 						localStorage.setItem(
 							CONSTANTS.STORAGE_KEY.PINNED_SURAH,
 							JSON.stringify(data?.[CONSTANTS.STORAGE_KEY.PINNED_SURAH] || [])
+						);
+					}
+
+          // log prayer
+          if (data?.[CONSTANTS.STORAGE_KEY.LOG_PRAYER]) {
+						logPrayer.set(data?.[CONSTANTS.STORAGE_KEY.LOG_PRAYER]);
+						localStorage.setItem(
+							CONSTANTS.STORAGE_KEY.LOG_PRAYER,
+							JSON.stringify(data?.[CONSTANTS.STORAGE_KEY.LOG_PRAYER] || [])
 						);
 					}
 
