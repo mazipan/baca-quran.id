@@ -435,7 +435,7 @@
 			</div>
 		{/if}
 
-		<div class="flex flex-col flex-wrap gap-2 mt-4">
+		<div class="flex flex-wrap gap-2 mt-4">
 			<Button variant="subtle" onClick={handleSignOut}>
 				<SignOutIcon />
 				Sign Out

@@ -1,14 +1,21 @@
 import dayjs from 'dayjs';
+import 'dayjs/locale/id'
+
 import relativeTime from "dayjs/plugin/relativeTime";
 import duration from "dayjs/plugin/duration";
-import 'dayjs/locale/id'
+import localeData from 'dayjs/plugin/localeData'
 
 dayjs.locale('id')
 dayjs.extend(relativeTime);
 dayjs.extend(duration);
+dayjs.extend(localeData);
 
 export const getDayjs = () => {
   return dayjs();
+};
+
+export const getAllMonths = () => {
+  return dayjs.months();
 };
 
 export const getDayjsFormatted = (dateString: string, format: string) => {

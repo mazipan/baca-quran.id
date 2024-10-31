@@ -34,10 +34,10 @@
 	<CardShadow class={`${isPast ? $activeTheme === 'light' ? '!bg-gray-400' : 'grayscale' : ''}`}>
 		<div class="flex justify-between gap-2 relative">
       <div>
-        <p>{prayerTitle}</p>
+        <p class={`${isPast ? 'line-through' : ''}`}>{prayerTitle}</p>
       </div>
       <div>
-        <p>{timings[prayerKey]}</p>
+        <p class={`${isPast ? 'line-through' : ''}`}>{timings[prayerKey]}</p>
         {#if !isPast}
           <small>{durationText}</small>
         {/if}

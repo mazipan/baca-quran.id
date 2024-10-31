@@ -52,7 +52,15 @@
 		localStorage.setItem(CONSTANTS.STORAGE_KEY.PRAYER, JSON.stringify(response));
 	}
 
-	async function fetchPrayerTime({ latitude, longitude, checkCache }: { latitude: number; longitude: number; checkCache: boolean }) {
+	async function fetchPrayerTime({
+		latitude,
+		longitude,
+		checkCache
+	}: {
+		latitude: number;
+		longitude: number;
+		checkCache: boolean;
+	}) {
 		const fromStorage = localStorage.getItem(CONSTANTS.STORAGE_KEY.PRAYER);
 		if (checkCache && fromStorage) {
 			const parsedValue = JSON.parse(fromStorage);
@@ -122,7 +130,7 @@
 				await fetchPrayerTime({
 					latitude: position.coords.latitude,
 					longitude: position.coords.longitude,
-          checkCache: false,
+					checkCache: false
 				});
 			});
 		}
@@ -134,7 +142,7 @@
 				await fetchPrayerTime({
 					latitude: $settingLocation.lt,
 					longitude: $settingLocation.lg,
-          checkCache: true,
+					checkCache: true
 				});
 			}
 		}, 1000);
@@ -163,8 +171,8 @@
 			<h2 class="text-xl font-bold">Lokasi belum diketahui</h2>
 			<div>
 				<Button onClick={getGeolocation}>
-					<MarkerIcon />Beri akses lokasi?</Button
-				>
+					<MarkerIcon />Beri akses lokasi
+				</Button>
 			</div>
 		</div>
 	{:else}
@@ -172,7 +180,7 @@
 			<div class="flex flex-col gap-2">
 				{#if $settingLocation.district}
 					<div class="flex gap-2 items-center">
-						<MarkerIcon /> <span>{$settingLocation.district}</span>
+						<span>{$settingLocation.district}</span>
 					</div>
 				{/if}
 				<small>{$settingLocation.lt}, {$settingLocation.lg}</small>
@@ -189,7 +197,7 @@
 		<Clock />
 	</div>
 	{#if todayPrayerTime}
-    <PrayerTimeList timings={todayPrayerTime.timings} />
+		<PrayerTimeList timings={todayPrayerTime.timings} />
 	{:else}
 		{#each [1, 2, 3, 4, 5] as item}
 			<CardShadow>
