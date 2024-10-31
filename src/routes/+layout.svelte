@@ -12,7 +12,8 @@
 		settingAutoNext,
 		pinnedSurah,
 		lastReadVerses,
-		settingLocation
+		settingLocation,
+    logPrayer,
 	} from '../store';
 
 	import '../app.css';
@@ -82,6 +83,14 @@
 						lg: parsedValue?.lg || 0,
 						district: parsedValue?.district || ''
 					});
+				} else {
+					settingLocation.set(null);
+				}
+
+        const storageLogPrayer = localStorage.getItem(CONSTANTS.STORAGE_KEY.LOG_PRAYER);
+				if (storageLogPrayer) {
+					const parsedValue = JSON.parse(storageLogPrayer);
+					logPrayer.set(parsedValue);
 				} else {
 					settingLocation.set(null);
 				}

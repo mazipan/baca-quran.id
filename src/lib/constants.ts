@@ -29,7 +29,8 @@ export const CONSTANTS = {
 		LAST_VERSES: 'vres',
 		LOCATION: 'loc',
 		PRAYER: 'pryr',
-		THEME: 'theme'
+		THEME: 'theme',
+		LOG_PRAYER: 'log'
 	},
 	BISMILLAH: '﷽'
 };
@@ -80,6 +81,9 @@ export const META_DESC_TASBIH = `Tasbih online, mempermudah menghitung Dzikirmu 
 export const META_TITLE_JADWAL_SHOLAT = `Jadwal sholat | ${TITLE_CONSTANTS.TITLE_META}`;
 export const META_DESC_JADWAL_SHOLAT = `Jadwal sholat sesuai lokasi 💯 gratis, ❌ tanpa iklan, ❌ tanpa analitik`;
 
+export const META_TITLE_PENCATAT_IBADAH = `Pencatat Ibadah | ${TITLE_CONSTANTS.TITLE_META}`;
+export const META_DESC_PENCATAT_IBADAH = `Pencatat Ibadah ${postfix(false)}`;
+
 export const META_TITLE_SURAH = (name: string) =>
 	`Qur'an Surat ${name} | ${TITLE_CONSTANTS.TITLE_META}`;
 export const META_DESC_SURAH = (name: string) => `Qur'an Surat ${name} ${postfix(true)}`;
@@ -91,6 +95,7 @@ export const META_TITLE_AYAH = (
 	translation?: string
 ) =>
 	`QS ${surahid}:${verseid}, Surat ${name} - ${translation}, Ayat ${verseid || 1} | ${TITLE_CONSTANTS.TITLE_META}`;
+
 export const META_DESC_AYAH = (
 	verseid: string,
 	surahid?: string,
@@ -117,7 +122,8 @@ export type PageVariant =
 	| 'TASBIH'
 	| 'MAKKIYAH'
 	| 'MADANIYAH'
-	| 'JADWAL_SHOLAT';
+	| 'JADWAL_SHOLAT'
+  | 'CATAT_IBADAH';
 
 export const SEO_TEXT = {
 	ALL_SURAH:
@@ -142,6 +148,8 @@ export const SEO_TEXT = {
 		'Tasbih online, mempermudah menghitung Dzikirmu. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	JADWAL_SHOLAT:
 		'Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+  CATAT_SHOLAT:
+    'Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	SURAH_DETAIL: '',
 	AYAT_DETAIL: ''
 };

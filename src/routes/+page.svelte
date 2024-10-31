@@ -45,6 +45,10 @@
 		{
 			href: '/jadwal-sholat/',
 			title: '⏰ Jadwal Sholat'
+		},
+		{
+			href: '/pencatat-ibadah/',
+			title: '⏺️ Pencatat Ibadah'
 		}
 	];
 </script>

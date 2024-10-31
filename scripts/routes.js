@@ -15,5 +15,6 @@ export const staticUrls = [
 	'/sync/',
 	'/tahlil/',
 	'/tasbih/',
-	'/wirid/'
+	'/wirid/',
+  '/pencatat-ibadah/'
 ];
