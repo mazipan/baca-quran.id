@@ -82,7 +82,7 @@ export const META_TITLE_JADWAL_SHOLAT = `Jadwal sholat | ${TITLE_CONSTANTS.TITLE
 export const META_DESC_JADWAL_SHOLAT = `Jadwal sholat sesuai lokasi 💯 gratis, ❌ tanpa iklan, ❌ tanpa analitik`;
 
 export const META_TITLE_PENCATAT_IBADAH = `Pencatat Ibadah | ${TITLE_CONSTANTS.TITLE_META}`;
-export const META_DESC_PENCATAT_IBADAH = `Pencatat Ibadah ${postfix(false)}`;
+export const META_DESC_PENCATAT_IBADAH = `Catat ibadahmu untuk refleksi diri. Pencatat ibadah online dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`;
 
 export const META_TITLE_SURAH = (name: string) =>
 	`Qur'an Surat ${name} | ${TITLE_CONSTANTS.TITLE_META}`;
@@ -123,7 +123,7 @@ export type PageVariant =
 	| 'MAKKIYAH'
 	| 'MADANIYAH'
 	| 'JADWAL_SHOLAT'
-  | 'CATAT_IBADAH';
+	| 'CATAT_IBADAH';
 
 export const SEO_TEXT = {
 	ALL_SURAH:
@@ -148,8 +148,8 @@ export const SEO_TEXT = {
 		'Tasbih online, mempermudah menghitung Dzikirmu. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	JADWAL_SHOLAT:
 		'Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
-  CATAT_SHOLAT:
-    'Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+	CATAT_IBADAH:
+		'Catat ibadahmu untuk refleksi diri. Pencatat ibadah online dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	SURAH_DETAIL: '',
 	AYAT_DETAIL: ''
 };

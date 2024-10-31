@@ -3,7 +3,7 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import {
-	CONSTANTS,
+		CONSTANTS,
 		META_DESC_PENCATAT_IBADAH,
 		META_TITLE_PENCATAT_IBADAH,
 		TITLE_CONSTANTS
@@ -12,7 +12,23 @@
 	import { range } from '$lib/utils/array';
 	import type { PrayerKey } from '$lib/types';
 	import CardShadow from '$lib/CardShadow.svelte';
-	import { logPrayer, type LogPrayerItemKey, type LogPrayerItemValue, type LogPrayerValue } from '$store';
+	import {
+		logPrayer,
+		type LogPrayerItemKey,
+		type LogPrayerItemValue,
+		type LogPrayerValue
+	} from '$store';
+	import { onMount } from 'svelte';
+	import Button from '$lib/ui/Button.svelte';
+	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+
+	let defaultItem = {
+		'1': 0,
+		'2': 0,
+		'3': 0,
+		'4': 0,
+		'5': 0
+	};
 
 	let dayInMonth = getDayInMonth(new Date().toISOString());
 	let dayRanges = range(1, dayInMonth);
@@ -21,10 +37,10 @@
 	let selectedDateFormatted = $derived.by(() => {
 		const nDate = new Date();
 		nDate.setDate(selectedDate);
-		const res = formatDate(nDate.toISOString(), 'DD MMMM YYYY');
+		const res = formatDate(nDate.toISOString(), 'dddd, DD MMMM YYYY');
 		return res;
 	});
-  let selectedYYYYMMDD = $derived.by(() => {
+	let selectedYYYYMMDD = $derived.by(() => {
 		const nDate = new Date();
 		nDate.setDate(selectedDate);
 		const res = formatDate(nDate.toISOString(), 'YYYYMMDD');
@@ -63,37 +79,58 @@
 		}
 	];
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  let handleCheckUncheck = (e) => {
-    const id = e.target.value.toString() as LogPrayerItemKey;
-    const isChecked = e.target.checked as boolean;
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
+	let handleCheckUncheck = (e) => {
+		const id = e.target.value.toString() as LogPrayerItemKey;
+		const isChecked = e.target.checked as boolean;
 
-    logPrayer.update((val) => {
-      const newItem = {
-        [id]: isChecked ? 1 : 0 as LogPrayerItemValue
-      } as LogPrayerValue;
+		logPrayer.update((val) => {
+			const newItem = {
+				[id]: isChecked ? 1 : (0 as LogPrayerItemValue)
+			} as LogPrayerValue;
 
-      if (val) {
-        if (val[selectedYYYYMMDD]) {
-          val[selectedYYYYMMDD] = {
-            ...val[selectedYYYYMMDD],
-            ...newItem,
-          }
-        } else {
-          val[selectedYYYYMMDD] = newItem;
-        }
-      } else {
-        val = {
-          [selectedYYYYMMDD]: newItem
-        };
-      }
+			if (val) {
+				if (val[selectedYYYYMMDD]) {
+					val[selectedYYYYMMDD] = {
+						...val[selectedYYYYMMDD],
+						...newItem
+					};
+				} else {
+					val[selectedYYYYMMDD] = {
+						...defaultItem,
+						...newItem
+					};
+				}
+			} else {
+				val = {
+					[selectedYYYYMMDD]: {
+						...defaultItem,
+						...newItem
+					}
+				};
+			}
 
-      localStorage.setItem(CONSTANTS.STORAGE_KEY.LOG_PRAYER, JSON.stringify(val));
-      return val
-    });
-  }
+			localStorage.setItem(CONSTANTS.STORAGE_KEY.LOG_PRAYER, JSON.stringify(val));
+			return val;
+		});
+	};
 
+	onMount(() => {
+		if (window.location.hash) {
+			const hash = window.location.hash;
+			const day = hash.replace('#day-', '');
+			selectedDate = parseInt(day);
+		}
+
+		const timeout = setTimeout(() => {
+			window.location.hash = `day-${selectedDate}`;
+		}, 1000);
+
+		return () => {
+			clearTimeout(timeout);
+		};
+	});
 </script>
 
 <svelte:head>
@@ -113,14 +150,25 @@
 </div>
 
 <div class="px-4 flex flex-col gap-2">
-	<p class="text-lg">Catatan ibadah pada {selectedDateFormatted}</p>
-	<div class="flex gap-2 w-full overflow-x-auto pb-4 pt-2 px-4 mt-2">
+	<div class="flex justify-between items-center gap-2 flex-wrap">
+		<p class="text-lg">{selectedDateFormatted}</p>
+		<a href="/pencatat-ibadah/rekap/">
+			<Button onClick={() => {}} class="text-sm justify-center items-center">
+				Lihat Rekap
+				<ArrowRightIcon size="sm" />
+			</Button>
+		</a>
+	</div>
+	<div
+		class="flex gap-2 w-full overflow-x-scroll pb-4 pt-2 px-4 mt-2 scroll-smooth snap-x snap-proximity"
+	>
 		{#each dayRanges as day (day)}
 			<button
-				class={`h-12 w-12 rounded flex items-center justify-center p-4 border focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${day === selectedDate ? 'bg-primary font-bold border-blue-500' : 'bg-secondary'}`}
+				class={`snap-center min-w-20 rounded-lg flex items-center justify-center py-2 px-4 border focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${day === selectedDate ? 'bg-primary font-bold border-blue-500 border-2' : 'bg-secondary'}`}
 				onclick={() => {
 					selectedDate = day;
 				}}
+				id={`day-${day}`}
 			>
 				{day}
 			</button>
@@ -134,11 +182,16 @@
 					type="checkbox"
 					value={prayer.id}
 					name={prayer.title}
-          onchange={handleCheckUncheck}
-          checked={$logPrayer && $logPrayer?.[selectedYYYYMMDD] ? $logPrayer[selectedYYYYMMDD]?.[`${prayer.id}` as LogPrayerItemKey] === 1 : false}
+					onchange={handleCheckUncheck}
+					checked={$logPrayer && $logPrayer?.[selectedYYYYMMDD]
+						? $logPrayer[selectedYYYYMMDD]?.[`${prayer.id}` as LogPrayerItemKey] === 1
+						: false}
 					class="peer w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
 				/>
-				<label for={`chk-${prayer.id}`} class="w-full ms-2 text-sm font-medium text-foreground peer-checked:line-through">
+				<label
+					for={`chk-${prayer.id}`}
+					class="w-full ms-2 text-sm font-medium text-foreground peer-checked:line-through"
+				>
 					{prayer.title}
 				</label>
 			</CardShadow>

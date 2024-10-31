@@ -37,7 +37,8 @@ export default {
 				primary: '#662549',
 				secondary: '#451952',
 				foreground: '#F39F5A',
-				'foreground-secondary': '#AE445A'
+				// 'foreground-secondary': '#AE445A'
+				'foreground-secondary': '#ff718e'
 			}
 		})
 	]

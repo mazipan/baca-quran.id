@@ -16,5 +16,6 @@ export const staticUrls = [
 	'/tahlil/',
 	'/tasbih/',
 	'/wirid/',
-  '/pencatat-ibadah/'
+	'/pencatat-ibadah/',
+	'/pencatat-ibadah/rekap/'
 ];

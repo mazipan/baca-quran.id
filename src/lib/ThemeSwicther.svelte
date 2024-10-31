@@ -32,7 +32,7 @@
 			aria-expanded={show}
 			aria-haspopup="true"
 			onclick={() => (show = !show)}
-      aria-label="Switch Theme"
+			aria-label="Switch Theme"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

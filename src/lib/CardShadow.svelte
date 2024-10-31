@@ -12,11 +12,11 @@
 </script>
 
 {#if _as === 'div'}
-	<div class={`relative rounded-lg overflow-hidden shadow  p-4 bg-secondary ${clazz}`} {id}>
+	<div class={`relative rounded-lg overflow-hidden shadow p-4 bg-secondary ${clazz}`} {id}>
 		{@render children?.()}
 	</div>
 {:else}
-	<a class={`relative rounded-lg overflow-hidden shadow  p-4 bg-secondary ${clazz}`} {href} {id}>
+	<a class={`relative rounded-lg overflow-hidden shadow p-4 bg-secondary ${clazz}`} {href} {id}>
 		{@render children?.()}
 	</a>
 {/if}
