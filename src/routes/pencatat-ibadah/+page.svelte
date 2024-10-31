@@ -22,13 +22,13 @@
 	import Button from '$lib/ui/Button.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 
-  let defaultItem = {
-    '1': 0,
-    '2': 0,
-    '3': 0,
-    '4': 0,
-    '5': 0,
-  }
+	let defaultItem = {
+		'1': 0,
+		'2': 0,
+		'3': 0,
+		'4': 0,
+		'5': 0
+	};
 
 	let dayInMonth = getDayInMonth(new Date().toISOString());
 	let dayRanges = range(1, dayInMonth);
@@ -98,16 +98,16 @@
 					};
 				} else {
 					val[selectedYYYYMMDD] = {
-            ...defaultItem,
-            ...newItem
-          };
+						...defaultItem,
+						...newItem
+					};
 				}
 			} else {
 				val = {
 					[selectedYYYYMMDD]: {
-            ...defaultItem,
-            ...newItem
-          }
+						...defaultItem,
+						...newItem
+					}
 				};
 			}
 
@@ -152,12 +152,12 @@
 <div class="px-4 flex flex-col gap-2">
 	<div class="flex justify-between items-center gap-2 flex-wrap">
 		<p class="text-lg">{selectedDateFormatted}</p>
-    <a href="/pencatat-ibadah/rekap/">
-      <Button onClick={() => {}} class="text-sm justify-center items-center">
-        Lihat Rekap
-        <ArrowRightIcon size="sm" />
-      </Button>
-    </a>
+		<a href="/pencatat-ibadah/rekap/">
+			<Button onClick={() => {}} class="text-sm justify-center items-center">
+				Lihat Rekap
+				<ArrowRightIcon size="sm" />
+			</Button>
+		</a>
 	</div>
 	<div
 		class="flex gap-2 w-full overflow-x-scroll pb-4 pt-2 px-4 mt-2 scroll-smooth snap-x snap-proximity"

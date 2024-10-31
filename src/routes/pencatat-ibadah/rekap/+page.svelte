@@ -94,8 +94,8 @@
 		{:else}
 			<div class="m-6 flex flex-col gap-2 justify-center items-center p-4">
 				<p class="text-2xl text-center font-bold">
-          Belum ada data rekap untuk bulan {selectedMonth}
-        </p>
+					Belum ada data rekap untuk bulan {selectedMonth}
+				</p>
 				<img
 					src="/images/illustrasion-error.svg"
 					alt="The monsters eating your page"

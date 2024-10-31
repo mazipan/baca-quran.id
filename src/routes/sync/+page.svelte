@@ -39,7 +39,7 @@
 		settingLocation,
 		lastReadVerses,
 		pinnedSurah,
-    logPrayer,
+		logPrayer
 	} from '../../store';
 	import { toast } from '../../store/toast';
 	import { CONSTANTS, TITLE_CONSTANTS } from '$lib/constants';
@@ -142,7 +142,7 @@
 				},
 				[CONSTANTS.STORAGE_KEY.LAST_VERSES]: [],
 				[CONSTANTS.STORAGE_KEY.PINNED_SURAH]: [],
-        [CONSTANTS.STORAGE_KEY.LOG_PRAYER]: {}
+				[CONSTANTS.STORAGE_KEY.LOG_PRAYER]: {}
 			};
 		}
 	};
@@ -276,8 +276,8 @@
 						);
 					}
 
-          // log prayer
-          if (data?.[CONSTANTS.STORAGE_KEY.LOG_PRAYER]) {
+					// log prayer
+					if (data?.[CONSTANTS.STORAGE_KEY.LOG_PRAYER]) {
 						logPrayer.set(data?.[CONSTANTS.STORAGE_KEY.LOG_PRAYER]);
 						localStorage.setItem(
 							CONSTANTS.STORAGE_KEY.LOG_PRAYER,

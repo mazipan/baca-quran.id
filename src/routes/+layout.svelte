@@ -13,7 +13,7 @@
 		pinnedSurah,
 		lastReadVerses,
 		settingLocation,
-    logPrayer,
+		logPrayer
 	} from '../store';
 
 	import '../app.css';
@@ -87,7 +87,7 @@
 					settingLocation.set(null);
 				}
 
-        const storageLogPrayer = localStorage.getItem(CONSTANTS.STORAGE_KEY.LOG_PRAYER);
+				const storageLogPrayer = localStorage.getItem(CONSTANTS.STORAGE_KEY.LOG_PRAYER);
 				if (storageLogPrayer) {
 					const parsedValue = JSON.parse(storageLogPrayer);
 					logPrayer.set(parsedValue);

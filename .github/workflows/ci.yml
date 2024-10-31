@@ -3,7 +3,7 @@ name: Check build
 on:
   workflow_dispatch:
   pull_request:
-    types: ["synchronize", "opened", "reopened"]
+    types: ['synchronize', 'opened', 'reopened']
     branches:
       - 'master'
 

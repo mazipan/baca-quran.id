@@ -123,7 +123,7 @@ export type PageVariant =
 	| 'MAKKIYAH'
 	| 'MADANIYAH'
 	| 'JADWAL_SHOLAT'
-  | 'CATAT_IBADAH';
+	| 'CATAT_IBADAH';
 
 export const SEO_TEXT = {
 	ALL_SURAH:
@@ -148,8 +148,8 @@ export const SEO_TEXT = {
 		'Tasbih online, mempermudah menghitung Dzikirmu. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	JADWAL_SHOLAT:
 		'Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
-  CATAT_IBADAH:
-    'Catat ibadahmu untuk refleksi diri. Pencatat ibadah online dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+	CATAT_IBADAH:
+		'Catat ibadahmu untuk refleksi diri. Pencatat ibadah online dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	SURAH_DETAIL: '',
 	AYAT_DETAIL: ''
 };
