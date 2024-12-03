@@ -6,16 +6,42 @@
 	import ChevronDownIcon from '$lib/icons/ChevronDownIcon.svelte';
 	import ChevronUpIcon from '$lib/icons/ChevronUpIcon.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
+	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
+	import SpeakerXMarkIcon from '$lib/icons/SpeakerXMarkIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import { toast } from '../../store/toast';
 
 	let counter = $state(0);
 	let target = $state(33);
+	let soundOn = $state(true);
+	let audioBeepSmallRef: HTMLAudioElement = $state();
+	let audioBeepLongRef: HTMLAudioElement = $state();
+
+  const playBeep = (isLong = false) => {
+    if (soundOn) {
+      if (isLong) {
+        audioBeepLongRef?.play?.();
+      } else {
+        audioBeepSmallRef?.play?.();
+      }
+    }
+  }
 
 	const handleIncrement = () => {
 		if (counter <= target - 1) {
 			counter = counter + 1;
+
+      playBeep(false)
+      if (
+        typeof window.navigator !== 'undefined' &&
+        typeof window.navigator.vibrate !== 'undefined'
+      ) {
+        window.navigator.vibrate([500]);
+      }
+
 			if (counter === target) {
+        playBeep(true)
+
 				if (
 					typeof window.navigator !== 'undefined' &&
 					typeof window.navigator.vibrate !== 'undefined'
@@ -44,6 +70,10 @@
 	const handleSetTarget = (newTarget: number) => {
 		target = newTarget;
 	};
+
+  const toggleSound = () => {
+		soundOn = !soundOn;
+	};
 </script>
 
 <svelte:head>
@@ -64,9 +94,20 @@
 
 <div class="px-4 flex flex-col gap-2">
 	<div class="text-xl text-center">
-		Goal: {target}
+		Target: {target}
 	</div>
 	<div class="flex justify-center items-center gap-4">
+		<Button
+			variant="filled"
+			class={`px-4 rounded-lg border-2 border-secondary bg-secondary`}
+			onClick={toggleSound}
+		>
+			{#if soundOn}
+				<SpeakerXMarkIcon />
+			{:else}
+				<SpeakerWaveIcon />
+			{/if}
+		</Button>
 		<div class="flex justify-center items-center">
 			<Button
 				variant="filled"
@@ -139,6 +180,14 @@
 		</button>
 	</div>
 </div>
+
+<audio bind:this={audioBeepSmallRef}>
+	<source id={`audio-player`} src="/sounds/beep-small.mp3" type="audio/mpeg" />
+</audio>
+
+<audio bind:this={audioBeepLongRef}>
+	<source id={`audio-player`} src="/sounds/beep-long.mp3" type="audio/mpeg" />
+</audio>
 
 <div class="mt-8">
 	<SeoText variant="TASBIH" />

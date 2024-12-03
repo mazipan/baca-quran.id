@@ -16,40 +16,40 @@
 		"make:sitemap": "node ./scripts/makeSitemap.js"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^3.3.0",
-		"@sveltejs/adapter-static": "^3.0.5",
-		"@sveltejs/kit": "^2.7.2",
-		"@sveltejs/vite-plugin-svelte": "^4.0.0",
+		"@sveltejs/adapter-auto": "^3.3.1",
+		"@sveltejs/adapter-static": "^3.0.6",
+		"@sveltejs/kit": "^2.9.0",
+		"@sveltejs/vite-plugin-svelte": "^5.0.1",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"@typescript-eslint/parser": "^6.21.0",
 		"autoprefixer": "^10.4.20",
-		"dotenv": "^16.4.5",
+		"dotenv": "^16.4.6",
 		"eslint": "^8.57.1",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.46.0",
+		"eslint-plugin-svelte": "^2.46.1",
 		"globby": "^14.0.2",
-		"postcss": "^8.4.47",
+		"postcss": "^8.4.49",
 		"postcss-load-config": "^6.0.1",
-		"prettier": "^3.3.3",
-		"prettier-plugin-svelte": "^3.2.7",
+		"prettier": "^3.4.1",
+		"prettier-plugin-svelte": "^3.3.2",
 		"schema-dts": "^1.1.2",
 		"sitemaps": "^2.0.6",
-		"svelte-check": "^4.0.5",
-		"tailwindcss": "^3.4.14",
-		"tslib": "^2.8.0",
-		"typescript": "^5.6.3",
-		"vite": "^5.4.10"
+		"svelte-check": "^4.1.0",
+		"tailwindcss": "^3.4.15",
+		"tslib": "^2.8.1",
+		"typescript": "^5.7.2",
+		"vite": "^6.0.2"
 	},
 	"type": "module",
-	"packageManager": "pnpm@9.12.2",
+	"packageManager": "pnpm@^9.12.2",
 	"engines": {
-		"node": "20.x",
-		"pnpm": "^9.12.2"
+		"node": ">=20.x",
+		"pnpm": ">=9.12.2"
 	},
 	"dependencies": {
 		"dayjs": "^1.11.13",
-		"firebase": "^11.0.1",
-		"svelte": "^5.0.0",
+		"firebase": "^11.0.2",
+		"svelte": "^5.4.0",
 		"tw-colors": "^3.3.2"
 	}
 }
