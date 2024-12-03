@@ -75,14 +75,14 @@ export const META_DESC_TAHLIL = `Bacaan lengkap tahlil ${postfix(false)}`;
 export const META_TITLE_WIRID = `Bacaan lengkap wirid setelah sholat | ${TITLE_CONSTANTS.TITLE_META}`;
 export const META_DESC_WIRID = `Bacaan lengkap wirid setelah sholat ${postfix(false)}`;
 
-export const META_TITLE_TASBIH = `Tasbih Online | ${TITLE_CONSTANTS.TITLE_META}`;
-export const META_DESC_TASBIH = `Tasbih online, mempermudah menghitung Dzikirmu ${postfix(false)}`;
+export const META_TITLE_TASBIH = `Tasbih Digital Online dari ${TITLE_CONSTANTS.TITLE_META}`;
+export const META_DESC_TASBIH = `Tasbih digital online untuk mempermudah menghitung Dzikirmu. Gratis sepenuhnya, tanpa iklan, tanpa unduh, tanpa analitik, privasi aman`;
 
 export const META_TITLE_JADWAL_SHOLAT = `Jadwal sholat | ${TITLE_CONSTANTS.TITLE_META}`;
 export const META_DESC_JADWAL_SHOLAT = `Jadwal sholat sesuai lokasi 💯 gratis, ❌ tanpa iklan, ❌ tanpa analitik`;
 
-export const META_TITLE_PENCATAT_IBADAH = `Pencatat Ibadah | ${TITLE_CONSTANTS.TITLE_META}`;
-export const META_DESC_PENCATAT_IBADAH = `Catat ibadahmu untuk refleksi diri. Pencatat ibadah online dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.`;
+export const META_TITLE_PENCATAT_IBADAH = `Pencatat Ibadah Digital Online dari ${TITLE_CONSTANTS.TITLE_META}`;
+export const META_DESC_PENCATAT_IBADAH = `Mulai catat ibadahmu untuk refleksi diri melalui ${TITLE_CONSTANTS.TITLE_META}. Gratis sepenuhnya, tanpa iklan, tanpa unduh, tanpa analitik, privasi aman.`;
 
 export const META_TITLE_SURAH = (name: string) =>
 	`Qur'an Surat ${name} | ${TITLE_CONSTANTS.TITLE_META}`;
@@ -145,7 +145,7 @@ export const SEO_TEXT = {
 	WIRID:
 		'Bacaan, urutan dan tata cara Wirid setelah sholat. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	TASBIH:
-		'Tasbih online, mempermudah menghitung Dzikirmu. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		'Tasbih digital online dari Baca-Quran.id, mempermudah menghitung Dzikirmu. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	JADWAL_SHOLAT:
 		'Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	CATAT_IBADAH:
