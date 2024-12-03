@@ -36,7 +36,7 @@
         typeof window.navigator !== 'undefined' &&
         typeof window.navigator.vibrate !== 'undefined'
       ) {
-        window.navigator.vibrate([500]);
+        window.navigator.vibrate([100]);
       }
 
 			if (counter === target) {
