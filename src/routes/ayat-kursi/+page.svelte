@@ -10,7 +10,7 @@
 	import { globalBottomSheet } from '../../store/globalBottomSheet';
 
 	let toggleBottomSheet = () => {
-		globalBottomSheet.show({
+		globalBottomSheet.toggle({
 			title: `💠 Terjemahan: Ayat Kursi`,
 			content: `<p class="mb-4">🔸 <b>Terjemahan</b>: ${ayatKursi.translation}</p>
         <p>🔹 <b>Tafsir</b>: ${ayatKursi.tafsir}</p>`

@@ -10,7 +10,7 @@
 	import { globalBottomSheet } from '../../store/globalBottomSheet';
 
 	let toggleBottomSheet = (item: DailyDoaItem) => {
-		globalBottomSheet.show({
+		globalBottomSheet.toggle({
 			title: `💠 Terjemahan: ${item.title}`,
 			content: `🔸 ${item.translation}`
 		});
