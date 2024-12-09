@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { get, writable } from 'svelte/store';
 
 export type GlobalBottomSheetParam = {
 	show: boolean;
@@ -7,20 +7,38 @@ export type GlobalBottomSheetParam = {
 };
 
 function createGlobalBottomSheet() {
-	const { subscribe, set, update } = writable<GlobalBottomSheetParam>({
+	const store = writable<GlobalBottomSheetParam>({
 		show: false,
 		title: '',
 		content: ''
 	});
+
 	return {
-		subscribe,
+		subscribe: store.subscribe,
 		hide: () =>
-			update((preVal) => ({
-				...preVal,
+			store.update((previous) => ({
+				...previous,
 				show: false
 			})),
 		show: (params: Pick<GlobalBottomSheetParam, 'title' | 'content'>) => {
-			return set({
+			return store.set({
+				...params,
+				show: true
+			});
+		},
+		toggle: (params: Pick<GlobalBottomSheetParam, 'title' | 'content'>) => {
+			const prev = get(store);
+
+			if (prev.show) {
+				if (prev.title === params.title) {
+					return store.set({
+						...params,
+						show: false
+					});
+				}
+			}
+
+			return store.set({
 				...params,
 				show: true
 			});
