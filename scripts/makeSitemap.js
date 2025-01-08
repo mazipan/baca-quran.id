@@ -42,12 +42,13 @@ for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
 	}
 }
 
-const staticUrlsObject = staticUrls.map((url) => makeObjectSitemap(url, 0.8));
+const staticUrlsObject = ['/', ...staticUrls].map((url) => makeObjectSitemap(`${url}/`, 0.8));
 
 createSitemap({
 	filePath: path.join(BASE_DIR_TARGET, 'static.xml'),
 	urls: staticUrlsObject
 });
+
 console.log(`>> Write static sitemap with ${staticUrls.length} urls...`);
 
 createSitemap({
