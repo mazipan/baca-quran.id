@@ -153,6 +153,17 @@ export const SEO_TEXT = {
 	SURAH_DETAIL: '',
 	AYAT_DETAIL: ''
 };
+export const LANGUAGE_OPTIONS = {
+  INDONESIAN: {
+    label: 'Indonesia',
+    locale: 'id',
+  },
+  ENGLISH: {
+    label: 'English',
+    locale: 'en',
+  },
+  // Add more languages here
+};
 
 export const SEO_TEXT_DYNAMIC = {
 	SURAH_DETAIL: ({ surahLatin }: SeoArgs) =>

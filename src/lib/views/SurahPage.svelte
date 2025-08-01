@@ -6,11 +6,10 @@
 	import SeoText from '$lib/SeoText.svelte';
 	import SurahCard from '$lib/SurahCard.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
-	import { META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
+	import { LANGUAGE_OPTIONS, META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/utils/json-ld';
 	import type { SurahInfoPage } from '$data/surah-info';
 	import { onMount } from 'svelte';
-
 	interface Props {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		data: any;
@@ -23,7 +22,6 @@
 	let surahInfo = data?.surahInfo as SurahInfoPage;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	let timeout: any = null;
-
 	onMount(() => {
 		if ($page.url.hash) {
 			if (timeout !== null) {
@@ -65,7 +63,7 @@
 	<Breadcrumb
 		items={[
 			{ text: '🏠', href: '/' },
-			{ text: 'Semua Surat', href: '/all-surah/' },
+			{ text: current==LANGUAGE_OPTIONS.ENGLISH.locale?'All Surat':'Semua Surat', href: '/all-surah/' },
 			{ text: surahInfo.current.latin, href: `/surah/${surahid}/` }
 		]}
 	/>
