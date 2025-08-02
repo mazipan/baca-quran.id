@@ -3,8 +3,8 @@
 	import CardShadow from '$lib/CardShadow.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
-	import { languageStore } from '$lib/checkLanguaguage';
-	import { LANGUAGE_OPTIONS, META_DESC_AYAT_KURSI, META_TITLE_AYAT_KURSI, TITLE_CONSTANTS } from '$lib/constants';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import {  META_DESC_AYAT_KURSI, META_TITLE_AYAT_KURSI, TITLE_CONSTANTS } from '$lib/constants';
 	import DocumentTextIcon from '$lib/icons/DocumentTextIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import ayatKursi from '../../data/ayat-kursi';

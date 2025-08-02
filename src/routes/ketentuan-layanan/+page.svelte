@@ -2,9 +2,13 @@
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import CardShadow from '$lib/CardShadow.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
 	import InformationCircleIcon from '$lib/icons/InformationCircleIcon.svelte';
 	import ShieldCheckIcon from '$lib/icons/ShieldCheckIcon.svelte';
+const current = $derived(languageStore) ;
+
+
 </script>
 
 <svelte:head>
@@ -12,13 +16,119 @@
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
-	<h1 class="text-3xl font-bold">🤝 Ketentuan Layanan</h1>
+	<h1 class="text-3xl font-bold">
+		🤝 {$current === LANGUAGE_OPTIONS.ENGLISH.locale ? 'Terms of Service' : 'Ketentuan Layanan'}
+	</h1>
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
+	<Breadcrumb
+		items={[
+			{
+				text: $current === LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda',
+				href: '/'
+			}
+		]}
+	/>
 </div>
 
+{#if $current === LANGUAGE_OPTIONS.ENGLISH.locale}
+<article class="px-4">
+	<div class="flex gap-2 mb-4">
+		<a
+			href="/kebijakan-privasi/"
+			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-secondary"
+		>
+			<ShieldCheckIcon />
+			Privacy Policy</a
+		>
+		<a
+			href="/ketentuan-layanan/"
+			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-secondary"
+		>
+			<InformationCircleIcon />
+			Terms of Service</a
+		>
+	</div>
+
+	<section class="mb-4">
+		<p class="mb-4">
+			Thank you for using Baca-Quran.id. These terms of service are a binding agreement and govern your use of Baca-Quran.id and access to the Baca-Quran.id website. By using any Baca-Quran.id services, or accessing any of our websites, you agree to be bound by the following terms of service.
+		</p>
+
+		<p class="mb-4">
+			If you are entering into this agreement on behalf of a company or other legal entity, you represent that you have the authority to bind such entity, its affiliates, and all users who access our services through your account. In such case, the terms "you" or "your" refer to the company or legal entity and users associated with it. If you do not have such authority, do not agree to these terms and conditions on behalf of a company or other legal entity.
+		</p>
+
+		<p class="mb-4">
+			If you do not agree to these terms of service, <b>do not accept the terms, and do not use the services.</b>
+		</p>
+
+		<p class="mb-4">
+			We reserve the right to update and change the terms of service from time to time without notice. Any new features that augment or enhance the current services, including the release of new tools and resources, shall be subject to the terms of service. Continued use of the service after any such changes shall constitute your consent to such changes. You can review the most current version of the terms of service at any time here.
+		</p>
+
+		<p class="mb-4">
+			Violation of any of the terms below will result in the termination of your account. While we prohibit certain conduct and content on the service, you understand and agree that we cannot be responsible for the content posted on the service and you may be exposed to such materials. You agree to use the service at your own risk.
+		</p>
+	</section>
+
+	<CardShadow class="mb-4">
+		<h2 class="mb-2 text-xl font-bold">🔹 Privacy Terms</h2>
+		<p>
+			We respect your privacy. A complete statement of our <a
+				href="/kebijakan-privasi/"
+				class="underline">privacy policy</a> can be found on the privacy policy page. Our privacy policy is expressly incorporated into this agreement by reference.
+		</p>
+	</CardShadow>
+
+	<CardShadow class="mb-4">
+		<h2 class="mb-2 text-xl font-bold">🔹 Account Requirements</h2>
+		<div>
+			<p class="mb-4">To use this service, you must:</p>
+			<ol class="list-disc ml-6">
+				<li class="mb-4">
+					Be 11 years of age or older and be a human. Accounts registered by "bots" or other automated methods are not permitted. Provide your official full name, a valid email address, and any other information requested to complete the registration process.
+				</li>
+				<li class="mb-4">
+					You are responsible for maintaining the security of your account and password.
+				</li>
+				<li class="mb-4">
+					We cannot and will not be liable for any loss or damage from your failure to comply with this security obligation. Your login may only be used by one person – a single login shared by multiple people is not permitted. You may create separate logins for as many people as your plan allows.
+				</li>
+				<li class="mb-4">
+					You are responsible for all content posted and activity that occurs under your account (even when content is posted by others who have accounts under your account).
+				</li>
+				<li class="mb-4">
+					You may not use the service for any illegal or unauthorized purpose. You must not, in the use of the service, violate any laws in your jurisdiction (including but not limited to copyright or trademark laws).
+				</li>
+			</ol>
+		</div>
+	</CardShadow>
+
+	<CardShadow class="mb-4">
+		<h2 class="mb-2 text-xl font-bold">🔹 Copyright and Content Ownership</h2>
+		<div>
+			<ol class="list-disc ml-6">
+				<li class="mb-4">
+					We claim no intellectual property rights over the material you provide to the service. Your profile and materials uploaded remain yours. However, if you set your content to be viewed publicly, you agree to allow others to view your content.
+				</li>
+				<li class="mb-4">
+					We do not pre-screen content, but we have the right (but not the obligation) in our sole discretion to refuse or remove any content that is available via the service.
+				</li>
+			</ol>
+		</div>
+	</CardShadow>
+
+	<p class="mb-4">
+		Questions about our terms of service may be sent to mazipanneh@gmail.com
+	</p>
+
+	<p class="mb-4">
+		<small><i>Last updated July 31, 2023</i></small>
+	</p>
+</article>
+{:else}
 <article class="px-4">
 	<div class="flex gap-2 mb-4">
 		<a
@@ -148,3 +258,4 @@
 		<small><i>Terakhir diperbarui pada 31 Juli 2023</i></small>
 	</p>
 </article>
+{/if}

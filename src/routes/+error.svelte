@@ -1,15 +1,22 @@
 <script>
 	import { page } from '$app/stores';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
+		const current = $derived(languageStore) ;
+
 </script>
 
 <div class="m-6 flex flex-col gap-2 justify-center items-center">
 	<h1 class="text-5xl text-center font-bold">Ooops!</h1>
 	<p class="mt-2 text-red-600 bg-red-50 p-2 rounded-lg">
-		<span class="font-bold">Error Message: </span><span
-			>{$page?.error?.message || 'tidak diketahui'}</span
-		>
+		<span class="font-bold">Error Message: </span>
+		<span>
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale
+				? $page?.error?.message || 'Unknown error'
+				: $page?.error?.message || 'tidak diketahui'}
+		</span>
+		
 	</p>
 	<img
 		src="/images/illustrasion-error.svg"
@@ -22,6 +29,6 @@
 		}}
 	>
 		<ArrowLeftIcon />
-		Kembali ke Beranda
+		{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Back to Home' : 'Kembali ke Beranda' }
 	</Button>
 </div>

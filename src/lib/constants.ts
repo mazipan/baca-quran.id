@@ -1,3 +1,6 @@
+import { get } from "svelte/store";
+import { LANGUAGE_OPTIONS, languageStore } from "./checkLanguaguage";
+
 export const TITLE_CONSTANTS = {
 	PATH: 'https://www.baca-quran.id/',
 	TITLE: "Baca Qur'an",
@@ -17,7 +20,6 @@ export const TITLE_CONSTANTS = {
 	SURAT_LIST: 'Daftar Surat',
 	ABOUT: 'Tentang'
 };
-
 export const CONSTANTS = {
 	STORAGE_KEY: {
 		TRANSLATION: 'trsla',
@@ -34,7 +36,6 @@ export const CONSTANTS = {
 	},
 	BISMILLAH: '﷽'
 };
-
 const postfix = (withTafsir: boolean) =>
 	`beserta terjemahan${
 		withTafsir ? ' dan tafsir dari Kemenag' : ''
@@ -124,45 +125,55 @@ export type PageVariant =
 	| 'MADANIYAH'
 	| 'JADWAL_SHOLAT'
 	| 'CATAT_IBADAH';
+		const current = get(languageStore);
 
 export const SEO_TEXT = {
 	ALL_SURAH:
-		'Baca Quran lengkap 30 Juz 114 Surat beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
-	MAKKIYAH:
-		'Baca Quran Surat-Surat Makkiyah beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Read the complete Quran, 30 Juz and 114 Surahs, with English translation and tafsir from Kemenag. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: 'Baca Quran Surat-Surat Makkiyah beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	MADANIYAH:
-		'Baca Quran Surat-Surat Madaniyah beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Read Madaniyah Surahs of the Quran with English translation and tafsir from Kemenag. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: 'Baca Quran Surat-Surat Madaniyah beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	ASMAUL_HUSNA:
-		'Daftar Asmaul Husna, lengkap dengan tulisan arab dan artinya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "List of Asmaul Husna, complete with Arabic script and meanings. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: 'Daftar Asmaul Husna, lengkap dengan tulisan arab dan artinya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	AYAT_KURSI:
-		'Bacaan Ayat Kursi dengan terjemahan bahasa Indonesia. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Ayat Kursi recitation with English translation. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: 'Bacaan Ayat Kursi dengan terjemahan bahasa Indonesia. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	DAILY_DOA:
-		"Kumpulan bacaan Do'a sehari-hari untuk anak dan dewasa beserta tulisan latin dan terjemahan bahasa Indonesia. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.",
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Collection of daily prayers for children and adults with Latin script and English translation. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: "Kumpulan bacaan Do'a sehari-hari untuk anak dan dewasa beserta tulisan latin dan terjemahan bahasa Indonesia. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.",
 	JUZ_AMMA:
-		"Baca Juz Amma (Qur'an Juz 30) beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.",
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Read Juz Amma (Quran Juz 30) with English translation and tafsir from Kemenag. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: "Baca Juz Amma (Qur'an Juz 30) beserta terjemahan bahasa Indonesia dan tafsir dari Kemenag. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.",
 	TAHLIL:
-		'Bacaan Tahlil lengkap beserta urutan dan tata caranya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Complete Tahlil recitation with order and procedures. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: 'Bacaan Tahlil lengkap beserta urutan dan tata caranya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	WIRID:
-		'Bacaan, urutan dan tata cara Wirid setelah sholat. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Recitation, order, and procedures for Wirid after prayer. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: 'Bacaan, urutan dan tata cara Wirid setelah sholat. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	TASBIH:
-		'Tasbih digital online dari Baca-Quran.id, mempermudah menghitung Dzikirmu. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Digital tasbih online from Baca-Quran.id, making it easier to count your Dhikr. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: 'Tasbih digital online dari Baca-Quran.id, mempermudah menghitung Dzikirmu. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	JADWAL_SHOLAT:
-		'Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Complete prayer schedule. Directly from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: 'Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	CATAT_IBADAH:
-		'Catat ibadahmu untuk refleksi diri. Pencatat ibadah online dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+		current == LANGUAGE_OPTIONS.ENGLISH.locale
+			? "Record your worship for self-reflection. Online worship tracker from your browser, ad-free, analytics-free, privacy safe, and completely free."
+			: 'Catat ibadahmu untuk refleksi diri. Pencatat ibadah online dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	SURAH_DETAIL: '',
 	AYAT_DETAIL: ''
-};
-export const LANGUAGE_OPTIONS = {
-  INDONESIAN: {
-    label: 'Indonesia',
-    locale: 'id',
-  },
-  ENGLISH: {
-    label: 'English',
-    locale: 'en',
-  },
-  // Add more languages here
 };
 
 export const SEO_TEXT_DYNAMIC = {

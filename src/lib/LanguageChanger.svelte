@@ -1,6 +1,5 @@
 	<script>
-	import {LANGUAGE_OPTIONS } from "./constants";
-import { CheckLanguage, languageStore } from "./checkLanguaguage";
+import { CheckLanguage, LANGUAGE_OPTIONS, languageStore } from "./checkLanguaguage";
 		let showOptions = false;
 		let currentLang = CheckLanguage();
 		/**

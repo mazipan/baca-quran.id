@@ -1,5 +1,15 @@
 import { writable } from "svelte/store";
-import { LANGUAGE_OPTIONS } from "./constants";
+export const LANGUAGE_OPTIONS = {
+  INDONESIAN: {
+    label: 'Indonesia',
+    locale: 'id',
+  },
+  ENGLISH: {
+    label: 'English',
+    locale: 'en',
+  },
+  // Add more languages here
+};
 
 export function CheckLanguage() {
 
@@ -22,4 +32,4 @@ if (lang != null) {
 }}
 
 
-export const languageStore = writable(CheckLanguage());
+export const languageStore = writable(CheckLanguage()); ;

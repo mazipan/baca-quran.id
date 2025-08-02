@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
-	import {  languageStore } from '$lib/checkLanguaguage';
-	import { LANGUAGE_OPTIONS, META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
+	import {  LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import {  META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
 $: current = $languageStore
 
 

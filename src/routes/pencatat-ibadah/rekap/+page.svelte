@@ -2,6 +2,7 @@
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import {
 		META_DESC_PENCATAT_IBADAH,
 		META_TITLE_PENCATAT_IBADAH,
@@ -9,6 +10,7 @@
 	} from '$lib/constants';
 	import { formatDate, getAllMonths } from '$lib/utils/date';
 	import { logPrayer } from '$store';
+const current = $derived(languageStore) ;
 
 	let monthRanges = getAllMonths();
 
@@ -37,14 +39,16 @@
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
-	<h1 class="text-3xl font-bold">⏺️ Rekap Pencatat Ibadah</h1>
+	<h1 class="text-3xl font-bold">
+		⏺️ {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Prayer Log Recap' : 'Rekap Pencatat Ibadah'}
+	</h1>
 </div>
 
 <div class="px-4 mb-4">
 	<Breadcrumb
 		items={[
-			{ text: '🏠 Beranda', href: '/' },
-			{ text: '⏺️ Pencatat Ibadah', href: '/pencatat-ibadah/' }
+			{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda', href: '/' },
+			{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Prayer Log' : '⏺️ Pencatat Ibadah', href: '/pencatat-ibadah/' }
 		]}
 	/>
 </div>
@@ -72,7 +76,9 @@
 			<table class="table-stripped">
 				<thead>
 					<tr>
-						<th scope="col">Tanggal</th>
+						<th scope="col">
+							{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Date' : 'Tanggal' }
+						</th>
 						<th scope="col">Subuh</th>
 						<th scope="col">Dzuhur</th>
 						<th scope="col">Ashar</th>
@@ -94,7 +100,10 @@
 		{:else}
 			<div class="m-6 flex flex-col gap-2 justify-center items-center p-4">
 				<p class="text-2xl text-center font-bold">
-					Belum ada data rekap untuk bulan {selectedMonth}
+					{ $current == LANGUAGE_OPTIONS.ENGLISH.locale
+						? `No recap data for ${selectedMonth} yet`
+						: `Belum ada data rekap untuk bulan ${selectedMonth}`
+					}
 				</p>
 				<img
 					src="/images/illustrasion-error.svg"

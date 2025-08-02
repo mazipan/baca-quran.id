@@ -7,10 +7,13 @@
 	import { CONSTANTS, META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
 	import surahData from '../../data/surah-data/108';
 	import { settingAudio, settingAutoNext, settingTafsir, settingTranslation } from '../../store';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	let SURAH_SAMPLE = 108;
 	let SURAH_SAMPLE_TOTAL_AYAH = 3;
 	let SURAH_SAMPLE_ARABIC = 'الكوثر';
 	let SURAH_SAMPLE_LATIN = 'Al-Kausar';
+	const current = $derived(languageStore) ;
+
 </script>
 
 <svelte:head>
@@ -18,16 +21,18 @@
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
-	<h1 class="text-3xl font-bold">⚙️ Setelan</h1>
+	<h1 class="text-3xl font-bold">
+		⚙️ {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Settings' : 'Setelan'}
+	</h1>
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
+	<Breadcrumb items={[{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda', href: '/' }]} />
 </div>
 
 <article class="px-4 flex flex-col gap-4 divide-y">
 	<div class="flex flex-col gap-2">
-		<h3 class="text-xl font-bold">💠 Setelan Fitur</h3>
+		<h3 class="text-xl font-bold">💠 { $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Feature Settings' : 'Setelan Fitur' }</h3>
 		<div>
 			<input
 				type="checkbox"
@@ -43,7 +48,9 @@
 					settingTranslation.update((val) => !val);
 				}}
 			/>
-			<label for="chk-translation">Selalu tampilkan terjemahan</label>
+			<label for="chk-translation">
+				{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Always show translation' : 'Selalu tampilkan terjemahan' }
+			</label>
 		</div>
 		<div>
 			<input
@@ -60,7 +67,9 @@
 					settingTafsir.update((val) => !val);
 				}}
 			/>
-			<label for="chk-tafsir">Tampilkan tombol tafsir</label>
+			<label for="chk-tafsir">
+				{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Show tafsir button' : 'Tampilkan tombol tafsir' }
+			</label>
 		</div>
 		<!-- <div>
 			<input
@@ -100,7 +109,7 @@
 	</div>
 
 	<div class="pt-4 flex flex-col gap-2">
-		<h3 class="text-xl font-bold">🔈 Setelan Audio</h3>
+		<h3 class="text-xl font-bold">🔈 { $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Audio Settings' : 'Setelan Audio' }</h3>
 		<div>
 			<input
 				type="checkbox"
@@ -116,11 +125,15 @@
 					settingAutoNext.update((val) => !val);
 				}}
 			/>
-			<label for="chk-auto-next">Otomatis putar ayat berikutnya</label>
+			<label for="chk-auto-next">
+				{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Automatically play next verse' : 'Otomatis putar ayat berikutnya' }
+			</label>
 		</div>
 
 		<div>
-			<label for="select-qari" class="block mb-2 text-sm font-medium">Pilih Qari</label>
+			<label for="select-qari" class="block mb-2 text-sm font-medium">
+				{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Choose Qari' : 'Pilih Qari' }
+			</label>
 			<div class="flex items-center gap-2">
 				<select
 					id="select-qari"

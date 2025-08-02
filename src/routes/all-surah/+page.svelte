@@ -1,11 +1,13 @@
 <script lang="ts">
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
-	import { META_DESC_ALL_SURAH, META_TITLE_ALL_SURAH, TITLE_CONSTANTS } from '$lib/constants';
+	import {  META_DESC_ALL_SURAH, META_TITLE_ALL_SURAH, TITLE_CONSTANTS } from '$lib/constants';
 	import surahInfo, { type SurahInfo } from '../../data/surah-info';
 	import MakkiyahMadaniyah from '../../data/makkiyah-madaniyah';
 	import SurahList from '$lib/SurahList.svelte';
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	const current = $derived(languageStore) ;
 
 	function insertMakkiyahMadaniyah() {
 		let result: SurahInfo = {};
@@ -32,11 +34,18 @@
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
-	<h1 class="text-3xl font-bold">📚 Daftar Semua Surat</h1>
+	<h1 class="text-3xl font-bold">
+		📚 {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'List of All Surahs' : 'Daftar Semua Surat'}
+	</h1>
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
+	<Breadcrumb items={[
+		{
+			text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda',
+			href: '/'
+		}
+	]} />
 </div>
 
 <SurahList {originSurahInfo} />

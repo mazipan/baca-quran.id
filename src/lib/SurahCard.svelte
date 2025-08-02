@@ -10,6 +10,8 @@
 	import { toast } from '../store/toast';
 	import { MADANIYAH_CODE, MAKKIYAH_MADANIYAH_TEXT } from '../data/makkiyah-madaniyah';
 	import Badge from './ui/Badge.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
+	const current = $derived(languageStore) ;
 
 	interface Props {
 		surah: SurahInfoItem;
@@ -33,12 +35,16 @@
 				isSurahExistInStorage = true;
 				localStorage.setItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH, JSON.stringify($pinnedSurah));
 				toast.show({
-					message: `Berhasil menyematkan surat <b>${surah.latin}</b>!`,
+					message: $current == LANGUAGE_OPTIONS.ENGLISH.locale
+						? `Successfully pinned <b>${surah.latin}</b>!`
+						: `Berhasil menyematkan surat <b>${surah.latin}</b>!`,
 					type: 'success'
 				});
 			} else {
 				toast.show({
-					message: `Kamu telah menyematkan maksimum 6 surat!`,
+					message: $current == LANGUAGE_OPTIONS.ENGLISH.locale
+						? `You have pinned the maximum of 6 surahs!`
+						: `Kamu telah menyematkan maksimum 6 surat!`,
 					type: 'error'
 				});
 			}
@@ -47,7 +53,9 @@
 			isSurahExistInStorage = false;
 			localStorage.setItem(CONSTANTS.STORAGE_KEY.PINNED_SURAH, JSON.stringify($pinnedSurah));
 			toast.show({
-				message: `Berhasil menghapus surat <b>${surah.latin}</b> dari penyematan!`,
+				message: $current == LANGUAGE_OPTIONS.ENGLISH.locale
+					? `Successfully unpinned <b>${surah.latin}</b>!`
+					: `Berhasil menghapus surat <b>${surah.latin}</b> dari penyematan!`,
 				type: 'info'
 			});
 		}

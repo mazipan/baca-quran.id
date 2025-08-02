@@ -17,10 +17,12 @@
 	import Clock from '$lib/Clock.svelte';
 	import { toast } from '../../store/toast';
 	import PrayerTimeList from '$lib/PrayerTimeList.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import type { Writable } from 'svelte/store';
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
 	let prayerTimes: PrayerTimeData[] = $state([]);
-
+const current = $derived(languageStore) ;
 	let todayPrayerTime = $derived(
 		prayerTimes.find((time) => {
 			return (
@@ -123,7 +125,7 @@
 				);
 
 				toast.show({
-					message: `Berhasil mendapatkan lokasi teranyar!`,
+					message: `${$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Managed to get the latest location!' : 'Berhasil mendapatkan lokasi teranyar!'}`,
 					type: 'success'
 				});
 
@@ -158,20 +160,31 @@
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
-	<h1 class="text-3xl font-bold">⏰ Jadwal Sholat</h1>
+	<h1 class="text-3xl font-bold">
+		⏰ {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Prayer schedule' : 'Jadwal Sholat'}
+	</h1>
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
+	<Breadcrumb
+		items={[
+			{
+				text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda',
+				href: '/'
+			}
+		]}
+	/>
 </div>
 
 <div class="px-4 flex flex-col gap-2">
 	{#if $settingLocation === null}
 		<div class="flex flex-wrap gap-2 justify-between items-center">
-			<h2 class="text-xl font-bold">Lokasi belum diketahui</h2>
+			<h2 class="text-xl font-bold">
+				{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '' : 'Lokasi belum diketahui'}
+			</h2>
 			<div>
 				<Button onClick={getGeolocation}>
-					<MarkerIcon />Beri akses lokasi
+					<MarkerIcon />{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Allow location access' : 'Beri akses lokasi'}
 				</Button>
 			</div>
 		</div>
@@ -188,7 +201,7 @@
 
 			<Button onClick={getGeolocation}>
 				<MarkerIcon />
-				Perbarui Lokasi
+				{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Update Location' : 'Perbarui Lokasi'}
 			</Button>
 		</div>
 	{/if}

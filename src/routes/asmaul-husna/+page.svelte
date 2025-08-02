@@ -3,8 +3,8 @@
 	import CardShadow from '$lib/CardShadow.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
-	import { languageStore } from '$lib/checkLanguaguage';
-	import { LANGUAGE_OPTIONS, META_DESC_ASMAUL_HUSNA, META_TITLE_ASMAUL_HUSNA, TITLE_CONSTANTS } from '$lib/constants';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { META_DESC_ASMAUL_HUSNA, META_TITLE_ASMAUL_HUSNA, TITLE_CONSTANTS } from '$lib/constants';
 	import Badge from '$lib/ui/Badge.svelte';
 	import asmaulHusna from '../../data/asmaul-husna';
 	$: current = $languageStore;
