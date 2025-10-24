@@ -9,12 +9,11 @@
 	import { META_DESC_AYAH, META_TITLE_AYAH, TITLE_CONSTANTS } from '$lib/constants';
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/utils/json-ld';
 	import type { SurahInfoPage } from '$data/surah-info';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '$lib/translations/store';
 
 	interface Props {
 		data: any;
 	}
-	const current = $derived(languageStore) ;
 
 	let { data }: Props = $props();
 
@@ -39,11 +38,7 @@
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
-	{#if $current == LANGUAGE_OPTIONS.ENGLISH.locale}
-		<h1 class="text-3xl font-bold">📖 Read by Verse</h1>
-	{:else}
-		<h1 class="text-3xl font-bold">📖 Baca per Ayat</h1>
-	{/if}
+	<h1 class="text-3xl font-bold">📖 {$t('surah.readByVerse')}</h1>
 </div>
 
 <div class="px-4 mb-4">
@@ -58,7 +53,7 @@
 
 <article class="px-4">
 	{#if $navigating}
-		<span>Loading...</span>
+		<span>{$t('common.loading')}</span>
 	{:else}
 		<div class="flex flex-col gap-2">
 			<SurahCard surah={surahInfo.current} />

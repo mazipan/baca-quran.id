@@ -8,8 +8,7 @@
 	import { settingTafsir, settingTranslation } from '../store';
 	import { verseTafsirSheet } from '../store/verseTafsirSheet';
 	import { verseShareSheet } from '../store/verseShareSheet';
-	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
-	const current = $derived(languageStore) ;
+	import { t } from './translations/store';
 
 	interface Props {
 		verse: string;
@@ -37,7 +36,7 @@
 
 	let toggleBottomSheet = () => {
 		verseTafsirSheet.show({
-			title: `💠 Terjemah & Tafsir Surat ${surahLatin}, Ayat ${numberVerse}`,
+			title: $t('ui.tafsirTitle', { surahLatin, verseNumber: numberVerse }),
 			tafsir,
 			translation
 		});
@@ -45,9 +44,7 @@
 
 	function handleShare() {
 		verseShareSheet.show({
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale
-				? `🧵 Share Surah ${surahLatin}, Verse ${numberVerse}`
-				: `🧵 Bagikan Surat ${surahLatin}, Ayat ${numberVerse}`,
+			title: $t('ui.shareVerseTitle', { surahLatin, verseNumber: numberVerse }),
 			translation,
 			verse,
 			numberSurah,
@@ -71,11 +68,11 @@
 		<div class="flex items-center gap-2">
 			<VerseAudioPlayerTrigger {totalAyah} {numberSurah} {numberVerse} {source} />
 			<VerseSaveLastRead {surahLatin} {surahArabic} {numberSurah} {numberVerse} {source} />
-			<Button onClick={handleShare} ariaLabel="Bagikan Ayat">
+			<Button onClick={handleShare} ariaLabel={$t('surah.shareVerse')}>
 				<ShareIcon />
 			</Button>
 			{#if $settingTafsir}
-				<Button onClick={toggleBottomSheet} ariaLabel="Baca Terjemah">
+				<Button onClick={toggleBottomSheet} ariaLabel={$t('surah.readTranslation')}>
 					<DocumentTextIcon />
 				</Button>
 			{/if}

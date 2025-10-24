@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
+	import { t } from './translations/store';
 	import SearchIcon from './icons/SearchIcon.svelte';
-const current = $derived(languageStore) ;
 
 	interface Props {
 		onChange: (e: Event) => void;
@@ -9,7 +8,7 @@ const current = $derived(languageStore) ;
 		placeholder?: string;
 	}
 
-	let { onChange, searchText = '', placeholder = `${$current==LANGUAGE_OPTIONS.ENGLISH.locale ? 'Find what letter?' : 'Cari surat apa?'}` }: Props = $props();
+	let { onChange, searchText = '', placeholder = $t('ui.findWhatLetter') }: Props = $props();
 </script>
 
 <div class="relative mb-4">

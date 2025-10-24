@@ -90,7 +90,7 @@
 			<b>Preview</b>
 			<div>
 				<div class="mt-2 flex flex-col gap-1">
-					{#each Object.entries(surahData[SURAH_SAMPLE].text) as [numberVerse, verse] (verse)}
+					{#each Object.entries(surahData[SURAH_SAMPLE].text) as [numberVerse, verse] (`${SURAH_SAMPLE}-${numberVerse}`)}
 						<VerseCard
 							verse={`${verse}`}
 							{numberVerse}
