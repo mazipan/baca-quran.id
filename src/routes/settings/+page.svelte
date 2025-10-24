@@ -103,8 +103,12 @@
 						<VerseCard
 							verse={`${verse}`}
 							{numberVerse}
-							translation={(surahData as any)[SURAH_SAMPLE.toString()]?.translations.id?.text?.[numberVerse] || ''}
-							tafsir={(surahData as any)[SURAH_SAMPLE.toString()]?.tafsir?.id?.kemenag?.text?.[numberVerse] || ''}
+							translation={(surahData as any)[SURAH_SAMPLE.toString()]?.translations.id?.text?.[
+								numberVerse
+							] || ''}
+							tafsir={(surahData as any)[SURAH_SAMPLE.toString()]?.tafsir?.id?.kemenag?.text?.[
+								numberVerse
+							] || ''}
 							numberSurah={SURAH_SAMPLE.toString()}
 							totalAyah={SURAH_SAMPLE_TOTAL_AYAH}
 							source="surah"

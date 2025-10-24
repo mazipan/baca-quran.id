@@ -1,6 +1,11 @@
 import { derived } from 'svelte/store';
 import { languageStore } from '../checkLanguaguage';
-import { t as translateFunction, getTranslations, hasTranslation, getCurrentLanguage } from './index';
+import {
+	t as translateFunction,
+	getTranslations,
+	hasTranslation,
+	getCurrentLanguage
+} from './index';
 
 /**
  * Reactive translation store that automatically updates when language changes
