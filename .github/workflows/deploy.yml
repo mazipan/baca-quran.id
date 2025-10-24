@@ -8,9 +8,10 @@ on:
       - 'main'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
+  pull-requests: write
 
 concurrency:
   group: 'pages'
@@ -27,7 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          persist-credentials: false
+          persist-credentials: true
           fetch-depth: 0
           token: ${{ secrets.PERSONAL_TOKEN }}
 
@@ -58,24 +59,37 @@ jobs:
           pnpm run build
           touch build/.nojekyll
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Fix permissions
+        # Only run this on forked repo in mazipan-quran-offline
+        if: github.repository == 'mazipan-quran-offline/baca-quran.id'
+        run: |
+          chmod -c -R +rX "build/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Commit generated files only
+        # Only run this on forked repo in mazipan-quran-offline
+        if: github.repository == 'mazipan-quran-offline/baca-quran.id'
+        run: |
+          echo "> Start remove unused files..."
+          rm -rf .github/workflows .svelte-kit markdowns screenshoot scripts static src node_modules
+          rm -rf .all-contributorsrc .editorconfig .eslintignore .eslintrc.cjs .gitignore .kodiak.toml .npmrc .prettierignore .prettierrc package.json pnpm-lock.yaml postcss.config.js svelte.config.js tailwind.config.js tsconfig.json vite.config.ts .env.example .nvmrc
+          echo "> Copy build directory..."
+          cp -r build/. ./
+          rm -rf build
+          echo "> Set git config..."
+          git config --local user.email "mazipanneh@gmail.com"
+          git config --local user.name "Irfan Maulana"
+
+          echo "> Add and commit files..."
+          git add -A
+          git commit -m "[CI]: Auto Deploy 🚀"
+          echo "> Finish commit changes to repo"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          name: github-pages
-          path: build
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    timeout-minutes: 10
-
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          repository: mazipan-quran-offline/mazipan-quran-offline.github.io
+          force: true
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          branch: master
