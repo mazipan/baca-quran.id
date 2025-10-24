@@ -23,7 +23,11 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: `🏠${current==LANGUAGE_OPTIONS.ENGLISH.locale?'Home':'Beranda'}`, href: '/' }]} />
+	<Breadcrumb
+		items={[
+			{ text: `🏠${current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Home' : 'Beranda'}`, href: '/' }
+		]}
+	/>
 </div>
 
 <div class="px-4 flex flex-col gap-2">

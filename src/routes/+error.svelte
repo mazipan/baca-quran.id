@@ -3,8 +3,7 @@
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
-		const current = $derived(languageStore) ;
-
+	const current = $derived(languageStore);
 </script>
 
 <div class="m-6 flex flex-col gap-2 justify-center items-center">
@@ -16,7 +15,6 @@
 				? $page?.error?.message || 'Unknown error'
 				: $page?.error?.message || 'tidak diketahui'}
 		</span>
-		
 	</p>
 	<img
 		src="/images/illustrasion-error.svg"
@@ -29,6 +27,6 @@
 		}}
 	>
 		<ArrowLeftIcon />
-		{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Back to Home' : 'Kembali ke Beranda' }
+		{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Back to Home' : 'Kembali ke Beranda'}
 	</Button>
 </div>

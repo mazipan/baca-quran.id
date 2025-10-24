@@ -14,33 +14,33 @@
 	let counter = $state(0);
 	let target = $state(33);
 	let soundOn = $state(true);
-	let audioBeepSmallRef: HTMLAudioElement = $state();
-	let audioBeepLongRef: HTMLAudioElement = $state();
+	let audioBeepSmallRef: HTMLAudioElement | undefined = $state();
+	let audioBeepLongRef: HTMLAudioElement | undefined = $state();
 
-  const playBeep = (isLong = false) => {
-    if (soundOn) {
-      if (isLong) {
-        audioBeepLongRef?.play?.();
-      } else {
-        audioBeepSmallRef?.play?.();
-      }
-    }
-  }
+	const playBeep = (isLong = false) => {
+		if (soundOn) {
+			if (isLong) {
+				audioBeepLongRef?.play?.();
+			} else {
+				audioBeepSmallRef?.play?.();
+			}
+		}
+	};
 
 	const handleIncrement = () => {
 		if (counter <= target - 1) {
 			counter = counter + 1;
 
-      playBeep(false)
-      if (
-        typeof window.navigator !== 'undefined' &&
-        typeof window.navigator.vibrate !== 'undefined'
-      ) {
-        window.navigator.vibrate([100]);
-      }
+			playBeep(false);
+			if (
+				typeof window.navigator !== 'undefined' &&
+				typeof window.navigator.vibrate !== 'undefined'
+			) {
+				window.navigator.vibrate([100]);
+			}
 
 			if (counter === target) {
-        playBeep(true)
+				playBeep(true);
 
 				if (
 					typeof window.navigator !== 'undefined' &&
@@ -71,7 +71,7 @@
 		target = newTarget;
 	};
 
-  const toggleSound = () => {
+	const toggleSound = () => {
 		soundOn = !soundOn;
 	};
 </script>

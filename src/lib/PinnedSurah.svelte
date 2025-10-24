@@ -1,16 +1,13 @@
 <script lang="ts">
 	import { pinnedSurah } from '../store';
 	import CardShadow from './CardShadow.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
+	import { t } from './translations/store';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
-
-	const current = $derived(languageStore) ;
-
 </script>
 
 <div class="flex gap-2 mb-2">
 	<h2 class="text-xl font-bold">
-		📌 {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Pinned Surahs' : 'Surat yang disematkan'}
+		📌 {$t('surah.pinnedSurahs')}
 	</h2>
 </div>
 
@@ -18,13 +15,8 @@
 	<CardShadow>
 		<div class="flex justify-between items-center">
 			<div>
-				{#if $current == LANGUAGE_OPTIONS.ENGLISH.locale}
-					<p>You don't have any pinned surahs!</p>
-					<p>Start pinning up to 6 surahs for quick access.</p>
-				{:else}
-					<p>Kamu belum punya surah yang di pin!</p>
-					<p>Mulai pin 6 surah agar mudah diakses.</p>
-				{/if}
+				<p>{$t('surah.noPinnedSurahs')}</p>
+				<p>{$t('surah.startPinningSurahs')}</p>
 			</div>
 			<a
 				href="/all-surah/"

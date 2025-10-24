@@ -6,7 +6,7 @@
 		show?: boolean;
 		title?: string;
 		id?: string;
-		// eslint-disable-next-line @typescript-eslint/no-empty-function
+
 		onClose?: () => void;
 		children?: import('svelte').Snippet;
 	}

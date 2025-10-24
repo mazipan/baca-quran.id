@@ -6,16 +6,15 @@
 	import SeoText from '$lib/SeoText.svelte';
 	import SurahCard from '$lib/SurahCard.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
-	import {  META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
+	import { META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/utils/json-ld';
 	import type { SurahInfoPage } from '$data/surah-info';
 	import { onMount } from 'svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '$lib/translations/store';
 	interface Props {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		data: any;
 	}
-	const current = $derived(languageStore) ;
 
 	let { data }: Props = $props();
 
@@ -59,7 +58,7 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">
-		📖 {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Read by Surah' : 'Baca per Surat'}
+		📖 {$t('surah.readBySurah')}
 	</h1>
 </div>
 
@@ -67,7 +66,7 @@
 	<Breadcrumb
 		items={[
 			{ text: '🏠', href: '/' },
-			{ text: $current==LANGUAGE_OPTIONS.ENGLISH.locale?'All Surat':'Semua Surat', href: '/all-surah/' },
+			{ text: $t('navigation.allSurah'), href: '/all-surah/' },
 			{ text: surahInfo.current.latin, href: `/surah/${surahid}/` }
 		]}
 	/>
@@ -75,7 +74,7 @@
 
 <article class="px-4">
 	{#if $navigating}
-		<span>Loading...</span>
+		<span>{$t('common.loading')}</span>
 	{:else}
 		<div class="flex flex-col gap-2">
 			<SurahCard surah={surahInfo.current} />
@@ -84,7 +83,7 @@
 		<Pagination variant="surah" {surahInfo} {surahid} verseid="" />
 
 		<div class="mt-8 flex flex-col gap-4">
-			{#each Object.entries(surahData.text) as [numberVerse, verse] (verse)}
+			{#each Object.entries(surahData.text) as [numberVerse, verse] (`${surahid}-${numberVerse}`)}
 				<VerseCard
 					verse={`${verse}`}
 					{numberVerse}

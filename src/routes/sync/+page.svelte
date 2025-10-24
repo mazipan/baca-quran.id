@@ -1,13 +1,17 @@
 <script lang="ts">
-	import {
-		PUBLIC_FIREBASE_API_KEY,
-		PUBLIC_FIREBASE_AUTH_DOMAIN,
-		PUBLIC_FIREBASE_PROJECT_ID,
-		PUBLIC_FIREBASE_STORAGE_BUCKET,
-		PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-		PUBLIC_FIREBASE_APP_ID,
-		PUBLIC_FIREBASE_MEASUREMENT_ID
-	} from '$env/static/public';
+	import { env } from '$env/dynamic/public';
+
+	// Firebase configuration with fallbacks for CI
+	const firebaseConfig = {
+		apiKey: env.PUBLIC_FIREBASE_API_KEY || 'dummy-key',
+		authDomain: env.PUBLIC_FIREBASE_AUTH_DOMAIN || 'dummy-domain',
+		projectId: env.PUBLIC_FIREBASE_PROJECT_ID || 'dummy-project',
+		storageBucket: env.PUBLIC_FIREBASE_STORAGE_BUCKET || 'dummy-bucket',
+		messagingSenderId: env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID || 'dummy-sender',
+		appId: env.PUBLIC_FIREBASE_APP_ID || 'dummy-app',
+		measurementId: env.PUBLIC_FIREBASE_MEASUREMENT_ID || 'dummy-measurement'
+	};
+
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import { initializeApp } from 'firebase/app';
@@ -49,16 +53,6 @@
 	import ArrowDownTray from '$lib/icons/ArrowDownTray.svelte';
 	import JsonSurahViewer from '$lib/JsonSurahViewer.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
-
-	const firebaseConfig = {
-		apiKey: PUBLIC_FIREBASE_API_KEY,
-		authDomain: PUBLIC_FIREBASE_AUTH_DOMAIN,
-		projectId: PUBLIC_FIREBASE_PROJECT_ID,
-		storageBucket: PUBLIC_FIREBASE_STORAGE_BUCKET,
-		messagingSenderId: PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-		appId: PUBLIC_FIREBASE_APP_ID,
-		measurementId: PUBLIC_FIREBASE_MEASUREMENT_ID
-	};
 
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);

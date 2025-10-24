@@ -1,15 +1,13 @@
 <script lang="ts">
 	import { lastReadVerses } from '../store';
 	import CardShadow from './CardShadow.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
+	import { t } from './translations/store';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
-	const current = $derived(languageStore) ;
-
 </script>
 
 <div class="flex gap-2 mb-2 mt-2">
 	<h2 class="text-xl font-bold">
-		🔖 {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Last Read Verses' : 'Ayat terakhir dibaca'}
+		🔖 {$t('surah.lastReadVerses')}
 	</h2>
 </div>
 
@@ -17,13 +15,8 @@
 	<CardShadow>
 		<div class="flex justify-between items-center">
 			<div>
-				{#if $current == LANGUAGE_OPTIONS.ENGLISH.locale}
-					<p>You don't have any bookmarked verses!</p>
-					<p>Start reading and bookmark verses.</p>
-				{:else}
-					<p>Kamu belum punya ayat yang ditandai!</p>
-					<p>Yuk mulai baca dan tandai ayat.</p>
-				{/if}
+				<p>{$t('surah.noBookmarkedVerses')}</p>
+				<p>{$t('surah.startReadingVerses')}</p>
 			</div>
 			<a
 				href="/all-surah/"

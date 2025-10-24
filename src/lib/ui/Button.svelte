@@ -5,6 +5,7 @@
 		ariaLabel?: string;
 		children?: import('svelte').Snippet;
 		class?: string;
+		[key: `data-${string}`]: string | undefined;
 	}
 
 	let { onClick, variant = 'filled', ariaLabel = '', children, class: clazz }: Props = $props();

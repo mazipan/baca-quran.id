@@ -23,7 +23,7 @@
 	let totalTime = $state(0);
 	let currentTime = $state(0);
 	let percent = $state(0);
-	let audioRef: HTMLAudioElement = $state();
+	let audioRef: HTMLAudioElement | undefined = $state();
 
 	function play({ surah, verse, totalAyah }: CurrentTrackParam) {
 		if (audioRef) {
@@ -105,7 +105,7 @@
 		if (audioRef) {
 			audioRef.addEventListener('timeupdate', updateAudioTimeline);
 			audioRef.addEventListener('loadedmetadata', () => {
-				totalTime = audioRef.duration;
+				totalTime = audioRef?.duration ?? 0;
 			});
 
 			audioRef.addEventListener('ended', handleEndPlaying);

@@ -1,47 +1,81 @@
-	<script>
-import { CheckLanguage, LANGUAGE_OPTIONS, languageStore } from "./checkLanguaguage";
-		let showOptions = false;
-		let currentLang = CheckLanguage();
-		/**
+<script lang="ts">
+	import { CheckLanguage, LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+
+	let showOptions = false;
+	let currentLang: 'id' | 'en' = LANGUAGE_OPTIONS.INDONESIAN.locale; // Default value for SSR
+
+	onMount(() => {
+		// Only run on client side
+		currentLang = CheckLanguage();
+	});
+
+	/**
 	 * @param {string} lang
 	 */
-		function selectLanguage(lang) {
+	function selectLanguage(lang: 'id' | 'en') {
+		if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
 			localStorage.setItem('language', lang);
-			languageStore.set(lang);
-			showOptions = false;
-			currentLang = lang;
 		}
-	</script>
-	
-	<div class="relative">
-		<button
-			class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary flex items-center"
-			aria-label="Change Language"
-			on:click={() => showOptions = !showOptions}
-		>
-			<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-				<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-			</svg>
-		</button>
-{#if showOptions}
-  <div class="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-400 rounded-lg shadow-xl z-20 py-2">
-    {#each Object.values(LANGUAGE_OPTIONS) as lang}
-      <button
-        class="w-full text-left px-4 py-2 rounded-md transition-colors duration-150
-               hover:bg-primary hover:text-white
-               focus:outline-none focus:ring-2 focus:ring-primary
-               mb-1
-               text-gray-200 dark:text-gray-200"
-        class:bg-secondary={currentLang && currentLang === lang.locale}
-        class:text-white={currentLang === lang.locale}
-        class:font-semibold={currentLang === lang.locale}
-        on:click={() => selectLanguage(lang.locale)}
-      >
-        {lang.label}
-      </button>
-    {/each}
-  </div>
-{/if}
+		languageStore.set(lang);
+		showOptions = false;
+		currentLang = lang;
+	}
+</script>
 
-	</div>
+<div class="relative">
+	<button
+		class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary flex items-center"
+		id="language-button"
+		aria-expanded={showOptions}
+		aria-haspopup="true"
+		aria-label="Change Language"
+		onclick={() => (showOptions = !showOptions)}
+	>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="16"
+			height="16"
+			fill="currentColor"
+			class="w-6 h-6"
+			viewBox="0 0 16 16"
+		>
+			<path
+				d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z"
+			/>
+			<path
+				d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31"
+			/>
+		</svg>
+	</button>
+	{#if showOptions}
+		<div
+			class="absolute right-0 z-20 mt-2 w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none bg-secondary"
+			role="menu"
+			aria-orientation="vertical"
+			aria-labelledby="language-button"
+			tabindex="-1"
+			transition:fade={{ duration: 100 }}
+		>
+			<div class="p-1 flex flex-col gap-2" role="none">
+				{#each Object.values(LANGUAGE_OPTIONS) as lang}
+					<button
+						type="submit"
+						class={`flex gap-2 items-center justify-between rounded-md w-full px-4 py-2 text-left text-sm hover:bg-primary ${
+							currentLang === lang.locale ? 'border-2 border-blue-400' : ''
+						}`}
+						role="menuitem"
+						tabindex="-1"
+						onclick={() => selectLanguage(lang.locale)}
+					>
+						<div class="flex items-center gap-2">
+							<span class="text-lg">{lang.flag}</span>
+							<span class="text-sm">{lang.label}</span>
+						</div>
+					</button>
+				{/each}
+			</div>
+		</div>
+	{/if}
+</div>

@@ -1,12 +1,10 @@
 <script>
-	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
+	import { t } from './translations/store';
 	import HashtagIcon from './icons/HashtagIcon.svelte';
 	import HomeIcon from './icons/HomeIcon.svelte';
 	import InformationCircleIcon from './icons/InformationCircleIcon.svelte';
 	import ResetIcon from './icons/ResetIcon.svelte';
 	import SettingIcon from './icons/SettingIcon.svelte';
-		const current = $derived(languageStore) ;
-
 </script>
 
 <ul class="mt-2 flex flex-col gap-2">
@@ -17,7 +15,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<HomeIcon />
-			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Home' : 'Beranda'}
+			{$t('navigation.home')}
 		</a>
 	</li>
 	<li class="sidebar__item">
@@ -27,7 +25,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<SettingIcon />
-			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Settings' : 'Setelan'}
+			{$t('navigation.settings')}
 		</a>
 	</li>
 	<li class="sidebar__item">
@@ -37,7 +35,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<ResetIcon />
-			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Sync' : 'Sinkron'}
+			{$t('navigation.sync')}
 		</a>
 	</li>
 	<li class="sidebar__item">
@@ -48,7 +46,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<HashtagIcon />
-			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'AyatOfTheDay' : 'AyatHariIni'}
+			{$t('navigation.ayatOfTheDay')}
 		</a>
 	</li>
 	<li class="sidebar__item">
@@ -58,7 +56,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<InformationCircleIcon />
-			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'About' : 'Tentang'}
+			{$t('navigation.about')}
 		</a>
 	</li>
 </ul>

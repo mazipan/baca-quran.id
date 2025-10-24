@@ -42,6 +42,5 @@
 		</a>
 		<ThemeSwicther />
 		<LanguageChanger />
-		
 	</div>
 </header>

@@ -5,8 +5,7 @@
 	import PinnedSurah from '$lib/PinnedSurah.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
-	const current = $derived(languageStore) ;
-
+	const current = $derived(languageStore);
 
 	let actionIcons = [
 		{
@@ -39,7 +38,7 @@
 		},
 		{
 			href: '/tahlil/',
-			title:$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🤲 Tahlil' : '🤲 Tahlil'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🤲 Tahlil' : '🤲 Tahlil'
 		},
 		{
 			href: '/ayat-kursi/',
@@ -51,7 +50,8 @@
 		},
 		{
 			href: '/pencatat-ibadah/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Worship Tracker' : '⏺️ Pencatat Ibadah'
+			title:
+				$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Worship Tracker' : '⏺️ Pencatat Ibadah'
 		}
 	];
 </script>
@@ -66,7 +66,9 @@
 
 	<div class="flex gap-2 mt-2 mb-2">
 		<h2 class="text-xl font-bold">
-			{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🌟 Baca-Quran.id Features' : '🌟 Fitur Baca-Quran.id' }
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale
+				? '🌟 Baca-Quran.id Features'
+				: '🌟 Fitur Baca-Quran.id'}
 		</h2>
 	</div>
 
