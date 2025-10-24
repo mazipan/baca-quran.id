@@ -9,7 +9,7 @@
 	import surahInfo, { type SurahInfo } from '../../data/surah-info';
 
 	const SURAH_START = 78;
-const current = $derived(languageStore) ;
+	const current = $derived(languageStore);
 
 	function insertMakkiyahMadaniyah() {
 		let result: SurahInfo = {};
@@ -43,7 +43,11 @@ const current = $derived(languageStore) ;
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text:  `🏠${$current==LANGUAGE_OPTIONS.ENGLISH.locale?'Home':'Beranda'}`, href: '/' }]} />
+	<Breadcrumb
+		items={[
+			{ text: `🏠${$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Home' : 'Beranda'}`, href: '/' }
+		]}
+	/>
 </div>
 
 <SurahList {originSurahInfo} />

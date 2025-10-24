@@ -19,18 +19,17 @@ translations/
 
 ```svelte
 <script>
-  import { t } from './translations/store';
+	import { t } from './translations/store';
 </script>
 
-<p>{$t('common.loading')}</p>
-<p>{$t('surah.title')}</p>
+<p>{$t('common.loading')}</p><p>{$t('surah.title')}</p>
 ```
 
 ### With Parameters
 
 ```svelte
 <script>
-  import { t } from './translations/store';
+	import { t } from './translations/store';
 </script>
 
 <p>{$t('common.welcome', { name: 'John' })}</p>
@@ -40,14 +39,13 @@ translations/
 
 ```svelte
 <script>
-  import { createNamespaceStore } from './translations/store';
+	import { createNamespaceStore } from './translations/store';
 
-  const commonTranslations = createNamespaceStore('common');
-  const navigationTranslations = createNamespaceStore('navigation');
+	const commonTranslations = createNamespaceStore('common');
+	const navigationTranslations = createNamespaceStore('navigation');
 </script>
 
-<p>{$commonTranslations.loading}</p>
-<p>{$navigationTranslations.allSurah}</p>
+<p>{$commonTranslations.loading}</p><p>{$navigationTranslations.allSurah}</p>
 ```
 
 ### Direct Function Usage
@@ -72,14 +70,14 @@ Each translation file should follow this structure:
 
 ```json
 {
-  "common": {
-    "loading": "Loading...",
-    "error": "An error occurred"
-  },
-  "navigation": {
-    "home": "Home",
-    "about": "About"
-  }
+	"common": {
+		"loading": "Loading...",
+		"error": "An error occurred"
+	},
+	"navigation": {
+		"home": "Home",
+		"about": "About"
+	}
 }
 ```
 
@@ -89,9 +87,9 @@ Use `{{variableName}}` syntax for parameters:
 
 ```json
 {
-  "common": {
-    "welcome": "Welcome, {{name}}!"
-  }
+	"common": {
+		"welcome": "Welcome, {{name}}!"
+	}
 }
 ```
 

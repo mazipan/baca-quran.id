@@ -10,7 +10,7 @@
 	} from '$lib/constants';
 	import { formatDate, getAllMonths } from '$lib/utils/date';
 	import { logPrayer } from '$store';
-const current = $derived(languageStore) ;
+	const current = $derived(languageStore);
 
 	let monthRanges = getAllMonths();
 
@@ -48,7 +48,10 @@ const current = $derived(languageStore) ;
 	<Breadcrumb
 		items={[
 			{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda', href: '/' },
-			{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Prayer Log' : '⏺️ Pencatat Ibadah', href: '/pencatat-ibadah/' }
+			{
+				text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Prayer Log' : '⏺️ Pencatat Ibadah',
+				href: '/pencatat-ibadah/'
+			}
 		]}
 	/>
 </div>
@@ -77,7 +80,7 @@ const current = $derived(languageStore) ;
 				<thead>
 					<tr>
 						<th scope="col">
-							{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Date' : 'Tanggal' }
+							{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Date' : 'Tanggal'}
 						</th>
 						<th scope="col">Subuh</th>
 						<th scope="col">Dzuhur</th>
@@ -100,10 +103,9 @@ const current = $derived(languageStore) ;
 		{:else}
 			<div class="m-6 flex flex-col gap-2 justify-center items-center p-4">
 				<p class="text-2xl text-center font-bold">
-					{ $current == LANGUAGE_OPTIONS.ENGLISH.locale
+					{$current == LANGUAGE_OPTIONS.ENGLISH.locale
 						? `No recap data for ${selectedMonth} yet`
-						: `Belum ada data rekap untuk bulan ${selectedMonth}`
-					}
+						: `Belum ada data rekap untuk bulan ${selectedMonth}`}
 				</p>
 				<img
 					src="/images/illustrasion-error.svg"

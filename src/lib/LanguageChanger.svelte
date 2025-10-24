@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
 	import { CheckLanguage, LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
 	let showOptions = false;
-	let currentLang = LANGUAGE_OPTIONS.INDONESIAN.locale; // Default value for SSR
+	let currentLang: 'id' | 'en' = LANGUAGE_OPTIONS.INDONESIAN.locale; // Default value for SSR
 
 	onMount(() => {
 		// Only run on client side
@@ -14,7 +14,7 @@
 	/**
 	 * @param {string} lang
 	 */
-	function selectLanguage(lang) {
+	function selectLanguage(lang: 'id' | 'en') {
 		if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
 			localStorage.setItem('language', lang);
 		}

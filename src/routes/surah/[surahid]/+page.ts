@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import { entriesSurah } from '$lib/views/entries';
 import { loadSurahData } from '$lib/views/load';
 import { redirect } from '@sveltejs/kit';

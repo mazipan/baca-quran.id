@@ -10,15 +10,15 @@ export const t = derived(languageStore, () => translateFunction);
 /**
  * Reactive translation store for specific namespace
  */
-export function createNamespaceStore(namespace: string) {
-  return derived(languageStore, () => getTranslations(namespace as any));
+export function createNamespaceStore<N extends keyof typeof import('./id.json')>(namespace: N) {
+	return derived(languageStore, () => getTranslations(namespace));
 }
 
 /**
  * Reactive store to check if translation exists
  */
 export function createHasTranslationStore(key: string) {
-  return derived(languageStore, () => hasTranslation(key));
+	return derived(languageStore, () => hasTranslation(key));
 }
 
 /**

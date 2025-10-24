@@ -1,42 +1,42 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --color-primary: white;
-  --color-secondary: #F3F4F6;
-  --color-foreground: #000;
-  --color-foreground-secondary: #9ca3af;
+	--color-primary: white;
+	--color-secondary: #f3f4f6;
+	--color-foreground: #000;
+	--color-foreground-secondary: #9ca3af;
 }
 
 /* Dark theme */
 html.dark {
-  --color-primary: #142C66;
-  --color-secondary: #0a1d3d;
-  --color-foreground: white;
-  --color-foreground-secondary: #d1d5db;
+	--color-primary: #142c66;
+	--color-secondary: #0a1d3d;
+	--color-foreground: white;
+	--color-foreground-secondary: #d1d5db;
 }
 
 /* Forest theme */
 html.forest {
-  --color-primary: #016A70;
-  --color-secondary: #014c4f;
-  --color-foreground: #D0E7D2;
-  --color-foreground-secondary: #d1d5db;
+	--color-primary: #016a70;
+	--color-secondary: #014c4f;
+	--color-foreground: #d0e7d2;
+	--color-foreground-secondary: #d1d5db;
 }
 
 /* Pinky theme */
 html.pinky {
-  --color-primary: #FF597B;
-  --color-secondary: #FF8E9E;
-  --color-foreground: #1f2937;
-  --color-foreground-secondary: #ffd6e6;
+	--color-primary: #ff597b;
+	--color-secondary: #ff8e9e;
+	--color-foreground: #1f2937;
+	--color-foreground-secondary: #ffd6e6;
 }
 
 /* Halloween theme */
 html.halloween {
-  --color-primary: #662549;
-  --color-secondary: #451952;
-  --color-foreground: #F39F5A;
-  --color-foreground-secondary: #ff718e;
+	--color-primary: #662549;
+	--color-secondary: #451952;
+	--color-foreground: #f39f5a;
+	--color-foreground-secondary: #ff718e;
 }
 
 @font-face {

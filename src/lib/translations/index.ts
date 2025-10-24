@@ -5,8 +5,8 @@ import enTranslations from './en.json';
 
 // Translation files mapping
 const translations = {
-  id: idTranslations,
-  en: enTranslations,
+	id: idTranslations,
+	en: enTranslations
 } as const;
 
 export type Language = keyof typeof translations;
@@ -19,42 +19,42 @@ export type TranslationKeys = typeof idTranslations;
  * @returns Translated string
  */
 export function t(key: string, params?: Record<string, string | number>): string {
-  const currentLanguage = get(languageStore) as Language;
-  const translation = translations[currentLanguage] || translations.id;
+	const currentLanguage = get(languageStore) as Language;
+	const translation = translations[currentLanguage] || translations.id;
 
-  // Navigate through nested object using dot notation
-  const keys = key.split('.');
-  let value: any = translation;
+	// Navigate through nested object using dot notation
+	const keys = key.split('.');
+	let value: unknown = translation;
 
-  for (const k of keys) {
-    if (value && typeof value === 'object' && k in value) {
-      value = value[k];
-    } else {
-      // Fallback to Indonesian if key not found
-      value = translations.id;
-      for (const fallbackKey of keys) {
-        if (value && typeof value === 'object' && fallbackKey in value) {
-          value = value[fallbackKey];
-        } else {
-          return key; // Return the key itself if not found
-        }
-      }
-      break;
-    }
-  }
+	for (const k of keys) {
+		if (value && typeof value === 'object' && k in value) {
+			value = (value as Record<string, unknown>)[k];
+		} else {
+			// Fallback to Indonesian if key not found
+			value = translations.id;
+			for (const fallbackKey of keys) {
+				if (value && typeof value === 'object' && fallbackKey in value) {
+					value = (value as Record<string, unknown>)[fallbackKey];
+				} else {
+					return key; // Return the key itself if not found
+				}
+			}
+			break;
+		}
+	}
 
-  if (typeof value !== 'string') {
-    return key;
-  }
+	if (typeof value !== 'string') {
+		return key;
+	}
 
-  // Simple string interpolation
-  if (params) {
-    return value.replace(/\{\{(\w+)\}\}/g, (match, paramKey) => {
-      return params[paramKey]?.toString() || match;
-    });
-  }
+	// Simple string interpolation
+	if (params) {
+		return value.replace(/\{\{(\w+)\}\}/g, (match, paramKey) => {
+			return params[paramKey]?.toString() || match;
+		});
+	}
 
-  return value;
+	return value;
 }
 
 /**
@@ -63,9 +63,9 @@ export function t(key: string, params?: Record<string, string | number>): string
  * @returns Object containing all translations for the namespace
  */
 export function getTranslations(namespace: keyof TranslationKeys) {
-  const currentLanguage = get(languageStore) as Language;
-  const translation = translations[currentLanguage] || translations.id;
-  return translation[namespace];
+	const currentLanguage = get(languageStore) as Language;
+	const translation = translations[currentLanguage] || translations.id;
+	return translation[namespace];
 }
 
 /**
@@ -74,33 +74,33 @@ export function getTranslations(namespace: keyof TranslationKeys) {
  * @returns boolean indicating if the key exists
  */
 export function hasTranslation(key: string): boolean {
-  const currentLanguage = get(languageStore) as Language;
-  const translation = translations[currentLanguage] || translations.id;
+	const currentLanguage = get(languageStore) as Language;
+	const translation = translations[currentLanguage] || translations.id;
 
-  const keys = key.split('.');
-  let value: any = translation;
+	const keys = key.split('.');
+	let value: unknown = translation;
 
-  for (const k of keys) {
-    if (value && typeof value === 'object' && k in value) {
-      value = value[k];
-    } else {
-      return false;
-    }
-  }
+	for (const k of keys) {
+		if (value && typeof value === 'object' && k in value) {
+			value = (value as Record<string, unknown>)[k];
+		} else {
+			return false;
+		}
+	}
 
-  return typeof value === 'string';
+	return typeof value === 'string';
 }
 
 /**
  * Get available languages
  */
 export function getAvailableLanguages() {
-  return Object.keys(translations);
+	return Object.keys(translations);
 }
 
 /**
  * Get current language
  */
 export function getCurrentLanguage(): Language {
-  return get(languageStore) as Language;
+	return get(languageStore) as Language;
 }

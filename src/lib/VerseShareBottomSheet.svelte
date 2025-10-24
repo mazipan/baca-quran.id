@@ -5,7 +5,7 @@
 	import ShareIcon from './icons/ShareIcon.svelte';
 	import LinkIcon from './icons/LinkIcon.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
-	const current = $derived(languageStore) ;
+	const current = $derived(languageStore);
 
 	const handleShareVerse = () => {
 		verseShareSheet.share({
@@ -30,17 +30,20 @@
 >
 	<div class="p-4 flex flex-col gap-4">
 		<Button onClick={handleShareVerse}>
-			<ShareIcon size="sm" /> {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Share Verse' : 'Bagikan Ayat'}
+			<ShareIcon size="sm" />
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Share Verse' : 'Bagikan Ayat'}
 		</Button>
 		<Button onClick={handleShareTranslation}>
-			<ShareIcon size="sm" /> {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Share Translation' : 'Bagikan Terjemahan'}
+			<ShareIcon size="sm" />
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Share Translation' : 'Bagikan Terjemahan'}
 		</Button>
 		<a
 			href={`/surah/${$verseShareSheet.numberSurah}/${$verseShareSheet.numberVerse}/`}
 			class="flex items-center gap-2 cursor-pointer p-2 rounded-md bg-primary focus:ring-2 focus:ring-blue-500"
 			data-sveltekit-reload
 		>
-			<LinkIcon size="sm" /> {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Visit Verse Link' : 'Kunjungi Tautan Ayat'}
+			<LinkIcon size="sm" />
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Visit Verse Link' : 'Kunjungi Tautan Ayat'}
 		</a>
 	</div>
 </BottomSheet>

@@ -5,7 +5,6 @@
 	import InformationCircleIcon from './icons/InformationCircleIcon.svelte';
 	import ResetIcon from './icons/ResetIcon.svelte';
 	import SettingIcon from './icons/SettingIcon.svelte';
-
 </script>
 
 <ul class="mt-2 flex flex-col gap-2">

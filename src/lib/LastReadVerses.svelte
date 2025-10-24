@@ -3,7 +3,6 @@
 	import CardShadow from './CardShadow.svelte';
 	import { t } from './translations/store';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
-
 </script>
 
 <div class="flex gap-2 mb-2 mt-2">

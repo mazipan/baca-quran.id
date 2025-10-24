@@ -1,64 +1,64 @@
 version: 2
 updates:
   # Enable version updates for npm
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-      timezone: "UTC"
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'UTC'
     open-pull-requests-limit: 10
     reviewers:
-      - "mazipan"
+      - 'mazipan'
     assignees:
-      - "mazipan"
+      - 'mazipan'
     commit-message:
-      prefix: "chore"
-      include: "scope"
+      prefix: 'chore'
+      include: 'scope'
     labels:
-      - "dependencies"
-      - "javascript"
+      - 'dependencies'
+      - 'javascript'
     groups:
       development-dependencies:
         patterns:
-          - "@types/*"
-          - "@typescript-eslint/*"
-          - "eslint*"
-          - "prettier*"
-          - "svelte-check"
-          - "typescript"
+          - '@types/*'
+          - '@typescript-eslint/*'
+          - 'eslint*'
+          - 'prettier*'
+          - 'svelte-check'
+          - 'typescript'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
       svelte-dependencies:
         patterns:
-          - "@sveltejs/*"
-          - "svelte*"
+          - '@sveltejs/*'
+          - 'svelte*'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
       build-dependencies:
         patterns:
-          - "vite*"
-          - "tailwindcss*"
-          - "postcss*"
-          - "autoprefixer"
+          - 'vite*'
+          - 'tailwindcss*'
+          - 'postcss*'
+          - 'autoprefixer'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
 
   # Enable version updates for GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-      timezone: "UTC"
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'UTC'
     commit-message:
-      prefix: "ci"
-      include: "scope"
+      prefix: 'ci'
+      include: 'scope'
     labels:
-      - "github-actions"
-      - "ci"
+      - 'github-actions'
+      - 'ci'

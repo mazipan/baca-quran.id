@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import { redirect } from '@sveltejs/kit';
 import { entriesVerse } from '$lib/views/entries';
 import { loadVerseData } from '$lib/views/load';

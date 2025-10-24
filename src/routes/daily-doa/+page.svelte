@@ -4,7 +4,7 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import {  META_DESC_DAILY_DOA, META_TITLE_DAILY_DOA, TITLE_CONSTANTS } from '$lib/constants';
+	import { META_DESC_DAILY_DOA, META_TITLE_DAILY_DOA, TITLE_CONSTANTS } from '$lib/constants';
 	import DocumentTextIcon from '$lib/icons/DocumentTextIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import dailyDoa, { type DailyDoaItem } from '../../data/daily-doa';
@@ -28,12 +28,17 @@
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
-	<h1 class="text-3xl font-bold">🙏 Doa {current==LANGUAGE_OPTIONS.ENGLISH.locale?'Daily':'Harian'} 
-</h1>
+	<h1 class="text-3xl font-bold">
+		🙏 Doa {current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Daily' : 'Harian'}
+	</h1>
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: `🏠${current==LANGUAGE_OPTIONS.ENGLISH.locale?'Home':'Beranda'}`, href: '/' }]} />
+	<Breadcrumb
+		items={[
+			{ text: `🏠${current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Home' : 'Beranda'}`, href: '/' }
+		]}
+	/>
 </div>
 
 <div class="px-4 flex flex-col gap-2">

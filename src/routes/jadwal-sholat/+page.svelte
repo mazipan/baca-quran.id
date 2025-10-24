@@ -22,7 +22,7 @@
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
 	let prayerTimes: PrayerTimeData[] = $state([]);
-const current = $derived(languageStore) ;
+	const current = $derived(languageStore);
 	let todayPrayerTime = $derived(
 		prayerTimes.find((time) => {
 			return (
@@ -184,7 +184,9 @@ const current = $derived(languageStore) ;
 			</h2>
 			<div>
 				<Button onClick={getGeolocation}>
-					<MarkerIcon />{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Allow location access' : 'Beri akses lokasi'}
+					<MarkerIcon />{$current == LANGUAGE_OPTIONS.ENGLISH.locale
+						? 'Allow location access'
+						: 'Beri akses lokasi'}
 				</Button>
 			</div>
 		</div>

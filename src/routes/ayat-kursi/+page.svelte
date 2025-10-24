@@ -4,7 +4,7 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import {  META_DESC_AYAT_KURSI, META_TITLE_AYAT_KURSI, TITLE_CONSTANTS } from '$lib/constants';
+	import { META_DESC_AYAT_KURSI, META_TITLE_AYAT_KURSI, TITLE_CONSTANTS } from '$lib/constants';
 	import DocumentTextIcon from '$lib/icons/DocumentTextIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import ayatKursi from '../../data/ayat-kursi';
@@ -13,8 +13,8 @@
 
 	let toggleBottomSheet = () => {
 		globalBottomSheet.toggle({
-			title: `💠${current==LANGUAGE_OPTIONS.ENGLISH.locale?'Translation':'Terjemahan'} Ayat Kursi`,
-			content: `<p class="mb-4">🔸 <b>${current==LANGUAGE_OPTIONS.ENGLISH.locale?'Translation':'Terjemahan'}</b>: ${ayatKursi.translation}</p>
+			title: `💠${current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Translation' : 'Terjemahan'} Ayat Kursi`,
+			content: `<p class="mb-4">🔸 <b>${current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Translation' : 'Terjemahan'}</b>: ${ayatKursi.translation}</p>
         <p>🔹 <b>Tafsir</b>: ${ayatKursi.tafsir}</p>`
 		});
 	};
@@ -33,7 +33,11 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: `🏠${current==LANGUAGE_OPTIONS.ENGLISH.locale?'Home':'Beranda'}`, href: '/' }]} />
+	<Breadcrumb
+		items={[
+			{ text: `🏠${current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Home' : 'Beranda'}`, href: '/' }
+		]}
+	/>
 </div>
 
 <div class="px-4 flex flex-col gap-2">
@@ -44,7 +48,11 @@
 		</div>
 		<div class="mt-4 flex justify-between items-center gap-2">
 			<div class="flex items-center gap-2">
-				<Button onClick={toggleBottomSheet} ariaLabel={"Baca " + (current==LANGUAGE_OPTIONS.ENGLISH.locale ? "Translation" : "Terjemahan")}>
+				<Button
+					onClick={toggleBottomSheet}
+					ariaLabel={'Baca ' +
+						(current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Translation' : 'Terjemahan')}
+				>
 					<DocumentTextIcon />
 				</Button>
 			</div>

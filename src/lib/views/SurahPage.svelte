@@ -6,7 +6,7 @@
 	import SeoText from '$lib/SeoText.svelte';
 	import SurahCard from '$lib/SurahCard.svelte';
 	import VerseCard from '$lib/VerseCard.svelte';
-	import {  META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
+	import { META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
 	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/utils/json-ld';
 	import type { SurahInfoPage } from '$data/surah-info';
 	import { onMount } from 'svelte';
