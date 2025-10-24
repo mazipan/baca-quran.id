@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     # Only run if this is the specific repository
-    if: github.repository == env.TARGET_REPOSITORY
+    if: github.repository == ${{ env.TARGET_REPOSITORY }}
 
     steps:
       - name: Checkout
