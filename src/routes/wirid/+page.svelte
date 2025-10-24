@@ -29,12 +29,20 @@
 <div class="px-4 flex flex-col gap-2">
 	{#each wirid.data as item (item.id)}
 		<CardShadow>
-			<div class="flex justify-between items-end gap-4">
-				<div class="px-4 flex gap-2">
-					<Badge color="green">
-						{`${item.id}x`}
-					</Badge>
-				</div>
+			<div class="relative">
+				{#if item.arabic.indexOf('Membaca') >= 0}
+					<div class="absolute bottom-0 right-0">
+						<Badge color="green">
+							{`${item.id}x`}
+						</Badge>
+					</div>
+				{:else}
+					<div class="absolute bottom-0 left-0">
+						<Badge color="green">
+							{`${item.id}x`}
+						</Badge>
+					</div>
+				{/if}
 
 				<div class="flex flex-col items-end justify-center">
 					{#if item.arabic.indexOf('Membaca') >= 0}

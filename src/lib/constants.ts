@@ -165,13 +165,13 @@ export const SEO_TEXT_DYNAMIC = {
 export const THEMES = [
 	{
 		name: 'light',
-		bg: 'white',
-		border: '#142C66'
+		bg: '#f8fafc',
+		border: '#1e293b'
 	},
 	{
 		name: 'dark',
-		bg: '#142C66',
-		border: '#FFF'
+		bg: '#0f172a',
+		border: '#f1f5f9'
 	},
 	{
 		name: 'forest',
@@ -179,13 +179,33 @@ export const THEMES = [
 		border: '#FFF'
 	},
 	{
-		name: 'pinky',
-		bg: '#FF597B',
+		name: 'halloween',
+		bg: '#1a1a2e',
+		border: '#ff6b35'
+	},
+	{
+		name: 'fall',
+		bg: '#92400e',
 		border: '#FFF'
 	},
 	{
-		name: 'halloween',
-		bg: '#451952',
+		name: 'pinky',
+		bg: '#F564A9',
 		border: '#FFF'
+	},
+	{
+		name: 'violet',
+		bg: '#a78bfa',
+		border: '#FFF'
+	},
+	{
+		name: 'pastel',
+		bg: '#ffa4a4',
+		border: '#ffbdbd'
+	},
+	{
+		name: 'neon',
+		bg: '#000000',
+		border: '#ffff00'
 	}
 ];

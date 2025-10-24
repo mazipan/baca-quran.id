@@ -27,7 +27,7 @@ const dateRev = new Date()
 		day: '2-digit',
 		timeZone: 'Asia/Jakarta'
 	})
-	.replace(/-|\//g, '');
+	.replace(/-|\//g, '.');
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
