@@ -1,4 +1,5 @@
 <script lang="ts">
+	import LanguageChanger from './LanguageChanger.svelte';
 	import ThemeSwicther from './ThemeSwicther.svelte';
 	import ResetIcon from './icons/ResetIcon.svelte';
 
@@ -40,5 +41,7 @@
 			<ResetIcon />
 		</a>
 		<ThemeSwicther />
+		<LanguageChanger />
+		
 	</div>
 </header>

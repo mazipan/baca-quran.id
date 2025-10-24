@@ -8,6 +8,8 @@
 	import { settingTafsir, settingTranslation } from '../store';
 	import { verseTafsirSheet } from '../store/verseTafsirSheet';
 	import { verseShareSheet } from '../store/verseShareSheet';
+	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
+	const current = $derived(languageStore) ;
 
 	interface Props {
 		verse: string;
@@ -43,7 +45,9 @@
 
 	function handleShare() {
 		verseShareSheet.show({
-			title: `🧵 Bagikan Surat ${surahLatin}, Ayat ${numberVerse}`,
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale
+				? `🧵 Share Surah ${surahLatin}, Verse ${numberVerse}`
+				: `🧵 Bagikan Surat ${surahLatin}, Ayat ${numberVerse}`,
 			translation,
 			verse,
 			numberSurah,

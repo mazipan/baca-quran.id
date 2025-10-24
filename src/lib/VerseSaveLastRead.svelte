@@ -6,6 +6,8 @@
 	import { CONSTANTS } from './constants';
 	import BookmarkSolidIcon from './icons/BookmarkSolidIcon.svelte';
 	import { toast } from '../store/toast';
+	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
+	const current = $derived(languageStore) ;
 
 	interface Props {
 		surahLatin: string;
@@ -42,7 +44,9 @@
 				localStorage.setItem(CONSTANTS.STORAGE_KEY.LAST_VERSES, JSON.stringify($lastReadVerses));
 
 				toast.show({
-					message: `Berhasil menandai Surat <b>${surahLatin}</b> Ayat <b>${numberVerse}</b> sebagai terakhir dibaca!`,
+					message: $current == LANGUAGE_OPTIONS.ENGLISH.locale
+						? `Successfully marked Surah <b>${surahLatin}</b> Ayah <b>${numberVerse}</b> as last read!`
+						: `Berhasil menandai Surat <b>${surahLatin}</b> Ayat <b>${numberVerse}</b> sebagai terakhir dibaca!`,
 					type: 'success'
 				});
 			}
@@ -60,7 +64,9 @@
 			});
 
 			toast.show({
-				message: `Berhasil membuang Surat <b>${surahLatin}</b> Ayat <b>${numberVerse}</b> dari terakhir dibaca!`,
+				message: $current == LANGUAGE_OPTIONS.ENGLISH.locale
+					? `Successfully removed Surah <b>${surahLatin}</b> Ayah <b>${numberVerse}</b> from last read!`
+					: `Berhasil membuang Surat <b>${surahLatin}</b> Ayat <b>${numberVerse}</b> dari terakhir dibaca!`,
 				type: 'info'
 			});
 		}

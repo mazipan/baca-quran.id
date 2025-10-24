@@ -3,52 +3,55 @@
 	import LastReadVerses from '$lib/LastReadVerses.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import PinnedSurah from '$lib/PinnedSurah.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
+	const current = $derived(languageStore) ;
+
 
 	let actionIcons = [
 		{
 			href: '/all-surah/',
-			title: '📚 Semua Surat'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📚 All Surahs' : '📚 Semua Surat'
 		},
 		{
 			href: '/surah/1/1/',
-			title: '📖 Per Ayat'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📖 By Verse' : '📖 Per Ayat'
 		},
 		{
 			href: '/juz-amma/',
-			title: '📒 Juz Amma'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📒 Juz Amma' : '📒 Juz Amma'
 		},
 		{
 			href: '/asmaul-husna/',
-			title: '💯 Asmaul Husna'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '💯 Asmaul Husna' : '💯 Asmaul Husna'
 		},
 		{
 			href: '/daily-doa/',
-			title: '🙏 Doa Harian'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🙏 Daily Duas' : '🙏 Doa Harian'
 		},
 		{
 			href: '/wirid/',
-			title: '🧎 Wirid'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🧎 Dhikr' : '🧎 Wirid'
 		},
 		{
 			href: '/tasbih/',
-			title: '📿 Tasbih'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📿 Tasbih' : '📿 Tasbih'
 		},
 		{
 			href: '/tahlil/',
-			title: '🤲 Tahlil'
+			title:$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🤲 Tahlil' : '🤲 Tahlil'
 		},
 		{
 			href: '/ayat-kursi/',
-			title: '🪑 Ayat Kursi'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🪑 Ayat al-Kursi' : '🪑 Ayat Kursi'
 		},
 		{
 			href: '/jadwal-sholat/',
-			title: '⏰ Jadwal Sholat'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏰ Prayer Times' : '⏰ Jadwal Sholat'
 		},
 		{
 			href: '/pencatat-ibadah/',
-			title: '⏺️ Pencatat Ibadah'
+			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Worship Tracker' : '⏺️ Pencatat Ibadah'
 		}
 	];
 </script>
@@ -62,7 +65,9 @@
 	<LastReadVerses />
 
 	<div class="flex gap-2 mt-2 mb-2">
-		<h2 class="text-xl font-bold">🌟 Fitur Baca-Quran.id</h2>
+		<h2 class="text-xl font-bold">
+			{ $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🌟 Baca-Quran.id Features' : '🌟 Fitur Baca-Quran.id' }
+		</h2>
 	</div>
 
 	<div class="grid grid-cols-2 gap-2">

@@ -1,9 +1,12 @@
 <script>
+	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
 	import HashtagIcon from './icons/HashtagIcon.svelte';
 	import HomeIcon from './icons/HomeIcon.svelte';
 	import InformationCircleIcon from './icons/InformationCircleIcon.svelte';
 	import ResetIcon from './icons/ResetIcon.svelte';
 	import SettingIcon from './icons/SettingIcon.svelte';
+		const current = $derived(languageStore) ;
+
 </script>
 
 <ul class="mt-2 flex flex-col gap-2">
@@ -14,7 +17,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<HomeIcon />
-			Beranda
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Home' : 'Beranda'}
 		</a>
 	</li>
 	<li class="sidebar__item">
@@ -24,7 +27,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<SettingIcon />
-			Setelan
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Settings' : 'Setelan'}
 		</a>
 	</li>
 	<li class="sidebar__item">
@@ -34,7 +37,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<ResetIcon />
-			Sync
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Sync' : 'Sinkron'}
 		</a>
 	</li>
 	<li class="sidebar__item">
@@ -45,7 +48,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<HashtagIcon />
-			AyatHariIni
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'AyatOfTheDay' : 'AyatHariIni'}
 		</a>
 	</li>
 	<li class="sidebar__item">
@@ -55,7 +58,7 @@
 			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
 		>
 			<InformationCircleIcon />
-			Tentang
+			{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'About' : 'Tentang'}
 		</a>
 	</li>
 </ul>
