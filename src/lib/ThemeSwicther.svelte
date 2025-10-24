@@ -74,13 +74,17 @@
 					>
 						<div class="flex items-center gap-2">
 							<span
-								class="flex w-6 h-6 rounded-full flex-shrink-0 border"
+								class="flex w-6 h-6 rounded-full flex-shrink-0 border shadow-sm"
 								style={`background-color: ${theme.bg}; border-color: ${
 									theme.name === $activeTheme ? theme.border : theme.bg
 								};`}
 							></span>
 							{theme.name.toUpperCase()}
 						</div>
+
+						{#if theme.name === $activeTheme}
+							<span class="text-sm rounded-full bg-blue-400 w-2 h-2"></span>
+						{/if}
 					</button>
 				{/each}
 			</div>
