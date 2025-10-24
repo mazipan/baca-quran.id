@@ -13,7 +13,7 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"make:sitemap": "node ./scripts/makeSitemap.js",
 		"make:timestamp": "node ./scripts/makeTimestamp.js",
-		"prepare": "svelte-kit sync",
+		"prepare": "svelte-kit sync && husky",
 		"preview": "vite preview"
 	},
 	"dependencies": {
@@ -37,6 +37,8 @@
 		"eslint-plugin-svelte": "^3.12.5",
 		"globals": "^16.4.0",
 		"globby": "^15.0.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.6",
 		"postcss": "^8.5.6",
 		"postcss-load-config": "^6.0.1",
 		"prettier": "^3.6.2",
@@ -54,5 +56,14 @@
 	"engines": {
 		"node": ">=24.x",
 		"pnpm": ">=10.19"
+	},
+	"lint-staged": {
+		"*.{js,ts,svelte}": [
+			"prettier --write",
+			"eslint --fix"
+		],
+		"*.{json,md}": [
+			"prettier --write"
+		]
 	}
 }
