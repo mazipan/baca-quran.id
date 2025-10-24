@@ -1,9 +1,5 @@
 name: Deploy to GitHub Pages
 
-# Environment variables
-env:
-  TARGET_REPOSITORY: 'mazipan-quran-offline/baca-quran.id'
-
 on:
   workflow_dispatch:
   push:
@@ -25,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     # Only run if this is the specific repository
-    if: github.repository == ${{ env.TARGET_REPOSITORY }}
+    if: github.repository == 'mazipan-quran-offline/baca-quran.id'
 
     steps:
       - name: Checkout
