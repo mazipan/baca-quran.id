@@ -18,7 +18,7 @@
 	},
 	"dependencies": {
 		"dayjs": "^1.11.19",
-		"firebase": "^12.4.0",
+		"firebase": "^12.8.0",
 		"svelte": "^5.41.3"
 	},
 	"devDependencies": {
