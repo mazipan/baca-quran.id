@@ -22,7 +22,7 @@
 		"svelte": "^5.53.6"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.39.3",
+		"@eslint/js": "^9.39.4",
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.53.4",
