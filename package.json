@@ -17,7 +17,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"dayjs": "^1.11.19",
+		"dayjs": "^1.11.20",
 		"firebase": "^12.10.0",
 		"svelte": "^5.53.7"
 	},
