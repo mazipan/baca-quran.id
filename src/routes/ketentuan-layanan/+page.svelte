@@ -93,8 +93,8 @@
 				We respect your privacy. A complete statement of our <a
 					href="/kebijakan-privasi/"
 					class="underline">privacy policy</a
-				> can be found on the privacy policy page. Our privacy policy is expressly incorporated into
-				this agreement by reference.
+				> can be found on the privacy policy page. Our privacy policy is expressly incorporated into this
+				agreement by reference.
 			</p>
 		</CardShadow>
 

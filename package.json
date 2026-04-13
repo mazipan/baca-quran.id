@@ -18,30 +18,30 @@
 	},
 	"dependencies": {
 		"dayjs": "^1.11.20",
-		"firebase": "^12.11.0",
-		"svelte": "^5.55.1"
+		"firebase": "^12.12.0",
+		"svelte": "^5.55.3"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.4",
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/adapter-static": "^3.0.10",
-		"@sveltejs/kit": "^2.56.1",
+		"@sveltejs/kit": "^2.57.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@tailwindcss/postcss": "^4.2.2",
-		"@typescript-eslint/eslint-plugin": "^8.58.0",
-		"@typescript-eslint/parser": "^8.58.0",
+		"@typescript-eslint/eslint-plugin": "^8.58.1",
+		"@typescript-eslint/parser": "^8.58.1",
 		"autoprefixer": "^10.4.27",
-		"dotenv": "^17.4.1",
-		"eslint": "^9.39.2",
+		"dotenv": "^17.4.2",
+		"eslint": "^9.39.4",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.17.0",
-		"globals": "^16.4.0",
+		"globals": "^16.5.0",
 		"globby": "^15.0.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.4.0",
-		"postcss": "^8.5.8",
+		"postcss": "^8.5.9",
 		"postcss-load-config": "^6.0.1",
-		"prettier": "^3.8.1",
+		"prettier": "^3.8.2",
 		"prettier-plugin-svelte": "^3.5.1",
 		"schema-dts": "^1.1.5",
 		"sitemaps": "^2.0.6",
@@ -52,10 +52,10 @@
 		"typescript": "^5.9.3",
 		"vite": "^7.3.2"
 	},
-	"packageManager": "pnpm@10.19.0",
+	"packageManager": "pnpm@10.33.0",
 	"engines": {
-		"node": ">=24.x",
-		"pnpm": ">=10.19"
+		"node": ">=24.14",
+		"pnpm": ">=10.33.0"
 	},
 	"lint-staged": {
 		"*.{js,ts,svelte}": [
