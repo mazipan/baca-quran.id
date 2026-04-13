@@ -25,10 +25,10 @@ html.forest {
 
 /* Pinky theme */
 html.pinky {
-	--color-primary: #DA498D;
-	--color-secondary: #F564A9;
+	--color-primary: #da498d;
+	--color-secondary: #f564a9;
 	--color-foreground: #1f2937;
-	--color-foreground-secondary: #F2F9FF;
+	--color-foreground-secondary: #f2f9ff;
 }
 
 /* Violet theme */
@@ -65,7 +65,7 @@ html.pastel {
 
 /* Neon theme */
 html.neon {
-	--color-primary: #09122C;
+	--color-primary: #09122c;
 	--color-secondary: #000000;
 	--color-foreground: #ffff00;
 	--color-foreground-secondary: #ffff80;
