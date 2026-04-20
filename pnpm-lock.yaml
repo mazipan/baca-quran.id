@@ -46,8 +46,8 @@ importers:
         specifier: ^8.58.1
         version: 8.58.1(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
       autoprefixer:
-        specifier: ^10.4.27
-        version: 10.4.27(postcss@8.5.9)
+        specifier: ^10.5.0
+        version: 10.5.0(postcss@8.5.10)
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
@@ -73,11 +73,11 @@ importers:
         specifier: ^16.4.0
         version: 16.4.0
       postcss:
-        specifier: ^8.5.9
-        version: 8.5.9
+        specifier: ^8.5.10
+        version: 8.5.10
       postcss-load-config:
         specifier: ^6.0.1
-        version: 6.0.1(jiti@2.6.1)(postcss@8.5.9)(yaml@2.8.3)
+        version: 6.0.1(jiti@2.6.1)(postcss@8.5.10)(yaml@2.8.3)
       prettier:
         specifier: ^3.8.2
         version: 3.8.2
@@ -1002,8 +1002,8 @@ packages:
     resolution: {integrity: sha512-Z/ZeOgVl7bcSYZ/u/rh0fOpvEpq//LZmdbkXyc7syVzjPAhfOa9ebsdTSjEBDU4vs5nC98Kfduj1uFo0qyET3g==}
     engines: {node: '>= 0.4'}
 
-  autoprefixer@10.4.27:
-    resolution: {integrity: sha512-NP9APE+tO+LuJGn7/9+cohklunJsXWiaWEfV3si4Gi/XHDwVNgkwr1J3RQYFIvPy76GmJ9/bW8vyoU1LcxwKHA==}
+  autoprefixer@10.5.0:
+    resolution: {integrity: sha512-FMhOoZV4+qR6aTUALKX2rEqGG+oyATvwBt9IIzVR5rMa2HRWPkxf+P+PAJLD1I/H5/II+HuZcBJYEFBpq39ong==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -1020,8 +1020,8 @@ packages:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
     engines: {node: 18 || 20 || >=22}
 
-  baseline-browser-mapping@2.10.18:
-    resolution: {integrity: sha512-VSnGQAOLtP5mib/DPyg2/t+Tlv65NTBz83BJBJvmLVHHuKJVaDOBvJJykiT5TR++em5nfAySPccDZDa4oSrn8A==}
+  baseline-browser-mapping@2.10.20:
+    resolution: {integrity: sha512-1AaXxEPfXT+GvTBJFuy4yXVHWJBXa4OdbIebGN/wX5DlsIkU0+wzGnd2lOzokSk51d5LUmqjgBLRLlypLUqInQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1045,8 +1045,8 @@ packages:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
 
-  caniuse-lite@1.0.30001787:
-    resolution: {integrity: sha512-mNcrMN9KeI68u7muanUpEejSLghOKlVhRqS/Za2IeyGllJ9I9otGpR9g3nsw7n4W378TE/LyIteA0+/FOZm4Kg==}
+  caniuse-lite@1.0.30001788:
+    resolution: {integrity: sha512-6q8HFp+lOQtcf7wBK+uEenxymVWkGKkjFpCvw5W25cmMwEDU45p1xQFBQv8JDlMMry7eNxyBaR+qxgmTUZkIRQ==}
 
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
@@ -1132,8 +1132,8 @@ packages:
     resolution: {integrity: sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==}
     engines: {node: '>=12'}
 
-  electron-to-chromium@1.5.335:
-    resolution: {integrity: sha512-q9n5T4BR4Xwa2cwbrwcsDJtHD/enpQ5S1xF1IAtdqf5AAgqDFmR/aakqH3ChFdqd/QXJhS3rnnXFtexU7rax6Q==}
+  electron-to-chromium@1.5.340:
+    resolution: {integrity: sha512-908qahOGocRMinT2nM3ajCEM99H4iPdv84eagPP3FfZy/1ZGeOy2CZYzjhms81ckOPCXPlW7LkY4XpxD8r1DrA==}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -1666,8 +1666,8 @@ packages:
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  postcss@8.5.9:
-    resolution: {integrity: sha512-7a70Nsot+EMX9fFU3064K/kdHWZqGVY+BADLyXc8Dfv+mTLLVl6JzJpPaCZ2kQL9gIJvKXSLMHhqdRRjwQeFtw==}
+  postcss@8.5.10:
+    resolution: {integrity: sha512-pMMHxBOZKFU6HgAZ4eyGnwXF/EvPGGqUr0MnZ5+99485wwW41kW91A4LOGxSHhgugZmSChL5AlElNdwlNgcnLQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -2718,7 +2718,7 @@ snapshots:
       '@alloc/quick-lru': 5.2.0
       '@tailwindcss/node': 4.2.2
       '@tailwindcss/oxide': 4.2.2
-      postcss: 8.5.9
+      postcss: 8.5.10
       tailwindcss: 4.2.2
 
   '@types/cookie@0.6.0': {}
@@ -2855,13 +2855,13 @@ snapshots:
 
   aria-query@5.3.1: {}
 
-  autoprefixer@10.4.27(postcss@8.5.9):
+  autoprefixer@10.5.0(postcss@8.5.10):
     dependencies:
       browserslist: 4.28.2
-      caniuse-lite: 1.0.30001787
+      caniuse-lite: 1.0.30001788
       fraction.js: 5.3.4
       picocolors: 1.1.1
-      postcss: 8.5.9
+      postcss: 8.5.10
       postcss-value-parser: 4.2.0
 
   axobject-query@4.1.0: {}
@@ -2870,7 +2870,7 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  baseline-browser-mapping@2.10.18: {}
+  baseline-browser-mapping@2.10.20: {}
 
   brace-expansion@1.1.14:
     dependencies:
@@ -2887,15 +2887,15 @@ snapshots:
 
   browserslist@4.28.2:
     dependencies:
-      baseline-browser-mapping: 2.10.18
-      caniuse-lite: 1.0.30001787
-      electron-to-chromium: 1.5.335
+      baseline-browser-mapping: 2.10.20
+      caniuse-lite: 1.0.30001788
+      electron-to-chromium: 1.5.340
       node-releases: 2.0.37
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
   callsites@3.1.0: {}
 
-  caniuse-lite@1.0.30001787: {}
+  caniuse-lite@1.0.30001788: {}
 
   chalk@4.1.2:
     dependencies:
@@ -2961,7 +2961,7 @@ snapshots:
 
   dotenv@17.4.2: {}
 
-  electron-to-chromium@1.5.335: {}
+  electron-to-chromium@1.5.340: {}
 
   emoji-regex@10.6.0: {}
 
@@ -3019,9 +3019,9 @@ snapshots:
       esutils: 2.0.3
       globals: 16.5.0
       known-css-properties: 0.37.0
-      postcss: 8.5.9
-      postcss-load-config: 3.1.4(postcss@8.5.9)
-      postcss-safe-parser: 7.0.1(postcss@8.5.9)
+      postcss: 8.5.10
+      postcss-load-config: 3.1.4(postcss@8.5.10)
+      postcss-safe-parser: 7.0.1(postcss@8.5.10)
       semver: 7.7.4
       svelte-eslint-parser: 1.6.0(svelte@5.55.3(@typescript-eslint/types@8.58.1))
     optionalDependencies:
@@ -3447,28 +3447,28 @@ snapshots:
 
   picomatch@4.0.4: {}
 
-  postcss-load-config@3.1.4(postcss@8.5.9):
+  postcss-load-config@3.1.4(postcss@8.5.10):
     dependencies:
       lilconfig: 2.1.0
       yaml: 1.10.3
     optionalDependencies:
-      postcss: 8.5.9
+      postcss: 8.5.10
 
-  postcss-load-config@6.0.1(jiti@2.6.1)(postcss@8.5.9)(yaml@2.8.3):
+  postcss-load-config@6.0.1(jiti@2.6.1)(postcss@8.5.10)(yaml@2.8.3):
     dependencies:
       lilconfig: 3.1.3
     optionalDependencies:
       jiti: 2.6.1
-      postcss: 8.5.9
+      postcss: 8.5.10
       yaml: 2.8.3
 
-  postcss-safe-parser@7.0.1(postcss@8.5.9):
+  postcss-safe-parser@7.0.1(postcss@8.5.10):
     dependencies:
-      postcss: 8.5.9
+      postcss: 8.5.10
 
-  postcss-scss@4.0.9(postcss@8.5.9):
+  postcss-scss@4.0.9(postcss@8.5.10):
     dependencies:
-      postcss: 8.5.9
+      postcss: 8.5.10
 
   postcss-selector-parser@7.1.1:
     dependencies:
@@ -3477,7 +3477,7 @@ snapshots:
 
   postcss-value-parser@4.2.0: {}
 
-  postcss@8.5.9:
+  postcss@8.5.10:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1
@@ -3653,8 +3653,8 @@ snapshots:
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
       espree: 10.4.0
-      postcss: 8.5.9
-      postcss-scss: 4.0.9(postcss@8.5.9)
+      postcss: 8.5.10
+      postcss-scss: 4.0.9(postcss@8.5.10)
       postcss-selector-parser: 7.1.1
       semver: 7.7.4
     optionalDependencies:
@@ -3731,7 +3731,7 @@ snapshots:
       esbuild: 0.27.7
       fdir: 6.5.0(picomatch@4.0.4)
       picomatch: 4.0.4
-      postcss: 8.5.9
+      postcss: 8.5.10
       rollup: 4.60.1
       tinyglobby: 0.2.16
     optionalDependencies:
