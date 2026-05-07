@@ -98,5 +98,9 @@
 		"themes": {
 			"ramadhan": "Bulan Ramadhan"
 		}
+	},
+	"hijri": {
+		"suffix": "H",
+		"todayEvent": "Hari ini"
 	}
 }

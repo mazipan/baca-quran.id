@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
+	import { languageStore } from './checkLanguaguage';
+	import { formatHijriDate } from './utils/hijri';
 
 	let time = $state(new Date());
+	let hijriLabel = $derived(formatHijriDate(time, $languageStore));
 
 	// these automatically update when `time`
 	// changes, because of the `$:` prefix
@@ -56,6 +59,9 @@
 		</div>
 		<div class="flex justify-end text-lg">
 			{new Date().toLocaleDateString('id-ID', { month: 'short', day: '2-digit', year: 'numeric' })}
+		</div>
+		<div class="flex justify-end text-sm opacity-75">
+			{hijriLabel}
 		</div>
 	</div>
 </div>

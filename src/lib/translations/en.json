@@ -98,5 +98,9 @@
 		"themes": {
 			"ramadhan": "Ramadhan"
 		}
+	},
+	"hijri": {
+		"suffix": "AH",
+		"todayEvent": "Today"
 	}
 }
