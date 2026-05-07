@@ -1,6 +1,7 @@
 <script lang="ts">
 	import LanguageChanger from './LanguageChanger.svelte';
 	import ThemeSwicther from './ThemeSwicther.svelte';
+	import HijriDate from './HijriDate.svelte';
 	import ResetIcon from './icons/ResetIcon.svelte';
 
 	interface Props {
@@ -35,6 +36,8 @@
 	<a href="/" data-sveltekit-reload>
 		<h1 class="font-bold text-2xl">Baca-Quran.id</h1>
 	</a>
+
+	<HijriDate />
 
 	<div class="flex gap-2">
 		<a class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary" href="/sync">
