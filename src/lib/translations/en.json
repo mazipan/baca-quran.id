@@ -90,5 +90,13 @@
 		"findWhatLetter": "Find what letter?",
 		"shareVerseTitle": "🧵 Share Surah {{surahLatin}}, Verse {{verseNumber}}",
 		"tafsirTitle": "💠 Translation & Tafsir Surah {{surahLatin}}, Verse {{verseNumber}}"
+	},
+	"ayahOfTheDay": {
+		"title": "🌅 Ayah of the Day",
+		"readMore": "Read full ayah",
+		"loading": "Loading today's ayah…",
+		"themes": {
+			"ramadhan": "Ramadhan"
+		}
 	}
 }

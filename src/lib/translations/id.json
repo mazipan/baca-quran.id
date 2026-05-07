@@ -90,5 +90,13 @@
 		"findWhatLetter": "Cari surat apa?",
 		"shareVerseTitle": "🧵 Bagikan Surat {{surahLatin}}, Ayat {{verseNumber}}",
 		"tafsirTitle": "💠 Terjemah & Tafsir Surat {{surahLatin}}, Ayat {{verseNumber}}"
+	},
+	"ayahOfTheDay": {
+		"title": "🌅 Ayat Hari Ini",
+		"readMore": "Baca selengkapnya",
+		"loading": "Memuat ayat hari ini…",
+		"themes": {
+			"ramadhan": "Bulan Ramadhan"
+		}
 	}
 }

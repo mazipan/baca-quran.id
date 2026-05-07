@@ -1,4 +1,5 @@
 <script lang="ts">
+	import AyahOfTheDay from '$lib/AyahOfTheDay.svelte';
 	import CardShadow from '$lib/CardShadow.svelte';
 	import LastReadVerses from '$lib/LastReadVerses.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
@@ -63,6 +64,7 @@
 <div class="px-4 flex flex-col gap-2">
 	<PinnedSurah />
 	<LastReadVerses />
+	<AyahOfTheDay />
 
 	<div class="flex gap-2 mt-2 mb-2">
 		<h2 class="text-xl font-bold">
