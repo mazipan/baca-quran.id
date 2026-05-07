@@ -35,7 +35,8 @@
 		"settings": "Setelan",
 		"sync": "Sinkron",
 		"about": "Tentang",
-		"ayatOfTheDay": "AyatHariIni"
+		"ayatOfTheDay": "AyatHariIni",
+		"hijriCalendar": "Kalender Hijriyah"
 	},
 	"surah": {
 		"title": "Baca Qur'an",
@@ -102,5 +103,14 @@
 	"hijri": {
 		"suffix": "H",
 		"todayEvent": "Hari ini"
+	},
+	"hijriCalendar": {
+		"title": "Kalender Hijriyah",
+		"subtitle": "Kalender Hijriyah dengan tanggal Masehi dan hari besar Islam",
+		"eventsThisMonth": "Hari Besar Bulan Ini",
+		"noEvents": "Tidak ada hari besar di bulan ini.",
+		"today": "Hari Ini",
+		"prevMonth": "Bulan sebelumnya",
+		"nextMonth": "Bulan berikutnya"
 	}
 }
