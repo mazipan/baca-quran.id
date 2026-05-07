@@ -1,0 +1,72 @@
+name: Switch Ayah of the Day Theme
+
+on:
+  workflow_dispatch:
+    inputs:
+      theme:
+        description: "Theme to force ('auto' clears the override and restores date-based resolution)"
+        required: true
+        type: choice
+        default: auto
+        options:
+          - auto
+          - ramadhan
+
+permissions:
+  contents: write
+
+concurrency:
+  group: switch-ayah-theme
+  cancel-in-progress: false
+
+jobs:
+  switch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.repository == 'mazipan/baca-quran.id' || github.repository == 'mazipan-quran-offline/baca-quran.id'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: true
+          token: ${{ secrets.PERSONAL_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Update theme override
+        env:
+          THEME_INPUT: ${{ inputs.theme }}
+          ACTOR: ${{ github.actor }}
+        run: |
+          node <<'EOF'
+          const fs = require('node:fs');
+          const path = 'src/data/ayah-of-the-day-config.json';
+          const raw = fs.readFileSync(path, 'utf8');
+          const data = JSON.parse(raw);
+
+          const input = process.env.THEME_INPUT;
+          const value = input === 'auto' ? null : input;
+
+          data.forcedThemeId = value;
+          data.lastSwitch = {
+            value,
+            switchedAt: new Date().toISOString(),
+            actor: process.env.ACTOR || null
+          };
+
+          fs.writeFileSync(path, JSON.stringify(data, null, '\t') + '\n');
+          EOF
+
+      - name: Commit and push
+        env:
+          THEME_INPUT: ${{ inputs.theme }}
+          ACTOR: ${{ github.actor }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/ayah-of-the-day-config.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit (already on requested theme)."
+            exit 0
+          fi
+          git commit -m "chore(ayah-of-the-day): switch theme to ${THEME_INPUT} by ${ACTOR}"
+          git push origin HEAD:${{ github.ref_name }}
