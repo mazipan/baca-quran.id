@@ -35,7 +35,8 @@
 		"settings": "Settings",
 		"sync": "Sync",
 		"about": "About",
-		"ayatOfTheDay": "AyatOfTheDay"
+		"ayatOfTheDay": "AyatOfTheDay",
+		"hijriCalendar": "Hijri Calendar"
 	},
 	"surah": {
 		"title": "Read Quran",
@@ -102,5 +103,14 @@
 	"hijri": {
 		"suffix": "AH",
 		"todayEvent": "Today"
+	},
+	"hijriCalendar": {
+		"title": "Hijri Calendar",
+		"subtitle": "Hijri calendar with Gregorian dates and Islamic holidays",
+		"eventsThisMonth": "Events This Month",
+		"noEvents": "No Islamic events this month.",
+		"today": "Today",
+		"prevMonth": "Previous month",
+		"nextMonth": "Next month"
 	}
 }

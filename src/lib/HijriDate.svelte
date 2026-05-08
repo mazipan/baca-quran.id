@@ -38,8 +38,9 @@
 </script>
 
 {#if hijri}
-	<div
-		class="hidden sm:flex items-center gap-1.5 text-sm select-none"
+	<a
+		href="/kalender-hijriyah/"
+		class="hidden sm:flex items-center gap-1.5 text-sm select-none px-2 py-1 rounded-md hover:bg-secondary focus:bg-secondary"
 		title={tooltip}
 		aria-label={tooltip}
 	>
@@ -52,5 +53,5 @@
 				aria-hidden="true"
 			></span>
 		{/if}
-	</div>
+	</a>
 {/if}
