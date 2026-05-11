@@ -38,7 +38,7 @@
 		"globals": "^17.6.0",
 		"globby": "^16.2.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.4.0",
+		"lint-staged": "^17.0.4",
 		"postcss": "^8.5.14",
 		"postcss-load-config": "^6.0.1",
 		"prettier": "^3.8.3",
