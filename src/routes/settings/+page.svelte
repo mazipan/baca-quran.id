@@ -8,10 +8,20 @@
 	import surahData from '../../data/surah-data/108';
 	import { settingAudio, settingAutoNext, settingTafsir, settingTranslation } from '../../store';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+
+	type SurahSampleEntry = {
+		text: Record<string, string>;
+		translations: { id: { text: Record<string, string> } };
+		tafsir: { id: { kemenag: { text: Record<string, string> } } };
+	};
+
 	let SURAH_SAMPLE = 108;
 	let SURAH_SAMPLE_TOTAL_AYAH = 3;
 	let SURAH_SAMPLE_ARABIC = 'الكوثر';
 	let SURAH_SAMPLE_LATIN = 'Al-Kausar';
+	const sample = (surahData as unknown as Record<string, SurahSampleEntry>)[
+		SURAH_SAMPLE.toString()
+	];
 	const current = $derived(languageStore);
 </script>
 
@@ -99,16 +109,12 @@
 			<b>Preview</b>
 			<div>
 				<div class="mt-2 flex flex-col gap-1">
-					{#each Object.entries((surahData as any)[SURAH_SAMPLE.toString()].text) as [numberVerse, verse] (`${SURAH_SAMPLE}-${numberVerse}`)}
+					{#each Object.entries(sample.text) as [numberVerse, verse] (`${SURAH_SAMPLE}-${numberVerse}`)}
 						<VerseCard
 							verse={`${verse}`}
 							{numberVerse}
-							translation={(surahData as any)[SURAH_SAMPLE.toString()]?.translations.id?.text?.[
-								numberVerse
-							] || ''}
-							tafsir={(surahData as any)[SURAH_SAMPLE.toString()]?.tafsir?.id?.kemenag?.text?.[
-								numberVerse
-							] || ''}
+							translation={sample?.translations.id?.text?.[numberVerse] || ''}
+							tafsir={sample?.tafsir?.id?.kemenag?.text?.[numberVerse] || ''}
 							numberSurah={SURAH_SAMPLE.toString()}
 							totalAyah={SURAH_SAMPLE_TOTAL_AYAH}
 							source="surah"

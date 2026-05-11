@@ -12,7 +12,7 @@ function createToast() {
 		message: '',
 		type: 'info'
 	});
-	let timer: any;
+	let timer: ReturnType<typeof setTimeout> | undefined;
 
 	return {
 		subscribe,
