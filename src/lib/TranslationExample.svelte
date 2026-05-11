@@ -1,10 +1,5 @@
 <script lang="ts">
 	import { t } from './translations/store';
-	import { createNamespaceStore } from './translations/store';
-
-	// Example of using namespace store
-	const commonTranslations = createNamespaceStore('common');
-	const navigationTranslations = createNamespaceStore('navigation');
 </script>
 
 <div class="p-4 space-y-4">

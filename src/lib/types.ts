@@ -39,7 +39,7 @@ export interface PrayerCal {
 	month: PrayerCalMonth;
 	year: string;
 	designation: PrayerDesignation;
-	holidays?: any[];
+	holidays?: string[];
 }
 
 export interface PrayerCalWeekday {

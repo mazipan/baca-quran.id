@@ -9,7 +9,6 @@
 
 	function filterOnlyMadaniyah() {
 		let result: SurahInfo = {};
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		for (const [_, surah] of Object.entries(surahInfo)) {
 			if (MakkiyahMadaniyah[surah.index] === MADANIYAH_CODE) {
 				result[surah.index] = {
