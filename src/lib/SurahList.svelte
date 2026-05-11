@@ -24,7 +24,6 @@
 		if (searchText.length > 1) {
 			let result: SurahInfo = {};
 
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			for (const [_, surah] of Object.entries(originSurahInfo)) {
 				if (
 					noSpecialChars(surah.latin.toLowerCase()).indexOf(

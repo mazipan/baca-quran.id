@@ -18,7 +18,6 @@
 	import { toast } from '../../store/toast';
 	import PrayerTimeList from '$lib/PrayerTimeList.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import type { Writable } from 'svelte/store';
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
 	let prayerTimes: PrayerTimeData[] = $state([]);
@@ -95,7 +94,7 @@
 			);
 			const res = await resRaw.json();
 			return res?.address?.city_district || '';
-		} catch (error) {
+		} catch (_error) {
 			console.error(`Failed get distric for lat: ${latitude}, long: ${longitude}`);
 			return '';
 		}

@@ -23,7 +23,7 @@ importers:
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
-        version: 10.0.1(eslint@10.3.0(jiti@2.6.1))
+        version: 10.0.1(eslint@10.3.0(jiti@2.7.0))
       '@sveltejs/adapter-auto':
         specifier: ^7.0.1
         version: 7.0.1(@sveltejs/kit@2.59.1(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.55.5(@typescript-eslint/types@8.59.2))(vite@7.3.2(@types/node@25.6.2)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.8.3)))(svelte@5.55.5(@typescript-eslint/types@8.59.2))(typescript@5.9.3)(vite@7.3.2(@types/node@25.6.2)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.8.3)))
@@ -2081,9 +2081,9 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
 
-  '@eslint/js@10.0.1(eslint@10.3.0(jiti@2.6.1))':
+  '@eslint/js@10.0.1(eslint@10.3.0(jiti@2.7.0))':
     optionalDependencies:
-      eslint: 10.3.0(jiti@2.6.1)
+      eslint: 10.3.0(jiti@2.7.0)
 
   '@eslint/object-schema@3.0.5': {}
 

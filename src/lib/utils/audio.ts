@@ -1,14 +1,12 @@
 export const makeThreeDigit = (numberText: string) => {
-	let res = '000';
 	const numParam = parseInt(numberText, 10);
 	if (numParam < 10) {
-		res = `00${numberText}`;
-	} else if (numParam >= 10 && numParam < 100) {
-		res = `0${numberText}`;
-	} else {
-		res = `${numberText}`;
+		return `00${numberText}`;
 	}
-	return res;
+	if (numParam < 100) {
+		return `0${numberText}`;
+	}
+	return `${numberText}`;
 };
 
 export type ReciterKey = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
