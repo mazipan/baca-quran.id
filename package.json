@@ -19,7 +19,7 @@
 	"dependencies": {
 		"dayjs": "^1.11.20",
 		"firebase": "^12.13.0",
-		"svelte": "^5.55.5"
+		"svelte": "^5.55.7"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
