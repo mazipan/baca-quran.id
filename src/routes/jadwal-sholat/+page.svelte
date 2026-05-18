@@ -18,6 +18,7 @@
 	import { toast } from '../../store/toast';
 	import PrayerTimeList from '$lib/PrayerTimeList.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '$lib/translations/store';
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
 	let prayerTimes: PrayerTimeData[] = $state([]);
@@ -168,7 +169,7 @@
 	<Breadcrumb
 		items={[
 			{
-				text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda',
+				text: `🏠 ${$t('navigation.home')}`,
 				href: '/'
 			}
 		]}

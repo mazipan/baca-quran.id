@@ -3,6 +3,7 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '$lib/translations/store';
 	import {
 		META_DESC_PENCATAT_IBADAH,
 		META_TITLE_PENCATAT_IBADAH,
@@ -47,7 +48,7 @@
 <div class="px-4 mb-4">
 	<Breadcrumb
 		items={[
-			{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda', href: '/' },
+			{ text: `🏠 ${$t('navigation.home')}`, href: '/' },
 			{
 				text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Prayer Log' : '⏺️ Pencatat Ibadah',
 				href: '/pencatat-ibadah/'

@@ -15,6 +15,16 @@
 			Irfan Maulana
 		</a>
 	</p>
+	<p class="text-sm">
+		<a
+			class="underline"
+			href="https://tools.mazipan.space"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			{$t('ui.webUtilities')}
+		</a>
+	</p>
 	<small>Copyright © 2018 - {currentYear}</small>
 	<p class="text-sm">
 		<small>

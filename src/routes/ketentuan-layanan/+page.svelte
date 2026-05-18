@@ -4,6 +4,7 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
+	import { t } from '$lib/translations/store';
 	import InformationCircleIcon from '$lib/icons/InformationCircleIcon.svelte';
 	import ShieldCheckIcon from '$lib/icons/ShieldCheckIcon.svelte';
 	const current = $derived(languageStore);
@@ -23,7 +24,7 @@
 	<Breadcrumb
 		items={[
 			{
-				text: $current === LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda',
+				text: `🏠 ${$t('navigation.home')}`,
 				href: '/'
 			}
 		]}

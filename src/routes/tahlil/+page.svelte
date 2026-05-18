@@ -3,13 +3,12 @@
 	import CardShadow from '$lib/CardShadow.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC_TAHLIL, META_TITLE_TAHLIL, TITLE_CONSTANTS } from '$lib/constants';
+	import { t } from '$lib/translations/store';
 	import DocumentTextIcon from '$lib/icons/DocumentTextIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import tahlil, { type TahlilItem } from '../../data/tahlil';
 	import { globalBottomSheet } from '../../store/globalBottomSheet';
-	const current = $derived(languageStore);
 
 	let toggleBottomSheet = (item: TahlilItem) => {
 		globalBottomSheet.toggle({
@@ -32,11 +31,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
 
 <div class="px-4 flex flex-col gap-2">
@@ -44,7 +39,7 @@
 		<CardShadow>
 			<div class="flex flex-col justify-center gap-4">
 				<span class="font-bold text-left">💠 {item.title}</span>
-				<span class="font-bold text-2xl font-arabic text-right">{item.arabic}</span>
+				<span class="text-2xl font-arabic text-right">{item.arabic}</span>
 			</div>
 			<div class="mt-4 flex justify-between items-center gap-2">
 				<div class="flex items-center gap-2">

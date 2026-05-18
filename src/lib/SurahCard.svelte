@@ -84,7 +84,7 @@
 		</div>
 
 		<div class="flex flex-col items-end justify-center">
-			<span class="font-bold text-xl font-arabic">{surah.arabic}</span>
+			<span class="text-xl font-arabic">{surah.arabic}</span>
 		</div>
 	</div>
 	<div class="mt-2 flex items-center justify-between">

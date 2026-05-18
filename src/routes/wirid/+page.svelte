@@ -3,11 +3,10 @@
 	import CardShadow from '$lib/CardShadow.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC_WIRID, META_TITLE_WIRID, TITLE_CONSTANTS } from '$lib/constants';
+	import { t } from '$lib/translations/store';
 	import Badge from '$lib/ui/Badge.svelte';
 	import wirid from '../../data/wirid';
-	const current = $derived(languageStore);
 </script>
 
 <svelte:head>
@@ -19,11 +18,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda', href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
 
 <div class="px-4 flex flex-col gap-2">
@@ -48,7 +43,7 @@
 					{#if item.arabic.indexOf('Membaca') >= 0}
 						<span class="font-bold text-xl">{item.arabic}</span>
 					{:else}
-						<span class="font-bold text-2xl font-arabic text-right">{item.arabic}</span>
+						<span class="text-2xl font-arabic text-right">{item.arabic}</span>
 					{/if}
 				</div>
 			</div>

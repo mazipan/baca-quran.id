@@ -55,7 +55,7 @@
 
 <CardShadow id={`ayat-${numberVerse}`}>
 	<div class="flex justify-end gap-4 items-start" data-source={source}>
-		<div class="font-bold text-2xl text-right font-arabic">{verse}</div>
+		<div class="text-2xl text-right font-arabic">{verse}</div>
 	</div>
 
 	{#if $settingTranslation}

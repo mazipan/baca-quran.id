@@ -22,6 +22,7 @@
 	import Button from '$lib/ui/Button.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '$lib/translations/store';
 	const current = $derived(languageStore);
 
 	let defaultItem = {
@@ -153,7 +154,7 @@
 	<Breadcrumb
 		items={[
 			{
-				text: $current === LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda',
+				text: `🏠 ${$t('navigation.home')}`,
 				href: '/'
 			}
 		]}
