@@ -8,7 +8,7 @@
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
 	const current = $derived(languageStore);
 
-	let actionIcons = [
+	let actionIcons = $derived([
 		{
 			href: '/all-surah/',
 			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📚 All Surahs' : '📚 Semua Surat'
@@ -59,7 +59,7 @@
 			title:
 				$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📅 Hijri Calendar' : '📅 Kalender Hijriyah'
 		}
-	];
+	]);
 </script>
 
 <svelte:head>
