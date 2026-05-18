@@ -37,11 +37,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: `🏠 ${$t('navigation.home')}`, href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
 
 <article class="px-4 flex flex-col gap-4 divide-y">
