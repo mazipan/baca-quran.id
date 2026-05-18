@@ -48,7 +48,7 @@
 					{#if item.arabic.indexOf('Membaca') >= 0}
 						<span class="font-bold text-xl">{item.arabic}</span>
 					{:else}
-						<span class="font-bold text-2xl font-arabic text-right">{item.arabic}</span>
+						<span class="text-2xl font-arabic text-right">{item.arabic}</span>
 					{/if}
 				</div>
 			</div>

@@ -48,7 +48,7 @@
 				</div>
 
 				<div class="flex flex-col items-end justify-center">
-					<span class="font-bold text-2xl font-arabic text-right">{item.arabic}</span>
+					<span class="text-2xl font-arabic text-right">{item.arabic}</span>
 				</div>
 			</div>
 		</CardShadow>

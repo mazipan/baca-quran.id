@@ -36,7 +36,7 @@
 				></span>
 				<div class="flex flex-col gap-1 items-center justify-center">
 					<span class="text-xs text-foreground-secondary">{verse.l}</span>
-					<span class="font-bold text-xl font-arabic">{verse.a}</span>
+					<span class="text-xl font-arabic">{verse.a}</span>
 					<span class="text-sm text-foreground-secondary">Ayat {verse.v}</span>
 				</div>
 			</CardShadow>
