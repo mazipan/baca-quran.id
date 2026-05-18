@@ -2,7 +2,6 @@
 	import LanguageChanger from './LanguageChanger.svelte';
 	import ThemeSwicther from './ThemeSwicther.svelte';
 	import HijriDate from './HijriDate.svelte';
-	import ResetIcon from './icons/ResetIcon.svelte';
 
 	interface Props {
 		onToggleDrawer: () => void;
@@ -40,9 +39,6 @@
 	<HijriDate />
 
 	<div class="flex gap-2">
-		<a class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary" href="/sync">
-			<ResetIcon />
-		</a>
 		<ThemeSwicther />
 		<LanguageChanger />
 	</div>

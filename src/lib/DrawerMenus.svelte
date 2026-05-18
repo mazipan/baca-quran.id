@@ -1,6 +1,5 @@
 <script>
 	import { t } from './translations/store';
-	import CalendarIcon from './icons/CalendarIcon.svelte';
 	import HashtagIcon from './icons/HashtagIcon.svelte';
 	import HomeIcon from './icons/HomeIcon.svelte';
 	import InformationCircleIcon from './icons/InformationCircleIcon.svelte';
@@ -27,16 +26,6 @@
 		>
 			<SettingIcon />
 			{$t('navigation.settings')}
-		</a>
-	</li>
-	<li class="sidebar__item">
-		<a
-			data-sveltekit-reload
-			href="/kalender-hijriyah/"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
-		>
-			<CalendarIcon />
-			{$t('navigation.hijriCalendar')}
 		</a>
 	</li>
 	<li class="sidebar__item">

@@ -53,6 +53,11 @@
 			href: '/pencatat-ibadah/',
 			title:
 				$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Worship Tracker' : '⏺️ Pencatat Ibadah'
+		},
+		{
+			href: '/kalender-hijriyah/',
+			title:
+				$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📅 Hijri Calendar' : '📅 Kalender Hijriyah'
 		}
 	];
 </script>
