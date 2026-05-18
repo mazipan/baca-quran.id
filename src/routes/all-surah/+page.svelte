@@ -7,6 +7,7 @@
 	import SurahList from '$lib/SurahList.svelte';
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '$lib/translations/store';
 	const current = $derived(languageStore);
 
 	function insertMakkiyahMadaniyah() {
@@ -43,7 +44,7 @@
 	<Breadcrumb
 		items={[
 			{
-				text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda',
+				text: `🏠 ${$t('navigation.home')}`,
 				href: '/'
 			}
 		]}

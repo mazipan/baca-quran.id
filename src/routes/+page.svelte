@@ -4,61 +4,22 @@
 	import LastReadVerses from '$lib/LastReadVerses.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import PinnedSurah from '$lib/PinnedSurah.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
-	const current = $derived(languageStore);
+	import { t } from '$lib/translations/store';
 
 	let actionIcons = $derived([
-		{
-			href: '/all-surah/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📚 All Surahs' : '📚 Semua Surat'
-		},
-		{
-			href: '/surah/1/1/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📖 By Verse' : '📖 Per Ayat'
-		},
-		{
-			href: '/juz-amma/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📒 Juz Amma' : '📒 Juz Amma'
-		},
-		{
-			href: '/asmaul-husna/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '💯 Asmaul Husna' : '💯 Asmaul Husna'
-		},
-		{
-			href: '/daily-doa/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🙏 Daily Duas' : '🙏 Doa Harian'
-		},
-		{
-			href: '/wirid/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🧎 Dhikr' : '🧎 Wirid'
-		},
-		{
-			href: '/tasbih/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📿 Tasbih' : '📿 Tasbih'
-		},
-		{
-			href: '/tahlil/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🤲 Tahlil' : '🤲 Tahlil'
-		},
-		{
-			href: '/ayat-kursi/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🪑 Ayat al-Kursi' : '🪑 Ayat Kursi'
-		},
-		{
-			href: '/jadwal-sholat/',
-			title: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏰ Prayer Times' : '⏰ Jadwal Sholat'
-		},
-		{
-			href: '/pencatat-ibadah/',
-			title:
-				$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Worship Tracker' : '⏺️ Pencatat Ibadah'
-		},
-		{
-			href: '/kalender-hijriyah/',
-			title:
-				$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '📅 Hijri Calendar' : '📅 Kalender Hijriyah'
-		}
+		{ href: '/all-surah/', title: `📚 ${$t('navigation.allSurah')}` },
+		{ href: '/surah/1/1/', title: `📖 ${$t('navigation.byVerse')}` },
+		{ href: '/juz-amma/', title: `📒 ${$t('navigation.juzAmma')}` },
+		{ href: '/asmaul-husna/', title: `💯 ${$t('navigation.asmaulHusna')}` },
+		{ href: '/daily-doa/', title: `🙏 ${$t('navigation.dailyDoa')}` },
+		{ href: '/wirid/', title: `🧎 ${$t('navigation.wirid')}` },
+		{ href: '/tasbih/', title: `📿 ${$t('navigation.tasbih')}` },
+		{ href: '/tahlil/', title: `🤲 ${$t('navigation.tahlil')}` },
+		{ href: '/ayat-kursi/', title: `🪑 ${$t('navigation.ayatKursi')}` },
+		{ href: '/jadwal-sholat/', title: `⏰ ${$t('navigation.prayerTime')}` },
+		{ href: '/pencatat-ibadah/', title: `⏺️ ${$t('navigation.worshipTracker')}` },
+		{ href: '/kalender-hijriyah/', title: `📅 ${$t('navigation.hijriCalendar')}` }
 	]);
 </script>
 
@@ -73,9 +34,7 @@
 
 	<div class="flex gap-2 mt-2 mb-2">
 		<h2 class="text-xl font-bold">
-			{$current == LANGUAGE_OPTIONS.ENGLISH.locale
-				? '🌟 Baca-Quran.id Features'
-				: '🌟 Fitur Baca-Quran.id'}
+			{$t('home.features')}
 		</h2>
 	</div>
 

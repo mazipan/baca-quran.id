@@ -14,6 +14,7 @@
 
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import { t } from '$lib/translations/store';
 	import { initializeApp } from 'firebase/app';
 	import {
 		getFirestore,
@@ -309,7 +310,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
+	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
 
 <div class="px-4">

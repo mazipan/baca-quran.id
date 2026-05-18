@@ -83,8 +83,8 @@
 <div class="px-4 mb-4">
 	<Breadcrumb
 		items={[
-			{ text: isEnglish ? '🏠 Home' : '🏠 Beranda', href: '/' },
-			{ text: isEnglish ? 'Hijri Calendar' : 'Kalender Hijriyah', href: '/kalender-hijriyah/' }
+			{ text: `🏠 ${$t('navigation.home')}`, href: '/' },
+			{ text: $t('navigation.hijriCalendar'), href: '/kalender-hijriyah/' }
 		]}
 	/>
 </div>

@@ -20,6 +20,7 @@
 	},
 	"navigation": {
 		"allSurah": "Semua Surat",
+		"byVerse": "Per Ayat",
 		"juzAmma": "Juz Amma",
 		"makkiyah": "Surat Makkiyah",
 		"madaniyah": "Surat Madaniyah",
@@ -104,6 +105,9 @@
 	"hijri": {
 		"suffix": "H",
 		"todayEvent": "Hari ini"
+	},
+	"home": {
+		"features": "🌟 Fitur Baca-Quran.id"
 	},
 	"hijriCalendar": {
 		"title": "Kalender Hijriyah",

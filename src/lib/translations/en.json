@@ -20,14 +20,15 @@
 	},
 	"navigation": {
 		"allSurah": "All Surahs",
+		"byVerse": "By Verse",
 		"juzAmma": "Juz Amma",
 		"makkiyah": "Makkiyah Surahs",
 		"madaniyah": "Madaniyah Surahs",
 		"asmaulHusna": "Asmaul Husna",
-		"ayatKursi": "Ayat Kursi",
-		"dailyDoa": "Daily Prayers",
+		"ayatKursi": "Ayat al-Kursi",
+		"dailyDoa": "Daily Duas",
 		"tahlil": "Tahlil",
-		"wirid": "Wirid",
+		"wirid": "Dhikr",
 		"tasbih": "Tasbih",
 		"prayerTime": "Prayer Times",
 		"worshipTracker": "Worship Tracker",
@@ -104,6 +105,9 @@
 	"hijri": {
 		"suffix": "AH",
 		"todayEvent": "Today"
+	},
+	"home": {
+		"features": "🌟 Baca-Quran.id Features"
 	},
 	"hijriCalendar": {
 		"title": "Hijri Calendar",

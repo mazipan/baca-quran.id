@@ -8,6 +8,7 @@
 	import surahData from '../../data/surah-data/108';
 	import { settingAudio, settingAutoNext, settingTafsir, settingTranslation } from '../../store';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '$lib/translations/store';
 
 	type SurahSampleEntry = {
 		text: Record<string, string>;
@@ -38,7 +39,7 @@
 <div class="px-4 mb-4">
 	<Breadcrumb
 		items={[
-			{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda', href: '/' }
+			{ text: `🏠 ${$t('navigation.home')}`, href: '/' }
 		]}
 	/>
 </div>

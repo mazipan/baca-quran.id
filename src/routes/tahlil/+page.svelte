@@ -5,6 +5,7 @@
 	import SeoText from '$lib/SeoText.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC_TAHLIL, META_TITLE_TAHLIL, TITLE_CONSTANTS } from '$lib/constants';
+	import { t } from '$lib/translations/store';
 	import DocumentTextIcon from '$lib/icons/DocumentTextIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import tahlil, { type TahlilItem } from '../../data/tahlil';
@@ -34,7 +35,7 @@
 <div class="px-4 mb-4">
 	<Breadcrumb
 		items={[
-			{ text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🏠 Home' : '🏠 Beranda', href: '/' }
+			{ text: `🏠 ${$t('navigation.home')}`, href: '/' }
 		]}
 	/>
 </div>

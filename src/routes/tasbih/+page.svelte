@@ -10,6 +10,7 @@
 	import SpeakerXMarkIcon from '$lib/icons/SpeakerXMarkIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import { toast } from '../../store/toast';
+	import { t } from '$lib/translations/store';
 
 	let counter = $state(0);
 	let target = $state(33);
@@ -89,7 +90,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb items={[{ text: '🏠 Beranda', href: '/' }]} />
+	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
 
 <div class="px-4 flex flex-col gap-2">
