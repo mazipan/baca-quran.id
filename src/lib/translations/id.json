@@ -88,6 +88,7 @@
 	"ui": {
 		"by": "oleh",
 		"version": "Versi:",
+		"webUtilities": "Utilitas Web Lainnya",
 		"findWhatLetter": "Cari surat apa?",
 		"shareVerseTitle": "🧵 Bagikan Surat {{surahLatin}}, Ayat {{verseNumber}}",
 		"tafsirTitle": "💠 Terjemah & Tafsir Surat {{surahLatin}}, Ayat {{verseNumber}}"
