@@ -17,6 +17,7 @@
 	} from '../store';
 
 	import '../app.css';
+	import { CheckLanguage, languageStore } from '$lib/checkLanguaguage';
 	import { getJsonLdWebsite, serializeSchema } from '$lib/utils/json-ld';
 	import VerseAudioPlayer from '$lib/VerseAudioPlayer.svelte';
 	import type { ReciterKey } from '$lib/utils/audio';
@@ -40,6 +41,8 @@
 		// Make sure it's only run on the client
 		if (typeof window !== 'undefined') {
 			if (typeof localStorage !== 'undefined') {
+				languageStore.set(CheckLanguage() as 'id' | 'en');
+
 				const storageMukadimah = localStorage.getItem(CONSTANTS.STORAGE_KEY.MUKADIMAH);
 				settingMuqadimah.set(!!(storageMukadimah && storageMukadimah === 'y'));
 
