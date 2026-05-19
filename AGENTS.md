@@ -166,14 +166,58 @@ scripts/
 
 ### i18n (`src/lib/translations/`)
 
-- **Reactive in components**: `import { t } from '$lib/translations/store'`
-  then `{$t('namespace.key')}`. Updates on language change.
-- **Imperative**: `import { t } from '$lib/translations'` then `t('...')`.
-  Snapshot at call time — only use outside reactive contexts.
-- Add the same key to **both** `id.json` and `en.json`. Missing keys
-  fall back to Indonesian, then to the literal key.
+Full guide: `src/lib/translations/README.md`. Key rules:
+
+- **Reactive in templates**: `import { t } from '$lib/translations/store'`
+  then `{$t('namespace.key')}`. Re-renders on language change.
+- **Imperative in handlers**: `import { t as translate } from '$lib/translations'`
+  then `translate('...')`. Reads language at call time — use inside event
+  handlers and `async` functions where `$t` is not available.
+- If a component needs both, import both under different names:
+  ```svelte
+  import { t } from '$lib/translations/store';        // template
+  import { t as translate } from '$lib/translations'; // handlers
+  ```
+- Add the same key to **both** `id.json` and `en.json` in the same commit.
+  Missing keys fall back to Indonesian silently.
 - Interpolation: `{{name}}` placeholders, e.g.
   `t('common.welcome', { name: 'Irfan' })`.
+- **Reuse before adding.** Check both JSON files before creating a new key.
+  Commonly reusable: `navigation.home`, `common.close`, `settings.translation`,
+  `surah.share*`.
+- **Never** use inline locale ternaries — they bypass the system and break
+  reactivity:
+  ```svelte
+  <!-- ❌ -->
+  {current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Settings' : 'Setelan'}
+  <!-- ✅ -->
+  {$t('settings.title')}
+  ```
+  After removing a ternary, check whether `LANGUAGE_OPTIONS` / `languageStore` /
+  `current` are still needed in that file; remove them if not.
+
+#### i18n verification (run after every translation change)
+
+```bash
+# 1. Key exists in both files
+grep -n "yourNewKey" src/lib/translations/id.json src/lib/translations/en.json
+
+# 2. No inline locale ternaries remain
+grep -rn "LANGUAGE_OPTIONS.ENGLISH.locale ?" src/routes/ src/lib/
+
+# 3. No leftover unused imports in files you touched
+grep -n "LANGUAGE_OPTIONS\|languageStore\|current ==" src/routes/YOUR_FILE.svelte
+
+# 4. Formatting
+pnpm lint
+
+# 5. Types
+pnpm check
+```
+
+After deploying (or in `pnpm dev`): switch the language with the globe icon and
+confirm every changed string updates without a page reload. Toast messages should
+appear in the active language on the next trigger.
 
 ### Theme
 
@@ -261,6 +305,9 @@ ls build/<slug>/index.html
 pnpm run make:sitemap
 grep <slug> build/sitemaps/static.xml
 ```
+
+For any translation change, also run the **i18n verification** steps in
+§5 → "i18n verification" above.
 
 There is no automated test suite. Be deliberate about manual
 verification: think through edge cases, test in both `id` and `en`
