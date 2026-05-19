@@ -21,7 +21,7 @@
 <div class="px-4 mb-4">
 	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
-{#if current == LANGUAGE_OPTIONS.ENGLISH.locale}
+{#if $current == LANGUAGE_OPTIONS.ENGLISH.locale}
 	<article class="px-4">
 		<p class="mb-4">
 			Baca-Quran.id is a web application for reading the Quran through a browser, without the need
