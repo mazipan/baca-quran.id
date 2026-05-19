@@ -29,7 +29,8 @@ export const CONSTANTS = {
 		LOCATION: 'loc',
 		PRAYER: 'pryr',
 		THEME: 'theme',
-		LOG_PRAYER: 'log'
+		LOG_PRAYER: 'log',
+		DOA_CATEGORY: 'doa_cat'
 	},
 	BISMILLAH: '﷽'
 };

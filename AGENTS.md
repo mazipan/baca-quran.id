@@ -273,7 +273,7 @@ locales, test theme switching, test on a narrow viewport.
 - Subject line ≤ 70 chars. Body explains _why_ and references issues
   with `Refs #N` or `Closes #N`.
 - The husky pre-commit hook runs `lint-staged`. If it modifies files,
-  re-stage and commit. **Do not** use `--no-verify`.
+  re-stage and commit. **Do not** use `--no-verify` or `HUSKY=0`.
 - Never `git commit --amend` after a hook failure — the previous commit
   may not be what you think it is. Make a new commit.
 - Never `git add -A` blindly. Stage explicit paths.
@@ -335,7 +335,7 @@ every PR. All three must pass before merge.
 - ❌ Hard-coded user-visible strings — must go through `t()`.
 - ❌ Touching the deploy workflow or `mazipan-quran-offline/*` — only
   the maintainer publishes.
-- ❌ Skipping git hooks (`--no-verify`, `--no-gpg-sign`).
+- ❌ Skipping git hooks (`--no-verify`, `--no-gpg-sign`, `HUSKY=0`, `HUSKY_SKIP_HOOKS=1`). If the hook fails due to an environment constraint (e.g. Node version mismatch in the hook runner), fix the environment — don't bypass the hook.
 - ❌ `git push --force` to a branch someone else may have based work
   on. Force-pushing your own feature branch is fine when needed.
 - ❌ Renaming or deleting routes without first checking
