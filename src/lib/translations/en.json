@@ -117,5 +117,24 @@
 		"today": "Today",
 		"prevMonth": "Previous month",
 		"nextMonth": "Next month"
+	},
+	"daily-doa": {
+		"filterAll": "All",
+		"source": "Source",
+		"context": "When/Context",
+		"categories": {
+			"makan-minum": "Food & Drink",
+			"tidur": "Sleep & Wake",
+			"kebersihan": "Cleanliness",
+			"keluar-masuk": "Entering & Leaving",
+			"safar": "Travel",
+			"keluarga": "Family",
+			"pelajaran": "Study",
+			"kesehatan": "Health",
+			"cuaca-alam": "Weather & Nature",
+			"perlindungan": "Protection",
+			"sholat": "Prayer",
+			"umum": "General"
+		}
 	}
 }

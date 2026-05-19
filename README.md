@@ -57,7 +57,7 @@ Copy `build` folder to your hosting.
 
 - [quran-json](https://github.com/rioastamal/quran-json) by [@rioastamal](https://github.com/rioastamal)
 - Asmaul Husna: from [islam.nu.or.id](https://islam.nu.or.id/ubudiyah/99-asmaul-husna-dan-artinya-1T8jl)
-- Daily Do'a: from [doaharianislami.com](http://www.doaharianislami.com/2017/06/kumpulan-doa-sehari-hari-lengkap-dalam-bahasa-arab-latin-dan-artinya.html)
+- Daily Do'a: sourced from [Hisnul Muslim](https://hisnulmuslim.com) by Sa'id ibn Ali al-Qahtani, [islam.nu.or.id](https://islam.nu.or.id), [Rumaysho.com](https://rumaysho.com), and primary hadith collections (Bukhari, Muslim, Abu Dawud, Tirmidhi, Ibn Majah)
 - MP3 Audio: from [kemenag.go.id](https://quran.kemenag.go.id/)
 - Tahlil: from [islam.nu.or.id](https://islam.nu.or.id/post/read/107344/susunan-bacaan-tahlil-doa-arwah-lengkap-dan-terjemahannya)
 - Reverse Geolocation: [nominatim](https://nominatim.openstreetmap.org)

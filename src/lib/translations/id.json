@@ -117,5 +117,24 @@
 		"today": "Hari Ini",
 		"prevMonth": "Bulan sebelumnya",
 		"nextMonth": "Bulan berikutnya"
+	},
+	"daily-doa": {
+		"filterAll": "Semua",
+		"source": "Sumber",
+		"context": "Waktu/Konteks",
+		"categories": {
+			"makan-minum": "Makan & Minum",
+			"tidur": "Tidur & Bangun",
+			"kebersihan": "Kebersihan",
+			"keluar-masuk": "Keluar & Masuk",
+			"safar": "Safar (Perjalanan)",
+			"keluarga": "Keluarga",
+			"pelajaran": "Pelajaran",
+			"kesehatan": "Kesehatan",
+			"cuaca-alam": "Cuaca & Alam",
+			"perlindungan": "Perlindungan",
+			"sholat": "Sholat",
+			"umum": "Umum"
+		}
 	}
 }
