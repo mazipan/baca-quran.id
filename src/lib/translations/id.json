@@ -118,6 +118,11 @@
 		"prevMonth": "Bulan sebelumnya",
 		"nextMonth": "Bulan berikutnya"
 	},
+	"aria": {
+		"toggleDrawer": "Buka/Tutup Menu",
+		"switchTheme": "Ganti Tema",
+		"changeLanguage": "Ganti Bahasa"
+	},
 	"daily-doa": {
 		"filterAll": "Semua",
 		"source": "Sumber",

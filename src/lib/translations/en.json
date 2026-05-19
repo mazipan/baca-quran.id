@@ -118,6 +118,11 @@
 		"prevMonth": "Previous month",
 		"nextMonth": "Next month"
 	},
+	"aria": {
+		"toggleDrawer": "Toggle Drawer",
+		"switchTheme": "Switch Theme",
+		"changeLanguage": "Change Language"
+	},
 	"daily-doa": {
 		"filterAll": "All",
 		"source": "Source",

@@ -2,6 +2,7 @@
 	import { CheckLanguage, LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { t } from './translations/store';
 
 	let showOptions = false;
 	let currentLang: 'id' | 'en' = LANGUAGE_OPTIONS.INDONESIAN.locale; // Default value for SSR
@@ -30,7 +31,7 @@
 		id="language-button"
 		aria-expanded={showOptions}
 		aria-haspopup="true"
-		aria-label="Change Language"
+		aria-label={$t('aria.changeLanguage')}
 		onclick={() => (showOptions = !showOptions)}
 	>
 		<svg

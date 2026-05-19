@@ -4,6 +4,7 @@
 
 	import { onMount } from 'svelte';
 	import { activeTheme } from '../store';
+	import { t } from './translations/store';
 	let show = $state(false);
 
 	const handleSwitchTheme = (theme: string) => {
@@ -32,7 +33,7 @@
 			aria-expanded={show}
 			aria-haspopup="true"
 			onclick={() => (show = !show)}
-			aria-label="Switch Theme"
+			aria-label={$t('aria.switchTheme')}
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
