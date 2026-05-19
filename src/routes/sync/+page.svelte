@@ -15,6 +15,7 @@
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import { t } from '$lib/translations/store';
+	import { t as translate } from '$lib/translations';
 	import { initializeApp } from 'firebase/app';
 	import {
 		getFirestore,
@@ -84,13 +85,13 @@
 			.then((result) => {
 				const user = result.user;
 				toast.show({
-					message: `Berhasil login. Selamat datang ${user.displayName}!`,
+					message: translate('sync.loginSuccess', { name: user.displayName || '' }),
 					type: 'success'
 				});
 			})
 			.catch((error) => {
 				toast.show({
-					message: `Gagal login: ${error.message}`,
+					message: translate('sync.loginError', { message: error.message }),
 					type: 'error'
 				});
 			});
@@ -100,13 +101,13 @@
 		signOut(auth)
 			.then(() => {
 				toast.show({
-					message: `Berhasil logout!`,
+					message: translate('sync.logoutSuccess'),
 					type: 'success'
 				});
 			})
 			.catch((error) => {
 				toast.show({
-					message: `Gagal logout: ${error.message}`,
+					message: translate('sync.logoutError', { message: error.message }),
 					type: 'error'
 				});
 			});
@@ -167,14 +168,14 @@
 				});
 
 				toast.show({
-					message: `Berhasil memperbarui data remote dengan data lokal`,
+					message: translate('sync.uploadSuccess'),
 					type: 'success'
 				});
 			} catch (e) {
 				console.error('Error updating document: ', localData, e);
 
 				toast.show({
-					message: `Gagal memperbarui data lokal ke remote`,
+					message: translate('sync.uploadError'),
 					type: 'error'
 				});
 			}
@@ -183,14 +184,14 @@
 				await addDoc(collection(db, 'progress'), localData);
 
 				toast.show({
-					message: `Berhasil mengunggah data lokal ke remote`,
+					message: translate('sync.uploadSuccess'),
 					type: 'success'
 				});
 			} catch (e) {
 				console.error('Error adding new document: ', localData, e);
 
 				toast.show({
-					message: `Gagal mengunggah data lokal ke remote`,
+					message: translate('sync.uploadError'),
 					type: 'error'
 				});
 			}
@@ -285,12 +286,12 @@
 			});
 
 			toast.show({
-				message: `Data di lokal berhasil diperbarui!`,
+				message: translate('sync.downloadSuccess'),
 				type: 'success'
 			});
 		} else {
 			toast.show({
-				message: `Kamu belum memiliki data apapun di remote. Data di lokal tidak akan diperbarui!`,
+				message: translate('sync.downloadEmpty'),
 				type: 'error'
 			});
 		}

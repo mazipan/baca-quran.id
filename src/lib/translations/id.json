@@ -118,6 +118,16 @@
 		"prevMonth": "Bulan sebelumnya",
 		"nextMonth": "Bulan berikutnya"
 	},
+	"sync": {
+		"loginSuccess": "Berhasil login. Selamat datang {{name}}!",
+		"loginError": "Gagal login: {{message}}",
+		"logoutSuccess": "Berhasil logout!",
+		"logoutError": "Gagal logout: {{message}}",
+		"uploadSuccess": "Berhasil menyinkronkan data lokal ke remote",
+		"uploadError": "Gagal menyinkronkan data lokal ke remote",
+		"downloadSuccess": "Data di lokal berhasil diperbarui!",
+		"downloadEmpty": "Kamu belum memiliki data apapun di remote. Data di lokal tidak akan diperbarui!"
+	},
 	"aria": {
 		"toggleDrawer": "Buka/Tutup Menu",
 		"switchTheme": "Ganti Tema",

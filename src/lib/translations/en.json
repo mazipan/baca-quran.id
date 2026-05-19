@@ -118,6 +118,16 @@
 		"prevMonth": "Previous month",
 		"nextMonth": "Next month"
 	},
+	"sync": {
+		"loginSuccess": "Login successful. Welcome {{name}}!",
+		"loginError": "Login failed: {{message}}",
+		"logoutSuccess": "Logout successful!",
+		"logoutError": "Logout failed: {{message}}",
+		"uploadSuccess": "Local data successfully synced to remote",
+		"uploadError": "Failed to sync local data to remote",
+		"downloadSuccess": "Local data updated successfully!",
+		"downloadEmpty": "You don't have any remote data yet. Local data will not be updated!"
+	},
 	"aria": {
 		"toggleDrawer": "Toggle Drawer",
 		"switchTheme": "Switch Theme",
