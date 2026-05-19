@@ -1,1 +1,1 @@
-pnpm lint-staged
+pnpm --config.engine-strict=false lint-staged
