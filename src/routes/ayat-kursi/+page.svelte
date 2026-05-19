@@ -33,11 +33,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: `🏠 ${$t('navigation.home')}`, href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
 
 <div class="px-4 flex flex-col gap-2">
@@ -48,10 +44,7 @@
 		</div>
 		<div class="mt-4 flex justify-between items-center gap-2">
 			<div class="flex items-center gap-2">
-				<Button
-					onClick={toggleBottomSheet}
-					ariaLabel={$t('settings.translation')}
-				>
+				<Button onClick={toggleBottomSheet} ariaLabel={$t('settings.translation')}>
 					<DocumentTextIcon />
 				</Button>
 			</div>

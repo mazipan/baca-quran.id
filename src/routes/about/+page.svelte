@@ -19,11 +19,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: `🏠 ${$t('navigation.home')}`, href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
 {#if current == LANGUAGE_OPTIONS.ENGLISH.locale}
 	<article class="px-4">
