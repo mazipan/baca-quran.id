@@ -2,6 +2,7 @@
 	import LanguageChanger from './LanguageChanger.svelte';
 	import ThemeSwicther from './ThemeSwicther.svelte';
 	import HijriDate from './HijriDate.svelte';
+	import { t } from './translations/store';
 
 	interface Props {
 		onToggleDrawer: () => void;
@@ -14,7 +15,7 @@
 	<button
 		class="cursor-pointer p-2 rounded-md hover:bg-secondary focus:bg-secondary"
 		onclick={onToggleDrawer}
-		aria-label="Toggle Drawer"
+		aria-label={$t('aria.toggleDrawer')}
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

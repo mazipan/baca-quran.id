@@ -16,7 +16,7 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">
-		{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '🤝 Privacy Policy' : '🤝 Kebijakan Privasi'}
+		🤝 {$t('pages.privacyPolicy')}
 	</h1>
 </div>
 

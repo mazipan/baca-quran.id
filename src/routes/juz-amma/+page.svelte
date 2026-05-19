@@ -3,13 +3,12 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import SurahList from '$lib/SurahList.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC_JUZ_AMMA, META_TITLE_JUZ_AMMA, TITLE_CONSTANTS } from '$lib/constants';
+	import { t } from '$lib/translations/store';
 	import MakkiyahMadaniyah from '../../data/makkiyah-madaniyah';
 	import surahInfo, { type SurahInfo } from '../../data/surah-info';
 
 	const SURAH_START = 78;
-	const current = $derived(languageStore);
 
 	function insertMakkiyahMadaniyah() {
 		let result: SurahInfo = {};
@@ -42,11 +41,7 @@
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: `🏠${$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Home' : 'Beranda'}`, href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
 
 <SurahList {originSurahInfo} />

@@ -16,7 +16,7 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">
-		🤝 {$current === LANGUAGE_OPTIONS.ENGLISH.locale ? 'Terms of Service' : 'Ketentuan Layanan'}
+		🤝 {$t('pages.termsOfService')}
 	</h1>
 </div>
 

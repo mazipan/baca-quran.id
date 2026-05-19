@@ -3,7 +3,8 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
-	$: current = $languageStore;
+	import { t } from '$lib/translations/store';
+	const current = $derived(languageStore);
 </script>
 
 <svelte:head>
@@ -13,22 +14,14 @@
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">
 		ℹ️
-		{#if current == LANGUAGE_OPTIONS.ENGLISH.locale}
-			About
-		{:else}
-			Tentang
-		{/if}
+		{$t('common.about')}
 	</h1>
 </div>
 
 <div class="px-4 mb-4">
-	<Breadcrumb
-		items={[
-			{ text: `🏠${current == LANGUAGE_OPTIONS.ENGLISH.locale ? ' Home' : 'Beranda'}`, href: '/' }
-		]}
-	/>
+	<Breadcrumb items={[{ text: `🏠 ${$t('navigation.home')}`, href: '/' }]} />
 </div>
-{#if current == LANGUAGE_OPTIONS.ENGLISH.locale}
+{#if $current == LANGUAGE_OPTIONS.ENGLISH.locale}
 	<article class="px-4">
 		<p class="mb-4">
 			Baca-Quran.id is a web application for reading the Quran through a browser, without the need
