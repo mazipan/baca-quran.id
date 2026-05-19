@@ -17,12 +17,11 @@
 	import Clock from '$lib/Clock.svelte';
 	import { toast } from '../../store/toast';
 	import PrayerTimeList from '$lib/PrayerTimeList.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { t } from '$lib/translations/store';
+	import { t as translate } from '$lib/translations';
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
 	let prayerTimes: PrayerTimeData[] = $state([]);
-	const current = $derived(languageStore);
 	let todayPrayerTime = $derived(
 		prayerTimes.find((time) => {
 			return (
@@ -125,7 +124,7 @@
 				);
 
 				toast.show({
-					message: `${$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Managed to get the latest location!' : 'Berhasil mendapatkan lokasi teranyar!'}`,
+					message: translate('prayerSchedule.locationSuccess'),
 					type: 'success'
 				});
 
@@ -161,7 +160,7 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">
-		⏰ {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Prayer schedule' : 'Jadwal Sholat'}
+		⏰ {$t('navigation.prayerTime')}
 	</h1>
 </div>
 
@@ -180,13 +179,11 @@
 	{#if $settingLocation === null}
 		<div class="flex flex-wrap gap-2 justify-between items-center">
 			<h2 class="text-xl font-bold">
-				{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? '' : 'Lokasi belum diketahui'}
+				{$t('prayerSchedule.locationUnknown')}
 			</h2>
 			<div>
 				<Button onClick={getGeolocation}>
-					<MarkerIcon />{$current == LANGUAGE_OPTIONS.ENGLISH.locale
-						? 'Allow location access'
-						: 'Beri akses lokasi'}
+					<MarkerIcon />{$t('prayerSchedule.allowLocation')}
 				</Button>
 			</div>
 		</div>
@@ -203,7 +200,7 @@
 
 			<Button onClick={getGeolocation}>
 				<MarkerIcon />
-				{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Update Location' : 'Perbarui Lokasi'}
+				{$t('prayerSchedule.updateLocation')}
 			</Button>
 		</div>
 	{/if}

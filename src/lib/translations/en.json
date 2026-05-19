@@ -16,7 +16,9 @@
 		"home": "Home",
 		"about": "About",
 		"settings": "Settings",
-		"welcome": "Welcome, {{name}}!"
+		"welcome": "Welcome, {{name}}!",
+		"backToHome": "Back to Home",
+		"unknownError": "Unknown error"
 	},
 	"navigation": {
 		"allSurah": "All Surahs",
@@ -66,7 +68,8 @@
 		"noPinnedSurahs": "You don't have any pinned surahs!",
 		"startPinningSurahs": "Start pinning up to 6 surahs for quick access.",
 		"noBookmarkedVerses": "You don't have any bookmarked verses!",
-		"startReadingVerses": "Start reading and bookmark verses."
+		"startReadingVerses": "Start reading and bookmark verses.",
+		"listAllSurahs": "List of All Surahs"
 	},
 	"prayer": {
 		"fajr": "Fajr",
@@ -84,7 +87,14 @@
 		"translation": "Translation",
 		"tafsir": "Tafsir",
 		"autoNext": "Auto Next",
-		"fontSize": "Font Size"
+		"fontSize": "Font Size",
+		"title": "Settings",
+		"featureSettings": "Feature Settings",
+		"alwaysShowTranslation": "Always show translation",
+		"showTafsirButton": "Show tafsir button",
+		"audioSettings": "Audio Settings",
+		"autoPlayNextVerse": "Automatically play next verse",
+		"chooseQari": "Choose Qari"
 	},
 	"ui": {
 		"by": "by",
@@ -117,6 +127,22 @@
 		"today": "Today",
 		"prevMonth": "Previous month",
 		"nextMonth": "Next month"
+	},
+	"pages": {
+		"termsOfService": "Terms of Service",
+		"privacyPolicy": "Privacy Policy"
+	},
+	"worshipTracker": {
+		"viewRecap": "View Recap",
+		"logRecap": "Prayer Log Recap",
+		"date": "Date",
+		"noRecapData": "No recap data for {{month}} yet"
+	},
+	"prayerSchedule": {
+		"locationSuccess": "Managed to get the latest location!",
+		"updateLocation": "Update Location",
+		"allowLocation": "Allow location access",
+		"locationUnknown": "Location not set"
 	},
 	"sync": {
 		"loginSuccess": "Login successful. Welcome {{name}}!",

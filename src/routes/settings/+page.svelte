@@ -7,7 +7,6 @@
 	import { CONSTANTS, META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
 	import surahData from '../../data/surah-data/108';
 	import { settingAudio, settingAutoNext, settingTafsir, settingTranslation } from '../../store';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { t } from '$lib/translations/store';
 
 	type SurahSampleEntry = {
@@ -23,7 +22,6 @@
 	const sample = (surahData as unknown as Record<string, SurahSampleEntry>)[
 		SURAH_SAMPLE.toString()
 	];
-	const current = $derived(languageStore);
 </script>
 
 <svelte:head>
@@ -32,7 +30,7 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">
-		⚙️ {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Settings' : 'Setelan'}
+		⚙️ {$t('settings.title')}
 	</h1>
 </div>
 
@@ -43,7 +41,7 @@
 <article class="px-4 flex flex-col gap-4 divide-y">
 	<div class="flex flex-col gap-2">
 		<h3 class="text-xl font-bold">
-			💠 {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Feature Settings' : 'Setelan Fitur'}
+			💠 {$t('settings.featureSettings')}
 		</h3>
 		<div>
 			<input
@@ -61,9 +59,7 @@
 				}}
 			/>
 			<label for="chk-translation">
-				{$current == LANGUAGE_OPTIONS.ENGLISH.locale
-					? 'Always show translation'
-					: 'Selalu tampilkan terjemahan'}
+				{$t('settings.alwaysShowTranslation')}
 			</label>
 		</div>
 		<div>
@@ -82,9 +78,7 @@
 				}}
 			/>
 			<label for="chk-tafsir">
-				{$current == LANGUAGE_OPTIONS.ENGLISH.locale
-					? 'Show tafsir button'
-					: 'Tampilkan tombol tafsir'}
+				{$t('settings.showTafsirButton')}
 			</label>
 		</div>
 		<!-- <div>
@@ -126,7 +120,7 @@
 
 	<div class="pt-4 flex flex-col gap-2">
 		<h3 class="text-xl font-bold">
-			🔈 {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Audio Settings' : 'Setelan Audio'}
+			🔈 {$t('settings.audioSettings')}
 		</h3>
 		<div>
 			<input
@@ -144,15 +138,13 @@
 				}}
 			/>
 			<label for="chk-auto-next">
-				{$current == LANGUAGE_OPTIONS.ENGLISH.locale
-					? 'Automatically play next verse'
-					: 'Otomatis putar ayat berikutnya'}
+				{$t('settings.autoPlayNextVerse')}
 			</label>
 		</div>
 
 		<div>
 			<label for="select-qari" class="block mb-2 text-sm font-medium">
-				{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Choose Qari' : 'Pilih Qari'}
+				{$t('settings.chooseQari')}
 			</label>
 			<div class="flex items-center gap-2">
 				<select

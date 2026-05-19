@@ -2,7 +2,6 @@
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import SeoText from '$lib/SeoText.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { t } from '$lib/translations/store';
 	import {
 		META_DESC_PENCATAT_IBADAH,
@@ -11,7 +10,6 @@
 	} from '$lib/constants';
 	import { formatDate, getAllMonths } from '$lib/utils/date';
 	import { logPrayer } from '$store';
-	const current = $derived(languageStore);
 
 	let monthRanges = getAllMonths();
 
@@ -41,7 +39,7 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">
-		⏺️ {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Prayer Log Recap' : 'Rekap Pencatat Ibadah'}
+		⏺️ {$t('worshipTracker.logRecap')}
 	</h1>
 </div>
 
@@ -50,7 +48,7 @@
 		items={[
 			{ text: `🏠 ${$t('navigation.home')}`, href: '/' },
 			{
-				text: $current == LANGUAGE_OPTIONS.ENGLISH.locale ? '⏺️ Prayer Log' : '⏺️ Pencatat Ibadah',
+				text: `⏺️ ${$t('navigation.worshipTracker')}`,
 				href: '/pencatat-ibadah/'
 			}
 		]}
@@ -81,7 +79,7 @@
 				<thead>
 					<tr>
 						<th scope="col">
-							{$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'Date' : 'Tanggal'}
+							{$t('worshipTracker.date')}
 						</th>
 						<th scope="col">Subuh</th>
 						<th scope="col">Dzuhur</th>
@@ -104,9 +102,7 @@
 		{:else}
 			<div class="m-6 flex flex-col gap-2 justify-center items-center p-4">
 				<p class="text-2xl text-center font-bold">
-					{$current == LANGUAGE_OPTIONS.ENGLISH.locale
-						? `No recap data for ${selectedMonth} yet`
-						: `Belum ada data rekap untuk bulan ${selectedMonth}`}
+					{$t('worshipTracker.noRecapData', { month: selectedMonth })}
 				</p>
 				<img
 					src="/images/illustrasion-error.svg"

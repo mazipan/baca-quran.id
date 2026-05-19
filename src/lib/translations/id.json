@@ -16,7 +16,9 @@
 		"home": "Beranda",
 		"about": "Tentang",
 		"settings": "Pengaturan",
-		"welcome": "Selamat datang, {{name}}!"
+		"welcome": "Selamat datang, {{name}}!",
+		"backToHome": "Kembali ke Beranda",
+		"unknownError": "tidak diketahui"
 	},
 	"navigation": {
 		"allSurah": "Semua Surat",
@@ -66,7 +68,8 @@
 		"noPinnedSurahs": "Kamu belum punya surah yang di pin!",
 		"startPinningSurahs": "Mulai pin 6 surah agar mudah diakses.",
 		"noBookmarkedVerses": "Kamu belum punya ayat yang ditandai!",
-		"startReadingVerses": "Yuk mulai baca dan tandai ayat."
+		"startReadingVerses": "Yuk mulai baca dan tandai ayat.",
+		"listAllSurahs": "Daftar Semua Surat"
 	},
 	"prayer": {
 		"fajr": "Subuh",
@@ -84,7 +87,14 @@
 		"translation": "Terjemahan",
 		"tafsir": "Tafsir",
 		"autoNext": "Otomatis Lanjut",
-		"fontSize": "Ukuran Font"
+		"fontSize": "Ukuran Font",
+		"title": "Setelan",
+		"featureSettings": "Setelan Fitur",
+		"alwaysShowTranslation": "Selalu tampilkan terjemahan",
+		"showTafsirButton": "Tampilkan tombol tafsir",
+		"audioSettings": "Setelan Audio",
+		"autoPlayNextVerse": "Otomatis putar ayat berikutnya",
+		"chooseQari": "Pilih Qari"
 	},
 	"ui": {
 		"by": "oleh",
@@ -117,6 +127,22 @@
 		"today": "Hari Ini",
 		"prevMonth": "Bulan sebelumnya",
 		"nextMonth": "Bulan berikutnya"
+	},
+	"pages": {
+		"termsOfService": "Ketentuan Layanan",
+		"privacyPolicy": "Kebijakan Privasi"
+	},
+	"worshipTracker": {
+		"viewRecap": "Lihat Rekap",
+		"logRecap": "Rekap Pencatat Ibadah",
+		"date": "Tanggal",
+		"noRecapData": "Belum ada data rekap untuk bulan {{month}}"
+	},
+	"prayerSchedule": {
+		"locationSuccess": "Berhasil mendapatkan lokasi teranyar!",
+		"updateLocation": "Perbarui Lokasi",
+		"allowLocation": "Beri akses lokasi",
+		"locationUnknown": "Lokasi belum diketahui"
 	},
 	"sync": {
 		"loginSuccess": "Berhasil login. Selamat datang {{name}}!",

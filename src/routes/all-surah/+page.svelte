@@ -6,9 +6,7 @@
 	import MakkiyahMadaniyah from '../../data/makkiyah-madaniyah';
 	import SurahList from '$lib/SurahList.svelte';
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { t } from '$lib/translations/store';
-	const current = $derived(languageStore);
 
 	function insertMakkiyahMadaniyah() {
 		let result: SurahInfo = {};
@@ -36,7 +34,7 @@
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">
-		📚 {$current == LANGUAGE_OPTIONS.ENGLISH.locale ? 'List of All Surahs' : 'Daftar Semua Surat'}
+		📚 {$t('surah.listAllSurahs')}
 	</h1>
 </div>
 
