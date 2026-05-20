@@ -27,7 +27,7 @@
 
 	const STYLES: Record<Variant, Record<Color, string>> = {
 		solid: {
-			primary: 'bg-primary text-foreground',
+			primary: 'bg-primary text-foreground border border-foreground/20',
 			secondary: 'bg-foreground text-primary',
 			info: 'bg-blue-600 text-white',
 			success: 'bg-green-600 text-white',

@@ -35,8 +35,8 @@
 
 	const STYLES: Record<Variant, Record<Color, string>> = {
 		solid: {
-			primary: 'bg-primary text-foreground hover:bg-secondary',
-			secondary: 'bg-secondary text-foreground hover:opacity-90',
+			primary: 'bg-primary text-foreground border border-foreground/20 hover:bg-secondary',
+			secondary: 'bg-secondary text-foreground border border-foreground/20 hover:opacity-90',
 			info: 'bg-blue-600 text-white hover:bg-blue-700',
 			success: 'bg-green-600 text-white hover:bg-green-700',
 			warning: 'bg-orange-500 text-white hover:bg-orange-600',
