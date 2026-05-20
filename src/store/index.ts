@@ -54,14 +54,29 @@ export type BookmarkVerseItem = {
 
 export const lastReadVerses = writable<BookmarkVerseItem[]>([]);
 
-export type LogPrayerItemKey = '1' | '2' | '3' | '4' | '5';
+export type LogPrayerItemKey =
+	| '1'
+	| '2'
+	| '3'
+	| '4'
+	| '5'
+	| '6'
+	| '7'
+	| '8'
+	| '9'
+	| '10'
+	| '11'
+	| '12';
 export type LogPrayerItemValue = 1 | 0;
-export type LogPrayerValue = Record<LogPrayerItemKey, LogPrayerItemValue>;
 /**
- * Key is date in YYYYMMDD format
- * Value is record { id: 1 | 0 }
- * ID is ==> 1: Fajr, 2: Dhuhr, 3: Asr, 4: Maghrib, 5: Isha
+ * Key is a LogPrayerItemKey, value is 1 (done) or 0 (not done).
+ * Partial so old data without sunnah keys is still valid.
+ * 1=Subuh, 2=Dzuhur, 3=Ashar, 4=Maghrib, 5=Isya (fard)
+ * 6=Qabliyah Subuh, 7=Qabliyah Dzuhur, 8=Ba'diyah Dzuhur,
+ * 9=Ba'diyah Maghrib, 10=Ba'diyah Isya, 11=Dhuha, 12=Tahajjud (sunnah)
  */
+export type LogPrayerValue = Partial<Record<LogPrayerItemKey, LogPrayerItemValue>>;
+/** Key is date in YYYYMMDD format */
 export type LogPrayer = Record<string, LogPrayerValue>;
 
 export const logPrayer = writable<LogPrayer>({});
