@@ -224,6 +224,7 @@
 		"buttons": {
 			"matrix": "Varian × Warna",
 			"matrixDesc": "Setiap kombinasi varian dan warna dapat digunakan sesuai konteks aksi.",
+			"sizes": "Ukuran",
 			"withIcon": "Dengan Ikon",
 			"disabled": "Nonaktif"
 		},
@@ -235,6 +236,7 @@
 		},
 		"badges": {
 			"matrix": "Varian × Warna",
+			"sizes": "Ukuran",
 			"withIcon": "Dengan Ikon"
 		},
 		"chips": {
@@ -271,7 +273,8 @@
 			"radioEn": "English",
 			"radioAr": "العربية",
 			"radioArHint": "Hanya tersedia di beberapa halaman.",
-			"selected": "Terpilih:"
+			"selected": "Terpilih:",
+			"sizes": "Ukuran"
 		},
 		"collapsible": {
 			"what": "Apa itu collapsible?",

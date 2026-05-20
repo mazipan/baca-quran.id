@@ -1,15 +1,29 @@
 <script lang="ts">
 	type Variant = 'solid' | 'subtle' | 'outline';
 	type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+	type Size = 'sm' | 'md' | 'lg';
 
 	interface Props {
 		variant?: Variant;
 		color?: Color;
+		size?: Size;
 		children?: import('svelte').Snippet;
 		class?: string;
 	}
 
-	let { variant = 'subtle', color = 'secondary', children, class: clazz = '' }: Props = $props();
+	let {
+		variant = 'subtle',
+		color = 'secondary',
+		size = 'md',
+		children,
+		class: clazz = ''
+	}: Props = $props();
+
+	const SIZE_MAP: Record<Size, string> = {
+		sm: 'text-[10px] px-1.5 py-0',
+		md: 'text-xs px-2 py-0.5',
+		lg: 'text-sm px-2.5 py-1'
+	};
 
 	const STYLES: Record<Variant, Record<Color, string>> = {
 		solid: {
@@ -37,7 +51,7 @@
 </script>
 
 <span
-	class={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-lg font-medium ${STYLES[variant][color]} ${clazz}`}
+	class={`inline-flex items-center gap-1 rounded-lg font-medium ${SIZE_MAP[size]} ${STYLES[variant][color]} ${clazz}`}
 >
 	{@render children?.()}
 </span>

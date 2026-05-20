@@ -224,6 +224,7 @@
 		"buttons": {
 			"matrix": "Variant × Color",
 			"matrixDesc": "Pair any variant with any color to match the action's intent.",
+			"sizes": "Sizes",
 			"withIcon": "With Icon",
 			"disabled": "Disabled"
 		},
@@ -235,6 +236,7 @@
 		},
 		"badges": {
 			"matrix": "Variant × Color",
+			"sizes": "Sizes",
 			"withIcon": "With Icon"
 		},
 		"chips": {
@@ -271,7 +273,8 @@
 			"radioEn": "English",
 			"radioAr": "العربية",
 			"radioArHint": "Available only on some pages.",
-			"selected": "Selected:"
+			"selected": "Selected:",
+			"sizes": "Sizes"
 		},
 		"collapsible": {
 			"what": "What is a collapsible?",

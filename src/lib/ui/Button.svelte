@@ -1,11 +1,13 @@
 <script lang="ts">
 	type Variant = 'solid' | 'subtle' | 'outline';
 	type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+	type Size = 'sm' | 'md' | 'lg';
 
 	interface Props {
 		onClick: (event: MouseEvent) => void;
 		variant?: Variant;
 		color?: Color;
+		size?: Size;
 		ariaLabel?: string;
 		disabled?: boolean;
 		children?: import('svelte').Snippet;
@@ -17,12 +19,19 @@
 		onClick,
 		variant = 'solid',
 		color = 'secondary',
+		size = 'md',
 		ariaLabel = '',
 		disabled = false,
 		children,
 		class: clazz = '',
 		...rest
 	}: Props = $props();
+
+	const SIZE_MAP: Record<Size, string> = {
+		sm: 'text-xs px-2 py-1 gap-1',
+		md: 'text-sm px-3 py-2 gap-2',
+		lg: 'text-base px-4 py-2.5 gap-2'
+	};
 
 	const STYLES: Record<Variant, Record<Color, string>> = {
 		solid: {
@@ -61,7 +70,7 @@
 	onclick={onClick}
 	{disabled}
 	aria-label={ariaLabel}
-	class={`flex items-center gap-2 p-2 rounded-md transition focus:outline-none focus:ring-2 focus:ring-blue-500 ${STYLES[variant][color]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${clazz}`}
+	class={`flex items-center rounded-md transition focus:outline-none focus:ring-2 focus:ring-blue-500 ${SIZE_MAP[size]} ${STYLES[variant][color]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${clazz}`}
 	{...rest}
 >
 	{@render children?.()}

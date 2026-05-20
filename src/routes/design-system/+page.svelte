@@ -390,6 +390,15 @@
 			</div>
 
 			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.buttons.sizes')}</h3>
+				<div class="flex flex-wrap items-center gap-3">
+					<Button size="sm" color="primary" onClick={() => showToast('info')}>sm</Button>
+					<Button size="md" color="primary" onClick={() => showToast('info')}>md</Button>
+					<Button size="lg" color="primary" onClick={() => showToast('info')}>lg</Button>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-2">
 				<h3 class="font-semibold">{$t('designSystem.buttons.withIcon')}</h3>
 				<div class="flex flex-wrap items-center gap-3">
 					<Button color="primary" onClick={() => showToast('success')} ariaLabel="Bookmark">
@@ -416,7 +425,7 @@
 			</div>
 
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Button variant="solid | subtle | outline"\n        color="primary | secondary | success | warning | danger"\n        disabled\n        onClick={fn}>...</Button>'}</code
+					>{'<Button variant="solid | subtle | outline"\n        color="primary | secondary | success | warning | danger"\n        size="sm | md | lg"\n        disabled\n        onClick={fn}>...</Button>'}</code
 				></pre>
 		</CardShadow>
 	</section>
@@ -591,6 +600,15 @@
 			</div>
 
 			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.badges.sizes')}</h3>
+				<div class="flex flex-wrap items-center gap-3">
+					<Badge size="sm" color="primary">sm</Badge>
+					<Badge size="md" color="primary">md</Badge>
+					<Badge size="lg" color="primary">lg</Badge>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-2">
 				<h3 class="font-semibold">{$t('designSystem.badges.withIcon')}</h3>
 				<div class="flex flex-wrap items-center gap-3">
 					<Badge variant="subtle" color="success">
@@ -609,7 +627,7 @@
 			</div>
 
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Badge variant="solid | subtle | outline"\n       color="primary | secondary | success | warning | danger">label</Badge>'}</code
+					>{'<Badge variant="solid | subtle | outline"\n       color="primary | secondary | success | warning | danger"\n       size="sm | md | lg">label</Badge>'}</code
 				></pre>
 		</CardShadow>
 	</section>
@@ -733,8 +751,15 @@
 			/>
 			<Input label={$t('designSystem.forms.disabledLabel')} value="readonly" disabled />
 
+			<div class="flex flex-col gap-2">
+				<h4 class="text-sm font-semibold">{$t('designSystem.forms.sizes')}</h4>
+				<Input size="sm" placeholder="size=sm" />
+				<Input size="md" placeholder="size=md" />
+				<Input size="lg" placeholder="size=lg" />
+			</div>
+
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Input label="..." bind:value error="..." hint="..." />'}</code
+					>{'<Input label="..." size="sm | md | lg" bind:value error="..." hint="..." />'}</code
 				></pre>
 		</CardShadow>
 
@@ -747,8 +772,15 @@
 				rows={3}
 				bind:value={demoTextarea}
 			/>
+
+			<div class="flex flex-col gap-2">
+				<h4 class="text-sm font-semibold">{$t('designSystem.forms.sizes')}</h4>
+				<Textarea size="sm" rows={2} placeholder="size=sm" />
+				<Textarea size="lg" rows={2} placeholder="size=lg" />
+			</div>
+
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Textarea label="..." rows={4} bind:value />'}</code
+					>{'<Textarea label="..." size="sm | md | lg" rows={4} bind:value />'}</code
 				></pre>
 		</CardShadow>
 
