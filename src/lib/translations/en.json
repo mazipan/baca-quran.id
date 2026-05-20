@@ -27,7 +27,7 @@
 		"makkiyah": "Makkiyah Surahs",
 		"madaniyah": "Madaniyah Surahs",
 		"asmaulHusna": "Asmaul Husna",
-		"ayatKursi": "Ayat al-Kursi",
+		"ayatKursi": "The Verse of the Throne",
 		"dailyDoa": "Daily Duas",
 		"tahlil": "Tahlil",
 		"wirid": "Dhikr",
@@ -40,7 +40,8 @@
 		"about": "About",
 		"ayatOfTheDay": "AyatOfTheDay",
 		"hijriCalendar": "Hijri Calendar",
-		"designSystem": "Design System"
+		"designSystem": "Design System",
+		"adhkar": "Morning & Evening Adhkar"
 	},
 	"surah": {
 		"title": "Read Quran",
