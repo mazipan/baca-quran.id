@@ -14,6 +14,7 @@
 		{ href: '/asmaul-husna/', title: `💯 ${$t('navigation.asmaulHusna')}` },
 		{ href: '/daily-doa/', title: `🙏 ${$t('navigation.dailyDoa')}` },
 		{ href: '/wirid/', title: `🧎 ${$t('navigation.wirid')}` },
+		{ href: '/adhkar/', title: `🌅 ${$t('navigation.adhkar')}` },
 		{ href: '/tasbih/', title: `📿 ${$t('navigation.tasbih')}` },
 		{ href: '/tahlil/', title: `🤲 ${$t('navigation.tahlil')}` },
 		{ href: '/ayat-kursi/', title: `🪑 ${$t('navigation.ayatKursi')}` },

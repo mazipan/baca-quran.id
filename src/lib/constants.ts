@@ -30,7 +30,8 @@ export const CONSTANTS = {
 		PRAYER: 'pryr',
 		THEME: 'theme',
 		LOG_PRAYER: 'log',
-		DOA_CATEGORY: 'doa_cat'
+		DOA_CATEGORY: 'doa_cat',
+		ADHKAR_LOG: 'adhkar_log'
 	},
 	BISMILLAH: '﷽'
 };
@@ -83,6 +84,9 @@ export const META_DESC_JADWAL_SHOLAT = `Jadwal sholat sesuai lokasi 💯 gratis,
 export const META_TITLE_PENCATAT_IBADAH = `Pencatat Ibadah Digital Online dari ${TITLE_CONSTANTS.TITLE_META}`;
 export const META_DESC_PENCATAT_IBADAH = `Mulai catat ibadahmu untuk refleksi diri melalui ${TITLE_CONSTANTS.TITLE_META}. Gratis sepenuhnya, tanpa iklan, tanpa unduh, tanpa analitik, privasi aman.`;
 
+export const META_TITLE_ADHKAR = `Dzikir Pagi & Petang (al-Ma'thurat) | ${TITLE_CONSTANTS.TITLE_META}`;
+export const META_DESC_ADHKAR = `Checklist dzikir pagi dan petang lengkap dengan penghitung tiap dzikir, otomatis reset di pergantian waktu sesuai jadwal sholat. ${postfix(false)}`;
+
 export const META_TITLE_SURAH = (name: string) =>
 	`Qur'an Surat ${name} | ${TITLE_CONSTANTS.TITLE_META}`;
 export const META_DESC_SURAH = (name: string) => `Qur'an Surat ${name} ${postfix(true)}`;
@@ -122,7 +126,8 @@ export type PageVariant =
 	| 'MAKKIYAH'
 	| 'MADANIYAH'
 	| 'JADWAL_SHOLAT'
-	| 'CATAT_IBADAH';
+	| 'CATAT_IBADAH'
+	| 'ADHKAR';
 // Using translation system instead of direct language comparison
 
 export const SEO_TEXT = {
@@ -150,6 +155,8 @@ export const SEO_TEXT = {
 		'Jadwal sholat terlengkap. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	CATAT_IBADAH:
 		'Catat ibadahmu untuk refleksi diri. Pencatat ibadah online dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
+	ADHKAR:
+		"Dzikir pagi dan petang (al-Ma'thurat) lengkap dengan penghitung otomatis dan reset harian. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.",
 	SURAH_DETAIL: '',
 	AYAT_DETAIL: ''
 };

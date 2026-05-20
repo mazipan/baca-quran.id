@@ -1,5 +1,6 @@
 export const staticUrls = [
 	'/about',
+	'/adhkar',
 	'/all-surah',
 	'/asmaul-husna',
 	'/ayat-kursi',
