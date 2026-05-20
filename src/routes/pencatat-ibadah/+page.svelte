@@ -39,6 +39,12 @@
 	let selectedDate = $state(getCurrentDate());
 	let isToday = $derived(selectedDate === getCurrentDate());
 
+	let hasAnyData = $derived(
+		Object.values($logPrayer).some((d) => Object.values(d).some((v) => v === 1))
+	);
+	let welcomeDismissed = $state(false);
+	let showWelcome = $derived(!hasAnyData && !welcomeDismissed);
+
 	let selectedYYYYMMDD = $derived.by(() => {
 		const d = new Date();
 		d.setDate(selectedDate);
@@ -129,6 +135,49 @@
 </div>
 
 <div class="px-4 flex flex-col gap-4 pb-6">
+	<!-- Welcome wizard (first-time users) -->
+	{#if showWelcome}
+		<div class="bg-secondary rounded-xl p-5 border-2 border-blue-200 dark:border-blue-800">
+			<div class="flex items-start justify-between mb-3">
+				<div>
+					<h2 class="font-bold text-lg">👋 Selamat Datang!</h2>
+					<p class="text-sm opacity-60 mt-0.5">Pencatat Ibadah Harian</p>
+				</div>
+				<button
+					onclick={() => (welcomeDismissed = true)}
+					class="w-7 h-7 rounded-full flex items-center justify-center hover:bg-primary transition-colors opacity-40 hover:opacity-100 text-sm"
+					aria-label="Tutup"
+				>
+					✕
+				</button>
+			</div>
+			<p class="text-sm opacity-80 mb-4 leading-relaxed">
+				Catat sholat harianmu untuk refleksi diri. Semua data hanya tersimpan di perambanmu —
+				<strong>privasi aman & gratis sepenuhnya</strong>.
+			</p>
+			<div class="grid grid-cols-3 gap-2 mb-4">
+				<div class="bg-primary rounded-lg p-3 text-center">
+					<p class="text-2xl">🕌</p>
+					<p class="text-xs mt-1 font-semibold">5 Wajib</p>
+				</div>
+				<div class="bg-primary rounded-lg p-3 text-center">
+					<p class="text-2xl">⭐</p>
+					<p class="text-xs mt-1 font-semibold">7 Sunnah</p>
+				</div>
+				<div class="bg-primary rounded-lg p-3 text-center">
+					<p class="text-2xl">🔥</p>
+					<p class="text-xs mt-1 font-semibold">Streak</p>
+				</div>
+			</div>
+			<button
+				onclick={() => (welcomeDismissed = true)}
+				class="w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors"
+			>
+				Mulai Catat →
+			</button>
+		</div>
+	{/if}
+
 	<!-- Date Navigation -->
 	<div class="bg-secondary rounded-xl p-4 flex items-center justify-between gap-3">
 		<button

@@ -156,6 +156,120 @@
 		return getDayjsFormatted(selectedDay, 'YYYYMMDD').format('dddd, DD MMMM YYYY');
 	});
 
+	let monthlyPct = $derived.by(() => {
+		const prefix = `${selectedYear}${String(selectedMonthIndex + 1).padStart(2, '0')}`;
+		const keys = Object.keys($logPrayer).filter((k) => k.startsWith(prefix));
+		if (keys.length === 0) return 0;
+		const total = keys.reduce((sum, key) => {
+			return sum + FARD_IDS.filter((id) => $logPrayer[key]?.[id as LogPrayerItemKey] === 1).length;
+		}, 0);
+		return Math.round((total / (keys.length * 5)) * 100);
+	});
+
+	let globalStats = $derived.by(() => {
+		const allKeys = Object.keys($logPrayer);
+		const totalPrayers = allKeys.reduce((sum, key) => {
+			return sum + Object.values($logPrayer[key]).filter((v) => v === 1).length;
+		}, 0);
+		const totalPerfectDays = allKeys.filter((k) =>
+			FARD_IDS.every((id) => $logPrayer[k]?.[id as LogPrayerItemKey] === 1)
+		).length;
+		const hasSunnah = allKeys.some((k) =>
+			SUNNAH_IDS.some((id) => $logPrayer[k]?.[id as LogPrayerItemKey] === 1)
+		);
+		const hasFullSunnahDay = allKeys.some((k) =>
+			SUNNAH_IDS.every((id) => $logPrayer[k]?.[id as LogPrayerItemKey] === 1)
+		);
+
+		// Best streak ever (walk sorted keys, check consecutive calendar days)
+		const sorted = [...allKeys].sort();
+		let best = 0;
+		let cur = 0;
+		for (let i = 0; i < sorted.length; i++) {
+			const key = sorted[i];
+			const perfect = FARD_IDS.every((id) => $logPrayer[key]?.[id as LogPrayerItemKey] === 1);
+			if (!perfect) {
+				cur = 0;
+				continue;
+			}
+			if (i > 0) {
+				const prev = sorted[i - 1];
+				const prevD = new Date(+prev.slice(0, 4), +prev.slice(4, 6) - 1, +prev.slice(6, 8));
+				const currD = new Date(+key.slice(0, 4), +key.slice(4, 6) - 1, +key.slice(6, 8));
+				const diff = Math.round((currD.getTime() - prevD.getTime()) / 86400000);
+				cur = diff === 1 ? cur + 1 : 1;
+			} else {
+				cur = 1;
+			}
+			best = Math.max(best, cur);
+		}
+
+		return { totalPrayers, totalPerfectDays, hasSunnah, hasFullSunnahDay, bestStreak: best };
+	});
+
+	let achievements = $derived.by(() => {
+		const { totalPrayers, totalPerfectDays, hasSunnah, hasFullSunnahDay, bestStreak } = globalStats;
+		const bs = Math.max(currentStreak, bestStreak);
+		return [
+			{
+				id: 'first_prayer',
+				emoji: '🌱',
+				title: 'Langkah Pertama',
+				desc: 'Catat sholat pertamamu',
+				unlocked: totalPrayers > 0
+			},
+			{
+				id: 'first_sunnah',
+				emoji: '💫',
+				title: 'Sunnah Perdana',
+				desc: 'Catat sholat sunnah pertamamu',
+				unlocked: hasSunnah
+			},
+			{
+				id: 'first_perfect',
+				emoji: '⭐',
+				title: 'Hari Sempurna',
+				desc: '5 sholat wajib dalam sehari',
+				unlocked: totalPerfectDays > 0
+			},
+			{
+				id: 'sunnah_complete',
+				emoji: '✨',
+				title: 'Sunnah Lengkap',
+				desc: 'Semua 7 sunnah dalam sehari',
+				unlocked: hasFullSunnahDay
+			},
+			{
+				id: 'perfect_10',
+				emoji: '🏅',
+				title: '10 Hari Sempurna',
+				desc: '10 hari dengan sholat wajib lengkap',
+				unlocked: totalPerfectDays >= 10
+			},
+			{
+				id: 'streak_7',
+				emoji: '🔥',
+				title: 'Seminggu Beruntun',
+				desc: '7 hari berturut-turut sholat wajib',
+				unlocked: bs >= 7
+			},
+			{
+				id: 'streak_14',
+				emoji: '💪',
+				title: 'Dua Minggu Beruntun',
+				desc: '14 hari berturut-turut sholat wajib',
+				unlocked: bs >= 14
+			},
+			{
+				id: 'streak_30',
+				emoji: '🏆',
+				title: 'Sebulan Beruntun',
+				desc: '30 hari berturut-turut sholat wajib',
+				unlocked: bs >= 30
+			}
+		];
+	});
+
 	let selectedDayFardCount = $derived.by(() => {
 		if (!selectedDay) return 0;
 		return getFardCount(selectedDay);
@@ -375,6 +489,67 @@
 	{:else}
 		<p class="text-sm text-center opacity-40 py-2">{$t('worshipTracker.tapForDetail')}</p>
 	{/if}
+
+	<!-- Monthly completion rate -->
+	{#if monthStats.daysTracked > 0}
+		<div class="bg-secondary rounded-xl p-4">
+			<div class="flex justify-between items-center text-sm mb-2">
+				<span class="font-medium">📊 Kelengkapan Sholat Wajib</span>
+				<span
+					class="font-bold tabular-nums {monthlyPct === 100
+						? 'text-green-600 dark:text-green-400'
+						: ''}">{monthlyPct}%</span
+				>
+			</div>
+			<div class="w-full bg-primary rounded-full h-3 overflow-hidden">
+				<div
+					class="h-3 rounded-full transition-all duration-500 {monthlyPct === 100
+						? 'bg-green-500'
+						: monthlyPct >= 80
+							? 'bg-blue-500'
+							: monthlyPct >= 50
+								? 'bg-yellow-500'
+								: 'bg-orange-500'}"
+					style="width: {monthlyPct}%"
+				></div>
+			</div>
+			<p class="text-xs opacity-50 mt-2">
+				dari {monthStats.daysTracked} hari yang dicatat di bulan {monthNames[selectedMonthIndex]}
+			</p>
+		</div>
+	{/if}
+
+	<!-- Achievements -->
+	<div>
+		<h2 class="font-bold mb-3 flex items-center gap-2">
+			🏅 Pencapaian
+			<span class="text-xs font-normal opacity-50">
+				({achievements.filter((a) => a.unlocked).length}/{achievements.length})
+			</span>
+		</h2>
+		<div class="grid grid-cols-2 gap-2">
+			{#each achievements as ach (ach.id)}
+				<div
+					class="flex items-center gap-3 p-3 rounded-xl border-2 transition-all {ach.unlocked
+						? 'bg-secondary border-foreground/10'
+						: 'bg-primary/30 border-transparent opacity-50'}"
+				>
+					<span class="text-2xl leading-none {ach.unlocked ? '' : 'grayscale'}"
+						>{ach.emoji}</span
+					>
+					<div class="min-w-0 flex-1">
+						<p class="text-sm font-semibold leading-tight">{ach.title}</p>
+						<p class="text-xs opacity-50 leading-tight mt-0.5">{ach.desc}</p>
+					</div>
+					{#if ach.unlocked}
+						<span class="text-green-500 text-sm flex-shrink-0">✓</span>
+					{:else}
+						<span class="opacity-30 text-sm flex-shrink-0">🔒</span>
+					{/if}
+				</div>
+			{/each}
+		</div>
+	</div>
 </div>
 
 <SeoText variant="CATAT_IBADAH" />
