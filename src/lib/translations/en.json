@@ -39,7 +39,8 @@
 		"sync": "Sync",
 		"about": "About",
 		"ayatOfTheDay": "AyatOfTheDay",
-		"hijriCalendar": "Hijri Calendar"
+		"hijriCalendar": "Hijri Calendar",
+		"designSystem": "Design System"
 	},
 	"surah": {
 		"title": "Read Quran",
@@ -176,6 +177,116 @@
 			"perlindungan": "Protection",
 			"sholat": "Prayer",
 			"umum": "General"
+		}
+	},
+	"designSystem": {
+		"toc": {
+			"title": "Table of Contents"
+		},
+		"section": {
+			"colors": "Colors & Tokens",
+			"colorsDesc": "Core color tokens used for backgrounds, text, and borders across every theme.",
+			"themes": "Themes",
+			"typography": "Typography",
+			"typographyDesc": "Standard text-size scale plus the dedicated Arabic font used for Quranic verses.",
+			"buttons": "Buttons",
+			"buttonsDesc": "Primary, secondary, and outline actions. Supports icons, labels, or both.",
+			"badges": "Badges",
+			"badgesDesc": "Tiny status markers — for example Makkiyah vs Madaniyah surah type.",
+			"chips": "Chips / Pills",
+			"chipsDesc": "Compact labels or selectable filters. Supports color variants and active state.",
+			"banners": "Banner / Alert",
+			"bannersDesc": "Inline messages used to surface status or warnings. Unlike toasts, banners stay in place.",
+			"forms": "Form Controls",
+			"formsDesc": "Inputs, textarea, checkbox and radio with consistent labels and error messaging.",
+			"collapsible": "Collapsible",
+			"collapsibleDesc": "Expandable container for progressively-disclosed content.",
+			"bottomSheet": "Bottom Sheet",
+			"bottomSheetDesc": "Panel that slides up from the bottom edge for contextual actions or details.",
+			"toasts": "Toasts",
+			"toastsDesc": "Short notifications shown at the top. Supports info, success, warn, and error.",
+			"breadcrumb": "Breadcrumb",
+			"breadcrumbDesc": "Hierarchical navigation trail to the current page.",
+			"cards": "Cards",
+			"cardsDesc": "Content containers with secondary background and soft shadow.",
+			"icons": "Icons",
+			"iconsDesc": "Shared SVG icon set. Every icon accepts a size prop."
+		},
+		"colors": {
+			"semanticTokens": "Semantic Tokens",
+			"themePalette": "Per-theme Palette",
+			"themePaletteDesc": "Each theme has its own background and accent color. Switch themes from the header icon.",
+			"utilityPalette": "Utility Palette",
+			"utilityPaletteDesc": "Tailwind utility ramps used for status colors (info, success, warn, error)."
+		},
+		"buttons": {
+			"filled": "Filled",
+			"subtle": "Subtle",
+			"outline": "Outline",
+			"withIcon": "With Icon"
+		},
+		"chips": {
+			"interactive": "Interactive chips — use as filters."
+		},
+		"banner": {
+			"infoTitle": "Information",
+			"infoBody": "Info banners are used for neutral messages or light guidance.",
+			"successTitle": "Success",
+			"successBody": "Action completed successfully and your data has been saved.",
+			"warnTitle": "Warning",
+			"warnBody": "Double-check your input before continuing.",
+			"errorTitle": "Error",
+			"errorBody": "Something went wrong. Please try again in a moment.",
+			"dismissibleBody": "This banner can be dismissed. Click the X on the right to close it.",
+			"dismissedHint": "Banner has been dismissed.",
+			"restore": "Restore"
+		},
+		"forms": {
+			"textLabel": "Name",
+			"textPlaceholder": "Type your name",
+			"textHint": "Only stored in your browser.",
+			"emailLabel": "Email",
+			"emailError": "Invalid email format.",
+			"disabledLabel": "Disabled field",
+			"textareaLabel": "Notes",
+			"textareaPlaceholder": "Write your notes here",
+			"textareaHint": "A few paragraphs at most.",
+			"checkboxA": "Receive notifications",
+			"checkboxAHint": "Only important notifications.",
+			"checkboxB": "Enable verse auto-next",
+			"checkboxDisabled": "This option is currently disabled",
+			"radioId": "Bahasa Indonesia",
+			"radioEn": "English",
+			"radioAr": "العربية",
+			"radioArHint": "Available only on some pages.",
+			"selected": "Selected:"
+		},
+		"collapsible": {
+			"what": "What is a collapsible?",
+			"when": "When to use it?"
+		},
+		"bottomSheet": {
+			"open": "Open Bottom Sheet",
+			"demoTitle": "Bottom Sheet Demo"
+		},
+		"cards": {
+			"variants": "Variants",
+			"filledDesc": "Secondary background, no shadow.",
+			"outlineDesc": "Thin border, primary background.",
+			"elevatedDesc": "Secondary background with shadow.",
+			"composed": "With Header & Footer",
+			"withHeaderTitle": "Favorite Surah",
+			"withHeaderBody": "Pin a surah so it's easy to reach from the home page.",
+			"linkTitle": "Learn more",
+			"linkSubtitle": "Open design-system detail",
+			"linkBody": "A clickable card — rendered as an anchor.",
+			"padding": "Padding",
+			"legacy": "Legacy component",
+			"legacyDesc": "CardShadow is still used across many pages and stays compatible with existing layouts."
+		},
+		"icons": {
+			"sizes": "Sizes",
+			"gallery": "Icon Gallery"
 		}
 	}
 }

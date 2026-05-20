@@ -5,6 +5,7 @@
 	import InformationCircleIcon from './icons/InformationCircleIcon.svelte';
 	import ResetIcon from './icons/ResetIcon.svelte';
 	import SettingIcon from './icons/SettingIcon.svelte';
+	import SwatchIcon from './icons/SwatchIcon.svelte';
 </script>
 
 <ul class="mt-2 flex flex-col gap-2">
@@ -47,6 +48,16 @@
 		>
 			<HashtagIcon />
 			{$t('navigation.ayatOfTheDay')}
+		</a>
+	</li>
+	<li class="sidebar__item">
+		<a
+			data-sveltekit-reload
+			href="/design-system/"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
+		>
+			<SwatchIcon />
+			{$t('navigation.designSystem')}
 		</a>
 	</li>
 	<li class="sidebar__item">
