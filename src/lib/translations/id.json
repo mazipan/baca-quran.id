@@ -137,7 +137,17 @@
 		"viewRecap": "Lihat Rekap",
 		"logRecap": "Rekap Pencatat Ibadah",
 		"date": "Tanggal",
-		"noRecapData": "Belum ada data rekap untuk bulan {{month}}"
+		"noRecapData": "Belum ada data rekap untuk bulan {{month}}",
+		"fardPrayer": "Sholat Wajib",
+		"sunnahPrayer": "Sholat Sunnah",
+		"daysTracked": "Hari Dicatat",
+		"perfectDays": "Hari Sempurna",
+		"tapForDetail": "Ketuk tanggal untuk melihat detail",
+		"noDataForDay": "Belum ada data untuk tanggal ini",
+		"calendarLegend": "Keterangan",
+		"prevDay": "Hari Sebelumnya",
+		"nextDay": "Hari Berikutnya",
+		"streak": "Streak"
 	},
 	"prayerSchedule": {
 		"locationSuccess": "Berhasil mendapatkan lokasi teranyar!",
