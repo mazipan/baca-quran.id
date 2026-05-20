@@ -190,9 +190,11 @@
 			"typography": "Typography",
 			"typographyDesc": "Standard text-size scale plus the dedicated Arabic font used for Quranic verses.",
 			"buttons": "Buttons",
-			"buttonsDesc": "Primary, secondary, and outline actions. Supports icons, labels, or both.",
+			"buttonsDesc": "Variant × color matrix. Use solid for the primary action, subtle for secondary actions, outline for the lowest emphasis.",
+			"iconButtons": "Icon Buttons",
+			"iconButtonsDesc": "Fixed-size square buttons for compact actions without a label. ariaLabel is required.",
 			"badges": "Badges",
-			"badgesDesc": "Tiny status markers — for example Makkiyah vs Madaniyah surah type.",
+			"badgesDesc": "Tiny status markers. Same variant × color matrix as buttons.",
 			"chips": "Chips / Pills",
 			"chipsDesc": "Compact labels or selectable filters. Supports color variants and active state.",
 			"banners": "Banner / Alert",
@@ -220,9 +222,19 @@
 			"utilityPaletteDesc": "Tailwind utility ramps used for status colors (info, success, warn, error)."
 		},
 		"buttons": {
-			"filled": "Filled",
-			"subtle": "Subtle",
-			"outline": "Outline",
+			"matrix": "Variant × Color",
+			"matrixDesc": "Pair any variant with any color to match the action's intent.",
+			"withIcon": "With Icon",
+			"disabled": "Disabled"
+		},
+		"iconButtons": {
+			"sizes": "Sizes",
+			"variants": "Variants & Colors",
+			"rounded": "Corners",
+			"disabled": "Disabled"
+		},
+		"badges": {
+			"matrix": "Variant × Color",
 			"withIcon": "With Icon"
 		},
 		"chips": {

@@ -1,13 +1,16 @@
 <script lang="ts">
-	type Variant = 'solid' | 'subtle' | 'outline';
+	type Variant = 'solid' | 'subtle' | 'outline' | 'ghost';
 	type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+	type Size = 'xs' | 'sm' | 'md' | 'lg';
 
 	interface Props {
 		onClick: (event: MouseEvent) => void;
 		variant?: Variant;
 		color?: Color;
-		ariaLabel?: string;
+		size?: Size;
+		ariaLabel: string;
 		disabled?: boolean;
+		rounded?: 'md' | 'full';
 		children?: import('svelte').Snippet;
 		class?: string;
 		[key: `data-${string}`]: string | undefined;
@@ -15,14 +18,23 @@
 
 	let {
 		onClick,
-		variant = 'solid',
+		variant = 'ghost',
 		color = 'secondary',
-		ariaLabel = '',
+		size = 'md',
+		ariaLabel,
 		disabled = false,
+		rounded = 'md',
 		children,
 		class: clazz = '',
 		...rest
 	}: Props = $props();
+
+	const SIZE_MAP: Record<Size, string> = {
+		xs: 'w-6 h-6',
+		sm: 'w-8 h-8',
+		md: 'w-10 h-10',
+		lg: 'w-12 h-12'
+	};
 
 	const STYLES: Record<Variant, Record<Color, string>> = {
 		solid: {
@@ -42,26 +54,29 @@
 			danger: 'bg-red-100 text-red-700 hover:bg-red-200 dark:bg-red-900 dark:text-red-100'
 		},
 		outline: {
-			primary:
-				'border border-blue-500 text-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:hover:bg-blue-900/40',
+			primary: 'border border-blue-500 text-blue-600 hover:bg-blue-50 dark:text-blue-300',
 			secondary: 'border border-foreground/30 text-foreground hover:bg-secondary',
-			success:
-				'border border-green-500 text-green-600 hover:bg-green-50 dark:text-green-300 dark:hover:bg-green-900/40',
+			success: 'border border-green-500 text-green-600 hover:bg-green-50 dark:text-green-300',
+			warning: 'border border-orange-500 text-orange-600 hover:bg-orange-50 dark:text-orange-300',
+			danger: 'border border-red-500 text-red-600 hover:bg-red-50 dark:text-red-300'
+		},
+		ghost: {
+			primary: 'text-blue-600 hover:bg-blue-100 dark:text-blue-300 dark:hover:bg-blue-900/40',
+			secondary: 'text-foreground hover:bg-secondary',
+			success: 'text-green-600 hover:bg-green-100 dark:text-green-300 dark:hover:bg-green-900/40',
 			warning:
-				'border border-orange-500 text-orange-600 hover:bg-orange-50 dark:text-orange-300 dark:hover:bg-orange-900/40',
-			danger:
-				'border border-red-500 text-red-600 hover:bg-red-50 dark:text-red-300 dark:hover:bg-red-900/40'
+				'text-orange-600 hover:bg-orange-100 dark:text-orange-300 dark:hover:bg-orange-900/40',
+			danger: 'text-red-600 hover:bg-red-100 dark:text-red-300 dark:hover:bg-red-900/40'
 		}
 	};
 </script>
 
 <button
 	type="button"
-	tabindex="0"
 	onclick={onClick}
 	{disabled}
 	aria-label={ariaLabel}
-	class={`flex items-center gap-2 p-2 rounded-md transition focus:outline-none focus:ring-2 focus:ring-blue-500 ${STYLES[variant][color]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${clazz}`}
+	class={`inline-flex items-center justify-center transition focus:outline-none focus:ring-2 focus:ring-blue-500 ${SIZE_MAP[size]} ${rounded === 'full' ? 'rounded-full' : 'rounded-md'} ${STYLES[variant][color]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${clazz}`}
 	{...rest}
 >
 	{@render children?.()}

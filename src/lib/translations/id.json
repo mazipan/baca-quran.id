@@ -190,9 +190,11 @@
 			"typography": "Tipografi",
 			"typographyDesc": "Skala ukuran teks standar serta font Arab khusus untuk ayat Al-Qur'an.",
 			"buttons": "Tombol",
-			"buttonsDesc": "Aksi utama, sekunder, dan outline. Mendukung ikon, label, atau keduanya.",
+			"buttonsDesc": "Matriks varian × warna. Pakai varian solid untuk aksi penting, subtle untuk aksi sekunder, outline untuk aksi paling rendah.",
+			"iconButtons": "Tombol Ikon",
+			"iconButtonsDesc": "Tombol bujur sangkar berukuran tetap untuk aksi cepat tanpa label. Wajib mengisi ariaLabel.",
 			"badges": "Badge",
-			"badgesDesc": "Penanda status berukuran kecil — misalnya jenis surat Makkiyah atau Madaniyah.",
+			"badgesDesc": "Penanda status berukuran kecil. Mendukung matriks varian × warna yang sama dengan tombol.",
 			"chips": "Chip / Pill",
 			"chipsDesc": "Pelabelan ringkas atau filter yang bisa dipilih. Mendukung varian warna dan keadaan aktif.",
 			"banners": "Banner / Alert",
@@ -220,9 +222,19 @@
 			"utilityPaletteDesc": "Skala warna utilitas dari Tailwind yang dipakai untuk status (info, sukses, peringatan, error)."
 		},
 		"buttons": {
-			"filled": "Filled",
-			"subtle": "Subtle",
-			"outline": "Outline",
+			"matrix": "Varian × Warna",
+			"matrixDesc": "Setiap kombinasi varian dan warna dapat digunakan sesuai konteks aksi.",
+			"withIcon": "Dengan Ikon",
+			"disabled": "Nonaktif"
+		},
+		"iconButtons": {
+			"sizes": "Ukuran",
+			"variants": "Varian & Warna",
+			"rounded": "Sudut",
+			"disabled": "Nonaktif"
+		},
+		"badges": {
+			"matrix": "Varian × Warna",
 			"withIcon": "Dengan Ikon"
 		},
 		"chips": {

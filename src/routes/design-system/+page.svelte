@@ -3,6 +3,7 @@
 	import MetaTag from '$lib/MetaTag.svelte';
 	import CardShadow from '$lib/CardShadow.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import IconButton from '$lib/ui/IconButton.svelte';
 	import Badge from '$lib/ui/Badge.svelte';
 	import Chip from '$lib/ui/Chip.svelte';
 	import Collapsible from '$lib/ui/Collapsible.svelte';
@@ -38,6 +39,7 @@
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 	import ChevronUpIcon from '$lib/icons/ChevronUpIcon.svelte';
 	import ChevronDownIcon from '$lib/icons/ChevronDownIcon.svelte';
+	import HashtagIcon from '$lib/icons/HashtagIcon.svelte';
 
 	import type { IconSize } from '$lib/icons/utils';
 
@@ -101,6 +103,7 @@
 		{ id: 'colors', label: $t('designSystem.section.colors') },
 		{ id: 'typography', label: $t('designSystem.section.typography') },
 		{ id: 'buttons', label: $t('designSystem.section.buttons') },
+		{ id: 'icon-buttons', label: $t('designSystem.section.iconButtons') },
 		{ id: 'badges', label: $t('designSystem.section.badges') },
 		{ id: 'chips', label: $t('designSystem.section.chips') },
 		{ id: 'banners', label: $t('designSystem.section.banners') },
@@ -291,33 +294,247 @@
 		<p class="text-sm opacity-75">{$t('designSystem.section.buttonsDesc')}</p>
 
 		<CardShadow class="flex flex-col gap-4">
-			<div class="flex flex-wrap items-center gap-3">
-				<Button onClick={() => showToast('info')}>
-					<span>{$t('designSystem.buttons.filled')}</span>
-				</Button>
-				<Button variant="subtle" onClick={() => showToast('info')}>
-					<span>{$t('designSystem.buttons.subtle')}</span>
-				</Button>
-				<Button variant="outline" onClick={() => showToast('info')}>
-					<span>{$t('designSystem.buttons.outline')}</span>
-				</Button>
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.buttons.matrix')}</h3>
+				<p class="text-xs opacity-75">{$t('designSystem.buttons.matrixDesc')}</p>
+				<div class="overflow-x-auto">
+					<table class="text-sm">
+						<thead>
+							<tr class="text-left">
+								<th class="px-2 py-1"></th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">primary</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">secondary</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">success</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">warning</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">danger</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="px-2 py-1 text-xs opacity-75">solid</td>
+								<td class="px-2 py-1">
+									<Button color="primary" onClick={() => showToast('info')}>Action</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button color="secondary" onClick={() => showToast('info')}>Action</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button color="success" onClick={() => showToast('success')}>Save</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button color="warning" onClick={() => showToast('warn')}>Review</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button color="danger" onClick={() => showToast('error')}>Delete</Button>
+								</td>
+							</tr>
+							<tr>
+								<td class="px-2 py-1 text-xs opacity-75">subtle</td>
+								<td class="px-2 py-1">
+									<Button variant="subtle" color="primary" onClick={() => showToast('info')}>
+										Action
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="subtle" color="secondary" onClick={() => showToast('info')}>
+										Action
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="subtle" color="success" onClick={() => showToast('success')}>
+										Save
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="subtle" color="warning" onClick={() => showToast('warn')}>
+										Review
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="subtle" color="danger" onClick={() => showToast('error')}>
+										Delete
+									</Button>
+								</td>
+							</tr>
+							<tr>
+								<td class="px-2 py-1 text-xs opacity-75">outline</td>
+								<td class="px-2 py-1">
+									<Button variant="outline" color="primary" onClick={() => showToast('info')}>
+										Action
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="outline" color="secondary" onClick={() => showToast('info')}>
+										Action
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="outline" color="success" onClick={() => showToast('success')}>
+										Save
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="outline" color="warning" onClick={() => showToast('warn')}>
+										Review
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="outline" color="danger" onClick={() => showToast('error')}>
+										Delete
+									</Button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 
-			<div class="flex flex-wrap items-center gap-3">
-				<Button onClick={() => showToast('success')} ariaLabel="Bookmark">
-					<BookmarkIcon size="sm" />
-					<span>{$t('designSystem.buttons.withIcon')}</span>
-				</Button>
-				<Button variant="subtle" onClick={() => showToast('success')} ariaLabel="Share">
-					<ShareIcon size="sm" />
-				</Button>
-				<Button variant="outline" onClick={() => showToast('success')} ariaLabel="Play">
-					<PlayIcon size="sm" />
-				</Button>
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.buttons.withIcon')}</h3>
+				<div class="flex flex-wrap items-center gap-3">
+					<Button color="primary" onClick={() => showToast('success')} ariaLabel="Bookmark">
+						<BookmarkIcon size="sm" />
+						<span>Bookmark</span>
+					</Button>
+					<Button variant="subtle" onClick={() => showToast('success')} ariaLabel="Share">
+						<ShareIcon size="sm" />
+					</Button>
+					<Button variant="outline" color="success" onClick={() => showToast('success')}>
+						<PlayIcon size="sm" />
+						<span>Play</span>
+					</Button>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.buttons.disabled')}</h3>
+				<div class="flex flex-wrap items-center gap-3">
+					<Button color="primary" disabled onClick={() => {}}>Disabled</Button>
+					<Button variant="subtle" color="danger" disabled onClick={() => {}}>Disabled</Button>
+					<Button variant="outline" color="success" disabled onClick={() => {}}>Disabled</Button>
+				</div>
 			</div>
 
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Button variant="filled | subtle | outline" onClick={fn}>...</Button>'}</code
+					>{'<Button variant="solid | subtle | outline"\n        color="primary | secondary | success | warning | danger"\n        disabled\n        onClick={fn}>...</Button>'}</code
+				></pre>
+		</CardShadow>
+	</section>
+
+	<!-- ICON BUTTONS -->
+	<section id="icon-buttons" class="flex flex-col gap-3 scroll-mt-4">
+		<h2 class="text-xl font-bold">{$t('designSystem.section.iconButtons')}</h2>
+		<p class="text-sm opacity-75">{$t('designSystem.section.iconButtonsDesc')}</p>
+
+		<CardShadow class="flex flex-col gap-4">
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.iconButtons.sizes')}</h3>
+				<div class="flex items-end gap-3">
+					<IconButton size="xs" ariaLabel="xs share" onClick={() => showToast('info')}>
+						<ShareIcon size="xs" />
+					</IconButton>
+					<IconButton size="sm" ariaLabel="sm share" onClick={() => showToast('info')}>
+						<ShareIcon size="sm" />
+					</IconButton>
+					<IconButton size="md" ariaLabel="md share" onClick={() => showToast('info')}>
+						<ShareIcon size="sm" />
+					</IconButton>
+					<IconButton size="lg" ariaLabel="lg share" onClick={() => showToast('info')}>
+						<ShareIcon size="md" />
+					</IconButton>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.iconButtons.variants')}</h3>
+				<div class="flex flex-wrap items-center gap-2">
+					<IconButton
+						variant="ghost"
+						color="secondary"
+						ariaLabel="ghost"
+						onClick={() => showToast('info')}
+					>
+						<HeartIcon size="sm" />
+					</IconButton>
+					<IconButton
+						variant="subtle"
+						color="primary"
+						ariaLabel="subtle"
+						onClick={() => showToast('info')}
+					>
+						<HeartIcon size="sm" />
+					</IconButton>
+					<IconButton
+						variant="outline"
+						color="secondary"
+						ariaLabel="outline"
+						onClick={() => showToast('info')}
+					>
+						<HeartIcon size="sm" />
+					</IconButton>
+					<IconButton
+						variant="solid"
+						color="primary"
+						ariaLabel="solid primary"
+						onClick={() => showToast('info')}
+					>
+						<HeartSolidIcon size="sm" />
+					</IconButton>
+					<IconButton
+						variant="solid"
+						color="danger"
+						ariaLabel="solid danger"
+						onClick={() => showToast('error')}
+					>
+						<XMarkIcon size="sm" />
+					</IconButton>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.iconButtons.rounded')}</h3>
+				<div class="flex flex-wrap items-center gap-2">
+					<IconButton
+						variant="solid"
+						color="primary"
+						rounded="md"
+						ariaLabel="rounded md"
+						onClick={() => showToast('info')}
+					>
+						<PlayIcon size="sm" />
+					</IconButton>
+					<IconButton
+						variant="solid"
+						color="primary"
+						rounded="full"
+						ariaLabel="rounded full"
+						onClick={() => showToast('info')}
+					>
+						<PlayIcon size="sm" />
+					</IconButton>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.iconButtons.disabled')}</h3>
+				<div class="flex flex-wrap items-center gap-2">
+					<IconButton variant="ghost" disabled ariaLabel="disabled ghost" onClick={() => {}}>
+						<XMarkIcon size="sm" />
+					</IconButton>
+					<IconButton
+						variant="solid"
+						color="primary"
+						disabled
+						ariaLabel="disabled solid"
+						onClick={() => {}}
+					>
+						<XMarkIcon size="sm" />
+					</IconButton>
+				</div>
+			</div>
+
+			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
+					>{'<IconButton variant="ghost | subtle | outline | solid"\n            color="primary | secondary | success | warning | danger"\n            size="xs | sm | md | lg"\n            rounded="md | full"\n            ariaLabel="…"\n            onClick={fn}>\n  <Icon size="sm" />\n</IconButton>'}</code
 				></pre>
 		</CardShadow>
 	</section>
@@ -327,17 +544,72 @@
 		<h2 class="text-xl font-bold">{$t('designSystem.section.badges')}</h2>
 		<p class="text-sm opacity-75">{$t('designSystem.section.badgesDesc')}</p>
 
-		<CardShadow class="flex flex-col gap-3">
-			<div class="flex flex-wrap items-center gap-3">
-				<Badge>Makkiyah</Badge>
-				<Badge color="orange">Madaniyah</Badge>
-				<Badge>
-					<CheckCircleIcon size="xs" />
-					{isEnglish ? 'Verified' : 'Terverifikasi'}
-				</Badge>
+		<CardShadow class="flex flex-col gap-4">
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.badges.matrix')}</h3>
+				<div class="overflow-x-auto">
+					<table class="text-sm">
+						<thead>
+							<tr class="text-left">
+								<th class="px-2 py-1"></th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">primary</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">secondary</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">success</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">warning</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">danger</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="px-2 py-1 text-xs opacity-75">solid</td>
+								<td class="px-2 py-1"><Badge variant="solid" color="primary">New</Badge></td>
+								<td class="px-2 py-1"><Badge variant="solid" color="secondary">Default</Badge></td>
+								<td class="px-2 py-1"><Badge variant="solid" color="success">Done</Badge></td>
+								<td class="px-2 py-1"><Badge variant="solid" color="warning">Hold</Badge></td>
+								<td class="px-2 py-1"><Badge variant="solid" color="danger">Fail</Badge></td>
+							</tr>
+							<tr>
+								<td class="px-2 py-1 text-xs opacity-75">subtle</td>
+								<td class="px-2 py-1"><Badge variant="subtle" color="primary">New</Badge></td>
+								<td class="px-2 py-1"><Badge variant="subtle" color="secondary">Default</Badge></td>
+								<td class="px-2 py-1"><Badge variant="subtle" color="success">Done</Badge></td>
+								<td class="px-2 py-1"><Badge variant="subtle" color="warning">Hold</Badge></td>
+								<td class="px-2 py-1"><Badge variant="subtle" color="danger">Fail</Badge></td>
+							</tr>
+							<tr>
+								<td class="px-2 py-1 text-xs opacity-75">outline</td>
+								<td class="px-2 py-1"><Badge variant="outline" color="primary">New</Badge></td>
+								<td class="px-2 py-1"><Badge variant="outline" color="secondary">Default</Badge></td
+								>
+								<td class="px-2 py-1"><Badge variant="outline" color="success">Done</Badge></td>
+								<td class="px-2 py-1"><Badge variant="outline" color="warning">Hold</Badge></td>
+								<td class="px-2 py-1"><Badge variant="outline" color="danger">Fail</Badge></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
+
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold">{$t('designSystem.badges.withIcon')}</h3>
+				<div class="flex flex-wrap items-center gap-3">
+					<Badge variant="subtle" color="success">
+						<CheckCircleIcon size="xs" />
+						{isEnglish ? 'Verified' : 'Terverifikasi'}
+					</Badge>
+					<Badge variant="solid" color="primary">
+						<HashtagIcon size="xs" />
+						123
+					</Badge>
+					<Badge variant="outline" color="warning">
+						<ExclamationTriangleIcon size="xs" />
+						{isEnglish ? 'Beta' : 'Beta'}
+					</Badge>
+				</div>
+			</div>
+
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Badge color="green | orange">label</Badge>'}</code
+					>{'<Badge variant="solid | subtle | outline"\n       color="primary | secondary | success | warning | danger">label</Badge>'}</code
 				></pre>
 		</CardShadow>
 	</section>
