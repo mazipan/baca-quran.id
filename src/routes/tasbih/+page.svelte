@@ -99,7 +99,7 @@
 	</div>
 	<div class="flex justify-center items-center gap-4">
 		<Button
-			variant="filled"
+			variant="solid"
 			class={`px-4 rounded-lg border-2 border-secondary bg-secondary`}
 			onClick={toggleSound}
 		>
@@ -111,7 +111,7 @@
 		</Button>
 		<div class="flex justify-center items-center">
 			<Button
-				variant="filled"
+				variant="solid"
 				class={`px-4 rounded-l-lg rounded-r-none border-2 border-secondary ${target === 11 ? 'bg-secondary' : ''}`}
 				onClick={() => {
 					handleSetTarget(11);
@@ -120,7 +120,7 @@
 				<span class="text-xl">11</span>
 			</Button>
 			<Button
-				variant="filled"
+				variant="solid"
 				class={`px-4 rounded-none border-t-2 border-b-2 border-secondary ${target === 33 ? 'bg-secondary' : ''}`}
 				onClick={() => {
 					handleSetTarget(33);
@@ -129,7 +129,7 @@
 				<span class="text-xl">33</span>
 			</Button>
 			<Button
-				variant="filled"
+				variant="solid"
 				class={`px-4 rounded-r-lg rounded-l-none border-2 border-secondary ${target === 99 ? 'bg-secondary' : ''}`}
 				onClick={() => {
 					handleSetTarget(99);

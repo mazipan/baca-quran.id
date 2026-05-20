@@ -32,7 +32,7 @@
 				<div class="flex gap-2 items-center">
 					<div class="flex flex-col items-start justify-center">
 						<div class="flex gap-2 mb-2">
-							<Badge color="green">
+							<Badge color="success">
 								{index + 1}
 							</Badge>
 							<span class="font-bold">{item.latin}</span>

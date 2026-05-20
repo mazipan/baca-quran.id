@@ -27,13 +27,13 @@
 			<div class="relative">
 				{#if item.arabic.indexOf('Membaca') >= 0}
 					<div class="absolute bottom-0 right-0">
-						<Badge color="green">
+						<Badge color="success">
 							{`${item.id}x`}
 						</Badge>
 					</div>
 				{:else}
 					<div class="absolute bottom-0 left-0">
-						<Badge color="green">
+						<Badge color="success">
 							{`${item.id}x`}
 						</Badge>
 					</div>

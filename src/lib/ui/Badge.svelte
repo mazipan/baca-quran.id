@@ -1,20 +1,57 @@
 <script lang="ts">
+	type Variant = 'solid' | 'subtle' | 'outline';
+	type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+	type Size = 'sm' | 'md' | 'lg';
+
 	interface Props {
-		color?: 'orange' | 'green';
+		variant?: Variant;
+		color?: Color;
+		size?: Size;
 		children?: import('svelte').Snippet;
 		class?: string;
 	}
 
-	let { color = 'green', children, class: clazz }: Props = $props();
+	let {
+		variant = 'subtle',
+		color = 'secondary',
+		size = 'md',
+		children,
+		class: clazz = ''
+	}: Props = $props();
 
-	const CLASS_BY_COLOR = {
-		orange: 'bg-orange-100 text-orange-600',
-		green: 'bg-green-100 text-green-600'
+	const SIZE_MAP: Record<Size, string> = {
+		sm: 'text-[10px] px-1.5 py-0',
+		md: 'text-xs px-2 py-0.5',
+		lg: 'text-sm px-2.5 py-1'
+	};
+
+	const STYLES: Record<Variant, Record<Color, string>> = {
+		solid: {
+			primary: 'bg-blue-600 text-white',
+			secondary: 'bg-foreground text-primary',
+			success: 'bg-green-600 text-white',
+			warning: 'bg-orange-500 text-white',
+			danger: 'bg-red-600 text-white'
+		},
+		subtle: {
+			primary: 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
+			secondary: 'bg-secondary text-foreground',
+			success: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
+			warning: 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
+			danger: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-200'
+		},
+		outline: {
+			primary: 'border border-blue-500 text-blue-600 dark:text-blue-300',
+			secondary: 'border border-foreground/30 text-foreground',
+			success: 'border border-green-500 text-green-600 dark:text-green-300',
+			warning: 'border border-orange-500 text-orange-600 dark:text-orange-300',
+			danger: 'border border-red-500 text-red-600 dark:text-red-300'
+		}
 	};
 </script>
 
 <span
-	class={`flex items-center gap-2 text-xs cursor-pointer px-1 py-0.5 rounded-lg ${CLASS_BY_COLOR[color]} ${clazz}`}
+	class={`inline-flex items-center gap-1 rounded-lg font-medium ${SIZE_MAP[size]} ${STYLES[variant][color]} ${clazz}`}
 >
 	{@render children?.()}
 </span>

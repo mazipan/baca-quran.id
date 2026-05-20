@@ -39,7 +39,8 @@
 		"sync": "Sinkron",
 		"about": "Tentang",
 		"ayatOfTheDay": "AyatHariIni",
-		"hijriCalendar": "Kalender Hijriyah"
+		"hijriCalendar": "Kalender Hijriyah",
+		"designSystem": "Sistem Desain"
 	},
 	"surah": {
 		"title": "Baca Qur'an",
@@ -176,6 +177,131 @@
 			"perlindungan": "Perlindungan",
 			"sholat": "Sholat",
 			"umum": "Umum"
+		}
+	},
+	"designSystem": {
+		"toc": {
+			"title": "Daftar Isi"
+		},
+		"section": {
+			"colors": "Warna & Token",
+			"colorsDesc": "Token warna inti yang dipakai untuk latar, teks, dan pembatas di seluruh tema.",
+			"themes": "Tema",
+			"typography": "Tipografi",
+			"typographyDesc": "Skala ukuran teks standar serta font Arab khusus untuk ayat Al-Qur'an.",
+			"buttons": "Tombol",
+			"buttonsDesc": "Matriks varian × warna. Pakai varian solid untuk aksi penting, subtle untuk aksi sekunder, outline untuk aksi paling rendah.",
+			"iconButtons": "Tombol Ikon",
+			"iconButtonsDesc": "Tombol bujur sangkar berukuran tetap untuk aksi cepat tanpa label. Wajib mengisi ariaLabel.",
+			"badges": "Badge",
+			"badgesDesc": "Penanda status berukuran kecil. Mendukung matriks varian × warna yang sama dengan tombol.",
+			"chips": "Chip / Pill",
+			"chipsDesc": "Pelabelan ringkas atau filter yang bisa dipilih. Mendukung varian warna dan keadaan aktif.",
+			"banners": "Banner / Alert",
+			"bannersDesc": "Pesan inline untuk menyampaikan status atau peringatan. Berbeda dengan toast, banner menetap di tempat.",
+			"forms": "Kontrol Form",
+			"formsDesc": "Input, textarea, checkbox, dan radio dengan label dan pesan kesalahan yang konsisten.",
+			"collapsible": "Collapsible",
+			"collapsibleDesc": "Wadah yang bisa dibuka-tutup untuk menyembunyikan detail.",
+			"bottomSheet": "Bottom Sheet",
+			"bottomSheetDesc": "Panel yang muncul dari bawah untuk aksi atau detail kontekstual.",
+			"toasts": "Toast",
+			"toastsDesc": "Notifikasi singkat di pojok atas. Mendukung info, sukses, peringatan, dan error.",
+			"breadcrumb": "Breadcrumb",
+			"breadcrumbDesc": "Jejak navigasi hierarkis menuju halaman saat ini.",
+			"cards": "Kartu",
+			"cardsDesc": "Wadah konten dengan latar sekunder dan bayangan lembut.",
+			"icons": "Ikon",
+			"iconsDesc": "Kumpulan ikon SVG yang dipakai bersama. Semua ikon menerima prop ukuran."
+		},
+		"colors": {
+			"semanticTokens": "Token Semantik",
+			"themePalette": "Palet per Tema",
+			"themePaletteDesc": "Setiap tema memiliki latar dan warna aksen tersendiri. Ganti tema dari ikon di header.",
+			"utilityPalette": "Palet Utilitas",
+			"utilityPaletteDesc": "Skala warna utilitas dari Tailwind yang dipakai untuk status (info, sukses, peringatan, error)."
+		},
+		"buttons": {
+			"matrix": "Varian × Warna",
+			"matrixDesc": "Setiap kombinasi varian dan warna dapat digunakan sesuai konteks aksi.",
+			"sizes": "Ukuran",
+			"withIcon": "Dengan Ikon",
+			"disabled": "Nonaktif"
+		},
+		"iconButtons": {
+			"sizes": "Ukuran",
+			"variants": "Varian & Warna",
+			"rounded": "Sudut",
+			"disabled": "Nonaktif"
+		},
+		"badges": {
+			"matrix": "Varian × Warna",
+			"sizes": "Ukuran",
+			"withIcon": "Dengan Ikon"
+		},
+		"chips": {
+			"interactive": "Chip interaktif — pakai sebagai filter."
+		},
+		"banner": {
+			"infoTitle": "Informasi",
+			"infoBody": "Banner info dipakai untuk pesan netral atau panduan ringan.",
+			"successTitle": "Berhasil",
+			"successBody": "Aksi berhasil dijalankan dan datamu sudah tersimpan.",
+			"warnTitle": "Peringatan",
+			"warnBody": "Periksa kembali masukanmu sebelum melanjutkan.",
+			"errorTitle": "Kesalahan",
+			"errorBody": "Terjadi kesalahan. Coba lagi beberapa saat kemudian.",
+			"dismissibleBody": "Banner ini bisa ditutup. Klik tombol X di kanan untuk menutupnya.",
+			"dismissedHint": "Banner sudah ditutup.",
+			"restore": "Munculkan kembali"
+		},
+		"forms": {
+			"textLabel": "Nama",
+			"textPlaceholder": "Ketik namamu",
+			"textHint": "Hanya disimpan di peramban kamu.",
+			"emailLabel": "Email",
+			"emailError": "Format email tidak valid.",
+			"disabledLabel": "Field nonaktif",
+			"textareaLabel": "Catatan",
+			"textareaPlaceholder": "Tulis catatanmu di sini",
+			"textareaHint": "Maksimal beberapa paragraf.",
+			"checkboxA": "Terima notifikasi",
+			"checkboxAHint": "Hanya pemberitahuan yang penting.",
+			"checkboxB": "Aktifkan auto-next ayat",
+			"checkboxDisabled": "Pilihan ini sedang nonaktif",
+			"radioId": "Bahasa Indonesia",
+			"radioEn": "English",
+			"radioAr": "العربية",
+			"radioArHint": "Hanya tersedia di beberapa halaman.",
+			"selected": "Terpilih:",
+			"sizes": "Ukuran"
+		},
+		"collapsible": {
+			"what": "Apa itu collapsible?",
+			"when": "Kapan dipakai?"
+		},
+		"bottomSheet": {
+			"open": "Buka Bottom Sheet",
+			"demoTitle": "Bottom Sheet Demo"
+		},
+		"cards": {
+			"variants": "Varian",
+			"filledDesc": "Latar sekunder, tanpa bayangan.",
+			"outlineDesc": "Bordir tipis, latar primer.",
+			"elevatedDesc": "Latar sekunder dengan bayangan.",
+			"composed": "Dengan Header & Footer",
+			"withHeaderTitle": "Surat Favorit",
+			"withHeaderBody": "Sematkan surat agar mudah diakses dari halaman utama.",
+			"linkTitle": "Pelajari lebih lanjut",
+			"linkSubtitle": "Buka detail sistem desain",
+			"linkBody": "Kartu yang bisa diklik — render sebagai anchor.",
+			"padding": "Padding",
+			"legacy": "Komponen lama",
+			"legacyDesc": "CardShadow masih dipakai di banyak halaman dan kompatibel dengan tata letak yang ada."
+		},
+		"icons": {
+			"sizes": "Ukuran",
+			"gallery": "Galeri Ikon"
 		}
 	}
 }

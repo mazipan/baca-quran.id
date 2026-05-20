@@ -100,7 +100,7 @@
 					class="z-10"
 					href={`/surah-${surah?.revelation === MADANIYAH_CODE ? 'madaniyah' : 'makkiyah'}/`}
 				>
-					<Badge color={surah?.revelation === MADANIYAH_CODE ? 'green' : 'orange'}>
+					<Badge color={surah?.revelation === MADANIYAH_CODE ? 'success' : 'warning'}>
 						{MAKKIYAH_MADANIYAH_TEXT[
 							surah?.revelation?.toString() as keyof typeof MAKKIYAH_MADANIYAH_TEXT
 						]}
