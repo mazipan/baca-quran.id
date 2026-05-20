@@ -25,18 +25,18 @@ html.forest {
 
 /* Pinky theme */
 html.pinky {
-	--color-primary: #da498d;
-	--color-secondary: #f564a9;
-	--color-foreground: #1f2937;
-	--color-foreground-secondary: #f2f9ff;
+	--color-primary: #be185d;
+	--color-secondary: #db2777;
+	--color-foreground: #fdf2f8;
+	--color-foreground-secondary: #fbcfe8;
 }
 
 /* Violet theme */
 html.violet {
-	--color-primary: #a78bfa;
-	--color-secondary: #8b5cf6;
+	--color-primary: #7c3aed;
+	--color-secondary: #6d28d9;
 	--color-foreground: #faf5ff;
-	--color-foreground-secondary: #f3e8ff;
+	--color-foreground-secondary: #ede9fe;
 }
 
 /* Halloween theme */
@@ -59,8 +59,8 @@ html.fall {
 html.pastel {
 	--color-primary: #ffa4a4;
 	--color-secondary: #ffbdbd;
-	--color-foreground: #2d3748;
-	--color-foreground-secondary: #4a5568;
+	--color-foreground: #1a202c;
+	--color-foreground-secondary: #2d3748;
 }
 
 /* Neon theme */

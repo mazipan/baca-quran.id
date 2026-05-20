@@ -68,7 +68,7 @@
 		onchange={onChange}
 		aria-invalid={hasError}
 		aria-describedby={hasError ? `${fieldId}-error` : hint ? `${fieldId}-hint` : undefined}
-		class={`border-0 rounded-lg block placeholder-foreground-secondary w-full bg-secondary focus:ring-2 focus:outline-none resize-y ${SIZE_MAP[size]} ${hasError ? 'ring-2 ring-red-500 focus:ring-red-500' : 'focus:ring-blue-500'} ${disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
+		class={`rounded-lg block placeholder-foreground-secondary w-full bg-secondary border focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:outline-none resize-y ${SIZE_MAP[size]} ${hasError ? 'border-red-500 ring-1 ring-red-500 focus:ring-red-500' : 'border-foreground/40 focus:ring-foreground focus:border-foreground'} ${disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
 	></textarea>
 
 	{#if hasError}

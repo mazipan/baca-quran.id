@@ -65,7 +65,7 @@
 			type="button"
 			onclick={() => onDismiss?.()}
 			aria-label={ariaLabelClose}
-			class="flex-shrink-0 -m-1 p-1 rounded hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+			class="flex-shrink-0 -m-1 p-1 rounded hover:bg-black/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-current focus-visible:ring-offset-2 focus-visible:ring-offset-primary cursor-pointer"
 		>
 			<XMarkIcon size="sm" />
 		</button>

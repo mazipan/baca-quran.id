@@ -33,7 +33,9 @@
 		md: 'text-sm px-3 py-1'
 	};
 
-	const activeRing = $derived(active ? 'ring-2 ring-blue-500' : '');
+	const activeRing = $derived(
+		active ? 'ring-2 ring-foreground ring-offset-2 ring-offset-primary' : ''
+	);
 </script>
 
 {#if onClick}
@@ -42,7 +44,7 @@
 		onclick={onClick}
 		aria-label={ariaLabel}
 		aria-pressed={active}
-		class={`inline-flex items-center gap-1 rounded-full font-medium cursor-pointer transition hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-blue-500 ${COLOR_MAP[color]} ${SIZE_MAP[size]} ${activeRing} ${clazz}`}
+		class={`inline-flex items-center gap-1 rounded-full font-medium cursor-pointer transition hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary ${COLOR_MAP[color]} ${SIZE_MAP[size]} ${activeRing} ${clazz}`}
 	>
 		{@render children?.()}
 	</button>
