@@ -28,7 +28,7 @@
 		type="button"
 		onclick={toggle}
 		aria-expanded={isOpen}
-		class="flex w-full items-center justify-between gap-2 p-3 text-left cursor-pointer hover:bg-secondary focus:outline-none focus:bg-secondary"
+		class="flex w-full items-center justify-between gap-2 p-3 text-left cursor-pointer hover:bg-secondary focus:outline-none focus:bg-secondary focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
 	>
 		<span class="font-semibold">{title}</span>
 		<span

@@ -304,6 +304,7 @@
 								<th class="px-2 py-1"></th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">primary</th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">secondary</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">info</th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">success</th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">warning</th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">danger</th>
@@ -317,6 +318,9 @@
 								</td>
 								<td class="px-2 py-1">
 									<Button color="secondary" onClick={() => showToast('info')}>Action</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button color="info" onClick={() => showToast('info')}>Info</Button>
 								</td>
 								<td class="px-2 py-1">
 									<Button color="success" onClick={() => showToast('success')}>Save</Button>
@@ -338,6 +342,11 @@
 								<td class="px-2 py-1">
 									<Button variant="subtle" color="secondary" onClick={() => showToast('info')}>
 										Action
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="subtle" color="info" onClick={() => showToast('info')}>
+										Info
 									</Button>
 								</td>
 								<td class="px-2 py-1">
@@ -366,6 +375,11 @@
 								<td class="px-2 py-1">
 									<Button variant="outline" color="secondary" onClick={() => showToast('info')}>
 										Action
+									</Button>
+								</td>
+								<td class="px-2 py-1">
+									<Button variant="outline" color="info" onClick={() => showToast('info')}>
+										Info
 									</Button>
 								</td>
 								<td class="px-2 py-1">
@@ -425,7 +439,7 @@
 			</div>
 
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Button variant="solid | subtle | outline"\n        color="primary | secondary | success | warning | danger"\n        size="sm | md | lg"\n        disabled\n        onClick={fn}>...</Button>'}</code
+					>{'<Button variant="solid | subtle | outline"\n        color="primary | secondary | info | success | warning | danger"\n        size="sm | md | lg"\n        disabled\n        onClick={fn}>...</Button>'}</code
 				></pre>
 		</CardShadow>
 	</section>
@@ -543,7 +557,7 @@
 			</div>
 
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<IconButton variant="ghost | subtle | outline | solid"\n            color="primary | secondary | success | warning | danger"\n            size="xs | sm | md | lg"\n            rounded="md | full"\n            ariaLabel="…"\n            onClick={fn}>\n  <Icon size="sm" />\n</IconButton>'}</code
+					>{'<IconButton variant="ghost | subtle | outline | solid"\n            color="primary | secondary | info | success | warning | danger"\n            size="xs | sm | md | lg"\n            rounded="md | full"\n            ariaLabel="…"\n            onClick={fn}>\n  <Icon size="sm" />\n</IconButton>'}</code
 				></pre>
 		</CardShadow>
 	</section>
@@ -563,6 +577,7 @@
 								<th class="px-2 py-1"></th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">primary</th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">secondary</th>
+								<th class="px-2 py-1 font-normal text-xs opacity-75">info</th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">success</th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">warning</th>
 								<th class="px-2 py-1 font-normal text-xs opacity-75">danger</th>
@@ -573,6 +588,7 @@
 								<td class="px-2 py-1 text-xs opacity-75">solid</td>
 								<td class="px-2 py-1"><Badge variant="solid" color="primary">New</Badge></td>
 								<td class="px-2 py-1"><Badge variant="solid" color="secondary">Default</Badge></td>
+								<td class="px-2 py-1"><Badge variant="solid" color="info">Info</Badge></td>
 								<td class="px-2 py-1"><Badge variant="solid" color="success">Done</Badge></td>
 								<td class="px-2 py-1"><Badge variant="solid" color="warning">Hold</Badge></td>
 								<td class="px-2 py-1"><Badge variant="solid" color="danger">Fail</Badge></td>
@@ -581,6 +597,7 @@
 								<td class="px-2 py-1 text-xs opacity-75">subtle</td>
 								<td class="px-2 py-1"><Badge variant="subtle" color="primary">New</Badge></td>
 								<td class="px-2 py-1"><Badge variant="subtle" color="secondary">Default</Badge></td>
+								<td class="px-2 py-1"><Badge variant="subtle" color="info">Info</Badge></td>
 								<td class="px-2 py-1"><Badge variant="subtle" color="success">Done</Badge></td>
 								<td class="px-2 py-1"><Badge variant="subtle" color="warning">Hold</Badge></td>
 								<td class="px-2 py-1"><Badge variant="subtle" color="danger">Fail</Badge></td>
@@ -590,6 +607,7 @@
 								<td class="px-2 py-1"><Badge variant="outline" color="primary">New</Badge></td>
 								<td class="px-2 py-1"><Badge variant="outline" color="secondary">Default</Badge></td
 								>
+								<td class="px-2 py-1"><Badge variant="outline" color="info">Info</Badge></td>
 								<td class="px-2 py-1"><Badge variant="outline" color="success">Done</Badge></td>
 								<td class="px-2 py-1"><Badge variant="outline" color="warning">Hold</Badge></td>
 								<td class="px-2 py-1"><Badge variant="outline" color="danger">Fail</Badge></td>
@@ -627,7 +645,7 @@
 			</div>
 
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Badge variant="solid | subtle | outline"\n       color="primary | secondary | success | warning | danger"\n       size="sm | md | lg">label</Badge>'}</code
+					>{'<Badge variant="solid | subtle | outline"\n       color="primary | secondary | info | success | warning | danger"\n       size="sm | md | lg">label</Badge>'}</code
 				></pre>
 		</CardShadow>
 	</section>

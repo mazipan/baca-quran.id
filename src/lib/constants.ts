@@ -191,18 +191,18 @@ export const THEMES = [
 	},
 	{
 		name: 'pinky',
-		bg: '#F564A9',
-		border: '#FFF'
+		bg: '#be185d',
+		border: '#fdf2f8'
 	},
 	{
 		name: 'violet',
-		bg: '#a78bfa',
-		border: '#FFF'
+		bg: '#7c3aed',
+		border: '#faf5ff'
 	},
 	{
 		name: 'pastel',
 		bg: '#ffa4a4',
-		border: '#ffbdbd'
+		border: '#1a202c'
 	},
 	{
 		name: 'neon',

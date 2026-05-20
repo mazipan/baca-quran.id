@@ -46,7 +46,9 @@
 	const contentPadding = $derived(PADDING_MAP[padding]);
 	const isInteractive = $derived(as === 'a' && Boolean(href));
 	const interactiveClass = $derived(
-		isInteractive ? 'block hover:shadow-md transition-shadow focus:ring-2 focus:ring-blue-500' : ''
+		isInteractive
+			? 'block hover:shadow-md transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary'
+			: ''
 	);
 
 	const showHeader = $derived(Boolean(header || title || subtitle));

@@ -1,6 +1,6 @@
 <script lang="ts">
 	type Variant = 'solid' | 'subtle' | 'outline';
-	type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+	type Color = 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger';
 	type Size = 'sm' | 'md' | 'lg';
 
 	interface Props {
@@ -35,15 +35,17 @@
 
 	const STYLES: Record<Variant, Record<Color, string>> = {
 		solid: {
-			primary: 'bg-blue-600 text-white hover:bg-blue-700',
-			secondary: 'bg-primary text-foreground hover:bg-secondary',
+			primary: 'bg-primary text-foreground border border-foreground/20 hover:bg-secondary',
+			secondary: 'bg-secondary text-foreground border border-foreground/20 hover:opacity-90',
+			info: 'bg-blue-600 text-white hover:bg-blue-700',
 			success: 'bg-green-600 text-white hover:bg-green-700',
 			warning: 'bg-orange-500 text-white hover:bg-orange-600',
 			danger: 'bg-red-600 text-white hover:bg-red-700'
 		},
 		subtle: {
-			primary: 'bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-100',
+			primary: 'bg-primary text-foreground hover:opacity-80',
 			secondary: 'bg-secondary text-foreground hover:opacity-80',
+			info: 'bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-100',
 			success:
 				'bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900 dark:text-green-100',
 			warning:
@@ -51,9 +53,9 @@
 			danger: 'bg-red-100 text-red-700 hover:bg-red-200 dark:bg-red-900 dark:text-red-100'
 		},
 		outline: {
-			primary:
-				'border border-blue-500 text-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:hover:bg-blue-900/40',
+			primary: 'border border-foreground/40 text-foreground hover:bg-primary',
 			secondary: 'border border-foreground/30 text-foreground hover:bg-secondary',
+			info: 'border border-blue-500 text-blue-600 hover:bg-blue-50 dark:text-blue-300 dark:hover:bg-blue-900/40',
 			success:
 				'border border-green-500 text-green-600 hover:bg-green-50 dark:text-green-300 dark:hover:bg-green-900/40',
 			warning:
@@ -70,7 +72,7 @@
 	onclick={onClick}
 	{disabled}
 	aria-label={ariaLabel}
-	class={`flex items-center rounded-md transition focus:outline-none focus:ring-2 focus:ring-blue-500 ${SIZE_MAP[size]} ${STYLES[variant][color]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${clazz}`}
+	class={`flex items-center rounded-md transition focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary ${SIZE_MAP[size]} ${STYLES[variant][color]} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${clazz}`}
 	{...rest}
 >
 	{@render children?.()}

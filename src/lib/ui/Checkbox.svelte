@@ -40,7 +40,7 @@
 		type="checkbox"
 		bind:checked
 		onchange={onChange}
-		class="mt-0.5 w-4 h-4 rounded text-blue-600 bg-secondary border-foreground/30 focus:ring-2 focus:ring-blue-500 cursor-pointer disabled:cursor-not-allowed"
+		class="mt-0.5 w-5 h-5 rounded accent-foreground bg-secondary border-foreground/30 focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-foreground cursor-pointer disabled:cursor-not-allowed"
 	/>
 	<span class="flex flex-col">
 		{#if label}<span class="text-sm">{label}</span>{/if}
