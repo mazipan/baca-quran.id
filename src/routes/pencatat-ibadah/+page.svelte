@@ -16,14 +16,18 @@
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 	import { t } from '$lib/translations/store';
 
-	const FARD_PRAYERS: Array<{ key: PrayerKey; title: string; id: LogPrayerItemKey; emoji: string }> =
-		[
-			{ key: 'Fajr', title: 'Subuh', id: '1', emoji: '🌅' },
-			{ key: 'Dhuhr', title: 'Dzuhur', id: '2', emoji: '☀️' },
-			{ key: 'Asr', title: 'Ashar', id: '3', emoji: '🌤️' },
-			{ key: 'Maghrib', title: 'Maghrib', id: '4', emoji: '🌆' },
-			{ key: 'Isha', title: 'Isya', id: '5', emoji: '🌙' }
-		];
+	const FARD_PRAYERS: Array<{
+		key: PrayerKey;
+		title: string;
+		id: LogPrayerItemKey;
+		emoji: string;
+	}> = [
+		{ key: 'Fajr', title: 'Subuh', id: '1', emoji: '🌅' },
+		{ key: 'Dhuhr', title: 'Dzuhur', id: '2', emoji: '☀️' },
+		{ key: 'Asr', title: 'Ashar', id: '3', emoji: '🌤️' },
+		{ key: 'Maghrib', title: 'Maghrib', id: '4', emoji: '🌆' },
+		{ key: 'Isha', title: 'Isya', id: '5', emoji: '🌙' }
+	];
 
 	const SUNNAH_PRAYERS: Array<{ title: string; id: LogPrayerItemKey; emoji: string }> = [
 		{ title: 'Qabliyah Subuh', id: '6', emoji: '🌅' },
@@ -215,9 +219,7 @@
 	<!-- Progress + Streak -->
 	<div class="bg-secondary rounded-xl p-4 flex flex-col gap-3">
 		{#if currentStreak > 0}
-			<div
-				class="flex items-center gap-3 pb-3 border-b border-foreground/10"
-			>
+			<div class="flex items-center gap-3 pb-3 border-b border-foreground/10">
 				<span class="text-3xl leading-none">🔥</span>
 				<div class="flex-1 min-w-0">
 					<p class="font-bold text-lg leading-none tabular-nums">
@@ -300,7 +302,8 @@
 				{@const done = $logPrayer[selectedYYYYMMDD]?.[prayer.id] === 1}
 				<button
 					onclick={() => togglePrayer(prayer.id)}
-					class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer {prayer.id === '5'
+					class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer {prayer.id ===
+					'5'
 						? 'col-span-2'
 						: ''} {done
 						? 'bg-green-100 dark:bg-green-950 border-green-500'
@@ -330,7 +333,8 @@
 				{@const done = $logPrayer[selectedYYYYMMDD]?.[prayer.id] === 1}
 				<button
 					onclick={() => togglePrayer(prayer.id)}
-					class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer {prayer.id === '12'
+					class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer {prayer.id ===
+					'12'
 						? 'col-span-2'
 						: ''} {done
 						? 'bg-amber-100 dark:bg-amber-950 border-amber-500'

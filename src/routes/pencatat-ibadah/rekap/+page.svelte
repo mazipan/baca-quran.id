@@ -370,7 +370,11 @@
 						onclick={() => {
 							selectedDay = isSelected ? null : cell.key;
 						}}
-						class="aspect-square rounded-lg text-xs transition-all {getCellClass(cell.key, isToday, isSelected)}"
+						class="aspect-square rounded-lg text-xs transition-all {getCellClass(
+							cell.key,
+							isToday,
+							isSelected
+						)}"
 						aria-label="Tanggal {cell.day}"
 						aria-pressed={isSelected}
 					>
@@ -534,9 +538,7 @@
 						? 'bg-secondary border-foreground/10'
 						: 'bg-primary/30 border-transparent opacity-50'}"
 				>
-					<span class="text-2xl leading-none {ach.unlocked ? '' : 'grayscale'}"
-						>{ach.emoji}</span
-					>
+					<span class="text-2xl leading-none {ach.unlocked ? '' : 'grayscale'}">{ach.emoji}</span>
 					<div class="min-w-0 flex-1">
 						<p class="text-sm font-semibold leading-tight">{ach.title}</p>
 						<p class="text-xs opacity-50 leading-tight mt-0.5">{ach.desc}</p>
