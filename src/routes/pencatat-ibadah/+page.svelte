@@ -9,128 +9,99 @@
 		TITLE_CONSTANTS
 	} from '$lib/constants';
 	import { formatDate, getCurrentDate, getDayInMonth } from '$lib/utils/date';
-	import { range } from '$lib/utils/array';
 	import type { PrayerKey } from '$lib/types';
-	import CardShadow from '$lib/CardShadow.svelte';
-	import {
-		logPrayer,
-		type LogPrayerItemKey,
-		type LogPrayerItemValue,
-		type LogPrayerValue
-	} from '$store';
+	import { logPrayer, type LogPrayerItemKey, type LogPrayerItemValue } from '$store';
 	import { onMount } from 'svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 	import { t } from '$lib/translations/store';
 
-	let defaultItem = {
-		'1': 0,
-		'2': 0,
-		'3': 0,
-		'4': 0,
-		'5': 0
-	};
+	const FARD_PRAYERS: Array<{ key: PrayerKey; title: string; id: LogPrayerItemKey; emoji: string }> =
+		[
+			{ key: 'Fajr', title: 'Subuh', id: '1', emoji: '🌅' },
+			{ key: 'Dhuhr', title: 'Dzuhur', id: '2', emoji: '☀️' },
+			{ key: 'Asr', title: 'Ashar', id: '3', emoji: '🌤️' },
+			{ key: 'Maghrib', title: 'Maghrib', id: '4', emoji: '🌆' },
+			{ key: 'Isha', title: 'Isya', id: '5', emoji: '🌙' }
+		];
 
-	let dayInMonth = getDayInMonth(new Date().toISOString());
-	let dayRanges = range(1, dayInMonth);
-
-	let selectedDate = $state(getCurrentDate());
-	let selectedDateFormatted = $derived.by(() => {
-		const nDate = new Date();
-		nDate.setDate(selectedDate);
-		const res = formatDate(nDate.toISOString(), 'dddd, DD MMMM YYYY');
-		return res;
-	});
-	let selectedYYYYMMDD = $derived.by(() => {
-		const nDate = new Date();
-		nDate.setDate(selectedDate);
-		const res = formatDate(nDate.toISOString(), 'YYYYMMDD');
-		return res;
-	});
-
-	const PRAYER_LIST: Array<{
-		key: PrayerKey;
-		title: string;
-		id: LogPrayerItemKey;
-	}> = [
-		{
-			key: 'Fajr',
-			title: 'Subuh',
-			id: '1'
-		},
-		{
-			key: 'Dhuhr',
-			title: 'Dzuhur',
-			id: '2'
-		},
-		{
-			key: 'Asr',
-			title: 'Ashar',
-			id: '3'
-		},
-		{
-			key: 'Maghrib',
-			title: 'Maghrib',
-			id: '4'
-		},
-		{
-			key: 'Isha',
-			title: 'Isya',
-			id: '5'
-		}
+	const SUNNAH_PRAYERS: Array<{ title: string; id: LogPrayerItemKey; emoji: string }> = [
+		{ title: 'Qabliyah Subuh', id: '6', emoji: '🌅' },
+		{ title: 'Qabliyah Dzuhur', id: '7', emoji: '☀️' },
+		{ title: "Ba'diyah Dzuhur", id: '8', emoji: '✨' },
+		{ title: "Ba'diyah Maghrib", id: '9', emoji: '🌆' },
+		{ title: "Ba'diyah Isya", id: '10', emoji: '🌙' },
+		{ title: 'Dhuha', id: '11', emoji: '🌄' },
+		{ title: 'Tahajjud', id: '12', emoji: '🌌' }
 	];
 
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
-	let handleCheckUncheck = (e) => {
-		const id = e.target.value.toString() as LogPrayerItemKey;
-		const isChecked = e.target.checked as boolean;
+	let dayInMonth = getDayInMonth(new Date().toISOString());
+	let selectedDate = $state(getCurrentDate());
+	let isToday = $derived(selectedDate === getCurrentDate());
 
+	let selectedYYYYMMDD = $derived.by(() => {
+		const d = new Date();
+		d.setDate(selectedDate);
+		return formatDate(d.toISOString(), 'YYYYMMDD');
+	});
+
+	let selectedDateFormatted = $derived.by(() => {
+		const d = new Date();
+		d.setDate(selectedDate);
+		return formatDate(d.toISOString(), 'dddd, DD MMMM YYYY');
+	});
+
+	let fardCompleted = $derived.by(() => {
+		const dayData = $logPrayer[selectedYYYYMMDD];
+		if (!dayData) return 0;
+		return FARD_PRAYERS.filter((p) => dayData[p.id] === 1).length;
+	});
+
+	let sunnahCompleted = $derived.by(() => {
+		const dayData = $logPrayer[selectedYYYYMMDD];
+		if (!dayData) return 0;
+		return SUNNAH_PRAYERS.filter((p) => dayData[p.id] === 1).length;
+	});
+
+	let currentStreak = $derived.by(() => {
+		const base = new Date();
+		const todayFardDone = FARD_PRAYERS.every(
+			(p) => $logPrayer[formatDate(base.toISOString(), 'YYYYMMDD')]?.[p.id] === 1
+		);
+		let count = 0;
+		for (let i = todayFardDone ? 0 : 1; i < 366; i++) {
+			const d = new Date(base);
+			d.setDate(base.getDate() - i);
+			const key = formatDate(d.toISOString(), 'YYYYMMDD');
+			const dayData = $logPrayer[key];
+			if (!dayData || !FARD_PRAYERS.every((p) => dayData[p.id] === 1)) break;
+			count++;
+		}
+		return count;
+	});
+
+	function togglePrayer(id: LogPrayerItemKey) {
 		logPrayer.update((val) => {
-			const newItem = {
-				[id]: isChecked ? 1 : (0 as LogPrayerItemValue)
-			} as LogPrayerValue;
-
-			if (val) {
-				if (val[selectedYYYYMMDD]) {
-					val[selectedYYYYMMDD] = {
-						...val[selectedYYYYMMDD],
-						...newItem
-					};
-				} else {
-					val[selectedYYYYMMDD] = {
-						...defaultItem,
-						...newItem
-					};
+			const currentDay = val[selectedYYYYMMDD] || {};
+			const updated = {
+				...val,
+				[selectedYYYYMMDD]: {
+					...currentDay,
+					[id]: (currentDay[id] === 1 ? 0 : 1) as LogPrayerItemValue
 				}
-			} else {
-				val = {
-					[selectedYYYYMMDD]: {
-						...defaultItem,
-						...newItem
-					}
-				};
-			}
-
-			localStorage.setItem(CONSTANTS.STORAGE_KEY.LOG_PRAYER, JSON.stringify(val));
-			return val;
+			};
+			localStorage.setItem(CONSTANTS.STORAGE_KEY.LOG_PRAYER, JSON.stringify(updated));
+			return updated;
 		});
-	};
+	}
 
 	onMount(() => {
 		if (window.location.hash) {
-			const hash = window.location.hash;
-			const day = hash.replace('#day-', '');
-			selectedDate = parseInt(day);
+			const day = parseInt(window.location.hash.replace('#day-', ''));
+			if (!isNaN(day) && day >= 1 && day <= dayInMonth) {
+				selectedDate = day;
+			}
 		}
-
-		const timeout = setTimeout(() => {
-			window.location.hash = `day-${selectedDate}`;
-		}, 1000);
-
-		return () => {
-			clearTimeout(timeout);
-		};
 	});
 </script>
 
@@ -143,9 +114,7 @@
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
-	<h1 class="text-3xl font-bold">
-		⏺️ {$t('navigation.worshipTracker')}
-	</h1>
+	<h1 class="text-3xl font-bold">⏺️ {$t('navigation.worshipTracker')}</h1>
 </div>
 
 <div class="px-4 mb-4">
@@ -159,53 +128,187 @@
 	/>
 </div>
 
-<div class="px-4 flex flex-col gap-2">
-	<div class="flex justify-between items-center gap-2 flex-wrap">
-		<p class="text-lg">{selectedDateFormatted}</p>
+<div class="px-4 flex flex-col gap-4 pb-6">
+	<!-- Date Navigation -->
+	<div class="bg-secondary rounded-xl p-4 flex items-center justify-between gap-3">
+		<button
+			onclick={() => selectedDate > 1 && selectedDate--}
+			disabled={selectedDate <= 1}
+			class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors disabled:opacity-30 text-lg flex-shrink-0"
+			aria-label={$t('worshipTracker.prevDay')}
+		>
+			‹
+		</button>
+		<div class="text-center min-w-0">
+			<p class="font-bold text-base truncate">{selectedDateFormatted.split(',')[0]}</p>
+			<p class="text-sm opacity-70 truncate">
+				{selectedDateFormatted.split(',').slice(1).join(',').trim()}
+			</p>
+			{#if !isToday}
+				<button
+					onclick={() => (selectedDate = getCurrentDate())}
+					class="text-xs text-blue-500 hover:text-blue-600 mt-0.5 underline"
+				>
+					Hari Ini
+				</button>
+			{/if}
+		</div>
+		<button
+			onclick={() => selectedDate < dayInMonth && selectedDate++}
+			disabled={selectedDate >= dayInMonth}
+			class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors disabled:opacity-30 text-lg flex-shrink-0"
+			aria-label={$t('worshipTracker.nextDay')}
+		>
+			›
+		</button>
+	</div>
+
+	<!-- Progress + Streak -->
+	<div class="bg-secondary rounded-xl p-4 flex flex-col gap-3">
+		{#if currentStreak > 0}
+			<div
+				class="flex items-center gap-3 pb-3 border-b border-foreground/10"
+			>
+				<span class="text-3xl leading-none">🔥</span>
+				<div class="flex-1 min-w-0">
+					<p class="font-bold text-lg leading-none tabular-nums">
+						{currentStreak}
+						<span class="text-sm font-normal opacity-70">hari berturut-turut</span>
+					</p>
+					<p class="text-xs opacity-50 mt-0.5">Sholat wajib terpenuhi</p>
+				</div>
+				{#if currentStreak >= 7}
+					<span
+						class="text-xs px-2 py-1 rounded-full font-semibold bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 flex-shrink-0"
+					>
+						{#if currentStreak >= 30}🏆 30+ hari
+						{:else if currentStreak >= 14}⭐ 2 minggu
+						{:else}🌟 1 minggu{/if}
+					</span>
+				{/if}
+			</div>
+		{/if}
+		<div>
+			<div class="flex justify-between items-center text-sm mb-1.5">
+				<span class="font-medium">🕌 {$t('worshipTracker.fardPrayer')}</span>
+				<span
+					class="font-bold tabular-nums {fardCompleted === 5
+						? 'text-green-600 dark:text-green-400'
+						: ''}">{fardCompleted}/5</span
+				>
+			</div>
+			<div class="w-full bg-primary rounded-full h-2.5 overflow-hidden">
+				<div
+					class="h-2.5 rounded-full transition-all duration-300 {fardCompleted === 5
+						? 'bg-green-500'
+						: 'bg-blue-500'}"
+					style="width: {(fardCompleted / 5) * 100}%"
+				></div>
+			</div>
+		</div>
+		<div>
+			<div class="flex justify-between items-center text-sm mb-1.5">
+				<span class="font-medium">⭐ {$t('worshipTracker.sunnahPrayer')}</span>
+				<span
+					class="font-bold tabular-nums {sunnahCompleted === 7
+						? 'text-amber-600 dark:text-amber-400'
+						: ''}">{sunnahCompleted}/7</span
+				>
+			</div>
+			<div class="w-full bg-primary rounded-full h-2.5 overflow-hidden">
+				<div
+					class="h-2.5 rounded-full transition-all duration-300 bg-amber-500"
+					style="width: {(sunnahCompleted / 7) * 100}%"
+				></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Celebration banner -->
+	{#if fardCompleted === 5}
+		<div
+			class="bg-green-100 dark:bg-green-950 border border-green-400 dark:border-green-700 rounded-xl p-4 text-center"
+		>
+			<p class="text-2xl mb-1">{sunnahCompleted === 7 ? '🏆' : '🎉'}</p>
+			<p class="font-bold text-green-700 dark:text-green-300">
+				{sunnahCompleted === 7 ? 'Sempurna! Wajib & Sunnah selesai.' : 'Sholat Wajib Selesai!'}
+			</p>
+			{#if sunnahCompleted < 7}
+				<p class="text-xs text-green-600 dark:text-green-400 mt-1">
+					Tambah {7 - sunnahCompleted} sholat sunnah untuk hari yang lebih sempurna.
+				</p>
+			{/if}
+		</div>
+	{/if}
+
+	<!-- Fard Prayers -->
+	<div>
+		<h2 class="text-sm font-bold uppercase tracking-wide opacity-60 mb-3">
+			🕌 {$t('worshipTracker.fardPrayer')}
+		</h2>
+		<div class="grid grid-cols-2 gap-3">
+			{#each FARD_PRAYERS as prayer (prayer.id)}
+				{@const done = $logPrayer[selectedYYYYMMDD]?.[prayer.id] === 1}
+				<button
+					onclick={() => togglePrayer(prayer.id)}
+					class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer {prayer.id === '5'
+						? 'col-span-2'
+						: ''} {done
+						? 'bg-green-100 dark:bg-green-950 border-green-500'
+						: 'bg-secondary border-transparent hover:border-foreground/20 active:scale-95'}"
+					aria-pressed={done}
+					aria-label="{done ? 'Batalkan' : 'Tandai'} {prayer.title}"
+				>
+					<span class="text-3xl">{prayer.emoji}</span>
+					<span class="font-semibold text-sm">{prayer.title}</span>
+					{#if done}
+						<span class="text-xs text-green-600 dark:text-green-400 font-medium">✓ Selesai</span>
+					{:else}
+						<span class="text-xs opacity-30">Belum</span>
+					{/if}
+				</button>
+			{/each}
+		</div>
+	</div>
+
+	<!-- Sunnah Prayers -->
+	<div>
+		<h2 class="text-sm font-bold uppercase tracking-wide opacity-60 mb-3">
+			⭐ {$t('worshipTracker.sunnahPrayer')}
+		</h2>
+		<div class="grid grid-cols-2 gap-3">
+			{#each SUNNAH_PRAYERS as prayer (prayer.id)}
+				{@const done = $logPrayer[selectedYYYYMMDD]?.[prayer.id] === 1}
+				<button
+					onclick={() => togglePrayer(prayer.id)}
+					class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer {prayer.id === '12'
+						? 'col-span-2'
+						: ''} {done
+						? 'bg-amber-100 dark:bg-amber-950 border-amber-500'
+						: 'bg-secondary border-transparent hover:border-foreground/20 active:scale-95'}"
+					aria-pressed={done}
+					aria-label="{done ? 'Batalkan' : 'Tandai'} {prayer.title}"
+				>
+					<span class="text-3xl">{prayer.emoji}</span>
+					<span class="font-semibold text-sm text-center leading-tight">{prayer.title}</span>
+					{#if done}
+						<span class="text-xs text-amber-600 dark:text-amber-400 font-medium">✓ Selesai</span>
+					{:else}
+						<span class="text-xs opacity-30">Belum</span>
+					{/if}
+				</button>
+			{/each}
+		</div>
+	</div>
+
+	<!-- View Recap -->
+	<div class="flex justify-end pt-2">
 		<a href="/pencatat-ibadah/rekap/">
-			<Button onClick={() => {}} class="text-sm justify-center items-center">
+			<Button onClick={() => {}} variant="outline" color="primary">
 				{$t('worshipTracker.viewRecap')}
 				<ArrowRightIcon size="sm" />
 			</Button>
 		</a>
-	</div>
-	<div
-		class="flex gap-2 w-full overflow-x-scroll pb-4 pt-2 px-4 mt-2 scroll-smooth snap-x snap-proximity"
-	>
-		{#each dayRanges as day (day)}
-			<button
-				class={`snap-center min-w-20 rounded-lg flex items-center justify-center py-2 px-4 border focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${day === selectedDate ? 'bg-primary font-bold border-blue-500 border-2' : 'bg-secondary'}`}
-				onclick={() => {
-					selectedDate = day;
-				}}
-				id={`day-${day}`}
-			>
-				{day}
-			</button>
-		{/each}
-	</div>
-	<div class="grid gap-2">
-		{#each PRAYER_LIST as prayer (prayer.key)}
-			<CardShadow class="flex items-center">
-				<input
-					id={`chk-${prayer.id}`}
-					type="checkbox"
-					value={prayer.id}
-					name={prayer.title}
-					onchange={handleCheckUncheck}
-					checked={$logPrayer && $logPrayer?.[selectedYYYYMMDD]
-						? $logPrayer[selectedYYYYMMDD]?.[`${prayer.id}` as LogPrayerItemKey] === 1
-						: false}
-					class="peer w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-				/>
-				<label
-					for={`chk-${prayer.id}`}
-					class="w-full ms-2 text-sm font-medium text-foreground peer-checked:line-through"
-				>
-					{prayer.title}
-				</label>
-			</CardShadow>
-		{/each}
 	</div>
 </div>
 

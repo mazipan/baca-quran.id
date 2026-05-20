@@ -137,7 +137,17 @@
 		"viewRecap": "View Recap",
 		"logRecap": "Prayer Log Recap",
 		"date": "Date",
-		"noRecapData": "No recap data for {{month}} yet"
+		"noRecapData": "No recap data for {{month}} yet",
+		"fardPrayer": "Obligatory Prayers",
+		"sunnahPrayer": "Sunnah Prayers",
+		"daysTracked": "Days Tracked",
+		"perfectDays": "Perfect Days",
+		"tapForDetail": "Tap a date to view details",
+		"noDataForDay": "No data for this date yet",
+		"calendarLegend": "Legend",
+		"prevDay": "Previous Day",
+		"nextDay": "Next Day",
+		"streak": "Streak"
 	},
 	"prayerSchedule": {
 		"locationSuccess": "Managed to get the latest location!",
