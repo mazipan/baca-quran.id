@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { AdhkarItem } from '../data/adhkar';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import CheckCircleIcon from '$lib/icons/CheckCircleIcon.svelte';
+	import CheckIcon from '$lib/icons/CheckIcon.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
 
 	interface Props {
@@ -77,7 +77,7 @@
 					{count} / {item.count}
 				</span>
 				{#if done}
-					<CheckCircleIcon size="md" class="text-green-500" />
+					<CheckIcon size="md" class="text-green-500" />
 				{/if}
 			</div>
 			<button
@@ -106,7 +106,7 @@
 					{count} / {item.count}
 				</span>
 				{#if done}
-					<CheckCircleIcon size="md" class="text-green-500" />
+					<CheckIcon size="md" class="text-green-500" />
 				{/if}
 			</div>
 		</div>
