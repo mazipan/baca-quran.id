@@ -48,11 +48,7 @@
 		}
 
 		if (typeof window?.navigator?.vibrate !== 'undefined') {
-			if (count + 1 >= item.count) {
-				window.navigator.vibrate([400, 100, 400]);
-			} else {
-				window.navigator.vibrate([60]);
-			}
+			window.navigator.vibrate([30]);
 		}
 	}
 </script>

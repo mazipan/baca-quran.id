@@ -90,7 +90,18 @@
 		}
 	}
 
+	const SOUND_KEY = 'adhkar_sound_on';
+
+	$effect(() => {
+		localStorage.setItem(SOUND_KEY, soundOn ? '1' : '0');
+	});
+
 	onMount(() => {
+		const saved = localStorage.getItem(SOUND_KEY);
+		if (saved !== null) {
+			soundOn = saved === '1';
+		}
+
 		log = pruneOldDays(loadAdhkarLog());
 		const timings = readCachedTodayTimings();
 		const detected = getActiveAdhkarPeriod(new Date(), {
