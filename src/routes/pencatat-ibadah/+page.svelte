@@ -15,6 +15,7 @@
 	import Button from '$lib/ui/Button.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 	import { t } from '$lib/translations/store';
+	import CheckCircleSolidIcon from '$lib/icons/CheckCircleSolidIcon.svelte';
 
 	const FARD_PRAYERS: Array<{
 		key: PrayerKey;
@@ -314,7 +315,10 @@
 					<span class="text-3xl">{prayer.emoji}</span>
 					<span class="font-semibold text-sm">{prayer.title}</span>
 					{#if done}
-						<span class="text-xs text-green-600 dark:text-green-400 font-medium">✓ Selesai</span>
+						<span
+							class="flex items-center gap-1 text-xs text-green-600 dark:text-green-400 font-medium"
+							><CheckCircleSolidIcon size="sm" />Selesai</span
+						>
 					{:else}
 						<span class="text-xs opacity-30">Belum</span>
 					{/if}
@@ -345,7 +349,10 @@
 					<span class="text-3xl">{prayer.emoji}</span>
 					<span class="font-semibold text-sm text-center leading-tight">{prayer.title}</span>
 					{#if done}
-						<span class="text-xs text-amber-600 dark:text-amber-400 font-medium">✓ Selesai</span>
+						<span
+							class="flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400 font-medium"
+							><CheckCircleSolidIcon size="sm" />Selesai</span
+						>
 					{:else}
 						<span class="text-xs opacity-30">Belum</span>
 					{/if}
