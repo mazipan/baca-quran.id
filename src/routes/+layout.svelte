@@ -25,6 +25,9 @@
 	import VerseTafsirBottomSheet from '$lib/VerseTafsirBottomSheet.svelte';
 	import VerseShareBottomSheet from '$lib/VerseShareBottomSheet.svelte';
 	import GlobalBottomSheet from '$lib/GlobalBottomSheet.svelte';
+	import PrayerReminderBanner from '$lib/PrayerReminderBanner.svelte';
+	import { todayPrayerTimings } from '../store/prayerReminder';
+	import type { PrayerTimeData } from '$lib/types';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
@@ -97,6 +100,21 @@
 				} else {
 					settingLocation.set(null);
 				}
+
+				const storagePrayer = localStorage.getItem(CONSTANTS.STORAGE_KEY.PRAYER);
+				if (storagePrayer) {
+					const parsedPrayer = JSON.parse(storagePrayer);
+					const allTimes: PrayerTimeData[] = parsedPrayer?.data || [];
+					const todayStr = new Date()
+						.toLocaleDateString('id-ID', {
+							month: '2-digit',
+							day: '2-digit',
+							year: 'numeric'
+						})
+						.replace(/\//g, '-');
+					const todayData = allTimes.find((d) => d.date.gregorian.date === todayStr);
+					if (todayData) todayPrayerTimings.set(todayData.timings);
+				}
 			}
 		}
 	});
@@ -121,5 +139,6 @@
 		<VerseTafsirBottomSheet />
 		<VerseShareBottomSheet />
 		<GlobalBottomSheet />
+		<PrayerReminderBanner />
 	</div>
 </div>
