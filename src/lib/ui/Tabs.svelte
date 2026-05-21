@@ -16,7 +16,7 @@
 	const activeIndex = $derived(options.findIndex((o) => o.value === value));
 </script>
 
-<div class="relative bg-secondary p-1 rounded-xl {klass}">
+<div class="relative bg-secondary p-1 rounded-xl border border-foreground/10 {klass}">
 	<!-- Sliding pill indicator -->
 	<div
 		class="absolute top-1 bottom-1 bg-primary shadow border border-foreground/20 rounded-lg pointer-events-none transition-all duration-300 ease-in-out"
