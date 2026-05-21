@@ -20,27 +20,49 @@
 	import { t } from '$lib/translations/store';
 	import { toast } from '../../store/toast';
 
-	import BookmarkIcon from '$lib/icons/BookmarkIcon.svelte';
-	import BookmarkSolidIcon from '$lib/icons/BookmarkSolidIcon.svelte';
-	import HeartIcon from '$lib/icons/HeartIcon.svelte';
-	import HeartSolidIcon from '$lib/icons/HeartSolidIcon.svelte';
-	import ShareIcon from '$lib/icons/ShareIcon.svelte';
-	import CopyIcon from '$lib/icons/CopyIcon.svelte';
-	import PlayIcon from '$lib/icons/PlayIcon.svelte';
-	import PauseIcon from '$lib/icons/PauseIcon.svelte';
-	import HomeIcon from '$lib/icons/HomeIcon.svelte';
-	import SettingIcon from '$lib/icons/SettingIcon.svelte';
-	import SearchIcon from '$lib/icons/SearchIcon.svelte';
-	import XMarkIcon from '$lib/icons/XMarkIcon.svelte';
-	import CheckCircleIcon from '$lib/icons/CheckCircleIcon.svelte';
-	import FireIcon from '$lib/icons/FireIcon.svelte';
-	import InformationCircleIcon from '$lib/icons/InformationCircleIcon.svelte';
-	import ExclamationTriangleIcon from '$lib/icons/ExclamationTriangleIcon.svelte';
+	import ArrowDownTray from '$lib/icons/ArrowDownTray.svelte';
 	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import ChevronUpIcon from '$lib/icons/ChevronUpIcon.svelte';
+	import ArrowUpTray from '$lib/icons/ArrowUpTray.svelte';
+	import BookmarkIcon from '$lib/icons/BookmarkIcon.svelte';
+	import BookmarkSlashIcon from '$lib/icons/BookmarkSlashIcon.svelte';
+	import BookmarkSolidIcon from '$lib/icons/BookmarkSolidIcon.svelte';
+	import CalendarIcon from '$lib/icons/CalendarIcon.svelte';
+	import CheckCircleIcon from '$lib/icons/CheckCircleIcon.svelte';
+	import CheckCircleSolidIcon from '$lib/icons/CheckCircleSolidIcon.svelte';
+	import CheckIcon from '$lib/icons/CheckIcon.svelte';
 	import ChevronDownIcon from '$lib/icons/ChevronDownIcon.svelte';
+	import ChevronRightIcon from '$lib/icons/ChevronRightIcon.svelte';
+	import ChevronUpIcon from '$lib/icons/ChevronUpIcon.svelte';
+	import CodeIcon from '$lib/icons/CodeIcon.svelte';
+	import CopyIcon from '$lib/icons/CopyIcon.svelte';
+	import DocumentTextIcon from '$lib/icons/DocumentTextIcon.svelte';
+	import ExclamationTriangleIcon from '$lib/icons/ExclamationTriangleIcon.svelte';
+	import EyeIcon from '$lib/icons/EyeIcon.svelte';
+	import FireIcon from '$lib/icons/FireIcon.svelte';
+	import GalleryIcon from '$lib/icons/GalleryIcon.svelte';
+	import GoogleIcon from '$lib/icons/GoogleIcon.svelte';
 	import HashtagIcon from '$lib/icons/HashtagIcon.svelte';
+	import HeartIcon from '$lib/icons/HeartIcon.svelte';
+	import HeartSolidIcon from '$lib/icons/HeartSolidIcon.svelte';
+	import HomeIcon from '$lib/icons/HomeIcon.svelte';
+	import InformationCircleIcon from '$lib/icons/InformationCircleIcon.svelte';
+	import LinkIcon from '$lib/icons/LinkIcon.svelte';
+	import MarkerIcon from '$lib/icons/MarkerIcon.svelte';
+	import NewspaperIcon from '$lib/icons/NewspaperIcon.svelte';
+	import PauseIcon from '$lib/icons/PauseIcon.svelte';
+	import PlayIcon from '$lib/icons/PlayIcon.svelte';
+	import PresentationChartIcon from '$lib/icons/PresentationChartIcon.svelte';
+	import ResetIcon from '$lib/icons/ResetIcon.svelte';
+	import SearchIcon from '$lib/icons/SearchIcon.svelte';
+	import SettingIcon from '$lib/icons/SettingIcon.svelte';
+	import ShareIcon from '$lib/icons/ShareIcon.svelte';
+	import ShieldCheckIcon from '$lib/icons/ShieldCheckIcon.svelte';
+	import SignOutIcon from '$lib/icons/SignOutIcon.svelte';
+	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
+	import SpeakerXMarkIcon from '$lib/icons/SpeakerXMarkIcon.svelte';
+	import SwatchIcon from '$lib/icons/SwatchIcon.svelte';
+	import XMarkIcon from '$lib/icons/XMarkIcon.svelte';
 
 	import type { IconSize } from '$lib/icons/utils';
 
@@ -71,26 +93,49 @@
 	const iconSizes: IconSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 	const iconList = [
-		{ name: 'Bookmark', Comp: BookmarkIcon },
-		{ name: 'BookmarkSolid', Comp: BookmarkSolidIcon },
-		{ name: 'Heart', Comp: HeartIcon },
-		{ name: 'HeartSolid', Comp: HeartSolidIcon },
-		{ name: 'Share', Comp: ShareIcon },
-		{ name: 'Copy', Comp: CopyIcon },
-		{ name: 'Play', Comp: PlayIcon },
-		{ name: 'Pause', Comp: PauseIcon },
-		{ name: 'Home', Comp: HomeIcon },
-		{ name: 'Setting', Comp: SettingIcon },
-		{ name: 'Search', Comp: SearchIcon },
-		{ name: 'XMark', Comp: XMarkIcon },
-		{ name: 'CheckCircle', Comp: CheckCircleIcon },
-		{ name: 'Fire', Comp: FireIcon },
-		{ name: 'InformationCircle', Comp: InformationCircleIcon },
-		{ name: 'ExclamationTriangle', Comp: ExclamationTriangleIcon },
+		{ name: 'ArrowDownTray', Comp: ArrowDownTray },
 		{ name: 'ArrowLeft', Comp: ArrowLeftIcon },
 		{ name: 'ArrowRight', Comp: ArrowRightIcon },
+		{ name: 'ArrowUpTray', Comp: ArrowUpTray },
+		{ name: 'Bookmark', Comp: BookmarkIcon },
+		{ name: 'BookmarkSlash', Comp: BookmarkSlashIcon },
+		{ name: 'BookmarkSolid', Comp: BookmarkSolidIcon },
+		{ name: 'Calendar', Comp: CalendarIcon },
+		{ name: 'Check', Comp: CheckIcon },
+		{ name: 'CheckCircle', Comp: CheckCircleIcon },
+		{ name: 'CheckCircleSolid', Comp: CheckCircleSolidIcon },
+		{ name: 'ChevronDown', Comp: ChevronDownIcon },
+		{ name: 'ChevronRight', Comp: ChevronRightIcon },
 		{ name: 'ChevronUp', Comp: ChevronUpIcon },
-		{ name: 'ChevronDown', Comp: ChevronDownIcon }
+		{ name: 'Code', Comp: CodeIcon },
+		{ name: 'Copy', Comp: CopyIcon },
+		{ name: 'DocumentText', Comp: DocumentTextIcon },
+		{ name: 'ExclamationTriangle', Comp: ExclamationTriangleIcon },
+		{ name: 'Eye', Comp: EyeIcon },
+		{ name: 'Fire', Comp: FireIcon },
+		{ name: 'Gallery', Comp: GalleryIcon },
+		{ name: 'Google', Comp: GoogleIcon },
+		{ name: 'Hashtag', Comp: HashtagIcon },
+		{ name: 'Heart', Comp: HeartIcon },
+		{ name: 'HeartSolid', Comp: HeartSolidIcon },
+		{ name: 'Home', Comp: HomeIcon },
+		{ name: 'InformationCircle', Comp: InformationCircleIcon },
+		{ name: 'Link', Comp: LinkIcon },
+		{ name: 'Marker', Comp: MarkerIcon },
+		{ name: 'Newspaper', Comp: NewspaperIcon },
+		{ name: 'Pause', Comp: PauseIcon },
+		{ name: 'Play', Comp: PlayIcon },
+		{ name: 'PresentationChart', Comp: PresentationChartIcon },
+		{ name: 'Reset', Comp: ResetIcon },
+		{ name: 'Search', Comp: SearchIcon },
+		{ name: 'Setting', Comp: SettingIcon },
+		{ name: 'Share', Comp: ShareIcon },
+		{ name: 'ShieldCheck', Comp: ShieldCheckIcon },
+		{ name: 'SignOut', Comp: SignOutIcon },
+		{ name: 'SpeakerWave', Comp: SpeakerWaveIcon },
+		{ name: 'SpeakerXMark', Comp: SpeakerXMarkIcon },
+		{ name: 'Swatch', Comp: SwatchIcon },
+		{ name: 'XMark', Comp: XMarkIcon }
 	];
 
 	const META_TITLE = $derived(

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { AdhkarItem } from '../data/adhkar';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import CheckCircleIcon from '$lib/icons/CheckCircleIcon.svelte';
+	import CheckIcon from '$lib/icons/CheckIcon.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
 
 	interface Props {
@@ -48,11 +48,7 @@
 		}
 
 		if (typeof window?.navigator?.vibrate !== 'undefined') {
-			if (count + 1 >= item.count) {
-				window.navigator.vibrate([400, 100, 400]);
-			} else {
-				window.navigator.vibrate([60]);
-			}
+			window.navigator.vibrate([30]);
 		}
 	}
 </script>
@@ -74,14 +70,14 @@
 					{item.order}
 				</div>
 				<span
-					class="text-sm px-2.5 py-1 rounded-full font-semibold tabular-nums {done
+					class="text-sm px-2.5 py-1 rounded-full font-semibold tabular-nums whitespace-nowrap {done
 						? 'bg-green-100 text-green-700 dark:bg-green-900/60 dark:text-green-200'
 						: 'bg-primary text-foreground/80'}"
 				>
 					{count} / {item.count}
 				</span>
 				{#if done}
-					<CheckCircleIcon size="sm" class="text-green-500" />
+					<CheckIcon size="md" class="text-green-500" />
 				{/if}
 			</div>
 			<button
@@ -103,14 +99,14 @@
 			</div>
 			<div class="flex items-center gap-2">
 				<span
-					class="text-xs px-2 py-0.5 rounded-full font-semibold tabular-nums {done
+					class="text-xs px-2 py-0.5 rounded-full font-semibold tabular-nums whitespace-nowrap {done
 						? 'bg-green-100 text-green-700 dark:bg-green-900/60 dark:text-green-200'
 						: 'bg-primary text-foreground/80'}"
 				>
 					{count} / {item.count}
 				</span>
 				{#if done}
-					<CheckCircleIcon size="sm" class="text-green-500" />
+					<CheckIcon size="md" class="text-green-500" />
 				{/if}
 			</div>
 		</div>

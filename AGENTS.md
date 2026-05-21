@@ -233,7 +233,12 @@ appear in the active language on the next trigger.
 - Live in `src/lib/icons/`. One Svelte file per icon.
 - Pattern: copy `HashtagIcon.svelte`, swap the `<path>`. Keep the
   `size` + `class` props and `CLASS_BY_SIZE` import.
-- Prefer Heroicons SVG paths for consistency.
+- **Always look up the SVG path from [Heroicons](https://heroicons.com)**
+  before creating a new icon. Use the outline style (`stroke-width="1.5"`)
+  to match the existing icons. If a specific icon is not available in
+  Heroicons, fall back to [Feather Icons](https://feathericons.com).
+- After adding a new icon, list it in the icon gallery on the design system
+  page (`src/routes/design-system/+page.svelte` → `iconList`).
 
 ### Date / Hijri
 
