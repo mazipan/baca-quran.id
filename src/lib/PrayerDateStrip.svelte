@@ -33,7 +33,7 @@
 
 <div
 	bind:this={stripEl}
-	class="flex gap-1.5 overflow-x-auto pb-1"
+	class="flex gap-1.5 overflow-x-auto py-2"
 	style="scrollbar-width: none; -ms-overflow-style: none;"
 	role="listbox"
 	aria-label="Pilih tanggal"
@@ -49,7 +49,7 @@
 			type="button"
 			role="option"
 			aria-selected={isSelected}
-			class="flex-shrink-0 flex flex-col items-center gap-0.5 w-11 py-2 rounded-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground
+			class="flex-shrink-0 flex flex-col items-center justify-center gap-0.5 w-11 h-12 rounded-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground
 				{isSelected
 				? 'bg-foreground text-primary font-bold shadow-md scale-105'
 				: isToday

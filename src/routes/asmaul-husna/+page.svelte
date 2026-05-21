@@ -444,14 +444,14 @@
 			⌨️ Space to play/pause · ← → to navigate
 		</p>
 
-		<!-- Name picker: scroll row -->
-		<div class="w-full max-w-sm">
+		<!-- Name picker: grid row -->
+		<div class="w-full">
 			<p class="text-xs text-foreground-secondary mb-2 font-medium">All names:</p>
-			<div class="flex gap-1.5 flex-wrap">
+			<div class="grid grid-cols-10 gap-1.5">
 				{#each asmaulHusna as _item, i}
 					<button
 						onclick={() => openInPlayable(i)}
-						class={`px-2 py-1 rounded-lg text-xs font-medium transition-all ${
+						class={`w-full py-1.5 rounded-lg text-xs font-medium text-center transition-all ${
 							currentIndex === i
 								? `bg-gradient-to-r ${getGradient(i)} text-white shadow-sm scale-105`
 								: 'bg-secondary text-foreground-secondary hover:text-foreground hover:bg-primary'

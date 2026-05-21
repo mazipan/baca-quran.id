@@ -21,6 +21,7 @@
 	import { formatHijriDate } from '$lib/utils/hijri';
 	import { languageStore } from '$lib/checkLanguaguage';
 	import { todayPrayerTimings, nextPrayerInfo } from '../../store/prayerReminder';
+	import PrayerTimeIllustration from '$lib/illustrations/PrayerTimeIllustration.svelte';
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
 
@@ -239,25 +240,25 @@
 		</Button>
 	</div>
 
+	<!-- Time-based illustration -->
+	<PrayerTimeIllustration {hours} />
+
 	<!-- Clock + Hijri -->
-	<div class="px-4 py-4 flex items-center justify-between gap-4">
-		<div class="flex-1 min-w-0">
-			<div class="text-4xl font-bold font-mono tabular-nums leading-none">
-				{String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}<span
-					class="text-2xl opacity-40">:{String(seconds).padStart(2, '0')}</span
-				>
-			</div>
-			<div class="text-sm opacity-60 mt-2">
-				{now.toLocaleDateString($languageStore === 'id' ? 'id-ID' : 'en-US', {
-					weekday: 'long',
-					day: 'numeric',
-					month: 'long',
-					year: 'numeric'
-				})}
-			</div>
-			<div class="text-xs opacity-40 mt-0.5">{hijriToday}</div>
+	<div class="px-4 py-4">
+		<div class="text-4xl font-bold font-mono tabular-nums leading-none">
+			{String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}<span
+				class="text-2xl opacity-40">:{String(seconds).padStart(2, '0')}</span
+			>
 		</div>
-		<div class="text-5xl opacity-15 select-none shrink-0" aria-hidden="true">🕌</div>
+		<div class="text-sm opacity-60 mt-2">
+			{now.toLocaleDateString($languageStore === 'id' ? 'id-ID' : 'en-US', {
+				weekday: 'long',
+				day: 'numeric',
+				month: 'long',
+				year: 'numeric'
+			})}
+		</div>
+		<div class="text-xs opacity-40 mt-0.5">{hijriToday}</div>
 	</div>
 </div>
 

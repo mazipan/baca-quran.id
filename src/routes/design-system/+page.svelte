@@ -2,6 +2,7 @@
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import CardShadow from '$lib/CardShadow.svelte';
+	import Tabs from '$lib/ui/Tabs.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import IconButton from '$lib/ui/IconButton.svelte';
 	import Badge from '$lib/ui/Badge.svelte';
@@ -46,6 +47,8 @@
 	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);
 
 	let showSheet = $state(false);
+	let demoTab2 = $state('morning');
+	let demoTab3 = $state('option-b');
 	let activeChip = $state<'all' | 'makkiyah' | 'madaniyah'>('all');
 	let bannerDismissed = $state(false);
 	let demoText = $state('');
@@ -105,6 +108,7 @@
 		{ id: 'buttons', label: $t('designSystem.section.buttons') },
 		{ id: 'icon-buttons', label: $t('designSystem.section.iconButtons') },
 		{ id: 'badges', label: $t('designSystem.section.badges') },
+		{ id: 'tabs', label: isEnglish ? 'Tabs' : 'Tab' },
 		{ id: 'chips', label: $t('designSystem.section.chips') },
 		{ id: 'banners', label: $t('designSystem.section.banners') },
 		{ id: 'forms', label: $t('designSystem.section.forms') },
@@ -646,6 +650,49 @@
 
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
 					>{'<Badge variant="solid | subtle | outline"\n       color="primary | secondary | info | success | warning | danger"\n       size="sm | md | lg">label</Badge>'}</code
+				></pre>
+		</CardShadow>
+	</section>
+
+	<!-- TABS -->
+	<section id="tabs" class="flex flex-col gap-3 scroll-mt-4">
+		<h2 class="text-xl font-bold">{isEnglish ? 'Tabs' : 'Tab'}</h2>
+		<p class="text-sm opacity-75">
+			{isEnglish
+				? 'Sliding-indicator tab component. Best for balanced selectors with 2–4 options. The pill indicator animates smoothly when switching tabs.'
+				: 'Komponen tab dengan indikator geser. Cocok untuk selektor seimbang dengan 2–4 pilihan. Indikator bergerak mulus saat berganti tab.'}
+		</p>
+
+		<CardShadow class="flex flex-col gap-5">
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold text-sm">{isEnglish ? '2 options' : '2 pilihan'}</h3>
+				<Tabs
+					options={[
+						{ value: 'morning', label: '🌅 Pagi' },
+						{ value: 'evening', label: '🌙 Petang' }
+					]}
+					value={demoTab2}
+					onchange={(v) => (demoTab2 = v)}
+				/>
+				<p class="text-xs opacity-60">{isEnglish ? 'Selected:' : 'Dipilih:'} {demoTab2}</p>
+			</div>
+
+			<div class="flex flex-col gap-2">
+				<h3 class="font-semibold text-sm">{isEnglish ? '3 options' : '3 pilihan'}</h3>
+				<Tabs
+					options={[
+						{ value: 'option-a', label: '🎯 Satu per Satu' },
+						{ value: 'option-b', label: '📋 Semua' },
+						{ value: 'option-c', label: '⚙️ Setelan' }
+					]}
+					value={demoTab3}
+					onchange={(v) => (demoTab3 = v)}
+				/>
+				<p class="text-xs opacity-60">{isEnglish ? 'Selected:' : 'Dipilih:'} {demoTab3}</p>
+			</div>
+
+			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
+					>{"<Tabs\n  options={[{ value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }]}\n  value={selected}\n  onchange={(v) => (selected = v)}\n/>"}</code
 				></pre>
 		</CardShadow>
 	</section>
