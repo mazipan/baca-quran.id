@@ -154,7 +154,12 @@
 		"locationSuccess": "Managed to get the latest location!",
 		"updateLocation": "Update Location",
 		"allowLocation": "Allow location access",
-		"locationUnknown": "Location not set"
+		"locationUnknown": "Location not set",
+		"nextPrayer": "Next Prayer",
+		"allDoneToday": "All prayers for today are done",
+		"pastPrayer": "Already past",
+		"todayLabel": "Today",
+		"reminderText": "{{prayer}} prayer in {{minutes}} minutes — Prepare yourself for prayer"
 	},
 	"sync": {
 		"loginSuccess": "Login successful. Welcome {{name}}!",

@@ -154,7 +154,12 @@
 		"locationSuccess": "Berhasil mendapatkan lokasi teranyar!",
 		"updateLocation": "Perbarui Lokasi",
 		"allowLocation": "Beri akses lokasi",
-		"locationUnknown": "Lokasi belum diketahui"
+		"locationUnknown": "Lokasi belum diketahui",
+		"nextPrayer": "Sholat Selanjutnya",
+		"allDoneToday": "Semua jadwal sholat hari ini sudah selesai",
+		"pastPrayer": "Sudah lewat",
+		"todayLabel": "Hari Ini",
+		"reminderText": "Waktu {{prayer}} dalam {{minutes}} menit — Siapkan dirimu untuk sholat"
 	},
 	"sync": {
 		"loginSuccess": "Berhasil login. Selamat datang {{name}}!",
