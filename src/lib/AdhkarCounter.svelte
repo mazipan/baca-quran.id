@@ -77,7 +77,7 @@
 					{count} / {item.count}
 				</span>
 				{#if done}
-					<CheckCircleIcon size="sm" class="text-green-500" />
+					<CheckCircleIcon size="md" class="text-green-500" />
 				{/if}
 			</div>
 			<button
@@ -106,7 +106,7 @@
 					{count} / {item.count}
 				</span>
 				{#if done}
-					<CheckCircleIcon size="sm" class="text-green-500" />
+					<CheckCircleIcon size="md" class="text-green-500" />
 				{/if}
 			</div>
 		</div>
