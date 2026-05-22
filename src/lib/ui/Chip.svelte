@@ -2,6 +2,7 @@
 	interface Props {
 		color?: 'neutral' | 'blue' | 'green' | 'orange' | 'red' | 'purple';
 		size?: 'sm' | 'md';
+		shape?: 'pill' | 'rounded';
 		active?: boolean;
 		onClick?: (event: MouseEvent) => void;
 		ariaLabel?: string;
@@ -12,12 +13,18 @@
 	let {
 		color = 'neutral',
 		size = 'md',
+		shape = 'pill',
 		active = false,
 		onClick,
 		ariaLabel = '',
 		children,
 		class: clazz = ''
 	}: Props = $props();
+
+	const SHAPE_MAP = {
+		pill: 'rounded-full',
+		rounded: 'rounded-md'
+	};
 
 	const COLOR_MAP = {
 		neutral: 'bg-secondary text-foreground',
@@ -44,13 +51,13 @@
 		onclick={onClick}
 		aria-label={ariaLabel}
 		aria-pressed={active}
-		class={`inline-flex items-center gap-1 rounded-full font-medium cursor-pointer transition hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary ${COLOR_MAP[color]} ${SIZE_MAP[size]} ${activeRing} ${clazz}`}
+		class={`inline-flex items-center gap-1 font-medium cursor-pointer transition hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary ${SHAPE_MAP[shape]} ${COLOR_MAP[color]} ${SIZE_MAP[size]} ${activeRing} ${clazz}`}
 	>
 		{@render children?.()}
 	</button>
 {:else}
 	<span
-		class={`inline-flex items-center gap-1 rounded-full font-medium ${COLOR_MAP[color]} ${SIZE_MAP[size]} ${activeRing} ${clazz}`}
+		class={`inline-flex items-center gap-1 font-medium ${SHAPE_MAP[shape]} ${COLOR_MAP[color]} ${SIZE_MAP[size]} ${activeRing} ${clazz}`}
 	>
 		{@render children?.()}
 	</span>

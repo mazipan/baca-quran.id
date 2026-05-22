@@ -11,6 +11,7 @@
 		META_TITLE_DAILY_DOA,
 		TITLE_CONSTANTS
 	} from '$lib/constants';
+	import Chip from '$lib/ui/Chip.svelte';
 	import { t } from '$lib/translations/store';
 	import dailyDoa, { type DoaCategory, DOA_CATEGORIES } from '../../data/daily-doa';
 
@@ -59,22 +60,18 @@
 
 <!-- Category chip filter row -->
 <div class="px-4 mb-4 flex gap-2 overflow-x-auto pb-2">
-	<button
-		type="button"
-		onclick={() => setCategory(null)}
-		class={`flex-shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition-colors cursor-pointer ${activeCategory === null ? 'bg-primary text-primary-foreground' : 'bg-secondary'}`}
-	>
+	<Chip onClick={() => setCategory(null)} active={activeCategory === null} class="flex-shrink-0">
 		{$t('daily-doa.filterAll')}
-	</button>
+	</Chip>
 	{#each DOA_CATEGORIES as cat}
-		<button
-			type="button"
-			onclick={() => setCategory(activeCategory === cat.id ? null : cat.id)}
-			class={`flex-shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition-colors cursor-pointer ${activeCategory === cat.id ? 'bg-primary text-primary-foreground' : 'bg-secondary'}`}
+		<Chip
+			onClick={() => setCategory(activeCategory === cat.id ? null : cat.id)}
+			active={activeCategory === cat.id}
+			class="flex-shrink-0"
 		>
 			{cat.emoji}
 			{$t(cat.i18nKey)}
-		</button>
+		</Chip>
 	{/each}
 </div>
 
