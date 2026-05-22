@@ -78,7 +78,7 @@ jobs:
         if: github.repository == 'mazipan-quran-offline/baca-quran.id'
         run: |
           echo "> Start remove unused files..."
-          rm -rf .github/workflows .svelte-kit markdowns screenshoot scripts static src node_modules .husky .vscode
+          rm -rf .github/workflows .svelte-kit markdowns screenshoot scripts static src node_modules .husky .vscode .claude
           rm -rf .all-contributorsrc .editorconfig .eslintignore eslint.config.js .gitignore .kodiak.toml .npmrc .prettierignore .prettierrc package.json pnpm-lock.yaml package-lock.json pnpm-workspace.yaml postcss.config.js svelte.config.js tailwind.config.js tsconfig.json vite.config.ts .env.example .nvmrc .lighthouserc.json
           echo "> Copy build directory..."
           cp -r build/. ./
