@@ -21,20 +21,24 @@
 		item: ReadingItem;
 		count: number;
 		playMode?: boolean;
+		compact?: boolean;
 		isLast?: boolean;
 		onIncrement: () => void;
 		onReset: () => void;
 		onNext?: () => void;
+		onSkip?: () => void;
 	}
 
 	let {
 		item,
 		count,
 		playMode = false,
+		compact = false,
 		isLast = false,
 		onIncrement,
 		onReset,
-		onNext
+		onNext,
+		onSkip
 	}: Props = $props();
 
 	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);
@@ -119,23 +123,27 @@
 	<p
 		dir="rtl"
 		lang="ar"
-		class="font-arabic leading-loose text-right {playMode ? 'text-3xl' : 'text-2xl'} {item.href
-			? 'opacity-40 text-xl'
-			: ''}"
+		class="font-arabic leading-loose text-right {compact
+			? 'text-3xl'
+			: playMode
+				? 'text-3xl'
+				: 'text-2xl'} {item.href ? 'opacity-40 text-xl' : ''}"
 	>
 		{item.arabic}
 	</p>
 
-	<!-- Latin transliteration -->
-	{#if !item.href}
-		<p class="text-sm italic opacity-70 leading-relaxed">{item.latin}</p>
-	{/if}
+	{#if !compact}
+		<!-- Latin transliteration -->
+		{#if !item.href}
+			<p class="text-sm italic opacity-70 leading-relaxed">{item.latin}</p>
+		{/if}
 
-	<!-- Translation -->
-	<p class="text-sm opacity-90 leading-relaxed">{translation}</p>
+		<!-- Translation -->
+		<p class="text-sm opacity-90 leading-relaxed">{translation}</p>
 
-	{#if note}
-		<p class="text-xs opacity-60 leading-relaxed italic">{note}</p>
+		{#if note}
+			<p class="text-xs opacity-60 leading-relaxed italic">{note}</p>
+		{/if}
 	{/if}
 
 	<!-- Action area -->
@@ -195,6 +203,15 @@
 						{isEnglish ? '✓ Done' : '✓ Selesai'}
 					{/if}
 				</button>
+				{#if onSkip}
+					<button
+						type="button"
+						onclick={onSkip}
+						class="mt-2 w-full cursor-pointer rounded-xl px-4 py-2 text-sm font-medium border border-foreground/10 hover:border-foreground/25 opacity-50 hover:opacity-80 transition text-foreground/70"
+					>
+						{isEnglish ? 'Skip this →' : 'Lewati →'}
+					</button>
+				{/if}
 			{/if}
 		</div>
 	{:else}
