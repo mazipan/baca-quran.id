@@ -17,12 +17,16 @@
 	const total = items.length;
 
 	let playMode = $state(true);
+	let compact = $state(false);
 	let currentPlayIndex = $state(0);
 	let slideDir = $state(1);
 	let counts = $state<Record<number, number>>({});
+	let skipped = $state<Record<number, boolean>>({});
 
 	const currentItem = $derived(currentPlayIndex < total ? items[currentPlayIndex] : null);
-	const completed = $derived(items.filter((i) => i.href || (counts[i.id] ?? 0) >= i.count).length);
+	const completed = $derived(
+		items.filter((i) => i.href || (counts[i.id] ?? 0) >= i.count || skipped[i.id]).length
+	);
 	const allDone = $derived(total > 0 && completed === total);
 
 	const modeOptions = $derived([
@@ -47,8 +51,19 @@
 
 	function handleResetAll() {
 		counts = {};
+		skipped = {};
 		currentPlayIndex = 0;
 		slideDir = 1;
+	}
+
+	function handleSkip() {
+		if (currentItem) {
+			skipped = { ...skipped, [currentItem.id]: true };
+		}
+		if (currentPlayIndex < total - 1) {
+			slideDir = 1;
+			currentPlayIndex++;
+		}
 	}
 
 	function goNext() {
@@ -129,15 +144,29 @@
 		</div>
 	</div>
 
-	<!-- Mode tabs (hidden during celebration) -->
+	<!-- Mode tabs + compact toggle (hidden during celebration) -->
 	{#if !allDone}
-		<Tabs
-			options={modeOptions}
-			value={playMode ? 'play' : 'all'}
-			onchange={(v) => {
-				playMode = v === 'play';
-			}}
-		/>
+		<div class="flex items-center gap-2">
+			<div class="flex-1">
+				<Tabs
+					options={modeOptions}
+					value={playMode ? 'play' : 'all'}
+					onchange={(v) => {
+						playMode = v === 'play';
+					}}
+				/>
+			</div>
+			<button
+				type="button"
+				onclick={() => (compact = !compact)}
+				title={isEnglish ? 'Compact mode: Arabic only' : 'Mode ringkas: Arab saja'}
+				class="shrink-0 cursor-pointer rounded-lg px-3 py-2 text-xs font-semibold border-2 transition {compact
+					? 'border-teal-500 bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300'
+					: 'border-foreground/20 bg-primary hover:border-foreground/40 opacity-70 hover:opacity-100'}"
+			>
+				{compact ? '🔤' : 'أ'}
+			</button>
+		</div>
 	{/if}
 
 	<!-- ===== CELEBRATION ===== -->
@@ -203,12 +232,15 @@
 				<div class="flex gap-1.5 items-center justify-center flex-wrap">
 					{#each items as item, i}
 						{@const isDone = isItemDone(item.id, item.count, item.href)}
+						{@const isSkipped = !!skipped[item.id]}
 						<div
 							class="rounded-full transition-all duration-300 {isDone
 								? 'w-2.5 h-2.5 bg-green-500 dark:bg-green-400'
-								: i === currentPlayIndex
-									? 'w-3.5 h-3.5 bg-teal-500 dark:bg-teal-400 ring-2 ring-teal-300/60 dark:ring-teal-600/60'
-									: 'w-2 h-2 bg-foreground/15'}"
+								: isSkipped
+									? 'w-2.5 h-2.5 bg-foreground/25'
+									: i === currentPlayIndex
+										? 'w-3.5 h-3.5 bg-teal-500 dark:bg-teal-400 ring-2 ring-teal-300/60 dark:ring-teal-600/60'
+										: 'w-2 h-2 bg-foreground/15'}"
 						></div>
 					{/each}
 				</div>
@@ -239,10 +271,12 @@
 									item={currentItem}
 									count={getCount(currentItem.id)}
 									playMode={true}
+									{compact}
 									isLast={currentPlayIndex === total - 1}
 									onIncrement={() => handleIncrement(currentItem.id, currentItem.count)}
 									onReset={() => handleReset(currentItem.id)}
 									onNext={goNext}
+									onSkip={handleSkip}
 								/>
 							{/if}
 						</div>
@@ -278,6 +312,7 @@
 				<ReadingCard
 					{item}
 					count={getCount(item.id)}
+					{compact}
 					onIncrement={() => handleIncrement(item.id, item.count)}
 					onReset={() => handleReset(item.id)}
 				/>
