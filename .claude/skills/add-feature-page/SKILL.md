@@ -1,6 +1,6 @@
 ---
 name: add-feature-page
-description: Add a new feature page/route to this SvelteKit + Svelte 5 app following baca-quran.id conventions. Use whenever the user asks to add a new page, new route, new feature with its own URL (e.g. "/kalender-hijriyah", "/khatam-tracker"), or expose a feature through the navigation drawer. Covers route creation, prerender registration, sitemap, SEO, breadcrumb, drawer, i18n, and verification.
+description: Add a new feature page/route to this SvelteKit + Svelte 5 app following baca-quran.id conventions. Use whenever the user asks to add a new page, new route, new feature with its own URL (e.g. "/kalender-hijriyah", "/khatam-tracker"), or expose a feature from the homepage. Covers route creation, prerender registration, sitemap, SEO, breadcrumb, homepage entry, i18n, and verification.
 ---
 
 # Add a feature page
@@ -9,6 +9,23 @@ This repo is a statically-prerendered SvelteKit app (adapter-static).
 Adding a new page touches more than just `+page.svelte` — miss any of
 these and the page will silently be missing from prerender, sitemap, or
 nav. Follow every step.
+
+## 0. Use the design system first
+
+Before writing any component, check `src/lib/ui/` for existing
+primitives: `Button`, `IconButton`, `Card`, `Badge`, `Chip`, `Banner`,
+`Input`, `Textarea`, `Checkbox`, `Radio`, `Tabs`, `Collapsible`,
+`BottomSheet`, `Tooltip`. Use them as-is.
+
+**Only create a new component when no existing primitive covers the
+need.** A local component is justified when the UI pattern is genuinely
+novel, reused across multiple places, or complex enough to deserve
+encapsulation. Do not wrap a single `<Button>` in a new component just
+to give it a name.
+
+Same rule applies to icons: check `src/lib/icons/` first. If a new
+icon is needed, copy `HashtagIcon.svelte`, swap the Heroicons `<path>`,
+and keep the `size` + `class` props.
 
 ## 1. Create the route
 
@@ -28,31 +45,29 @@ Skeleton:
 <script lang="ts">
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
-	import { TITLE_CONSTANTS } from '$lib/constants';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { META_TITLE_<UPPER_SLUG>, META_DESC_<UPPER_SLUG>, TITLE_CONSTANTS } from '$lib/constants';
 	import { t } from '$lib/translations/store';
-
-	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);
-
-	const META_TITLE = `<Indonesian title> | ${TITLE_CONSTANTS.TITLE_META}`;
-	const META_DESC = '<Indonesian description, mention free, no ads, no analytics>';
 </script>
 
 <svelte:head>
-	<MetaTag title={META_TITLE} desc={META_DESC} url={`${TITLE_CONSTANTS.PATH}<slug>/`} />
+	<MetaTag
+		title={META_TITLE_<UPPER_SLUG>}
+		desc={META_DESC_<UPPER_SLUG>}
+		url={`${TITLE_CONSTANTS.PATH}<slug>/`}
+	/>
 </svelte:head>
 
 <div class="flex gap-2 px-4 mb-4">
 	<h1 class="text-3xl font-bold">
-		🌙 {isEnglish ? 'English title' : 'Judul Indonesia'}
+		🌙 {$t('<feature>.title')}
 	</h1>
 </div>
 
 <div class="px-4 mb-4">
 	<Breadcrumb
 		items={[
-			{ text: isEnglish ? '🏠 Home' : '🏠 Beranda', href: '/' },
-			{ text: isEnglish ? '<English>' : '<Indonesian>', href: '/<slug>/' }
+			{ text: `🏠 ${$t('navigation.home')}`, href: '/' },
+			{ text: $t('navigation.<key>'), href: '/<slug>/' }
 		]}
 	/>
 </div>
@@ -63,7 +78,8 @@ Skeleton:
 ```
 
 Use Svelte 5 runes (`$state`, `$derived`, `$props`, `$effect`). **Never**
-use `export let` or `$:`.
+use `export let`, `$:`, or inline locale ternaries (`isEnglish ? … : …`).
+All user-visible strings go through `$t()`.
 
 ## 2. Register the URL in `scripts/routes.js`
 
@@ -85,37 +101,23 @@ export const staticUrls = [
 No leading `/` is fine — match the existing style (no trailing slash in
 this list; the sitemap and prerender machinery add it).
 
-## 3. Add SEO constants (optional but preferred)
+## 3. Add SEO constants
 
-For consistency with other pages, add to `src/lib/constants.ts`:
+Add to `src/lib/constants.ts`:
 
 ```ts
 export const META_TITLE_<UPPER_SLUG> = `<Title> | ${TITLE_CONSTANTS.TITLE_META}`;
 export const META_DESC_<UPPER_SLUG> = `<Description>`;
 ```
 
-…then import and use them in `+page.svelte` instead of inline strings.
+…then import and use them in `+page.svelte` (see skeleton above).
 
-## 4. Add a drawer menu entry (if user-facing)
+## 4. Add a homepage entry
 
-Edit `src/lib/DrawerMenus.svelte`:
-
-```svelte
-<li class="sidebar__item">
-	<a
-		data-sveltekit-reload
-		href="/<slug>/"
-		class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
-	>
-		<<Icon> />
-		{$t('navigation.<key>')}
-	</a>
-</li>
-```
-
-If no existing icon in `src/lib/icons/` fits, add one by copying
-`HashtagIcon.svelte` and swapping the `<path>` (Heroicons paths work
-well). Keep the `size` and `class` props.
+New features are surfaced from the homepage (`src/routes/+page.svelte`),
+not from the navigation drawer. Find the features list on the homepage
+and add an entry card or link for the new page there. Follow the same
+pattern used by existing features on the homepage.
 
 ## 5. Add translations (BOTH files)
 
@@ -138,9 +140,13 @@ Add:
 Indonesian is the fallback locale; missing keys in `en.json` will fall
 through to `id.json`. Still add both for cleanliness.
 
-In components: `import { t } from '$lib/translations/store'` and use
-`{$t('feature.title')}` (reactive). For non-component code, import
-from `$lib/translations` instead.
+Rules:
+
+- **Never** use inline locale ternaries (`isEnglish ? 'x' : 'y'`).
+- **Reuse before adding.** Check both JSON files for an existing key
+  that fits (`common.*`, `navigation.*`, etc.) before creating a new one.
+- Interpolation: `{{name}}` placeholders, e.g.
+  `$t('feature.count', { n: total })`.
 
 ## 6. Verify
 
@@ -175,7 +181,7 @@ pnpm dev
 - Toggle theme — text must remain readable on every theme.
 - Resize to a narrow viewport (~320 px) — no horizontal scroll, no
   layout breakage.
-- Click the drawer entry — it must navigate correctly.
+- Click the homepage entry — it must navigate correctly.
 - Use the Breadcrumb to navigate back to `/`.
 
 If you cannot run the dev server (e.g. headless agent without a

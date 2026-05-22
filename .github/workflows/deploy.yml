@@ -79,7 +79,7 @@ jobs:
         run: |
           echo "> Start remove unused files..."
           rm -rf .github .svelte-kit markdowns screenshoot scripts static src node_modules .husky .vscode .claude
-          rm -rf .all-contributorsrc .editorconfig .eslintignore eslint.config.js .gitignore .kodiak.toml .npmrc .prettierignore .prettierrc package.json pnpm-lock.yaml package-lock.json pnpm-workspace.yaml postcss.config.js svelte.config.js tailwind.config.js tsconfig.json vite.config.ts .env.example .nvmrc .lighthouserc.json
+          rm -rf .all-contributorsrc .editorconfig .eslintignore eslint.config.js .gitignore .kodiak.toml .npmrc .prettierignore .prettierrc package.json pnpm-lock.yaml package-lock.json pnpm-workspace.yaml postcss.config.js svelte.config.js tailwind.config.js tsconfig.json vite.config.ts .env.example .nvmrc .lighthouserc.json AGENTS.md CONTRIBUTING.md
           echo "> Copy build directory..."
           cp -r build/. ./
           rm -rf build

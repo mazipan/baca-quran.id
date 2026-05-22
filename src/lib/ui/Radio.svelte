@@ -32,7 +32,7 @@
 	for={fieldId}
 	class={`flex items-start gap-2 cursor-pointer ${disabled ? 'opacity-60 cursor-not-allowed' : ''} ${clazz}`}
 >
-	<div class="relative flex-shrink-0 mt-0.5">
+	<div class="relative flex-shrink-0 mt-0.5 w-6 h-6">
 		<input
 			id={fieldId}
 			{name}
@@ -41,12 +41,12 @@
 			type="radio"
 			bind:group
 			onchange={onChange}
-			class="peer w-5 h-5 cursor-pointer appearance-none rounded-full border border-control-accent/40 bg-control-surface transition hover:shadow-sm checked:border-control-accent focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary disabled:cursor-not-allowed"
+			class="peer w-full h-full cursor-pointer appearance-none rounded-full border border-control-accent/40 bg-control-surface transition hover:shadow-sm checked:border-control-accent focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary disabled:cursor-not-allowed"
 		/>
-		<span class="pointer-events-none absolute inset-0 flex items-center justify-center">
-			<span
-				class="w-2.5 h-2.5 rounded-full bg-control-accent opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
-			></span>
+		<span
+			class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
+		>
+			<span class="w-3 h-3 rounded-full bg-control-accent"></span>
 		</span>
 	</div>
 	<span class="flex flex-col">

@@ -11,7 +11,11 @@
 
 	let { title, open = false, id = '', children, class: clazz = '' }: Props = $props();
 
-	let isOpen = $state(open);
+	let isOpen = $state(false);
+
+	$effect(() => {
+		isOpen = open;
+	});
 
 	function toggle() {
 		isOpen = !isOpen;

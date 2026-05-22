@@ -20,9 +20,12 @@
 	let currentPlayIndex = $state(0);
 	let slideDir = $state(1);
 	let counts = $state<Record<number, number>>({});
+	let skipped = $state<Record<number, boolean>>({});
 
 	const currentItem = $derived(currentPlayIndex < total ? items[currentPlayIndex] : null);
-	const completed = $derived(items.filter((i) => (counts[i.id] ?? 0) >= i.count).length);
+	const completed = $derived(
+		items.filter((i) => (counts[i.id] ?? 0) >= i.count || skipped[i.id]).length
+	);
 	const allDone = $derived(total > 0 && completed === total);
 
 	const modeOptions = $derived([
@@ -47,8 +50,19 @@
 
 	function handleResetAll() {
 		counts = {};
+		skipped = {};
 		currentPlayIndex = 0;
 		slideDir = 1;
+	}
+
+	function handleSkip() {
+		if (currentItem) {
+			skipped = { ...skipped, [currentItem.id]: true };
+		}
+		if (currentPlayIndex < total - 1) {
+			slideDir = 1;
+			currentPlayIndex++;
+		}
 	}
 
 	function goNext() {
@@ -63,10 +77,6 @@
 			slideDir = -1;
 			currentPlayIndex--;
 		}
-	}
-
-	function isItemDone(id: number, count: number) {
-		return getCount(id) >= count;
 	}
 </script>
 
@@ -188,27 +198,6 @@
 		<!-- ===== PLAY MODE ===== -->
 	{:else if playMode}
 		<div class="flex flex-col gap-4">
-			<!-- Step indicator -->
-			<div class="flex flex-col items-center gap-2">
-				<p class="text-sm font-semibold opacity-70">
-					{isEnglish
-						? `Reading ${currentPlayIndex + 1} of ${total}`
-						: `Bacaan ke-${currentPlayIndex + 1} dari ${total}`}
-				</p>
-				<div class="flex gap-2 items-center justify-center flex-wrap">
-					{#each items as item, i}
-						{@const isDone = isItemDone(item.id, item.count)}
-						<div
-							class="rounded-full transition-all duration-300 {isDone
-								? 'w-2.5 h-2.5 bg-green-500 dark:bg-green-400'
-								: i === currentPlayIndex
-									? 'w-3.5 h-3.5 bg-teal-500 dark:bg-teal-400 ring-2 ring-teal-300/60 dark:ring-teal-600/60'
-									: 'w-2.5 h-2.5 bg-foreground/15'}"
-						></div>
-					{/each}
-				</div>
-			</div>
-
 			<!-- Card stack -->
 			<div class="relative" style="padding-bottom: 20px;">
 				{#if currentPlayIndex + 2 < total}
@@ -238,6 +227,7 @@
 									onIncrement={() => handleIncrement(currentItem.id, currentItem.count)}
 									onReset={() => handleReset(currentItem.id)}
 									onNext={goNext}
+									onSkip={handleSkip}
 								/>
 							{/if}
 						</div>

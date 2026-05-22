@@ -13,6 +13,7 @@
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
 	import asmaulHusna from '../../data/asmaul-husna';
 	import { t } from '$lib/translations/store';
+	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 
 	type ViewMode = 'grid' | 'compact' | 'playable';
 
@@ -112,6 +113,7 @@
 
 	onDestroy(stopTimer);
 
+	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);
 	const currentItem = $derived(asmaulHusna[currentIndex]);
 	const progress = $derived(((currentIndex + 1) / asmaulHusna.length) * 100);
 </script>
@@ -239,7 +241,7 @@
 
 				<!-- Translation -->
 				<div class="mt-1 text-white/75 text-[11px] leading-tight truncate">
-					{item.translation_id}
+					{isEnglish ? item.translation_en : item.translation_id}
 				</div>
 			</button>
 		{/each}
@@ -262,7 +264,7 @@
 					<div class="flex-1 min-w-0">
 						<div class="font-semibold text-sm text-foreground">{item.latin}</div>
 						<div class="text-xs text-foreground-secondary truncate">
-							{item.translation_id}
+							{isEnglish ? item.translation_en : item.translation_id}
 						</div>
 					</div>
 					<span class="font-arabic text-xl flex-shrink-0 text-foreground">{item.arabic}</span>
@@ -340,11 +342,10 @@
 						<span class="text-white text-xl font-bold tracking-wide">{currentItem.latin}</span>
 					</div>
 
-					<!-- Translations -->
-					<div class="space-y-1.5">
-						<p class="text-white/90 text-sm px-2">🇮🇩 {currentItem.translation_id}</p>
-						<p class="text-white/75 text-sm px-2">🇬🇧 {currentItem.translation_en}</p>
-					</div>
+					<!-- Translation -->
+					<p class="text-white/90 text-sm px-2">
+						{isEnglish ? currentItem.translation_en : currentItem.translation_id}
+					</p>
 
 					<!-- Playing indicator -->
 					{#if isPlaying}

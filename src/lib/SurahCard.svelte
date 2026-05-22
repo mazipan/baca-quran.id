@@ -2,14 +2,13 @@
 	import { onMount } from 'svelte';
 	import type { SurahInfoItem } from '../data/surah-info';
 	import { pinnedSurah, type PinnedSurahItem } from '../store';
-	import CardShadow from './CardShadow.svelte';
+	import GradientCard, { type PatternName } from './ui/GradientCard.svelte';
+	import IconButton from './ui/IconButton.svelte';
 	import HeartIcon from './icons/HeartIcon.svelte';
-	import Button from './ui/Button.svelte';
-	import { CONSTANTS } from './constants';
 	import HeartSolidIcon from './icons/HeartSolidIcon.svelte';
+	import { CONSTANTS } from './constants';
 	import { toast } from '../store/toast';
 	import { MADANIYAH_CODE, MAKKIYAH_MADANIYAH_TEXT } from '../data/makkiyah-madaniyah';
-	import Badge from './ui/Badge.svelte';
 	import { LANGUAGE_OPTIONS, languageStore } from './checkLanguaguage';
 	const current = $derived(languageStore);
 
@@ -18,10 +17,14 @@
 	}
 
 	let { surah }: Props = $props();
+
+	const CARD_PATTERNS: PatternName[] = ['dots', 'grid', 'diagonal', 'triangles', 'circles'];
+	const pattern = $derived(CARD_PATTERNS[surah.index % CARD_PATTERNS.length]);
 	let isSurahExistInStorage = $state(false);
 
 	let handlePinSurah = (e: MouseEvent) => {
 		e.preventDefault();
+		e.stopPropagation();
 
 		const thisItem: PinnedSurahItem = {
 			i: `${surah.index}`,
@@ -72,48 +75,59 @@
 	});
 </script>
 
-<CardShadow href={`/surah/${surah.index}/`} _as="a">
-	<div class="flex justify-between items-start">
-		<div class="flex gap-2 items-center">
-			<div class="flex flex-col items-start justify-center">
-				<span class="font-bold">{surah.latin}</span>
-				<small class="text-xs text-foreground-secondary"
-					>{surah.translation} • {surah.ayah_count} ayat</small
-				>
-			</div>
-		</div>
-
-		<div class="flex flex-col items-end justify-center">
-			<span class="text-xl font-arabic">{surah.arabic}</span>
-		</div>
-	</div>
-	<div class="mt-2 flex items-center justify-between">
-		<div class="flex items-center gap-2">
-			<div
-				class="flex items-center justify-center tracking-tighter border-2 rounded-full h-8 w-8 border-foreground"
+<GradientCard
+	gradient={surah.index}
+	{pattern}
+	as="a"
+	href={`/surah/${surah.index}/`}
+	rounded="xl"
+	padding="md"
+>
+	<!-- Top row: Arabic numeral + Arabic name + pin -->
+	<div class="flex justify-between items-center">
+		<span class="text-2xl font-bold text-white/90 leading-none font-arabic">
+			{surah.index.toLocaleString('ar-u-nu-arab', { useGrouping: false })}
+		</span>
+		<div class="flex items-center gap-1.5">
+			<span class="text-lg font-arabic text-white/95">{surah.arabic}</span>
+			<IconButton
+				variant="ghost"
+				size="sm"
+				onClick={handlePinSurah}
+				ariaLabel={isSurahExistInStorage ? 'Unpin surah' : 'Pin surah'}
+				class="relative z-10 text-white/80"
 			>
-				{surah.index.toLocaleString('ar-u-nu-arab', { useGrouping: false })}
-			</div>
-
-			{#if surah.revelation}
-				<a
-					class="z-10"
-					href={`/surah-${surah?.revelation === MADANIYAH_CODE ? 'madaniyah' : 'makkiyah'}/`}
-				>
-					<Badge color={surah?.revelation === MADANIYAH_CODE ? 'success' : 'warning'}>
-						{MAKKIYAH_MADANIYAH_TEXT[
-							surah?.revelation?.toString() as keyof typeof MAKKIYAH_MADANIYAH_TEXT
-						]}
-					</Badge>
-				</a>
-			{/if}
+				{#if isSurahExistInStorage}
+					<HeartSolidIcon class="text-red-300" />
+				{:else}
+					<HeartIcon />
+				{/if}
+			</IconButton>
 		</div>
-		<Button onClick={handlePinSurah}>
-			{#if isSurahExistInStorage}
-				<HeartSolidIcon size="sm" class="w-4 h-4 z-10 text-red-500" />
-			{:else}
-				<HeartIcon size="sm" class="w-4 h-4 z-10" />
-			{/if}
-		</Button>
 	</div>
-</CardShadow>
+
+	<!-- Latin name -->
+	<p class="mt-2 text-white font-bold text-base leading-tight">{surah.latin}</p>
+
+	<!-- Translation + ayah count -->
+	<p class="text-white/70 text-xs mt-0.5">{surah.translation} • {surah.ayah_count} ayat</p>
+
+	<!-- Revelation badge -->
+	{#if surah.revelation}
+		<div class="mt-3">
+			<a
+				class="relative z-10 inline-block"
+				href={`/surah-${surah?.revelation === MADANIYAH_CODE ? 'madaniyah' : 'makkiyah'}/`}
+				onclick={(e) => e.stopPropagation()}
+			>
+				<span
+					class="text-xs px-2 py-0.5 rounded-full bg-white/20 text-white font-medium backdrop-blur-sm"
+				>
+					{MAKKIYAH_MADANIYAH_TEXT[
+						surah?.revelation?.toString() as keyof typeof MAKKIYAH_MADANIYAH_TEXT
+					]}
+				</span>
+			</a>
+		</div>
+	{/if}
+</GradientCard>

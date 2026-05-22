@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '$lib/translations/store';
+	import Button from '$lib/ui/Button.svelte';
+	import IconButton from '$lib/ui/IconButton.svelte';
 	import CheckIcon from '$lib/icons/CheckIcon.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
 
@@ -78,14 +81,16 @@
 				{/if}
 			</div>
 			{#if !item.href}
-				<button
-					type="button"
-					onclick={onReset}
-					aria-label={isEnglish ? 'Reset this counter' : 'Reset penghitung ini'}
-					class="cursor-pointer rounded-lg p-1.5 bg-primary border border-foreground/10 hover:border-foreground/30 opacity-50 hover:opacity-100 transition"
+				<IconButton
+					onClick={onReset}
+					variant="ghost"
+					color="secondary"
+					size="sm"
+					ariaLabel={$t('tahlil.resetCounter')}
+					class="opacity-50 hover:opacity-100"
 				>
 					<ResetIcon size="sm" />
-				</button>
+				</IconButton>
 			{/if}
 		</div>
 
@@ -157,60 +162,64 @@
 					rel="noopener noreferrer"
 					class="w-full flex items-center justify-center gap-2 cursor-pointer rounded-xl px-4 py-4 text-base font-bold border-2 transition active:scale-[0.98] bg-teal-600 dark:bg-teal-700 text-white border-teal-700 dark:border-teal-600 hover:bg-teal-700 dark:hover:bg-teal-800 shadow-md"
 				>
-					📖 {isEnglish ? 'Open Surah →' : 'Buka Surat →'}
+					📖 {$t('tahlil.openSurah')}
 				</a>
-				<button
-					type="button"
-					onclick={onNext}
-					class="mt-2 w-full cursor-pointer rounded-xl px-4 py-3 text-sm font-semibold border-2 transition active:scale-[0.98] bg-primary border-foreground/20 hover:border-foreground/40"
+				<Button
+					onClick={() => onNext?.()}
+					variant="solid"
+					color="primary"
+					size="md"
+					class="mt-2 w-full justify-center active:scale-[0.98]"
 				>
-					{isEnglish ? 'Done, continue →' : 'Selesai, lanjut →'}
-				</button>
+					{$t('tahlil.doneNext')}
+				</Button>
 			{:else if done && !isLast}
-				<button
-					type="button"
-					onclick={onNext}
-					class="w-full cursor-pointer rounded-xl px-4 py-4 text-lg font-bold border-2 transition active:scale-[0.98] bg-teal-600 dark:bg-teal-700 text-white border-teal-700 dark:border-teal-600 hover:bg-teal-700 dark:hover:bg-teal-800 shadow-md"
+				<Button
+					onClick={() => onNext?.()}
+					variant="solid"
+					color="success"
+					size="lg"
+					class="w-full justify-center active:scale-[0.98]"
 				>
-					{isEnglish ? 'Next →' : 'Berikutnya →'}
-				</button>
+					{$t('tahlil.nextCard')}
+				</Button>
 			{:else if done && isLast}
 				<div
-					class="w-full rounded-xl px-4 py-4 text-lg font-bold border-2 bg-green-100 dark:bg-green-950 border-green-500 text-green-700 dark:text-green-300 text-center"
+					class="w-full rounded-xl px-4 py-4 text-lg font-bold border-2 bg-green-100 dark:bg-green-950 border-green-500 text-green-700 dark:text-green-300 flex items-center justify-center gap-2"
 				>
-					✓ {isEnglish ? 'All Complete!' : 'Semua Selesai!'}
+					<CheckIcon size="sm" />{$t('tahlil.allCompleteShort')}
 				</div>
 			{:else}
-				<button
-					type="button"
-					onclick={onIncrement}
-					aria-label={item.count > 1
-						? isEnglish
-							? `Count, ${count} of ${item.count}`
-							: `Hitung, ${count} dari ${item.count}`
-						: isEnglish
-							? 'Mark as done'
-							: 'Tandai selesai'}
-					class="w-full cursor-pointer rounded-xl px-4 py-4 text-lg font-bold border-2 transition active:scale-[0.98] bg-primary border-foreground/20 hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-foreground"
+				<Button
+					onClick={onIncrement}
+					variant="solid"
+					color="primary"
+					size="lg"
+					ariaLabel={item.count > 1
+						? $t('tahlil.countAria', { count, total: item.count })
+						: $t('tahlil.markAsDone')}
+					class="w-full justify-center active:scale-[0.98]"
 				>
 					{#if item.count > 1}
-						{isEnglish ? 'Tap (+1)' : 'Tekan (+1)'}
+						{$t('tahlil.tapPlus1')}
 						<span class="text-sm font-normal opacity-60 ml-1">
 							({remaining}
-							{isEnglish ? 'more' : 'lagi'})
+							{$t('tahlil.moreRemaining')})
 						</span>
 					{:else}
-						{isEnglish ? '✓ Done' : '✓ Selesai'}
+						<CheckIcon size="sm" />{$t('tahlil.done')}
 					{/if}
-				</button>
+				</Button>
 				{#if onSkip}
-					<button
-						type="button"
-						onclick={onSkip}
-						class="mt-2 w-full cursor-pointer rounded-xl px-4 py-2 text-sm font-medium border border-foreground/10 hover:border-foreground/25 opacity-50 hover:opacity-80 transition text-foreground/70"
+					<Button
+						onClick={() => onSkip?.()}
+						variant="outline"
+						color="secondary"
+						size="sm"
+						class="mt-2 w-full justify-center opacity-50 hover:opacity-80"
 					>
-						{isEnglish ? 'Skip this →' : 'Lewati →'}
-					</button>
+						{$t('tahlil.skip')}
+					</Button>
 				{/if}
 			{/if}
 		</div>
@@ -224,44 +233,39 @@
 					rel="noopener noreferrer"
 					class="flex-1 flex items-center justify-center gap-2 cursor-pointer rounded-lg px-4 py-3 text-sm font-semibold border-2 transition bg-teal-600 dark:bg-teal-700 text-white border-teal-700"
 				>
-					📖 {isEnglish ? 'Open Surah' : 'Buka Surat'}
+					📖 {$t('tahlil.openSurahShort')}
 				</a>
 			{:else}
-				<button
-					type="button"
-					onclick={onIncrement}
+				<Button
+					onClick={onIncrement}
 					disabled={done}
-					aria-label={done
-						? isEnglish
-							? 'Target reached'
-							: 'Target tercapai'
+					variant={done ? 'subtle' : 'solid'}
+					color={done ? 'success' : 'primary'}
+					size="md"
+					ariaLabel={done
+						? $t('tahlil.targetReached')
 						: item.count > 1
-							? isEnglish
-								? `Count, currently ${count} of ${item.count}`
-								: `Hitung, sekarang ${count} dari ${item.count}`
-							: isEnglish
-								? 'Mark as done'
-								: 'Tandai selesai'}
-					class="flex-1 cursor-pointer rounded-lg px-4 py-3 text-sm font-semibold border-2 transition active:scale-[0.98] {done
-						? 'bg-green-100 dark:bg-green-950 border-green-500 text-green-700 dark:text-green-300 cursor-not-allowed'
-						: 'bg-primary border-foreground/20 hover:border-foreground/40 focus-visible:ring-2 focus-visible:ring-foreground'}"
+							? $t('tahlil.countAriaAll', { count, total: item.count })
+							: $t('tahlil.markAsDone')}
+					class="flex-1 justify-center active:scale-[0.98]"
 				>
 					{#if done}
-						{isEnglish ? '✓ Done' : '✓ Selesai'}
+						<CheckIcon size="sm" />{$t('tahlil.done')}
 					{:else if item.count > 1}
-						{isEnglish ? `Tap (+1)` : 'Tekan (+1)'}
+						{$t('tahlil.tapPlus1')}
 					{:else}
-						{isEnglish ? 'Mark Done' : 'Tandai Selesai'}
+						{$t('tahlil.markDone')}
 					{/if}
-				</button>
-				<button
-					type="button"
-					onclick={onReset}
-					aria-label={isEnglish ? 'Reset this counter' : 'Reset penghitung ini'}
-					class="cursor-pointer rounded-lg px-3 py-2 bg-secondary border-2 border-foreground/20 hover:border-foreground/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+				</Button>
+				<IconButton
+					onClick={onReset}
+					variant="outline"
+					color="secondary"
+					size="md"
+					ariaLabel={$t('tahlil.resetCounter')}
 				>
 					<ResetIcon size="md" />
-				</button>
+				</IconButton>
 			{/if}
 		</div>
 	{/if}
