@@ -2,6 +2,9 @@
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import CardShadow from '$lib/CardShadow.svelte';
+	import MorningBanner from '$lib/illustrations/MorningBanner.svelte';
+	import EveningBanner from '$lib/illustrations/EveningBanner.svelte';
+	import PrayerTimeIllustration from '$lib/illustrations/PrayerTimeIllustration.svelte';
 	import Tabs from '$lib/ui/Tabs.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import IconButton from '$lib/ui/IconButton.svelte';
@@ -71,7 +74,7 @@
 	let showSheet = $state(false);
 	let demoTab2 = $state('morning');
 	let demoTab3 = $state('option-b');
-	let activeChip = $state<'all' | 'makkiyah' | 'madaniyah'>('all');
+	let activeChip = $state<'neutral' | 'blue' | 'green' | 'orange' | 'red' | 'purple'>('neutral');
 	let bannerDismissed = $state(false);
 	let demoText = $state('');
 	let demoTextarea = $state('');
@@ -79,6 +82,7 @@
 	let demoCheckbox = $state(true);
 	let demoCheckboxB = $state(false);
 	let demoRadio = $state<'id' | 'en' | 'ar'>('id');
+	let demoIllustrationHour = $state(9);
 
 	function showToast(type: 'info' | 'success' | 'error' | 'warn') {
 		const messageById = {
@@ -162,6 +166,7 @@
 		{ id: 'toasts', label: $t('designSystem.section.toasts') },
 		{ id: 'breadcrumb', label: $t('designSystem.section.breadcrumb') },
 		{ id: 'cards', label: $t('designSystem.section.cards') },
+		{ id: 'illustrations', label: isEnglish ? 'Illustrations' : 'Ilustrasi' },
 		{ id: 'icons', label: $t('designSystem.section.icons') }
 	]);
 </script>
@@ -765,31 +770,50 @@
 			<div class="flex flex-col gap-2">
 				<p class="text-xs opacity-75">{$t('designSystem.chips.interactive')}</p>
 				<div class="flex flex-wrap items-center gap-2">
-					<Chip color="blue" active={activeChip === 'all'} onClick={() => (activeChip = 'all')}>
-						{isEnglish ? 'All' : 'Semua'}
-					</Chip>
 					<Chip
-						color="green"
-						active={activeChip === 'makkiyah'}
-						onClick={() => (activeChip = 'makkiyah')}
+						color="neutral"
+						active={activeChip === 'neutral'}
+						onClick={() => (activeChip = 'neutral')}>Neutral</Chip
 					>
-						Makkiyah
-					</Chip>
+					<Chip color="blue" active={activeChip === 'blue'} onClick={() => (activeChip = 'blue')}
+						>Blue</Chip
+					>
+					<Chip color="green" active={activeChip === 'green'} onClick={() => (activeChip = 'green')}
+						>Green</Chip
+					>
 					<Chip
 						color="orange"
-						active={activeChip === 'madaniyah'}
-						onClick={() => (activeChip = 'madaniyah')}
+						active={activeChip === 'orange'}
+						onClick={() => (activeChip = 'orange')}>Orange</Chip
 					>
-						Madaniyah
-					</Chip>
+					<Chip color="red" active={activeChip === 'red'} onClick={() => (activeChip = 'red')}
+						>Red</Chip
+					>
+					<Chip
+						color="purple"
+						active={activeChip === 'purple'}
+						onClick={() => (activeChip = 'purple')}>Purple</Chip
+					>
 				</div>
 				<p class="text-xs opacity-75">
 					{isEnglish ? 'Active: ' : 'Aktif: '}<code>{activeChip}</code>
 				</p>
 			</div>
 
+			<div class="flex flex-col gap-2">
+				<p class="text-xs opacity-75">{isEnglish ? 'Shape variants' : 'Varian bentuk'}</p>
+				<div class="flex flex-wrap items-center gap-2">
+					<Chip color="blue" shape="pill">pill (default)</Chip>
+					<Chip color="blue" shape="rounded">rounded</Chip>
+				</div>
+				<div class="flex flex-wrap items-center gap-2">
+					<Chip color="green" shape="pill" size="sm">pill sm</Chip>
+					<Chip color="green" shape="rounded" size="sm">rounded sm</Chip>
+				</div>
+			</div>
+
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Chip color="blue" size="md" active onClick={fn}>label</Chip>'}</code
+					>{'<Chip color="neutral | blue | green | orange | red | purple"\n      size="sm | md"\n      shape="pill | rounded"\n      active\n      onClick={fn}>label</Chip>'}</code
 				></pre>
 		</CardShadow>
 	</section>
@@ -1119,6 +1143,101 @@
 		<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
 				>{'<Card variant="filled | outline | elevated" padding="none | sm | md | lg" title="..." subtitle="...">\n  body\n  {#snippet header()}...{/snippet}\n  {#snippet footer()}...{/snippet}\n</Card>'}</code
 			></pre>
+	</section>
+
+	<!-- ILLUSTRATIONS -->
+	<section id="illustrations" class="flex flex-col gap-3 scroll-mt-4">
+		<h2 class="text-xl font-bold">{isEnglish ? 'Illustrations' : 'Ilustrasi'}</h2>
+		<p class="text-sm opacity-75">
+			{isEnglish
+				? 'Inline SVG illustration components. All are decorative (aria-hidden) and scale to their container width with a fixed 16:9 aspect ratio.'
+				: 'Komponen ilustrasi SVG inline. Semua bersifat dekoratif (aria-hidden) dan menyesuaikan lebar kontainer dengan rasio aspek 16:9.'}
+		</p>
+
+		<CardShadow class="flex flex-col gap-3">
+			<h3 class="font-semibold">MorningBanner</h3>
+			<p class="text-xs opacity-75">
+				{isEnglish
+					? 'Sunrise scene. Used in Dzikir Pagi dan Petang.'
+					: 'Pemandangan matahari terbit. Dipakai di Dzikir Pagi dan Petang.'}
+			</p>
+			<MorningBanner />
+			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
+					>{'import MorningBanner from \'$lib/illustrations/MorningBanner.svelte\';\n\n<MorningBanner class="..." />'}</code
+				></pre>
+		</CardShadow>
+
+		<CardShadow class="flex flex-col gap-3">
+			<h3 class="font-semibold">EveningBanner</h3>
+			<p class="text-xs opacity-75">
+				{isEnglish
+					? 'Night sky scene with crescent moon and lantern. Used in Dzikir Pagi dan Petang.'
+					: 'Pemandangan langit malam dengan bulan sabit dan lentera. Dipakai di Dzikir Pagi dan Petang.'}
+			</p>
+			<EveningBanner />
+			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
+					>{'import EveningBanner from \'$lib/illustrations/EveningBanner.svelte\';\n\n<EveningBanner class="..." />'}</code
+				></pre>
+		</CardShadow>
+
+		<CardShadow class="flex flex-col gap-3">
+			<h3 class="font-semibold">PrayerTimeIllustration</h3>
+			<p class="text-xs opacity-75">
+				{isEnglish
+					? 'Time-aware scene that renders 6 different skies based on the hours prop (0–23). Used in Jadwal Sholat.'
+					: 'Ilustrasi waktu yang merender 6 langit berbeda berdasarkan prop hours (0–23). Dipakai di Jadwal Sholat.'}
+			</p>
+
+			<div class="flex flex-col gap-1">
+				<label class="text-xs opacity-75" for="demo-hour">
+					{isEnglish ? 'Live preview — hour:' : 'Pratinjau langsung — jam:'}
+					<code class="ml-1">{demoIllustrationHour}:00</code>
+				</label>
+				<input
+					id="demo-hour"
+					type="range"
+					min="0"
+					max="23"
+					step="1"
+					bind:value={demoIllustrationHour}
+					class="w-full accent-foreground"
+				/>
+			</div>
+			<PrayerTimeIllustration hours={demoIllustrationHour} />
+
+			<div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-1">
+				{#each [{ label: 'fajr', hours: 5, range: '04–06' }, { label: 'morning', hours: 9, range: '06–12' }, { label: 'noon', hours: 13, range: '12–15' }, { label: 'afternoon', hours: 16, range: '15–18' }, { label: 'sunset', hours: 19, range: '18–20' }, { label: 'night', hours: 22, range: '20–04' }] as period}
+					<div class="flex flex-col gap-1">
+						<PrayerTimeIllustration hours={period.hours} />
+						<div class="flex justify-between text-[10px] opacity-60">
+							<code>{period.label}</code>
+							<span>{period.range}</span>
+						</div>
+					</div>
+				{/each}
+			</div>
+
+			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
+					>{'import PrayerTimeIllustration from \'$lib/illustrations/PrayerTimeIllustration.svelte\';\n\n<PrayerTimeIllustration hours={currentHour} class="..." />\n// hours 0-23 → fajr | morning | noon | afternoon | sunset | night'}</code
+				></pre>
+		</CardShadow>
+
+		<CardShadow class="flex flex-col gap-3">
+			<h3 class="font-semibold">
+				{isEnglish ? 'Error illustration (static SVG)' : 'Ilustrasi error (SVG statis)'}
+			</h3>
+			<p class="text-xs opacity-75">
+				{isEnglish
+					? 'Used on error / empty state pages. Located at /images/illustrasion-error.svg.'
+					: 'Dipakai di halaman error / status kosong. Lokasi: /images/illustrasion-error.svg.'}
+			</p>
+			<div class="flex justify-center">
+				<img src="/images/illustrasion-error.svg" alt="Error illustration" class="w-48 h-auto" />
+			</div>
+			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
+					>{'<img src="/images/illustrasion-error.svg" alt="..." class="w-48 h-auto" />'}</code
+				></pre>
+		</CardShadow>
 	</section>
 
 	<!-- ICONS -->

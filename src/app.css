@@ -5,6 +5,8 @@
 	--color-secondary: #e2e8f0;
 	--color-foreground: #1e293b;
 	--color-foreground-secondary: #64748b;
+	--color-control-surface: #ffffff;
+	--color-control-accent: #1e293b;
 }
 
 /* Dark theme */
@@ -13,6 +15,8 @@ html.dark {
 	--color-secondary: #1e293b;
 	--color-foreground: #f1f5f9;
 	--color-foreground-secondary: #cbd5e1;
+	--color-control-surface: #334155;
+	--color-control-accent: #f1f5f9;
 }
 
 /* Forest theme */
@@ -21,6 +25,8 @@ html.forest {
 	--color-secondary: #014c4f;
 	--color-foreground: #d0e7d2;
 	--color-foreground-secondary: #d1d5db;
+	--color-control-surface: #e8f5e9;
+	--color-control-accent: #016a70;
 }
 
 /* Pinky theme */
@@ -29,6 +35,8 @@ html.pinky {
 	--color-secondary: #db2777;
 	--color-foreground: #fdf2f8;
 	--color-foreground-secondary: #fbcfe8;
+	--color-control-surface: #fdf2f8;
+	--color-control-accent: #be185d;
 }
 
 /* Violet theme */
@@ -37,6 +45,8 @@ html.violet {
 	--color-secondary: #6d28d9;
 	--color-foreground: #faf5ff;
 	--color-foreground-secondary: #ede9fe;
+	--color-control-surface: #faf5ff;
+	--color-control-accent: #7c3aed;
 }
 
 /* Halloween theme */
@@ -45,6 +55,8 @@ html.halloween {
 	--color-secondary: #16213e;
 	--color-foreground: #ff6b35;
 	--color-foreground-secondary: #ff8c42;
+	--color-control-surface: #2a2a3e;
+	--color-control-accent: #ff6b35;
 }
 
 /* Fall theme */
@@ -53,6 +65,8 @@ html.fall {
 	--color-secondary: #78350f;
 	--color-foreground: #fef3c7;
 	--color-foreground-secondary: #fde68a;
+	--color-control-surface: #fff8e1;
+	--color-control-accent: #92400e;
 }
 
 /* Pastel theme */
@@ -61,6 +75,8 @@ html.pastel {
 	--color-secondary: #ffbdbd;
 	--color-foreground: #1a202c;
 	--color-foreground-secondary: #2d3748;
+	--color-control-surface: #ffffff;
+	--color-control-accent: #1a202c;
 }
 
 /* Neon theme */
@@ -69,6 +85,8 @@ html.neon {
 	--color-secondary: #000000;
 	--color-foreground: #ffff00;
 	--color-foreground-secondary: #ffff80;
+	--color-control-surface: #1a2642;
+	--color-control-accent: #ffff00;
 }
 
 @font-face {

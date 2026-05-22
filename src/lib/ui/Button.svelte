@@ -1,5 +1,5 @@
 <script lang="ts">
-	type Variant = 'solid' | 'subtle' | 'outline';
+	type Variant = 'solid' | 'subtle' | 'outline' | 'elevated';
 	type Color = 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger';
 	type Size = 'sm' | 'md' | 'lg';
 
@@ -41,6 +41,19 @@
 			success: 'bg-green-600 text-white hover:bg-green-700',
 			warning: 'bg-orange-500 text-white hover:bg-orange-600',
 			danger: 'bg-red-600 text-white hover:bg-red-700'
+		},
+		elevated: {
+			primary:
+				'bg-primary text-foreground border border-foreground/20 hover:bg-secondary shadow-md active:shadow-sm active:translate-y-px',
+			secondary:
+				'bg-secondary text-foreground border border-foreground/20 hover:opacity-90 shadow-md active:shadow-sm active:translate-y-px',
+			info: 'bg-blue-600 text-white hover:bg-blue-700 shadow-md active:shadow-sm active:translate-y-px',
+			success:
+				'bg-green-600 text-white hover:bg-green-700 shadow-md active:shadow-sm active:translate-y-px',
+			warning:
+				'bg-orange-500 text-white hover:bg-orange-600 shadow-md active:shadow-sm active:translate-y-px',
+			danger:
+				'bg-red-600 text-white hover:bg-red-700 shadow-md active:shadow-sm active:translate-y-px'
 		},
 		subtle: {
 			primary: 'bg-primary text-foreground hover:opacity-80',
