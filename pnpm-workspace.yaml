@@ -1,2 +1,9 @@
-overrides:
-  cookie@<0.7.0: '>=0.7.0'
+savePrefix: ''
+blockExoticSubdeps: true
+minimumReleaseAge: 1440 # In minutes -- 1440 minutes = 1 day
+trustPolicy: 'no-downgrade'
+trustPolicyExclude:
+  - chokidar@4.0.3
+allowBuilds:
+  '@firebase/util': true
+  protobufjs: true

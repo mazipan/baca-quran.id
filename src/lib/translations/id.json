@@ -200,6 +200,8 @@
 			"title": "Daftar Isi"
 		},
 		"section": {
+			"gradientCards": "Kartu Gradien",
+			"gradientCardsDesc": "Kartu dengan latar gradien bawaan dan dekorasi sudut. Mendukung 10 preset warna, mode interaktif (button/link), dan pemilihan gradien berbasis indeks.",
 			"colors": "Warna & Token",
 			"colorsDesc": "Token warna inti yang dipakai untuk latar, teks, dan pembatas di seluruh tema.",
 			"themes": "Tema",
@@ -318,6 +320,43 @@
 		"icons": {
 			"sizes": "Ukuran",
 			"gallery": "Galeri Ikon"
+		},
+		"gradientCards": {
+			"presets": "Preset Gradien",
+			"interactive": "Interaktif (button / link)",
+			"withoutDecorative": "Tanpa dekorasi lingkaran",
+			"indexBased": "Pemilihan berbasis indeks — berguna untuk daftar"
 		}
+	},
+	"tahlil": {
+		"progress": "Progress",
+		"complete": "selesai!",
+		"resetAll": "Reset semua",
+		"compactModeAria": "Mode ringkas: Arab saja",
+		"allCompleteTitle": "Tahlil Selesai!",
+		"allCompleteDesc": "Kamu telah menyelesaikan semua {{total}} bacaan tahlil",
+		"readingsCompleted": "Bacaan selesai",
+		"startAgain": "↺ Mulai lagi",
+		"showAllReadings": "📋 Tampilkan semua bacaan",
+		"readingProgress": "Bacaan ke-{{current}} dari {{total}}",
+		"modeOneByOne": "🎯 Satu per Satu",
+		"modeShowAll": "📋 Tampilkan Semua",
+		"next": "Berikutnya",
+		"source": "Sumber",
+		"resetCounter": "Reset penghitung ini",
+		"openSurah": "Buka Surat →",
+		"openSurahShort": "Buka Surat",
+		"doneNext": "Selesai, lanjut →",
+		"nextCard": "Berikutnya →",
+		"allCompleteShort": "Semua Selesai!",
+		"countAria": "Hitung, {{count}} dari {{total}}",
+		"countAriaAll": "Hitung, sekarang {{count}} dari {{total}}",
+		"markAsDone": "Tandai selesai",
+		"tapPlus1": "Tekan (+1)",
+		"moreRemaining": "lagi",
+		"skip": "Lewati →",
+		"done": "Selesai",
+		"targetReached": "Target tercapai",
+		"markDone": "Tandai Selesai"
 	}
 }

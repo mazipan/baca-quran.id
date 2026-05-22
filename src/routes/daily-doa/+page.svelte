@@ -59,7 +59,7 @@
 </div>
 
 <!-- Category chip filter row -->
-<div class="px-4 mb-4 flex gap-2 overflow-x-auto pb-2">
+<div class="px-4 py-2 mb-4 flex gap-2 overflow-x-auto">
 	<Chip onClick={() => setCategory(null)} active={activeCategory === null} class="flex-shrink-0">
 		{$t('daily-doa.filterAll')}
 	</Chip>

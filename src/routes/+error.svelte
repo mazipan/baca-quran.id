@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import ErrorIllustration from '$lib/illustrations/ErrorIllustration.svelte';
 	import { t } from '$lib/translations/store';
 </script>
 
@@ -13,11 +14,7 @@
 			{$page?.error?.message || $t('common.unknownError')}
 		</span>
 	</p>
-	<img
-		src="/images/illustrasion-error.svg"
-		alt="The monsters eating your page"
-		class="w-[80%] mt-8 mb-8"
-	/>
+	<ErrorIllustration class="w-[80%] mt-8 mb-8" />
 	<Button
 		onClick={() => {
 			window.location.assign('/');

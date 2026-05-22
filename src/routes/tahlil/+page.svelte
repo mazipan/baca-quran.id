@@ -4,14 +4,15 @@
 	import SeoText from '$lib/SeoText.svelte';
 	import ReadingCard from '$lib/ReadingCard.svelte';
 	import Tabs from '$lib/ui/Tabs.svelte';
+	import Button from '$lib/ui/Button.svelte';
+	import BookOpenIcon from '$lib/icons/BookOpenIcon.svelte';
+	import ReactangleStackIcon from '$lib/icons/ReactangleStackIcon.svelte';
 	import { META_DESC_TAHLIL, META_TITLE_TAHLIL, TITLE_CONSTANTS } from '$lib/constants';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { t } from '$lib/translations/store';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import tahlil from '../../data/tahlil';
-
-	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);
+	import IconButton from '$lib/ui/IconButton.svelte';
 
 	const items = tahlil.data;
 	const total = items.length;
@@ -30,8 +31,8 @@
 	const allDone = $derived(total > 0 && completed === total);
 
 	const modeOptions = $derived([
-		{ value: 'play', label: isEnglish ? '🎯 One by One' : '🎯 Satu per Satu' },
-		{ value: 'all', label: isEnglish ? '📋 Show All' : '📋 Tampilkan Semua' }
+		{ value: 'play', label: $t('tahlil.modeOneByOne') },
+		{ value: 'all', label: $t('tahlil.modeShowAll') }
 	]);
 
 	function getCount(id: number) {
@@ -79,11 +80,6 @@
 			currentPlayIndex--;
 		}
 	}
-
-	function isItemDone(id: number, count: number, href?: string) {
-		if (href) return false; // link items never "done" for progress dots
-		return (counts[id] ?? 0) >= count;
-	}
 </script>
 
 <svelte:head>
@@ -113,7 +109,7 @@
 		<div class="flex items-center justify-between gap-3">
 			<div>
 				<p class="text-sm opacity-70">
-					{isEnglish ? 'Progress' : 'Progress'}
+					{$t('tahlil.progress')}
 				</p>
 				<p
 					class="font-bold text-lg tabular-nums {allDone
@@ -122,17 +118,28 @@
 				>
 					{completed} / {total}
 					{#if allDone}
-						<span class="text-sm font-normal">— {isEnglish ? 'complete!' : 'selesai!'} 🎉</span>
+						<span class="text-sm font-normal">— {$t('tahlil.complete')} 🎉</span>
 					{/if}
 				</p>
 			</div>
-			<button
-				type="button"
-				onclick={handleResetAll}
-				class="cursor-pointer rounded-lg px-3 py-2 text-xs font-semibold bg-primary border-2 border-foreground/20 hover:border-foreground/40 transition"
-			>
-				{isEnglish ? 'Reset all' : 'Reset semua'}
-			</button>
+			<div class="flex gap-2">
+				<Button onClick={handleResetAll} variant="solid" color="primary" size="md">
+					{$t('tahlil.resetAll')}
+				</Button>
+				<IconButton
+					onClick={() => (compact = !compact)}
+					variant="outline"
+					color="primary"
+					size="md"
+					ariaLabel={$t('tahlil.compactModeAria')}
+				>
+					{#if compact}
+						<BookOpenIcon size="sm" />
+					{:else}
+						<ReactangleStackIcon size="sm" />
+					{/if}
+				</IconButton>
+			</div>
 		</div>
 		<div class="w-full bg-primary rounded-full h-2 overflow-hidden">
 			<div
@@ -156,16 +163,6 @@
 					}}
 				/>
 			</div>
-			<button
-				type="button"
-				onclick={() => (compact = !compact)}
-				title={isEnglish ? 'Compact mode: Arabic only' : 'Mode ringkas: Arab saja'}
-				class="shrink-0 cursor-pointer rounded-lg px-3 py-2 text-xs font-semibold border-2 transition {compact
-					? 'border-teal-500 bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300'
-					: 'border-foreground/20 bg-primary hover:border-foreground/40 opacity-70 hover:opacity-100'}"
-			>
-				{compact ? '🔤' : 'أ'}
-			</button>
 		</div>
 	{/if}
 
@@ -181,12 +178,10 @@
 			<div class="flex flex-col gap-2">
 				<h2 class="text-3xl font-bold">Alhamdulillah! 🎉</h2>
 				<p class="text-xl font-semibold">
-					{isEnglish ? 'Tahlil Complete!' : 'Tahlil Selesai!'}
+					{$t('tahlil.allCompleteTitle')}
 				</p>
 				<p class="text-sm opacity-70 max-w-xs mx-auto">
-					{isEnglish
-						? `You have completed all ${total} tahlil readings`
-						: `Kamu telah menyelesaikan semua ${total} bacaan tahlil`}
+					{$t('tahlil.allCompleteDesc', { total })}
 				</p>
 			</div>
 			<div
@@ -196,56 +191,36 @@
 					>{total}</span
 				>
 				<span class="text-sm text-green-700 dark:text-green-300 mt-1">
-					{isEnglish ? 'Readings completed' : 'Bacaan selesai'}
+					{$t('tahlil.readingsCompleted')}
 				</span>
 			</div>
 			<div class="flex flex-col gap-3 w-full">
-				<button
-					type="button"
-					onclick={handleResetAll}
-					class="w-full cursor-pointer rounded-xl px-4 py-3 font-semibold bg-primary border-2 border-foreground/20 hover:border-foreground/40 active:scale-[0.98] transition"
+				<Button
+					onClick={handleResetAll}
+					variant="solid"
+					color="primary"
+					size="lg"
+					class="w-full justify-center active:scale-[0.98]"
 				>
-					{isEnglish ? '↺ Start again' : '↺ Mulai lagi'}
-				</button>
-				<button
-					type="button"
-					onclick={() => {
+					{$t('tahlil.startAgain')}
+				</Button>
+				<Button
+					onClick={() => {
 						playMode = false;
 					}}
-					class="w-full cursor-pointer rounded-xl px-4 py-3 font-semibold border-2 border-foreground/20 hover:border-foreground/40 active:scale-[0.98] transition text-sm opacity-70"
+					variant="outline"
+					color="secondary"
+					size="lg"
+					class="w-full justify-center opacity-70 active:scale-[0.98]"
 				>
-					{isEnglish ? '📋 Show all readings' : '📋 Tampilkan semua bacaan'}
-				</button>
+					{$t('tahlil.showAllReadings')}
+				</Button>
 			</div>
 		</div>
 
 		<!-- ===== PLAY MODE ===== -->
 	{:else if playMode}
 		<div class="flex flex-col gap-4">
-			<!-- Step indicator -->
-			<div class="flex flex-col items-center gap-2">
-				<p class="text-sm font-semibold opacity-70">
-					{isEnglish
-						? `Reading ${currentPlayIndex + 1} of ${total}`
-						: `Bacaan ke-${currentPlayIndex + 1} dari ${total}`}
-				</p>
-				<div class="flex gap-1.5 items-center justify-center flex-wrap">
-					{#each items as item, i}
-						{@const isDone = isItemDone(item.id, item.count, item.href)}
-						{@const isSkipped = !!skipped[item.id]}
-						<div
-							class="rounded-full transition-all duration-300 {isDone
-								? 'w-2.5 h-2.5 bg-green-500 dark:bg-green-400'
-								: isSkipped
-									? 'w-2.5 h-2.5 bg-foreground/25'
-									: i === currentPlayIndex
-										? 'w-3.5 h-3.5 bg-teal-500 dark:bg-teal-400 ring-2 ring-teal-300/60 dark:ring-teal-600/60'
-										: 'w-2 h-2 bg-foreground/15'}"
-						></div>
-					{/each}
-				</div>
-			</div>
-
 			<!-- Card stack -->
 			<div class="relative" style="padding-bottom: 20px;">
 				{#if currentPlayIndex + 2 < total}
@@ -286,22 +261,24 @@
 
 			<!-- Prev / Next navigation -->
 			<div class="flex items-center justify-between">
-				<button
-					type="button"
-					onclick={goPrev}
+				<Button
+					onClick={goPrev}
+					variant="outline"
+					color="secondary"
+					size="sm"
 					disabled={currentPlayIndex === 0}
-					class="rounded-lg px-3 py-2 text-xs font-semibold border border-foreground/15 hover:border-foreground/30 disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer transition"
 				>
-					← {isEnglish ? 'Previous' : 'Sebelumnya'}
-				</button>
-				<button
-					type="button"
-					onclick={goNext}
+					← {$t('common.previous')}
+				</Button>
+				<Button
+					onClick={goNext}
+					variant="outline"
+					color="secondary"
+					size="sm"
 					disabled={currentPlayIndex >= total - 1}
-					class="rounded-lg px-3 py-2 text-xs font-semibold border border-foreground/15 hover:border-foreground/30 disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer transition"
 				>
-					{isEnglish ? 'Next' : 'Berikutnya'} →
-				</button>
+					{$t('tahlil.next')} →
+				</Button>
 			</div>
 		</div>
 
@@ -322,7 +299,7 @@
 
 	<!-- Source -->
 	<p class="text-xs opacity-40 text-center mt-2">
-		{isEnglish ? 'Source' : 'Sumber'}: {tahlil.basedOn}
+		{$t('tahlil.source')}: {tahlil.basedOn}
 	</p>
 </div>
 

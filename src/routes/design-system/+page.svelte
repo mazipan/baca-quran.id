@@ -13,6 +13,12 @@
 	import Collapsible from '$lib/ui/Collapsible.svelte';
 	import BottomSheet from '$lib/ui/BottomSheet.svelte';
 	import Card from '$lib/ui/Card.svelte';
+	import GradientCard, {
+		GRADIENTS,
+		PATTERNS,
+		type GradientName,
+		type PatternName
+	} from '$lib/ui/GradientCard.svelte';
 	import Banner from '$lib/ui/Banner.svelte';
 	import Input from '$lib/ui/Input.svelte';
 	import Textarea from '$lib/ui/Textarea.svelte';
@@ -27,6 +33,7 @@
 	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 	import ArrowUpTray from '$lib/icons/ArrowUpTray.svelte';
+	import BookOpenIcon from '$lib/icons/BookOpenIcon.svelte';
 	import BookmarkIcon from '$lib/icons/BookmarkIcon.svelte';
 	import BookmarkSlashIcon from '$lib/icons/BookmarkSlashIcon.svelte';
 	import BookmarkSolidIcon from '$lib/icons/BookmarkSolidIcon.svelte';
@@ -65,6 +72,7 @@
 	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
 	import SpeakerXMarkIcon from '$lib/icons/SpeakerXMarkIcon.svelte';
 	import SwatchIcon from '$lib/icons/SwatchIcon.svelte';
+	import ReactangleStackIcon from '$lib/icons/ReactangleStackIcon.svelte';
 	import XMarkIcon from '$lib/icons/XMarkIcon.svelte';
 
 	import type { IconSize } from '$lib/icons/utils';
@@ -101,6 +109,7 @@
 		{ name: 'ArrowLeft', Comp: ArrowLeftIcon },
 		{ name: 'ArrowRight', Comp: ArrowRightIcon },
 		{ name: 'ArrowUpTray', Comp: ArrowUpTray },
+		{ name: 'BookOpen', Comp: BookOpenIcon },
 		{ name: 'Bookmark', Comp: BookmarkIcon },
 		{ name: 'BookmarkSlash', Comp: BookmarkSlashIcon },
 		{ name: 'BookmarkSolid', Comp: BookmarkSolidIcon },
@@ -130,6 +139,7 @@
 		{ name: 'Pause', Comp: PauseIcon },
 		{ name: 'Play', Comp: PlayIcon },
 		{ name: 'PresentationChart', Comp: PresentationChartIcon },
+		{ name: 'ReactangleStack', Comp: ReactangleStackIcon },
 		{ name: 'Reset', Comp: ResetIcon },
 		{ name: 'Search', Comp: SearchIcon },
 		{ name: 'Setting', Comp: SettingIcon },
@@ -166,6 +176,7 @@
 		{ id: 'toasts', label: $t('designSystem.section.toasts') },
 		{ id: 'breadcrumb', label: $t('designSystem.section.breadcrumb') },
 		{ id: 'cards', label: $t('designSystem.section.cards') },
+		{ id: 'gradient-cards', label: $t('designSystem.section.gradientCards') },
 		{ id: 'illustrations', label: isEnglish ? 'Illustrations' : 'Ilustrasi' },
 		{ id: 'icons', label: $t('designSystem.section.icons') }
 	]);
@@ -1142,6 +1153,98 @@
 
 		<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
 				>{'<Card variant="filled | outline | elevated" padding="none | sm | md | lg" title="..." subtitle="...">\n  body\n  {#snippet header()}...{/snippet}\n  {#snippet footer()}...{/snippet}\n</Card>'}</code
+			></pre>
+	</section>
+
+	<!-- GRADIENT CARDS -->
+	<section id="gradient-cards" class="flex flex-col gap-3 scroll-mt-4">
+		<h2 class="text-xl font-bold">{$t('designSystem.section.gradientCards')}</h2>
+		<p class="text-sm opacity-75">{$t('designSystem.section.gradientCardsDesc')}</p>
+
+		<h3 class="text-md font-semibold mt-2">{$t('designSystem.gradientCards.presets')}</h3>
+		<div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+			{#each Object.keys(GRADIENTS) as name}
+				<GradientCard gradient={name as GradientName} padding="sm">
+					<p class="text-white font-semibold text-xs">{name}</p>
+				</GradientCard>
+			{/each}
+		</div>
+
+		<h3 class="text-md font-semibold mt-2">{$t('designSystem.gradientCards.interactive')}</h3>
+		<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+			<GradientCard gradient="emerald" as="button" onClick={() => {}} padding="md">
+				<p class="text-white font-semibold text-sm">button</p>
+				<p class="text-white/70 text-xs mt-0.5">hover / active</p>
+			</GradientCard>
+			<GradientCard gradient="blue" as="a" href="/design-system/" padding="md">
+				<p class="text-white font-semibold text-sm">link</p>
+				<p class="text-white/70 text-xs mt-0.5">hover / active</p>
+			</GradientCard>
+			<GradientCard gradient="violet" rounded="lg" padding="md">
+				<p class="text-white font-semibold text-sm">rounded=lg</p>
+			</GradientCard>
+			<GradientCard gradient="rose" rounded="3xl" padding="md">
+				<p class="text-white font-semibold text-sm">rounded=3xl</p>
+			</GradientCard>
+		</div>
+
+		<h3 class="text-md font-semibold mt-2">{$t('designSystem.gradientCards.withoutDecorative')}</h3>
+		<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+			{#each ['amber', 'cyan', 'lime', 'fuchsia'] as name}
+				<GradientCard gradient={name as GradientName} decorative={false} padding="sm">
+					<p class="text-white font-semibold text-xs">{name}</p>
+				</GradientCard>
+			{/each}
+		</div>
+
+		<h3 class="text-md font-semibold mt-2">{$t('designSystem.gradientCards.indexBased')}</h3>
+		<div class="grid grid-cols-5 sm:grid-cols-10 gap-2">
+			{#each Array.from({ length: 10 }, (_, i) => i) as i}
+				<GradientCard gradient={i} padding="sm" rounded="xl">
+					<p class="text-white font-bold text-xs text-center">{i}</p>
+				</GradientCard>
+			{/each}
+		</div>
+
+		<h3 class="text-md font-semibold mt-2">Patterns</h3>
+		<p class="text-xs opacity-75">
+			Overlay a repeating pattern on any gradient. Choose from <code>dots</code>, <code>grid</code>,
+			<code>diagonal</code>, or <code>triangles</code>.
+		</p>
+		<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+			{#each Object.keys(PATTERNS).filter((p) => p !== 'none') as name}
+				<GradientCard
+					gradient="violet"
+					pattern={name as PatternName}
+					padding="md"
+					decorative={false}
+				>
+					<p class="text-white font-semibold text-sm">{name}</p>
+					<p class="text-white/70 text-xs mt-0.5">pattern="{name}"</p>
+				</GradientCard>
+			{/each}
+		</div>
+		<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+			<GradientCard gradient="emerald" pattern="dots" padding="md">
+				<p class="text-white font-semibold text-sm">dots</p>
+				<p class="text-white/70 text-xs mt-0.5">emerald</p>
+			</GradientCard>
+			<GradientCard gradient="amber" pattern="grid" padding="md">
+				<p class="text-white font-semibold text-sm">grid</p>
+				<p class="text-white/70 text-xs mt-0.5">amber</p>
+			</GradientCard>
+			<GradientCard gradient="rose" pattern="diagonal" padding="md">
+				<p class="text-white font-semibold text-sm">diagonal</p>
+				<p class="text-white/70 text-xs mt-0.5">rose</p>
+			</GradientCard>
+			<GradientCard gradient="sky" pattern="triangles" padding="md">
+				<p class="text-white font-semibold text-sm">triangles</p>
+				<p class="text-white/70 text-xs mt-0.5">sky</p>
+			</GradientCard>
+		</div>
+
+		<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
+				>{'<GradientCard gradient="emerald">\n  <!-- content -->\n</GradientCard>\n\n<!-- with pattern -->\n<GradientCard gradient="violet" pattern="dots">\n  ...\n</GradientCard>\n\n<!-- interactive -->\n<GradientCard gradient="blue" as="button" onClick={fn}>\n  ...\n</GradientCard>\n\n<!-- index-based (cycles through 10 presets) -->\n<GradientCard gradient={index}>\n  ...\n</GradientCard>\n\n<!-- props: gradient | pattern | decorative | padding | rounded | as | href | onClick | ariaLabel | class -->'}</code
 			></pre>
 	</section>
 

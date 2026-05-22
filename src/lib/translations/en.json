@@ -200,6 +200,8 @@
 			"title": "Table of Contents"
 		},
 		"section": {
+			"gradientCards": "Gradient Cards",
+			"gradientCardsDesc": "Cards with predefined gradient backgrounds and corner decorations. Supports 10 color presets, interactive mode (button/link), and index-based gradient selection.",
 			"colors": "Colors & Tokens",
 			"colorsDesc": "Core color tokens used for backgrounds, text, and borders across every theme.",
 			"themes": "Themes",
@@ -318,6 +320,43 @@
 		"icons": {
 			"sizes": "Sizes",
 			"gallery": "Icon Gallery"
+		},
+		"gradientCards": {
+			"presets": "Gradient Presets",
+			"interactive": "Interactive (button / link)",
+			"withoutDecorative": "Without decorative circles",
+			"indexBased": "Index-based selection — useful for lists"
 		}
+	},
+	"tahlil": {
+		"progress": "Progress",
+		"complete": "complete!",
+		"resetAll": "Reset all",
+		"compactModeAria": "Compact mode: Arabic only",
+		"allCompleteTitle": "Tahlil Complete!",
+		"allCompleteDesc": "You have completed all {{total}} tahlil readings",
+		"readingsCompleted": "Readings completed",
+		"startAgain": "↺ Start again",
+		"showAllReadings": "📋 Show all readings",
+		"readingProgress": "Reading {{current}} of {{total}}",
+		"modeOneByOne": "🎯 One by One",
+		"modeShowAll": "📋 Show All",
+		"next": "Next",
+		"source": "Source",
+		"resetCounter": "Reset this counter",
+		"openSurah": "Open Surah →",
+		"openSurahShort": "Open Surah",
+		"doneNext": "Done, continue →",
+		"nextCard": "Next →",
+		"allCompleteShort": "All Complete!",
+		"countAria": "Count, {{count}} of {{total}}",
+		"countAriaAll": "Count, currently {{count}} of {{total}}",
+		"markAsDone": "Mark as done",
+		"tapPlus1": "Tap (+1)",
+		"moreRemaining": "more",
+		"skip": "Skip this →",
+		"done": "Done",
+		"targetReached": "Target reached",
+		"markDone": "Mark Done"
 	}
 }
