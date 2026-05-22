@@ -71,7 +71,7 @@
 	let showSheet = $state(false);
 	let demoTab2 = $state('morning');
 	let demoTab3 = $state('option-b');
-	let activeChip = $state<'all' | 'makkiyah' | 'madaniyah'>('all');
+	let activeChip = $state<'neutral' | 'blue' | 'green' | 'orange' | 'red' | 'purple'>('neutral');
 	let bannerDismissed = $state(false);
 	let demoText = $state('');
 	let demoTextarea = $state('');
@@ -765,31 +765,50 @@
 			<div class="flex flex-col gap-2">
 				<p class="text-xs opacity-75">{$t('designSystem.chips.interactive')}</p>
 				<div class="flex flex-wrap items-center gap-2">
-					<Chip color="blue" active={activeChip === 'all'} onClick={() => (activeChip = 'all')}>
-						{isEnglish ? 'All' : 'Semua'}
-					</Chip>
 					<Chip
-						color="green"
-						active={activeChip === 'makkiyah'}
-						onClick={() => (activeChip = 'makkiyah')}
+						color="neutral"
+						active={activeChip === 'neutral'}
+						onClick={() => (activeChip = 'neutral')}>Neutral</Chip
 					>
-						Makkiyah
-					</Chip>
+					<Chip color="blue" active={activeChip === 'blue'} onClick={() => (activeChip = 'blue')}
+						>Blue</Chip
+					>
+					<Chip color="green" active={activeChip === 'green'} onClick={() => (activeChip = 'green')}
+						>Green</Chip
+					>
 					<Chip
 						color="orange"
-						active={activeChip === 'madaniyah'}
-						onClick={() => (activeChip = 'madaniyah')}
+						active={activeChip === 'orange'}
+						onClick={() => (activeChip = 'orange')}>Orange</Chip
 					>
-						Madaniyah
-					</Chip>
+					<Chip color="red" active={activeChip === 'red'} onClick={() => (activeChip = 'red')}
+						>Red</Chip
+					>
+					<Chip
+						color="purple"
+						active={activeChip === 'purple'}
+						onClick={() => (activeChip = 'purple')}>Purple</Chip
+					>
 				</div>
 				<p class="text-xs opacity-75">
 					{isEnglish ? 'Active: ' : 'Aktif: '}<code>{activeChip}</code>
 				</p>
 			</div>
 
+			<div class="flex flex-col gap-2">
+				<p class="text-xs opacity-75">{isEnglish ? 'Shape variants' : 'Varian bentuk'}</p>
+				<div class="flex flex-wrap items-center gap-2">
+					<Chip color="blue" shape="pill">pill (default)</Chip>
+					<Chip color="blue" shape="rounded">rounded</Chip>
+				</div>
+				<div class="flex flex-wrap items-center gap-2">
+					<Chip color="green" shape="pill" size="sm">pill sm</Chip>
+					<Chip color="green" shape="rounded" size="sm">rounded sm</Chip>
+				</div>
+			</div>
+
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'<Chip color="blue" size="md" active onClick={fn}>label</Chip>'}</code
+					>{'<Chip color="neutral | blue | green | orange | red | purple"\n      size="sm | md"\n      shape="pill | rounded"\n      active\n      onClick={fn}>label</Chip>'}</code
 				></pre>
 		</CardShadow>
 	</section>
