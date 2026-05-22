@@ -32,16 +32,23 @@
 	for={fieldId}
 	class={`flex items-start gap-2 cursor-pointer ${disabled ? 'opacity-60 cursor-not-allowed' : ''} ${clazz}`}
 >
-	<input
-		id={fieldId}
-		{name}
-		{value}
-		{disabled}
-		type="radio"
-		bind:group
-		onchange={onChange}
-		class="mt-0.5 w-5 h-5 accent-foreground bg-primary border-foreground/30 focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-foreground cursor-pointer disabled:cursor-not-allowed"
-	/>
+	<div class="relative flex-shrink-0 mt-0.5">
+		<input
+			id={fieldId}
+			{name}
+			{value}
+			{disabled}
+			type="radio"
+			bind:group
+			onchange={onChange}
+			class="peer w-5 h-5 cursor-pointer appearance-none rounded-full border border-control-accent/40 bg-control-surface transition hover:shadow-sm checked:border-control-accent focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary disabled:cursor-not-allowed"
+		/>
+		<span class="pointer-events-none absolute inset-0 flex items-center justify-center">
+			<span
+				class="w-2.5 h-2.5 rounded-full bg-control-accent opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
+			></span>
+		</span>
+	</div>
 	<span class="flex flex-col">
 		{#if label}<span class="text-sm">{label}</span>{/if}
 		{@render children?.()}
