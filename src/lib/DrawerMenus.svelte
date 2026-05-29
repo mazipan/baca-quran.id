@@ -5,6 +5,8 @@
 	import InformationCircleIcon from './icons/InformationCircleIcon.svelte';
 	import ResetIcon from './icons/ResetIcon.svelte';
 	import SettingIcon from './icons/SettingIcon.svelte';
+	import DocumentTextIcon from './icons/DocumentTextIcon.svelte';
+	import GalleryIcon from './icons/GalleryIcon.svelte';
 	import SwatchIcon from './icons/SwatchIcon.svelte';
 </script>
 
@@ -48,6 +50,26 @@
 		>
 			<HashtagIcon />
 			{$t('navigation.ayatOfTheDay')}
+		</a>
+	</li>
+	<li class="sidebar__item">
+		<a
+			data-sveltekit-reload
+			href="/stories/"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
+		>
+			<GalleryIcon />
+			{$t('navigation.stories')}
+		</a>
+	</li>
+	<li class="sidebar__item">
+		<a
+			data-sveltekit-reload
+			href="/tulisan/"
+			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
+		>
+			<DocumentTextIcon />
+			{$t('navigation.tulisan')}
 		</a>
 	</li>
 	<li class="sidebar__item">
