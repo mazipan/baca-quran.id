@@ -43,7 +43,7 @@
 		"postcss": "8.5.15",
 		"postcss-load-config": "6.0.1",
 		"prettier": "3.8.3",
-		"prettier-plugin-svelte": "3.5.2",
+		"prettier-plugin-svelte": "4.0.1",
 		"schema-dts": "2.0.0",
 		"sitemaps": "2.0.6",
 		"svelte-check": "4.4.8",
