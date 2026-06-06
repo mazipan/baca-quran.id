@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: switch-ayah-theme
@@ -23,14 +24,14 @@ jobs:
   switch:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    if: github.repository == 'mazipan/baca-quran.id' || github.repository == 'mazipan-quran-offline/baca-quran.id'
+    if: github.repository == 'mazipan/baca-quran.id'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
           persist-credentials: true
-          token: ${{ secrets.PERSONAL_TOKEN || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update theme override
         env:
@@ -57,16 +58,47 @@ jobs:
           EOF
 
       - name: Commit and push
+        id: push
         env:
           THEME_INPUT: ${{ inputs.theme }}
           ACTOR: ${{ github.actor }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="chore/ayah-theme-${THEME_INPUT}-${RUN_ID}"
+          git checkout -b "$BRANCH"
           git add src/data/ayah-of-the-day-config.json
           if git diff --cached --quiet; then
             echo "No changes to commit (already on requested theme)."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -m "chore(ayah-of-the-day): switch theme to ${THEME_INPUT} by ${ACTOR}"
-          git push origin HEAD:${{ github.ref_name }}
+          git push origin "$BRANCH"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Open PR
+        if: steps.push.outputs.changed == 'true'
+        uses: actions/github-script@v9
+        env:
+          BRANCH: ${{ steps.push.outputs.branch }}
+          THEME_INPUT: ${{ inputs.theme }}
+          ACTOR: ${{ github.actor }}
+        with:
+          script: |
+            const { data: pr } = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `chore(ayah-of-the-day): switch theme to ${process.env.THEME_INPUT}`,
+              body: `Automated theme switch to \`${process.env.THEME_INPUT}\` triggered by @${process.env.ACTOR}.`,
+              head: process.env.BRANCH,
+              base: context.ref.replace('refs/heads/', ''),
+            });
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              labels: ['automerge'],
+            });
