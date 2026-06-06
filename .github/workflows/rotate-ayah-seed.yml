@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: rotate-ayah-seed
@@ -23,7 +24,7 @@ jobs:
   rotate:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    if: github.repository == 'mazipan/baca-quran.id' || github.repository == 'mazipan-quran-offline/baca-quran.id'
+    if: github.repository == 'mazipan/baca-quran.id'
 
     steps:
       - name: Checkout
@@ -74,14 +75,23 @@ jobs:
           fs.appendFileSync(process.env.GITHUB_OUTPUT, `year=${year}\n`);
           EOF
 
-      - name: Commit and push
+      - name: Open PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="chore/ayah-seed-${{ steps.rotate.outputs.year }}-${{ steps.rotate.outputs.month }}"
+          git checkout -b "$BRANCH"
           git add src/data/ayah-of-the-day-seeds.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
           git commit -m "chore(ayah-of-the-day): seed for ${{ steps.rotate.outputs.year }}-${{ steps.rotate.outputs.month }} (${{ steps.rotate.outputs.action }})"
-          git push origin HEAD:${{ github.ref_name }}
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "chore(ayah-of-the-day): seed for ${{ steps.rotate.outputs.year }}-${{ steps.rotate.outputs.month }} (${{ steps.rotate.outputs.action }})" \
+            --body "Automated monthly seed rotation for ${{ steps.rotate.outputs.year }}-${{ steps.rotate.outputs.month }}." \
+            --label "automerge" \
+            --base "${{ github.ref_name }}"
