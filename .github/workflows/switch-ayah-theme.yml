@@ -62,10 +62,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           THEME_INPUT: ${{ inputs.theme }}
           ACTOR: ${{ github.actor }}
+          BASE_BRANCH: ${{ github.ref_name }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          BRANCH="chore/ayah-theme-${THEME_INPUT}-${{ github.run_id }}"
+          BRANCH="chore/ayah-theme-${THEME_INPUT}-${RUN_ID}"
           git checkout -b "$BRANCH"
           git add src/data/ayah-of-the-day-config.json
           if git diff --cached --quiet; then
@@ -74,8 +77,25 @@ jobs:
           fi
           git commit -m "chore(ayah-of-the-day): switch theme to ${THEME_INPUT} by ${ACTOR}"
           git push origin "$BRANCH"
-          gh pr create \
-            --title "chore(ayah-of-the-day): switch theme to ${THEME_INPUT}" \
-            --body "Automated theme switch to \`${THEME_INPUT}\` triggered by @${ACTOR}." \
-            --label "automerge" \
-            --base "${{ github.ref_name }}"
+
+          PR_PAYLOAD=$(jq -n \
+            --arg title "chore(ayah-of-the-day): switch theme to ${THEME_INPUT}" \
+            --arg body "Automated theme switch to \`${THEME_INPUT}\` triggered by @${ACTOR}." \
+            --arg head "$BRANCH" \
+            --arg base "$BASE_BRANCH" \
+            '{title: $title, body: $body, head: $head, base: $base}')
+
+          PR_NUMBER=$(curl -s -X POST \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${REPO}/pulls" \
+            -d "$PR_PAYLOAD" \
+            | jq -r '.number')
+
+          curl -s -X POST \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${REPO}/issues/${PR_NUMBER}/labels" \
+            -d '{"labels":["automerge"]}'
