@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           persist-credentials: true
-          token: ${{ secrets.PERSONAL_TOKEN || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Rotate seed
         id: rotate
