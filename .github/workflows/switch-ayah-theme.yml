@@ -81,7 +81,7 @@ jobs:
 
       - name: Open PR
         if: steps.push.outputs.changed == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           BRANCH: ${{ steps.push.outputs.branch }}
           THEME_INPUT: ${{ inputs.theme }}
