@@ -19,7 +19,7 @@
 	"dependencies": {
 		"@tailwindcss/vite": "4.3.1",
 		"dayjs": "1.11.21",
-		"firebase": "12.14.0",
+		"firebase": "12.15.0",
 		"svelte": "5.56.3"
 	},
 	"devDependencies": {
