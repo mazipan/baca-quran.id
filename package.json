@@ -28,7 +28,7 @@
 		"@sveltejs/adapter-static": "3.0.10",
 		"@sveltejs/kit": "2.69.1",
 		"@sveltejs/vite-plugin-svelte": "7.1.2",
-		"@tailwindcss/postcss": "4.3.1",
+		"@tailwindcss/postcss": "4.3.2",
 		"@typescript-eslint/eslint-plugin": "8.61.1",
 		"@typescript-eslint/parser": "8.61.1",
 		"autoprefixer": "10.5.2",
