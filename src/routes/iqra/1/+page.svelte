@@ -65,6 +65,23 @@
 		if (e.key === 'ArrowLeft' && !isComplete) goPrev();
 	}
 
+	function speakLetter(text: string) {
+		if (typeof speechSynthesis === 'undefined') return;
+		speechSynthesis.cancel();
+		const u = new SpeechSynthesisUtterance(text);
+		u.lang = 'ar-SA';
+		u.rate = 0.75;
+		speechSynthesis.speak(u);
+	}
+
+	function chunkArray<T>(arr: T[], size: number): T[][] {
+		const chunks: T[][] = [];
+		for (let i = 0; i < arr.length; i += size) {
+			chunks.push(arr.slice(i, i + size));
+		}
+		return chunks;
+	}
+
 	const currentHalaman = $derived(halaman[currentIndex]);
 	const seenCount = $derived(seen.filter(Boolean).length);
 	const nextLevel = IQRA_LEVELS.find((l) => l.jilid === JILID + 1);
@@ -153,11 +170,14 @@
 				<p class="text-xs text-foreground-secondary mb-2">{$t('iqra.newLettersLabel')}</p>
 				<div class="flex gap-4 justify-center">
 					{#each currentHalaman.newLetters as letter}
-						<div class="flex flex-col items-center gap-1">
+						<button
+							onclick={() => speakLetter(letter.withFathah)}
+							class="flex flex-col items-center gap-1 rounded-lg border border-foreground/20 px-4 py-2 hover:bg-foreground/5 active:scale-95 transition-transform cursor-pointer"
+						>
 							<span class="font-arabic text-4xl leading-none">{letter.withFathah}</span>
 							<span class="text-sm font-semibold">{letter.name}</span>
 							<span class="text-xs text-foreground-secondary">"{letter.bunyi}"</span>
-						</div>
+						</button>
 					{/each}
 				</div>
 			</div>
@@ -169,18 +189,20 @@
 					{#each currentHalaman.rows as row, rowIndex}
 						{@const isLastRow = rowIndex === currentHalaman.rows.length - 1}
 						<div class="flex justify-end gap-2 flex-wrap" dir="rtl">
-							{#each row as letter}
+							{#each chunkArray(row, isLastRow ? 1 : 2) as group}
 								<div
-									class="flex items-center justify-center rounded border select-none min-w-[2.75rem] h-12 px-1
+									class="flex items-center gap-3 rounded border px-3 py-2
 										{isLastRow ? 'border-control-accent bg-control-accent/10' : 'border-foreground/20 bg-secondary'}"
 								>
-									<span
-										class="font-arabic leading-none {isLastRow
-											? 'text-3xl text-control-accent'
-											: 'text-3xl'}"
-									>
-										{letter}
-									</span>
+									{#each group as letter}
+										<button
+											onclick={() => speakLetter(letter)}
+											class="font-arabic leading-none active:scale-90 transition-transform
+												{isLastRow ? 'text-3xl text-control-accent' : 'text-3xl'}"
+										>
+											{letter}
+										</button>
+									{/each}
 								</div>
 							{/each}
 						</div>
