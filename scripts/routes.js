@@ -20,5 +20,7 @@ export const staticUrls = [
 	'/wirid',
 	'/pencatat-ibadah',
 	'/pencatat-ibadah/rekap',
+	'/iqra',
+	'/iqra/1',
 	'/suasana-hati'
 ];
