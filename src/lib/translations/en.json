@@ -442,6 +442,9 @@
 		"jilid5Desc": "Rules for Nun Sukun, Mim Sukun, and stopping signs",
 		"jilid6Title": "Advanced Tajwid",
 		"jilid6Desc": "Qalqalah, extended Mad, and opening letters of surahs",
+		"halamanLabel": "Page {{current}} of {{total}}",
+		"newLettersLabel": "New letters:",
+		"readRTL": "Read from right to left",
 		"overallProgress": "{{completed}} of {{total}} levels complete",
 		"nextLevel": "Continue to Jilid {{number}}",
 		"nextLevelComingSoon": "Jilid {{number}} not yet available"

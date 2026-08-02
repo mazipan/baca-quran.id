@@ -5,20 +5,20 @@
 	import Button from '$lib/ui/Button.svelte';
 	import { TITLE_CONSTANTS } from '$lib/constants';
 	import { t } from '$lib/translations/store';
-	import { HIJAIYAH_LETTERS, IQRA_LEVELS } from '$data/iqra';
+	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
 	import { loadProgress, markLessonDone, isLevelComplete } from '$lib/utils/iqraProgress';
 
 	const JILID = 1;
-	const letters = HIJAIYAH_LETTERS;
+	const halaman = IQRA_1_HALAMAN;
 
 	let currentIndex = $state(0);
 	let isComplete = $state(false);
-	let seen = $state<boolean[]>(new Array(letters.length).fill(false));
+	let seen = $state<boolean[]>(new Array(halaman.length).fill(false));
 
 	onMount(() => {
 		const progress = loadProgress();
 		const saved = progress.levels[JILID] ?? [];
-		seen = letters.map((_, i) => saved[i] ?? false);
+		seen = halaman.map((_, i) => saved[i] ?? false);
 		isComplete = isLevelComplete(JILID);
 		if (!isComplete) {
 			const firstUnseen = seen.findIndex((s) => !s);
@@ -29,7 +29,7 @@
 	function goNext() {
 		seen[currentIndex] = true;
 		markLessonDone(JILID, currentIndex);
-		if (currentIndex < letters.length - 1) {
+		if (currentIndex < halaman.length - 1) {
 			currentIndex++;
 		} else {
 			isComplete = true;
@@ -51,7 +51,7 @@
 		if (e.key === 'ArrowLeft' && !isComplete) goPrev();
 	}
 
-	const currentLetter = $derived(letters[currentIndex]);
+	const currentHalaman = $derived(halaman[currentIndex]);
 	const seenCount = $derived(seen.filter(Boolean).length);
 	const nextLevel = IQRA_LEVELS.find((l) => l.jilid === JILID + 1);
 </script>
@@ -122,23 +122,53 @@
 	</div>
 {:else}
 	<div class="px-4 mb-3 flex justify-between items-center text-sm text-foreground-secondary">
-		<span>{$t('iqra.lesson')} {currentIndex + 1} / {letters.length}</span>
-		<span>{seenCount} / {letters.length} {$t('iqra.seen')}</span>
+		<span
+			>{$t('iqra.halamanLabel', {
+				current: String(currentIndex + 1),
+				total: String(halaman.length)
+			})}</span
+		>
+		<span>{seenCount} / {halaman.length} {$t('iqra.seen')}</span>
 	</div>
 
-	<div class="px-4 mb-6">
-		<div
-			class="rounded-2xl shadow-lg p-8 bg-secondary flex flex-col items-center gap-4 select-none"
-		>
-			<div class="font-arabic text-[120px] leading-none" dir="rtl">
-				{currentLetter.withFathah}
+	<div class="px-4 mb-4">
+		<div class="rounded-2xl shadow-lg bg-secondary overflow-hidden">
+			<!-- New letters header -->
+			<div class="px-4 pt-4 pb-3 border-b border-foreground/10">
+				<p class="text-xs text-foreground-secondary mb-2">{$t('iqra.newLettersLabel')}</p>
+				<div class="flex gap-4 justify-center">
+					{#each currentHalaman.newLetters as letter}
+						<div class="flex flex-col items-center gap-1">
+							<span class="font-arabic text-4xl leading-none">{letter.withFathah}</span>
+							<span class="text-sm font-semibold">{letter.name}</span>
+							<span class="text-xs text-foreground-secondary">"{letter.bunyi}"</span>
+						</div>
+					{/each}
+				</div>
 			</div>
-			<div class="flex flex-col items-center gap-1 mt-2">
-				<span class="text-2xl font-bold">{currentLetter.name}</span>
-				<span class="text-xl text-foreground-secondary">"{currentLetter.bunyi}"</span>
-			</div>
-			<div class="text-xs text-foreground-secondary mt-1">
-				{$t('iqra.harakatNote')}
+
+			<!-- Reading rows -->
+			<div class="px-4 pt-3 pb-4">
+				<p class="text-xs text-foreground-secondary mb-3 text-right">{$t('iqra.readRTL')}</p>
+				<div class="flex flex-col gap-3">
+					{#each currentHalaman.rows as row, rowIndex}
+						<div class="flex justify-end gap-3 flex-wrap" dir="rtl">
+							{#each row as letter}
+								<span
+									class="font-arabic leading-none select-none {rowIndex ===
+									currentHalaman.rows.length - 1
+										? 'text-4xl text-blue-600 dark:text-blue-400'
+										: 'text-3xl'}"
+								>
+									{letter}
+								</span>
+							{/each}
+						</div>
+						{#if rowIndex < currentHalaman.rows.length - 1}
+							<div class="h-px bg-foreground/5"></div>
+						{/if}
+					{/each}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -155,15 +185,15 @@
 			← {$t('common.previous')}
 		</Button>
 		<Button onClick={goNext} variant="solid" color="info" size="lg" class="flex-1">
-			{currentIndex < letters.length - 1 ? $t('common.next') : $t('iqra.finish')} →
+			{currentIndex < halaman.length - 1 ? $t('common.next') : $t('iqra.finish')} →
 		</Button>
 	</div>
 
 	<div class="px-4 mt-6 flex flex-wrap gap-1.5 justify-center">
-		{#each letters as letter, i (letter.id)}
+		{#each halaman as h, i (h.id)}
 			<button
 				onclick={() => jumpTo(i)}
-				aria-label="{letter.name} ({i + 1})"
+				aria-label="Halaman {i + 1}"
 				class="rounded-full transition-all
 					{i === currentIndex
 					? 'w-6 h-3 bg-blue-500'
