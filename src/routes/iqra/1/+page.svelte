@@ -65,13 +65,15 @@
 		if (e.key === 'ArrowLeft' && !isComplete) goPrev();
 	}
 
-	function speakLetter(text: string) {
+	function speakGroup(letters: string[]) {
 		if (typeof speechSynthesis === 'undefined') return;
 		speechSynthesis.cancel();
-		const u = new SpeechSynthesisUtterance(text);
-		u.lang = 'ar-SA';
-		u.rate = 0.75;
-		speechSynthesis.speak(u);
+		for (const l of letters) {
+			const u = new SpeechSynthesisUtterance(l);
+			u.lang = 'ar-SA';
+			u.rate = 0.75;
+			speechSynthesis.speak(u);
+		}
 	}
 
 	function chunkArray<T>(arr: T[], size: number): T[][] {
@@ -165,44 +167,48 @@
 
 	<div class="px-4 mb-4">
 		<div class="rounded-2xl shadow-lg bg-secondary overflow-hidden">
-			<!-- New letters header -->
-			<div class="px-4 pt-4 pb-3 border-b border-foreground/10">
-				<p class="text-xs text-foreground-secondary mb-2">{$t('iqra.newLettersLabel')}</p>
-				<div class="flex gap-4 justify-center">
+			<!-- New letters -->
+			<div class="px-5 pt-5 pb-4 border-b border-foreground/10">
+				<p
+					class="text-[10px] font-semibold uppercase tracking-widest text-foreground-secondary mb-3"
+				>
+					{$t('iqra.newLettersLabel')}
+				</p>
+				<div class="flex gap-3 justify-center">
 					{#each currentHalaman.newLetters as letter}
 						<button
-							onclick={() => speakLetter(letter.withFathah)}
-							class="flex flex-col items-center gap-1 rounded-lg border border-foreground/20 px-4 py-2 hover:bg-foreground/5 active:scale-95 transition-transform cursor-pointer"
+							onclick={() => speakGroup([letter.withFathah])}
+							class="flex flex-col items-center gap-2 rounded-2xl bg-background shadow-sm px-6 py-4 flex-1 max-w-[150px] hover:shadow-md active:scale-95 transition-all"
 						>
-							<span class="font-arabic text-4xl leading-none">{letter.withFathah}</span>
-							<span class="text-sm font-semibold">{letter.name}</span>
-							<span class="text-xs text-foreground-secondary">"{letter.bunyi}"</span>
+							<span class="font-arabic text-5xl leading-[1.3]">{letter.withFathah}</span>
+							<span class="text-sm font-semibold leading-none">{letter.name}</span>
+							<span class="text-xs text-foreground-secondary font-mono">/{letter.bunyi}/</span>
 						</button>
 					{/each}
 				</div>
 			</div>
 
 			<!-- Reading rows -->
-			<div class="px-4 pt-3 pb-4">
+			<div class="px-4 py-4">
 				<div class="flex flex-col gap-2">
 					{#each currentHalaman.rows as row, rowIndex}
 						{@const isLastRow = rowIndex === currentHalaman.rows.length - 1}
 						<div class="grid grid-cols-3 gap-2" dir="rtl">
 							{#each chunkArray(row, isLastRow ? 1 : 2) as group}
-								<div
-									class="flex items-center justify-center gap-3 rounded border py-3 min-h-[3.5rem]
-										{isLastRow ? 'border-control-accent bg-control-accent/10' : 'border-foreground/20 bg-secondary'}"
+								<button
+									onclick={() => speakGroup(group)}
+									class="flex items-center justify-center gap-4 rounded-xl min-h-[4.25rem] active:scale-95 transition-all
+										{isLastRow ? 'bg-control-accent shadow-sm' : 'bg-background shadow-sm hover:shadow-md'}"
 								>
 									{#each group as letter}
-										<button
-											onclick={() => speakLetter(letter)}
-											class="font-arabic text-3xl leading-none active:scale-90 transition-transform
-												{isLastRow ? 'text-control-accent' : ''}"
+										<span
+											class="font-arabic text-4xl leading-none pointer-events-none
+												{isLastRow ? 'text-control-surface' : 'text-foreground'}"
 										>
 											{letter}
-										</button>
+										</span>
 									{/each}
-								</div>
+								</button>
 							{/each}
 						</div>
 					{/each}
