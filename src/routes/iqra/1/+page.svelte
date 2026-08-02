@@ -164,19 +164,24 @@
 
 			<!-- Reading rows -->
 			<div class="px-4 pt-3 pb-4">
-				<p class="text-xs text-foreground-secondary mb-3 text-right">{$t('iqra.readRTL')}</p>
+				<p class="text-xs text-foreground-secondary mb-3">{$t('iqra.readRTL')} →</p>
 				<div class="flex flex-col gap-3">
 					{#each currentHalaman.rows as row, rowIndex}
-						<div class="flex justify-end gap-3 flex-wrap" dir="rtl">
+						{@const isLastRow = rowIndex === currentHalaman.rows.length - 1}
+						<div class="flex justify-end gap-2 flex-wrap" dir="rtl">
 							{#each row as letter}
-								<span
-									class="font-arabic leading-none select-none {rowIndex ===
-									currentHalaman.rows.length - 1
-										? 'text-4xl text-control-accent'
-										: 'text-3xl'}"
+								<div
+									class="flex items-center justify-center rounded border select-none min-w-[2.75rem] h-12 px-1
+										{isLastRow ? 'border-control-accent bg-control-accent/10' : 'border-foreground/20 bg-secondary'}"
 								>
-									{letter}
-								</span>
+									<span
+										class="font-arabic leading-none {isLastRow
+											? 'text-3xl text-control-accent'
+											: 'text-3xl'}"
+									>
+										{letter}
+									</span>
+								</div>
 							{/each}
 						</div>
 						{#if rowIndex < currentHalaman.rows.length - 1}
