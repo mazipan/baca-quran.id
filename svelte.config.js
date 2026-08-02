@@ -63,7 +63,7 @@ const config = {
 		prerender: {
 			crawl: false,
 			entries: isCIBuild
-				? ['/', ...staticUrls, '/1', '/1/1', '/surah/1', '/surah/1/1', '/amp/1', '/amp/1/1']
+				? ['/', ...staticUrls, '/1', '/1/1', '/amp/1', '/amp/1/1']
 				: ['/', ...staticUrls, ...allSurahAndVerse],
 			handleEntryGeneratorMismatch: 'warn'
 		}
