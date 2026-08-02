@@ -1,9 +1,12 @@
 <script lang="ts">
 	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import ChevronLeftIcon from '$lib/icons/ChevronLeftIcon.svelte';
+	import ChevronRightIcon from '$lib/icons/ChevronRightIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
 
 	type Size = 'sm' | 'md' | 'lg';
+	type IconVariant = 'arrow' | 'chevron';
 
 	interface Props {
 		current: number;
@@ -14,6 +17,7 @@
 		nextLabel?: string;
 		finishLabel?: string;
 		size?: Size;
+		iconVariant?: IconVariant;
 		class?: string;
 	}
 
@@ -26,6 +30,7 @@
 		nextLabel = 'Next',
 		finishLabel = 'Finish',
 		size = 'lg',
+		iconVariant = 'arrow',
 		class: clazz = ''
 	}: Props = $props();
 
@@ -48,7 +53,11 @@
 		disabled={isFirst}
 		class="flex-1"
 	>
-		<ArrowLeftIcon size="sm" class="w-4 h-4 shrink-0" />
+		{#if iconVariant === 'chevron'}
+			<ChevronLeftIcon size="sm" class="w-4 h-4 shrink-0" />
+		{:else}
+			<ArrowLeftIcon size="sm" class="w-4 h-4 shrink-0" />
+		{/if}
 		{prevLabel}
 	</Button>
 	<button
@@ -58,6 +67,10 @@
 		]}"
 	>
 		{isLast ? finishLabel : nextLabel}
-		<ArrowRightIcon size="sm" class="w-4 h-4 shrink-0" />
+		{#if iconVariant === 'chevron'}
+			<ChevronRightIcon size="sm" class="w-4 h-4 shrink-0" />
+		{:else}
+			<ArrowRightIcon size="sm" class="w-4 h-4 shrink-0" />
+		{/if}
 	</button>
 </div>
