@@ -14,22 +14,28 @@
 
 	let { totalAyah, numberVerse, numberSurah, source }: Props = $props();
 
+	const isThisVerseActive = $derived(
+		$isShowingAudioPlayer &&
+			$currentTrack.surah === numberSurah &&
+			$currentTrack.verse === numberVerse
+	);
+
 	const handleOpenClosePlayer = ({ surah, verse, totalAyah }: CurrentTrackParam) => {
-		if ($isShowingAudioPlayer) {
-			currentTrack.set({
-				surah: '',
-				verse: '',
-				totalAyah: 0
-			});
-			window.dispatchEvent(new CustomEvent('paused'));
+		const isSameVerse =
+			$isShowingAudioPlayer && $currentTrack.surah === surah && $currentTrack.verse === verse;
+
+		if (isSameVerse) {
+			currentTrack.set({ surah: '', verse: '', totalAyah: 0 });
+			window.dispatchEvent(new CustomEvent('audio-stop'));
 			isShowingAudioPlayer.set(false);
 		} else {
-			currentTrack.set({
-				surah,
-				verse,
-				totalAyah
-			});
+			currentTrack.set({ surah, verse, totalAyah });
 			isShowingAudioPlayer.set(true);
+			window.dispatchEvent(
+				new CustomEvent<CurrentTrackParam>('audio-play', {
+					detail: { surah, verse, totalAyah }
+				})
+			);
 		}
 	};
 </script>
@@ -43,9 +49,9 @@
 			totalAyah: totalAyah
 		});
 	}}
-	ariaLabel={`${$isShowingAudioPlayer ? 'Stop' : 'Play'}`}
+	ariaLabel={`${isThisVerseActive ? 'Stop' : 'Play'}`}
 >
-	{#if $isShowingAudioPlayer}
+	{#if isThisVerseActive}
 		<SpeakerXMarkIcon />
 	{:else}
 		<PlayIcon />

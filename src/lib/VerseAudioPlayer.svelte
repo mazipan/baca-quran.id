@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import { onMount } from 'svelte';
 	import {
 		settingAudio,
@@ -27,21 +25,17 @@
 
 	function play({ surah, verse, totalAyah }: CurrentTrackParam) {
 		if (audioRef) {
-			currentTrack.set({
-				verse,
-				surah,
-				totalAyah
-			});
+			currentTrack.set({ verse, surah, totalAyah });
 			const src = getAudioFromEveryAyah($settingAudio, surah, verse);
 			const currentSrc = audioRef.getAttribute('src');
 			if (src !== currentSrc) {
-				audioRef.setAttribute('src', getAudioFromEveryAyah($settingAudio, surah, verse));
+				audioRef.setAttribute('src', src);
 			}
-
 			audioRef.load();
 			audioRef.play();
 			isPlayingAudio.set(true);
 			isShowingAudioPlayer.set(true);
+			reachingEndOfSurah = false;
 		}
 	}
 
@@ -82,12 +76,20 @@
 				if (!endOfSurah) {
 					const nextVerse = +$currentTrack.verse + 1;
 					const nextSurah = +$currentTrack.surah;
-
-					play({
+					const nextTrack = {
 						surah: `${nextSurah}`,
 						verse: `${nextVerse}`,
 						totalAyah: +$currentTrack.totalAyah
-					});
+					};
+					currentTrack.set(nextTrack);
+					play(nextTrack);
+
+					setTimeout(() => {
+						const el = document.getElementById(`ayat-${nextVerse}`);
+						if (el) {
+							el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+						}
+					}, 100);
 				}
 			}
 		}
@@ -101,30 +103,29 @@
 		}
 	}
 
+	function closePlayer() {
+		pause();
+		currentTrack.set({ surah: '', verse: '', totalAyah: 0 });
+		isShowingAudioPlayer.set(false);
+	}
+
 	function attachListeners() {
 		if (audioRef) {
 			audioRef.addEventListener('timeupdate', updateAudioTimeline);
 			audioRef.addEventListener('loadedmetadata', () => {
 				totalTime = audioRef?.duration ?? 0;
 			});
-
 			audioRef.addEventListener('ended', handleEndPlaying);
-			window.addEventListener('paused', () => {
+
+			window.addEventListener('audio-stop', () => {
 				pause();
+			});
+
+			window.addEventListener('audio-play', (e: Event) => {
+				play((e as CustomEvent<CurrentTrackParam>).detail);
 			});
 		}
 	}
-
-	function closePlayer() {
-		pause();
-		isShowingAudioPlayer.set(false);
-	}
-
-	run(() => {
-		if ($isShowingAudioPlayer) {
-			play($currentTrack);
-		}
-	});
 
 	onMount(() => {
 		attachListeners();
