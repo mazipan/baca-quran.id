@@ -184,21 +184,20 @@
 
 			<!-- Reading rows -->
 			<div class="px-4 pt-3 pb-4">
-				<p class="text-xs text-foreground-secondary mb-3">{$t('iqra.readRTL')} →</p>
-				<div class="flex flex-col gap-3">
+				<div class="flex flex-col gap-2">
 					{#each currentHalaman.rows as row, rowIndex}
 						{@const isLastRow = rowIndex === currentHalaman.rows.length - 1}
-						<div class="flex justify-end gap-2 flex-wrap" dir="rtl">
+						<div class="grid grid-cols-3 gap-2" dir="rtl">
 							{#each chunkArray(row, isLastRow ? 1 : 2) as group}
 								<div
-									class="flex items-center gap-3 rounded border px-3 py-2
+									class="flex items-center justify-center gap-3 rounded border py-3 min-h-[3.5rem]
 										{isLastRow ? 'border-control-accent bg-control-accent/10' : 'border-foreground/20 bg-secondary'}"
 								>
 									{#each group as letter}
 										<button
 											onclick={() => speakLetter(letter)}
-											class="font-arabic leading-none active:scale-90 transition-transform
-												{isLastRow ? 'text-3xl text-control-accent' : 'text-3xl'}"
+											class="font-arabic text-3xl leading-none active:scale-90 transition-transform
+												{isLastRow ? 'text-control-accent' : ''}"
 										>
 											{letter}
 										</button>
@@ -206,9 +205,6 @@
 								</div>
 							{/each}
 						</div>
-						{#if rowIndex < currentHalaman.rows.length - 1}
-							<div class="h-px bg-foreground/5"></div>
-						{/if}
 					{/each}
 				</div>
 			</div>
