@@ -31,7 +31,9 @@ export const CONSTANTS = {
 		THEME: 'theme',
 		LOG_PRAYER: 'log',
 		DOA_CATEGORY: 'doa_cat',
-		ADHKAR_LOG: 'adhkar_log'
+		ADHKAR_LOG: 'adhkar_log',
+		FONT_SIZE: 'fnsz',
+		FONT_STYLE: 'fnst'
 	},
 	BISMILLAH: '﷽'
 };

@@ -10,11 +10,14 @@
 		settingTafsir,
 		settingTranslation,
 		settingAutoNext,
+		settingFontSize,
+		settingFontStyle,
 		pinnedSurah,
 		lastReadVerses,
 		settingLocation,
 		logPrayer
 	} from '../store';
+	import type { FontSizeKey, FontStyleKey } from '../store';
 
 	import '../app.css';
 	import { CheckLanguage, languageStore } from '$lib/checkLanguaguage';
@@ -99,6 +102,16 @@
 					logPrayer.set(parsedValue);
 				} else {
 					settingLocation.set(null);
+				}
+
+				const storageFontSize = localStorage.getItem(CONSTANTS.STORAGE_KEY.FONT_SIZE);
+				if (storageFontSize && ['sm', 'md', 'lg', 'xl'].includes(storageFontSize)) {
+					settingFontSize.set(storageFontSize as FontSizeKey);
+				}
+
+				const storageFontStyle = localStorage.getItem(CONSTANTS.STORAGE_KEY.FONT_STYLE);
+				if (storageFontStyle && ['lpmq', 'system'].includes(storageFontStyle)) {
+					settingFontStyle.set(storageFontStyle as FontStyleKey);
 				}
 
 				const storagePrayer = localStorage.getItem(CONSTANTS.STORAGE_KEY.PRAYER);

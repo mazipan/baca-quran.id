@@ -100,6 +100,12 @@ html.neon {
 	line-height: 2;
 }
 
+.font-arabic-system {
+	font-family: 'Geeza Pro', 'Traditional Arabic', 'Arabic Typesetting', 'Noto Naskh Arabic',
+		'Amiri', 'Scheherazade New', serif;
+	line-height: 2;
+}
+
 .table-stripped {
 	@apply w-full text-sm text-left;
 }
