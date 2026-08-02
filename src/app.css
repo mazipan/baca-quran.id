@@ -91,7 +91,9 @@ html.neon {
 
 @font-face {
 	font-family: 'lpmq';
-	src: url(/fonts/lpmq.woff) format('woff'), url(/fonts/lpmq.otf) format('opentype');
+	src:
+		url(/fonts/lpmq.woff) format('woff'),
+		url(/fonts/lpmq.otf) format('opentype');
 	font-display: swap;
 }
 
@@ -99,7 +101,9 @@ html.neon {
 	font-family: 'Amiri Quran';
 	font-style: normal;
 	font-weight: 400;
-	src: url(/fonts/amiri-quran.woff2) format('woff2'), url(/fonts/amiri-quran.woff) format('woff');
+	src:
+		url(/fonts/amiri-quran.woff2) format('woff2'),
+		url(/fonts/amiri-quran.woff) format('woff');
 	font-display: swap;
 }
 
