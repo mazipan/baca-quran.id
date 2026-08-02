@@ -51,14 +51,22 @@ export function markLessonDone(jilid: number, lessonIndex: number): IqraProgress
 export function getLevelStats(jilid: number): { completed: number; total: number } {
 	const p = loadProgress();
 	const total = LESSON_COUNT[jilid] ?? 0;
-	const done = (p.levels[jilid] ?? []).filter(Boolean).length;
+	const done = (p.levels[jilid] ?? []).slice(0, total).filter(Boolean).length;
 	return { completed: done, total };
 }
 
 export function isLevelComplete(jilid: number): boolean {
 	const p = loadProgress();
-	const lessons = p.levels[jilid];
-	return !!lessons && lessons.length >= (LESSON_COUNT[jilid] ?? 0) && lessons.every(Boolean);
+	const total = LESSON_COUNT[jilid] ?? 0;
+	const lessons = (p.levels[jilid] ?? []).slice(0, total);
+	return lessons.length >= total && lessons.every(Boolean);
+}
+
+export function resetJilidProgress(jilid: number): void {
+	const p = loadProgress();
+	delete p.levels[jilid];
+	delete p.completedAt[jilid];
+	save(p);
 }
 
 export function resetProgress(): void {

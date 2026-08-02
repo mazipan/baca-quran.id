@@ -447,6 +447,7 @@
 		"readRTL": "Baca dari kanan ke kiri",
 		"overallProgress": "{{completed}} dari {{total}} jilid selesai",
 		"nextLevel": "Lanjut ke Jilid {{number}}",
-		"nextLevelComingSoon": "Jilid {{number}} belum tersedia"
+		"nextLevelComingSoon": "Jilid {{number}} belum tersedia",
+		"restartLabel": "Mulai dari Awal"
 	}
 }

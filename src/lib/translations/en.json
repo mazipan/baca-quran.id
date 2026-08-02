@@ -447,6 +447,7 @@
 		"readRTL": "Read from right to left",
 		"overallProgress": "{{completed}} of {{total}} levels complete",
 		"nextLevel": "Continue to Jilid {{number}}",
-		"nextLevelComingSoon": "Jilid {{number}} not yet available"
+		"nextLevelComingSoon": "Jilid {{number}} not yet available",
+		"restartLabel": "Start Over"
 	}
 }
