@@ -21,5 +21,6 @@ export const staticUrls = [
 	'/pencatat-ibadah',
 	'/pencatat-ibadah/rekap',
 	'/iqra',
-	'/iqra/1'
+	'/iqra/1',
+	'/suasana-hati'
 ];

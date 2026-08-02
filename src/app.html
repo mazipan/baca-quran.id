@@ -6,18 +6,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script>
 			(function () {
+				var VALID_THEMES = [
+					'light',
+					'dark',
+					'forest',
+					'halloween',
+					'fall',
+					'pinky',
+					'violet',
+					'pastel',
+					'neon'
+				];
 				window.__theme = 'light';
 
-				function setProperTheme(newTheme = 'light') {
+				function setProperTheme(newTheme) {
+					newTheme = newTheme || 'light';
 					window.__theme = newTheme;
-					document.querySelector('html').setAttribute('class', `${newTheme}`);
+					document.querySelector('html').setAttribute('class', newTheme);
 
 					try {
 						localStorage.setItem('theme', newTheme);
 					} catch (err) {}
 				}
 
-				function setTheme(newTheme = 'light') {
+				function setTheme(newTheme) {
 					if (newTheme && newTheme !== 'null') {
 						setProperTheme(newTheme);
 					} else {
@@ -27,13 +39,25 @@
 
 				window.__setActiveTheme = setTheme;
 
+				var resolvedTheme = null;
+
 				try {
-					var t = localStorage.getItem('theme');
-					if (t && t !== 'null') {
-						window.__theme = t;
+					var urlTheme = new URLSearchParams(window.location.search).get('theme');
+					if (urlTheme && VALID_THEMES.indexOf(urlTheme) !== -1) {
+						resolvedTheme = urlTheme;
 					}
 				} catch (err) {}
-				setTheme(window.__theme);
+
+				if (!resolvedTheme) {
+					try {
+						var stored = localStorage.getItem('theme');
+						if (stored && stored !== 'null') {
+							resolvedTheme = stored;
+						}
+					} catch (err) {}
+				}
+
+				setTheme(resolvedTheme || 'light');
 			})();
 		</script>
 		%sveltekit.head%
