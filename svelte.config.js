@@ -18,6 +18,8 @@ for (let indexSurah = 0; indexSurah < 114; indexSurah++) {
 	}
 }
 
+const isCIBuild = process.env.CI_BUILD === 'true';
+
 const gitRev = child_process.execSync('git rev-parse --short HEAD').toString().trim() || '';
 
 const dateRev = new Date()
@@ -60,7 +62,7 @@ const config = {
 		}),
 		prerender: {
 			crawl: false,
-			entries: ['/', ...staticUrls, ...allSurahAndVerse],
+			entries: isCIBuild ? ['/'] : ['/', ...staticUrls, ...allSurahAndVerse],
 			handleEntryGeneratorMismatch: 'warn'
 		}
 	}
