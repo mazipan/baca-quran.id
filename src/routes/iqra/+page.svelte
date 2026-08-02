@@ -150,9 +150,7 @@
 					</div>
 					<span class="shrink-0 text-xl">🔒</span>
 				</div>
-				<div class="text-xs text-foreground-secondary italic">
-					{$t('iqra.comingSoon')} · {$t('iqra.unlockHint', { prev: String(level.jilid - 1) })}
-				</div>
+				<div class="text-xs text-foreground-secondary italic">{$t('iqra.comingSoon')}</div>
 			</div>
 		{/if}
 	{/each}

@@ -396,7 +396,6 @@
 		"jilid6Desc": "Qalqalah, Mad bertingkat, dan huruf muqatta'at",
 		"overallProgress": "{{completed}} dari {{total}} jilid selesai",
 		"nextLevel": "Lanjut ke Jilid {{number}}",
-		"nextLevelComingSoon": "Jilid {{number}} belum tersedia",
-		"unlockHint": "Selesaikan Jilid {{prev}} terlebih dahulu"
+		"nextLevelComingSoon": "Jilid {{number}} belum tersedia"
 	}
 }

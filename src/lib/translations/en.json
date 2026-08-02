@@ -396,7 +396,6 @@
 		"jilid6Desc": "Qalqalah, extended Mad, and opening letters of surahs",
 		"overallProgress": "{{completed}} of {{total}} levels complete",
 		"nextLevel": "Continue to Jilid {{number}}",
-		"nextLevelComingSoon": "Jilid {{number}} not yet available",
-		"unlockHint": "Complete Jilid {{prev}} first"
+		"nextLevelComingSoon": "Jilid {{number}} not yet available"
 	}
 }
