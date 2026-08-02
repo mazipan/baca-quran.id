@@ -43,7 +43,8 @@
 		"stories": "Stories",
 		"tulisan": "Articles",
 		"designSystem": "Design System",
-		"adhkar": "Morning & Evening Adhkar"
+		"adhkar": "Morning & Evening Adhkar",
+		"mood": "Mood"
 	},
 	"surah": {
 		"title": "Read Quran",
@@ -358,6 +359,23 @@
 			"interactive": "Interactive (button / link)",
 			"withoutDecorative": "Without decorative circles",
 			"indexBased": "Index-based selection — useful for lists"
+		}
+	},
+	"mood": {
+		"title": "💭 Mood",
+		"subtitle": "Find Quranic verses that speak to how you feel right now.",
+		"pickRandom": "Pick a Random Verse",
+		"readFullAyah": "Read Full Ayah",
+		"disclaimer": "These verse selections are hand-curated. They are not exhaustive and may grow over time.",
+		"moods": {
+			"cemas": "Anxious",
+			"bersyukur": "Grateful",
+			"sedih": "Grieving",
+			"takut": "Fearful",
+			"marah": "Angry",
+			"lemah_iman": "Wavering Faith",
+			"tobat": "Repentant",
+			"bahagia": "Joyful"
 		}
 	},
 	"tahlil": {
