@@ -1,15 +1,6 @@
 <script lang="ts" module>
 	export type GradientName =
-		| 'emerald'
-		| 'blue'
-		| 'violet'
-		| 'rose'
-		| 'amber'
-		| 'cyan'
-		| 'lime'
-		| 'fuchsia'
-		| 'sky'
-		| 'pink';
+		'emerald' | 'blue' | 'violet' | 'rose' | 'amber' | 'cyan' | 'lime' | 'fuchsia' | 'sky' | 'pink';
 
 	export const GRADIENTS: Record<GradientName, string> = {
 		emerald: 'from-emerald-400 to-teal-600',
