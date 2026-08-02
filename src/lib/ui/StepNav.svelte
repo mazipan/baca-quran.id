@@ -1,0 +1,63 @@
+<script lang="ts">
+	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
+	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import Button from '$lib/ui/Button.svelte';
+
+	type Size = 'sm' | 'md' | 'lg';
+
+	interface Props {
+		current: number;
+		total: number;
+		onPrev: () => void;
+		onNext: () => void;
+		prevLabel?: string;
+		nextLabel?: string;
+		finishLabel?: string;
+		size?: Size;
+		class?: string;
+	}
+
+	let {
+		current,
+		total,
+		onPrev,
+		onNext,
+		prevLabel = 'Previous',
+		nextLabel = 'Next',
+		finishLabel = 'Finish',
+		size = 'lg',
+		class: clazz = ''
+	}: Props = $props();
+
+	const isFirst = $derived(current === 0);
+	const isLast = $derived(current === total - 1);
+
+	const SIZE_MAP: Record<Size, string> = {
+		sm: 'text-sm px-3 py-1.5 gap-1.5',
+		md: 'text-base px-4 py-2 gap-2',
+		lg: 'text-base px-4 py-2.5 gap-2'
+	};
+</script>
+
+<div class="flex gap-3 {clazz}">
+	<Button
+		onClick={onPrev}
+		variant="outline"
+		color="secondary"
+		{size}
+		disabled={isFirst}
+		class="flex-1"
+	>
+		<ArrowLeftIcon size="sm" class="w-4 h-4 shrink-0" />
+		{prevLabel}
+	</Button>
+	<button
+		onclick={onNext}
+		class="flex-1 flex items-center justify-center rounded-md bg-control-accent text-control-surface hover:opacity-90 active:scale-95 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-control-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary {SIZE_MAP[
+			size
+		]}"
+	>
+		{isLast ? finishLabel : nextLabel}
+		<ArrowRightIcon size="sm" class="w-4 h-4 shrink-0" />
+	</button>
+</div>

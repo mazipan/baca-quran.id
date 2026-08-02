@@ -8,6 +8,7 @@
 	import { t } from '$lib/translations/store';
 	import { IQRA_LEVELS } from '$data/iqra';
 	import { getLevelStats, isLevelComplete, resetProgress } from '$lib/utils/iqraProgress';
+	import ProgressBar from '$lib/ui/ProgressBar.svelte';
 
 	type LevelStats = { completed: number; total: number };
 
@@ -88,11 +89,6 @@
 	{#each IQRA_LEVELS as level (level.jilid)}
 		{@const levelStats = stats[level.jilid] ?? { completed: 0, total: 0 }}
 		{@const isDone = completedLevels[level.jilid] ?? false}
-		{@const percent =
-			levelStats.total > 0
-				? Math.min(Math.round((levelStats.completed / levelStats.total) * 100), 100)
-				: 0}
-
 		{#if level.available}
 			<a
 				href="/iqra/{level.jilid}/"
@@ -115,18 +111,12 @@
 					{/if}
 				</div>
 
-				<div class="mt-1">
-					<div class="flex justify-between text-xs text-foreground-secondary mb-1">
-						<span>{levelStats.completed} / {levelStats.total}</span>
-						<span>{percent}%</span>
-					</div>
-					<div class="w-full h-1.5 rounded-full bg-foreground/10 overflow-hidden">
-						<div
-							class="h-full rounded-full transition-all bg-control-accent"
-							style="width: {percent}%"
-						></div>
-					</div>
-				</div>
+				<ProgressBar
+					completed={levelStats.completed}
+					total={levelStats.total}
+					showLabel
+					class="mt-1"
+				/>
 
 				<div class="mt-1 text-sm font-medium text-foreground-secondary">
 					{#if isDone}

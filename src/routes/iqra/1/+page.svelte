@@ -7,10 +7,9 @@
 	import { TITLE_CONSTANTS } from '$lib/constants';
 	import { t } from '$lib/translations/store';
 	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
-	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
-	import Button from '$lib/ui/Button.svelte';
+	import ProgressDots from '$lib/ui/ProgressDots.svelte';
+	import StepNav from '$lib/ui/StepNav.svelte';
 	import {
 		loadProgress,
 		markLessonDone,
@@ -220,41 +219,24 @@
 		</div>
 	</div>
 
-	<div class="px-4 flex gap-3">
-		<Button
-			onClick={goPrev}
-			variant="outline"
-			color="secondary"
-			size="lg"
-			disabled={currentIndex === 0}
-			class="flex-1"
-		>
-			<ArrowLeftIcon size="sm" class="w-4 h-4 shrink-0" />
-			{$t('common.previous')}
-		</Button>
-		<button
-			onclick={goNext}
-			class="flex-1 flex items-center justify-center gap-2 rounded-md bg-control-accent text-control-surface px-4 py-2.5 text-base hover:opacity-90 active:scale-95 transition"
-		>
-			{currentIndex < halaman.length - 1 ? $t('common.next') : $t('iqra.finish')}
-			<ArrowRightIcon size="sm" class="w-4 h-4 shrink-0" />
-		</button>
-	</div>
+	<StepNav
+		current={currentIndex}
+		total={halaman.length}
+		onPrev={goPrev}
+		onNext={goNext}
+		prevLabel={$t('common.previous')}
+		nextLabel={$t('common.next')}
+		finishLabel={$t('iqra.finish')}
+		class="px-4"
+	/>
 
-	<div class="px-4 mt-6 flex flex-wrap gap-1.5 justify-center">
-		{#each halaman as h, i (h.id)}
-			<button
-				onclick={() => jumpTo(i)}
-				aria-label="Halaman {i + 1}"
-				class="rounded-full transition-all
-					{i === currentIndex
-					? 'w-6 h-3 bg-control-accent'
-					: seen[i]
-						? 'w-3 h-3 bg-foreground/40'
-						: 'w-3 h-3 bg-secondary border border-foreground/20'}"
-			></button>
-		{/each}
-	</div>
+	<ProgressDots
+		count={halaman.length}
+		current={currentIndex}
+		{seen}
+		onJump={jumpTo}
+		class="px-4 mt-6"
+	/>
 	<p class="text-center text-xs text-foreground-secondary mt-2 px-4">
 		{$t('iqra.keyboardHint')}
 	</p>
