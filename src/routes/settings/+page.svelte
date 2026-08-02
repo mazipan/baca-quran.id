@@ -99,10 +99,10 @@
 			cssFont: "'KFGQPC Hafs', 'KFGQPC Uthmanic Script HAFS', 'Traditional Arabic', serif"
 		},
 		{
-			key: 'system',
-			labelKey: 'settings.fontStyleSystem',
-			descKey: 'settings.fontStyleSystemDesc',
-			cssFont: "'Traditional Arabic', 'Arabic Typesetting', serif"
+			key: 'pdms',
+			labelKey: 'settings.fontStylePdms',
+			descKey: 'settings.fontStylePdmsDesc',
+			cssFont: "'PDMS Saleem', '_PDMS_Saleem_QuranFont', 'Traditional Arabic', serif"
 		}
 	];
 </script>

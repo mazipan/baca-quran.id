@@ -112,7 +112,7 @@
 				const storageFontStyle = localStorage.getItem(CONSTANTS.STORAGE_KEY.FONT_STYLE);
 				if (
 					storageFontStyle &&
-					['lpmq', 'amiriQuran', 'kfgqpc', 'system'].includes(storageFontStyle)
+					['lpmq', 'amiriQuran', 'kfgqpc', 'pdms', 'system'].includes(storageFontStyle)
 				) {
 					settingFontStyle.set(storageFontStyle as FontStyleKey);
 				}

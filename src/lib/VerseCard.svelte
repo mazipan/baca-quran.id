@@ -62,9 +62,11 @@
 				? 'font-arabic-amiri-quran'
 				: $settingFontStyle === 'kfgqpc'
 					? 'font-arabic-kfgqpc'
-					: $settingFontStyle === 'system'
-						? 'font-arabic-system'
-						: 'font-arabic'}"
+					: $settingFontStyle === 'pdms'
+						? 'font-arabic-pdms'
+						: $settingFontStyle === 'system'
+							? 'font-arabic-system'
+							: 'font-arabic'}"
 			style="font-size: {FONT_SIZE_MAP[$settingFontSize]}"
 		>
 			{verse}

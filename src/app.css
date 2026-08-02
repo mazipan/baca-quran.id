@@ -109,6 +109,12 @@ html.neon {
 	font-display: swap;
 }
 
+@font-face {
+	font-family: 'PDMS Saleem';
+	src: url(/fonts/pdms-saleem.ttf) format('truetype');
+	font-display: swap;
+}
+
 .font-arabic {
 	font-family: 'lpmq', 'Traditional Arabic', Arial, sans-serif;
 	line-height: 2;
@@ -121,6 +127,11 @@ html.neon {
 
 .font-arabic-kfgqpc {
 	font-family: 'KFGQPC Hafs', 'KFGQPC Uthmanic Script HAFS', 'Traditional Arabic', serif;
+	line-height: 2;
+}
+
+.font-arabic-pdms {
+	font-family: 'PDMS Saleem', '_PDMS_Saleem_QuranFont', 'Traditional Arabic', serif;
 	line-height: 2;
 }
 

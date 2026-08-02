@@ -112,6 +112,8 @@
 		"fontStyleAmiriQuranDesc": "Google Fonts Naskh",
 		"fontStyleKfgqpc": "KFGQPC Hafs",
 		"fontStyleKfgqpcDesc": "King Fahd Complex",
+		"fontStylePdms": "PDMS Saleem",
+		"fontStylePdmsDesc": "South Asian style",
 		"fontStyleSystem": "System",
 		"fontStyleSystemDesc": "Device default",
 		"fontSizeLabel": "Text Size",
