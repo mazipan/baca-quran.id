@@ -9,6 +9,8 @@
 	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
 	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
+	import Button from '$lib/ui/Button.svelte';
 	import {
 		loadProgress,
 		markLessonDone,
@@ -171,11 +173,15 @@
 					{#each currentHalaman.newLetters as letter}
 						<button
 							onclick={() => speakGroup([letter.withFathah])}
-							class="flex flex-col items-center gap-2 rounded-2xl bg-background shadow-sm px-6 py-4 flex-1 max-w-[150px] hover:shadow-md active:scale-95 transition-all"
+							class="flex flex-col items-center gap-2 rounded-2xl bg-primary shadow-sm px-6 py-4 flex-1 max-w-[150px] hover:shadow-md active:scale-95 transition-all"
 						>
 							<span class="font-arabic text-5xl leading-[1.3]">{letter.withFathah}</span>
 							<span class="text-sm font-semibold leading-none">{letter.name}</span>
 							<span class="text-xs text-foreground-secondary font-mono">/{letter.bunyi}/</span>
+							<SpeakerWaveIcon
+								size="xs"
+								class="w-3.5 h-3.5 text-foreground-secondary opacity-60 mt-0.5"
+							/>
 						</button>
 					{/each}
 				</div>
@@ -195,7 +201,7 @@
 								<button
 									onclick={() => speakGroup(group)}
 									class="flex items-center justify-center gap-4 rounded-xl min-h-[4.25rem] active:scale-95 transition-all
-										{isLastRow ? 'bg-control-accent shadow-sm' : 'bg-background shadow-sm hover:shadow-md'}"
+										{isLastRow ? 'bg-control-accent shadow-sm' : 'bg-primary shadow-sm hover:shadow-md'}"
 								>
 									{#each group as letter}
 										<span
@@ -215,14 +221,17 @@
 	</div>
 
 	<div class="px-4 flex gap-3">
-		<button
-			onclick={goPrev}
+		<Button
+			onClick={goPrev}
+			variant="outline"
+			color="secondary"
+			size="lg"
 			disabled={currentIndex === 0}
-			class="flex-1 flex items-center justify-center gap-2 rounded-md border border-foreground/30 text-foreground bg-secondary px-4 py-2.5 text-base hover:opacity-90 active:scale-95 transition disabled:opacity-40 disabled:cursor-not-allowed"
+			class="flex-1"
 		>
 			<ArrowLeftIcon size="sm" class="w-4 h-4 shrink-0" />
 			{$t('common.previous')}
-		</button>
+		</Button>
 		<button
 			onclick={goNext}
 			class="flex-1 flex items-center justify-center gap-2 rounded-md bg-control-accent text-control-surface px-4 py-2.5 text-base hover:opacity-90 active:scale-95 transition"
