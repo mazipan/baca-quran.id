@@ -33,6 +33,8 @@ export const CONSTANTS = {
 		DOA_CATEGORY: 'doa_cat',
 		ADHKAR_LOG: 'adhkar_log',
 		IQRA_PROGRESS: 'iqra_prog',
+		FONT_SIZE: 'fnsz',
+		FONT_STYLE: 'fnst',
 		MOOD: 'mood'
 	},
 	BISMILLAH: '﷽'

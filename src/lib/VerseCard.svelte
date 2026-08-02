@@ -5,7 +5,9 @@
 	import DocumentTextIcon from './icons/DocumentTextIcon.svelte';
 	import ShareIcon from './icons/ShareIcon.svelte';
 	import Button from './ui/Button.svelte';
-	import { settingTafsir, settingTranslation } from '../store';
+	import { settingTafsir, settingTranslation, settingFontSize, settingFontStyle } from '../store';
+
+	const FONT_SIZE_MAP = { sm: '1.2rem', md: '1.5rem', lg: '2rem', xl: '2.5rem' };
 	import { verseTafsirSheet } from '../store/verseTafsirSheet';
 	import { verseShareSheet } from '../store/verseShareSheet';
 	import { t } from './translations/store';
@@ -55,7 +57,20 @@
 
 <CardShadow id={`ayat-${numberVerse}`}>
 	<div class="flex justify-end gap-4 items-start" data-source={source}>
-		<div class="text-2xl text-right font-arabic">{verse}</div>
+		<div
+			class="text-right {$settingFontStyle === 'amiriQuran'
+				? 'font-arabic-amiri-quran'
+				: $settingFontStyle === 'kfgqpc'
+					? 'font-arabic-kfgqpc'
+					: $settingFontStyle === 'pdms'
+						? 'font-arabic-pdms'
+						: $settingFontStyle === 'system'
+							? 'font-arabic-system'
+							: 'font-arabic'}"
+			style="font-size: {FONT_SIZE_MAP[$settingFontSize]}"
+		>
+			{verse}
+		</div>
 	</div>
 
 	{#if $settingTranslation}
