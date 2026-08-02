@@ -43,7 +43,8 @@
 		"stories": "Stories",
 		"tulisan": "Tulisan",
 		"designSystem": "Sistem Desain",
-		"adhkar": "Dzikir Pagi & Petang"
+		"adhkar": "Dzikir Pagi & Petang",
+		"iqra": "Belajar Iqra"
 	},
 	"surah": {
 		"title": "Baca Qur'an",
@@ -360,5 +361,38 @@
 		"done": "Selesai",
 		"targetReached": "Target tercapai",
 		"markDone": "Tandai Selesai"
+	},
+	"iqra": {
+		"title": "Belajar Iqra",
+		"subtitle": "Belajar membaca Al-Qur'an dari awal, langkah demi langkah",
+		"levelLabel": "Jilid {{number}}",
+		"startLabel": "Mulai",
+		"continueLabel": "Lanjutkan",
+		"reviewLabel": "Ulangi",
+		"comingSoon": "Segera Hadir",
+		"lesson": "Pelajaran",
+		"seen": "sudah dilihat",
+		"finish": "Selesai",
+		"backToLevels": "Kembali ke Beranda Iqra",
+		"tryAlFatihah": "Coba baca Al-Fatihah",
+		"completionTitle": "Selamat!",
+		"completionDesc": "Kamu telah menyelesaikan Jilid {{jilid}}!",
+		"jilid1CompletionNote": "Kamu sudah mengenal semua 28 huruf hijaiyah. Sekarang coba baca Al-Fatihah!",
+		"harakatNote": "Fathah (◌َ) menghasilkan bunyi huruf + 'a'",
+		"keyboardHint": "Gunakan tombol ← → untuk berpindah huruf",
+		"resetProgress": "Reset progress Iqra",
+		"resetConfirm": "Yakin ingin menghapus semua progress Iqra? Tindakan ini tidak bisa dibatalkan.",
+		"jilid1Title": "Huruf Hijaiyah",
+		"jilid1Desc": "Mengenal 28 huruf hijaiyah dengan harakat fathah",
+		"jilid2Title": "Huruf Sambung",
+		"jilid2Desc": "Belajar bentuk huruf di awal, tengah, dan akhir kata",
+		"jilid3Title": "Harakat Lengkap",
+		"jilid3Desc": "Kasra, Dhammah, dan bacaan panjang (Mad)",
+		"jilid4Title": "Tanwin & Syaddah",
+		"jilid4Desc": "Harakat ganda, penekanan, dan huruf mati",
+		"jilid5Title": "Tajwid Dasar",
+		"jilid5Desc": "Hukum Nun Sukun, Mim Sukun, dan tanda waqaf",
+		"jilid6Title": "Tajwid Lanjutan",
+		"jilid6Desc": "Qalqalah, Mad bertingkat, dan huruf muqatta'at"
 	}
 }

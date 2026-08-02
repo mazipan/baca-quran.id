@@ -20,7 +20,8 @@
 		{ href: '/ayat-kursi/', title: `🪑 ${$t('navigation.ayatKursi')}` },
 		{ href: '/jadwal-sholat/', title: `⏰ ${$t('navigation.prayerTime')}` },
 		{ href: '/pencatat-ibadah/', title: `⏺️ ${$t('navigation.worshipTracker')}` },
-		{ href: '/kalender-hijriyah/', title: `📅 ${$t('navigation.hijriCalendar')}` }
+		{ href: '/kalender-hijriyah/', title: `📅 ${$t('navigation.hijriCalendar')}` },
+		{ href: '/iqra/', title: `📖 ${$t('navigation.iqra')}` }
 	]);
 </script>
 

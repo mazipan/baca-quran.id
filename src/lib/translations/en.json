@@ -43,7 +43,8 @@
 		"stories": "Stories",
 		"tulisan": "Articles",
 		"designSystem": "Design System",
-		"adhkar": "Morning & Evening Adhkar"
+		"adhkar": "Morning & Evening Adhkar",
+		"iqra": "Learn to Read (Iqra)"
 	},
 	"surah": {
 		"title": "Read Quran",
@@ -360,5 +361,38 @@
 		"done": "Done",
 		"targetReached": "Target reached",
 		"markDone": "Mark Done"
+	},
+	"iqra": {
+		"title": "Learn to Read (Iqra)",
+		"subtitle": "Learn to read the Quran from scratch, step by step",
+		"levelLabel": "Level {{number}}",
+		"startLabel": "Start",
+		"continueLabel": "Continue",
+		"reviewLabel": "Review",
+		"comingSoon": "Coming Soon",
+		"lesson": "Lesson",
+		"seen": "viewed",
+		"finish": "Finish",
+		"backToLevels": "Back to Iqra Home",
+		"tryAlFatihah": "Try reading Al-Fatihah",
+		"completionTitle": "Congratulations!",
+		"completionDesc": "You completed Level {{jilid}}!",
+		"jilid1CompletionNote": "You now know all 28 Arabic letters. Try reading Al-Fatihah!",
+		"harakatNote": "Fathah (◌َ) adds the vowel 'a' to the letter",
+		"keyboardHint": "Use ← → arrow keys to navigate",
+		"resetProgress": "Reset Iqra progress",
+		"resetConfirm": "Are you sure you want to reset all Iqra progress? This cannot be undone.",
+		"jilid1Title": "Arabic Letters",
+		"jilid1Desc": "Learn all 28 hijaiyah letters with the Fathah vowel",
+		"jilid2Title": "Connected Letters",
+		"jilid2Desc": "How letters change shape at the start, middle, and end of a word",
+		"jilid3Title": "Full Vowels",
+		"jilid3Desc": "Kasra, Dhammah, and long vowels (Mad)",
+		"jilid4Title": "Tanwin & Syaddah",
+		"jilid4Desc": "Double vowels, gemination, and silent letters",
+		"jilid5Title": "Basic Tajwid",
+		"jilid5Desc": "Rules for Nun Sukun, Mim Sukun, and stopping signs",
+		"jilid6Title": "Advanced Tajwid",
+		"jilid6Desc": "Qalqalah, extended Mad, and opening letters of surahs"
 	}
 }
