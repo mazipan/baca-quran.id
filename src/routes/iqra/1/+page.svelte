@@ -2,12 +2,13 @@
 	import { onMount } from 'svelte';
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
-	import Button from '$lib/ui/Button.svelte';
 	import BookOpenIcon from '$lib/icons/BookOpenIcon.svelte';
 	import CheckCircleSolidIcon from '$lib/icons/CheckCircleSolidIcon.svelte';
 	import { TITLE_CONSTANTS } from '$lib/constants';
 	import { t } from '$lib/translations/store';
 	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
+	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
+	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 	import {
 		loadProgress,
 		markLessonDone,
@@ -214,19 +215,21 @@
 	</div>
 
 	<div class="px-4 flex gap-3">
-		<Button
-			onClick={goPrev}
-			variant="outline"
-			color="secondary"
-			size="lg"
+		<button
+			onclick={goPrev}
 			disabled={currentIndex === 0}
-			class="flex-1"
+			class="flex-1 flex items-center justify-center gap-2 rounded-md border border-foreground/30 text-foreground bg-secondary px-4 py-2.5 text-base hover:opacity-90 active:scale-95 transition disabled:opacity-40 disabled:cursor-not-allowed"
 		>
-			← {$t('common.previous')}
-		</Button>
-		<Button onClick={goNext} variant="solid" color="info" size="lg" class="flex-1">
-			{currentIndex < halaman.length - 1 ? $t('common.next') : $t('iqra.finish')} →
-		</Button>
+			<ArrowLeftIcon size="sm" class="w-4 h-4 shrink-0" />
+			{$t('common.previous')}
+		</button>
+		<button
+			onclick={goNext}
+			class="flex-1 flex items-center justify-center gap-2 rounded-md bg-control-accent text-control-surface px-4 py-2.5 text-base hover:opacity-90 active:scale-95 transition"
+		>
+			{currentIndex < halaman.length - 1 ? $t('common.next') : $t('iqra.finish')}
+			<ArrowRightIcon size="sm" class="w-4 h-4 shrink-0" />
+		</button>
 	</div>
 
 	<div class="px-4 mt-6 flex flex-wrap gap-1.5 justify-center">
