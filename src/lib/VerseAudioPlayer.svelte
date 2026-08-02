@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import { onMount } from 'svelte';
 	import {
 		settingAudio,
@@ -27,21 +25,20 @@
 
 	function play({ surah, verse, totalAyah }: CurrentTrackParam) {
 		if (audioRef) {
-			currentTrack.set({
-				verse,
-				surah,
-				totalAyah
-			});
+			currentTrack.set({ verse, surah, totalAyah });
+			currentTime = 0;
+			totalTime = 0;
+			percent = 0;
 			const src = getAudioFromEveryAyah($settingAudio, surah, verse);
 			const currentSrc = audioRef.getAttribute('src');
 			if (src !== currentSrc) {
-				audioRef.setAttribute('src', getAudioFromEveryAyah($settingAudio, surah, verse));
+				audioRef.setAttribute('src', src);
 			}
-
 			audioRef.load();
-			audioRef.play();
+			audioRef.play().catch(() => {});
 			isPlayingAudio.set(true);
 			isShowingAudioPlayer.set(true);
+			reachingEndOfSurah = false;
 		}
 	}
 
@@ -66,7 +63,15 @@
 	function updateAudioTimeline() {
 		if (audioRef) {
 			currentTime = audioRef.currentTime;
-			percent = (currentTime / totalTime) * 100;
+			percent = totalTime > 0 ? (currentTime / totalTime) * 100 : 0;
+		}
+	}
+
+	function handleProgressClick(e: MouseEvent) {
+		if (audioRef && totalTime > 0) {
+			const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+			const newTime = ((e.clientX - rect.left) / rect.width) * totalTime;
+			audioRef.currentTime = Math.max(0, Math.min(newTime, totalTime));
 		}
 	}
 
@@ -82,12 +87,20 @@
 				if (!endOfSurah) {
 					const nextVerse = +$currentTrack.verse + 1;
 					const nextSurah = +$currentTrack.surah;
-
-					play({
+					const nextTrack = {
 						surah: `${nextSurah}`,
 						verse: `${nextVerse}`,
 						totalAyah: +$currentTrack.totalAyah
-					});
+					};
+					currentTrack.set(nextTrack);
+					play(nextTrack);
+
+					setTimeout(() => {
+						const el = document.getElementById(`ayat-${nextVerse}`);
+						if (el) {
+							el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+						}
+					}, 100);
 				}
 			}
 		}
@@ -101,30 +114,29 @@
 		}
 	}
 
+	function closePlayer() {
+		pause();
+		currentTrack.set({ surah: '', verse: '', totalAyah: 0 });
+		isShowingAudioPlayer.set(false);
+	}
+
 	function attachListeners() {
 		if (audioRef) {
 			audioRef.addEventListener('timeupdate', updateAudioTimeline);
 			audioRef.addEventListener('loadedmetadata', () => {
 				totalTime = audioRef?.duration ?? 0;
 			});
-
 			audioRef.addEventListener('ended', handleEndPlaying);
-			window.addEventListener('paused', () => {
+
+			window.addEventListener('audio-stop', () => {
 				pause();
+			});
+
+			window.addEventListener('audio-play', (e: Event) => {
+				play((e as CustomEvent<CurrentTrackParam>).detail);
 			});
 		}
 	}
-
-	function closePlayer() {
-		pause();
-		isShowingAudioPlayer.set(false);
-	}
-
-	run(() => {
-		if ($isShowingAudioPlayer) {
-			play($currentTrack);
-		}
-	});
 
 	onMount(() => {
 		attachListeners();
@@ -161,8 +173,26 @@
 				<span>{formatAudioTime(totalTime)} </span>
 			</div>
 
-			<div class="w-full bg-primary rounded-full h-1.5">
-				<div class="bg-lime-400 h-1.5 rounded-full" style={`width: ${percent}%`}></div>
+			<div
+				class="w-full bg-primary rounded-full h-3 cursor-pointer flex items-center"
+				role="slider"
+				aria-label="Audio progress"
+				aria-valuemin={0}
+				aria-valuemax={totalTime}
+				aria-valuenow={currentTime}
+				tabindex="0"
+				onclick={handleProgressClick}
+				onkeydown={(e) => {
+					if (!audioRef || totalTime <= 0) return;
+					if (e.key === 'ArrowRight')
+						audioRef.currentTime = Math.min(audioRef.currentTime + 5, totalTime);
+					if (e.key === 'ArrowLeft') audioRef.currentTime = Math.max(audioRef.currentTime - 5, 0);
+				}}
+			>
+				<div
+					class="bg-lime-400 h-1.5 rounded-full pointer-events-none"
+					style={`width: ${percent}%`}
+				></div>
 			</div>
 
 			<div class="text-sm mt-2 flex justify-between items-center">
