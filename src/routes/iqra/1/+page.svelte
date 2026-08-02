@@ -3,10 +3,17 @@
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import BookOpenIcon from '$lib/icons/BookOpenIcon.svelte';
+	import CheckCircleSolidIcon from '$lib/icons/CheckCircleSolidIcon.svelte';
 	import { TITLE_CONSTANTS } from '$lib/constants';
 	import { t } from '$lib/translations/store';
 	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
-	import { loadProgress, markLessonDone, isLevelComplete } from '$lib/utils/iqraProgress';
+	import {
+		loadProgress,
+		markLessonDone,
+		isLevelComplete,
+		resetJilidProgress
+	} from '$lib/utils/iqraProgress';
 
 	const JILID = 1;
 	const halaman = IQRA_1_HALAMAN;
@@ -46,6 +53,13 @@
 		currentIndex = index;
 	}
 
+	function restart() {
+		resetJilidProgress(JILID);
+		seen = new Array(halaman.length).fill(false);
+		currentIndex = 0;
+		isComplete = false;
+	}
+
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'ArrowRight' && !isComplete) goNext();
 		if (e.key === 'ArrowLeft' && !isComplete) goPrev();
@@ -66,8 +80,9 @@
 	/>
 </svelte:head>
 
-<div class="flex gap-2 px-4 mb-4">
-	<h1 class="text-3xl font-bold">📖 {$t('iqra.jilid1Title')}</h1>
+<div class="flex items-center gap-2 px-4 mb-4">
+	<BookOpenIcon size="lg" class="w-7 h-7 text-foreground" />
+	<h1 class="text-3xl font-bold">{$t('iqra.jilid1Title')}</h1>
 </div>
 
 <div class="px-4 mb-4">
@@ -80,21 +95,21 @@
 </div>
 
 {#if isComplete}
-	<div class="px-4 flex flex-col items-center gap-6 text-center py-8">
-		<div class="text-7xl">🎉</div>
+	<div class="px-4 flex flex-col items-center gap-5 text-center py-8">
+		<CheckCircleSolidIcon size="xl" class="w-16 h-16 text-foreground" />
 		<h2 class="text-2xl font-bold">{$t('iqra.completionTitle')}</h2>
 		<p class="text-foreground-secondary text-lg">
 			{$t('iqra.completionDesc', { jilid: '1' })}
 		</p>
-		<p class="text-foreground-secondary">
+		<p class="text-foreground-secondary text-sm max-w-xs">
 			{$t('iqra.jilid1CompletionNote')}
 		</p>
-		<div class="flex flex-col gap-3 w-full max-w-xs">
+		<div class="flex flex-col gap-3 w-full max-w-xs mt-2">
 			{#if nextLevel}
 				{#if nextLevel.available}
 					<a
 						href="/iqra/{nextLevel.jilid}/"
-						class="flex justify-center items-center rounded-md bg-blue-600 text-white px-4 py-2.5 text-base hover:bg-blue-700 transition"
+						class="flex justify-center items-center rounded-md bg-control-accent text-control-surface px-4 py-2.5 text-base hover:opacity-90 transition"
 					>
 						{$t('iqra.nextLevel', { number: String(nextLevel.jilid) })} →
 					</a>
@@ -102,21 +117,21 @@
 					<div
 						class="flex justify-center items-center rounded-md bg-secondary text-foreground-secondary border border-foreground/10 px-4 py-2.5 text-base cursor-not-allowed opacity-60"
 					>
-						🔒 {$t('iqra.nextLevelComingSoon', { number: String(nextLevel.jilid) })}
+						{$t('iqra.nextLevelComingSoon', { number: String(nextLevel.jilid) })}
 					</div>
 				{/if}
 			{/if}
+			<button
+				onclick={restart}
+				class="flex justify-center items-center rounded-md bg-secondary text-foreground border border-foreground/20 px-4 py-2.5 text-base hover:opacity-90 transition"
+			>
+				{$t('iqra.restartLabel')}
+			</button>
 			<a
 				href="/iqra/"
 				class="flex justify-center items-center rounded-md bg-secondary text-foreground border border-foreground/20 px-4 py-2.5 text-base hover:opacity-90 transition"
 			>
 				{$t('iqra.backToLevels')}
-			</a>
-			<a
-				href="/surah/1/"
-				class="flex justify-center items-center rounded-md bg-secondary text-foreground border border-foreground/20 px-4 py-2.5 text-base hover:opacity-90 transition"
-			>
-				📖 {$t('iqra.tryAlFatihah')}
 			</a>
 		</div>
 	</div>
@@ -157,7 +172,7 @@
 								<span
 									class="font-arabic leading-none select-none {rowIndex ===
 									currentHalaman.rows.length - 1
-										? 'text-4xl text-blue-600 dark:text-blue-400'
+										? 'text-4xl text-control-accent'
 										: 'text-3xl'}"
 								>
 									{letter}
@@ -196,9 +211,9 @@
 				aria-label="Halaman {i + 1}"
 				class="rounded-full transition-all
 					{i === currentIndex
-					? 'w-6 h-3 bg-blue-500'
+					? 'w-6 h-3 bg-control-accent'
 					: seen[i]
-						? 'w-3 h-3 bg-green-500'
+						? 'w-3 h-3 bg-foreground/40'
 						: 'w-3 h-3 bg-secondary border border-foreground/20'}"
 			></button>
 		{/each}
