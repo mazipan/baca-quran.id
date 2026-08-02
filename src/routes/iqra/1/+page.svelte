@@ -76,14 +76,6 @@
 		}
 	}
 
-	function chunkArray<T>(arr: T[], size: number): T[][] {
-		const chunks: T[][] = [];
-		for (let i = 0; i < arr.length; i += size) {
-			chunks.push(arr.slice(i, i + size));
-		}
-		return chunks;
-	}
-
 	const currentHalaman = $derived(halaman[currentIndex]);
 	const seenCount = $derived(seen.filter(Boolean).length);
 	const nextLevel = IQRA_LEVELS.find((l) => l.jilid === JILID + 1);
@@ -193,8 +185,12 @@
 				<div class="flex flex-col gap-2">
 					{#each currentHalaman.rows as row, rowIndex}
 						{@const isLastRow = rowIndex === currentHalaman.rows.length - 1}
-						<div class="grid grid-cols-3 gap-2" dir="rtl">
-							{#each chunkArray(row, isLastRow ? 1 : 2) as group}
+						<div
+							class="grid gap-2"
+							style="grid-template-columns: repeat({row.length}, 1fr)"
+							dir="rtl"
+						>
+							{#each row as group}
 								<button
 									onclick={() => speakGroup(group)}
 									class="flex items-center justify-center gap-4 rounded-xl min-h-[4.25rem] active:scale-95 transition-all
