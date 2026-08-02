@@ -58,7 +58,13 @@
 <CardShadow id={`ayat-${numberVerse}`}>
 	<div class="flex justify-end gap-4 items-start" data-source={source}>
 		<div
-			class="text-right {$settingFontStyle === 'system' ? 'font-arabic-system' : 'font-arabic'}"
+			class="text-right {$settingFontStyle === 'amiri'
+				? 'font-arabic-amiri'
+				: $settingFontStyle === 'noto'
+					? 'font-arabic-noto'
+					: $settingFontStyle === 'system'
+						? 'font-arabic-system'
+						: 'font-arabic'}"
 			style="font-size: {FONT_SIZE_MAP[$settingFontSize]}"
 		>
 			{verse}

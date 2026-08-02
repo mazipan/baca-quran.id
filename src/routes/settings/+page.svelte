@@ -78,6 +78,33 @@
 		{ key: 'lg', label: 'L' },
 		{ key: 'xl', label: 'XL' }
 	];
+
+	const FONT_STYLES: { key: FontStyleKey; labelKey: string; descKey: string; cssFont: string }[] = [
+		{
+			key: 'lpmq',
+			labelKey: 'settings.fontStyleLpmq',
+			descKey: 'settings.fontStyleLpmqDesc',
+			cssFont: "'lpmq', 'Traditional Arabic', serif"
+		},
+		{
+			key: 'amiri',
+			labelKey: 'settings.fontStyleAmiri',
+			descKey: 'settings.fontStyleAmiriDesc',
+			cssFont: "'Amiri', 'Traditional Arabic', serif"
+		},
+		{
+			key: 'noto',
+			labelKey: 'settings.fontStyleNoto',
+			descKey: 'settings.fontStyleNotoDesc',
+			cssFont: "'Noto Naskh Arabic', 'Traditional Arabic', serif"
+		},
+		{
+			key: 'system',
+			labelKey: 'settings.fontStyleSystem',
+			descKey: 'settings.fontStyleSystemDesc',
+			cssFont: "'Traditional Arabic', 'Arabic Typesetting', serif"
+		}
+	];
 </script>
 
 <svelte:head>
@@ -210,23 +237,39 @@
 				<div class="text-xs mt-0.5 mb-3" style="color: var(--color-foreground-secondary)">
 					{$t('settings.fontStyleDesc')}
 				</div>
-				<div class="flex gap-2">
-					{#each ['lpmq', 'system'] as FontStyleKey[] as style}
+				<div class="grid grid-cols-2 gap-2">
+					{#each FONT_STYLES as { key, labelKey, descKey, cssFont }}
 						<button
 							type="button"
-							onclick={() => setFontStyle(style)}
-							class="flex-1 py-2 px-3 rounded-xl text-sm font-medium border-2 transition-colors duration-150"
+							onclick={() => setFontStyle(key)}
+							class="flex flex-col items-center gap-1 py-3 px-2 rounded-xl border-2 transition-colors duration-150 active:scale-95"
 							style="
-								background-color: {$settingFontStyle === style
+								background-color: {$settingFontStyle === key
 								? 'var(--color-control-accent)'
 								: 'var(--color-primary)'};
-								color: {$settingFontStyle === style ? 'var(--color-primary)' : 'var(--color-foreground)'};
-								border-color: {$settingFontStyle === style
+								border-color: {$settingFontStyle === key
 								? 'var(--color-control-accent)'
 								: 'var(--color-secondary)'};
 							"
 						>
-							{style === 'lpmq' ? $t('settings.fontStyleLpmq') : $t('settings.fontStyleSystem')}
+							<span
+								style="font-family: {cssFont}; font-size: 1.375rem; line-height: 1.8; color: {$settingFontStyle ===
+								key
+									? 'var(--color-primary)'
+									: 'var(--color-foreground)'}">بسم الله</span
+							>
+							<span
+								class="text-xs font-semibold"
+								style="color: {$settingFontStyle === key
+									? 'var(--color-primary)'
+									: 'var(--color-foreground)'}">{$t(labelKey)}</span
+							>
+							<span
+								class="text-[10px]"
+								style="color: {$settingFontStyle === key
+									? 'color-mix(in srgb, var(--color-primary) 75%, transparent)'
+									: 'var(--color-foreground-secondary)'}">{$t(descKey)}</span
+							>
 						</button>
 					{/each}
 				</div>

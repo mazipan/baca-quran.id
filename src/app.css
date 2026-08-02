@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@import '@fontsource/amiri/arabic-400.css';
+@import '@fontsource/noto-naskh-arabic/arabic-400.css';
 
 @theme {
 	--color-primary: #f8fafc;
@@ -101,8 +103,17 @@ html.neon {
 }
 
 .font-arabic-system {
-	font-family: 'Geeza Pro', 'Traditional Arabic', 'Arabic Typesetting', 'Noto Naskh Arabic',
-		'Amiri', 'Scheherazade New', serif;
+	font-family: 'Geeza Pro', 'Traditional Arabic', 'Arabic Typesetting', 'Scheherazade New', serif;
+	line-height: 2;
+}
+
+.font-arabic-amiri {
+	font-family: 'Amiri', 'Traditional Arabic', serif;
+	line-height: 2;
+}
+
+.font-arabic-noto {
+	font-family: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
 	line-height: 2;
 }
 
