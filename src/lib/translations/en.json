@@ -393,6 +393,10 @@
 		"jilid5Title": "Basic Tajwid",
 		"jilid5Desc": "Rules for Nun Sukun, Mim Sukun, and stopping signs",
 		"jilid6Title": "Advanced Tajwid",
-		"jilid6Desc": "Qalqalah, extended Mad, and opening letters of surahs"
+		"jilid6Desc": "Qalqalah, extended Mad, and opening letters of surahs",
+		"overallProgress": "{{completed}} of {{total}} levels complete",
+		"nextLevel": "Continue to Jilid {{number}}",
+		"nextLevelComingSoon": "Jilid {{number}} not yet available",
+		"unlockHint": "Complete Jilid {{prev}} first"
 	}
 }

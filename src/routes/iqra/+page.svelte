@@ -51,6 +51,8 @@
 		5: 'iqra.jilid5Desc',
 		6: 'iqra.jilid6Desc'
 	};
+
+	const totalCompleted = $derived(Object.values(completedLevels).filter(Boolean).length);
 </script>
 
 <svelte:head>
@@ -71,6 +73,11 @@
 
 <div class="px-4 mb-6">
 	<p class="text-foreground-secondary">{$t('iqra.subtitle')}</p>
+	{#if totalCompleted > 0}
+		<p class="text-sm text-green-600 dark:text-green-400 mt-1.5">
+			✓ {$t('iqra.overallProgress', { completed: String(totalCompleted), total: '6' })}
+		</p>
+	{/if}
 </div>
 
 <div class="px-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -143,7 +150,9 @@
 					</div>
 					<span class="shrink-0 text-xl">🔒</span>
 				</div>
-				<div class="text-xs text-foreground-secondary italic">{$t('iqra.comingSoon')}</div>
+				<div class="text-xs text-foreground-secondary italic">
+					{$t('iqra.comingSoon')} · {$t('iqra.unlockHint', { prev: String(level.jilid - 1) })}
+				</div>
 			</div>
 		{/if}
 	{/each}

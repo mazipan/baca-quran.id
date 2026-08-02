@@ -5,7 +5,7 @@
 	import Button from '$lib/ui/Button.svelte';
 	import { TITLE_CONSTANTS } from '$lib/constants';
 	import { t } from '$lib/translations/store';
-	import { HIJAIYAH_LETTERS } from '$data/iqra';
+	import { HIJAIYAH_LETTERS, IQRA_LEVELS } from '$data/iqra';
 	import { loadProgress, markLessonDone, isLevelComplete } from '$lib/utils/iqraProgress';
 
 	const JILID = 1;
@@ -53,6 +53,7 @@
 
 	const currentLetter = $derived(letters[currentIndex]);
 	const seenCount = $derived(seen.filter(Boolean).length);
+	const nextLevel = IQRA_LEVELS.find((l) => l.jilid === JILID + 1);
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
@@ -89,6 +90,22 @@
 			{$t('iqra.jilid1CompletionNote')}
 		</p>
 		<div class="flex flex-col gap-3 w-full max-w-xs">
+			{#if nextLevel}
+				{#if nextLevel.available}
+					<a
+						href="/iqra/{nextLevel.jilid}/"
+						class="flex justify-center items-center rounded-md bg-blue-600 text-white px-4 py-2.5 text-base hover:bg-blue-700 transition"
+					>
+						{$t('iqra.nextLevel', { number: String(nextLevel.jilid) })} →
+					</a>
+				{:else}
+					<div
+						class="flex justify-center items-center rounded-md bg-secondary text-foreground-secondary border border-foreground/10 px-4 py-2.5 text-base cursor-not-allowed opacity-60"
+					>
+						🔒 {$t('iqra.nextLevelComingSoon', { number: String(nextLevel.jilid) })}
+					</div>
+				{/if}
+			{/if}
 			<a
 				href="/iqra/"
 				class="flex justify-center items-center rounded-md bg-secondary text-foreground border border-foreground/20 px-4 py-2.5 text-base hover:opacity-90 transition"
@@ -97,7 +114,7 @@
 			</a>
 			<a
 				href="/surah/1/"
-				class="flex justify-center items-center rounded-md bg-blue-600 text-white px-4 py-2.5 text-base hover:bg-blue-700 transition"
+				class="flex justify-center items-center rounded-md bg-secondary text-foreground border border-foreground/20 px-4 py-2.5 text-base hover:opacity-90 transition"
 			>
 				📖 {$t('iqra.tryAlFatihah')}
 			</a>
