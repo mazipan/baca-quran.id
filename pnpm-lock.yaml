@@ -11,6 +11,9 @@ importers:
       '@fontsource/amiri':
         specifier: 5.3.0
         version: 5.3.0
+      '@fontsource/amiri-quran':
+        specifier: 5.3.0
+        version: 5.3.0
       '@fontsource/noto-naskh-arabic':
         specifier: 5.3.0
         version: 5.3.0
@@ -23,6 +26,9 @@ importers:
       firebase:
         specifier: 12.16.0
         version: 12.16.0
+      kfgqpc-uthmanic-script-hafs-regular:
+        specifier: 1.0.0
+        version: 1.0.0
       svelte:
         specifier: 5.56.6
         version: 5.56.6(@typescript-eslint/types@8.65.0)
@@ -384,6 +390,9 @@ packages:
 
   '@firebase/webchannel-wrapper@1.0.6':
     resolution: {integrity: sha512-Vr/Mqu79dMwGRAyGbJ4uN4+BtXB3/mRTdzetD1daWNeG8QaWuzhhbG77GltO5c0yYmYls8i250iX73624GJd7Q==}
+
+  '@fontsource/amiri-quran@5.3.0':
+    resolution: {integrity: sha512-z/Y3JCqGWnWLpfJGBWPf7C42IxHjxxuwgcCHLmsU/hYd65GHXkZ/XTVpEGtWrEx9VlzdzMMRHDNTJvs8OwAeEw==}
 
   '@fontsource/amiri@5.3.0':
     resolution: {integrity: sha512-i4SWJnVIphj8556EdVzNrEG/Qu82k6JXjXTtSUIohx3tHmo2GHw1Kv60TWo+xjk7Yf1Etb2Gskh0lUFclTKyUw==}
@@ -1188,6 +1197,9 @@ packages:
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
+
+  kfgqpc-uthmanic-script-hafs-regular@1.0.0:
+    resolution: {integrity: sha512-vMvJ809LZy49cuP45iTtXLift7fDrAiCF9hOqtbdipawLKpnPhloNBR7V6yW5PVxHLl1RWPTw9LhsS8rAWGtdw==}
 
   kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
@@ -2178,6 +2190,8 @@ snapshots:
 
   '@firebase/webchannel-wrapper@1.0.6': {}
 
+  '@fontsource/amiri-quran@5.3.0': {}
+
   '@fontsource/amiri@5.3.0': {}
 
   '@fontsource/noto-naskh-arabic@5.3.0': {}
@@ -2932,6 +2946,8 @@ snapshots:
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
+
+  kfgqpc-uthmanic-script-hafs-regular@1.0.0: {}
 
   kleur@4.1.5: {}
 

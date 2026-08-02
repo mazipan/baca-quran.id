@@ -58,10 +58,10 @@
 <CardShadow id={`ayat-${numberVerse}`}>
 	<div class="flex justify-end gap-4 items-start" data-source={source}>
 		<div
-			class="text-right {$settingFontStyle === 'amiri'
-				? 'font-arabic-amiri'
-				: $settingFontStyle === 'noto'
-					? 'font-arabic-noto'
+			class="text-right {$settingFontStyle === 'amiriQuran'
+				? 'font-arabic-amiri-quran'
+				: $settingFontStyle === 'kfgqpc'
+					? 'font-arabic-kfgqpc'
 					: $settingFontStyle === 'system'
 						? 'font-arabic-system'
 						: 'font-arabic'}"

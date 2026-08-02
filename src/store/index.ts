@@ -14,7 +14,7 @@ export const settingAudio = writable<ReciterKey>('1');
 export const settingAutoNext = writable(true);
 
 export type FontSizeKey = 'sm' | 'md' | 'lg' | 'xl';
-export type FontStyleKey = 'lpmq' | 'amiri' | 'noto' | 'system';
+export type FontStyleKey = 'lpmq' | 'amiriQuran' | 'kfgqpc' | 'system';
 
 export const settingFontSize = writable<FontSizeKey>('md');
 export const settingFontStyle = writable<FontStyleKey>('lpmq');

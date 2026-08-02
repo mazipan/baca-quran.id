@@ -87,16 +87,16 @@
 			cssFont: "'lpmq', 'Traditional Arabic', serif"
 		},
 		{
-			key: 'amiri',
-			labelKey: 'settings.fontStyleAmiri',
-			descKey: 'settings.fontStyleAmiriDesc',
-			cssFont: "'Amiri', 'Traditional Arabic', serif"
+			key: 'amiriQuran',
+			labelKey: 'settings.fontStyleAmiriQuran',
+			descKey: 'settings.fontStyleAmiriQuranDesc',
+			cssFont: "'Amiri Quran', 'Traditional Arabic', serif"
 		},
 		{
-			key: 'noto',
-			labelKey: 'settings.fontStyleNoto',
-			descKey: 'settings.fontStyleNotoDesc',
-			cssFont: "'Noto Naskh Arabic', 'Traditional Arabic', serif"
+			key: 'kfgqpc',
+			labelKey: 'settings.fontStyleKfgqpc',
+			descKey: 'settings.fontStyleKfgqpcDesc',
+			cssFont: "'KFGQPC Hafs', 'KFGQPC Uthmanic Script HAFS', 'Traditional Arabic', serif"
 		},
 		{
 			key: 'system',

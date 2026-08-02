@@ -1,6 +1,4 @@
 @import 'tailwindcss';
-@import '@fontsource/amiri/arabic-400.css';
-@import '@fontsource/noto-naskh-arabic/arabic-400.css';
 
 @theme {
 	--color-primary: #f8fafc;
@@ -93,7 +91,21 @@ html.neon {
 
 @font-face {
 	font-family: 'lpmq';
-	src: url(/fonts/lpmq.otf) format('opentype');
+	src: url(/fonts/lpmq.woff) format('woff'), url(/fonts/lpmq.otf) format('opentype');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Amiri Quran';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/fonts/amiri-quran.woff2) format('woff2'), url(/fonts/amiri-quran.woff) format('woff');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'KFGQPC Hafs';
+	src: url(/fonts/kfgqpc-hafs.otf) format('opentype');
 	font-display: swap;
 }
 
@@ -102,18 +114,18 @@ html.neon {
 	line-height: 2;
 }
 
+.font-arabic-amiri-quran {
+	font-family: 'Amiri Quran', 'Traditional Arabic', serif;
+	line-height: 2;
+}
+
+.font-arabic-kfgqpc {
+	font-family: 'KFGQPC Hafs', 'KFGQPC Uthmanic Script HAFS', 'Traditional Arabic', serif;
+	line-height: 2;
+}
+
 .font-arabic-system {
 	font-family: 'Geeza Pro', 'Traditional Arabic', 'Arabic Typesetting', 'Scheherazade New', serif;
-	line-height: 2;
-}
-
-.font-arabic-amiri {
-	font-family: 'Amiri', 'Traditional Arabic', serif;
-	line-height: 2;
-}
-
-.font-arabic-noto {
-	font-family: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
 	line-height: 2;
 }
 
