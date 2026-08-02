@@ -43,7 +43,8 @@
 		"stories": "Stories",
 		"tulisan": "Tulisan",
 		"designSystem": "Sistem Desain",
-		"adhkar": "Dzikir Pagi & Petang"
+		"adhkar": "Dzikir Pagi & Petang",
+		"mood": "Suasana Hati"
 	},
 	"surah": {
 		"title": "Baca Qur'an",
@@ -328,6 +329,23 @@
 			"interactive": "Interaktif (button / link)",
 			"withoutDecorative": "Tanpa dekorasi lingkaran",
 			"indexBased": "Pemilihan berbasis indeks — berguna untuk daftar"
+		}
+	},
+	"mood": {
+		"title": "💭 Suasana Hati",
+		"subtitle": "Temukan ayat Al-Qur'an yang sesuai dengan perasaanmu saat ini.",
+		"pickRandom": "Acak / Pilih Satu",
+		"readFullAyah": "Baca Ayat Selengkapnya",
+		"disclaimer": "Pilihan ayat ini dikurasi secara manual. Tidak bersifat eksklusif dan dapat terus berkembang.",
+		"moods": {
+			"cemas": "Cemas",
+			"bersyukur": "Bersyukur",
+			"sedih": "Sedih",
+			"takut": "Takut",
+			"marah": "Marah",
+			"lemah_iman": "Lemah Iman",
+			"tobat": "Tobat",
+			"bahagia": "Bahagia"
 		}
 	},
 	"tahlil": {
