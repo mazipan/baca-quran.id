@@ -8,7 +8,6 @@
 	import { t } from '$lib/translations/store';
 	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
 	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
-	import ProgressDots from '$lib/ui/ProgressDots.svelte';
 	import StepNav from '$lib/ui/StepNav.svelte';
 	import {
 		loadProgress,
@@ -227,15 +226,8 @@
 		prevLabel={$t('common.previous')}
 		nextLabel={$t('common.next')}
 		finishLabel={$t('iqra.finish')}
+		showCounter
 		class="px-4"
-	/>
-
-	<ProgressDots
-		count={halaman.length}
-		current={currentIndex}
-		{seen}
-		onJump={jumpTo}
-		class="px-4 mt-6"
 	/>
 	<p class="text-center text-xs text-foreground-secondary mt-2 px-4">
 		{$t('iqra.keyboardHint')}
