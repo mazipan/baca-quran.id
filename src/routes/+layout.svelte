@@ -56,7 +56,7 @@
 				settingTranslation.set(!!(storageTranslation && storageTranslation === 'y'));
 
 				const storageAutoNext = localStorage.getItem(CONSTANTS.STORAGE_KEY.AUTO_NEXT);
-				settingAutoNext.set(!!(storageAutoNext && storageAutoNext === 'y'));
+				settingAutoNext.set(storageAutoNext === null ? true : storageAutoNext === 'y');
 
 				const storageAudio = localStorage.getItem(CONSTANTS.STORAGE_KEY.AUDIO);
 				if (storageAudio) {
