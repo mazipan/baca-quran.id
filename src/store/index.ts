@@ -55,18 +55,7 @@ export type BookmarkVerseItem = {
 export const lastReadVerses = writable<BookmarkVerseItem[]>([]);
 
 export type LogPrayerItemKey =
-	| '1'
-	| '2'
-	| '3'
-	| '4'
-	| '5'
-	| '6'
-	| '7'
-	| '8'
-	| '9'
-	| '10'
-	| '11'
-	| '12';
+	'1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
 export type LogPrayerItemValue = 1 | 0;
 /**
  * Key is a LogPrayerItemKey, value is 1 (done) or 0 (not done).
