@@ -5,6 +5,7 @@
 	import SeoText from '$lib/SeoText.svelte';
 	import CardShadow from '$lib/CardShadow.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import Chip from '$lib/ui/Chip.svelte';
 	import {
 		META_TITLE_SUASANA_HATI,
 		META_DESC_SUASANA_HATI,
@@ -109,16 +110,14 @@
 
 <div class="px-4 mb-6 flex flex-wrap gap-2">
 	{#each MOODS as mood}
-		<button
-			class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm border transition-colors {activeMoodId ===
-			mood.id
-				? 'bg-primary border-primary font-semibold'
-				: 'border-secondary hover:bg-primary'}"
-			onclick={() => selectMood(mood.id)}
+		<Chip
+			onClick={() => selectMood(mood.id)}
+			color={activeMoodId === mood.id ? 'accent' : 'neutral'}
+			ariaLabel={$t(mood.labelKey)}
 		>
 			<span>{mood.emoji}</span>
 			<span>{$t(mood.labelKey)}</span>
-		</button>
+		</Chip>
 	{/each}
 </div>
 
@@ -147,7 +146,7 @@
 					<CardShadow>
 						<div
 							class="flex flex-col gap-3 {highlightedIndex === idx
-								? 'outline outline-2 outline-blue-500 rounded-md p-1'
+								? 'outline outline-2 outline-control-accent rounded-md p-1'
 								: ''}"
 						>
 							<div class="flex justify-between items-center gap-2">
@@ -166,7 +165,7 @@
 							</p>
 							<a
 								href={`/surah/${item.verse.s}/#ayat-${item.verse.v}`}
-								class="flex bg-primary items-center justify-center gap-2 cursor-pointer p-2 rounded-md focus:ring-2 focus:ring-blue-500 text-sm"
+								class="flex bg-primary items-center justify-center gap-2 cursor-pointer p-2 rounded-md focus-visible:ring-2 focus-visible:ring-control-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary text-sm"
 								data-sveltekit-reload
 							>
 								{$t('mood.readFullAyah')}
