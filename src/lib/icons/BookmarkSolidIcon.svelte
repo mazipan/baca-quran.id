@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CLASS_BY_SIZE, type IconSize } from './utils';
+	import { iconClass, type IconSize } from './utils';
 
 	interface Props {
 		size?: IconSize;
@@ -13,7 +13,7 @@
 	xmlns="http://www.w3.org/2000/svg"
 	fill="currentColor"
 	viewBox="0 0 24 24"
-	class={clazz || CLASS_BY_SIZE[size]}
+	class={iconClass(size, clazz)}
 >
 	<path
 		fill-rule="evenodd"
