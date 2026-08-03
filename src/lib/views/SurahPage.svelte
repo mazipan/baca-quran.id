@@ -18,9 +18,9 @@
 
 	let { data }: Props = $props();
 
-	let surahid = data?.surahid;
-	let surahData = data?.surahData;
-	let surahInfo = data?.surahInfo as SurahInfoPage;
+	let surahid = $derived(data?.surahid);
+	let surahData = $derived(data?.surahData);
+	let surahInfo = $derived(data?.surahInfo as SurahInfoPage);
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	let timeout: any = null;
 	onMount(() => {

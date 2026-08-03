@@ -118,10 +118,11 @@
 		`relative overflow-hidden bg-gradient-to-br ${gradientClass} ${PADDING_MAP[padding]} ${ROUNDED_MAP[rounded]} ${clazz}`
 	);
 
-	const interactiveClass =
+	const interactiveClass = $derived(
 		as === 'button' || as === 'a'
 			? 'cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60'
-			: '';
+			: ''
+	);
 
 	const patternStyle = $derived(
 		pattern !== 'none'
