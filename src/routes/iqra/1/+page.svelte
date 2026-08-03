@@ -180,47 +180,59 @@
 
 	<div class="px-4 mb-4">
 		<div class="rounded-2xl shadow-lg bg-secondary overflow-hidden">
-			<!-- New letters -->
-			<div class="px-5 pt-5 pb-4 border-b border-foreground/10">
-				<div class="flex gap-3 justify-center">
-					{#each currentHalaman.newLetters as letter}
-						<button
-							onclick={() => speakGroup([letter.withFathah])}
-							class="flex flex-col items-center gap-2 rounded-2xl bg-primary shadow-sm px-6 py-4 flex-1 max-w-[150px] hover:shadow-md active:scale-95 transition-all"
-						>
-							<span class="{arabicFontClass} text-5xl leading-[1.5] py-2">{letter.withFathah}</span>
-							<span class="text-sm font-semibold leading-none">{letter.name}</span>
-							<span class="text-xs text-foreground-secondary font-mono">/{letter.bunyi}/</span>
-							{#if ttsSupported}
-								<SpeakerWaveIcon
-									size="xs"
-									class="w-3.5 h-3.5 text-foreground-secondary opacity-60 mt-0.5"
-								/>
-							{/if}
-						</button>
-					{/each}
+			{#if currentHalaman.label}
+				<div class="px-5 pt-4 text-center">
+					<span
+						class="inline-block rounded-full bg-control-accent/10 text-xs font-semibold px-3 py-1"
+					>
+						{currentHalaman.label}
+					</span>
 				</div>
-			</div>
+			{/if}
+
+			<!-- New letters -->
+			{#if currentHalaman.newLetters.length > 0}
+				<div class="px-5 pt-5 pb-4 border-b border-foreground/10">
+					<div class="flex gap-3 justify-center" dir="rtl">
+						{#each currentHalaman.newLetters as letter}
+							<button
+								onclick={() => speakGroup([letter.withFathah])}
+								class="flex flex-col items-center gap-2 rounded-2xl bg-primary shadow-sm px-6 py-4 flex-1 max-w-[150px] hover:shadow-md active:scale-95 transition-all"
+							>
+								<span class="{arabicFontClass} text-5xl leading-[1.5] py-2"
+									>{letter.withFathah}</span
+								>
+								<span class="text-sm font-semibold leading-none">{letter.name}</span>
+								<span class="text-xs text-foreground-secondary font-mono">/{letter.bunyi}/</span>
+								{#if ttsSupported}
+									<SpeakerWaveIcon
+										size="xs"
+										class="w-3.5 h-3.5 text-foreground-secondary opacity-60 mt-0.5"
+									/>
+								{/if}
+							</button>
+						{/each}
+					</div>
+				</div>
+			{/if}
 
 			<!-- Reading rows -->
 			<div class="px-4 py-4">
-				<div class="flex flex-col gap-2">
+				<div class="flex flex-col gap-2" dir="rtl">
 					{#each currentHalaman.rows as row, rowIndex}
 						{@const isLastRow = rowIndex === currentHalaman.rows.length - 1}
-						<div
-							class="grid gap-2"
-							style="grid-template-columns: repeat({row.length}, 1fr)"
-							dir="rtl"
-						>
+						{@const textSizeClass =
+							row.length > 5 ? 'text-xl' : row.length > 3 ? 'text-2xl' : 'text-3xl'}
+						<div class="flex flex-wrap gap-2 justify-center" dir="rtl">
 							{#each row as group}
 								<button
 									onclick={() => speakGroup(group)}
-									class="flex items-center justify-center gap-4 rounded-xl min-h-[4.25rem] active:scale-95 transition-all
+									class="flex items-center justify-evenly gap-2 rounded-xl min-h-[4.25rem] px-3 flex-1 basis-20 active:scale-95 transition-all
 										{isLastRow ? 'bg-control-accent shadow-sm' : 'bg-primary shadow-sm hover:shadow-md'}"
 								>
 									{#each group as letter}
 										<span
-											class="{arabicFontClass} text-4xl py-2 pointer-events-none
+											class="{arabicFontClass} {textSizeClass} py-2 pointer-events-none whitespace-nowrap
 											{isLastRow ? 'text-control-surface' : 'text-foreground'}"
 										>
 											{letter}
@@ -246,9 +258,6 @@
 		showCounter
 		class="px-4"
 	/>
-	<p class="text-center text-xs text-foreground-secondary mt-2 px-4">
-		{$t('iqra.keyboardHint')}
-	</p>
 {/if}
 
 <SeoText variant="IQRA_JILID" />

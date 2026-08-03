@@ -138,7 +138,7 @@
 						</div>
 					</div>
 					{#if isDone}
-						<CheckCircleSolidIcon size="md" class="shrink-0 text-foreground" />
+						<CheckCircleSolidIcon size="md" class="w-6 h-6 shrink-0 text-foreground" />
 					{/if}
 				</div>
 
