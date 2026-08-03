@@ -28,6 +28,7 @@
 	import ProgressBar from '$lib/ui/ProgressBar.svelte';
 	import ProgressDots from '$lib/ui/ProgressDots.svelte';
 	import StepNav from '$lib/ui/StepNav.svelte';
+	import CardStack from '$lib/ui/CardStack.svelte';
 	import { TITLE_CONSTANTS, THEMES } from '$lib/constants';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { t } from '$lib/translations/store';
@@ -99,6 +100,8 @@
 	let demoProgressValue = $state(65);
 	let demoDotsStep = $state(2);
 	let demoStepStep = $state(1);
+	let demoStackStep = $state(0);
+	let demoStackDir = $state(1);
 	let demoIllustrationHour = $state(9);
 
 	function showToast(type: 'info' | 'success' | 'error' | 'warn') {
@@ -190,6 +193,7 @@
 			id: 'progress-nav',
 			label: isEnglish ? 'Progress & Navigation' : 'Progres & Navigasi'
 		},
+		{ id: 'stepper', label: isEnglish ? 'Stepper / Carousel' : 'Stepper / Karousel' },
 		{ id: 'illustrations', label: isEnglish ? 'Illustrations' : 'Ilustrasi' },
 		{ id: 'icons', label: $t('designSystem.section.icons') }
 	]);
@@ -1385,6 +1389,102 @@
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
 					>{'<StepNav\n  current={step} total={total}\n  onPrev={prev} onNext={next}\n  showCounter\n  iconVariant="arrow | chevron"\n  size="sm | md | lg"\n/>'}</code
 				></pre>
+		</CardShadow>
+	</section>
+
+	<!-- STEPPER / CAROUSEL -->
+	<section id="stepper" class="flex flex-col gap-3 scroll-mt-4">
+		<h2 class="text-xl font-bold">
+			{isEnglish ? 'Stepper / Carousel' : 'Stepper / Karousel'}
+		</h2>
+		<p class="text-sm opacity-75">
+			{isEnglish
+				? 'CardStack wraps the ghost-cards-behind + fly-transition animation. Combine it with ProgressBar and Button (or StepNav) for a full card-by-card flow — used by adhkar, wirid, tahlil, and iqra.'
+				: 'CardStack membungkus animasi ghost-card di belakang + transisi fly. Gabungkan dengan ProgressBar dan Button (atau StepNav) untuk alur kartu satu per satu — digunakan di adhkar, wirid, tahlil, dan iqra.'}
+		</p>
+
+		<CardShadow class="flex flex-col gap-4">
+			<h3 class="font-semibold">CardStack</h3>
+
+			<!-- Live demo -->
+			<CardStack step={demoStackStep} total={5} dir={demoStackDir}>
+				<div
+					class="rounded-xl bg-secondary border-2 border-transparent shadow p-5 flex flex-col gap-3"
+				>
+					<p class="text-xs text-foreground-secondary font-mono">
+						{isEnglish ? 'Card' : 'Kartu'}
+						{demoStackStep + 1} / 5
+					</p>
+					<p class="text-base font-medium">
+						{isEnglish
+							? 'This is the active card. The two ghost cards behind it are rendered automatically.'
+							: 'Ini kartu aktif. Dua kartu bayangan di belakangnya dirender otomatis.'}
+					</p>
+				</div>
+			</CardStack>
+
+			<ProgressBar completed={demoStackStep + 1} total={5} showLabel />
+
+			<div class="flex items-center justify-between">
+				<Button
+					onClick={() => {
+						demoStackDir = -1;
+						demoStackStep = Math.max(0, demoStackStep - 1);
+					}}
+					variant="outline"
+					color="secondary"
+					size="sm"
+					disabled={demoStackStep === 0}
+				>
+					← {isEnglish ? 'Previous' : 'Sebelumnya'}
+				</Button>
+				<Button
+					onClick={() => {
+						demoStackDir = 1;
+						demoStackStep = Math.min(4, demoStackStep + 1);
+					}}
+					variant="outline"
+					color="secondary"
+					size="sm"
+					disabled={demoStackStep === 4}
+				>
+					{isEnglish ? 'Next' : 'Berikutnya'} →
+				</Button>
+			</div>
+
+			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
+					>{'<CardStack step={currentIndex} total={total} dir={slideDir}>\n  <!-- active card content -->\n</CardStack>\n\n<ProgressBar completed={done} total={total} />\n\n<div class="flex items-center justify-between">\n  <Button onClick={goPrev} variant="outline" color="secondary" size="sm"\n          disabled={currentIndex === 0}>\n    ← {$t(\'common.previous\')}\n  </Button>\n  <Button onClick={goNext} variant="outline" color="secondary" size="sm"\n          disabled={currentIndex >= total - 1}>\n    {$t(\'common.next\')} →\n  </Button>\n</div>'}</code
+				></pre>
+
+			<div
+				class="rounded-md bg-secondary border border-foreground/10 p-3 text-xs text-foreground-secondary flex flex-col gap-1"
+			>
+				<p class="font-semibold text-foreground">
+					{isEnglish ? 'Convention' : 'Konvensi'}
+				</p>
+				<ul class="list-disc list-inside flex flex-col gap-0.5">
+					<li>
+						{isEnglish
+							? 'Track slide direction in a slideDir state (+1 forward, -1 backward) and pass it as dir.'
+							: 'Lacak arah geser di state slideDir (+1 maju, -1 mundur) dan teruskan ke dir.'}
+					</li>
+					<li>
+						{isEnglish
+							? 'Prev/Next: always Button variant="outline" color="secondary" size="sm".'
+							: 'Prev/Next: selalu Button variant="outline" color="secondary" size="sm".'}
+					</li>
+					<li>
+						{isEnglish
+							? 'Progress: always ProgressBar completed={n} total={total} — never a raw div with hardcoded colors.'
+							: 'Progres: selalu ProgressBar completed={n} total={total} — jangan gunakan div mentah dengan warna hardcode.'}
+					</li>
+					<li>
+						{isEnglish
+							? 'Use StepNav instead of two raw Buttons when you also want a counter chip or icon arrows.'
+							: 'Gunakan StepNav sebagai pengganti dua Button mentah jika juga ingin chip penghitung atau ikon panah.'}
+					</li>
+				</ul>
+			</div>
 		</CardShadow>
 	</section>
 

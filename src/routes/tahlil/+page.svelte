@@ -13,6 +13,7 @@
 	import { cubicOut } from 'svelte/easing';
 	import tahlil from '../../data/tahlil';
 	import IconButton from '$lib/ui/IconButton.svelte';
+	import ProgressBar from '$lib/ui/ProgressBar.svelte';
 
 	const items = tahlil.data;
 	const total = items.length;
@@ -141,14 +142,7 @@
 				</IconButton>
 			</div>
 		</div>
-		<div class="w-full bg-primary rounded-full h-2 overflow-hidden">
-			<div
-				class="h-2 rounded-full transition-all duration-500 {allDone
-					? 'bg-green-500'
-					: 'bg-teal-500'}"
-				style="width: {total === 0 ? 0 : (completed / total) * 100}%"
-			></div>
-		</div>
+		<ProgressBar {completed} {total} />
 	</div>
 
 	<!-- Mode tabs + compact toggle (hidden during celebration) -->
