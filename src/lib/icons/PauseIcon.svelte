@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CLASS_BY_SIZE, type IconSize } from './utils';
+	import { iconClass, type IconSize } from './utils';
 
 	interface Props {
 		size?: IconSize;
@@ -15,7 +15,7 @@
 	viewBox="0 0 24 24"
 	stroke-width="1.5"
 	stroke="currentColor"
-	class={clazz || CLASS_BY_SIZE[size]}
+	class={iconClass(size, clazz)}
 >
 	<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
 </svg>

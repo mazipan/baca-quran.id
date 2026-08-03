@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CLASS_BY_SIZE, type IconSize } from './utils';
+	import { iconClass, type IconSize } from './utils';
 
 	interface Props {
 		size?: IconSize;
@@ -15,7 +15,7 @@
 	viewBox="0 0 24 24"
 	stroke-width="1.5"
 	stroke="currentColor"
-	class={clazz || CLASS_BY_SIZE[size]}
+	class={iconClass(size, clazz)}
 >
 	<path
 		stroke-linecap="round"
