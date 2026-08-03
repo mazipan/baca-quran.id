@@ -11,6 +11,7 @@
 	import ProgressBar from '$lib/ui/ProgressBar.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import SeoText from '$lib/SeoText.svelte';
 
 	type LevelStats = { completed: number; total: number };
 
@@ -195,3 +196,5 @@
 		{/if}
 	{/each}
 </div>
+
+<SeoText variant="IQRA" />

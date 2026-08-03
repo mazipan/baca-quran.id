@@ -11,6 +11,7 @@
 	import StepNav from '$lib/ui/StepNav.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import SeoText from '$lib/SeoText.svelte';
 	import { settingFontStyle } from '$store';
 	import {
 		loadProgress,
@@ -249,3 +250,5 @@
 		{$t('iqra.keyboardHint')}
 	</p>
 {/if}
+
+<SeoText variant="IQRA_JILID" />
