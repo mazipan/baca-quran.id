@@ -14,6 +14,7 @@
 	import asmaulHusna from '../../data/asmaul-husna';
 	import { t } from '$lib/translations/store';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { arabicFontClass } from '../../store';
 
 	type ViewMode = 'grid' | 'compact' | 'playable';
 
@@ -233,7 +234,7 @@
 
 				<!-- Arabic text -->
 				<div class="mb-2 text-right">
-					<span class="font-arabic text-2xl text-white leading-relaxed">{item.arabic}</span>
+					<span class="{$arabicFontClass} text-2xl text-white leading-relaxed">{item.arabic}</span>
 				</div>
 
 				<!-- Latin name -->
@@ -267,7 +268,8 @@
 							{isEnglish ? item.translation_en : item.translation_id}
 						</div>
 					</div>
-					<span class="font-arabic text-xl flex-shrink-0 text-foreground">{item.arabic}</span>
+					<span class="{$arabicFontClass} text-xl flex-shrink-0 text-foreground">{item.arabic}</span
+					>
 				</button>
 			{/each}
 		</div>
@@ -332,7 +334,7 @@
 
 					<!-- Arabic text -->
 					<div class="mb-4">
-						<span class="font-arabic text-5xl text-white leading-relaxed drop-shadow-sm"
+						<span class="{$arabicFontClass} text-5xl text-white leading-relaxed drop-shadow-sm"
 							>{currentItem.arabic}</span
 						>
 					</div>

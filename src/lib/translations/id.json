@@ -326,7 +326,11 @@
 			"radioAr": "العربية",
 			"radioArHint": "Hanya tersedia di beberapa halaman.",
 			"selected": "Terpilih:",
-			"sizes": "Ukuran"
+			"sizes": "Ukuran",
+			"switchA": "Tampilkan terjemahan secara default",
+			"switchAHint": "Terjemahan ditampilkan di bawah setiap ayat.",
+			"switchB": "Lanjut otomatis ke ayat berikutnya",
+			"switchDisabled": "Opsi ini tidak tersedia saat ini"
 		},
 		"collapsible": {
 			"what": "Apa itu collapsible?",

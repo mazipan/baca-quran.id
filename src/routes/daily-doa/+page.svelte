@@ -14,6 +14,7 @@
 	import Chip from '$lib/ui/Chip.svelte';
 	import { t } from '$lib/translations/store';
 	import dailyDoa, { type DoaCategory, DOA_CATEGORIES } from '../../data/daily-doa';
+	import { arabicFontClass } from '../../store';
 
 	let activeCategory = $state<DoaCategory | null>(null);
 
@@ -86,7 +87,7 @@
 					</p>
 				{/if}
 				<span class="font-bold text-left">💠 {isEnglish ? item.titleEn : item.title}</span>
-				<span class="text-2xl font-arabic text-right leading-loose">{item.arabic}</span>
+				<span class="text-2xl {$arabicFontClass} text-right leading-loose">{item.arabic}</span>
 				<small class="text-sm text-foreground-secondary italic">{item.latin}</small>
 				<p class="text-sm">{isEnglish ? item.translationEn : item.translation}</p>
 				<p class="text-xs text-foreground-secondary mt-1">

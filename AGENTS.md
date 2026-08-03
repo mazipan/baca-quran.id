@@ -219,6 +219,82 @@ After deploying (or in `pnpm dev`): switch the language with the globe icon and
 confirm every changed string updates without a page reload. Toast messages should
 appear in the active language on the next trigger.
 
+### Tailwind v4 design tokens
+
+Only six semantic color tokens are valid. **Never** use hardcoded colors
+(`blue-500`, `teal-400`, etc.) for themed UI:
+
+| Token                                       | Use for                     |
+| ------------------------------------------- | --------------------------- |
+| `bg-primary`                                | Page background             |
+| `bg-secondary`                              | Cards / trays               |
+| `text-foreground`                           | Body text                   |
+| `text-foreground-secondary`                 | Muted / helper text         |
+| `bg-control-accent` / `text-control-accent` | Accent fills, active states |
+| `text-control-surface`                      | Text on accent backgrounds  |
+
+Status colors (`green-*`, `red-*`, etc.) are acceptable only for semantic
+state such as a "done" indicator — not for branding or decoration.
+
+### UI component inventory (`src/lib/ui/`)
+
+Always reach for these before writing inline Tailwind:
+
+- **Layout / structure**: `Card`, `CardShadow` (via `$lib/CardShadow.svelte`), `GradientCard`, `Banner`
+- **Navigation**: `Tabs`, `Breadcrumb` (via `$lib/Breadcrumb.svelte`), `BottomSheet`
+- **Buttons**: `Button`, `IconButton`
+- **Form controls**: `Input`, `Textarea`, `Checkbox`, `Radio`, `Switch`
+- **Feedback**: `Badge`, `Chip`
+- **Progress / stepper**: `ProgressBar`, `ProgressDots`, `StepNav`, `CardStack`
+- **Icons**: `src/lib/icons/` — accepts `size="xs|sm|md|lg|xl"` + `class`
+
+### Stepper / carousel pattern
+
+Pages with a card-by-card flow (adhkar, wirid, tahlil, iqra) share this pattern.
+Use `CardStack` + `ProgressBar` + `Button` with these exact props:
+
+```svelte
+<CardStack step={currentPlayIndex} {total} dir={slideDir}>
+	<!-- active card content -->
+</CardStack>
+
+<ProgressBar {completed} {total} />
+
+<div class="flex items-center justify-between">
+	<Button
+		onClick={goPrev}
+		variant="outline"
+		color="secondary"
+		size="sm"
+		disabled={currentPlayIndex === 0}
+	>
+		← {$t('common.previous')}
+	</Button>
+	<Button
+		onClick={goNext}
+		variant="outline"
+		color="secondary"
+		size="sm"
+		disabled={currentPlayIndex >= total - 1}
+	>
+		{$t('common.next')} →
+	</Button>
+</div>
+```
+
+### Arabic font
+
+Never hardcode `font-arabic` or its variants directly. Import the shared
+derived store and bind the class:
+
+```svelte
+import {arabicFontClass} from '$store'; // in template:
+<p class="{$arabicFontClass} text-2xl leading-loose" dir="rtl">...</p>
+```
+
+`arabicFontClass` maps the user's `settingFontStyle` preference to the correct
+Tailwind class (`font-arabic`, `font-arabic-amiri-quran`, etc.) automatically.
+
 ### Theme
 
 - Themes are listed in `src/lib/constants.ts → THEMES`.

@@ -8,7 +8,6 @@
 	import DocumentTextIcon from './icons/DocumentTextIcon.svelte';
 	import GalleryIcon from './icons/GalleryIcon.svelte';
 	import SwatchIcon from './icons/SwatchIcon.svelte';
-	import HeartIcon from './icons/HeartIcon.svelte';
 </script>
 
 <ul class="mt-2 flex flex-col gap-2">
@@ -81,16 +80,6 @@
 		>
 			<SwatchIcon />
 			{$t('navigation.designSystem')}
-		</a>
-	</li>
-	<li class="sidebar__item">
-		<a
-			data-sveltekit-reload
-			href="/suasana-hati/"
-			class="flex gap-2 items-center p-2 rounded-md hover:bg-primary focus:bg-primary"
-		>
-			<HeartIcon />
-			{$t('navigation.mood')}
 		</a>
 	</li>
 	<li class="sidebar__item">

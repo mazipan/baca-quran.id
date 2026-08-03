@@ -6,6 +6,8 @@
 	import MorningBanner from '$lib/illustrations/MorningBanner.svelte';
 	import EveningBanner from '$lib/illustrations/EveningBanner.svelte';
 	import Tabs from '$lib/ui/Tabs.svelte';
+	import Button from '$lib/ui/Button.svelte';
+	import ProgressBar from '$lib/ui/ProgressBar.svelte';
 	import { META_DESC_ADHKAR, META_TITLE_ADHKAR, TITLE_CONSTANTS } from '$lib/constants';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { t } from '$lib/translations/store';
@@ -185,14 +187,7 @@
 				{isEnglish ? 'Reset all' : 'Reset semua'}
 			</button>
 		</div>
-		<div class="w-full bg-primary rounded-full h-2 overflow-hidden">
-			<div
-				class="h-2 rounded-full transition-all duration-500 {allDone
-					? 'bg-green-500'
-					: 'bg-blue-500'}"
-				style="width: {total === 0 ? 0 : (completed / total) * 100}%"
-			></div>
-		</div>
+		<ProgressBar {completed} {total} />
 	</div>
 
 	<!-- Mode selector (hidden during celebration) -->
@@ -354,23 +349,25 @@
 
 			<!-- Prev / Next navigation -->
 			<div class="flex items-center justify-between">
-				<button
-					type="button"
-					onclick={goPrev}
+				<Button
+					onClick={goPrev}
+					variant="outline"
+					color="secondary"
+					size="sm"
 					disabled={currentPlayIndex === 0}
-					class="rounded-lg px-3 py-2 text-xs font-semibold border border-foreground/15 hover:border-foreground/30 disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer transition"
 				>
-					← {isEnglish ? 'Previous' : 'Sebelumnya'}
-				</button>
-				<button
-					type="button"
-					onclick={goNext}
+					← {$t('common.previous')}
+				</Button>
+				<Button
+					onClick={goNext}
+					variant="outline"
+					color="secondary"
+					size="sm"
 					disabled={currentPlayIndex >= total - 1 ||
 						!(getCount(log, todayKey, period, currentItem?.id ?? '') >= (currentItem?.count ?? 0))}
-					class="rounded-lg px-3 py-2 text-xs font-semibold border border-foreground/15 hover:border-foreground/30 disabled:opacity-25 disabled:cursor-not-allowed cursor-pointer transition"
 				>
-					{isEnglish ? 'Next' : 'Berikutnya'} →
-				</button>
+					{$t('common.next')} →
+				</Button>
 			</div>
 		</div>
 

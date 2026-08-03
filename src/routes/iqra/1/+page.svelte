@@ -9,6 +9,10 @@
 	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
 	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
 	import StepNav from '$lib/ui/StepNav.svelte';
+	import ResetIcon from '$lib/icons/ResetIcon.svelte';
+	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import SeoText from '$lib/SeoText.svelte';
+	import { settingFontStyle } from '$store';
 	import {
 		loadProgress,
 		markLessonDone,
@@ -80,6 +84,20 @@
 	const currentHalaman = $derived(halaman[currentIndex]);
 	const seenCount = $derived(seen.filter(Boolean).length);
 	const nextLevel = IQRA_LEVELS.find((l) => l.jilid === JILID + 1);
+
+	const ttsSupported = $derived(typeof speechSynthesis !== 'undefined');
+
+	const arabicFontClass = $derived(
+		$settingFontStyle === 'amiriQuran'
+			? 'font-arabic-amiri-quran'
+			: $settingFontStyle === 'kfgqpc'
+				? 'font-arabic-kfgqpc'
+				: $settingFontStyle === 'pdms'
+					? 'font-arabic-pdms'
+					: $settingFontStyle === 'system'
+						? 'font-arabic-system'
+						: 'font-arabic'
+	);
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
@@ -148,38 +166,37 @@
 		</div>
 	</div>
 {:else}
-	<div class="px-4 mb-3 flex justify-between items-center text-sm text-foreground-secondary">
-		<span
-			>{$t('iqra.halamanLabel', {
-				current: String(currentIndex + 1),
-				total: String(halaman.length)
-			})}</span
-		>
-		<span>{seenCount} / {halaman.length} {$t('iqra.seen')}</span>
-	</div>
+	<StepNav
+		current={currentIndex}
+		total={halaman.length}
+		onPrev={goPrev}
+		onNext={goNext}
+		prevLabel={$t('common.previous')}
+		nextLabel={$t('common.next')}
+		finishLabel={$t('iqra.finish')}
+		showCounter
+		class="px-4 mb-4"
+	/>
 
 	<div class="px-4 mb-4">
 		<div class="rounded-2xl shadow-lg bg-secondary overflow-hidden">
 			<!-- New letters -->
 			<div class="px-5 pt-5 pb-4 border-b border-foreground/10">
-				<p
-					class="text-[10px] font-semibold uppercase tracking-widest text-foreground-secondary mb-3"
-				>
-					{$t('iqra.newLettersLabel')}
-				</p>
 				<div class="flex gap-3 justify-center">
 					{#each currentHalaman.newLetters as letter}
 						<button
 							onclick={() => speakGroup([letter.withFathah])}
 							class="flex flex-col items-center gap-2 rounded-2xl bg-primary shadow-sm px-6 py-4 flex-1 max-w-[150px] hover:shadow-md active:scale-95 transition-all"
 						>
-							<span class="font-arabic text-5xl leading-[1.3]">{letter.withFathah}</span>
+							<span class="{arabicFontClass} text-5xl leading-[1.5] py-2">{letter.withFathah}</span>
 							<span class="text-sm font-semibold leading-none">{letter.name}</span>
 							<span class="text-xs text-foreground-secondary font-mono">/{letter.bunyi}/</span>
-							<SpeakerWaveIcon
-								size="xs"
-								class="w-3.5 h-3.5 text-foreground-secondary opacity-60 mt-0.5"
-							/>
+							{#if ttsSupported}
+								<SpeakerWaveIcon
+									size="xs"
+									class="w-3.5 h-3.5 text-foreground-secondary opacity-60 mt-0.5"
+								/>
+							{/if}
 						</button>
 					{/each}
 				</div>
@@ -203,8 +220,8 @@
 								>
 									{#each group as letter}
 										<span
-											class="font-arabic text-4xl leading-none pointer-events-none
-												{isLastRow ? 'text-control-surface' : 'text-foreground'}"
+											class="{arabicFontClass} text-4xl py-2 pointer-events-none
+											{isLastRow ? 'text-control-surface' : 'text-foreground'}"
 										>
 											{letter}
 										</span>
@@ -233,3 +250,5 @@
 		{$t('iqra.keyboardHint')}
 	</p>
 {/if}
+
+<SeoText variant="IQRA_JILID" />

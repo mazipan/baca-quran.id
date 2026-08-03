@@ -5,6 +5,7 @@
 	import IconButton from '$lib/ui/IconButton.svelte';
 	import CheckIcon from '$lib/icons/CheckIcon.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
+	import { arabicFontClass } from '../store';
 
 	interface ReadingItem {
 		id: number;
@@ -128,7 +129,7 @@
 	<p
 		dir="rtl"
 		lang="ar"
-		class="font-arabic leading-loose text-right {compact
+		class="{$arabicFontClass} leading-loose text-right {compact
 			? 'text-3xl'
 			: playMode
 				? 'text-3xl'

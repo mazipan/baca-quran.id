@@ -21,7 +21,8 @@
 		{ href: '/jadwal-sholat/', title: `⏰ ${$t('navigation.prayerTime')}` },
 		{ href: '/pencatat-ibadah/', title: `⏺️ ${$t('navigation.worshipTracker')}` },
 		{ href: '/kalender-hijriyah/', title: `📅 ${$t('navigation.hijriCalendar')}` },
-		{ href: '/iqra/', title: `📖 ${$t('navigation.iqra')}` }
+		{ href: '/iqra/', title: `📖 ${$t('navigation.iqra')}` },
+		{ href: '/suasana-hati/', title: `💚 ${$t('navigation.mood')}` }
 	]);
 </script>
 

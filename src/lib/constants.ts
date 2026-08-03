@@ -135,7 +135,9 @@ export type PageVariant =
 	| 'JADWAL_SHOLAT'
 	| 'CATAT_IBADAH'
 	| 'ADHKAR'
-	| 'SUASANA_HATI';
+	| 'SUASANA_HATI'
+	| 'IQRA'
+	| 'IQRA_JILID';
 // Using translation system instead of direct language comparison
 
 export const SEO_TEXT = {
@@ -167,6 +169,9 @@ export const SEO_TEXT = {
 		"Dzikir pagi dan petang (al-Ma'thurat) lengkap dengan penghitung otomatis dan reset harian. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.",
 	SUASANA_HATI:
 		"Temukan ayat Al-Qur'an yang sesuai suasana hatimu. Pilih suasana hati dan baca ayat-ayat yang relevan beserta terjemahannya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.",
+	IQRA: "Belajar membaca Al-Qur'an dari nol dengan metode Iqra jilid 1 sampai 6. Interaktif, dilengkapi panduan huruf hijaiyah dan harakat. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.",
+	IQRA_JILID:
+		'Belajar huruf hijaiyah dan cara membacanya secara interaktif. Klik setiap huruf untuk mendengar pelafalannya. Langsung dari peramban, tanpa iklan, tanpa analitik, privasi aman dan gratis sepenuhnya.',
 	SURAH_DETAIL: '',
 	AYAT_DETAIL: ''
 };

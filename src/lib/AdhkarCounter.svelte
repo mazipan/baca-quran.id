@@ -3,6 +3,7 @@
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import CheckIcon from '$lib/icons/CheckIcon.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
+	import { arabicFontClass } from '../store';
 
 	interface Props {
 		item: AdhkarItem;
@@ -115,7 +116,7 @@
 	<p
 		dir="rtl"
 		lang="ar"
-		class="font-arabic leading-loose text-right {playMode ? 'text-3xl' : 'text-2xl'}"
+		class="{$arabicFontClass} leading-loose text-right {playMode ? 'text-3xl' : 'text-2xl'}"
 	>
 		{item.arabic}
 	</p>

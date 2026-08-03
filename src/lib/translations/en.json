@@ -326,7 +326,11 @@
 			"radioAr": "العربية",
 			"radioArHint": "Available only on some pages.",
 			"selected": "Selected:",
-			"sizes": "Sizes"
+			"sizes": "Sizes",
+			"switchA": "Show translation by default",
+			"switchAHint": "Translation is shown under every verse.",
+			"switchB": "Auto-advance to next verse",
+			"switchDisabled": "This option is currently unavailable"
 		},
 		"collapsible": {
 			"what": "What is a collapsible?",
