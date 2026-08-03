@@ -46,15 +46,8 @@
 	};
 </script>
 
-<div class="flex items-center gap-3 {clazz}">
-	<Button
-		onClick={onPrev}
-		variant="outline"
-		color="secondary"
-		{size}
-		disabled={isFirst}
-		class="flex-1"
-	>
+<div class="flex justify-between items-center gap-3 {clazz}">
+	<Button onClick={onPrev} variant="outline" color="secondary" {size} disabled={isFirst} class="">
 		{#if iconVariant === 'chevron'}
 			<ChevronLeftIcon size="sm" class="w-4 h-4 shrink-0" />
 		{:else}
@@ -64,22 +57,19 @@
 	</Button>
 
 	{#if showCounter}
-		<span class="text-sm tabular-nums text-foreground-secondary whitespace-nowrap shrink-0">
+		<div
+			class="flex flex-1 text-center items-center justify-center text-sm tabular-nums text-foreground-secondary whitespace-nowrap shrink-0"
+		>
 			{current + 1} / {total}
-		</span>
+		</div>
 	{/if}
 
-	<button
-		onclick={onNext}
-		class="flex-1 flex items-center justify-center rounded-md bg-control-accent text-control-surface hover:opacity-90 active:scale-95 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-control-accent focus-visible:ring-offset-2 focus-visible:ring-offset-primary {SIZE_MAP[
-			size
-		]}"
-	>
+	<Button onClick={onNext} variant="outline" color="secondary" {size} class="">
 		{isLast ? finishLabel : nextLabel}
 		{#if iconVariant === 'chevron'}
 			<ChevronRightIcon size="sm" class="w-4 h-4 shrink-0" />
 		{:else}
 			<ArrowRightIcon size="sm" class="w-4 h-4 shrink-0" />
 		{/if}
-	</button>
+	</Button>
 </div>
