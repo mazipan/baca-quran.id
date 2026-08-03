@@ -9,8 +9,6 @@
 	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
 	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
 	import StepNav from '$lib/ui/StepNav.svelte';
-	import ResetIcon from '$lib/icons/ResetIcon.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 	import { settingFontStyle } from '$store';
 	import {
@@ -54,10 +52,6 @@
 		}
 	}
 
-	function jumpTo(index: number) {
-		currentIndex = index;
-	}
-
 	function restart() {
 		resetJilidProgress(JILID);
 		seen = new Array(halaman.length).fill(false);
@@ -82,7 +76,6 @@
 	}
 
 	const currentHalaman = $derived(halaman[currentIndex]);
-	const seenCount = $derived(seen.filter(Boolean).length);
 	const nextLevel = IQRA_LEVELS.find((l) => l.jilid === JILID + 1);
 
 	const ttsSupported = $derived(typeof speechSynthesis !== 'undefined');

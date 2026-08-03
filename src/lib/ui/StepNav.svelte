@@ -38,12 +38,6 @@
 
 	const isFirst = $derived(current === 0);
 	const isLast = $derived(current === total - 1);
-
-	const SIZE_MAP: Record<Size, string> = {
-		sm: 'text-sm px-3 py-1.5 gap-1.5',
-		md: 'text-base px-4 py-2 gap-2',
-		lg: 'text-base px-4 py-2.5 gap-2'
-	};
 </script>
 
 <div class="flex justify-between items-center gap-3 {clazz}">

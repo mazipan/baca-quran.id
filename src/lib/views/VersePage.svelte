@@ -18,10 +18,10 @@
 
 	let { data }: Props = $props();
 
-	let surahid = data?.surahid;
-	let verseid = data?.verseid;
-	let verseData = data?.verseData;
-	let surahInfo = data?.surahInfo as SurahInfoPage;
+	let surahid = $derived(data?.surahid);
+	let verseid = $derived(data?.verseid);
+	let verseData = $derived(data?.verseData);
+	let surahInfo = $derived(data?.surahInfo as SurahInfoPage);
 </script>
 
 <svelte:head>
