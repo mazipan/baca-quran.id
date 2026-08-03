@@ -24,6 +24,7 @@
 	import Textarea from '$lib/ui/Textarea.svelte';
 	import Checkbox from '$lib/ui/Checkbox.svelte';
 	import Radio from '$lib/ui/Radio.svelte';
+	import Switch from '$lib/ui/Switch.svelte';
 	import { TITLE_CONSTANTS, THEMES } from '$lib/constants';
 	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
 	import { t } from '$lib/translations/store';
@@ -90,6 +91,8 @@
 	let demoCheckbox = $state(true);
 	let demoCheckboxB = $state(false);
 	let demoRadio = $state<'id' | 'en' | 'ar'>('id');
+	let demoSwitchA = $state(true);
+	let demoSwitchB = $state(false);
 	let demoIllustrationHour = $state(9);
 
 	function showToast(type: 'info' | 'success' | 'error' | 'warn') {
@@ -971,6 +974,24 @@
 			</p>
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
 					>{'<Radio name="..." value="..." label="..." bind:group />'}</code
+				></pre>
+		</CardShadow>
+
+		<CardShadow class="flex flex-col gap-3">
+			<h3 class="font-semibold">Switch</h3>
+			<Switch
+				label={$t('designSystem.forms.switchA')}
+				hint={$t('designSystem.forms.switchAHint')}
+				bind:checked={demoSwitchA}
+			/>
+			<Switch label={$t('designSystem.forms.switchB')} bind:checked={demoSwitchB} />
+			<Switch label={$t('designSystem.forms.switchDisabled')} checked disabled />
+			<p class="text-xs opacity-75">
+				{$t('designSystem.forms.selected')}
+				<code>{demoSwitchA ? 'A on' : 'A off'}, {demoSwitchB ? 'B on' : 'B off'}</code>
+			</p>
+			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
+					>{'<Switch label="..." hint="..." bind:checked />'}</code
 				></pre>
 		</CardShadow>
 	</section>
