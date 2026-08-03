@@ -1,3 +1,3 @@
 # baca-quran.id — Agent Instructions
 
-See [agents.md](./agents.md) for the full source of truth.
+See [AGENTS.md](./AGENTS.md) for the full source of truth.
