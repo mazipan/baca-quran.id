@@ -9,6 +9,8 @@
 	import { IQRA_LEVELS } from '$data/iqra';
 	import { getLevelStats, isLevelComplete, resetProgress } from '$lib/utils/iqraProgress';
 	import ProgressBar from '$lib/ui/ProgressBar.svelte';
+	import ResetIcon from '$lib/icons/ResetIcon.svelte';
+	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
 
 	type LevelStats = { completed: number; total: number };
 
@@ -76,13 +78,41 @@
 </div>
 
 <div class="px-4 mb-6">
-	<p class="text-foreground-secondary">{$t('iqra.subtitle')}</p>
-	{#if totalCompleted > 0}
-		<p class="text-sm text-foreground-secondary mt-1.5 flex items-center gap-1">
-			<CheckCircleSolidIcon size="sm" class="shrink-0" />
-			{$t('iqra.overallProgress', { completed: String(totalCompleted), total: '6' })}
-		</p>
-	{/if}
+	<div class="flex items-start justify-between gap-2">
+		<div>
+			<p class="text-foreground-secondary">{$t('iqra.subtitle')}</p>
+			{#if totalCompleted > 0}
+				<p class="text-sm text-foreground-secondary mt-1.5 flex items-center gap-1">
+					<CheckCircleSolidIcon size="sm" class="w-4 h-4 shrink-0" />
+					{$t('iqra.overallProgress', { completed: String(totalCompleted), total: '6' })}
+				</p>
+			{/if}
+		</div>
+		{#if showResetConfirm}
+			<div class="flex items-center gap-2 shrink-0">
+				<button
+					onclick={handleReset}
+					class="rounded-md bg-foreground text-primary px-3 py-1.5 text-sm hover:opacity-80 transition"
+				>
+					{$t('common.confirm')}
+				</button>
+				<button
+					onclick={() => (showResetConfirm = false)}
+					class="rounded-md bg-secondary text-foreground border border-foreground/20 px-3 py-1.5 text-sm hover:opacity-80 transition"
+				>
+					{$t('common.cancel')}
+				</button>
+			</div>
+		{:else}
+			<button
+				onclick={() => (showResetConfirm = true)}
+				title={$t('iqra.resetProgress')}
+				class="flex items-center gap-1.5 text-sm text-foreground-secondary hover:text-foreground transition shrink-0 mt-0.5"
+			>
+				<ResetIcon size="sm" class="w-4 h-4 shrink-0" />
+			</button>
+		{/if}
+	</div>
 </div>
 
 <div class="px-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -118,14 +148,15 @@
 					class="mt-1"
 				/>
 
-				<div class="mt-1 text-sm font-medium text-foreground-secondary">
+				<div class="mt-1 text-sm font-medium text-foreground-secondary flex items-center gap-1">
 					{#if isDone}
 						{$t('iqra.reviewLabel')}
 					{:else if levelStats.completed > 0}
 						{$t('iqra.continueLabel')}
 					{:else}
 						{$t('iqra.startLabel')}
-					{/if} →
+					{/if}
+					<ArrowRightIcon size="sm" class="w-3.5 h-3.5 shrink-0" />
 				</div>
 			</a>
 		{:else}
@@ -163,33 +194,4 @@
 			</div>
 		{/if}
 	{/each}
-</div>
-
-<div class="px-4 mt-8">
-	{#if showResetConfirm}
-		<div class="rounded-lg border border-foreground/20 bg-secondary p-4 flex flex-col gap-3">
-			<p class="text-sm text-foreground-secondary">{$t('iqra.resetConfirm')}</p>
-			<div class="flex gap-2">
-				<button
-					onclick={handleReset}
-					class="rounded-md bg-foreground text-primary px-3 py-1.5 text-sm hover:opacity-80 transition"
-				>
-					{$t('common.confirm')}
-				</button>
-				<button
-					onclick={() => (showResetConfirm = false)}
-					class="rounded-md bg-secondary text-foreground border border-foreground/20 px-3 py-1.5 text-sm hover:opacity-80 transition"
-				>
-					{$t('common.cancel')}
-				</button>
-			</div>
-		</div>
-	{:else}
-		<button
-			onclick={() => (showResetConfirm = true)}
-			class="text-sm text-foreground-secondary underline underline-offset-2 hover:text-foreground transition"
-		>
-			{$t('iqra.resetProgress')}
-		</button>
-	{/if}
 </div>
