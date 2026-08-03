@@ -221,7 +221,7 @@
 									{#each group as letter}
 										<span
 											class="{arabicFontClass} text-4xl py-2 pointer-events-none
-												{isLastRow ? 'text-control-surface' : 'text-foreground'}"
+											{isLastRow ? 'text-control-surface' : 'text-foreground'}"
 										>
 											{letter}
 										</span>

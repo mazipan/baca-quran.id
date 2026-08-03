@@ -7,6 +7,7 @@
 	import { pickAyahForDate } from './utils/dailyPick';
 	import type { Theme, AyahPick } from '$data/ayah-of-the-day';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
+	import { arabicFontClass } from '../store';
 
 	type Loaded = {
 		pick: AyahPick;
@@ -63,7 +64,7 @@
 					</span>
 				{/if}
 			</div>
-			<p class="font-arabic text-2xl text-right leading-loose" dir="rtl">
+			<p class="{$arabicFontClass} text-2xl text-right leading-loose" dir="rtl">
 				{loaded.arabic}
 			</p>
 			<p class="text-sm text-foreground-secondary">

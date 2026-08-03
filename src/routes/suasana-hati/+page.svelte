@@ -16,6 +16,7 @@
 	import { languageStore, LANGUAGE_OPTIONS } from '$lib/checkLanguaguage';
 	import { MOODS, type MoodId, type MoodVerse } from '$data/mood-verses';
 	import { loadVerse } from '$lib/utils/verseLoader';
+	import { arabicFontClass } from '../../store';
 
 	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);
 
@@ -154,7 +155,7 @@
 									{item.surahLatin} : {item.verse.v}
 								</span>
 							</div>
-							<p class="font-arabic text-2xl text-right leading-loose" dir="rtl">
+							<p class="{$arabicFontClass} text-2xl text-right leading-loose" dir="rtl">
 								{item.arabic}
 							</p>
 							<p class="text-sm text-foreground-secondary">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { lastReadVerses } from '../store';
+	import { lastReadVerses, arabicFontClass } from '../store';
 	import CardShadow from './CardShadow.svelte';
 	import { t } from './translations/store';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
@@ -36,7 +36,7 @@
 				></span>
 				<div class="flex flex-col gap-1 items-center justify-center">
 					<span class="text-xs text-foreground-secondary">{verse.l}</span>
-					<span class="text-xl font-arabic">{verse.a}</span>
+					<span class="text-xl {$arabicFontClass}">{verse.a}</span>
 					<span class="text-sm text-foreground-secondary">Ayat {verse.v}</span>
 				</div>
 			</CardShadow>

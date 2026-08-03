@@ -1,5 +1,5 @@
 import type { ReciterKey } from '$lib/utils/audio';
-import { get, writable } from 'svelte/store';
+import { derived, get, writable } from 'svelte/store';
 
 export const activeTheme = writable('');
 export const getActiveTheme = () => {
@@ -18,6 +18,15 @@ export type FontStyleKey = 'lpmq' | 'amiriQuran' | 'kfgqpc' | 'pdms' | 'system';
 
 export const settingFontSize = writable<FontSizeKey>('md');
 export const settingFontStyle = writable<FontStyleKey>('lpmq');
+
+/** Reactive Tailwind class that maps the user's font preference to the correct Arabic font-family. */
+export const arabicFontClass = derived(settingFontStyle, ($style) => {
+	if ($style === 'amiriQuran') return 'font-arabic-amiri-quran';
+	if ($style === 'kfgqpc') return 'font-arabic-kfgqpc';
+	if ($style === 'pdms') return 'font-arabic-pdms';
+	if ($style === 'system') return 'font-arabic-system';
+	return 'font-arabic';
+});
 
 export type LocationParam = {
 	lt: number;

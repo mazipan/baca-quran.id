@@ -10,6 +10,7 @@
 	import { globalBottomSheet } from '../../store/globalBottomSheet';
 	import { t as translate } from '$lib/translations';
 	import { t } from '$lib/translations/store';
+	import { arabicFontClass } from '../../store';
 
 	let toggleBottomSheet = () => {
 		globalBottomSheet.toggle({
@@ -39,7 +40,7 @@
 <div class="px-4 flex flex-col gap-2">
 	<CardShadow>
 		<div class="flex flex-col justify-center gap-4">
-			<span class="text-2xl font-arabic text-right">{ayatKursi.arabic}</span>
+			<span class="text-2xl {$arabicFontClass} text-right">{ayatKursi.arabic}</span>
 			<small class="text-sm text-foreground-secondary italic">{ayatKursi.latin}</small>
 		</div>
 		<div class="mt-4 flex justify-between items-center gap-2">
