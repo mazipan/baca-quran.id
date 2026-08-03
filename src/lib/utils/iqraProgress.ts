@@ -8,7 +8,7 @@ export interface IqraProgress {
 }
 
 export const LESSON_COUNT: Record<number, number> = {
-	1: 14,
+	1: 31,
 	2: 28,
 	3: 3,
 	4: 3,
