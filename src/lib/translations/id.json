@@ -452,6 +452,13 @@
 		"overallProgress": "{{completed}} dari {{total}} jilid selesai",
 		"nextLevel": "Lanjut ke Jilid {{number}}",
 		"nextLevelComingSoon": "Jilid {{number}} belum tersedia",
-		"restartLabel": "Mulai dari Awal"
+		"restartLabel": "Mulai dari Awal",
+		"openLabel": "Buka",
+		"bookmarkAdd": "Tandai halaman ini",
+		"bookmarkRemove": "Hapus tanda halaman ini",
+		"bookmarkAdded": "Halaman berhasil ditandai!",
+		"bookmarkRemoved": "Tanda halaman dihapus",
+		"continueFromBookmark": "Lanjutkan dari Bookmark",
+		"bookmarkedPage": "Halaman {{page}}"
 	}
 }

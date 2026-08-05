@@ -452,6 +452,13 @@
 		"overallProgress": "{{completed}} of {{total}} levels complete",
 		"nextLevel": "Continue to Jilid {{number}}",
 		"nextLevelComingSoon": "Jilid {{number}} not yet available",
-		"restartLabel": "Start Over"
+		"restartLabel": "Start Over",
+		"openLabel": "Open",
+		"bookmarkAdd": "Bookmark this page",
+		"bookmarkRemove": "Remove bookmark",
+		"bookmarkAdded": "Page bookmarked!",
+		"bookmarkRemoved": "Bookmark removed",
+		"continueFromBookmark": "Continue from Bookmark",
+		"bookmarkedPage": "Page {{page}}"
 	}
 }
