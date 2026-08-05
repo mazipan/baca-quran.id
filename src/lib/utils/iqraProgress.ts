@@ -2,9 +2,15 @@ import { CONSTANTS } from '$lib/constants';
 
 const KEY = CONSTANTS.STORAGE_KEY.IQRA_PROGRESS;
 
+export interface IqraBookmark {
+	pageIndex: number;
+	updatedAt: string;
+}
+
 export interface IqraProgress {
 	levels: Record<number, boolean[]>;
 	completedAt: Record<number, string>;
+	bookmarks: Record<number, IqraBookmark>;
 }
 
 export const LESSON_COUNT: Record<number, number> = {
@@ -17,7 +23,7 @@ export const LESSON_COUNT: Record<number, number> = {
 };
 
 function empty(): IqraProgress {
-	return { levels: {}, completedAt: {} };
+	return { levels: {}, completedAt: {}, bookmarks: {} };
 }
 
 export function loadProgress(): IqraProgress {
@@ -25,7 +31,12 @@ export function loadProgress(): IqraProgress {
 	try {
 		const raw = localStorage.getItem(KEY);
 		if (!raw) return empty();
-		return JSON.parse(raw) as IqraProgress;
+		const parsed = JSON.parse(raw) as Partial<IqraProgress>;
+		return {
+			levels: parsed.levels ?? {},
+			completedAt: parsed.completedAt ?? {},
+			bookmarks: parsed.bookmarks ?? {}
+		};
 	} catch {
 		return empty();
 	}
@@ -66,10 +77,48 @@ export function resetJilidProgress(jilid: number): void {
 	const p = loadProgress();
 	delete p.levels[jilid];
 	delete p.completedAt[jilid];
+	delete p.bookmarks[jilid];
 	save(p);
 }
 
 export function resetProgress(): void {
 	if (typeof localStorage === 'undefined') return;
 	localStorage.removeItem(KEY);
+}
+
+export function setBookmark(jilid: number, pageIndex: number): IqraProgress {
+	const p = loadProgress();
+	p.bookmarks[jilid] = { pageIndex, updatedAt: new Date().toISOString() };
+	save(p);
+	return p;
+}
+
+export function clearBookmark(jilid: number): IqraProgress {
+	const p = loadProgress();
+	delete p.bookmarks[jilid];
+	save(p);
+	return p;
+}
+
+export function getBookmark(jilid: number): IqraBookmark | undefined {
+	return loadProgress().bookmarks[jilid];
+}
+
+export function getLatestBookmark(): {
+	jilid: number;
+	pageIndex: number;
+	updatedAt: string;
+} | null {
+	const p = loadProgress();
+	let latest: { jilid: number; pageIndex: number; updatedAt: string } | null = null;
+	for (const [jilidStr, bookmark] of Object.entries(p.bookmarks)) {
+		if (!latest || bookmark.updatedAt > latest.updatedAt) {
+			latest = {
+				jilid: Number(jilidStr),
+				pageIndex: bookmark.pageIndex,
+				updatedAt: bookmark.updatedAt
+			};
+		}
+	}
+	return latest;
 }

@@ -7,10 +7,16 @@
 	import { TITLE_CONSTANTS } from '$lib/constants';
 	import { t } from '$lib/translations/store';
 	import { IQRA_LEVELS } from '$data/iqra';
-	import { getLevelStats, isLevelComplete, resetProgress } from '$lib/utils/iqraProgress';
+	import {
+		getLevelStats,
+		isLevelComplete,
+		resetProgress,
+		getLatestBookmark
+	} from '$lib/utils/iqraProgress';
 	import ProgressBar from '$lib/ui/ProgressBar.svelte';
 	import ResetIcon from '$lib/icons/ResetIcon.svelte';
 	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
+	import BookmarkSolidIcon from '$lib/icons/BookmarkSolidIcon.svelte';
 	import SeoText from '$lib/SeoText.svelte';
 
 	type LevelStats = { completed: number; total: number };
@@ -18,6 +24,7 @@
 	let stats = $state<Record<number, LevelStats>>({});
 	let completedLevels = $state<Record<number, boolean>>({});
 	let showResetConfirm = $state(false);
+	let latestBookmark = $state<{ jilid: number; pageIndex: number } | null>(null);
 
 	onMount(() => {
 		refreshStats();
@@ -32,6 +39,7 @@
 		}
 		stats = s;
 		completedLevels = c;
+		latestBookmark = getLatestBookmark();
 	}
 
 	function handleReset() {
@@ -116,6 +124,27 @@
 	</div>
 </div>
 
+{#if latestBookmark}
+	<div class="px-4 mb-4">
+		<a
+			href="/iqra/{latestBookmark.jilid}/?page={latestBookmark.pageIndex + 1}"
+			class="flex items-center justify-between gap-2 rounded-lg overflow-hidden shadow p-4 bg-control-accent text-control-surface hover:opacity-90 transition"
+		>
+			<div class="flex items-center gap-2.5">
+				<BookmarkSolidIcon size="md" class="w-5 h-5 shrink-0" />
+				<div>
+					<div class="font-bold text-base">{$t('iqra.continueFromBookmark')}</div>
+					<div class="text-sm opacity-90">
+						{$t('iqra.levelLabel', { number: String(latestBookmark.jilid) })} ·
+						{$t('iqra.bookmarkedPage', { page: String(latestBookmark.pageIndex + 1) })}
+					</div>
+				</div>
+			</div>
+			<ArrowRightIcon size="sm" class="w-4 h-4 shrink-0" />
+		</a>
+	</div>
+{/if}
+
 <div class="px-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
 	{#each IQRA_LEVELS as level (level.jilid)}
 		{@const levelStats = stats[level.jilid] ?? { completed: 0, total: 0 }}
@@ -150,13 +179,7 @@
 				/>
 
 				<div class="mt-1 text-sm font-medium text-foreground-secondary flex items-center gap-1">
-					{#if isDone}
-						{$t('iqra.reviewLabel')}
-					{:else if levelStats.completed > 0}
-						{$t('iqra.continueLabel')}
-					{:else}
-						{$t('iqra.startLabel')}
-					{/if}
+					{$t('iqra.openLabel')}
 					<ArrowRightIcon size="sm" class="w-3.5 h-3.5 shrink-0" />
 				</div>
 			</a>
