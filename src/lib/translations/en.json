@@ -456,6 +456,8 @@
 		"openLabel": "Open",
 		"bookmarkAdd": "Bookmark this page",
 		"bookmarkRemove": "Remove bookmark",
+		"bookmarkAdded": "Page bookmarked!",
+		"bookmarkRemoved": "Bookmark removed",
 		"continueFromBookmark": "Continue from Bookmark",
 		"bookmarkedPage": "Page {{page}}"
 	}

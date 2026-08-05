@@ -456,6 +456,8 @@
 		"openLabel": "Buka",
 		"bookmarkAdd": "Tandai halaman ini",
 		"bookmarkRemove": "Hapus tanda halaman ini",
+		"bookmarkAdded": "Halaman berhasil ditandai!",
+		"bookmarkRemoved": "Tanda halaman dihapus",
 		"continueFromBookmark": "Lanjutkan dari Bookmark",
 		"bookmarkedPage": "Halaman {{page}}"
 	}

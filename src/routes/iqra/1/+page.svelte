@@ -10,6 +10,7 @@
 	import BookmarkSolidIcon from '$lib/icons/BookmarkSolidIcon.svelte';
 	import { TITLE_CONSTANTS } from '$lib/constants';
 	import { t } from '$lib/translations/store';
+	import { toast } from '$store/toast';
 	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
 	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
 	import StepNav from '$lib/ui/StepNav.svelte';
@@ -93,9 +94,11 @@
 		if (bookmarkedIndex === currentIndex) {
 			clearBookmark(JILID);
 			bookmarkedIndex = null;
+			toast.show({ message: $t('iqra.bookmarkRemoved'), type: 'info' });
 		} else {
 			setBookmark(JILID, currentIndex);
 			bookmarkedIndex = currentIndex;
+			toast.show({ message: $t('iqra.bookmarkAdded'), type: 'success' });
 		}
 	}
 
