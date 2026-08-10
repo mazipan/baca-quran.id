@@ -44,7 +44,7 @@
 		"globby": "16.2.2",
 		"husky": "9.1.7",
 		"lint-staged": "17.3.0",
-		"postcss": "8.5.23",
+		"postcss": "8.5.25",
 		"postcss-load-config": "6.0.1",
 		"prettier": "3.9.6",
 		"prettier-plugin-svelte": "4.1.1",
@@ -55,7 +55,7 @@
 		"tailwindcss": "4.3.3",
 		"tslib": "2.8.1",
 		"typescript": "6.0.3",
-		"vite": "8.1.5"
+		"vite": "8.2.0"
 	},
 	"packageManager": "pnpm@11.2.2",
 	"engines": {
