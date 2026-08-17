@@ -79,8 +79,8 @@ importers:
         specifier: 17.9.0
         version: 17.9.0
       globby:
-        specifier: 16.2.2
-        version: 16.2.2
+        specifier: 16.2.3
+        version: 16.2.3
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -1119,8 +1119,8 @@ packages:
     resolution: {integrity: sha512-m/MvAW61QVU5VDNF1Vj8axt016h8w7L5TU1e9zlab7XIttAT2YAlCwl75K1fOqvMM9apmD7lbCIRhpfkhmxhCg==}
     engines: {node: '>=18'}
 
-  globby@16.2.2:
-    resolution: {integrity: sha512-NLvV9ubZ6NDsJaOpKPy3cQeJpKi9DcWiyCiFUpJPA0YihRqiE6RWaLUmgNNPr8MgPpLZjnBjSmou7uZBRJv9wA==}
+  globby@16.2.3:
+    resolution: {integrity: sha512-VZX7TV7jmd/pn71vdnLKtgwy1IWqc3KjI9x1/UtPkwoKk5fKrNLY30ltDe3cAM5xruIN7YuuaulFt133jRrKZg==}
     engines: {node: '>=20'}
 
   graceful-fs@4.2.11:
@@ -2847,7 +2847,7 @@ snapshots:
 
   globals@17.9.0: {}
 
-  globby@16.2.2:
+  globby@16.2.3:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       fast-glob: 3.3.3
