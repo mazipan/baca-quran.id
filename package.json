@@ -41,7 +41,7 @@
 		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-svelte": "3.22.0",
 		"globals": "17.9.0",
-		"globby": "16.2.2",
+		"globby": "16.2.3",
 		"husky": "9.1.7",
 		"lint-staged": "17.3.0",
 		"postcss": "8.5.25",
