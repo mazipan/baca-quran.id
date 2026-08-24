@@ -21,7 +21,7 @@
 		"@fontsource/amiri-quran": "5.3.0",
 		"@fontsource/noto-naskh-arabic": "5.3.0",
 		"@tailwindcss/vite": "4.3.3",
-		"dayjs": "1.11.21",
+		"dayjs": "1.11.22",
 		"firebase": "12.17.1",
 		"kfgqpc-uthmanic-script-hafs-regular": "1.0.0",
 		"svelte": "5.56.9"
