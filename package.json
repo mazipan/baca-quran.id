@@ -24,13 +24,13 @@
 		"dayjs": "1.11.22",
 		"firebase": "12.17.1",
 		"kfgqpc-uthmanic-script-hafs-regular": "1.0.0",
-		"svelte": "5.56.9"
+		"svelte": "5.56.10"
 	},
 	"devDependencies": {
 		"@eslint/js": "10.0.1",
 		"@sveltejs/adapter-auto": "7.0.1",
 		"@sveltejs/adapter-static": "3.0.10",
-		"@sveltejs/kit": "2.70.2",
+		"@sveltejs/kit": "2.70.3",
 		"@sveltejs/vite-plugin-svelte": "7.3.0",
 		"@tailwindcss/postcss": "4.3.3",
 		"@typescript-eslint/eslint-plugin": "8.67.0",
