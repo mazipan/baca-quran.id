@@ -24,7 +24,7 @@
 		"dayjs": "1.11.23",
 		"firebase": "12.18.0",
 		"kfgqpc-uthmanic-script-hafs-regular": "1.0.0",
-		"svelte": "5.56.10"
+		"svelte": "5.57.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "10.0.1",
