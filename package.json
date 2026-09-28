@@ -35,7 +35,7 @@
 		"@tailwindcss/postcss": "4.3.3",
 		"@typescript-eslint/eslint-plugin": "8.70.0",
 		"@typescript-eslint/parser": "8.70.0",
-		"autoprefixer": "10.6.0",
+		"autoprefixer": "10.6.1",
 		"dotenv": "17.4.2",
 		"eslint": "10.11.0",
 		"eslint-config-prettier": "10.1.8",
