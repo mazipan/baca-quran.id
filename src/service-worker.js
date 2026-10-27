@@ -3,14 +3,16 @@
 /// <reference no-default-lib="true"/>
 /// <reference lib="esnext" />
 /// <reference lib="webworker" />
-import { build, files, version } from '$service-worker';
+import { immutable, assets } from '$app/manifest';
+import { asset, resolve } from '$app/paths';
+import { version } from '$app/env';
 
 // Create a unique cache name for this deployment
 const CACHE = `bqid-cache-${version}`;
 
 const ASSETS = [
-	...build, // the app itself
-	...files // everything in `static`
+	...immutable.map(({ path }) => resolve(path)), // the app itself
+	...assets.map(({ path }) => asset(path)) // everything in `static`
 ];
 
 self.addEventListener('install', (event) => {

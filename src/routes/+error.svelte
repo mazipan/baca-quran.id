@@ -1,5 +1,5 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import ErrorIllustration from '$lib/illustrations/ErrorIllustration.svelte';
@@ -11,7 +11,7 @@
 	<p class="mt-2 text-red-600 bg-red-50 p-2 rounded-lg">
 		<span class="font-bold">Error Message: </span>
 		<span>
-			{$page?.error?.message || $t('common.unknownError')}
+			{page.error?.message || $t('common.unknownError')}
 		</span>
 	</p>
 	<ErrorIllustration class="w-[80%] mt-8 mb-8" />

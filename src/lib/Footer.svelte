@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { version } from '$app/environment';
+	import { version } from '$app/env';
 	import { t } from './translations/store';
 
 	let currentYear = new Date().getFullYear();

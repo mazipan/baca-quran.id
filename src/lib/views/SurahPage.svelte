@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { navigating, page } from '$app/stores';
+	import { navigating, page } from '$app/state';
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import Pagination from '$lib/Pagination.svelte';
@@ -24,13 +24,13 @@
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	let timeout: any = null;
 	onMount(() => {
-		if ($page.url.hash) {
+		if (page.url.hash) {
 			if (timeout !== null) {
 				clearTimeout(timeout);
 			}
 
 			timeout = setTimeout(() => {
-				const element = document.getElementById($page.url.hash.replace('#', ''));
+				const element = document.getElementById(page.url.hash.replace('#', ''));
 				if (element && element.getBoundingClientRect) {
 					const elementPosition = element.getBoundingClientRect().top;
 					const offsetPosition = elementPosition + window.pageYOffset;
@@ -73,7 +73,7 @@
 </div>
 
 <article class="px-4">
-	{#if $navigating}
+	{#if navigating.to}
 		<span>{$t('common.loading')}</span>
 	{:else}
 		<div class="flex flex-col gap-2">

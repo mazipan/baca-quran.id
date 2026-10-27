@@ -84,7 +84,7 @@ All user-visible strings go through `$t()`.
 ## 2. Register the URL in `scripts/routes.js`
 
 This single array drives **both** the build's `prerender.entries`
-(via `svelte.config.js`) **and** the sitemap (`scripts/makeSitemap.js`).
+(via `vite.config.ts`) **and** the sitemap (`scripts/makeSitemap.js`).
 Skipping this is the single most common mistake when adding a page.
 
 Open `scripts/routes.js` and insert the new path into `staticUrls`,

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { navigating } from '$app/stores';
+	import { navigating } from '$app/state';
 	import Breadcrumb from '$lib/Breadcrumb.svelte';
 	import MetaTag from '$lib/MetaTag.svelte';
 	import Pagination from '$lib/Pagination.svelte';
@@ -53,7 +53,7 @@
 </div>
 
 <article class="px-4">
-	{#if $navigating}
+	{#if navigating.to}
 		<span>{$t('common.loading')}</span>
 	{:else}
 		<div class="flex flex-col gap-2">

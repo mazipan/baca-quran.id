@@ -27,15 +27,15 @@ If an idea contradicts the above, push back or scope it down.
 
 | Area          | Choice                                                                       |
 | ------------- | ---------------------------------------------------------------------------- |
-| Framework     | SvelteKit 2 + **Svelte 5 runes** (`$state`, `$derived`, `$props`, `$effect`) |
+| Framework     | SvelteKit 3 + **Svelte 5 runes** (`$state`, `$derived`, `$props`, `$effect`) |
 | Language      | TypeScript                                                                   |
 | Styling       | Tailwind CSS v4 (no `tailwind.config.js`; uses `@tailwindcss/postcss`)       |
 | Adapter       | `@sveltejs/adapter-static` — everything prerendered                          |
 | Dates         | `dayjs` (Gregorian); `Intl.DateTimeFormat` (Hijri)                           |
 | Optional sync | `firebase` — opt-in only                                                     |
 | Tests         | None. Verification is `check` + `lint` + `build:ci` + manual.                |
-| Package mgr   | **pnpm 10.33+**                                                              |
-| Node          | **24.14+** (see `.nvmrc`)                                                    |
+| Package mgr   | **pnpm 12.15+**                                                              |
+| Node          | **26.12+** (see `.nvmrc`)                                                    |
 
 **Svelte 5 reminder:** use runes, not `let` reactivity / `$:` blocks.
 Component props go through `$props()`, not `export let`.
@@ -44,7 +44,7 @@ Component props go through `$props()`, not `export let`.
 
 ```bash
 # Use the pinned Node version
-nvm install   # reads .nvmrc → 24.14.1
+nvm install   # reads .nvmrc → 26.12.1
 nvm use
 
 # Install
@@ -59,7 +59,7 @@ pnpm lint         # prettier --check + eslint
 pnpm build:ci     # svelte-kit build (matches CI)
 ```
 
-If `pnpm` complains `Unsupported environment` it means Node is < 24.14.
+If `pnpm` complains `Unsupported environment` it means Node is < 26.12.
 `nvm use` first.
 
 The husky pre-commit hook runs `lint-staged` (prettier + eslint --fix on
@@ -104,14 +104,14 @@ scripts/
   ISSUE_TEMPLATE/          bug_report.md, feature_request.md
 ```
 
-### Path aliases (configured in `svelte.config.js`)
+### Path aliases (configured in `vite.config.ts`)
 
-| Alias    | Maps to     | Use for                          |
-| -------- | ----------- | -------------------------------- |
-| `$lib`   | `src/lib`   | Components, utils                |
-| `$data`  | `src/data`  | Static data files                |
-| `$store` | `src/store` | Cross-page stores                |
-| `$app/*` | SvelteKit   | `$app/stores`, `$app/navigation` |
+| Alias    | Maps to     | Use for                         |
+| -------- | ----------- | ------------------------------- |
+| `$lib`   | `src/lib`   | Components, utils               |
+| `$data`  | `src/data`  | Static data files               |
+| `$store` | `src/store` | Cross-page stores               |
+| `$app/*` | SvelteKit   | `$app/state`, `$app/navigation` |
 
 ## 5. Conventions cheat sheet
 
@@ -128,7 +128,7 @@ scripts/
 
 2. **Register the URL** in `scripts/routes.js → staticUrls`. This single
    array drives both:
-   - prerender entries in `svelte.config.js`
+   - prerender entries in `vite.config.ts`
    - the sitemap in `scripts/makeSitemap.js`
 
    Forgetting this means your page won't be in the static build's entry
