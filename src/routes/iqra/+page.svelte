@@ -1,23 +1,23 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import BookOpenIcon from '$lib/icons/BookOpenIcon.svelte';
-	import CheckCircleSolidIcon from '$lib/icons/CheckCircleSolidIcon.svelte';
-	import { TITLE_CONSTANTS } from '$lib/constants';
-	import { t } from '$lib/translations/store';
-	import { IQRA_LEVELS } from '$data/iqra';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import BookOpenIcon from '#lib/icons/BookOpenIcon.svelte';
+	import CheckCircleSolidIcon from '#lib/icons/CheckCircleSolidIcon.svelte';
+	import { TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { t } from '#lib/translations/store.ts';
+	import { IQRA_LEVELS } from '#data/iqra/index.ts';
 	import {
 		getLevelStats,
 		isLevelComplete,
 		resetProgress,
 		getLatestBookmark
-	} from '$lib/utils/iqraProgress';
-	import ProgressBar from '$lib/ui/ProgressBar.svelte';
-	import ResetIcon from '$lib/icons/ResetIcon.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import BookmarkSolidIcon from '$lib/icons/BookmarkSolidIcon.svelte';
-	import SeoText from '$lib/SeoText.svelte';
+	} from '#lib/utils/iqraProgress.ts';
+	import ProgressBar from '#lib/ui/ProgressBar.svelte';
+	import ResetIcon from '#lib/icons/ResetIcon.svelte';
+	import ArrowRightIcon from '#lib/icons/ArrowRightIcon.svelte';
+	import BookmarkSolidIcon from '#lib/icons/BookmarkSolidIcon.svelte';
+	import SeoText from '#lib/SeoText.svelte';
 
 	type LevelStats = { completed: number; total: number };
 

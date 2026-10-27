@@ -1,86 +1,86 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import CardShadow from '$lib/CardShadow.svelte';
-	import MorningBanner from '$lib/illustrations/MorningBanner.svelte';
-	import EveningBanner from '$lib/illustrations/EveningBanner.svelte';
-	import PrayerTimeIllustration from '$lib/illustrations/PrayerTimeIllustration.svelte';
-	import Tabs from '$lib/ui/Tabs.svelte';
-	import Button from '$lib/ui/Button.svelte';
-	import IconButton from '$lib/ui/IconButton.svelte';
-	import Badge from '$lib/ui/Badge.svelte';
-	import Chip from '$lib/ui/Chip.svelte';
-	import Collapsible from '$lib/ui/Collapsible.svelte';
-	import BottomSheet from '$lib/ui/BottomSheet.svelte';
-	import Card from '$lib/ui/Card.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import CardShadow from '#lib/CardShadow.svelte';
+	import MorningBanner from '#lib/illustrations/MorningBanner.svelte';
+	import EveningBanner from '#lib/illustrations/EveningBanner.svelte';
+	import PrayerTimeIllustration from '#lib/illustrations/PrayerTimeIllustration.svelte';
+	import Tabs from '#lib/ui/Tabs.svelte';
+	import Button from '#lib/ui/Button.svelte';
+	import IconButton from '#lib/ui/IconButton.svelte';
+	import Badge from '#lib/ui/Badge.svelte';
+	import Chip from '#lib/ui/Chip.svelte';
+	import Collapsible from '#lib/ui/Collapsible.svelte';
+	import BottomSheet from '#lib/ui/BottomSheet.svelte';
+	import Card from '#lib/ui/Card.svelte';
 	import GradientCard, {
 		GRADIENTS,
 		PATTERNS,
 		type GradientName,
 		type PatternName
-	} from '$lib/ui/GradientCard.svelte';
-	import Banner from '$lib/ui/Banner.svelte';
-	import Input from '$lib/ui/Input.svelte';
-	import Textarea from '$lib/ui/Textarea.svelte';
-	import Checkbox from '$lib/ui/Checkbox.svelte';
-	import Radio from '$lib/ui/Radio.svelte';
-	import Switch from '$lib/ui/Switch.svelte';
-	import ProgressBar from '$lib/ui/ProgressBar.svelte';
-	import ProgressDots from '$lib/ui/ProgressDots.svelte';
-	import StepNav from '$lib/ui/StepNav.svelte';
-	import CardStack from '$lib/ui/CardStack.svelte';
-	import { TITLE_CONSTANTS, THEMES } from '$lib/constants';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import { t } from '$lib/translations/store';
+	} from '#lib/ui/GradientCard.svelte';
+	import Banner from '#lib/ui/Banner.svelte';
+	import Input from '#lib/ui/Input.svelte';
+	import Textarea from '#lib/ui/Textarea.svelte';
+	import Checkbox from '#lib/ui/Checkbox.svelte';
+	import Radio from '#lib/ui/Radio.svelte';
+	import Switch from '#lib/ui/Switch.svelte';
+	import ProgressBar from '#lib/ui/ProgressBar.svelte';
+	import ProgressDots from '#lib/ui/ProgressDots.svelte';
+	import StepNav from '#lib/ui/StepNav.svelte';
+	import CardStack from '#lib/ui/CardStack.svelte';
+	import { TITLE_CONSTANTS, THEMES } from '#lib/constants.ts';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
+	import { t } from '#lib/translations/store.ts';
 	import { toast } from '../../store/toast';
 
-	import ArrowDownTray from '$lib/icons/ArrowDownTray.svelte';
-	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import ArrowUpTray from '$lib/icons/ArrowUpTray.svelte';
-	import BookOpenIcon from '$lib/icons/BookOpenIcon.svelte';
-	import BookmarkIcon from '$lib/icons/BookmarkIcon.svelte';
-	import BookmarkSlashIcon from '$lib/icons/BookmarkSlashIcon.svelte';
-	import BookmarkSolidIcon from '$lib/icons/BookmarkSolidIcon.svelte';
-	import CalendarIcon from '$lib/icons/CalendarIcon.svelte';
-	import CheckCircleIcon from '$lib/icons/CheckCircleIcon.svelte';
-	import CheckCircleSolidIcon from '$lib/icons/CheckCircleSolidIcon.svelte';
-	import CheckIcon from '$lib/icons/CheckIcon.svelte';
-	import ChevronDownIcon from '$lib/icons/ChevronDownIcon.svelte';
-	import ChevronRightIcon from '$lib/icons/ChevronRightIcon.svelte';
-	import ChevronUpIcon from '$lib/icons/ChevronUpIcon.svelte';
-	import CodeIcon from '$lib/icons/CodeIcon.svelte';
-	import CopyIcon from '$lib/icons/CopyIcon.svelte';
-	import DocumentTextIcon from '$lib/icons/DocumentTextIcon.svelte';
-	import ExclamationTriangleIcon from '$lib/icons/ExclamationTriangleIcon.svelte';
-	import EyeIcon from '$lib/icons/EyeIcon.svelte';
-	import FireIcon from '$lib/icons/FireIcon.svelte';
-	import GalleryIcon from '$lib/icons/GalleryIcon.svelte';
-	import GoogleIcon from '$lib/icons/GoogleIcon.svelte';
-	import HashtagIcon from '$lib/icons/HashtagIcon.svelte';
-	import HeartIcon from '$lib/icons/HeartIcon.svelte';
-	import HeartSolidIcon from '$lib/icons/HeartSolidIcon.svelte';
-	import HomeIcon from '$lib/icons/HomeIcon.svelte';
-	import InformationCircleIcon from '$lib/icons/InformationCircleIcon.svelte';
-	import LinkIcon from '$lib/icons/LinkIcon.svelte';
-	import MarkerIcon from '$lib/icons/MarkerIcon.svelte';
-	import NewspaperIcon from '$lib/icons/NewspaperIcon.svelte';
-	import PauseIcon from '$lib/icons/PauseIcon.svelte';
-	import PlayIcon from '$lib/icons/PlayIcon.svelte';
-	import PresentationChartIcon from '$lib/icons/PresentationChartIcon.svelte';
-	import ResetIcon from '$lib/icons/ResetIcon.svelte';
-	import SearchIcon from '$lib/icons/SearchIcon.svelte';
-	import SettingIcon from '$lib/icons/SettingIcon.svelte';
-	import ShareIcon from '$lib/icons/ShareIcon.svelte';
-	import ShieldCheckIcon from '$lib/icons/ShieldCheckIcon.svelte';
-	import SignOutIcon from '$lib/icons/SignOutIcon.svelte';
-	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
-	import SpeakerXMarkIcon from '$lib/icons/SpeakerXMarkIcon.svelte';
-	import SwatchIcon from '$lib/icons/SwatchIcon.svelte';
-	import ReactangleStackIcon from '$lib/icons/ReactangleStackIcon.svelte';
-	import XMarkIcon from '$lib/icons/XMarkIcon.svelte';
+	import ArrowDownTray from '#lib/icons/ArrowDownTray.svelte';
+	import ArrowLeftIcon from '#lib/icons/ArrowLeftIcon.svelte';
+	import ArrowRightIcon from '#lib/icons/ArrowRightIcon.svelte';
+	import ArrowUpTray from '#lib/icons/ArrowUpTray.svelte';
+	import BookOpenIcon from '#lib/icons/BookOpenIcon.svelte';
+	import BookmarkIcon from '#lib/icons/BookmarkIcon.svelte';
+	import BookmarkSlashIcon from '#lib/icons/BookmarkSlashIcon.svelte';
+	import BookmarkSolidIcon from '#lib/icons/BookmarkSolidIcon.svelte';
+	import CalendarIcon from '#lib/icons/CalendarIcon.svelte';
+	import CheckCircleIcon from '#lib/icons/CheckCircleIcon.svelte';
+	import CheckCircleSolidIcon from '#lib/icons/CheckCircleSolidIcon.svelte';
+	import CheckIcon from '#lib/icons/CheckIcon.svelte';
+	import ChevronDownIcon from '#lib/icons/ChevronDownIcon.svelte';
+	import ChevronRightIcon from '#lib/icons/ChevronRightIcon.svelte';
+	import ChevronUpIcon from '#lib/icons/ChevronUpIcon.svelte';
+	import CodeIcon from '#lib/icons/CodeIcon.svelte';
+	import CopyIcon from '#lib/icons/CopyIcon.svelte';
+	import DocumentTextIcon from '#lib/icons/DocumentTextIcon.svelte';
+	import ExclamationTriangleIcon from '#lib/icons/ExclamationTriangleIcon.svelte';
+	import EyeIcon from '#lib/icons/EyeIcon.svelte';
+	import FireIcon from '#lib/icons/FireIcon.svelte';
+	import GalleryIcon from '#lib/icons/GalleryIcon.svelte';
+	import GoogleIcon from '#lib/icons/GoogleIcon.svelte';
+	import HashtagIcon from '#lib/icons/HashtagIcon.svelte';
+	import HeartIcon from '#lib/icons/HeartIcon.svelte';
+	import HeartSolidIcon from '#lib/icons/HeartSolidIcon.svelte';
+	import HomeIcon from '#lib/icons/HomeIcon.svelte';
+	import InformationCircleIcon from '#lib/icons/InformationCircleIcon.svelte';
+	import LinkIcon from '#lib/icons/LinkIcon.svelte';
+	import MarkerIcon from '#lib/icons/MarkerIcon.svelte';
+	import NewspaperIcon from '#lib/icons/NewspaperIcon.svelte';
+	import PauseIcon from '#lib/icons/PauseIcon.svelte';
+	import PlayIcon from '#lib/icons/PlayIcon.svelte';
+	import PresentationChartIcon from '#lib/icons/PresentationChartIcon.svelte';
+	import ResetIcon from '#lib/icons/ResetIcon.svelte';
+	import SearchIcon from '#lib/icons/SearchIcon.svelte';
+	import SettingIcon from '#lib/icons/SettingIcon.svelte';
+	import ShareIcon from '#lib/icons/ShareIcon.svelte';
+	import ShieldCheckIcon from '#lib/icons/ShieldCheckIcon.svelte';
+	import SignOutIcon from '#lib/icons/SignOutIcon.svelte';
+	import SpeakerWaveIcon from '#lib/icons/SpeakerWaveIcon.svelte';
+	import SpeakerXMarkIcon from '#lib/icons/SpeakerXMarkIcon.svelte';
+	import SwatchIcon from '#lib/icons/SwatchIcon.svelte';
+	import ReactangleStackIcon from '#lib/icons/ReactangleStackIcon.svelte';
+	import XMarkIcon from '#lib/icons/XMarkIcon.svelte';
 
-	import type { IconSize } from '$lib/icons/utils';
+	import type { IconSize } from '#lib/icons/utils.ts';
 
 	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);
 
@@ -1506,7 +1506,7 @@
 			</p>
 			<MorningBanner />
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'import MorningBanner from \'$lib/illustrations/MorningBanner.svelte\';\n\n<MorningBanner class="..." />'}</code
+					>{'import MorningBanner from \'#lib/illustrations/MorningBanner.svelte\';\n\n<MorningBanner class="..." />'}</code
 				></pre>
 		</CardShadow>
 
@@ -1519,7 +1519,7 @@
 			</p>
 			<EveningBanner />
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'import EveningBanner from \'$lib/illustrations/EveningBanner.svelte\';\n\n<EveningBanner class="..." />'}</code
+					>{'import EveningBanner from \'#lib/illustrations/EveningBanner.svelte\';\n\n<EveningBanner class="..." />'}</code
 				></pre>
 		</CardShadow>
 
@@ -1561,7 +1561,7 @@
 			</div>
 
 			<pre class="text-xs bg-primary p-2 rounded overflow-auto"><code
-					>{'import PrayerTimeIllustration from \'$lib/illustrations/PrayerTimeIllustration.svelte\';\n\n<PrayerTimeIllustration hours={currentHour} class="..." />\n// hours 0-23 → fajr | morning | noon | afternoon | sunset | night'}</code
+					>{'import PrayerTimeIllustration from \'#lib/illustrations/PrayerTimeIllustration.svelte\';\n\n<PrayerTimeIllustration hours={currentHour} class="..." />\n// hours 0-23 → fajr | morning | noon | afternoon | sunset | night'}</code
 				></pre>
 		</CardShadow>
 

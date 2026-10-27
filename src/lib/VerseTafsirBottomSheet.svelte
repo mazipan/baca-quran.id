@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { verseTafsirSheet } from '../store/verseTafsirSheet';
-	import BottomSheet from '$lib/ui/BottomSheet.svelte';
+	import BottomSheet from '#lib/ui/BottomSheet.svelte';
 </script>
 
 <BottomSheet

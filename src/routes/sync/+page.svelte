@@ -12,10 +12,10 @@
 		measurementId: env.PUBLIC_FIREBASE_MEASUREMENT_ID || 'dummy-measurement'
 	};
 
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import Button from '$lib/ui/Button.svelte';
-	import { t } from '$lib/translations/store';
-	import { t as translate } from '$lib/translations';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import Button from '#lib/ui/Button.svelte';
+	import { t } from '#lib/translations/store.ts';
+	import { t as translate } from '#lib/translations/index.ts';
 	import { initializeApp } from 'firebase/app';
 	import {
 		getFirestore,
@@ -48,13 +48,13 @@
 		logPrayer
 	} from '../../store';
 	import { toast } from '../../store/toast';
-	import { CONSTANTS, TITLE_CONSTANTS } from '$lib/constants';
-	import EyeIcon from '$lib/icons/EyeIcon.svelte';
-	import SignOutIcon from '$lib/icons/SignOutIcon.svelte';
-	import ArrowUpTray from '$lib/icons/ArrowUpTray.svelte';
-	import ArrowDownTray from '$lib/icons/ArrowDownTray.svelte';
-	import JsonSurahViewer from '$lib/JsonSurahViewer.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
+	import { CONSTANTS, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import EyeIcon from '#lib/icons/EyeIcon.svelte';
+	import SignOutIcon from '#lib/icons/SignOutIcon.svelte';
+	import ArrowUpTray from '#lib/icons/ArrowUpTray.svelte';
+	import ArrowDownTray from '#lib/icons/ArrowDownTray.svelte';
+	import JsonSurahViewer from '#lib/JsonSurahViewer.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
 
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);

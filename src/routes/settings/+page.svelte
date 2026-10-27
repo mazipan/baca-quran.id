@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import VerseAudioPlayerTrigger from '$lib/VerseAudioPlayerTrigger.svelte';
-	import VerseCard from '$lib/VerseCard.svelte';
-	import { RECITER_ARRAY } from '$lib/utils/audio';
-	import { CONSTANTS, META_DESC, META_TITLE, THEMES, TITLE_CONSTANTS } from '$lib/constants';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import VerseAudioPlayerTrigger from '#lib/VerseAudioPlayerTrigger.svelte';
+	import VerseCard from '#lib/VerseCard.svelte';
+	import { RECITER_ARRAY } from '#lib/utils/audio.ts';
+	import { CONSTANTS, META_DESC, META_TITLE, THEMES, TITLE_CONSTANTS } from '#lib/constants.ts';
 	import surahData from '../../data/surah-data/108';
 	import {
 		settingAudio,
@@ -16,8 +16,8 @@
 		activeTheme
 	} from '../../store';
 	import type { FontSizeKey, FontStyleKey } from '../../store';
-	import { t } from '$lib/translations/store';
-	import { CheckLanguage, LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '#lib/translations/store.ts';
+	import { CheckLanguage, LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
 	import { onMount } from 'svelte';
 
 	type SurahSampleEntry = {

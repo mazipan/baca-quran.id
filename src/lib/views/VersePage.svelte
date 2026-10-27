@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { navigating } from '$app/state';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import Pagination from '$lib/Pagination.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import SurahCard from '$lib/SurahCard.svelte';
-	import VerseCard from '$lib/VerseCard.svelte';
-	import { META_DESC_AYAH, META_TITLE_AYAH, TITLE_CONSTANTS } from '$lib/constants';
-	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/utils/json-ld';
-	import type { SurahInfoPage } from '$data/surah-info';
-	import { t } from '$lib/translations/store';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import Pagination from '#lib/Pagination.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import SurahCard from '#lib/SurahCard.svelte';
+	import VerseCard from '#lib/VerseCard.svelte';
+	import { META_DESC_AYAH, META_TITLE_AYAH, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '#lib/utils/json-ld.ts';
+	import type { SurahInfoPage } from '#data/surah-info.ts';
+	import { t } from '#lib/translations/store.ts';
 
 	interface Props {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any

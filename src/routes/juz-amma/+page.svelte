@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import SurahList from '$lib/SurahList.svelte';
-	import { META_DESC_JUZ_AMMA, META_TITLE_JUZ_AMMA, TITLE_CONSTANTS } from '$lib/constants';
-	import { t } from '$lib/translations/store';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import SurahList from '#lib/SurahList.svelte';
+	import { META_DESC_JUZ_AMMA, META_TITLE_JUZ_AMMA, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { t } from '#lib/translations/store.ts';
 	import MakkiyahMadaniyah from '../../data/makkiyah-madaniyah';
 	import surahInfo, { type SurahInfo } from '../../data/surah-info';
 

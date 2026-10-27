@@ -1,4 +1,4 @@
-import { CONSTANTS } from '$lib/constants';
+import { CONSTANTS } from '#lib/constants.ts';
 
 const KEY = CONSTANTS.STORAGE_KEY.IQRA_PROGRESS;
 

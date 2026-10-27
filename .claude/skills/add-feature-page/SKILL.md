@@ -43,10 +43,10 @@ Skeleton:
 
 ```svelte
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import { META_TITLE_<UPPER_SLUG>, META_DESC_<UPPER_SLUG>, TITLE_CONSTANTS } from '$lib/constants';
-	import { t } from '$lib/translations/store';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import { META_TITLE_<UPPER_SLUG>, META_DESC_<UPPER_SLUG>, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { t } from '#lib/translations/store.ts';
 </script>
 
 <svelte:head>

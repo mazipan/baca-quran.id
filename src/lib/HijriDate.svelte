@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { languageStore } from './checkLanguaguage';
 	import { getHijriDate, HIJRI_MONTHS_ID, HIJRI_MONTHS_EN } from './utils/hijri';
-	import { getEventsForHijriDate, type IslamicEvent } from '$data/islamic-events';
+	import { getEventsForHijriDate, type IslamicEvent } from '#data/islamic-events.ts';
 	import { t } from './translations/store';
 
 	let now = $state<Date | null>(null);

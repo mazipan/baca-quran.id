@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { AdhkarItem } from '../data/adhkar';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import CheckIcon from '$lib/icons/CheckIcon.svelte';
-	import ResetIcon from '$lib/icons/ResetIcon.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
+	import CheckIcon from '#lib/icons/CheckIcon.svelte';
+	import ResetIcon from '#lib/icons/ResetIcon.svelte';
 	import { arabicFontClass } from '../store';
 
 	interface Props {

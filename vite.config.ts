@@ -47,12 +47,6 @@ export default defineConfig({
 			version: {
 				name: `${gitRev}-${dateRev}`
 			},
-			// Deprecated in Kit 3 in favour of subpath imports; kept to avoid rewriting every $lib import.
-			alias: {
-				$lib: 'src/lib',
-				$data: 'src/data',
-				$store: 'src/store'
-			},
 			// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 			// If your environment is not supported or you settled on a specific environment, switch out the adapter.
 			// See https://kit.svelte.dev/docs/adapters for more information about adapters.

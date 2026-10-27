@@ -1,19 +1,23 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import { META_DESC_ASMAUL_HUSNA, META_TITLE_ASMAUL_HUSNA, TITLE_CONSTANTS } from '$lib/constants';
-	import IconButton from '$lib/ui/IconButton.svelte';
-	import PlayIcon from '$lib/icons/PlayIcon.svelte';
-	import PauseIcon from '$lib/icons/PauseIcon.svelte';
-	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import ResetIcon from '$lib/icons/ResetIcon.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import {
+		META_DESC_ASMAUL_HUSNA,
+		META_TITLE_ASMAUL_HUSNA,
+		TITLE_CONSTANTS
+	} from '#lib/constants.ts';
+	import IconButton from '#lib/ui/IconButton.svelte';
+	import PlayIcon from '#lib/icons/PlayIcon.svelte';
+	import PauseIcon from '#lib/icons/PauseIcon.svelte';
+	import ArrowLeftIcon from '#lib/icons/ArrowLeftIcon.svelte';
+	import ArrowRightIcon from '#lib/icons/ArrowRightIcon.svelte';
+	import ResetIcon from '#lib/icons/ResetIcon.svelte';
 	import asmaulHusna from '../../data/asmaul-husna';
-	import { t } from '$lib/translations/store';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { t } from '#lib/translations/store.ts';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
 	import { arabicFontClass } from '../../store';
 
 	type ViewMode = 'grid' | 'compact' | 'playable';

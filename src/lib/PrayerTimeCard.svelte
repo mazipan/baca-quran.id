@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PrayerKey, PrayerTimings } from './types';
 	import { onMount } from 'svelte';
-	import { getDayjs, getDayjsFormatted, getMinuteDuration } from '$lib/utils/date';
+	import { getDayjs, getDayjsFormatted, getMinuteDuration } from '#lib/utils/date.ts';
 
 	const PRAYER_META: Record<PrayerKey, { emoji: string; arabic: string }> = {
 		Fajr: { emoji: '🌅', arabic: 'الفجر' },

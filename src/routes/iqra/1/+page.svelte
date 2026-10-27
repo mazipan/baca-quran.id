@@ -2,20 +2,20 @@
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import BookOpenIcon from '$lib/icons/BookOpenIcon.svelte';
-	import CheckCircleSolidIcon from '$lib/icons/CheckCircleSolidIcon.svelte';
-	import BookmarkIcon from '$lib/icons/BookmarkIcon.svelte';
-	import BookmarkSolidIcon from '$lib/icons/BookmarkSolidIcon.svelte';
-	import { TITLE_CONSTANTS } from '$lib/constants';
-	import { t } from '$lib/translations/store';
-	import { toast } from '$store/toast';
-	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '$data/iqra';
-	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
-	import StepNav from '$lib/ui/StepNav.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import { settingFontStyle } from '$store';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import BookOpenIcon from '#lib/icons/BookOpenIcon.svelte';
+	import CheckCircleSolidIcon from '#lib/icons/CheckCircleSolidIcon.svelte';
+	import BookmarkIcon from '#lib/icons/BookmarkIcon.svelte';
+	import BookmarkSolidIcon from '#lib/icons/BookmarkSolidIcon.svelte';
+	import { TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { t } from '#lib/translations/store.ts';
+	import { toast } from '#store/toast.ts';
+	import { IQRA_1_HALAMAN, IQRA_LEVELS } from '#data/iqra/index.ts';
+	import SpeakerWaveIcon from '#lib/icons/SpeakerWaveIcon.svelte';
+	import StepNav from '#lib/ui/StepNav.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import { settingFontStyle } from '#store/index.ts';
 	import {
 		loadProgress,
 		markLessonDone,
@@ -24,7 +24,7 @@
 		getBookmark,
 		setBookmark,
 		clearBookmark
-	} from '$lib/utils/iqraProgress';
+	} from '#lib/utils/iqraProgress.ts';
 
 	const JILID = 1;
 	const halaman = IQRA_1_HALAMAN;

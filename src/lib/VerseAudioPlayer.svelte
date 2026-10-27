@@ -8,7 +8,7 @@
 		currentTrack,
 		type CurrentTrackParam
 	} from '../store';
-	import { formatAudioTime, getAudioFromEveryAyah, RECITER_MAP } from '$lib/utils/audio';
+	import { formatAudioTime, getAudioFromEveryAyah, RECITER_MAP } from '#lib/utils/audio.ts';
 
 	import PauseIcon from './icons/PauseIcon.svelte';
 	import PlayIcon from './icons/PlayIcon.svelte';

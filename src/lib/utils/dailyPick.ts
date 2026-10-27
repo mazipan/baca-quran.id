@@ -1,4 +1,4 @@
-import type { AyahPick, Theme } from '$data/ayah-of-the-day';
+import type { AyahPick, Theme } from '#data/ayah-of-the-day.ts';
 import { getHijriMonthDay } from './hijri';
 
 const FALLBACK_SEED = 1846203715;

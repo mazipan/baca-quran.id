@@ -1,4 +1,4 @@
-import { TITLE_CONSTANTS } from '$lib/constants';
+import { TITLE_CONSTANTS } from '#lib/constants.ts';
 import { writable } from 'svelte/store';
 
 export type VerseShareSheetParam = {

@@ -1,6 +1,6 @@
 import { redirect } from '@sveltejs/kit';
-import { entriesVerse } from '$lib/views/entries';
-import { loadVerseData } from '$lib/views/load';
+import { entriesVerse } from '#lib/views/entries.ts';
+import { loadVerseData } from '#lib/views/load.ts';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {

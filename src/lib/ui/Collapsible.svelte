@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ChevronDownIcon from '$lib/icons/ChevronDownIcon.svelte';
+	import ChevronDownIcon from '#lib/icons/ChevronDownIcon.svelte';
 
 	interface Props {
 		title: string;

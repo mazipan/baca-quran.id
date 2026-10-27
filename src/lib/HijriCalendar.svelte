@@ -9,7 +9,7 @@
 		hijriToGregorian,
 		shiftHijriMonth
 	} from './utils/hijri';
-	import { getEventsForHijriDate, type IslamicEvent } from '$data/islamic-events';
+	import { getEventsForHijriDate, type IslamicEvent } from '#data/islamic-events.ts';
 	import ChevronRightIcon from './icons/ChevronRightIcon.svelte';
 
 	interface Props {

@@ -1,15 +1,15 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import { t } from '$lib/translations/store';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import { t } from '#lib/translations/store.ts';
 	import {
 		META_DESC_PENCATAT_IBADAH,
 		META_TITLE_PENCATAT_IBADAH,
 		TITLE_CONSTANTS
-	} from '$lib/constants';
-	import { getDayInMonth, getDayjsFormatted } from '$lib/utils/date';
-	import { logPrayer, type LogPrayerItemKey } from '$store';
+	} from '#lib/constants.ts';
+	import { getDayInMonth, getDayjsFormatted } from '#lib/utils/date.ts';
+	import { logPrayer, type LogPrayerItemKey } from '#store/index.ts';
 
 	const FARD_IDS = ['1', '2', '3', '4', '5'] as const;
 	const SUNNAH_IDS = ['6', '7', '8', '9', '10', '11', '12'] as const;

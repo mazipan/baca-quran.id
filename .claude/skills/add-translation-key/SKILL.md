@@ -63,7 +63,7 @@ language without a reload:
 
 ```svelte
 <script lang="ts">
-	import { t } from '$lib/translations/store';
+	import { t } from '#lib/translations/store.ts';
 </script>
 
 <h1>{$t('namespace.key')}</h1>
@@ -73,7 +73,7 @@ language without a reload:
 constants, etc. Won't update on language change:
 
 ```ts
-import { t } from '$lib/translations';
+import { t } from '#lib/translations/index.ts';
 
 const TITLE = t('namespace.key');
 ```
@@ -84,7 +84,7 @@ branching that the `t` function alone can't express:
 
 ```svelte
 <script lang="ts">
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
 	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);
 </script>
 ```

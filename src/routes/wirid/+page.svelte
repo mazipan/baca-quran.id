@@ -1,14 +1,14 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import ReadingCard from '$lib/ReadingCard.svelte';
-	import Tabs from '$lib/ui/Tabs.svelte';
-	import Button from '$lib/ui/Button.svelte';
-	import ProgressBar from '$lib/ui/ProgressBar.svelte';
-	import { META_DESC_WIRID, META_TITLE_WIRID, TITLE_CONSTANTS } from '$lib/constants';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import { t } from '$lib/translations/store';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import ReadingCard from '#lib/ReadingCard.svelte';
+	import Tabs from '#lib/ui/Tabs.svelte';
+	import Button from '#lib/ui/Button.svelte';
+	import ProgressBar from '#lib/ui/ProgressBar.svelte';
+	import { META_DESC_WIRID, META_TITLE_WIRID, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
+	import { t } from '#lib/translations/store.ts';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import wirid from '../../data/wirid';

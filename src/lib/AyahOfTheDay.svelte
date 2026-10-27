@@ -2,10 +2,10 @@
 	import { onMount } from 'svelte';
 	import CardShadow from './CardShadow.svelte';
 	import { t } from './translations/store';
-	import { defaultPool, themes, forcedThemeId } from '$data/ayah-of-the-day';
-	import seedsData from '$data/ayah-of-the-day-seeds.json';
+	import { defaultPool, themes, forcedThemeId } from '#data/ayah-of-the-day.ts';
+	import seedsData from '#data/ayah-of-the-day-seeds.json';
 	import { pickAyahForDate } from './utils/dailyPick';
-	import type { Theme, AyahPick } from '$data/ayah-of-the-day';
+	import type { Theme, AyahPick } from '#data/ayah-of-the-day.ts';
 	import ArrowRightIcon from './icons/ArrowRightIcon.svelte';
 	import { arabicFontClass } from '../store';
 

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import AyahOfTheDay from '$lib/AyahOfTheDay.svelte';
-	import CardShadow from '$lib/CardShadow.svelte';
-	import LastReadVerses from '$lib/LastReadVerses.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import PinnedSurah from '$lib/PinnedSurah.svelte';
-	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
-	import { t } from '$lib/translations/store';
+	import AyahOfTheDay from '#lib/AyahOfTheDay.svelte';
+	import CardShadow from '#lib/CardShadow.svelte';
+	import LastReadVerses from '#lib/LastReadVerses.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import PinnedSurah from '#lib/PinnedSurah.svelte';
+	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { t } from '#lib/translations/store.ts';
 
 	let actionIcons = $derived([
 		{ href: '/all-surah/', title: `📚 ${$t('navigation.allSurah')}` },

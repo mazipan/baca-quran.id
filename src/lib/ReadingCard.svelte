@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import { t } from '$lib/translations/store';
-	import Button from '$lib/ui/Button.svelte';
-	import IconButton from '$lib/ui/IconButton.svelte';
-	import CheckIcon from '$lib/icons/CheckIcon.svelte';
-	import ResetIcon from '$lib/icons/ResetIcon.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
+	import { t } from '#lib/translations/store.ts';
+	import Button from '#lib/ui/Button.svelte';
+	import IconButton from '#lib/ui/IconButton.svelte';
+	import CheckIcon from '#lib/icons/CheckIcon.svelte';
+	import ResetIcon from '#lib/icons/ResetIcon.svelte';
 	import { arabicFontClass } from '../store';
 
 	interface ReadingItem {

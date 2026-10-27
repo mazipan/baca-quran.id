@@ -1,4 +1,4 @@
-import type { ReciterKey } from '$lib/utils/audio';
+import type { ReciterKey } from '#lib/utils/audio.ts';
 import { derived, get, writable } from 'svelte/store';
 
 export const activeTheme = writable('');

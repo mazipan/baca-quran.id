@@ -1,9 +1,9 @@
 <script>
 	import { page } from '$app/state';
-	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
-	import Button from '$lib/ui/Button.svelte';
-	import ErrorIllustration from '$lib/illustrations/ErrorIllustration.svelte';
-	import { t } from '$lib/translations/store';
+	import ArrowLeftIcon from '#lib/icons/ArrowLeftIcon.svelte';
+	import Button from '#lib/ui/Button.svelte';
+	import ErrorIllustration from '#lib/illustrations/ErrorIllustration.svelte';
+	import { t } from '#lib/translations/store.ts';
 </script>
 
 <div class="m-6 flex flex-col gap-2 justify-center items-center">

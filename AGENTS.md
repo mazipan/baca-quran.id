@@ -104,14 +104,17 @@ scripts/
   ISSUE_TEMPLATE/          bug_report.md, feature_request.md
 ```
 
-### Path aliases (configured in `vite.config.ts`)
+### Path aliases (subpath imports, configured in `package.json` `imports`)
 
-| Alias    | Maps to     | Use for                         |
-| -------- | ----------- | ------------------------------- |
-| `$lib`   | `src/lib`   | Components, utils               |
-| `$data`  | `src/data`  | Static data files               |
-| `$store` | `src/store` | Cross-page stores               |
-| `$app/*` | SvelteKit   | `$app/state`, `$app/navigation` |
+| Import     | Maps to     | Use for                         |
+| ---------- | ----------- | ------------------------------- |
+| `#lib/*`   | `src/lib`   | Components, utils               |
+| `#data/*`  | `src/data`  | Static data files               |
+| `#store/*` | `src/store` | Cross-page stores               |
+| `$app/*`   | SvelteKit   | `$app/state`, `$app/navigation` |
+
+Subpath imports need the exact file name including extension, e.g.
+`#lib/constants.ts`, `#lib/ui/Button.svelte`, `#store/index.ts`.
 
 ## 5. Conventions cheat sheet
 
@@ -134,11 +137,11 @@ scripts/
    Forgetting this means your page won't be in the static build's entry
    list nor in `sitemap.xml`.
 
-3. **SEO**: include `<MetaTag>` from `$lib/MetaTag.svelte` in
+3. **SEO**: include `<MetaTag>` from `#lib/MetaTag.svelte` in
    `<svelte:head>`. Add a `META_TITLE_<X>` and `META_DESC_<X>` constant
    in `src/lib/constants.ts`.
 
-4. **Breadcrumb**: render `<Breadcrumb items={...} />` from `$lib`.
+4. **Breadcrumb**: render `<Breadcrumb items={...} />` from `#lib/Breadcrumb.svelte`.
 
 5. **Drawer entry** (if user-facing nav): add a list item in
    `src/lib/DrawerMenus.svelte` with an icon from `src/lib/icons/`. If
@@ -168,15 +171,15 @@ scripts/
 
 Full guide: `src/lib/translations/README.md`. Key rules:
 
-- **Reactive in templates**: `import { t } from '$lib/translations/store'`
+- **Reactive in templates**: `import { t } from '#lib/translations/store.ts'`
   then `{$t('namespace.key')}`. Re-renders on language change.
-- **Imperative in handlers**: `import { t as translate } from '$lib/translations'`
+- **Imperative in handlers**: `import { t as translate } from '#lib/translations/index.ts'`
   then `translate('...')`. Reads language at call time — use inside event
   handlers and `async` functions where `$t` is not available.
 - If a component needs both, import both under different names:
   ```svelte
-  import { t } from '$lib/translations/store';        // template
-  import { t as translate } from '$lib/translations'; // handlers
+  import { t } from '#lib/translations/store.ts';        // template
+  import { t as translate } from '#lib/translations/index.ts'; // handlers
   ```
 - Add the same key to **both** `id.json` and `en.json` in the same commit.
   Missing keys fall back to Indonesian silently.
@@ -240,8 +243,8 @@ state such as a "done" indicator — not for branding or decoration.
 
 Always reach for these before writing inline Tailwind:
 
-- **Layout / structure**: `Card`, `CardShadow` (via `$lib/CardShadow.svelte`), `GradientCard`, `Banner`
-- **Navigation**: `Tabs`, `Breadcrumb` (via `$lib/Breadcrumb.svelte`), `BottomSheet`
+- **Layout / structure**: `Card`, `CardShadow` (via `#lib/CardShadow.svelte`), `GradientCard`, `Banner`
+- **Navigation**: `Tabs`, `Breadcrumb` (via `#lib/Breadcrumb.svelte`), `BottomSheet`
 - **Buttons**: `Button`, `IconButton`
 - **Form controls**: `Input`, `Textarea`, `Checkbox`, `Radio`, `Switch`
 - **Feedback**: `Badge`, `Chip`
@@ -288,7 +291,7 @@ Never hardcode `font-arabic` or its variants directly. Import the shared
 derived store and bind the class:
 
 ```svelte
-import {arabicFontClass} from '$store'; // in template:
+import {arabicFontClass} from '#store/index.ts'; // in template:
 <p class="{$arabicFontClass} text-2xl leading-loose" dir="rtl">...</p>
 ```
 

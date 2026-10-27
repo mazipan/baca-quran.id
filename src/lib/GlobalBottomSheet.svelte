@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { globalBottomSheet } from '../store/globalBottomSheet';
-	import BottomSheet from '$lib/ui/BottomSheet.svelte';
+	import BottomSheet from '#lib/ui/BottomSheet.svelte';
 </script>
 
 <BottomSheet

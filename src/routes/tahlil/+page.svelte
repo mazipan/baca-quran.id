@@ -1,19 +1,19 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import ReadingCard from '$lib/ReadingCard.svelte';
-	import Tabs from '$lib/ui/Tabs.svelte';
-	import Button from '$lib/ui/Button.svelte';
-	import BookOpenIcon from '$lib/icons/BookOpenIcon.svelte';
-	import ReactangleStackIcon from '$lib/icons/ReactangleStackIcon.svelte';
-	import { META_DESC_TAHLIL, META_TITLE_TAHLIL, TITLE_CONSTANTS } from '$lib/constants';
-	import { t } from '$lib/translations/store';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import ReadingCard from '#lib/ReadingCard.svelte';
+	import Tabs from '#lib/ui/Tabs.svelte';
+	import Button from '#lib/ui/Button.svelte';
+	import BookOpenIcon from '#lib/icons/BookOpenIcon.svelte';
+	import ReactangleStackIcon from '#lib/icons/ReactangleStackIcon.svelte';
+	import { META_DESC_TAHLIL, META_TITLE_TAHLIL, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { t } from '#lib/translations/store.ts';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import tahlil from '../../data/tahlil';
-	import IconButton from '$lib/ui/IconButton.svelte';
-	import ProgressBar from '$lib/ui/ProgressBar.svelte';
+	import IconButton from '#lib/ui/IconButton.svelte';
+	import ProgressBar from '#lib/ui/ProgressBar.svelte';
 
 	const items = tahlil.data;
 	const total = items.length;

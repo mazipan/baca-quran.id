@@ -1,5 +1,5 @@
 import { derived, writable, readable } from 'svelte/store';
-import type { PrayerKey, PrayerTimings } from '$lib/types';
+import type { PrayerKey, PrayerTimings } from '#lib/types.ts';
 
 export const todayPrayerTimings = writable<PrayerTimings | null>(null);
 

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import ArrowLeftIcon from '$lib/icons/ArrowLeftIcon.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import ChevronLeftIcon from '$lib/icons/ChevronLeftIcon.svelte';
-	import ChevronRightIcon from '$lib/icons/ChevronRightIcon.svelte';
-	import ChevronDownIcon from '$lib/icons/ChevronDownIcon.svelte';
-	import Button from '$lib/ui/Button.svelte';
+	import ArrowLeftIcon from '#lib/icons/ArrowLeftIcon.svelte';
+	import ArrowRightIcon from '#lib/icons/ArrowRightIcon.svelte';
+	import ChevronLeftIcon from '#lib/icons/ChevronLeftIcon.svelte';
+	import ChevronRightIcon from '#lib/icons/ChevronRightIcon.svelte';
+	import ChevronDownIcon from '#lib/icons/ChevronDownIcon.svelte';
+	import Button from '#lib/ui/Button.svelte';
 
 	type Size = 'sm' | 'md' | 'lg';
 	type IconVariant = 'arrow' | 'chevron';

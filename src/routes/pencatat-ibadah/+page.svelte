@@ -1,21 +1,21 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
 	import {
 		CONSTANTS,
 		META_DESC_PENCATAT_IBADAH,
 		META_TITLE_PENCATAT_IBADAH,
 		TITLE_CONSTANTS
-	} from '$lib/constants';
-	import { formatDate, getCurrentDate, getDayInMonth } from '$lib/utils/date';
-	import type { PrayerKey } from '$lib/types';
-	import { logPrayer, type LogPrayerItemKey, type LogPrayerItemValue } from '$store';
+	} from '#lib/constants.ts';
+	import { formatDate, getCurrentDate, getDayInMonth } from '#lib/utils/date.ts';
+	import type { PrayerKey } from '#lib/types.ts';
+	import { logPrayer, type LogPrayerItemKey, type LogPrayerItemValue } from '#store/index.ts';
 	import { onMount } from 'svelte';
-	import Button from '$lib/ui/Button.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import { t } from '$lib/translations/store';
-	import CheckCircleSolidIcon from '$lib/icons/CheckCircleSolidIcon.svelte';
+	import Button from '#lib/ui/Button.svelte';
+	import ArrowRightIcon from '#lib/icons/ArrowRightIcon.svelte';
+	import { t } from '#lib/translations/store.ts';
+	import CheckCircleSolidIcon from '#lib/icons/CheckCircleSolidIcon.svelte';
 
 	const FARD_PRAYERS: Array<{
 		key: PrayerKey;

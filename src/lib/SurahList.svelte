@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SearchInput from '$lib/SearchInput.svelte';
-	import SurahCard from '$lib/SurahCard.svelte';
+	import SearchInput from '#lib/SearchInput.svelte';
+	import SurahCard from '#lib/SurahCard.svelte';
 	import type { SurahInfo } from '../data/surah-info';
 
 	interface Props {

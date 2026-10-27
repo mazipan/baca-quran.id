@@ -1,4 +1,4 @@
-import allSurahInfo from '$data/surah-info';
+import allSurahInfo from '#data/surah-info.ts';
 
 export async function entriesVerse() {
 	const allSurahAndVerse = [];

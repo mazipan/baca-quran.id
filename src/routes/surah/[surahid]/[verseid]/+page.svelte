@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import VersePage from '$lib/views/VersePage.svelte';
+	import VersePage from '#lib/views/VersePage.svelte';
 	interface Props {
 		data: PageData;
 	}

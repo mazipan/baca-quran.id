@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import CardShadow from '$lib/CardShadow.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '$lib/constants';
-	import { t } from '$lib/translations/store';
-	import InformationCircleIcon from '$lib/icons/InformationCircleIcon.svelte';
-	import ShieldCheckIcon from '$lib/icons/ShieldCheckIcon.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import CardShadow from '#lib/CardShadow.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
+	import { META_DESC, META_TITLE, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { t } from '#lib/translations/store.ts';
+	import InformationCircleIcon from '#lib/icons/InformationCircleIcon.svelte';
+	import ShieldCheckIcon from '#lib/icons/ShieldCheckIcon.svelte';
 	const current = $derived(languageStore);
 </script>
 

@@ -1,15 +1,15 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import CardShadow from '$lib/CardShadow.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import { META_DESC_AYAT_KURSI, META_TITLE_AYAT_KURSI, TITLE_CONSTANTS } from '$lib/constants';
-	import DocumentTextIcon from '$lib/icons/DocumentTextIcon.svelte';
-	import Button from '$lib/ui/Button.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import CardShadow from '#lib/CardShadow.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import { META_DESC_AYAT_KURSI, META_TITLE_AYAT_KURSI, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import DocumentTextIcon from '#lib/icons/DocumentTextIcon.svelte';
+	import Button from '#lib/ui/Button.svelte';
 	import ayatKursi from '../../data/ayat-kursi';
 	import { globalBottomSheet } from '../../store/globalBottomSheet';
-	import { t as translate } from '$lib/translations';
-	import { t } from '$lib/translations/store';
+	import { t as translate } from '#lib/translations/index.ts';
+	import { t } from '#lib/translations/store.ts';
 	import { arabicFontClass } from '../../store';
 
 	let toggleBottomSheet = () => {

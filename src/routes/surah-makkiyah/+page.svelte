@@ -1,11 +1,11 @@
 <script lang="ts">
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import { META_DESC_MAKKIYAH, META_TITLE_MAKKIYAH, TITLE_CONSTANTS } from '$lib/constants';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import { META_DESC_MAKKIYAH, META_TITLE_MAKKIYAH, TITLE_CONSTANTS } from '#lib/constants.ts';
 	import surahInfo, { type SurahInfo } from '../../data/surah-info';
 	import MakkiyahMadaniyah, { MAKKIYAH_CODE } from '../../data/makkiyah-madaniyah';
-	import SurahList from '$lib/SurahList.svelte';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
+	import SurahList from '#lib/SurahList.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
 
 	function filterOnlyMakkiyah() {
 		let result: SurahInfo = {};

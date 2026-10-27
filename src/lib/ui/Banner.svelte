@@ -1,9 +1,9 @@
 <script lang="ts">
-	import CheckCircleIcon from '$lib/icons/CheckCircleIcon.svelte';
-	import InformationCircleIcon from '$lib/icons/InformationCircleIcon.svelte';
-	import ExclamationTriangleIcon from '$lib/icons/ExclamationTriangleIcon.svelte';
-	import FireIcon from '$lib/icons/FireIcon.svelte';
-	import XMarkIcon from '$lib/icons/XMarkIcon.svelte';
+	import CheckCircleIcon from '#lib/icons/CheckCircleIcon.svelte';
+	import InformationCircleIcon from '#lib/icons/InformationCircleIcon.svelte';
+	import ExclamationTriangleIcon from '#lib/icons/ExclamationTriangleIcon.svelte';
+	import FireIcon from '#lib/icons/FireIcon.svelte';
+	import XMarkIcon from '#lib/icons/XMarkIcon.svelte';
 
 	type BannerType = 'info' | 'success' | 'warn' | 'error';
 

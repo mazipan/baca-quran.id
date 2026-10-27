@@ -1,16 +1,16 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import { META_DESC_TASBIH, META_TITLE_TASBIH, TITLE_CONSTANTS } from '$lib/constants';
-	import ChevronDownIcon from '$lib/icons/ChevronDownIcon.svelte';
-	import ChevronUpIcon from '$lib/icons/ChevronUpIcon.svelte';
-	import ResetIcon from '$lib/icons/ResetIcon.svelte';
-	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
-	import SpeakerXMarkIcon from '$lib/icons/SpeakerXMarkIcon.svelte';
-	import Button from '$lib/ui/Button.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import { META_DESC_TASBIH, META_TITLE_TASBIH, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import ChevronDownIcon from '#lib/icons/ChevronDownIcon.svelte';
+	import ChevronUpIcon from '#lib/icons/ChevronUpIcon.svelte';
+	import ResetIcon from '#lib/icons/ResetIcon.svelte';
+	import SpeakerWaveIcon from '#lib/icons/SpeakerWaveIcon.svelte';
+	import SpeakerXMarkIcon from '#lib/icons/SpeakerXMarkIcon.svelte';
+	import Button from '#lib/ui/Button.svelte';
 	import { toast } from '../../store/toast';
-	import { t } from '$lib/translations/store';
+	import { t } from '#lib/translations/store.ts';
 
 	let counter = $state(0);
 	let target = $state(33);

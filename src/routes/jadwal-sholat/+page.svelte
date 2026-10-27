@@ -1,27 +1,27 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
 	import {
 		CONSTANTS,
 		META_DESC_JADWAL_SHOLAT,
 		META_TITLE_JADWAL_SHOLAT,
 		TITLE_CONSTANTS
-	} from '$lib/constants';
-	import MarkerIcon from '$lib/icons/MarkerIcon.svelte';
-	import Button from '$lib/ui/Button.svelte';
+	} from '#lib/constants.ts';
+	import MarkerIcon from '#lib/icons/MarkerIcon.svelte';
+	import Button from '#lib/ui/Button.svelte';
 	import { onMount } from 'svelte';
 	import { settingLocation } from '../../store';
-	import type { PrayerTimeData, PrayerTimeResponse, PrayerKey } from '$lib/types';
+	import type { PrayerTimeData, PrayerTimeResponse, PrayerKey } from '#lib/types.ts';
 	import { toast } from '../../store/toast';
-	import PrayerTimeList from '$lib/PrayerTimeList.svelte';
-	import PrayerDateStrip from '$lib/PrayerDateStrip.svelte';
-	import { t } from '$lib/translations/store';
-	import { t as translate } from '$lib/translations';
-	import { formatHijriDate } from '$lib/utils/hijri';
-	import { languageStore } from '$lib/checkLanguaguage';
+	import PrayerTimeList from '#lib/PrayerTimeList.svelte';
+	import PrayerDateStrip from '#lib/PrayerDateStrip.svelte';
+	import { t } from '#lib/translations/store.ts';
+	import { t as translate } from '#lib/translations/index.ts';
+	import { formatHijriDate } from '#lib/utils/hijri.ts';
+	import { languageStore } from '#lib/checkLanguaguage.ts';
 	import { todayPrayerTimings, nextPrayerInfo } from '../../store/prayerReminder';
-	import PrayerTimeIllustration from '$lib/illustrations/PrayerTimeIllustration.svelte';
+	import PrayerTimeIllustration from '#lib/illustrations/PrayerTimeIllustration.svelte';
 
 	const BASE_URL = 'https://api.aladhan.com/v1/calendar';
 

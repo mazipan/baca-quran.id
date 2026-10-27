@@ -1,21 +1,21 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import CardShadow from '$lib/CardShadow.svelte';
-	import ArrowRightIcon from '$lib/icons/ArrowRightIcon.svelte';
-	import Chip from '$lib/ui/Chip.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import CardShadow from '#lib/CardShadow.svelte';
+	import ArrowRightIcon from '#lib/icons/ArrowRightIcon.svelte';
+	import Chip from '#lib/ui/Chip.svelte';
 	import {
 		META_TITLE_SUASANA_HATI,
 		META_DESC_SUASANA_HATI,
 		TITLE_CONSTANTS,
 		CONSTANTS
-	} from '$lib/constants';
-	import { t } from '$lib/translations/store';
-	import { languageStore, LANGUAGE_OPTIONS } from '$lib/checkLanguaguage';
-	import { MOODS, type MoodId, type MoodVerse } from '$data/mood-verses';
-	import { loadVerse } from '$lib/utils/verseLoader';
+	} from '#lib/constants.ts';
+	import { t } from '#lib/translations/store.ts';
+	import { languageStore, LANGUAGE_OPTIONS } from '#lib/checkLanguaguage.ts';
+	import { MOODS, type MoodId, type MoodVerse } from '#data/mood-verses.ts';
+	import { loadVerse } from '#lib/utils/verseLoader.ts';
 	import { arabicFontClass } from '../../store';
 
 	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);

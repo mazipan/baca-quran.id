@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Drawer from '$lib/Drawer.svelte';
-	import Footer from '$lib/Footer.svelte';
-	import Header from '$lib/Header.svelte';
-	import { CONSTANTS } from '$lib/constants';
+	import Drawer from '#lib/Drawer.svelte';
+	import Footer from '#lib/Footer.svelte';
+	import Header from '#lib/Header.svelte';
+	import { CONSTANTS } from '#lib/constants.ts';
 	import { onMount } from 'svelte';
 	import {
 		settingAudio,
@@ -20,17 +20,17 @@
 	import type { FontSizeKey, FontStyleKey } from '../store';
 
 	import '../app.css';
-	import { CheckLanguage, languageStore } from '$lib/checkLanguaguage';
-	import { getJsonLdWebsite, serializeSchema } from '$lib/utils/json-ld';
-	import VerseAudioPlayer from '$lib/VerseAudioPlayer.svelte';
-	import type { ReciterKey } from '$lib/utils/audio';
-	import Toaster from '$lib/Toaster.svelte';
-	import VerseTafsirBottomSheet from '$lib/VerseTafsirBottomSheet.svelte';
-	import VerseShareBottomSheet from '$lib/VerseShareBottomSheet.svelte';
-	import GlobalBottomSheet from '$lib/GlobalBottomSheet.svelte';
-	import PrayerReminderBanner from '$lib/PrayerReminderBanner.svelte';
+	import { CheckLanguage, languageStore } from '#lib/checkLanguaguage.ts';
+	import { getJsonLdWebsite, serializeSchema } from '#lib/utils/json-ld.ts';
+	import VerseAudioPlayer from '#lib/VerseAudioPlayer.svelte';
+	import type { ReciterKey } from '#lib/utils/audio.ts';
+	import Toaster from '#lib/Toaster.svelte';
+	import VerseTafsirBottomSheet from '#lib/VerseTafsirBottomSheet.svelte';
+	import VerseShareBottomSheet from '#lib/VerseShareBottomSheet.svelte';
+	import GlobalBottomSheet from '#lib/GlobalBottomSheet.svelte';
+	import PrayerReminderBanner from '#lib/PrayerReminderBanner.svelte';
 	import { todayPrayerTimings } from '../store/prayerReminder';
-	import type { PrayerTimeData } from '$lib/types';
+	import type { PrayerTimeData } from '#lib/types.ts';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}

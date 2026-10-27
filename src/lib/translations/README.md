@@ -23,7 +23,7 @@ For text rendered inside Svelte templates, import the store version and use `$t`
 
 ```svelte
 <script>
-	import { t } from '$lib/translations/store';
+	import { t } from '#lib/translations/store.ts';
 </script>
 
 <p>{$t('common.loading')}</p><h1>{$t('surah.title')}</h1>
@@ -35,7 +35,7 @@ When calling `t()` inside a `<script>` block function (event handler, async call
 
 ```svelte
 <script>
-	import { t as translate } from '$lib/translations';
+	import { t as translate } from '#lib/translations/index.ts';
 
 	async function handleAction() {
 		// Correct: reads language at the moment the function runs
@@ -52,8 +52,8 @@ If a component needs `$t` in the template **and** `translate()` in handlers, imp
 
 ```svelte
 <script>
-	import { t } from '$lib/translations/store'; // for template
-	import { t as translate } from '$lib/translations'; // for handlers
+	import { t } from '#lib/translations/store.ts'; // for template
+	import { t as translate } from '#lib/translations/index.ts'; // for handlers
 </script>
 ```
 
@@ -73,7 +73,7 @@ Use `{{variableName}}` in the JSON value and pass a params object:
 
 ```svelte
 <script>
-	import { createNamespaceStore } from '$lib/translations/store';
+	import { createNamespaceStore } from '#lib/translations/store.ts';
 	const common = createNamespaceStore('common');
 </script>
 

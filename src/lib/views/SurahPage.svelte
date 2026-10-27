@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { navigating, page } from '$app/state';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import Pagination from '$lib/Pagination.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import SurahCard from '$lib/SurahCard.svelte';
-	import VerseCard from '$lib/VerseCard.svelte';
-	import { META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '$lib/constants';
-	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '$lib/utils/json-ld';
-	import type { SurahInfoPage } from '$data/surah-info';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import Pagination from '#lib/Pagination.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import SurahCard from '#lib/SurahCard.svelte';
+	import VerseCard from '#lib/VerseCard.svelte';
+	import { META_DESC_SURAH, META_TITLE_SURAH, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { getJsonLdArticle, getJsonLdBreadcrumb, serializeSchema } from '#lib/utils/json-ld.ts';
+	import type { SurahInfoPage } from '#data/surah-info.ts';
 	import { onMount } from 'svelte';
-	import { t } from '$lib/translations/store';
+	import { t } from '#lib/translations/store.ts';
 	interface Props {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		data: any;

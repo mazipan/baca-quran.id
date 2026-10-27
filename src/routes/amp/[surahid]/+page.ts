@@ -1,5 +1,5 @@
-import { entriesSurah } from '$lib/views/entries';
-import { loadSurahData } from '$lib/views/load';
+import { entriesSurah } from '#lib/views/entries.ts';
+import { loadSurahData } from '#lib/views/load.ts';
 import { redirect } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */

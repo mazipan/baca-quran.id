@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { verseShareSheet } from '../store/verseShareSheet';
-	import BottomSheet from '$lib/ui/BottomSheet.svelte';
+	import BottomSheet from '#lib/ui/BottomSheet.svelte';
 	import Button from './ui/Button.svelte';
 	import ShareIcon from './icons/ShareIcon.svelte';
 	import LinkIcon from './icons/LinkIcon.svelte';

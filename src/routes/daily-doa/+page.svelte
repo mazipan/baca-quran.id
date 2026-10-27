@@ -1,18 +1,18 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import CardShadow from '$lib/CardShadow.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import CardShadow from '#lib/CardShadow.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
 	import {
 		CONSTANTS,
 		META_DESC_DAILY_DOA,
 		META_TITLE_DAILY_DOA,
 		TITLE_CONSTANTS
-	} from '$lib/constants';
-	import Chip from '$lib/ui/Chip.svelte';
-	import { t } from '$lib/translations/store';
+	} from '#lib/constants.ts';
+	import Chip from '#lib/ui/Chip.svelte';
+	import { t } from '#lib/translations/store.ts';
 	import dailyDoa, { type DoaCategory, DOA_CATEGORIES } from '../../data/daily-doa';
 	import { arabicFontClass } from '../../store';
 

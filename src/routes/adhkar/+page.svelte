@@ -1,24 +1,24 @@
 <script lang="ts">
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import AdhkarCounter from '$lib/AdhkarCounter.svelte';
-	import MorningBanner from '$lib/illustrations/MorningBanner.svelte';
-	import EveningBanner from '$lib/illustrations/EveningBanner.svelte';
-	import Tabs from '$lib/ui/Tabs.svelte';
-	import Button from '$lib/ui/Button.svelte';
-	import ProgressBar from '$lib/ui/ProgressBar.svelte';
-	import { META_DESC_ADHKAR, META_TITLE_ADHKAR, TITLE_CONSTANTS } from '$lib/constants';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import { t } from '$lib/translations/store';
-	import SpeakerWaveIcon from '$lib/icons/SpeakerWaveIcon.svelte';
-	import SpeakerXMarkIcon from '$lib/icons/SpeakerXMarkIcon.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import AdhkarCounter from '#lib/AdhkarCounter.svelte';
+	import MorningBanner from '#lib/illustrations/MorningBanner.svelte';
+	import EveningBanner from '#lib/illustrations/EveningBanner.svelte';
+	import Tabs from '#lib/ui/Tabs.svelte';
+	import Button from '#lib/ui/Button.svelte';
+	import ProgressBar from '#lib/ui/ProgressBar.svelte';
+	import { META_DESC_ADHKAR, META_TITLE_ADHKAR, TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
+	import { t } from '#lib/translations/store.ts';
+	import SpeakerWaveIcon from '#lib/icons/SpeakerWaveIcon.svelte';
+	import SpeakerXMarkIcon from '#lib/icons/SpeakerXMarkIcon.svelte';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import { getAdhkarFor, type AdhkarPeriod } from '../../data/adhkar';
-	import { formatDate } from '$lib/utils/date';
-	import { getActiveAdhkarPeriod, readCachedTodayTimings } from '$lib/utils/adhkarPeriod';
+	import { formatDate } from '#lib/utils/date.ts';
+	import { getActiveAdhkarPeriod, readCachedTodayTimings } from '#lib/utils/adhkarPeriod.ts';
 	import {
 		getCount,
 		increment,
@@ -26,7 +26,7 @@
 		pruneOldDays,
 		reset as resetCount,
 		type AdhkarLog
-	} from '$lib/utils/adhkarStorage';
+	} from '#lib/utils/adhkarStorage.ts';
 
 	const isEnglish = $derived($languageStore === LANGUAGE_OPTIONS.ENGLISH.locale);
 

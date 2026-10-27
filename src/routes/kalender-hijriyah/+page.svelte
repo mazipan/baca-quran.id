@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import MetaTag from '$lib/MetaTag.svelte';
-	import HijriCalendar from '$lib/HijriCalendar.svelte';
-	import { TITLE_CONSTANTS } from '$lib/constants';
-	import { LANGUAGE_OPTIONS, languageStore } from '$lib/checkLanguaguage';
-	import { t } from '$lib/translations/store';
-	import { ISLAMIC_EVENTS, type IslamicEvent } from '$data/islamic-events';
-	import { getHijriDate } from '$lib/utils/hijri';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import HijriCalendar from '#lib/HijriCalendar.svelte';
+	import { TITLE_CONSTANTS } from '#lib/constants.ts';
+	import { LANGUAGE_OPTIONS, languageStore } from '#lib/checkLanguaguage.ts';
+	import { t } from '#lib/translations/store.ts';
+	import { ISLAMIC_EVENTS, type IslamicEvent } from '#data/islamic-events.ts';
+	import { getHijriDate } from '#lib/utils/hijri.ts';
 
 	const today = new Date();
 	const todayHijri = getHijriDate(today);

@@ -1,12 +1,12 @@
 <script lang="ts">
-	import MetaTag from '$lib/MetaTag.svelte';
-	import SeoText from '$lib/SeoText.svelte';
-	import { META_DESC_ALL_SURAH, META_TITLE_ALL_SURAH, TITLE_CONSTANTS } from '$lib/constants';
+	import MetaTag from '#lib/MetaTag.svelte';
+	import SeoText from '#lib/SeoText.svelte';
+	import { META_DESC_ALL_SURAH, META_TITLE_ALL_SURAH, TITLE_CONSTANTS } from '#lib/constants.ts';
 	import surahInfo, { type SurahInfo } from '../../data/surah-info';
 	import MakkiyahMadaniyah from '../../data/makkiyah-madaniyah';
-	import SurahList from '$lib/SurahList.svelte';
-	import Breadcrumb from '$lib/Breadcrumb.svelte';
-	import { t } from '$lib/translations/store';
+	import SurahList from '#lib/SurahList.svelte';
+	import Breadcrumb from '#lib/Breadcrumb.svelte';
+	import { t } from '#lib/translations/store.ts';
 
 	function insertMakkiyahMadaniyah() {
 		let result: SurahInfo = {};
