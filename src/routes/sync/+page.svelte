@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { env } from '$env/dynamic/public';
+	import * as env from '$app/env/public';
 
 	// Firebase configuration with fallbacks for CI
 	const firebaseConfig = {

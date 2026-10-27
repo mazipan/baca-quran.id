@@ -22,21 +22,21 @@
 		"@fontsource/noto-naskh-arabic": "5.3.0",
 		"@tailwindcss/vite": "4.3.3",
 		"dayjs": "1.11.23",
-		"firebase": "13.0.0",
+		"firebase": "13.1.0",
 		"kfgqpc-uthmanic-script-hafs-regular": "1.0.0",
 		"svelte": "5.57.2"
 	},
 	"devDependencies": {
 		"@eslint/js": "10.0.1",
-		"@sveltejs/adapter-auto": "7.0.1",
-		"@sveltejs/adapter-static": "3.0.10",
-		"@sveltejs/kit": "2.70.3",
+		"@sveltejs/adapter-auto": "8.0.0",
+		"@sveltejs/adapter-static": "4.0.0",
+		"@sveltejs/kit": "3.1.0",
 		"@sveltejs/vite-plugin-svelte": "7.3.1",
 		"@tailwindcss/postcss": "4.3.3",
-		"@typescript-eslint/eslint-plugin": "8.71.2",
-		"@typescript-eslint/parser": "8.71.2",
+		"@typescript-eslint/eslint-plugin": "8.72.0",
+		"@typescript-eslint/parser": "8.72.0",
 		"autoprefixer": "10.6.1",
-		"dotenv": "18.0.8",
+		"dotenv": "18.0.9",
 		"eslint": "10.13.0",
 		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-svelte": "3.23.1",
@@ -51,16 +51,16 @@
 		"schema-dts": "2.1.0",
 		"sitemaps": "2.0.6",
 		"svelte-check": "4.7.7",
-		"svelte-eslint-parser": "1.9.0",
+		"svelte-eslint-parser": "1.10.0",
 		"tailwindcss": "4.3.3",
 		"tslib": "2.8.1",
 		"typescript": "6.0.3",
-		"vite": "8.3.4"
+		"vite": "8.3.5"
 	},
-	"packageManager": "pnpm@11.2.2",
+	"packageManager": "pnpm@12.15.0",
 	"engines": {
-		"node": ">=24.15",
-		"pnpm": ">=11.2.2"
+		"node": ">=26.12",
+		"pnpm": ">=12.15.0"
 	},
 	"lint-staged": {
 		"*.{js,ts,svelte}": [
