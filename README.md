@@ -77,6 +77,16 @@ Copy `build` folder to your hosting.
 - 👉 🌍 [Paypal](https://www.paypal.me/mazipan?utm_source=github-mazipan)
 - 👉 🌍 [Ko-Fi](https://ko-fi.com/mazipan?utm_source=github-mazipan)
 
+## Star History
+
+<a href="https://www.star-history.com/?repos=mazipan%2Fbaca-quran.id&type=date&legend=top-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=mazipan/baca-quran.id&type=date&theme=dark&legend=bottom-right" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=mazipan/baca-quran.id&type=date&legend=bottom-right" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=mazipan/baca-quran.id&type=date&legend=bottom-right" />
+ </picture>
+</a>
+
 ## Contributors
 
 Thanks goes to these wonderful people
