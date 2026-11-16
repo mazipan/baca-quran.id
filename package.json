@@ -39,7 +39,7 @@
 		"dotenv": "18.0.9",
 		"eslint": "10.14.0",
 		"eslint-config-prettier": "10.1.8",
-		"eslint-plugin-svelte": "3.23.1",
+		"eslint-plugin-svelte": "3.24.1",
 		"globals": "17.14.0",
 		"globby": "16.2.4",
 		"husky": "9.1.7",
